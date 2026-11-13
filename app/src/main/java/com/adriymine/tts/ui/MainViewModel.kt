@@ -21,7 +21,6 @@ import com.adriymine.tts.service.Exporter
 import com.adriymine.tts.service.JobStatus
 import com.adriymine.tts.service.PlaybackService
 import com.adriymine.tts.service.SynthesisService
-import com.adriymine.tts.tts.Prosody
 import com.adriymine.tts.tts.TextProcessor
 import com.adriymine.tts.tts.Voice
 import com.adriymine.tts.tts.VoiceCatalog
@@ -48,6 +47,8 @@ data class PlayerUi(
     val speed: Float = 1f,
     val error: String? = null,
 )
+
+const val DEFAULT_PREVIEW = "Halo! Selamat datang. Hari ini cuaca cerah sekali, dan aku ingin bercerita sedikit tentang perjalananku ke Yogyakarta. Rasanya menyenangkan, ya?"
 
 class MainViewModel(app: Application) : AndroidViewModel(app) {
     private val ctx = app
@@ -207,17 +208,100 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     fun cancelJob() = a.engine.cancel()
     fun dismissJob() = a.engine.dismiss()
 
-    fun previewVoice(v: Voice) {
+    private val _voiceHealth = MutableStateFlow<Map<String, Boolean>>(emptyMap())
+    val voiceHealth = _voiceHealth.asStateFlow()
+    private var healthJob: Job? = null
+
+    /** Cek ketersediaan semua suara di server (dipanggil saat layar Suara dibuka). */
+    fun checkVoices() {
+        if (healthJob?.isActive == true) return
+        if (android.os.Build.FINGERPRINT == "robolectric") return
+        healthJob = viewModelScope.launch {
+            val sem = kotlinx.coroutines.sync.Semaphore(4)
+            VoiceCatalog.curated.map { v ->
+                launch {
+                    sem.acquire()
+                    try {
+                        val ok = a.engine.isVoiceHealthy(v.id)
+                        _voiceHealth.update { it + (v.id to ok) }
+                    } finally { sem.release() }
+                }
+            }.forEach { it.join() }
+        }
+    }
+
+    /** Teks pratinjau yang bisa diubah pengguna di layar Suara. */
+    val previewText = MutableStateFlow(DEFAULT_PREVIEW)
+
+    /** Status pratinjau: id suara yang sedang diproses, atau "compare"/"mytext". */
+    fun previewVoice(v: Voice, text: String = previewText.value) {
         if (_previewing.value != null) return
         _previewing.value = v.id
         viewModelScope.launch {
-            val s = settings.value
-            runCatching {
-                a.engine.preview(v.id, VoiceCatalog.sampleText(v), Prosody(s.rate, s.pitch, s.volume))
-            }.onSuccess { f ->
-                playFiles(listOf(f), "Contoh suara ${v.name}", v.name)
-            }.onFailure { toast("Gagal memutar contoh: ${it.message}. Periksa koneksi internet.") }
+            runCatching { a.engine.preview(v.id, text.ifBlank { VoiceCatalog.sampleText(v) }, settings.value) }
+                .onSuccess { f -> playFiles(listOf(f), "Pratinjau • ${v.name}", v.group.title) }
+                .onFailure {
+                    val healthy = a.engine.isVoiceHealthy(v.id, force = true)
+                    _voiceHealth.update { m -> m + (v.id to healthy) }
+                    if (!healthy) {
+                        val alt = a.engine.fallbackFor(v)
+                        toast("Suara ${v.name} sedang tidak tersedia di server Microsoft." + (alt?.let { a -> " Coba ${a.name} yang mirip." } ?: ""))
+                    } else toast("Gagal membuat pratinjau: ${it.message}. Periksa koneksi internet.")
+                }
             _previewing.value = null
+        }
+    }
+
+    /** Bandingkan beberapa suara berurutan dengan kalimat yang sama (A/B). */
+    fun compareVoices(all: List<Voice>, text: String = previewText.value) {
+        val voices = all.filter { _voiceHealth.value[it.id] != false }
+        if (_previewing.value != null || voices.isEmpty()) return
+        _previewing.value = "compare"
+        viewModelScope.launch {
+            val items = ArrayList<Pair<File, Voice>>()
+            var failed = 0
+            for ((i, v) in voices.withIndex()) {
+                _compareProgress.value = "Menyiapkan ${i + 1}/${voices.size}: ${v.name}"
+                runCatching { a.engine.preview(v.id, text.ifBlank { VoiceCatalog.sampleText(v) }, settings.value) }
+                    .onSuccess { f ->
+                        items.add(f to v)
+                        if (items.size == 1) playList(items) else appendToList(f, v)
+                    }.onFailure { failed++ }
+            }
+            _compareProgress.value = null
+            if (failed > 0) toast("$failed suara gagal dimuat (periksa internet)")
+            _previewing.value = null
+        }
+    }
+
+    private val _compareProgress = MutableStateFlow<String?>(null)
+    val compareProgress = _compareProgress.asStateFlow()
+
+    /** Dengarkan cuplikan awal teks pengguna dengan suara & setelan saat ini sebelum membuat audio penuh. */
+    fun previewMyText() {
+        val t = text.value.trim()
+        if (TextProcessor.countWords(t) == 0) { toast("Tulis atau tempel teks terlebih dahulu"); return }
+        var snippet = t.take(400)
+        val cut = snippet.lastIndexOfAny(charArrayOf('.', '!', '?'))
+        if (t.length > 400 && cut > 80) snippet = snippet.substring(0, cut + 1)
+        previewVoice(voiceOf(settings.value.voiceId), snippet)
+    }
+
+    private fun playList(items: List<Pair<File, Voice>>) {
+        val c = controller ?: return
+        streamJobId = null
+        runCatching {
+            c.setMediaItems(items.map { (f, v) -> item(f, "Bandingkan • ${v.name}", v.group.title) })
+            c.setPlaybackParameters(PlaybackParameters(_player.value.speed))
+            c.prepare(); c.play()
+        }
+    }
+
+    private fun appendToList(f: File, v: Voice) {
+        val c = controller ?: return
+        runCatching {
+            c.addMediaItem(item(f, "Bandingkan • ${v.name}", v.group.title))
+            if (c.playbackState == Player.STATE_ENDED) { c.seekToNextMediaItem(); c.play() }
         }
     }
 

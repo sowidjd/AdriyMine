@@ -16,6 +16,12 @@ object TextProcessor {
         val expandAbbreviations: Boolean = true,
         /** Eja huruf tunggal & akronim (KTP -> ka te pe). Wajib untuk suara multibahasa. */
         val spellLettersIndo: Boolean = false,
+        /**
+         * Gabungkan kalimat sangat pendek (≤3 kata) ke kalimat sebelahnya dengan koma.
+         * Suara multibahasa menebak bahasa per kalimat; kalimat seperti "Dia tersenyum."
+         * yang berdiri sendiri bisa terbaca berlogat asing. Terbukti lewat uji ASR.
+         */
+        val mergeShortSentences: Boolean = false,
     )
 
     data class Chunk(val text: String, val endsParagraph: Boolean)
@@ -162,8 +168,14 @@ object TextProcessor {
     private fun decimal(intPart: String, frac: String): String =
         IndoNumber.read(intPart) + " koma " + IndoNumber.digits(frac)
 
+    private val reBareUnit = Regex("""(?i)(\bper\s|/)(kg|km|cm|mm|ml|liter|ltr|l|m|g|gr|jam|hari|bulan|orang|porsi|pcs)\b""")
+    private val bareUnitNames = mapOf("kg" to "kilogram", "km" to "kilometer", "cm" to "sentimeter", "mm" to "milimeter",
+        "ml" to "mililiter", "liter" to "liter", "ltr" to "liter", "l" to "liter", "m" to "meter", "g" to "gram", "gr" to "gram",
+        "jam" to "jam", "hari" to "hari", "bulan" to "bulan", "orang" to "orang", "porsi" to "porsi", "pcs" to "buah")
+
     fun numbers(t: String): String {
         var s = t
+        s = reBareUnit.replace(s) { m -> " per " + (bareUnitNames[m.groupValues[2].lowercase()] ?: m.groupValues[2]) }
         s = unitRegex.replace(s) { m -> m.groupValues[1] + " " + (units[m.groupValues[2]] ?: m.groupValues[2]) }
         s = reCurrency.replace(s) { m ->
             val whole = IndoNumber.read(m.groupValues[1].replace(".", ""))
@@ -265,15 +277,41 @@ object TextProcessor {
         if (o.expandAbbreviations) t = expandAbbr(t)
         if (o.numbersToWords) t = numbers(t)
         if (o.spellLettersIndo) t = spellLetters(t)
+        if (o.mergeShortSentences) t = mergeShort(t)
         t = t.replace(Regex("""[ ]{2,}"""), " ")
         t = t.replace(Regex(""" +([,.!?;:])"""), "$1")
         t = t.lines().joinToString("\n") { it.trim() }
         return t.trim()
     }
 
+    // ---------- Kalimat pendek ----------
+
+    private val reSentence = Regex("""[^.!?…]+[.!?…]+["')\]]*\s*|[^.!?…]+$""")
+
+    fun mergeShort(t: String): String = t.split('\n').joinToString("\n") { line ->
+        val parts = reSentence.findAll(line).map { it.value }.toMutableList()
+        if (parts.size < 2) return@joinToString line
+        fun words(x: String) = countWords(x)
+        fun endsWithPeriod(x: String) = x.trimEnd().let { it.endsWith(".") && !it.endsWith("..") }
+        fun toComma(x: String): String {
+            val tr = x.trimEnd()
+            return tr.substring(0, tr.length - 1) + ", "
+        }
+        for (i in parts.indices) {
+            val cur = parts[i]
+            if (words(cur) > 3 || !endsWithPeriod(cur)) continue
+            if (i < parts.lastIndex) {
+                parts[i] = toComma(cur)
+            } else if (i > 0 && endsWithPeriod(parts[i - 1])) {
+                parts[i - 1] = toComma(parts[i - 1])
+            }
+        }
+        parts.joinToString("").trim()
+    }
+
     // ---------- Pemecahan ----------
 
-    private val sentenceEnd = Regex("""(?<=[.!?…])["')\]]*\s+""")
+    private val sentenceEnd = Regex("""(?<=[.!?…]["')\]]{0,3})\s+""")
 
     private fun splitLong(p: String, max: Int): List<String> {
         if (p.length <= max) return listOf(p)
@@ -308,30 +346,44 @@ object TextProcessor {
     }
 
     /**
-     * Pecah teks yang sudah disiapkan menjadi potongan. Paragraf pendek digabung
-     * (dipisah baris baru agar intonasi akhir kalimat tetap terjaga) hingga [mergeLimit].
+     * Pecah teks yang sudah disiapkan menjadi potongan berbasis kalimat.
+     *  - potongan awal dibuat bertahap makin besar ([ramp]) agar audio cepat mulai & tidak tersendat,
+     *  - paragraf pendek boleh digabung (dipisah baris baru) selama potongan < [mergeLimit],
+     *  - kalimat tidak pernah dipotong kecuali lebih panjang dari batas (dipotong di koma/spasi).
      */
-    fun chunk(prepared: String, maxChars: Int = 2200, mergeLimit: Int = 900): List<Chunk> {
-        val paragraphs = prepared.split(Regex("""\n+""")).map { it.trim() }
-            .filter { p -> p.any { it.isLetterOrDigit() } }
+    fun chunk(
+        prepared: String,
+        maxChars: Int = 1500,
+        mergeLimit: Int = 900,
+        firstLimit: Int = 260,
+        ramp: List<Int> = listOf(firstLimit, (firstLimit * 1.5).toInt(), (firstLimit * 2.2).toInt()),
+    ): List<Chunk> {
+        data class Unit(val text: String, val endsPara: Boolean)
+        val units = ArrayList<Unit>()
+        prepared.split(Regex("""\n+""")).map { it.trim() }.filter { p -> p.any { it.isLetterOrDigit() } }.forEach { p0 ->
+            val p = if (p0.last().isLetterOrDigit()) "$p0." else p0
+            val sentences = sentenceEnd.split(p).filter { it.isNotBlank() }
+            val pieces = sentences.flatMap { if (it.length > maxChars) splitHard(it, maxChars) else listOf(it) }
+            pieces.forEachIndexed { i, x -> units.add(Unit(x.trim(), i == pieces.lastIndex)) }
+        }
         val out = ArrayList<Chunk>()
-        val buf = StringBuilder()
-        fun flushBuf() {
-            if (buf.isNotEmpty()) { out.add(Chunk(buf.toString(), true)); buf.setLength(0) }
-        }
-        for (p in paragraphs) {
-            val para = if (p.last().isLetterOrDigit()) "$p." else p
-            if (para.length > mergeLimit) {
-                flushBuf()
-                val parts = splitLong(para, maxChars)
-                parts.forEachIndexed { i, s -> out.add(Chunk(s, i == parts.lastIndex)) }
-            } else {
-                if (buf.length + para.length + 1 > mergeLimit) flushBuf()
-                if (buf.isNotEmpty()) buf.append('\n')
-                buf.append(para)
+        val cur = StringBuilder()
+        var curEndsPara = false
+        fun limit() = minOf(maxChars, ramp.getOrElse(out.size) { maxChars })
+        for (u in units) {
+            if (cur.isNotEmpty()) {
+                val sepLen = 1
+                val tooBig = cur.length + sepLen + u.text.length > limit()
+                val paraBreakNotMergeable = curEndsPara && cur.length + u.text.length > minOf(mergeLimit, limit())
+                if (tooBig || paraBreakNotMergeable) {
+                    out.add(Chunk(cur.toString(), curEndsPara)); cur.setLength(0)
+                }
             }
+            if (cur.isNotEmpty()) cur.append(if (curEndsPara) '\n' else ' ')
+            cur.append(u.text)
+            curEndsPara = u.endsPara
         }
-        flushBuf()
+        if (cur.isNotEmpty()) out.add(Chunk(cur.toString(), true))
         return out
     }
 

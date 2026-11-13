@@ -25,6 +25,14 @@ import kotlin.coroutines.resumeWithException
 class TtsException(message: String, val retryable: Boolean = true, cause: Throwable? = null) :
     IOException(message, cause)
 
+/** Posisi satu kata di audio (satuan 100 ns, dari metadata WordBoundary server). */
+data class WordMark(val offset: Long, val duration: Long, val text: String) {
+    val startMs: Double get() = offset / 10_000.0
+    val endMs: Double get() = (offset + duration) / 10_000.0
+}
+
+class SynthResult(val audio: ByteArray, val words: List<WordMark>)
+
 data class Prosody(val ratePercent: Int = 0, val pitchHz: Int = 0, val volumePercent: Int = 0) {
     private fun signed(v: Int) = if (v >= 0) "+$v" else "$v"
     val rate get() = signed(ratePercent) + "%"
@@ -88,15 +96,16 @@ class EdgeTtsClient(private val http: OkHttpClient = defaultHttp) {
         .build()
 
     /** Satu kali sintesis (tanpa retry). */
-    suspend fun synthesizeOnce(text: String, voice: String, prosody: Prosody): ByteArray {
+    suspend fun synthesizeOnce(text: String, voice: String, prosody: Prosody): SynthResult {
         val timeoutMs = 45_000L + text.length * 60L
         return withTimeout(timeoutMs) {
             suspendCancellableCoroutine { cont -> startSocket(cont, text, voice, prosody) }
         }
     }
 
-    private fun startSocket(cont: CancellableContinuation<ByteArray>, text: String, voice: String, prosody: Prosody) {
+    private fun startSocket(cont: CancellableContinuation<SynthResult>, text: String, voice: String, prosody: Prosody) {
         val audio = ByteArrayOutputStream()
+        val words = ArrayList<WordMark>()
         var done = false
         val listener = object : WebSocketListener() {
             override fun onOpen(webSocket: WebSocket, response: Response) {
@@ -104,7 +113,7 @@ class EdgeTtsClient(private val http: OkHttpClient = defaultHttp) {
                     "Content-Type:application/json; charset=utf-8\r\n" +
                     "Path:speech.config\r\n\r\n" +
                     "{\"context\":{\"synthesis\":{\"audio\":{\"metadataoptions\":{" +
-                    "\"sentenceBoundaryEnabled\":\"false\",\"wordBoundaryEnabled\":\"false\"}," +
+                    "\"sentenceBoundaryEnabled\":\"false\",\"wordBoundaryEnabled\":\"true\"}," +
                     "\"outputFormat\":\"${EdgeConfig.OUTPUT_FORMAT}\"}}}}\r\n"
                 webSocket.send(cfg)
                 val ssml = "X-RequestId:${uuid()}\r\n" +
@@ -116,13 +125,27 @@ class EdgeTtsClient(private val http: OkHttpClient = defaultHttp) {
             }
 
             override fun onMessage(webSocket: WebSocket, text: String) {
+                if (text.contains("Path:audio.metadata")) {
+                    runCatching {
+                        val body = text.substring(text.indexOf("\r\n\r\n") + 4)
+                        val arr = org.json.JSONObject(body).getJSONArray("Metadata")
+                        for (i in 0 until arr.length()) {
+                            val m = arr.getJSONObject(i)
+                            if (m.optString("Type") != "WordBoundary") continue
+                            val d = m.getJSONObject("Data")
+                            words.add(WordMark(d.getLong("Offset"), d.getLong("Duration"),
+                                d.optJSONObject("text")?.optString("Text") ?: ""))
+                        }
+                    }
+                    return
+                }
                 if (text.contains("Path:turn.end")) {
                     synchronized(this) { if (done) return; done = true }
                     webSocket.close(1000, null)
                     val bytes = audio.toByteArray()
                     if (bytes.isEmpty()) {
                         if (cont.isActive) cont.resumeWithException(TtsException("Server tidak mengirim audio"))
-                    } else if (cont.isActive) cont.resume(bytes)
+                    } else if (cont.isActive) cont.resume(SynthResult(bytes, words.sortedBy { it.offset }))
                 }
             }
 
@@ -188,11 +211,14 @@ class EdgeTtsClient(private val http: OkHttpClient = defaultHttp) {
         prosody: Prosody,
         attempts: Int = 6,
         onRetry: (Int, Throwable) -> Unit = { _, _ -> },
-    ): ByteArray {
+    ): SynthResult {
         var last: Throwable? = null
         for (i in 0 until attempts) {
             try {
-                return synthesizeOnce(text, voice, prosody)
+                // Server kadang gagal berulang untuk kombinasi teks+prosodi tertentu:
+                // mulai percobaan ke-3, ubah kecepatan sebesar 1% (tak terdengar) agar lolos.
+                val p = if (i >= 2) prosody.copy(ratePercent = prosody.ratePercent + (if (i % 2 == 0) 1 else -1)) else prosody
+                return synthesizeOnce(text, voice, p)
             } catch (e: kotlinx.coroutines.TimeoutCancellationException) {
                 last = TtsException("Waktu habis menunggu server", cause = e)
             } catch (e: kotlinx.coroutines.CancellationException) {

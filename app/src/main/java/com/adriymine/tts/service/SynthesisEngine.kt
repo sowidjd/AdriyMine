@@ -5,6 +5,7 @@ import android.util.Log
 import com.adriymine.tts.data.Library
 import com.adriymine.tts.data.LibraryItem
 import com.adriymine.tts.data.Settings
+import com.adriymine.tts.data.prosodyFor
 import com.adriymine.tts.tts.EdgeTtsClient
 import com.adriymine.tts.tts.Mp3
 import com.adriymine.tts.tts.Prosody
@@ -69,11 +70,44 @@ class SynthesisEngine(
 
     private data class Spec(
         val id: String, val title: String, val voiceId: String, val prosody: Prosody,
-        val pauseMs: Int, val words: Int, val preview: String, val chunks: List<TextProcessor.Chunk>,
+        val pauseMs: Int, val sentenceMs: Int, val words: Int, val preview: String, val chunks: List<TextProcessor.Chunk>,
         val concurrency: Int, val autoSave: Boolean,
     )
 
     private var current: Spec? = null
+
+    // ---------- Kesehatan suara ----------
+    private val health = java.util.concurrent.ConcurrentHashMap<String, Pair<Boolean, Long>>()
+
+    /** Cek cepat apakah server sedang melayani suara ini (hasil di-cache 10 menit). */
+    suspend fun isVoiceHealthy(voiceId: String, force: Boolean = false): Boolean {
+        val cached = health[voiceId]
+        if (!force && cached != null && System.currentTimeMillis() - cached.second < 10 * 60_000) return cached.first
+        val ok = try {
+            kotlinx.coroutines.withTimeout(25_000) {
+                client.synthesize("Halo, apa kabar?", voiceId, Prosody(), attempts = 2).audio.isNotEmpty()
+            }
+        } catch (e: CancellationException) {
+            if (e is kotlinx.coroutines.TimeoutCancellationException) false else throw e
+        } catch (e: Exception) {
+            // Tanpa internet: jangan tandai suara rusak.
+            if (e.message?.contains("internet") == true || e.cause is java.net.UnknownHostException) return true
+            false
+        }
+        health[voiceId] = ok to System.currentTimeMillis()
+        return ok
+    }
+
+    fun knownHealth(): Map<String, Boolean> = health.mapValues { it.value.first }
+
+    /** Suara pengganti paling mirip (gender sama, skor tertinggi) yang sedang sehat. */
+    suspend fun fallbackFor(voice: com.adriymine.tts.tts.Voice): com.adriymine.tts.tts.Voice? {
+        val candidates = VoiceCatalog.curated
+            .filter { it.id != voice.id && (it.group == com.adriymine.tts.tts.VoiceGroup.MULTI || it.group == com.adriymine.tts.tts.VoiceGroup.INDONESIA) }
+            .sortedWith(compareBy({ it.gender != voice.gender }, { it.group != voice.group }, { -it.score }))
+        for (c in candidates) if (isVoiceHealthy(c.id)) return c
+        return null
+    }
 
     fun start(rawText: String, title: String, s: Settings) {
         if (_state.value.active) return
@@ -84,30 +118,45 @@ class SynthesisEngine(
             try {
                 // bersihkan pekerjaan lama
                 jobsRoot.listFiles()?.forEach { it.deleteRecursively() }
-                val voice = VoiceCatalog.find(s.voiceId)
+                var voice = VoiceCatalog.find(s.voiceId)
+                var notice: String? = null
+                if (!isVoiceHealthy(voice.id, force = true)) {
+                    val alt = fallbackFor(voice)
+                    if (alt != null) {
+                        notice = "Suara ${voice.name} sedang tidak tersedia di server Microsoft, otomatis memakai ${alt.name}."
+                        voice = alt
+                        _state.update { it.copy(voiceName = alt.name, message = notice) }
+                    }
+                }
                 val prepared = TextProcessor.prepare(
                     rawText,
                     TextProcessor.Options(
                         numbersToWords = s.numbersToWords,
                         expandAbbreviations = s.expandAbbreviations,
                         spellLettersIndo = s.spellLettersMultilingual && voice.isMultilingual,
+                        mergeShortSentences = voice.isMultilingual,
                     )
                 )
-                val chunks = TextProcessor.chunk(prepared)
+                // Suara multibahasa dihasilkan server lebih lambat dari waktu putarnya (uji: 900 karakter
+                // butuh ±128 dtk untuk 79 dtk audio). Potongan dibuat kecil & bertahap agar audio cepat
+                // mulai (±10 dtk) dan pemutaran tidak tersendat; suara asli Indonesia jauh lebih cepat.
+                val chunks = if (voice.isMultilingual) TextProcessor.chunk(prepared, maxChars = 480, mergeLimit = 480, ramp = listOf(170, 240, 360))
+                else TextProcessor.chunk(prepared, maxChars = 1500, mergeLimit = 900, ramp = listOf(260, 500, 900))
                 if (chunks.isEmpty()) {
                     _state.update { it.copy(status = JobStatus.ERROR, message = "Teks kosong atau tidak berisi kata.") }
                     return@launch
                 }
                 val spec = Spec(
                     id = id, title = title, voiceId = voice.id,
-                    prosody = Prosody(s.rate, s.pitch, s.volume), pauseMs = s.paragraphPauseMs,
+                    prosody = s.prosodyFor(voice), pauseMs = s.paragraphPauseMs, sentenceMs = s.sentencePauseMs,
                     words = TextProcessor.countWords(rawText),
                     preview = rawText.trim().take(160), chunks = chunks,
-                    concurrency = s.concurrency, autoSave = s.autoSaveToDownloads,
+                    concurrency = if (voice.isMultilingual) maxOf(s.concurrency, 4) else s.concurrency,
+                    autoSave = s.autoSaveToDownloads,
                 )
                 current = spec
                 persist(spec)
-                run(spec)
+                run(spec, notice)
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Throwable) {
@@ -145,7 +194,7 @@ class SynthesisEngine(
     private fun dirOf(spec: Spec) = File(jobsRoot, spec.id).apply { mkdirs() }
     private fun partFile(spec: Spec, i: Int) = File(dirOf(spec), "%05d.mp3".format(i))
 
-    private suspend fun run(spec: Spec) {
+    private suspend fun run(spec: Spec, notice: String? = null) {
         val total = spec.chunks.size
         val doneFlags = BooleanArray(total) { partFile(spec, it).let { f -> f.exists() && f.length() > 0 } }
         val completed = AtomicInteger(doneFlags.count { it })
@@ -162,7 +211,7 @@ class SynthesisEngine(
                 )
             }
         }
-        publish()
+        publish(notice)
         val sem = Semaphore(spec.concurrency.coerceIn(1, 6))
         val failures = ArrayList<String>()
         kotlinx.coroutines.coroutineScope {
@@ -171,17 +220,20 @@ class SynthesisEngine(
                     sem.withPermit {
                         val chunk = spec.chunks[i]
                         try {
-                            val audio = client.synthesize(chunk.text, spec.voiceId, spec.prosody) { n, e ->
+                            val res = client.synthesize(chunk.text, spec.voiceId, spec.prosody) { n, e ->
                                 publish("Mengulang bagian ${i + 1} (percobaan $n): ${e.message}")
                             }
+                            val polished = runCatching {
+                                Mp3.polish(
+                                    res.audio, res.words, chunk.text,
+                                    Mp3.PauseSpec(spec.sentenceMs, spec.pauseMs, 1.0 + spec.prosody.ratePercent / 100.0),
+                                    if (chunk.endsParagraph) Mp3.Boundary.PARAGRAPH else Mp3.Boundary.SENTENCE,
+                                    isLast = i == total - 1,
+                                )
+                            }.getOrElse { res.audio }
                             val f = partFile(spec, i)
                             val tmp = File(f.parentFile, f.name + ".tmp")
-                            tmp.outputStream().buffered().use { out ->
-                                out.write(audio)
-                                if (chunk.endsParagraph && i < total - 1 && spec.pauseMs > 0) {
-                                    Mp3.writeSilence(out, spec.pauseMs)
-                                }
-                            }
+                            tmp.outputStream().buffered().use { out -> out.write(polished) }
                             tmp.renameTo(f)
                             synchronized(doneFlags) { doneFlags[i] = true }
                             completed.incrementAndGet()
@@ -196,10 +248,13 @@ class SynthesisEngine(
             }.awaitAll()
         }
         if (failures.isNotEmpty()) {
+            val down = !isVoiceHealthy(spec.voiceId, force = true)
             _state.update {
                 it.copy(
                     status = JobStatus.ERROR,
-                    message = "${failures.size} bagian gagal (${failures.first()}). " +
+                    message = if (down) "Suara ${VoiceCatalog.find(spec.voiceId).name} sedang gangguan di server Microsoft. " +
+                        "Tekan \"Lanjutkan\" beberapa saat lagi (bagian yang sudah jadi tidak diulang), atau pilih suara lain lalu buat ulang."
+                    else "${failures.size} bagian gagal (${failures.first()}). " +
                         "Periksa koneksi internet lalu tekan \"Lanjutkan\" — bagian yang sudah jadi tidak diulang."
                 )
             }
@@ -235,7 +290,7 @@ class SynthesisEngine(
             spec.chunks.forEach { arr.put(JSONObject().put("t", it.text).put("p", it.endsParagraph)) }
             val o = JSONObject().put("id", spec.id).put("title", spec.title).put("voice", spec.voiceId)
                 .put("rate", spec.prosody.ratePercent).put("pitch", spec.prosody.pitchHz)
-                .put("volume", spec.prosody.volumePercent).put("pause", spec.pauseMs)
+                .put("volume", spec.prosody.volumePercent).put("pause", spec.pauseMs).put("spause", spec.sentenceMs)
                 .put("words", spec.words).put("preview", spec.preview).put("conc", spec.concurrency)
                 .put("auto", spec.autoSave).put("chunks", arr)
             File(jobsRoot, spec.id + ".json").writeText(o.toString())
@@ -249,7 +304,7 @@ class SynthesisEngine(
         Spec(
             id = o.getString("id"), title = o.getString("title"), voiceId = o.getString("voice"),
             prosody = Prosody(o.optInt("rate"), o.optInt("pitch"), o.optInt("volume")),
-            pauseMs = o.optInt("pause", 450), words = o.optInt("words"), preview = o.optString("preview"),
+            pauseMs = o.optInt("pause", 450), sentenceMs = o.optInt("spause", 650), words = o.optInt("words"), preview = o.optString("preview"),
             chunks = (0 until arr.length()).map { i ->
                 val c = arr.getJSONObject(i); TextProcessor.Chunk(c.getString("t"), c.optBoolean("p", true))
             },
@@ -257,17 +312,36 @@ class SynthesisEngine(
         )
     }.getOrNull()
 
-    /** Contoh suara pendek (di-cache). */
-    suspend fun preview(voiceId: String, text: String, prosody: Prosody): File {
+    /**
+     * Pratinjau: proses teks pendek persis seperti konversi penuh (normalisasi, jeda,
+     * setelan optimal), hasil di-cache agar bisa diputar ulang instan.
+     */
+    suspend fun preview(voiceId: String, text: String, s: Settings): File {
         val dir = File(context.cacheDir, "preview").apply { mkdirs() }
-        val f = File(dir, "${voiceId}_${(text + prosody).hashCode()}.mp3")
-        if (f.exists() && f.length() > 0) return f
         val voice = VoiceCatalog.find(voiceId)
-        val prepared = TextProcessor.prepare(text, TextProcessor.Options(spellLettersIndo = voice.isMultilingual))
-        val bytes = client.synthesize(prepared, voiceId, prosody, attempts = 3)
+        val prosody = s.prosodyFor(voice)
+        val key = listOf(voiceId, text, prosody, s.sentencePauseMs, s.paragraphPauseMs, s.numbersToWords,
+            s.expandAbbreviations, s.spellLettersMultilingual).hashCode()
+        val f = File(dir, "${voiceId}_$key.mp3")
+        if (f.exists() && f.length() > 0) return f
+        val prepared = TextProcessor.prepare(text, TextProcessor.Options(
+            numbersToWords = s.numbersToWords, expandAbbreviations = s.expandAbbreviations,
+            spellLettersIndo = s.spellLettersMultilingual && voice.isMultilingual,
+            mergeShortSentences = voice.isMultilingual,
+        ))
+        val joined = TextProcessor.chunk(prepared, maxChars = 2500, mergeLimit = 2500, firstLimit = 2500)
+            .joinToString("\n") { it.text }.ifBlank { prepared }
+        val res = client.synthesize(joined, voiceId, prosody, attempts = 4)
+        val bytes = runCatching {
+            Mp3.polish(res.audio, res.words, joined,
+                Mp3.PauseSpec(s.sentencePauseMs, s.paragraphPauseMs, 1.0 + prosody.ratePercent / 100.0),
+                Mp3.Boundary.PARAGRAPH, isLast = true)
+        }.getOrElse { res.audio }
         val tmp = File(dir, f.name + ".tmp")
         tmp.writeBytes(bytes)
         tmp.renameTo(f)
+        // batasi ukuran cache pratinjau
+        dir.listFiles()?.sortedByDescending { it.lastModified() }?.drop(60)?.forEach { it.delete() }
         return f
     }
 

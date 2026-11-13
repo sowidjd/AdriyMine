@@ -11,6 +11,7 @@ Cara pasang: buka file APK di HP → izinkan "Instal dari sumber tidak dikenal" 
 Minimal Android 7.0.
 
 ## Fitur
+- **Studio Pratinjau**: tulis kalimat apa saja, dengarkan, atau bandingkan beberapa suara berurutan; tombol Pratinjau untuk mendengar awal teksmu sebelum membuat audio penuh.
 - **20 suara pilihan** untuk bahasa Indonesia:
   - Gadis & Ardi (suara asli Indonesia — ejaan huruf, angka, singkatan sempurna)
   - 12 suara **multibahasa** generasi terbaru (Ava, Andrew, Emma, Brian, Seraphina, Florian, …) — fasih
@@ -31,6 +32,18 @@ Minimal Android 7.0.
   atau dibagikan ke WhatsApp/Drive/dll.
 - Pemutar dengan kontrol di notifikasi & layar kunci, kecepatan 0.75×–2×, maju/mundur 10 detik.
 - Buka file `.txt`, tempel dari papan klip, atau bagikan teks dari aplikasi lain ke AdriyTTS.
+
+## Peningkatan kualitas suara v1.1 (hasil uji terukur)
+| Masalah | Temuan | Perbaikan |
+|---|---|---|
+| Noise kompresi | MP3 48 kbps, SNR ±22 dB vs 96 kbps | Format 96 kbps |
+| Kalimat pendek berlogat asing (suara multibahasa) | "Dia tersenyum." / "Oke, terima kasih." terdeteksi Portugis/Spanyol oleh Whisper | Kalimat ≤3 kata digabung ke kalimat sebelahnya |
+| Jeda titik terlalu pendek (multibahasa) | ±385 ms, hampir sama dengan koma | Jeda disisipkan di posisi kata (metadata WordBoundary) — bit-perfect, tanpa merusak bit reservoir MP3 |
+| Hening berlebih di sambungan | sampai ±1,6 dtk | Ekor hening dipangkas, jeda sambungan diatur |
+| Lama menunggu audio pertama | 30–120 dtk (suara multibahasa lebih lambat dari real-time) | Potongan bertahap 170→240→360→480 karakter, 4 paralel: ±8 dtk, 0 dtk tersendat |
+| Suara kadang mati di server | Remy/Florian sempat tidak tersedia | Cek kesehatan + cadangan otomatis ke suara mirip |
+
+Kealamian diukur dengan UTMOS22 & DNSMOS, ketepatan ucapan dengan Whisper. Skor tiap suara ditampilkan di aplikasi.
 
 ## Cara kerja (ringkas)
 Mesin suaranya adalah layanan neural TTS Microsoft yang dipakai fitur "Read Aloud / Baca Nyaring" di

@@ -176,7 +176,18 @@ private fun signed(v: Int) = if (v > 0) "+$v" else "$v"
 @Composable
 private fun JobPanel(job: JobState, vm: MainViewModel, openLibrary: () -> Unit) {
     when (job.status) {
-        JobStatus.IDLE, JobStatus.CANCELLED -> GenerateButton { vm.generate() }
+        JobStatus.IDLE, JobStatus.CANCELLED -> Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            val previewing by vm.previewing.collectAsState()
+            OutlinedButton(
+                onClick = { vm.previewMyText() }, enabled = previewing == null,
+                modifier = Modifier.height(56.dp), shape = RoundedCornerShape(16.dp)
+            ) {
+                if (previewing != null) androidx.compose.material3.CircularProgressIndicator(Modifier.size(18.dp), strokeWidth = 2.dp)
+                else Icon(Icons.Filled.PlayArrow, null)
+                Spacer(Modifier.width(6.dp)); Text("Pratinjau")
+            }
+            Box(Modifier.weight(1f)) { GenerateButton { vm.generate() } }
+        }
         JobStatus.PREPARING, JobStatus.RUNNING -> Card(
             shape = RoundedCornerShape(16.dp),
             colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),

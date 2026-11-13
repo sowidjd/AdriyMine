@@ -9,7 +9,7 @@ object EdgeConfig {
     const val TRUSTED_CLIENT_TOKEN = "6A5AA1D4EAFF4E9FB37E23D68491D6F4"
     const val DEFAULT_CHROMIUM_FULL_VERSION = "143.0.3650.75"
     const val BASE = "speech.platform.bing.com/consumer/speech/synthesize/readaloud"
-    const val OUTPUT_FORMAT = "audio-24khz-48kbitrate-mono-mp3"
+    const val OUTPUT_FORMAT = "audio-24khz-96kbitrate-mono-mp3"
 
     @Volatile
     var chromiumFullVersion: String = DEFAULT_CHROMIUM_FULL_VERSION

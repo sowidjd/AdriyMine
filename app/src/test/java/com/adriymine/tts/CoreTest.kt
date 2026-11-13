@@ -43,6 +43,8 @@ class CoreTest {
         assertTrue(out, out.contains("Pukul sepuluh tiga puluh"))
         assertTrue(out, out.contains("Jalan Merdeka nomor lima"))
         assertTrue(out, out.contains("dan lain-lain."))
+        val u = prep("Harga cabai Rp 85.000 per kg, ongkir Rp 10.000/km.")
+        assertTrue(u, u.contains("per kilogram") && u.contains("per kilometer"))
         val d = prep("Tanggal 17/08/1945 ke-2 dari 10-20 orang, tahun 2024.")
         println(d)
         assertTrue(d, d.contains("tujuh belas Agustus seribu sembilan ratus empat puluh lima"))
@@ -68,5 +70,17 @@ class CoreTest {
         assertTrue(chunks.all { it.text.length <= 2200 })
         val joined = chunks.joinToString(" ") { it.text }
         assertEquals(TextProcessor.countWords(prep(long)), TextProcessor.countWords(joined))
+    }
+
+    @Test
+    fun mergeShortSentences() {
+        val out = TextProcessor.prepare("Budi berjalan pelan menyusuri sawah. Dia tersenyum. Ibunya memasak sup ikan di dapur. Ya.",
+            TextProcessor.Options(mergeShortSentences = true))
+        println(out)
+        assertTrue(out, out.contains("Dia tersenyum, Ibunya"))
+        assertTrue(out, out.contains("dapur, Ya."))
+        val keep = TextProcessor.prepare("\"Minumlah, Nak.\" Katanya lembut sekali kepadaku.", TextProcessor.Options())
+        val ch = TextProcessor.chunk(keep, firstLimit = 10)
+        assertTrue(ch.joinToString("|") { it.text }, ch.joinToString(" ") { it.text }.contains("Nak.\""))
     }
 }

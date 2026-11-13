@@ -58,8 +58,14 @@ fun SettingsScreen(vm: MainViewModel) {
             Toggle("Eja huruf ala Indonesia (suara multibahasa)", "A, B, C → a, be, ce • KTP → ka te pe. Mencegah ejaan gaya Inggris.", s.spellLettersMultilingual) {
                 v -> vm.updateSettings { it.copy(spellLettersMultilingual = v) }
             }
-            LabeledSlider("Jeda antar paragraf", s.paragraphPauseMs, 0f..1500f, 14, " ms") { v ->
+            LabeledSlider("Jeda setelah titik", s.sentencePauseMs, 300f..1200f, 17, " ms") { v ->
+                vm.updateSettings { it.copy(sentencePauseMs = v) }
+            }
+            LabeledSlider("Tambahan jeda paragraf", s.paragraphPauseMs, 0f..1500f, 14, " ms") { v ->
                 vm.updateSettings { it.copy(paragraphPauseMs = v) }
+            }
+            Toggle("Setelan optimal per suara", "Kecepatan & nada terbaik hasil uji kealamian tiap suara", s.autoTune) {
+                v -> vm.updateSettings { it.copy(autoTune = v) }
             }
         }
 
@@ -78,8 +84,9 @@ fun SettingsScreen(vm: MainViewModel) {
         Section("Cara kerja") {
             Text(
                 "AdriyTTS memakai mesin suara neural Microsoft (teknologi yang sama dengan fitur \"Baca Nyaring\" di browser Edge) " +
-                    "yang gratis dan tanpa batas pemakaian. Teks panjang dipecah per paragraf, diproses paralel, lalu digabung " +
-                    "menjadi satu file MP3 tanpa noise. Jeda koma dan titik diatur langsung oleh model AI sehingga intonasi tetap natural.\n\n" +
+                    "yang gratis dan tanpa batas pemakaian. Audio MP3 96 kbps (jernih, tanpa noise kompresi). Teks panjang dipecah per paragraf, " +
+                    "diproses paralel, lalu digabung. Jeda setelah titik dan paragraf disisipkan presisi di posisi kata (dari metadata server) " +
+                    "tanpa merusak audio, dan hening berlebih di sambungan dipangkas, sehingga ritme baca terdengar seperti narator manusia.\n\n" +
                     "Butuh koneksi internet saat membuat audio. Audio yang sudah jadi bisa diputar offline.",
                 style = MaterialTheme.typography.bodySmall
             )
