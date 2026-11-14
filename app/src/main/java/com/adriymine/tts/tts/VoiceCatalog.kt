@@ -22,6 +22,8 @@ data class Voice(
     /** Setelan optimal hasil uji (ditambahkan ke setelan pengguna bila "setelan optimal" aktif). */
     val tuneRate: Int = 0,
     val tunePitch: Int = 0,
+    /** Penyamaan volume ke ±-19 LUFS (langkah 1,5 dB), hasil ukur EBU R128. */
+    val gainSteps: Int = 1,
 ) {
     /** Suara multibahasa butuh ejaan huruf/akronim ala Indonesia agar tidak dieja bahasa Inggris. */
     val isMultilingual: Boolean get() = id.contains("Multilingual")
@@ -30,16 +32,16 @@ data class Voice(
 object VoiceCatalog {
     val curated: List<Voice> = listOf(
         Voice("id-ID-GadisNeural", "Gadis", Gender.FEMALE, "id-ID",
-            "Wanita Indonesia, jernih & ramah. Terbaik untuk ejaan huruf, angka, singkatan.", VoiceGroup.INDONESIA, recommended = true, score = 3.7, tuneRate = -10, tunePitch = -3),
+            "Wanita Indonesia, jernih & ramah. Terbaik untuk ejaan huruf, angka, singkatan.", VoiceGroup.INDONESIA, recommended = true, score = 3.7, tuneRate = -5, tunePitch = -3),
         Voice("id-ID-ArdiNeural", "Ardi", Gender.MALE, "id-ID",
-            "Pria Indonesia, tegas & bersahabat. Cocok untuk narasi, berita, materi belajar.", VoiceGroup.INDONESIA, recommended = true, score = 3.64, tuneRate = 0, tunePitch = -4),
+            "Pria Indonesia, tegas & bersahabat. Cocok untuk narasi, berita, materi belajar.", VoiceGroup.INDONESIA, recommended = true, score = 3.64, tuneRate = -8, tunePitch = -4, gainSteps = -1),
 
         Voice("en-US-AvaMultilingualNeural", "Ava", Gender.FEMALE, "multi",
             "Sangat ekspresif, hangat, penuh emosi. Cocok untuk cerita & novel.", VoiceGroup.MULTI, recommended = true, score = 4.19, tuneRate = -5, tunePitch = 2),
         Voice("en-US-AndrewMultilingualNeural", "Andrew", Gender.MALE, "multi",
             "Hangat, percaya diri, natural seperti orang bicara. Cocok untuk narasi & podcast.", VoiceGroup.MULTI, recommended = true, score = 4.23, tuneRate = 0, tunePitch = 0),
         Voice("en-US-EmmaMultilingualNeural", "Emma", Gender.FEMALE, "multi",
-            "Ceria, jelas, gaya percakapan. Cocok untuk konten santai & edukasi.", VoiceGroup.MULTI, recommended = true, score = 4.17, tuneRate = 0, tunePitch = 0),
+            "Ceria, jelas, gaya percakapan. Cocok untuk konten santai & edukasi.", VoiceGroup.MULTI, recommended = true, score = 4.17, tuneRate = 0, tunePitch = 0, gainSteps = 0),
         Voice("en-US-BrianMultilingualNeural", "Brian", Gender.MALE, "multi",
             "Santai, tulus, mudah didengar. Cocok untuk vlog & cerita sehari-hari.", VoiceGroup.MULTI, score = 3.91, tuneRate = 0, tunePitch = 0),
         Voice("de-DE-SeraphinaMultilingualNeural", "Seraphina", Gender.FEMALE, "multi",
@@ -55,14 +57,14 @@ object VoiceCatalog {
         Voice("en-AU-WilliamMultilingualNeural", "William", Gender.MALE, "multi",
             "Jelas & stabil. Cocok untuk tutorial dan materi pelajaran.", VoiceGroup.MULTI, score = 3.87, tuneRate = 0, tunePitch = 0),
         Voice("pt-BR-ThalitaMultilingualNeural", "Thalita", Gender.FEMALE, "multi",
-            "Muda, cerah, bersemangat. Cocok untuk konten media sosial.", VoiceGroup.MULTI, score = 3.72, tuneRate = 0, tunePitch = 0),
+            "Muda, cerah, bersemangat. Cocok untuk konten media sosial.", VoiceGroup.MULTI, score = 3.72, tuneRate = 0, tunePitch = 0, gainSteps = 2),
         Voice("ko-KR-HyunsuMultilingualNeural", "Hyunsu", Gender.MALE, "multi",
             "Muda & lembut. Cocok untuk cerita ringan.", VoiceGroup.MULTI, score = 4.04, tuneRate = 0, tunePitch = 0),
 
         Voice("ms-MY-YasminNeural", "Yasmin (Melayu)", Gender.FEMALE, "ms-MY",
-            "Wanita Malaysia. Logat Melayu.", VoiceGroup.REGIONAL, score = 3.57, tuneRate = 0, tunePitch = 0),
+            "Wanita Malaysia. Logat Melayu.", VoiceGroup.REGIONAL, score = 3.57, tuneRate = 0, tunePitch = 0, gainSteps = 0),
         Voice("ms-MY-OsmanNeural", "Osman (Melayu)", Gender.MALE, "ms-MY",
-            "Pria Malaysia. Logat Melayu.", VoiceGroup.REGIONAL, score = 4.06, tuneRate = 0, tunePitch = 0),
+            "Pria Malaysia. Logat Melayu.", VoiceGroup.REGIONAL, score = 4.06, tuneRate = 0, tunePitch = 0, gainSteps = 0),
         Voice("jv-ID-SitiNeural", "Siti (Jawa)", Gender.FEMALE, "jv-ID",
             "Untuk teks berbahasa Jawa.", VoiceGroup.REGIONAL),
         Voice("jv-ID-DimasNeural", "Dimas (Jawa)", Gender.MALE, "jv-ID",
@@ -80,7 +82,7 @@ object VoiceCatalog {
 
     fun find(id: String, extra: List<Voice> = emptyList()): Voice =
         curated.firstOrNull { it.id == id } ?: extra.firstOrNull { it.id == id }
-        ?: Voice(id, displayName(id), Gender.FEMALE, id.take(5), "", VoiceGroup.OTHER)
+        ?: Voice(id, displayName(id), Gender.FEMALE, id.take(5), "", VoiceGroup.OTHER, gainSteps = 0)
 
     fun displayName(shortName: String): String {
         val parts = shortName.split('-')

@@ -43,7 +43,8 @@ class LiveSynthesisTest {
                             File(dir, "raw_%05d.words".format(i)).writeText(r.words.joinToString("\n") { "${it.offset}\t${it.duration}\t${it.text}" })
                             if (r.words.isEmpty()) println("chunk $i: no word metadata")
                             val polished = Mp3.polish(r.audio, r.words, c.text, Mp3.PauseSpec(speed = 1.0 + com.adriymine.tts.tts.VoiceCatalog.find(voice).tuneRate / 100.0),
-                                if (c.endsParagraph) Mp3.Boundary.PARAGRAPH else Mp3.Boundary.SENTENCE, i == chunks.size - 1)
+                                if (c.endsParagraph) Mp3.Boundary.PARAGRAPH else Mp3.Boundary.SENTENCE, i == chunks.size - 1,
+                                gainSteps = com.adriymine.tts.tts.VoiceCatalog.find(voice).gainSteps)
                             val f = File(dir, "%05d.mp3".format(i))
                             f.writeBytes(polished)
                             println("READY $i t=${System.currentTimeMillis() - t0} dur=${polished.size * 8 / 96}")

@@ -63,6 +63,8 @@ object TextProcessor {
         t = t.replace(Regex("""(?m)^\s*[-*+]\s+"""), "")
         t = t.replace(Regex("""[*_`~|]{1,}"""), " ")
         t = t.replace(Regex("""\[(\d+)]"""), " ") // tanda kutipan [1]
+        // Kurung berisi kalimat sisipan: dibaca dengan jeda singkat seperti koma.
+        t = t.replace(Regex("""\(([^()\d][^()]{2,})\)"""), ", $1,")
         t = t.replace(Regex("""-{2,}|_{2,}|={2,}"""), " ")
         t = t.replace(Regex("""[ ]{2,}"""), " ")
         return t
@@ -116,6 +118,9 @@ object TextProcessor {
         """\bS\.Kom\.?""" to "es kom", """\bS\.H\.?""" to "es ha", """\bS\.E\.?""" to "es e",
         """\bM\.Pd\.?""" to "em pe de", """\bHj\.\s*""" to "Hajah ",
         """\bSdr\.\s*""" to "Saudara ", """\bBpk\.\s*""" to "Bapak ",
+        """(?i)\bpk\.\s*(?=\d)""" to "pukul ", """(?i)\bs\.d\.?""" to "sampai dengan", """(?i)\ba\.n\.""" to "atas nama",
+        """(?i)\bu\.p\.""" to "untuk perhatian", """\bdkk\.?""" to "dan kawan-kawan", """\bttd\.?""" to "tertanda",
+        """€\s?(?=\d)""" to "EURO_", """£\s?(?=\d)""" to "POUND_",
         """\bvs\.?(?=\s)""" to "lawan", """&""" to " dan ", """\s=\s""" to " sama dengan ",
         """°C""" to " derajat Celsius", """°""" to " derajat",
     ).map { (k, v) -> Regex(k) to v }
@@ -157,7 +162,7 @@ object TextProcessor {
     private val reTimeBare = Regex("""\b([01]?\d|2[0-3]):([0-5]\d)\b""")
     private val reOrdinal = Regex("""(?i)\bke-(\d+)\b""")
     private val rePercentRange = Regex("""(\d+(?:,\d+)?)\s?[-–]\s?(\d+(?:,\d+)?)\s?%""")
-    private val reRange = Regex("""(?<![\d.,\-])([1-9]\d{0,3})\s?[–-]\s?([1-9]\d{0,3})(?![\d.,\-])""")
+    private val reRange = Regex("""(?<![\d.,\-])(\d{1,4})\s?[–-]\s?(\d{1,4})(?![\d\-]|[.,]\d)""")
     private val reThousands = Regex("""(?<![\d.,])(\d{1,3}(?:\.\d{3})+)(?:,(\d+))?(?![\d])""")
     private val reDecimal = Regex("""(?<![\d.,])(\d+),(\d+)(?![\d])""")
     private val reDotTime = Regex("""(?<![\d.,])([01]?\d|2[0-3])\.([0-5]\d)(?![\d.])""")
@@ -173,8 +178,69 @@ object TextProcessor {
         "ml" to "mililiter", "liter" to "liter", "ltr" to "liter", "l" to "liter", "m" to "meter", "g" to "gram", "gr" to "gram",
         "jam" to "jam", "hari" to "hari", "bulan" to "bulan", "orang" to "orang", "porsi" to "porsi", "pcs" to "buah")
 
+    private val romanKeywords = Regex("""(?i)\b(Bab|Pasal|Abad|Jilid|Bagian|Seri|Tahap|Kelas|Volume|Vol\.|Babak|Episode|Sesi|Season|Chapter|Perang Dunia|Paus|Raja|Hamengkubuwono|Pakubuwono|Paku Buwono)\s+([IVXLC]{1,7})\b""")
+    private val reMonthAbbr = Regex("""\b(\d{1,2})\s+(Jan|Feb|Mar|Apr|Mei|Jun|Jul|Agu|Agt|Ags|Agust|Sep|Sept|Okt|Nov|Des)\b""")
+    private val monthAbbr = mapOf("Jan" to 1, "Feb" to 2, "Mar" to 3, "Apr" to 4, "Mei" to 5, "Jun" to 6, "Jul" to 7, "Agu" to 8,
+        "Agt" to 8, "Ags" to 8, "Agust" to 8, "Sep" to 9, "Sept" to 9, "Okt" to 10, "Nov" to 11, "Des" to 12)
+    private val rePhone = Regex("""(?<![\d])(\+62|0)\d{2,4}(?:[- ]?\d{3,4}){1,3}(?![\d])""")
+    private val reCurrencyMag = Regex("""(?i)\bRp\.?\s?(\d+(?:,\d+)?)\s?(ribu|rb|juta|jt|miliar|M|triliun|T)\b\.?""")
+    private val reDecades = Regex("""(\d+)-an\b""")
+    private val reTimes = Regex("""\b(\d+)\s?[xX]\b""")
+    private val reFraction = Regex("""(?<![\d/])(\d{1,4})/(\d{1,4})(?![\d/])""")
+    private val reRatio = Regex("""(?<![\d:])(\d{1,3}):(\d)(?![\d:])""")
+    private val reParenNum = Regex("""\((\d{1,3}|[a-z])\)""")
+    private val reEuro = Regex("""EURO_(\d{1,3}(?:[.,]\d{3})+|\d+)""")
+    private val rePound = Regex("""POUND_(\d{1,3}(?:[.,]\d{3})+|\d+)""")
+
+    private fun roman(r: String): Int? {
+        val v = mapOf('I' to 1, 'V' to 5, 'X' to 10, 'L' to 50, 'C' to 100)
+        var total = 0
+        for (i in r.indices) {
+            val c = v[r[i].uppercaseChar()] ?: return null
+            val n = if (i + 1 < r.length) v[r[i + 1].uppercaseChar()] ?: return null else 0
+            total += if (c < n) -c else c
+        }
+        return total.takeIf { it in 1..399 }
+    }
+
+    private val fractionWords = mapOf(2 to "setengah", 3 to "sepertiga", 4 to "seperempat", 5 to "seperlima",
+        8 to "seperdelapan", 10 to "sepersepuluh")
+
     fun numbers(t: String): String {
         var s = t
+        s = romanKeywords.replace(s) { m ->
+            val n = roman(m.groupValues[2]) ?: return@replace m.value
+            val kw = m.groupValues[1]
+            if (kw.equals("Perang Dunia", true) || kw.equals("Paus", true) || kw.equals("Raja", true))
+                "$kw ${IndoNumber.ordinal(n.toString())}" else "$kw ${IndoNumber.read(n.toString())}"
+        }
+        s = rePhone.replace(s) { m ->
+            " " + m.value.split(Regex("[- ]")).joinToString(", ") { g ->
+                if (g.startsWith("+")) "plus " + IndoNumber.digits(g) else IndoNumber.digits(g)
+            } + " "
+        }
+        s = reCurrencyMag.replace(s) { m ->
+            val mag = when (m.groupValues[2].lowercase()) {
+                "ribu", "rb" -> "ribu"; "juta", "jt" -> "juta"; "miliar", "m" -> "miliar"; else -> "triliun"
+            }
+            " " + num(m.groupValues[1]) + " $mag rupiah "
+        }
+        s = reEuro.replace(s) { m -> IndoNumber.read(m.groupValues[1].replace(".", "").replace(",", "")) + " euro" }
+        s = rePound.replace(s) { m -> IndoNumber.read(m.groupValues[1].replace(".", "").replace(",", "")) + " pound sterling" }
+        s = reMonthAbbr.replace(s) { m -> m.groupValues[1] + " " + bulan[monthAbbr[m.groupValues[2]] ?: 0] }
+        s = reDecades.replace(s) { m -> IndoNumber.read(m.groupValues[1]) + "an" }
+        s = reTimes.replace(s) { m -> IndoNumber.read(m.groupValues[1]) + " kali" }
+        s = reParenNum.replace(s) { m -> " " + m.groupValues[1] + " " }
+        s = reFraction.replace(s) { m ->
+            val a = m.groupValues[1].toInt(); val b = m.groupValues[2].toInt()
+            when {
+                m.groupValues[1].length == 4 && m.groupValues[2].length == 4 -> IndoNumber.read(m.groupValues[1]) + " " + IndoNumber.read(m.groupValues[2])
+                a == 1 && fractionWords.containsKey(b) -> fractionWords[b]!!
+                a in 1 until b && b <= 10 -> IndoNumber.read("$a") + " per " + IndoNumber.read("$b")
+                else -> m.value
+            }
+        }
+        s = reRatio.replace(s) { m -> IndoNumber.read(m.groupValues[1]) + " banding " + IndoNumber.read(m.groupValues[2]) }
         s = reBareUnit.replace(s) { m -> " per " + (bareUnitNames[m.groupValues[2].lowercase()] ?: m.groupValues[2]) }
         s = unitRegex.replace(s) { m -> m.groupValues[1] + " " + (units[m.groupValues[2]] ?: m.groupValues[2]) }
         s = reCurrency.replace(s) { m ->
@@ -203,7 +269,11 @@ object TextProcessor {
         s = rePercentRange.replace(s) { m -> num(m.groupValues[1]) + " sampai " + num(m.groupValues[2]) + " persen" }
         s = rePercent.replace(s) { m -> m.groupValues[1] + " persen" }
         s = reRange.replace(s) { m ->
-            IndoNumber.read(m.groupValues[1]) + " sampai " + IndoNumber.read(m.groupValues[2])
+            val a = m.groupValues[1].toInt(); val b = m.groupValues[2].toInt()
+            // 10-20 = rentang; 3-1 = skor
+            val before = s.substring(maxOf(0, m.range.first - 24), m.range.first).lowercase()
+            val isScore = Regex("""skor|menang|kalah|imbang|unggul|hasil akhir|tertinggal""").containsMatchIn(before)
+            IndoNumber.read(m.groupValues[1]) + (if (b > a && !isScore) " sampai " else " ") + IndoNumber.read(m.groupValues[2])
         }
         s = reThousands.replace(s) { m ->
             val whole = IndoNumber.read(m.groupValues[1].replace(".", ""))
@@ -239,6 +309,9 @@ object TextProcessor {
         "BAPPENAS", "TOEFL", "COVID", "AIDS", "ABRI", "SIM", "PIN", "SARS", "RAM", "ROM", "LAN"
     )
 
+    private val englishAcronyms = mapOf("VIP" to "vi ai pi", "CEO" to "si i o", "CTO" to "si ti o", "CFO" to "si ef o",
+        "COO" to "si o o", "FAQ" to "ef e kyu", "WIFI" to "wai fai", "OK" to "oke")
+
     private val reCapsWord = Regex("""(?<![\p{L}\d])([A-Z]{1,6})(?![\p{L}\d])""")
     private val reListMarker = Regex("""(?m)^([a-zA-Z])[.)]\s""")
 
@@ -259,6 +332,7 @@ object TextProcessor {
         s = reCapsWord.replace(s) { m ->
             val w = m.groupValues[1]
             when {
+                w in englishAcronyms -> englishAcronyms.getValue(w)
                 w in readableCaps -> w.lowercase()
                 w.length == 1 -> letterNames[w[0]] ?: w
                 w.length <= 3 -> spell(w)
@@ -290,7 +364,8 @@ object TextProcessor {
 
     fun mergeShort(t: String): String = t.split('\n').joinToString("\n") { line ->
         val parts = reSentence.findAll(line).map { it.value }.toMutableList()
-        if (parts.size < 2) return@joinToString line
+        // Judul/baris pendek (≤8 kata) dibiarkan apa adanya.
+        if (parts.size < 2 || countWords(line) <= 8) return@joinToString line
         fun words(x: String) = countWords(x)
         fun endsWithPeriod(x: String) = x.trimEnd().let { it.endsWith(".") && !it.endsWith("..") }
         fun toComma(x: String): String {

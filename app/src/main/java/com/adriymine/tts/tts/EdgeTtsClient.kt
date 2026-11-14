@@ -258,6 +258,7 @@ class EdgeTtsClient(private val http: OkHttpClient = defaultHttp) {
                     locale = o.optString("Locale"),
                     description = pers,
                     group = VoiceGroup.OTHER,
+                    gainSteps = 0,
                 )
             }
         }

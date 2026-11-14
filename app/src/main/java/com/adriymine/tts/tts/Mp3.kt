@@ -49,6 +49,7 @@ object Mp3 {
             if (brIdx == 0 || brIdx >= bitrates.size || ((b2 ushr 2) and 3) != 1) return null
             val size = 72 * bitrates[brIdx] * 1000 / 24000 + ((b2 ushr 1) and 1)
             if (size <= 13) return null
+            if (i + size > d.size) break // frame terakhir terpotong: abaikan
             var bits = 0L
             for (k in 0 until 9) bits = (bits shl 8) or (d[i + 4 + k].toLong() and 0xFF)
             val p23 = ((bits ushr (72 - 21)) and 0xFFF).toInt()
@@ -60,6 +61,16 @@ object Mp3 {
     }
 
     enum class Boundary { NONE, SENTENCE, PARAGRAPH }
+
+    /** Jenis jeda di dalam teks, menentukan panjang jeda seperti narator manusia. */
+    private enum class Kind { COLON, SENTENCE, QUESTION, EXCLAIM, ELLIPSIS, PARAGRAPH, HEADING }
+
+    /** Variasi kecil (±10%) yang tetap (deterministik) agar ritme tidak terasa seperti metronom. */
+    private fun jitter(seed: Int): Double {
+        var x = seed * 1103515245 + 12345
+        x = x xor (x ushr 13)
+        return 0.9 + ((x and 0x7FFFFFFF) % 1000) / 1000.0 * 0.22
+    }
 
     data class PauseSpec(
         /** Jeda total yang diinginkan setelah titik/tanda tanya/seru (ms, pada kecepatan normal). */
@@ -83,6 +94,8 @@ object Mp3 {
         spec: PauseSpec,
         trailing: Boundary,
         isLast: Boolean,
+        /** Penyesuaian volume dalam langkah 1,5 dB (lossless, lewat global_gain). */
+        gainSteps: Int = 0,
     ): ByteArray {
         val frames = parse(audio) ?: return audio
         if (frames.isEmpty()) return audio
@@ -102,16 +115,33 @@ object Mp3 {
                 var j = cursor
                 while (j < text.length && !text[j].isLetterOrDigit()) j++
                 val between = text.substring(cursor, j)
+                val nextLower = j < text.length && text[j].isLowerCase()
                 val kind = when {
-                    between.contains('\n') -> Boundary.PARAGRAPH
-                    between.any { it == '.' || it == '!' || it == '?' || it == '…' } -> Boundary.SENTENCE
-                    else -> Boundary.NONE
-                }
-                if (kind == Boundary.NONE) continue
+                    between.contains('\n') -> {
+                        val paraStart = text.lastIndexOf('\n', idx).let { if (it < 0) 0 else it + 1 }
+                        val paraWords = text.substring(paraStart, cursor).split(Regex("\\s+")).count { it.any(Char::isLetterOrDigit) }
+                        if (paraWords <= 6) Kind.HEADING else Kind.PARAGRAPH
+                    }
+                    (between.contains("...") || between.contains('…')) -> Kind.ELLIPSIS
+                    between.contains('?') && !nextLower -> Kind.QUESTION
+                    between.contains('!') && !nextLower -> Kind.EXCLAIM
+                    between.contains('.') && !nextLower -> Kind.SENTENCE
+                    between.contains(':') || between.contains(';') -> Kind.COLON
+                    else -> null
+                } ?: continue
                 val end = words[w].endMs
                 val gap = words[w + 1].startMs - end
                 if (gap < 0) continue
-                val target = sentence + if (kind == Boundary.PARAGRAPH) paraExtra else 0.0
+                val base = when (kind) {
+                    Kind.COLON -> sentence * 0.62
+                    Kind.SENTENCE -> sentence
+                    Kind.QUESTION -> sentence * 1.12
+                    Kind.EXCLAIM -> sentence * 1.06
+                    Kind.ELLIPSIS -> sentence * 1.15 + 120
+                    Kind.PARAGRAPH -> sentence + paraExtra
+                    Kind.HEADING -> sentence + paraExtra + 300
+                }
+                val target = base * jitter(w * 31 + text.length)
                 val add = framesFor(target - gap)
                 if (add > 0) {
                     val at = ((end + gap / 2) / FRAME_MS).toInt().coerceIn(1, frames.size - 1)
@@ -146,7 +176,17 @@ object Mp3 {
                 repeat(n) { out.write(z) }
             }
             val f = frames[k]
-            out.write(audio, f.off, f.size)
+            if (gainSteps != 0 && !(f.part23 == 0 && f.bigValues == 0)) {
+                // global_gain = bit 30..37 side info (MPEG-2 mono) = 2 bit terbawah byte ke-3 + 6 bit teratas byte ke-4.
+                val fb = audio.copyOfRange(f.off, f.off + f.size)
+                val b3 = fb[4 + 3].toInt() and 0xFF
+                val b4 = fb[4 + 4].toInt() and 0xFF
+                val gg = ((b3 and 0x03) shl 6) or (b4 ushr 2)
+                val ng = (gg + gainSteps).coerceIn(0, 255)
+                fb[4 + 3] = ((b3 and 0xFC) or (ng ushr 6)).toByte()
+                fb[4 + 4] = ((b4 and 0x03) or ((ng and 0x3F) shl 2)).toByte()
+                out.write(fb)
+            } else out.write(audio, f.off, f.size)
             // perbarui reservoir dengan area data frame ini
             val mdLen = f.size - 4 - SIDE_INFO
             val src = f.off + 4 + SIDE_INFO

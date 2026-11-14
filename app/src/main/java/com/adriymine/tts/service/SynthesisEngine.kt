@@ -229,6 +229,7 @@ class SynthesisEngine(
                                     Mp3.PauseSpec(spec.sentenceMs, spec.pauseMs, 1.0 + spec.prosody.ratePercent / 100.0),
                                     if (chunk.endsParagraph) Mp3.Boundary.PARAGRAPH else Mp3.Boundary.SENTENCE,
                                     isLast = i == total - 1,
+                                    gainSteps = VoiceCatalog.find(spec.voiceId).gainSteps,
                                 )
                             }.getOrElse { res.audio }
                             val f = partFile(spec, i)
@@ -335,7 +336,7 @@ class SynthesisEngine(
         val bytes = runCatching {
             Mp3.polish(res.audio, res.words, joined,
                 Mp3.PauseSpec(s.sentencePauseMs, s.paragraphPauseMs, 1.0 + prosody.ratePercent / 100.0),
-                Mp3.Boundary.PARAGRAPH, isLast = true)
+                Mp3.Boundary.PARAGRAPH, isLast = true, gainSteps = voice.gainSteps)
         }.getOrElse { res.audio }
         val tmp = File(dir, f.name + ".tmp")
         tmp.writeBytes(bytes)
