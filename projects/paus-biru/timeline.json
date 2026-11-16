@@ -1,1 +1,131 @@
-{"duration": 90.3, "lines": [{"id": "h1", "t0": 0.35, "t1": 3.267, "cap": "Hewan *terbesar* yang pernah hidup..."}, {"id": "h2", "t0": 3.417, "t1": 6.333, "cap": "...jantungnya berdetak *2× semenit*"}, {"id": "h3", "t0": 6.633, "t1": 8.3, "cap": "Kok bisa *masih hidup?*"}, {"id": "k1", "t0": 8.7, "t1": 12.867, "cap": "Paus biru: panjang *> 30 meter*"}, {"id": "k2", "t0": 13.067, "t1": 16.4, "cap": "Kira-kira *2,5 bus kota*"}, {"id": "k3", "t0": 16.7, "t1": 21.7, "cap": "Dikira: jantungnya *cepat & kencang*"}, {"id": "k4", "t0": 21.9, "t1": 23.1, "cap": "Ternyata *kebalikannya.*"}, {"id": "a1", "t0": 24.0, "t1": 27.333, "cap": "Waktu kami di *Adriy.Project* baca catatannya..."}, {"id": "a1b", "t0": 28.233, "t1": 29.9, "cap": "...kami sampai *ngitung ulang.*"}, {"id": "f1", "t0": 30.25, "t1": 36.083, "cap": "2019: alat perekam *ditempel* di paus biru"}, {"id": "f2", "t0": 36.283, "t1": 41.7, "cap": "Saat menyelam: *4–8×* semenit"}, {"id": "f3", "t0": 41.9, "t1": 43.983, "cap": "Paling lambat: *2×!*"}, {"id": "f4", "t0": 44.383, "t1": 48.55, "cap": "Jantungmu: *60–100×* semenit"}, {"id": "x1", "t0": 48.95, "t1": 53.533, "cap": "Lambat = *hemat oksigen*"}, {"id": "x2", "t0": 53.833, "t1": 59.667, "cap": "Di permukaan: ngebut sampai *37×*"}, {"id": "x3", "t0": 59.967, "t1": 65.8, "cap": "Jago *ngerem* & jago *ngegas*"}, {"id": "e1", "t0": 66.3, "t1": 70.05, "cap": "Tahan napas... *rasain detaknya*"}, {"id": "e2", "t0": 70.35, "t1": 75.35, "cap": "Tubuh kita juga punya *rem kecil*"}, {"id": "c1", "t0": 75.85, "t1": 81.683, "cap": "Menyelam bareng paus biru? *Tulis di komentar!*"}, {"id": "c2", "t0": 81.933, "t1": 85.683, "cap": "*Simpan* biar bisa pamer ke teman"}, {"id": "z", "t0": 86.133, "t1": 87.8, "cap": ""}], "perkiraan": true}
+{
+ "duration": 84.479,
+ "lines": [
+  {
+   "id": "h1",
+   "t0": 0.35,
+   "t1": 5.593,
+   "cap": "Hewan *terbesar* yang pernah hidup..."
+  },
+  {
+   "id": "h2",
+   "t0": 5.743,
+   "t1": 10.36,
+   "cap": "...jantungnya berdetak *2× semenit*"
+  },
+  {
+   "id": "h3",
+   "t0": 10.66,
+   "t1": 11.489,
+   "cap": "Kok bisa *masih hidup?*"
+  },
+  {
+   "id": "k1",
+   "t0": 11.889,
+   "t1": 15.31,
+   "cap": "Paus biru: panjang *> 30 meter*"
+  },
+  {
+   "id": "k2",
+   "t0": 15.51,
+   "t1": 18.313,
+   "cap": "Kira-kira *2,5 bus kota*"
+  },
+  {
+   "id": "k3",
+   "t0": 18.613,
+   "t1": 22.985,
+   "cap": "Dikira: jantungnya *cepat & kencang*"
+  },
+  {
+   "id": "k4",
+   "t0": 23.185,
+   "t1": 24.679,
+   "cap": "Ternyata *kebalikannya.*"
+  },
+  {
+   "id": "a1",
+   "t0": 25.579,
+   "t1": 29.916,
+   "cap": "Waktu kami di *Adriy.Project* baca catatannya..."
+  },
+  {
+   "id": "a1b",
+   "t0": 30.816,
+   "t1": 31.945,
+   "cap": "...kami sampai *ngitung ulang.*"
+  },
+  {
+   "id": "f1",
+   "t0": 32.295,
+   "t1": 37.862,
+   "cap": "2019: alat perekam *ditempel* di paus biru"
+  },
+  {
+   "id": "f2",
+   "t0": 38.062,
+   "t1": 43.229,
+   "cap": "Saat menyelam: *4–8×* semenit"
+  },
+  {
+   "id": "f3",
+   "t0": 43.429,
+   "t1": 45.546,
+   "cap": "Paling lambat: *2×!*"
+  },
+  {
+   "id": "f4",
+   "t0": 45.946,
+   "t1": 49.353,
+   "cap": "Jantungmu: *60–100×* semenit"
+  },
+  {
+   "id": "x1",
+   "t0": 49.753,
+   "t1": 53.001,
+   "cap": "Lambat = *hemat oksigen*"
+  },
+  {
+   "id": "x2",
+   "t0": 53.301,
+   "t1": 57.912,
+   "cap": "Di permukaan: ngebut sampai *37×*"
+  },
+  {
+   "id": "x3",
+   "t0": 58.212,
+   "t1": 63.773,
+   "cap": "Jago *ngerem* & jago *ngegas*"
+  },
+  {
+   "id": "e1",
+   "t0": 64.273,
+   "t1": 67.786,
+   "cap": "Tahan napas... *rasain detaknya*"
+  },
+  {
+   "id": "e2",
+   "t0": 68.086,
+   "t1": 71.613,
+   "cap": "Tubuh kita juga punya *rem kecil*"
+  },
+  {
+   "id": "c1",
+   "t0": 72.113,
+   "t1": 76.591,
+   "cap": "Menyelam bareng paus biru? *Tulis di komentar!*"
+  },
+  {
+   "id": "c2",
+   "t0": 76.841,
+   "t1": 81.272,
+   "cap": "*Simpan* biar bisa pamer ke teman"
+  },
+  {
+   "id": "z",
+   "t0": 81.722,
+   "t1": 83.279,
+   "cap": ""
+  }
+ ]
+}
