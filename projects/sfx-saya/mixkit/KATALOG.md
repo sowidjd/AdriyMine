@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-289 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+300 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -44,12 +44,15 @@
 | `cartoon-air-blow` | 1.66 s | tiupan udara ala kartun, lucu |
 | `cartoon-girl-saying-no-no-no` | 1.8 s | "no no no" kartun, menolak lucu |
 | `cartoon-monkey-applause` | 4.28 s | monyet kartun bertepuk tangan, lucu |
+| `cartoon-positive-sound` | 2.94 s | bunyi positif kartun, "yeay" |
 | `cartoon-toy-whistle` | 1.21 s | lucu, konyol, gagal lucu |
 | `cartoon-vocal-yawn` | 1.75 s | menguap ala kartun, ngantuk lucu |
 | `cheering-crowd-loud-whistle` | 14.76 s | sorakan + siulan keras, kemenangan |
 | `chewing-something-crunchy` | 0.94 s | mengunyah renyah, ngemil, kerupuk |
 | `child-deep-breath` | 1.7 s | anak tarik napas dalam |
 | `child-laughing-happily` | 0.76 s | anak tertawa gembira |
+| `children-happy-countdown` | 9.93 s | anak-anak hitung mundur gembira (bahasa Inggris) |
+| `children-voices-in-school` | 122.33 s (suasana/loop) | suara anak-anak di sekolah (latar) |
 | `cinematic-laser-gun-thunder` | 4.81 s (suasana/loop) | ledakan sci-fi, kekuatan besar, dramatis |
 | `cinematic-transition-swoosh-heartbeat-trailer` | 8.11 s | transisi tegang ala trailer |
 | `cinematic-tunnel-reverb-woosh` | 6.75 s | masuk ke dunia lain, flashback, transisi dalam |
@@ -139,6 +142,10 @@
 | `intro-transition` | 7.51 s | pembuka bagian/judul baru |
 | `jungle-rain-and-birds` | 80.0 s (suasana/loop) | hujan di hutan + burung |
 | `keyboard-typing` | 26.31 s | mengetik, chat, kerja di laptop |
+| `kid-giggle-laugh` | 2.28 s | anak cekikikan, geli |
+| `kids-cartoon-close-bells` | 2.01 s | lonceng kartun anak, penutup ceria |
+| `kids-playing-and-laughing` | 6.99 s | anak bermain & tertawa |
+| `laughing-children-indoors` | 10.21 s | anak-anak tertawa di dalam ruangan |
 | `light-rain-atmosphere` | 72.9 s (suasana/loop) | suasana gerimis (latar) |
 | `light-rain-loop` | 15.0 s (suasana/loop) | hujan ringan, santai, sendu |
 | `liquid-bubble` | 1.05 s | gelembung cairan, ide muncul, lab |
@@ -150,7 +157,9 @@
 | `little-pug-dog-heavy-breathing` | 5.71 s | anjing pug ngos-ngosan, lucu, capek |
 | `long-kiss` | 1.2 s | cium panjang |
 | `long-loving-kiss` | 1.05 s | cium panjang penuh sayang |
+| `lost-kid-sobbing` | 1.82 s | anak menangis tersedu, sedih/haru |
 | `loud-creature-breathing` | 1.9 s | napas makhluk besar, seram |
+| `magic-marimba` | 3.34 s | marimba ajaib, keajaiban kecil, ide muncul |
 | `male-clearing-the-throat` | 1.48 s | berdehem "ehem", canggung, mau bicara serius |
 | `male-sleep-breathe` | 5.24 s | napas orang tidur, pulas |
 | `male-sleepy-yawning` | 2.62 s | cowok ngantuk menguap |
@@ -172,6 +181,7 @@
 | `monster-breath` | 4.31 s | napas monster, seram |
 | `morning-sound-in-a-garden` | 110.44 s (suasana/loop) | pagi di taman/kebun, segar |
 | `movie-trailer-epic-impact` | 4.87 s | angka/fakta besar muncul, hantaman epik |
+| `musical-game-over` | 2.67 s | game over bermusik, gagal lucu |
 | `mystwrious-bass-pulse` | 16.56 s | misterius, tegang, sesuatu akan terungkap |
 | `nasty-criature-roar` | 1.79 s | raungan makhluk seram |
 | `nature-ambience-with-lightning-strike-and-thunder` | 28.75 s | alam + petir menyambar, cuaca dramatis |
@@ -186,6 +196,7 @@
 | `papers-blowing-in-the-windstorm` | 5.2 s (suasana/loop) | kertas beterbangan diterpa angin, berantakan, kacau |
 | `people-bathing-in-the-sea-ambience` | 15.34 s (suasana/loop) | pantai ramai, orang berenang, liburan |
 | `people-indoors-ambience` | 51.72 s (suasana/loop) | orang ramai di dalam ruangan (latar) |
+| `percussion-tick-tock-timer` | 24.9 s | tik-tok perkusi, waktu berjalan berirama |
 | `person-blows` | 0.42 s | meniup, "fiuh" lega |
 | `person-nasal-laugh` | 2.21 s | tawa tertahan lewat hidung, geli |
 | `person-yawns-deeply` | 3.03 s | menguap panjang & dalam, ngantuk berat |

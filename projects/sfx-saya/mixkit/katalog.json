@@ -456,6 +456,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-cartoon-positive-sound-2255.wav",
+  "nama": "cartoon-positive-sound",
+  "durasi_s": 2.94,
+  "bunyi_mulai_s": 0.04,
+  "peak_db": -3.2,
+  "suasana_loop": false,
+  "cocok_untuk": "bunyi positif kartun, \"yeay\"",
+  "normal": "normal/cartoon-positive-sound.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-cartoon-toy-whistle-616.wav",
   "nama": "cartoon-toy-whistle",
   "durasi_s": 1.21,
@@ -524,6 +536,30 @@
   "suasana_loop": false,
   "cocok_untuk": "anak tertawa gembira",
   "normal": "normal/child-laughing-happily.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-children-happy-countdown-923.wav",
+  "nama": "children-happy-countdown",
+  "durasi_s": 9.93,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -3.2,
+  "suasana_loop": false,
+  "cocok_untuk": "anak-anak hitung mundur gembira (bahasa Inggris)",
+  "normal": "normal/children-happy-countdown.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-children-voices-in-school-2254.wav",
+  "nama": "children-voices-in-school",
+  "durasi_s": 122.33,
+  "bunyi_mulai_s": 0.35,
+  "peak_db": -1.1,
+  "suasana_loop": true,
+  "cocok_untuk": "suara anak-anak di sekolah (latar)",
+  "normal": "normal/children-voices-in-school.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1596,6 +1632,54 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-kid-giggle-laugh-431.wav",
+  "nama": "kid-giggle-laugh",
+  "durasi_s": 2.28,
+  "bunyi_mulai_s": 0.05,
+  "peak_db": -0.5,
+  "suasana_loop": false,
+  "cocok_untuk": "anak cekikikan, geli",
+  "normal": "normal/kid-giggle-laugh.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-kids-cartoon-close-bells-2256.wav",
+  "nama": "kids-cartoon-close-bells",
+  "durasi_s": 2.01,
+  "bunyi_mulai_s": 0.05,
+  "peak_db": -3.7,
+  "suasana_loop": false,
+  "cocok_untuk": "lonceng kartun anak, penutup ceria",
+  "normal": "normal/kids-cartoon-close-bells.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-kids-playing-and-laughing-2261.wav",
+  "nama": "kids-playing-and-laughing",
+  "durasi_s": 6.99,
+  "bunyi_mulai_s": 0.32,
+  "peak_db": -6.3,
+  "suasana_loop": false,
+  "cocok_untuk": "anak bermain & tertawa",
+  "normal": "normal/kids-playing-and-laughing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-laughing-children-indoors-427.wav",
+  "nama": "laughing-children-indoors",
+  "durasi_s": 10.21,
+  "bunyi_mulai_s": 0.28,
+  "peak_db": -2.5,
+  "suasana_loop": false,
+  "cocok_untuk": "anak-anak tertawa di dalam ruangan",
+  "normal": "normal/laughing-children-indoors.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-light-rain-atmosphere-2474.wav",
   "nama": "light-rain-atmosphere",
   "durasi_s": 72.9,
@@ -1728,6 +1812,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-lost-kid-sobbing-474.wav",
+  "nama": "lost-kid-sobbing",
+  "durasi_s": 1.82,
+  "bunyi_mulai_s": 0.09,
+  "peak_db": -8.2,
+  "suasana_loop": false,
+  "cocok_untuk": "anak menangis tersedu, sedih/haru",
+  "normal": "normal/lost-kid-sobbing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-loud-creature-breathing-2231.wav",
   "nama": "loud-creature-breathing",
   "durasi_s": 1.9,
@@ -1736,6 +1832,18 @@
   "suasana_loop": false,
   "cocok_untuk": "napas makhluk besar, seram",
   "normal": "normal/loud-creature-breathing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-magic-marimba-2820.wav",
+  "nama": "magic-marimba",
+  "durasi_s": 3.34,
+  "bunyi_mulai_s": 0.05,
+  "peak_db": -5.1,
+  "suasana_loop": false,
+  "cocok_untuk": "marimba ajaib, keajaiban kecil, ide muncul",
+  "normal": "normal/magic-marimba.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1992,6 +2100,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-musical-game-over-959.wav",
+  "nama": "musical-game-over",
+  "durasi_s": 2.67,
+  "bunyi_mulai_s": 0.02,
+  "peak_db": -2.8,
+  "suasana_loop": false,
+  "cocok_untuk": "game over bermusik, gagal lucu",
+  "normal": "normal/musical-game-over.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-mystwrious-bass-pulse-2298.wav",
   "nama": "mystwrious-bass-pulse",
   "durasi_s": 16.56,
@@ -2156,6 +2276,18 @@
   "suasana_loop": true,
   "cocok_untuk": "orang ramai di dalam ruangan (latar)",
   "normal": "normal/people-indoors-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-percussion-tick-tock-timer-1047.wav",
+  "nama": "percussion-tick-tock-timer",
+  "durasi_s": 24.9,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -7.1,
+  "suasana_loop": false,
+  "cocok_untuk": "tik-tok perkusi, waktu berjalan berirama",
+  "normal": "normal/percussion-tick-tock-timer.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
