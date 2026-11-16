@@ -2220,6 +2220,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-fish-dropped-hit-2920.wav",
+  "nama": "fish-dropped-hit",
+  "durasi_s": 1.35,
+  "bunyi_mulai_s": 0.04,
+  "peak_db": -1.0,
+  "suasana_loop": false,
+  "cocok_untuk": "ikan jatuh \"plek\", lucu",
+  "normal": "normal/fish-dropped-hit.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-fish-jumping-in-water-2922.wav",
+  "nama": "fish-jumping-in-water",
+  "durasi_s": 1.6,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -1.0,
+  "suasana_loop": false,
+  "cocok_untuk": "ikan melompat dari air",
+  "normal": "normal/fish-jumping-in-water.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-fish-moving-in-water-2921.wav",
   "nama": "fish-moving-in-water",
   "durasi_s": 2.29,
@@ -3216,6 +3240,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-inside-the-old-boat-shipyard-ambience-3074.wav",
+  "nama": "inside-the-old-boat-shipyard-ambience",
+  "durasi_s": 21.5,
+  "bunyi_mulai_s": 0.37,
+  "peak_db": -0.6,
+  "suasana_loop": true,
+  "cocok_untuk": "galangan kapal tua (latar)",
+  "normal": "normal/inside-the-old-boat-shipyard-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-intense-electricity-hum-2591.wav",
   "nama": "intense-electricity-hum",
   "durasi_s": 28.8,
@@ -3308,6 +3344,18 @@
   "suasana_loop": true,
   "cocok_untuk": "dengung jet terbang (latar)",
   "normal": "normal/jet-plane-hum-flying.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-jump-in-water-2923.wav",
+  "nama": "jump-in-water",
+  "durasi_s": 2.3,
+  "bunyi_mulai_s": 0.06,
+  "peak_db": -1.0,
+  "suasana_loop": true,
+  "cocok_untuk": "lompat ke air \"byur\"",
+  "normal": "normal/jump-in-water.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3428,6 +3476,18 @@
   "suasana_loop": true,
   "cocok_untuk": "hujan ringan, santai, sendu",
   "normal": "normal/light-rain-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-light-ship-engine-flutter-whosh-by-3078.wav",
+  "nama": "light-ship-engine-flutter-whosh-by",
+  "durasi_s": 7.0,
+  "bunyi_mulai_s": 0.07,
+  "peak_db": -11.7,
+  "suasana_loop": false,
+  "cocok_untuk": "perahu motor lewat, whoosh",
+  "normal": "normal/light-ship-engine-flutter-whosh-by.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -5180,6 +5240,30 @@
   "suasana_loop": true,
   "cocok_untuk": "ombak + burung laut (latar)",
   "normal": "normal/sea-waves-with-birds-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-ship-engine-loop-3077.wav",
+  "nama": "ship-engine-loop",
+  "durasi_s": 5.8,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -7.2,
+  "suasana_loop": true,
+  "cocok_untuk": "mesin kapal (latar)",
+  "normal": "normal/ship-engine-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-ship-hull-creak-3076.wav",
+  "nama": "ship-hull-creak",
+  "durasi_s": 7.87,
+  "bunyi_mulai_s": 0.21,
+  "peak_db": -2.4,
+  "suasana_loop": false,
+  "cocok_untuk": "lambung kapal berderit, tua/tegang",
+  "normal": "normal/ship-hull-creak.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

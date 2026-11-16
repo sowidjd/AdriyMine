@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-576 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+583 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -191,6 +191,8 @@
 | `fireball-spell` | 2.65 s | bola api, serangan, energi |
 | `fireworks-launch-with-people` | 6.75 s | kembang api diluncurkan + sorakan orang |
 | `fireworks-whooshes-and-bangs` | 7.58 s | kembang api meluncur & meledak, perayaan besar |
+| `fish-dropped-hit` | 1.35 s | ikan jatuh "plek", lucu |
+| `fish-jumping-in-water` | 1.6 s | ikan melompat dari air |
 | `fish-moving-in-water` | 2.29 s | ikan bergerak di air, kecipak |
 | `flirtatious-double-kiss` | 0.56 s | cium genit dua kali, "muach muach" |
 | `flock-of-wild-geese` | 5.22 s (suasana/loop) | kawanan burung, alam liar, migrasi |
@@ -274,6 +276,7 @@
 | `industrial-machine-engine-hum-loop` | 7.42 s (suasana/loop) | mesin industri (latar) |
 | `industrial-machine-hum` | 50.0 s (suasana/loop) | dengung mesin pabrik (latar) |
 | `inside-a-beating-heart` | 20.13 s | di dalam jantung berdetak, tubuh/sains, tegang |
+| `inside-the-old-boat-shipyard-ambience` | 21.5 s (suasana/loop) | galangan kapal tua (latar) |
 | `intense-electricity-hum` | 28.8 s | listrik berdengung keras |
 | `intense-electricity-humming` | 28.8 s (suasana/loop) | dengung listrik intens |
 | `intense-long-fire-beam` | 9.0 s | semburan api panjang, kekuatan besar |
@@ -282,6 +285,7 @@
 | `intro-transition` | 7.51 s | pembuka bagian/judul baru |
 | `jet-airplane-engine-taking-off` | 10.81 s | jet lepas landas, mulai/berangkat |
 | `jet-plane-hum-flying` | 29.82 s (suasana/loop) | dengung jet terbang (latar) |
+| `jump-in-water` | 2.3 s (suasana/loop) | lompat ke air "byur" |
 | `jungle-rain-and-birds` | 80.0 s (suasana/loop) | hujan di hutan + burung |
 | `keyboard-typing` | 26.31 s | mengetik, chat, kerja di laptop |
 | `kid-giggle-laugh` | 2.28 s | anak cekikikan, geli |
@@ -292,6 +296,7 @@
 | `laughing-children-indoors` | 10.21 s | anak-anak tertawa di dalam ruangan |
 | `light-rain-atmosphere` | 72.9 s (suasana/loop) | suasana gerimis (latar) |
 | `light-rain-loop` | 15.0 s (suasana/loop) | hujan ringan, santai, sendu |
+| `light-ship-engine-flutter-whosh-by` | 7.0 s | perahu motor lewat, whoosh |
 | `liquid-bubble` | 1.05 s | gelembung cairan, ide muncul, lab |
 | `little-baby-sneeze` | 0.78 s | bayi bersin, imut |
 | `little-birds-singing-in-the-trees` | 8.33 s (suasana/loop) | pagi, taman, alam tenang |
@@ -438,6 +443,8 @@
 | `sci-fi-metal-robot-collapse` | 3.61 s | robot logam ambruk |
 | `screaming-people-at-mechanical-game-fair` | 10.7 s | orang menjerit di wahana pasar malam, seru/takut |
 | `sea-waves-with-birds-loop` | 38.04 s (suasana/loop) | ombak + burung laut (latar) |
+| `ship-engine-loop` | 5.8 s (suasana/loop) | mesin kapal (latar) |
+| `ship-hull-creak` | 7.87 s | lambung kapal berderit, tua/tegang |
 | `shopping-center-crowd` | 28.85 s (suasana/loop) | mal ramai (latar) |
 | `shopping-mall-ambience-crowd` | 49.77 s (suasana/loop) | suasana mal (latar) |
 | `short-buzzer-sound` | 1.06 s | buzzer singkat "teeet", salah/waktu habis |
