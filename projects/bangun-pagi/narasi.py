@@ -72,7 +72,7 @@ else:
     for i, (t0, t1, s) in enumerate(LINES):
         f = os.path.join(OUT, f'{i:02d}.wav'); tmp = os.path.join(OUT, '_fit.wav')
         # trim silence at both ends, resample, and speed up (max 1.3x) if it would run past its slot
-        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', f, '-af', 'silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse', '-ar', str(SR), '-ac', '1', tmp], check=True)
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', f, '-af', 'silenceremove=start_periods=1:start_threshold=-55dB,areverse,silenceremove=start_periods=1:start_threshold=-55dB,areverse', '-ar', str(SR), '-ac', '1', tmp], check=True)
         a, _ = sf.read(tmp); d = len(a) / SR; room = (t1 - t0) - .05
         sp = min(1.3, d / room) if d > room else 1.0
         if sp > 1.0:
