@@ -93,7 +93,12 @@ Clawd harus **berakting**, bukan hanya berdiri.
 - **Detail kecil yang relatable** membuat penonton merasa "itu kamar gue": charger kusut, gelas kopi sisa, tumpukan baju di kursi, kipas angin, rice cooker, sandal jepit.
 - **Minimal 3 latar/komposisi berbeda** dalam satu video (misalnya kamar → grafik penjelasan → kartu judul trik), supaya tidak monoton.
 - Latar tidak boleh mengalahkan tokoh: Clawd harus selalu kontras dan mudah dilihat.
-- Area aman TikTok: **jangan taruh teks/objek penting di 300 px bawah dan 150 px kanan** (tertutup tombol & keterangan).
+- **Area aman (kanvas 1080×1920)**, diambil dari angka terketat `repos/shorts-kit` (diukur dari layar TikTok & Reels) dan `repos/vertical-video-kit`:
+  - **Atas:** teks penting mulai dari **y ≥ 212** (status bar & tab "Following / For You").
+  - **Kanan:** mulai **y ≥ 803**, teks/objek penting harus di **x < 927** (kolom tombol like/komentar/share).
+  - **Bawah:** teks penting di **y ≤ 1540** (sekitar 380 px bawah tertutup keterangan, nama akun & musik).
+  - Jadi **kotak aman teks: x 60–927, y 212–1540**. Caption narasi paling aman di sekitar y 1300–1500.
+  - Ukuran teks: judul/hook ≥ 80 px tebal; teks isi ≥ 40 px (di bawah itu tidak terbaca di feed).
 
 ## 7. Pergantian cahaya
 
@@ -108,6 +113,8 @@ Cahaya adalah alat bercerita, bukan hiasan.
 
 - **Ucapan narasi:** pakai `projects/suara/ucapan.py` (kamus ejaan bantu: alarm, snooze, singkatan HP/TV/AI, dan lain-lain), lalu cek dengan `cek_ucapan.py` dan perbaiki dengan `perbaiki_ucapan.py`.
 - **Huruf/angka yang diucapkan sendirian:** gunakan gaya "tegas dan jelas", jangan "teriak".
+- **Efek suara:** utamakan `repos/sfx-kit` (320 SFX, CC0, bebas komersial). Ikuti `repos/sfx-kit/GUIDE.md` untuk memilih & menaruh suara di momen yang tepat. Efek suara buatan kode hanya kalau tidak ada yang cocok.
+- **Rujukan aturan lengkap:** `repos/shorts-kit/SOUL.md` (aturan channel yang sudah teruji, 20 pola alur cerita di `docs/flows/`, cek fakta di `docs/facts/`) dan `repos/vertical-video-kit` (caption kata per kata, perapian teks untuk suara AI). Kalau ada yang bertentangan dengan aturan.md, **aturan.md yang dipakai**.
 - **Privasi:** file berisi tiruan suara pemilik akun **tidak diunggah ke GitHub**.
 
 ---
@@ -175,7 +182,7 @@ Nama gaya mengacu ke repo `repos/lemo-opuscar/styles/` dan `repos/mg-styles-15/`
 - [ ] Minimal 3 latar/komposisi, dengan detail kehidupan Indonesia
 - [ ] Minimal 2 pergantian cahaya, momen terpenting paling terang
 - [ ] Gaya animasi dipilih lewat 6 langkah §9: metafora inti + alasan 1 kalimat ditulis, tidak termasuk gaya yang dilarang, beda dari video sebelumnya
-- [ ] Teks tidak di area tertutup tombol TikTok
+- [ ] Semua teks di kotak aman x 60–927, y 212–1540 (cek dengan garis bantu area aman)
 - [ ] Ditutup dengan ajakan komentar yang memancing jawaban
 
 ## Riwayat video

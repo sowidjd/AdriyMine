@@ -13,3 +13,18 @@
 	url = https://github.com/JohnHeibel/ClaudeAnimationBase
 	shallow = true
 	ignore = dirty
+[submodule "repos/shorts-kit"]
+	path = repos/shorts-kit
+	url = https://github.com/howznguyen/shorts-kit
+	shallow = true
+	ignore = dirty
+[submodule "repos/sfx-kit"]
+	path = repos/sfx-kit
+	url = https://github.com/wyzowl/sfx-kit
+	shallow = true
+	ignore = dirty
+[submodule "repos/vertical-video-kit"]
+	path = repos/vertical-video-kit
+	url = https://github.com/SDuarteCorredor/vertical-video-kit
+	shallow = true
+	ignore = dirty

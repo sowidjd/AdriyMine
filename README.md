@@ -7,6 +7,9 @@ Kumpulan repo animasi/film berbasis kode untuk dipakai bersama Claude Code.
 | `repos/lemo-opuscar` | [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) | 99 gaya film + skill Claude Code |
 | `repos/mg-styles-15` | [Vincentwei1021/mg-styles-15](https://github.com/Vincentwei1021/mg-styles-15) | 15 gaya motion design (prompt + source) |
 | `repos/ClaudeAnimationBase` | [JohnHeibel/ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase) | Starter kit animasi karakter Clawd (p5.js) |
+| `repos/shorts-kit` | [howznguyen/shorts-kit](https://github.com/howznguyen/shorts-kit) | Aturan channel (SOUL.md), 20 alur cerita, area aman, caption, cek fakta (MIT) |
+| `repos/sfx-kit` | [wyzowl/sfx-kit](https://github.com/wyzowl/sfx-kit) | 320 efek suara CC0, bebas komersial |
+| `repos/vertical-video-kit` | [SDuarteCorredor/vertical-video-kit](https://github.com/SDuarteCorredor/vertical-video-kit) | Video 1080×1920, caption kata per kata, area aman (MIT) |
 
 ## Setelah clone
 
