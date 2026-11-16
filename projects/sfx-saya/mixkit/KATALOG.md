@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-274 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+279 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -21,6 +21,8 @@
 | `arrow-whoosh` | 1.1 s | sesuatu melesat, panah, gerak cepat |
 | `audience-light-applause` | 5.71 s | tepuk tangan ringan, apresiasi kecil |
 | `auditorium-moderate-applause-and-cheering` | 17.84 s | tepuk tangan + sorakan di auditorium |
+| `baby-saying-soccer` | 1.23 s | bayi bilang "soccer" (bahasa Inggris), lucu |
+| `baby-toy-music-box-lullaby` | 16.02 s | kotak musik nina bobo, lembut, kenangan masa kecil |
 | `beach-waves-with-children-ambience` | 52.0 s (suasana/loop) | ombak pantai + anak-anak bermain, ceria |
 | `big-fire-burning` | 3.51 s (suasana/loop) | api besar berkobar (latar) |
 | `big-fire-flame-burning` | 8.27 s (suasana/loop) | nyala api besar (latar) |
@@ -32,6 +34,7 @@
 | `birds-in-the-jungle` | 60.83 s (suasana/loop) | burung di hutan tropis |
 | `blizzard-cold-winds` | 130.55 s (suasana/loop) | badai salju, dingin ekstrem |
 | `body-impact-falling-into-the-sand` | 1.1 s | jatuh ke pasir, gedebuk |
+| `boy-says-volcano` | 1.62 s | anak bilang "volcano!" (bahasa Inggris), sains/gunung api |
 | `breeze-through-the-trees` | 14.33 s (suasana/loop) | angin sepoi di pepohonan |
 | `busy-park-playground-with-kids-playing` | 60.32 s (suasana/loop) | taman bermain ramai anak-anak (latar) |
 | `calm-thunderstorm-in-the-jungle` | 49.0 s (suasana/loop) | badai tenang di hutan tropis |
@@ -69,6 +72,7 @@
 | `distant-sea-humming-ambiance` | 44.86 s (suasana/loop) | laut di kejauhan, tenang, luas |
 | `dog-barking-twice` | 1.62 s | anjing menggonggong, kejutan lucu |
 | `dry-leaves-rustling` | 1.3 s (suasana/loop) | daun kering bergemerisik, langkah di hutan, musim kemarau |
+| `educational-rattle-toy-shaker` | 2.44 s | mainan kerincingan bayi |
 | `electric-buzz-glitch` | 1.02 s | listrik korslet, glitch, error |
 | `electronics-power-up` | 5.02 s | alat elektronik menyala, power up |
 | `end-of-show-clapping-crowd` | 8.95 s | tepuk tangan akhir pertunjukan |
@@ -195,6 +199,7 @@
 | `rhythmic-audience-clapping-loop` | 5.03 s (suasana/loop) | tepuk tangan berirama, semangat (loop) |
 | `river-in-the-forest-with-birds` | 95.0 s (suasana/loop) | sungai di hutan + burung |
 | `river-water-flow-and-surroundings` | 60.13 s (suasana/loop) | sungai mengalir + suasana sekitar |
+| `robot-baby-annoy-chirp-collect` | 2.0 s | robot kecil berkicau iseng, dapat item, imut |
 | `robot-positive-item-acquired` | 1.5 s | robot dapat item, "berhasil!" ala game |
 | `running-through-the-forest` | 14.64 s | berlari menembus hutan |
 | `sad-game-over-trombone` | 5.61 s | gagal lucu "wah wah wah", kecewa |

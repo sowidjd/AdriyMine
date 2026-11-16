@@ -180,6 +180,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-baby-saying-soccer-2109.wav",
+  "nama": "baby-saying-soccer",
+  "durasi_s": 1.23,
+  "bunyi_mulai_s": 0.02,
+  "peak_db": -1.6,
+  "suasana_loop": false,
+  "cocok_untuk": "bayi bilang \"soccer\" (bahasa Inggris), lucu",
+  "normal": "normal/baby-saying-soccer.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-baby-toy-music-box-lullaby-700.wav",
+  "nama": "baby-toy-music-box-lullaby",
+  "durasi_s": 16.02,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -0.7,
+  "suasana_loop": false,
+  "cocok_untuk": "kotak musik nina bobo, lembut, kenangan masa kecil",
+  "normal": "normal/baby-toy-music-box-lullaby.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-beach-waves-with-children-ambience-1193.wav",
   "nama": "beach-waves-with-children-ambience",
   "durasi_s": 52.0,
@@ -308,6 +332,18 @@
   "suasana_loop": false,
   "cocok_untuk": "jatuh ke pasir, gedebuk",
   "normal": "normal/body-impact-falling-into-the-sand.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-boy-says-volcano-2439.wav",
+  "nama": "boy-says-volcano",
+  "durasi_s": 1.62,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -1.1,
+  "suasana_loop": false,
+  "cocok_untuk": "anak bilang \"volcano!\" (bahasa Inggris), sains/gunung api",
+  "normal": "normal/boy-says-volcano.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -752,6 +788,18 @@
   "suasana_loop": true,
   "cocok_untuk": "daun kering bergemerisik, langkah di hutan, musim kemarau",
   "normal": "normal/dry-leaves-rustling.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-educational-rattle-toy-shaker-2818.wav",
+  "nama": "educational-rattle-toy-shaker",
+  "durasi_s": 2.44,
+  "bunyi_mulai_s": 0.27,
+  "peak_db": -4.1,
+  "suasana_loop": false,
+  "cocok_untuk": "mainan kerincingan bayi",
+  "normal": "normal/educational-rattle-toy-shaker.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2264,6 +2312,18 @@
   "suasana_loop": true,
   "cocok_untuk": "sungai mengalir + suasana sekitar",
   "normal": "normal/river-water-flow-and-surroundings.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-robot-baby-annoy-chirp-collect-3107.wav",
+  "nama": "robot-baby-annoy-chirp-collect",
+  "durasi_s": 2.0,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -0.6,
+  "suasana_loop": false,
+  "cocok_untuk": "robot kecil berkicau iseng, dapat item, imut",
+  "normal": "normal/robot-baby-annoy-chirp-collect.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

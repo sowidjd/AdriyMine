@@ -14,6 +14,8 @@ SAAT = {'cinematic-whoosh-fast-transition': 'transisi cepat antar adegan', 'cine
  'keyboard-typing': 'mengetik, chat, kerja di laptop', 'intro-transition': 'pembuka bagian/judul baru', 'footsteps-on-tall-grass': 'berjalan di rumput, alam, mengendap', 'flock-of-wild-geese': 'kawanan burung, alam liar, migrasi',
  'female-astonished-gasp': 'kaget/takjub "hah!", reaksi fakta mengejutkan', 'fast-whoosh-transition': 'transisi cepat', 'epic-orchestra-transition': 'transisi megah, pengungkapan besar',
  'crowd-laugh': 'penonton tertawa, momen lucu',
+ 'robot-baby-annoy-chirp-collect': 'robot kecil berkicau iseng, dapat item, imut', 'boy-says-volcano': 'anak bilang "volcano!" (bahasa Inggris), sains/gunung api',
+ 'baby-saying-soccer': 'bayi bilang "soccer" (bahasa Inggris), lucu', 'educational-rattle-toy-shaker': 'mainan kerincingan bayi', 'baby-toy-music-box-lullaby': 'kotak musik nina bobo, lembut, kenangan masa kecil',
  'small-audience-weak-applause': 'tepuk tangan lemah/sepi, canggung, gagal lucu', 'stand-up-club-audience-applause': 'tepuk tangan klub stand-up comedy',
  'classroom-spontaneous-applause': 'tepuk tangan spontan di kelas', 'medium-size-group-applause-and-laugh': 'tawa + tepuk tangan kelompok sedang',
  'clapping-male-crowd': 'kerumunan cowok bertepuk tangan', 'small-group-moderate-applause': 'tepuk tangan kelompok kecil, sedang', 'small-young-crowd-clapping': 'anak muda bertepuk tangan',
