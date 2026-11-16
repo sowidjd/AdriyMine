@@ -648,6 +648,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-forest-at-night-1224.wav",
+  "nama": "forest-at-night",
+  "durasi_s": 47.04,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -18.0,
+  "suasana_loop": true,
+  "cocok_untuk": "hutan malam (latar)",
+  "normal": "normal/forest-at-night.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-forest-birds-singing-1212.wav",
   "nama": "forest-birds-singing",
   "durasi_s": 2.22,
@@ -900,6 +912,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-man-strong-snore-2478.wav",
+  "nama": "man-strong-snore",
+  "durasi_s": 1.49,
+  "bunyi_mulai_s": 0.14,
+  "peak_db": -12.0,
+  "suasana_loop": false,
+  "cocok_untuk": "dengkuran keras, tidur pulas, lucu",
+  "normal": "normal/man-strong-snore.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-martial-arts-fast-punch-2047.wav",
   "nama": "martial-arts-fast-punch",
   "durasi_s": 1.34,
@@ -980,6 +1004,30 @@
   "suasana_loop": true,
   "cocok_untuk": "hutan malam, serangga, misterius tenang",
   "normal": "normal/night-forest-with-insects.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-night-vision-starting-2476.wav",
+  "nama": "night-vision-starting",
+  "durasi_s": 1.15,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -21.6,
+  "suasana_loop": false,
+  "cocok_untuk": "kacamata malam/teknologi menyala, mulai memindai",
+  "normal": "normal/night-vision-starting.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-old-subway-train-arrives-2681.wav",
+  "nama": "old-subway-train-arrives",
+  "durasi_s": 18.77,
+  "bunyi_mulai_s": 1.08,
+  "peak_db": -7.4,
+  "suasana_loop": true,
+  "cocok_untuk": "kereta tua datang, stasiun",
+  "normal": "normal/old-subway-train-arrives.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1260,6 +1308,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-sleeping-mouth-smacking-lips-2480.wav",
+  "nama": "sleeping-mouth-smacking-lips",
+  "durasi_s": 2.81,
+  "bunyi_mulai_s": 0.13,
+  "peak_db": -6.3,
+  "suasana_loop": false,
+  "cocok_untuk": "orang tidur berdecap, lucu, ngantuk",
+  "normal": "normal/sleeping-mouth-smacking-lips.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-small-cricket-screech-1781.wav",
   "nama": "small-cricket-screech",
   "durasi_s": 1.42,
@@ -1332,6 +1392,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-space-alien-invasion-2477.wav",
+  "nama": "space-alien-invasion",
+  "durasi_s": 13.32,
+  "bunyi_mulai_s": 0.18,
+  "peak_db": -4.1,
+  "suasana_loop": false,
+  "cocok_untuk": "invasi alien, sci-fi, ancaman dari luar angkasa",
+  "normal": "normal/space-alien-invasion.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-stadium-crowd-light-applause-362.wav",
   "nama": "stadium-crowd-light-applause",
   "durasi_s": 11.09,
@@ -1368,6 +1440,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-subway-interior-ambience-2680.wav",
+  "nama": "subway-interior-ambience",
+  "durasi_s": 32.95,
+  "bunyi_mulai_s": 0.4,
+  "peak_db": -10.1,
+  "suasana_loop": true,
+  "cocok_untuk": "di dalam kereta/KRL (latar)",
+  "normal": "normal/subway-interior-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-summer-crickets-loop-1788.wav",
   "nama": "summer-crickets-loop",
   "durasi_s": 18.83,
@@ -1376,6 +1460,18 @@
   "suasana_loop": true,
   "cocok_untuk": "jangkrik musim panas (latar)",
   "normal": "normal/summer-crickets-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-summer-night-crickets-1787.wav",
+  "nama": "summer-night-crickets",
+  "durasi_s": 32.71,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -24.1,
+  "suasana_loop": true,
+  "cocok_untuk": "jangkrik malam (latar)",
+  "normal": "normal/summer-night-crickets.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1412,6 +1508,18 @@
   "suasana_loop": true,
   "cocok_untuk": "teknologi canggih, futuristik, mesin/AI",
   "normal": "normal/technological-futuristic-hum.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-terror-night-ambiance-2481.wav",
+  "nama": "terror-night-ambiance",
+  "durasi_s": 118.09,
+  "bunyi_mulai_s": 0.87,
+  "peak_db": -0.8,
+  "suasana_loop": true,
+  "cocok_untuk": "malam mencekam (latar)",
+  "normal": "normal/terror-night-ambiance.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1520,6 +1628,18 @@
   "suasana_loop": false,
   "cocok_untuk": "kemenangan, pengumuman resmi, \"ta-da!\"",
   "normal": "normal/trumpet-fanfare.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-twilight-jungle-2420.wav",
+  "nama": "twilight-jungle",
+  "durasi_s": 13.57,
+  "bunyi_mulai_s": 0.98,
+  "peak_db": -7.0,
+  "suasana_loop": true,
+  "cocok_untuk": "hutan saat senja (latar)",
+  "normal": "normal/twilight-jungle.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

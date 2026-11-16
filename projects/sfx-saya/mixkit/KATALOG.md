@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-139 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+149 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -60,6 +60,7 @@
 | `flock-of-wild-geese` | 5.22 s (suasana/loop) | kawanan burung, alam liar, migrasi |
 | `footsteps-in-the-forest-ground` | 34.2 s | langkah di tanah hutan, mengendap |
 | `footsteps-on-tall-grass` | 23.1 s | berjalan di rumput, alam, mengendap |
+| `forest-at-night` | 47.04 s (suasana/loop) | hutan malam (latar) |
 | `forest-birds-singing` | 2.22 s (suasana/loop) | kicau burung hutan, pagi damai |
 | `forest-rain-loop` | 24.75 s (suasana/loop) | hujan di hutan (latar) |
 | `fuel-explosion` | 2.98 s | ledakan bahan bakar, dahsyat |
@@ -81,6 +82,7 @@
 | `liquid-bubble` | 1.05 s | gelembung cairan, ide muncul, lab |
 | `little-birds-singing-in-the-trees` | 8.33 s (suasana/loop) | pagi, taman, alam tenang |
 | `man-running-in-the-forest` | 11.24 s | orang berlari di hutan, dikejar, buru-buru |
+| `man-strong-snore` | 1.49 s | dengkuran keras, tidur pulas, lucu |
 | `martial-arts-fast-punch` | 1.34 s | pukulan, "dihantam", fakta yang menampar |
 | `melodical-flute-music-notification` | 7.54 s | notifikasi lembut, alam, ceria |
 | `morning-sound-in-a-garden` | 110.44 s (suasana/loop) | pagi di taman/kebun, segar |
@@ -88,6 +90,8 @@
 | `mystwrious-bass-pulse` | 16.56 s | misterius, tegang, sesuatu akan terungkap |
 | `night-crickets-near-the-swamp` | 33.74 s (suasana/loop) | jangkrik malam dekat rawa (latar) |
 | `night-forest-with-insects` | 84.0 s (suasana/loop) | hutan malam, serangga, misterius tenang |
+| `night-vision-starting` | 1.15 s | kacamata malam/teknologi menyala, mulai memindai |
+| `old-subway-train-arrives` | 18.77 s (suasana/loop) | kereta tua datang, stasiun |
 | `owl-in-a-forest` | 90.14 s (suasana/loop) | burung hantu di hutan, malam misterius |
 | `owl-shriek` | 1.18 s | jeritan burung hantu, kaget/seram |
 | `papers-blowing-in-the-windstorm` | 5.2 s (suasana/loop) | kertas beterbangan diterpa angin, berantakan, kacau |
@@ -111,19 +115,24 @@
 | `short-fire-whoosh` | 3.19 s | whoosh api singkat |
 | `sick-man-sneeze` | 0.86 s | bersin, sakit, kejutan lucu |
 | `single-cricket-screech` | 1.78 s | satu jangkrik "krik", hening canggung |
+| `sleeping-mouth-smacking-lips` | 2.81 s | orang tidur berdecap, lucu, ngantuk |
 | `small-cricket-screech` | 1.42 s | jangkrik kecil berderik (dekat) |
 | `small-crowd-laugh-and-applause` | 5.76 s | tertawa + tepuk tangan, lucu yang berhasil |
 | `small-group-cheer-and-applause` | 10.6 s | berhasil, sorakan, perayaan kecil |
 | `small-meteor-falling` | 5.04 s | meteor jatuh, sesuatu meluncur dari langit |
 | `small-waves-harbor-rocks` | 77.86 s (suasana/loop) | ombak kecil di batu pelabuhan |
 | `soft-woosh-fire` | 4.61 s | whoosh api lembut |
+| `space-alien-invasion` | 13.32 s | invasi alien, sci-fi, ancaman dari luar angkasa |
 | `stadium-crowd-light-applause` | 11.09 s | tepuk tangan stadion, pengakuan besar |
 | `strange-animal-of-the-desert` | 2.79 s | suara hewan aneh di gurun, misterius |
 | `strong-wild-wind-in-a-storm` | 13.65 s (suasana/loop) | angin kencang badai, terhempas |
+| `subway-interior-ambience` | 32.95 s (suasana/loop) | di dalam kereta/KRL (latar) |
 | `summer-crickets-loop` | 18.83 s (suasana/loop) | jangkrik musim panas (latar) |
+| `summer-night-crickets` | 32.71 s (suasana/loop) | jangkrik malam (latar) |
 | `summer-night-crickets-loop` | 42.0 s (suasana/loop) | jangkrik malam (latar) |
 | `summer-night-in-the-forest` | 126.0 s (suasana/loop) | malam musim panas di hutan (latar) |
 | `technological-futuristic-hum` | 6.0 s (suasana/loop) | teknologi canggih, futuristik, mesin/AI |
+| `terror-night-ambiance` | 118.09 s (suasana/loop) | malam mencekam (latar) |
 | `terror-transition` | 12.48 s | transisi horor/mengagetkan |
 | `thunder-rumble-and-light-rain` | 25.75 s (suasana/loop) | gemuruh petir + gerimis, muram |
 | `thunder-strike-in-storm` | 7.5 s | petir menyambar, kejutan besar, dramatis |
@@ -133,6 +142,7 @@
 | `tick-tock-clock-timer` | 16.85 s | waktu berjalan, menunggu, deadline |
 | `transition-windy-swoosh` | 3.2 s | transisi berangin, angin kencang |
 | `trumpet-fanfare` | 8.0 s | kemenangan, pengumuman resmi, "ta-da!" |
+| `twilight-jungle` | 13.57 s (suasana/loop) | hutan saat senja (latar) |
 | `vacuum-swoosh-transition` | 2.26 s | transisi tersedot/menghilang |
 | `vintage-telephone-ringtone` | 7.39 s | telepon jadul berdering, panggilan, zaman dulu |
 | `walking-in-the-forest` | 28.15 s | berjalan di hutan |
