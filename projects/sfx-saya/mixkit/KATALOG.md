@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-469 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+475 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -34,6 +34,7 @@
 | `bass-rumble-hum` | 7.0 s | gemuruh bass, tegang |
 | `beach-waves-with-children-ambience` | 52.0 s (suasana/loop) | ombak pantai + anak-anak bermain, ceria |
 | `big-army-crowd-marching` | 8.65 s | pasukan berbaris, kekuatan massa, kompak |
+| `big-crowd-talking-loop` | 59.74 s (suasana/loop) | keramaian orang mengobrol (latar) |
 | `big-fire-burning` | 3.51 s (suasana/loop) | api besar berkobar (latar) |
 | `big-fire-flame-burning` | 8.27 s (suasana/loop) | nyala api besar (latar) |
 | `big-loving-kiss` | 1.15 s | cium besar penuh sayang |
@@ -77,6 +78,7 @@
 | `cinematic-transition-swoosh-heartbeat-trailer` | 8.11 s | transisi tegang ala trailer |
 | `cinematic-tunnel-reverb-woosh` | 6.75 s | masuk ke dunia lain, flashback, transisi dalam |
 | `cinematic-whoosh-fast-transition` | 1.33 s | transisi cepat antar adegan |
+| `city-alert-siren-loop` | 22.75 s (suasana/loop) | sirene peringatan kota, darurat (loop) |
 | `clapping-fast` | 3.46 s | tepuk tangan cepat satu orang, semangat |
 | `clapping-indoors` | 22.75 s | tepuk tangan di dalam ruangan |
 | `clapping-male-crowd` | 6.8 s | kerumunan cowok bertepuk tangan |
@@ -312,6 +314,7 @@
 | `party-trumpet` | 2.31 s | terompet pesta |
 | `party-trumpet-horn-isolated` | 1.29 s | terompet pesta tunggal |
 | `people-bathing-in-the-sea-ambience` | 15.34 s (suasana/loop) | pantai ramai, orang berenang, liburan |
+| `people-in-fair-ambience-and-laughter` | 15.01 s (suasana/loop) | pasar malam/bazar ramai + tawa (latar) |
 | `people-indoors-ambience` | 51.72 s (suasana/loop) | orang ramai di dalam ruangan (latar) |
 | `percussion-tick-tock-timer` | 24.9 s | tik-tok perkusi, waktu berjalan berirama |
 | `person-blows` | 0.42 s | meniup, "fiuh" lega |
@@ -401,6 +404,7 @@
 | `spinning-rattle-noise` | 3.79 s | kerincing berputar |
 | `squeezing-party-trumpet` | 1.96 s | terompet pesta diremas, lucu |
 | `stadium-crowd-light-applause` | 11.09 s | tepuk tangan stadion, pengakuan besar |
+| `stadium-joy-shouting-crowd` | 15.77 s | stadion bersorak gembira, gol! |
 | `stand-up-club-audience-applause` | 20.16 s | tepuk tangan klub stand-up comedy |
 | `stone-debris-falling` | 7.0 s | reruntuhan batu berjatuhan |
 | `stones-and-rocks-falling` | 4.25 s | batu-batu berjatuhan, longsor |
@@ -437,12 +441,14 @@
 | `tired-man-yawns` | 3.38 s | cowok capek menguap |
 | `toy-mechanism` | 1.13 s | mekanisme mainan diputar, "krek-krek" |
 | `tractors-working-on-the-field` | 44.26 s (suasana/loop) | traktor di sawah/ladang |
+| `trailer-screaming-people-annihilation` | 10.19 s | orang menjerit panik ala trailer bencana |
 | `transition-windy-swoosh` | 3.2 s | transisi berangin, angin kencang |
 | `trumpet-fanfare` | 8.0 s | kemenangan, pengumuman resmi, "ta-da!" |
 | `twilight-jungle` | 13.57 s (suasana/loop) | hutan saat senja (latar) |
 | `ui-zoom-in-long-sound` | 1.15 s | zoom in panjang, mendekat perlahan |
 | `ui-zoom-out` | 1.15 s | zoom out, melihat gambaran besar |
 | `underwater-transmitter-hum` | 13.62 s (suasana/loop) | dengung pemancar bawah air (latar) |
+| `urban-city-sounds-and-light-car-traffic` | 23.89 s (suasana/loop) | kota + lalu lintas ringan (latar) |
 | `user-interface-zoom-in` | 0.66 s | zoom in, fokus ke detail |
 | `vacuum-swoosh-transition` | 2.26 s | transisi tersedot/menghilang |
 | `very-crowded-pub-or-party-loop` | 36.0 s (suasana/loop) | pesta/kafe sangat ramai (latar) |

@@ -336,6 +336,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-big-crowd-talking-loop-364.wav",
+  "nama": "big-crowd-talking-loop",
+  "durasi_s": 59.74,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -4.2,
+  "suasana_loop": true,
+  "cocok_untuk": "keramaian orang mengobrol (latar)",
+  "normal": "normal/big-crowd-talking-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-big-fire-burning-1335.wav",
   "nama": "big-fire-burning",
   "durasi_s": 3.51,
@@ -848,6 +860,18 @@
   "suasana_loop": false,
   "cocok_untuk": "transisi cepat antar adegan",
   "normal": "normal/cinematic-whoosh-fast-transition.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-city-alert-siren-loop-1008.wav",
+  "nama": "city-alert-siren-loop",
+  "durasi_s": 22.75,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -1.1,
+  "suasana_loop": true,
+  "cocok_untuk": "sirene peringatan kota, darurat (loop)",
+  "normal": "normal/city-alert-siren-loop.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3672,6 +3696,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-people-in-fair-ambience-and-laughter-368.wav",
+  "nama": "people-in-fair-ambience-and-laughter",
+  "durasi_s": 15.01,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -1.8,
+  "suasana_loop": true,
+  "cocok_untuk": "pasar malam/bazar ramai + tawa (latar)",
+  "normal": "normal/people-in-fair-ambience-and-laughter.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-people-indoors-ambience-2981.wav",
   "nama": "people-indoors-ambience",
   "durasi_s": 51.72,
@@ -4740,6 +4776,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-stadium-joy-shouting-crowd-3022.wav",
+  "nama": "stadium-joy-shouting-crowd",
+  "durasi_s": 15.77,
+  "bunyi_mulai_s": 0.27,
+  "peak_db": -1.7,
+  "suasana_loop": false,
+  "cocok_untuk": "stadion bersorak gembira, gol!",
+  "normal": "normal/stadium-joy-shouting-crowd.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-stand-up-club-audience-applause-508.wav",
   "nama": "stand-up-club-audience-applause",
   "durasi_s": 20.16,
@@ -5172,6 +5220,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-trailer-screaming-people-annihilation-351.wav",
+  "nama": "trailer-screaming-people-annihilation",
+  "durasi_s": 10.19,
+  "bunyi_mulai_s": 0.06,
+  "peak_db": -0.9,
+  "suasana_loop": false,
+  "cocok_untuk": "orang menjerit panik ala trailer bencana",
+  "normal": "normal/trailer-screaming-people-annihilation.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-transition-windy-swoosh-1474.wav",
   "nama": "transition-windy-swoosh",
   "durasi_s": 3.2,
@@ -5240,6 +5300,18 @@
   "suasana_loop": true,
   "cocok_untuk": "dengung pemancar bawah air (latar)",
   "normal": "normal/underwater-transmitter-hum.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-urban-city-sounds-and-light-car-traffic-369.wav",
+  "nama": "urban-city-sounds-and-light-car-traffic",
+  "durasi_s": 23.89,
+  "bunyi_mulai_s": 0.25,
+  "peak_db": -0.2,
+  "suasana_loop": true,
+  "cocok_untuk": "kota + lalu lintas ringan (latar)",
+  "normal": "normal/urban-city-sounds-and-light-car-traffic.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
