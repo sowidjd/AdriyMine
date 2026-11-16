@@ -11,7 +11,7 @@ LINES = [
     (0.2, 2.4, "Alarm bunyi tujuh kali..."),
     (2.45, 4.3, "tetep aja telat."),
     (4.35, 7.0, "Tapi tenang, masalahnya bukan karena kamu malas."),
-    (7.3, 10.0, "Kenalin, ini Klod."),
+    (7.3, 10.0, "Nah, kenalin. Ini si Klod."),
     (10.05, 13.0, "Tiap pagi, dramanya sama."),
     (13.2, 15.0, "Jam lima, alarm bunyi."),
     (15.5, 18.0, "Lima menit lagi deh..."),
@@ -56,9 +56,10 @@ LINES = [
 # Arahan gaya per kalimat (VoxCPM2 "controllable cloning": deskripsi dalam kurung sebelum teks).
 # Tanpa prompt lanjutan, supaya nada tidak ikut datar seperti rekaman contoh.
 def style(i):
-    if i <= 1: return "dramatic, exasperated, storytelling tone with strong rise and fall"
+    if i == 0: return "dramatic, exasperated, storytelling tone with strong rise and fall"
+    if i == 1: return "exasperated sigh, moderate pace, clear articulation"
     if i == 2: return "playful, reassuring, warm smile in the voice"
-    if i <= 4: return "friendly, cheerful, like introducing a friend"
+    if i <= 4: return "friendly, cheerful, clear articulation, like introducing a friend"
     if i == 5: return "sleepy, slow, drowsy"
     if i == 6: return "very sleepy, mumbling, lazy whisper"
     if i <= 9: return "comedic, deadpan, a bit faster"
