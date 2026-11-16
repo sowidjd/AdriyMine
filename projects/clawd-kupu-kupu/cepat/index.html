@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Clawd dan Kupu-kupu</title>
+<style>html,body{margin:0;background:#1b1820}canvas{width:100%;max-width:1280px;display:block;margin:auto}</style></head>
+<body>
+<canvas id="c" width="1280" height="720"></canvas>
+<script>
+// Clawd mengejar kupu-kupu: versi cepat (Canvas 2D). renderAt(t) menggambar satu frame; tanpa ?render, halaman memutarnya.
+const W = 1920, H = 1080, G = 860, DUR = 15, BPM = 120;
+const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const INK = '#2B2233', CLAY = '#D97757', CLAYDK = '#A84D33', CREAM = '#FFF5E2', ROSE = '#E27A92', OCHRE = '#E8AA38', SKY = '#8EC3E6', TAU = Math.PI * 2;
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x)), lerp = (a, b, k) => a + (b - a) * k;
+const ease = x => { x = clamp(x); return x * x * (3 - 2 * x); }, easeIn = x => Math.pow(clamp(x), 3), easeOut = x => 1 - Math.pow(1 - clamp(x), 3);
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const hash = n => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+function mix(a, b, k) { const pa = parseInt(a.slice(1), 16), pb = parseInt(b.slice(1), 16), c = i => Math.round(lerp((pa >> i) & 255, (pb >> i) & 255, clamp(k))); return `rgb(${c(16)},${c(8)},${c(0)})`; }
+const hex = s => { if (s[0] === '#') return s; const m = s.match(/\d+/g).map(Number); return '#' + m.map(v => v.toString(16).padStart(2, '0')).join(''); };
+let BF = 0, KEY = 0;   // boil frame (12/s): outlines wobble like hand-drawn animation
+const jit = a => (hash(BF * 131.7 + (KEY++) * 7.31) - .5) * 2 * a;
+
+// ---------- drawing ----------
+function poly(pts, fill, stroke = INK, lw = 4, j = 1.6) {
+  ctx.beginPath();
+  pts.forEach(([x, y], i) => { const p = [x + jit(j), y + jit(j)]; i ? ctx.lineTo(...p) : ctx.moveTo(...p); });
+  ctx.closePath();
+  if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+  if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.lineJoin = 'round'; ctx.stroke(); }
+}
+function line(pts, lw = 4, col = INK, j = 1.2) {
+  ctx.beginPath(); pts.forEach(([x, y], i) => { const p = [x + jit(j), y + jit(j)]; i ? ctx.lineTo(...p) : ctx.moveTo(...p); });
+  ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke();
+}
+const ell = (cx, cy, rx, ry, n = 22, rot = 0) => Array.from({ length: n }, (_, i) => { const a = i / n * TAU, x = Math.cos(a) * rx, y = Math.sin(a) * ry; return [cx + x * Math.cos(rot) - y * Math.sin(rot), cy + x * Math.sin(rot) + y * Math.cos(rot)]; });
+function rect(x, y, w, h, n = 3) { const P = []; for (let i = 0; i < n; i++) P.push([x + w * i / n, y]); for (let i = 0; i < n; i++) P.push([x + w, y + h * i / n]); for (let i = 0; i < n; i++) P.push([x + w - w * i / n, y + h]); for (let i = 0; i < n; i++) P.push([x, y + h - h * i / n]); return P; }
+function heart(cx, cy, r) { const P = []; for (let i = 0; i < 24; i++) { const a = i / 24 * TAU, x = 16 * Math.sin(a) ** 3, y = -(13 * Math.cos(a) - 5 * Math.cos(2 * a) - 2 * Math.cos(3 * a) - Math.cos(4 * a)); P.push([cx + x * r / 16, cy + y * r / 16]); } return P; }
+
+// ---------- Clawd ----------
+const FACES = {
+  bored:      { eyes: 'narrow', mouth: 'flat', look: [-.3, .4], arms: [-.8, -.85] },
+  surprised:  { eyes: 'wide', mouth: 'O', emote: '!', arms: [1.1, 1.0], take: 1.3 },
+  mischief:   { eyes: 'narrow', mouth: 'grin', look: [.9, -.3], arms: [-.2, -.3] },
+  dizzy:      { eyes: 'swirl', mouth: 'wobble', emote: 'stars', arms: [.4, .1] },
+  determined: { eyes: 'determined', mouth: 'flat', look: [1, -.4], arms: [.5, .2] },
+  confused:   { eyes: 'confused', mouth: 'wobble', emote: '?', look: [1, -.7], arms: [.1, 1.4] },
+  sad:        { eyes: 'sad', mouth: 'frown', emote: 'cloud', look: [0, .6], arms: [-.8, -.75], col: '#B07A86' },
+  love:       { eyes: 'heart', mouth: 'cat', emote: 'hearts', blush: 1, arms: [.3, .1], col: '#E08378' },
+  peek:       { eyes: 'wide', mouth: 'o', look: [.15, -1], arms: [.2, .2], take: .5 },
+};
+function acted(t, keys) {   // emotion keys with a squash-stretch "take" on every change
+  let i = 0; while (i + 1 < keys.length && t >= keys[i + 1][0]) i++;
+  const [t0, name, over] = keys[i], F = { ...FACES[name], ...(over || {}) }, a = t - t0, k = i ? (F.take ?? .7) : 0;
+  const pre = i + 1 < keys.length ? seg(t, keys[i + 1][0] - .1, keys[i + 1][0]) * .1 : 0;
+  return { ...F, name, age: a, sq: -.26 * k * Math.exp(-6 * a) * Math.cos(16 * a) + pre, dy: -1.1 * k * Math.exp(-7 * a) * Math.max(0, Math.cos(9 * a)),
+           squint: i && a < .12 ? 1 - a / .12 : pre * 10 };
+}
+function eye(kind, x, y, u, look, squint) {
+  const [lx, ly] = look || [0, 0], ex = x + lx * .55 * u, ey = y + ly * .6 * u, h = (1 - .85 * (squint || 0));
+  ctx.save();
+  if (kind === 'heart') poly(heart(x, y, u * .95), ROSE, INK, u * .14);
+  else if (kind === 'swirl') { const P = []; for (let i = 0; i < 30; i++) { const a = i * .55 + BF; P.push([x + Math.cos(a) * i * .035 * u, y + Math.sin(a) * i * .035 * u]); } line(P, u * .16); }
+  else if (kind === 'wide') { poly(ell(ex, ey, .55 * u, 1.05 * u * h, 18), INK, null); poly(ell(ex + .2 * u, ey - .45 * u * h, .16 * u, .2 * u * h, 10), CREAM, null, 0, .3); }
+  else if (kind === 'narrow') poly(rect(ex - .55 * u, ey - .18 * u, 1.1 * u, .36 * u, 2), INK, null);
+  else if (kind === 'sad') { poly(ell(ex, ey + .2 * u, .32 * u, .65 * u * h, 14), INK, null); line([[x - .7 * u, y - 1.1 * u + (x > 0 ? 0 : .35 * u)], [x + .7 * u, y - 1.1 * u + (x > 0 ? .35 * u : 0)]], u * .16); }
+  else if (kind === 'determined') { poly(ell(ex, ey + .15 * u, .35 * u, .7 * u * h, 14), INK, null); line([[x - .8 * u, y - 1.1 * u + (x < 0 ? -.2 : .3) * u], [x + .8 * u, y - 1.1 * u + (x < 0 ? .3 : -.2) * u]], u * .18); }
+  else poly(ell(ex, ey, .35 * u, .95 * u * h, 14), INK, null);   // Clawd's tall slit
+  ctx.restore();
+}
+function clawd(x, y, u, o) {
+  const sq = o.sq || 0, dy = (o.dy || 0) * u, col = o.col || CLAY;
+  // shadow
+  const f = 1 - Math.min(.5, Math.abs(o.dy || 0) * .06);
+  poly(ell(x, y + u * .15, 5.6 * u * f, u * f, 20), 'rgba(43,34,51,.22)', null, 0, .5);
+  ctx.save(); ctx.translate(x + (o.dx || 0) * u, y + dy); ctx.rotate(o.rot || 0); ctx.scale((o.flip ? -1 : 1) * (1 + sq * .6), 1 - sq);
+  const lw = u * .17;
+  // arms (behind), legs, body
+  const arm = (side, a) => { ctx.save(); ctx.translate(side * 4.9 * u, -4.5 * u); ctx.rotate(side < 0 ? a : -a); poly(rect(side < 0 ? -2.2 * u : 0, -.5 * u, 2.2 * u, u, 2), col, INK, lw); ctx.restore(); };
+  const [aL, aR] = o.arms || [.2, .2];
+  arm(-1, aL); arm(1, aR);
+  [-4, -2, 1, 3].forEach((lx, i) => {
+    const lift = o.walk != null ? Math.max(0, Math.sin((o.walk + (i % 2 ? .5 : 0)) * TAU)) * .7 * u : 0;
+    poly(rect(lx * u, -2.3 * u - lift, u, 2.3 * u, 2), CLAYDK, INK, lw);
+  });
+  poly(rect(-5 * u, -8 * u, 10 * u, 6 * u, 4), col, INK, lw);
+  poly(rect(-5 * u, -3 * u, 10 * u, 1 * u, 4), mix(hex(col), INK, .18), null, 0, 1);
+  // face
+  const E = o.eyes || 'normal', eyesLR = E === 'confused' ? ['narrow', 'wide'] : [E, E];
+  if (o.blush) for (const s of [-1, 1]) poly(ell(s * 3.4 * u, -4.6 * u, .8 * u, .45 * u, 14), 'rgba(226,122,146,.75)', null, 0, .5);
+  eye(eyesLR[0], -2.5 * u, -6 * u, u, o.look, o.squint);
+  eye(eyesLR[1], 2.5 * u, -6 * u, u, o.look, o.squint);
+  const m = o.mouth, my = -4.2 * u, mlw = u * .16;
+  if (m === 'O') poly(ell(0, my, .45 * u, .6 * u, 14), INK, null);
+  else if (m === 'o') poly(ell(0, my, .25 * u, .3 * u, 12), INK, null);
+  else if (m === 'grin') line([[-1.2 * u, my - .2 * u], [-.4 * u, my + .35 * u], [.4 * u, my + .35 * u], [1.2 * u, my - .2 * u]], mlw);
+  else if (m === 'frown') line([[-.8 * u, my + .3 * u], [0, my - .15 * u], [.8 * u, my + .3 * u]], mlw);
+  else if (m === 'wobble') line([[-1 * u, my], [-.5 * u, my - .25 * u], [0, my + .1 * u], [.5 * u, my - .25 * u], [1 * u, my]], mlw);
+  else if (m === 'cat') line([[-.9 * u, my - .1 * u], [-.45 * u, my + .3 * u], [0, my], [.45 * u, my + .3 * u], [.9 * u, my - .1 * u]], mlw);
+  else if (m === 'flat') line([[-.6 * u, my], [.6 * u, my]], mlw);
+  ctx.restore();
+  if (o.emote) emote(o.emote, x + (o.dx || 0) * u + 4.5 * u, y + dy - 9.6 * u * (1 - sq), u, clamp((o.age ?? 1) / .25), o.age ?? 1);
+}
+function emote(kind, x, y, u, k, age) {
+  if (k <= 0) return;
+  ctx.save(); ctx.translate(x, y); const s = k < 1 ? 1.25 * Math.sin(k * Math.PI / 2) + (1 - k) * 0 : 1; ctx.scale(s, s);
+  if (kind === '!') { poly(rect(-.35 * u, -2.6 * u, .7 * u, 1.9 * u, 2), OCHRE, INK, u * .12); poly(ell(0, .1 * u, .4 * u, .4 * u, 12), OCHRE, INK, u * .12); }
+  if (kind === '?') { line([[-.7 * u, -1.9 * u], [-.2 * u, -2.6 * u], [.6 * u, -2.2 * u], [.4 * u, -1.3 * u], [0, -1 * u], [0, -.5 * u]], u * .32, '#7B5CA8'); poly(ell(0, .2 * u, .25 * u, .25 * u, 10), '#7B5CA8', null); }
+  if (kind === 'stars') for (let i = 0; i < 3; i++) { const a = age * 4 + i * TAU / 3; star(Math.cos(a) * 3 * u - 4.5 * u, Math.sin(a) * .9 * u + .8 * u, .7 * u); }
+  if (kind === 'hearts') for (let i = 0; i < 3; i++) { const p = ((age * .7 + i / 3) % 1); poly(heart(-.5 * u + Math.sin(p * 9 + i) * .8 * u, -p * 4 * u, (.5 + .3 * i % 2) * u * (1 - p * .3)), ROSE, INK, u * .1); }
+  if (kind === 'cloud') { const cx = -4.5 * u, cy = -1.4 * u; for (let i = 0; i < 4; i++) { const p = (age * 1.6 + i / 4) % 1; line([[cx - 1.3 * u + i * .9 * u, cy + .8 * u + p * 2 * u], [cx - 1.4 * u + i * .9 * u, cy + 1.3 * u + p * 2 * u]], u * .12, '#5D7FB8'); }
+    for (const [ox, oy, rx, ry] of [[-1, 0, 1.1, .8], [.9, -.3, 1.2, .9], [0, -.6, 1, .8]]) poly(ell(cx + ox * u, cy + oy * u, rx * u, ry * u, 14), '#A7AEC4', null); }
+  ctx.restore();
+}
+function star(x, y, r) { const P = []; for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * .45 : r; P.push([x + Math.cos(a) * rr, y + Math.sin(a) * rr]); } poly(P, '#FFD24A', INK, r * .15); }
+
+// ---------- butterfly & meadow ----------
+function butterfly(x, y, r, open, rot) {
+  const s = lerp(.14, 1, clamp(open));
+  ctx.save(); ctx.translate(x, y); ctx.rotate(rot);
+  for (const side of [-1, 1]) {
+    const sx = P => P.map(([px, py]) => [px * s, py]);
+    poly(sx(ell(side * .42 * r, .4 * r, .42 * r, .34 * r, 14, side * .6)), ROSE, INK, 2.6);
+    poly(sx(ell(side * .62 * r, -.28 * r, .64 * r, .48 * r, 16, -side * .5)), '#F2994A', INK, 2.6);
+    poly(sx(ell(side * .82 * r, -.42 * r, .17 * r, .13 * r, 10)), CREAM, null);
+    line([[side * .04 * r, -.42 * r], [side * .2 * r, -.75 * r], [side * .3 * r, -.92 * r]], 2.2);
+  }
+  poly(ell(0, 0, .11 * r, .5 * r, 12), INK, null);
+  ctx.restore();
+}
+const flapFast = t => .5 + .5 * Math.sin(t * TAU * 6.5), flapSlow = t => .55 + .45 * Math.sin(t * TAU * .9);
+function flower(x, gy, h, col, bend) {
+  const hx = x + Math.sin(bend) * h, hy = gy - Math.cos(bend) * h, mx = x + Math.sin(bend * .5) * h * .55, my = gy - Math.cos(bend * .5) * h * .55;
+  ctx.beginPath(); ctx.moveTo(x, gy); ctx.quadraticCurveTo(mx, my, hx, hy); ctx.strokeStyle = '#4E7F3E'; ctx.lineWidth = 6; ctx.stroke();
+  poly(ell((x + mx) / 2 + 14, (gy + my) / 2, 16, 7, 10, -.6), '#6E9F58', INK, 2);
+  const pr = h * .1;
+  for (let i = 0; i < 5; i++) { const a = bend + i * TAU / 5; poly(ell(hx + Math.sin(a) * pr, hy - Math.cos(a) * pr, pr * .62, pr * .45, 12, a + Math.PI / 2), col, INK, 2.4); }
+  poly(ell(hx, hy, pr * .45, pr * .45, 12), OCHRE, INK, 2.4);
+  return [hx, hy];
+}
+function meadow(t, camX, warm = 0) {
+  ctx.fillStyle = mix(SKY, '#FBE3B8', warm * .7); ctx.fillRect(-1500, -800, 6000, G + 800);
+  const px = (camX - 960) * .85;
+  ctx.save(); const g = ctx.createRadialGradient(px + 330, 170, 0, px + 330, 170, 240); g.addColorStop(0, 'rgba(255,240,190,.85)'); g.addColorStop(1, 'rgba(255,240,190,0)'); ctx.fillStyle = g; ctx.fillRect(px + 90, -70, 480, 480); ctx.restore();
+  poly(ell(px + 330, 170, 62, 62, 24), mix('#FFF1C9', '#FFD98A', warm), null);
+  for (let i = 0; i < 5; i++) { const cx = px + 700 + i * 520 + 60 * hash(i) + 18 * Math.sin(t * .3 + i), cy = 140 + 110 * hash(i + 7);
+    for (let k = 0; k < 3; k++) poly(ell(cx + (k - 1) * 70, cy - (k === 1 ? 26 : 0), 80 - 10 * Math.abs(k - 1), 44, 18), mix(CREAM, '#FBE3B8', warm * .5), null); }
+  const hp = (camX - 960) * .5;
+  for (let i = 0; i < 5; i++) poly(ell(hp - 600 + i * 900 + 200 * hash(i + 3), G + 40, 620, 230 + 60 * hash(i + 9), 36), mix('#A3CBA6', '#FBE3B8', warm * .35), 'rgba(43,34,51,.45)', 2.5);
+  ctx.fillStyle = mix('#7FB069', '#FBE3B8', warm * .2); ctx.fillRect(-1500, G - 14, 6000, 800);
+  line([[-1500, G - 14], [0, G - 14], [1500, G - 14], [3000, G - 14], [4500, G - 14]], 3);
+  for (let i = 0; i < 60; i++) { const x = -1100 + i * 90 + 40 * hash(i), y = G + 30 + 160 * hash(i + 50), sw = Math.sin(t * 2.8 + hash(i) * 6) * 4;
+    for (const k of [-1, 0, 1]) line([[x + k * 6, y], [x + k * 10 + sw, y - 16 - 8 * hash(i + k)]], 2.2, '#4E7F3E', .6); }
+}
+function path(keys, t) {
+  if (t <= keys[0][0]) return keys[0][1]; const n = keys.length; if (t >= keys[n - 1][0]) return keys[n - 1][1];
+  let i = 0; while (t >= keys[i + 1][0]) i++;
+  const p0 = keys[Math.max(0, i - 1)][1], p1 = keys[i][1], p2 = keys[i + 1][1], p3 = keys[Math.min(n - 1, i + 2)][1], s = (t - keys[i][0]) / (keys[i + 1][0] - keys[i][0]), s2 = s * s, s3 = s2 * s;
+  return [0, 1].map(j => .5 * (2 * p1[j] + (-p0[j] + p2[j]) * s + (2 * p0[j] - 5 * p1[j] + 4 * p2[j] - p3[j]) * s2 + (-p0[j] + 3 * p1[j] - 3 * p2[j] + p3[j]) * s3));
+}
+const tilt = (keys, t) => { const a = path(keys, t - .03), b = path(keys, t + .03); return clamp((b[0] - a[0]) * .004, -.35, .35); };
+function jump(t, t0, t1, h) {
+  if (t < t0 - .12) return { dy: 0, sq: 0 }; if (t < t0) return { dy: 0, sq: .18 * ease(seg(t, t0 - .12, t0)) };
+  if (t < t1) { const k = (t - t0) / (t1 - t0); return { dy: -h * 4 * k * (1 - k), sq: -.16 * Math.abs(1 - 2 * k) }; }
+  const a = t - t1; return { dy: 0, sq: .22 * Math.exp(-8 * a) * Math.cos(20 * a) };
+}
+const shake = (t, amt) => { const f = Math.floor(t * 24); return [(hash(f * 1.7) - .5) * 2 * amt, (hash(f * 2.3 + 9) - .5) * 2 * amt]; };
+const bob = t => -.35 * Math.abs(Math.sin(t * Math.PI * BPM / 60));
+function cam(cx, cy, z) { ctx.translate(W / 2, H / 2); ctx.scale(z, z); ctx.translate(-cx, -cy); }
+const toScreen = (x, y, cx, cy, z) => [W / 2 + (x - cx) * z, H / 2 + (y - cy) * z];
+function iris(x, y, r) { ctx.beginPath(); ctx.rect(-50, -50, W + 100, H + 100); if (r > 2) ctx.arc(x, y, r, 0, TAU, true); ctx.fillStyle = INK; ctx.fill('evenodd'); }
+function wipe(p) {   // green brush bands sweep across (0→.5) and off (.5→1)
+  if (p <= 0 || p >= 1) return;
+  ctx.save(); ctx.translate(W / 2, H / 2); ctx.rotate(-.12); ctx.translate(-W / 2, -H / 2);
+  for (let i = 0; i < 5; i++) { const d = [0, .14, .06, .18, .1][i], y0 = -240 + i * 320;
+    const q = p < .5 ? easeOut(clamp((p * 2 - d) / (1 - d))) : ease(clamp(((p - .5) * 2 - d) / (1 - d)));
+    const x0 = p < .5 ? -300 : lerp(-300, W + 400, q), x1 = p < .5 ? lerp(-300, W + 400, q) : W + 400;
+    if (x1 - x0 > 20) poly(rect(x0, y0, x1 - x0, 360, 6), i % 2 ? '#7FB069' : '#5E9450', null, 0, 6); }
+  ctx.restore();
+}
+
+// ---------- shot A (0–5 s): the pounce ----------
+const A = { cx: 760, fx: 1120, fh: 170, u: 24, tLand: 2.05, tLift: 3.25, tJump: 3.3, tHit: 3.9 };
+const bendA = t => .07 * Math.sin(t * 1.4) + (t > A.tHit ? 1.15 * Math.exp(-(t - A.tHit) * .9) * Math.cos((t - A.tHit) * 2.2) : 0);
+function shotA(t) {
+  const sh = t > A.tHit ? shake(t, 9 * Math.exp(-(t - A.tHit) * 8)) : [0, 0];
+  const cx = 960 + 14 * Math.sin(t * .5) + sh[0], cy = 560 + sh[1], z = lerp(1.04, 1.1, ease(seg(t, 2, 3)));
+  ctx.save(); cam(cx, cy, z);
+  meadow(t, cx);
+  flower(380, G + 10, 120, ROSE, .05 * Math.sin(t * 1.2 + 1));
+  flower(1550, G + 20, 140, CREAM, .06 * Math.sin(t * 1.1 + 2));
+  const head = flower(A.fx, G, A.fh, '#B78AD6', bendA(t));
+  const m = acted(t, [[0, 'bored'], [A.tLand + .05, 'surprised', { look: [.9, -.4] }], [2.7, 'mischief'], [A.tHit + .05, 'dizzy'], [4.45, 'determined']]);
+  const hop = jump(t, A.tJump, A.tHit, 3.2), x = lerp(A.cx, 1030, ease(seg(t, A.tJump, A.tHit)));
+  const crouch = t < A.tJump ? .14 * ease(seg(t, 2.95, 3.15)) : 0, land = t > A.tHit ? .35 * Math.exp(-(t - A.tHit) * 6) * Math.cos((t - A.tHit) * 14) : 0;
+  const o = { ...m, dy: m.dy + hop.dy + bob(t) * (t < A.tJump ? 1 : 0), sq: m.sq + hop.sq + crouch + land };
+  if (t > A.tJump && t < A.tHit) o.arms = [1.1, .7];
+  if (m.name === 'dizzy') o.rot = .12 * Math.sin(t * 5);
+  clawd(x, G, A.u, o);
+  const inK = [[.7, [-120, 380]], [1.15, [260, 300]], [1.55, [640, 450]], [1.85, [980, 520]], [A.tLand, [head[0], head[1] - 20]]];
+  const outK = [[A.tLift, [head[0], head[1] - 20]], [3.55, [1180, 520]], [3.95, [1330, 470]], [4.4, [1520, 520]], [4.85, [1780, 380]], [5.0, [1900, 330]]];
+  if (t > .7 && t < A.tLand) { const p = path(inK, t); butterfly(p[0], p[1] + 10 * Math.sin(t * 9), 34, flapFast(t), tilt(inK, t)); }
+  else if (t >= A.tLand && t < A.tLift) butterfly(head[0], head[1] - 20, 34, lerp(flapFast(t), flapSlow(t - A.tLand), seg(t, A.tLand, A.tLand + .3)), .1 * Math.sin(t * 1.3));
+  else if (t >= A.tLift) { const p = path(outK, t); butterfly(p[0], p[1] + 12 * Math.sin(t * 8), 34, flapFast(t), tilt(outK, t)); }
+  ctx.restore();
+  if (t < .6) iris(...toScreen(A.cx, G - 4 * A.u, cx, cy, z), lerp(0, 1500, easeIn(t / .6)));
+  if (t > 4.7) wipe((t - 4.7) / .6);
+}
+
+// ---------- shot B (5–15 s): the chase, and the gift ----------
+const B = { u: 24, j1: [1.3, 1.9], j2: [2.6, 3.35], tSad: 3.65, tPush: [3.7, 5.0], tDown: [6.0, 7.4], tLook: 7.45, tLove: 8.15, tIris: 8.85 };
+const xB = l => l < B.j1[0] ? lerp(250, 860, easeIn(seg(l, 0, B.j1[0])) * .35 + seg(l, 0, B.j1[0]) * .65)
+  : l < B.j1[1] ? lerp(860, 1180, ease(seg(l, ...B.j1))) : l < B.j2[0] ? 1180 + 40 * easeOut(seg(l, B.j1[1], B.j2[0])) : lerp(1220, 1680, ease(seg(l, ...B.j2)));
+const BF_K = [[0, [520, 560]], [.6, [800, 610]], [1.2, [1100, 600]], [1.6, [1190, 790]], [2.0, [1360, 640]], [2.55, [1520, 560]],
+              [2.95, [1440, 330]], [3.3, [1290, 430]], [3.75, [1500, 300]], [4.4, [1900, 250]], [5.2, [2250, 420]], [6.0, [2150, 470]]];
+function shotB(t) {
+  const l = t - 5, u = B.u, x = xB(l);
+  const hop = l < B.j2[0] - .2 ? jump(l, ...B.j1, 3.2) : jump(l, ...B.j2, 5.5);
+  const th = l > B.j2[1] ? shake(l, 8 * Math.exp(-(l - B.j2[1]) * 8)) : [0, 0], pu = ease(seg(l, ...B.tPush));
+  const cx = lerp(x + 220, 1720, pu) + th[0], cy = lerp(560, 690, pu) + th[1], z = lerp(1, 2.05, pu) + .08 * ease(seg(l, B.tLove, 10));
+  ctx.save(); cam(cx, cy, z);
+  const warm = ease(seg(l, B.tLove - .2, B.tLove + 1.2));
+  meadow(t, cx, warm);
+  for (let i = 0; i < 12; i++) { const fx = -200 + i * 260 + 90 * hash(i + 40); if (fx > 1520 && fx < 1900) continue;
+    flower(fx, G + 10 + 30 * hash(i + 20), 100 + 60 * hash(i + 30), [ROSE, CREAM, '#B78AD6', OCHRE][i % 4], .07 * Math.sin(t * 1.2 + i)); }
+  if (warm > 0) { const g = ctx.createRadialGradient(1690, G - 150, 0, 1690, G - 150, 420); g.addColorStop(0, `rgba(255,214,140,${.45 * warm})`); g.addColorStop(1, 'rgba(255,214,140,0)'); ctx.fillStyle = g; ctx.fillRect(1270, G - 570, 840, 840); }
+  const m = acted(l, [[0, 'determined'], [B.j1[1] + .05, 'confused'], [2.3, 'determined', { look: [1, -.6] }], [B.tSad, 'sad'], [B.tLook, 'peek'], [B.tLove, 'love', { look: [0, -.6] }]]);
+  const running = l < B.j1[0] || (l > B.j1[1] + .05 && l < B.j2[0]);
+  const slam = l > B.j2[1] ? .4 * Math.exp(-(l - B.j2[1]) * 5) * Math.cos((l - B.j2[1]) * 13) : 0;
+  const o = { ...m, dy: m.dy + hop.dy + (l > B.tSad ? bob(t) * .4 : 0), sq: m.sq + hop.sq + slam };
+  if (running) { o.walk = (x - 250) / (4 * u); o.dy += -Math.abs(Math.sin(o.walk * Math.PI)) * .5; o.rot = .06; }
+  if ((l > B.j1[0] - .05 && l < B.j1[1]) || (l > B.j2[0] - .05 && l < B.j2[1])) o.arms = [.4, 1.3];
+  if (l > B.tSad && l < B.tLook) o.sq += .1 * ease(seg(l, B.tSad, B.tSad + .5));
+  if (m.name === 'love') o.rot = .07 * Math.sin(t * Math.PI);
+  clawd(x, G, u, o);
+  const head = [x + 1.4 * u, G + o.dy * u - 8 * u * (1 - o.sq) - 14];
+  if (l < B.tDown[0]) { const p = path(BF_K, l); butterfly(p[0], p[1] + 10 * Math.sin(l * 8), 34, flapFast(l), tilt(BF_K, l)); }
+  else if (l < B.tDown[1]) { const k = seg(l, ...B.tDown), e = ease(k);
+    const p = [lerp(2150, head[0], e) + 50 * Math.sin(k * Math.PI * 2) * (1 - k), lerp(470, head[1], e) - 40 * Math.sin(k * Math.PI)];
+    butterfly(p[0], p[1], 34, k > .9 ? lerp(.5 + .5 * Math.sin(l * TAU * 3.5), flapSlow(l), (k - .9) / .1) : .5 + .5 * Math.sin(l * TAU * 3.5), -.25 * (1 - k) + .1 * Math.sin(l * 2)); }
+  else { const a = l - B.tDown[1]; butterfly(head[0], head[1], 34, flapSlow(l), .08 * Math.sin(l * 1.5) + .12 * Math.exp(-a * 4) * Math.sin(a * 14)); }
+  ctx.restore();
+  if (l < .3) wipe(.5 + l / .6);
+  if (l > B.tIris) { const r = l < B.tIris + .5 ? lerp(1500, 430, ease(seg(l, B.tIris, B.tIris + .5))) : l < 9.7 ? lerp(430, 400, seg(l, B.tIris + .5, 9.7)) : lerp(400, 0, easeIn(seg(l, 9.7, 9.95)));
+    iris(...toScreen(x + .7 * u, G - 6 * u, cx, cy, z), r); }
+}
+
+function renderAt(t) {
+  BF = Math.floor(t * 12); KEY = 0;
+  ctx.setTransform(cv.width / W, 0, 0, cv.height / H, 0, 0);
+  ctx.fillStyle = SKY; ctx.fillRect(0, 0, W, H);
+  t < 5 ? shotA(t) : shotB(t);
+  return cv.toDataURL('image/jpeg', .92);
+}
+window.renderAt = renderAt; window.DUR = DUR;
+if (!location.search.includes('render')) { const t0 = performance.now(); (function loop() { renderAt(((performance.now() - t0) / 1000) % DUR); requestAnimationFrame(loop); })(); }
+</script>
+</body>
+</html>
