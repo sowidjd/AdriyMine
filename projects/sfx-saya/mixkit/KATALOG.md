@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-672 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+683 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -161,6 +161,7 @@
 | `digital-cartoon-falling` | 1.41 s | jatuh kartun digital |
 | `dirt-debris-falling` | 5.5 s | tanah & puing berjatuhan |
 | `distant-sea-humming-ambiance` | 44.86 s (suasana/loop) | laut di kejauhan, tenang, luas |
+| `diving-sea-ambience` | 10.14 s (suasana/loop) | suasana menyelam (latar) |
 | `dog-barking-twice` | 1.62 s | anjing menggonggong, kejutan lucu |
 | `dog-sniffing-the-ground` | 4.86 s | anjing mengendus tanah, mencari sesuatu |
 | `domestic-cat-hungry-meow` | 0.87 s | kucing lapar mengeong minta makan |
@@ -490,6 +491,8 @@
 | `robot-step` | 1.69 s | langkah robot, mekanis |
 | `rock-golem-walking` | 9.56 s | golem batu berjalan, berat |
 | `rough-sea-waves-loop` | 70.84 s (suasana/loop) | ombak kasar (latar) |
+| `rowing-on-the-sea-loop` | 11.77 s (suasana/loop) | mendayung perahu (loop) |
+| `running-out-from-sea` | 8.09 s | berlari keluar dari laut, cipratan |
 | `running-through-the-forest` | 14.64 s | berlari menembus hutan |
 | `sad-game-over-trombone` | 5.61 s | gagal lucu "wah wah wah", kecewa |
 | `sad-party-horn-sound` | 1.5 s | terompet pesta lesu, gagal lucu/zonk |
@@ -500,14 +503,18 @@
 | `scary-woods-at-night` | 50.16 s (suasana/loop) | hutan seram malam hari (latar) |
 | `sci-fi-battle-laser-shots` | 2.61 s | tembakan laser, pertempuran sci-fi |
 | `sci-fi-computer-technology` | 30.0 s | komputer sci-fi bekerja |
+| `sci-fi-deep-sea` | 7.21 s (suasana/loop) | laut dalam sci-fi, misterius (latar) |
 | `sci-fi-fall` | 0.68 s | jatuh ala sci-fi |
 | `sci-fi-helicopter-engine-hum` | 4.81 s | mesin helikopter sci-fi |
 | `sci-fi-loading-operative-system` | 2.63 s | sistem sedang loading, memproses |
 | `sci-fi-machine-deep-hum` | 40.0 s (suasana/loop) | dengung mesin sci-fi dalam (latar) |
 | `sci-fi-metal-robot-collapse` | 3.61 s | robot logam ambruk |
 | `screaming-people-at-mechanical-game-fair` | 10.7 s | orang menjerit di wahana pasar malam, seru/takut |
+| `sea-mine-deep-explosion` | 4.97 s | ledakan ranjau di laut dalam, "bum" teredam |
+| `sea-mine-explosion` | 3.1 s | ledakan di laut |
 | `sea-swimming-loop` | 10.35 s (suasana/loop) | berenang di laut |
 | `sea-water-splash` | 1.74 s | cipratan air laut |
+| `sea-wave-noise` | 2.89 s (suasana/loop) | desau ombak (latar) |
 | `sea-waves-ambience` | 151.67 s (suasana/loop) | suasana ombak (latar) |
 | `sea-waves-loop` | 48.25 s (suasana/loop) | ombak laut (latar) |
 | `sea-waves-on-a-rocky-shore` | 121.09 s (suasana/loop) | ombak di pantai berbatu (latar) |
@@ -529,6 +536,7 @@
 | `single-cricket-screech` | 1.78 s | satu jangkrik "krik", hening canggung |
 | `single-party-trumpet` | 1.09 s | terompet pesta sekali tiup |
 | `single-zombie-breath` | 2.09 s | napas zombie, horor |
+| `sinking-in-the-sea` | 31.44 s | tenggelam ke laut, "blub-blub" |
 | `sleep-breathing` | 17.91 s (suasana/loop) | napas tidur tenang (latar) |
 | `sleeping-mouth-smacking-lips` | 2.81 s | orang tidur berdecap, lucu, ngantuk |
 | `slow-tram-passing` | 12.28 s | trem/kereta lambat lewat |
@@ -580,6 +588,7 @@
 | `street-ambience-with-walking-people` | 47.08 s | jalanan ramai orang berjalan (latar) |
 | `strong-breathing-of-a-person` | 5.11 s | napas berat, capek, panik |
 | `strong-wild-wind-in-a-storm` | 13.65 s (suasana/loop) | angin kencang badai, terhempas |
+| `strong-wind-sea-breeze` | 21.52 s (suasana/loop) | angin laut kencang (latar) |
 | `sub-urban-ambience-and-birds` | 62.38 s (suasana/loop) | pinggiran kota + burung, kompleks perumahan (latar) |
 | `subway-interior-ambience` | 32.95 s (suasana/loop) | di dalam kereta/KRL (latar) |
 | `subway-station-escalator` | 25.6 s (suasana/loop) | eskalator stasiun/mal |
@@ -589,6 +598,7 @@
 | `summer-night-crickets-loop` | 42.0 s (suasana/loop) | jangkrik malam (latar) |
 | `summer-night-in-the-forest` | 126.0 s (suasana/loop) | malam musim panas di hutan (latar) |
 | `swallowing-a-water-drink-in-the-throat` | 2.26 s (suasana/loop) | menelan air "gluk", gugup/haus |
+| `swashing-sea-water` | 11.47 s (suasana/loop) | air laut berdebur |
 | `sweet-kitty-meow` | 0.88 s | kucing mengeong manis |
 | `synthetic-power-bass-transition` | 6.57 s | transisi bass bertenaga |
 | `system-break` | 1.97 s | sistem rusak/crash, error total |
@@ -626,6 +636,7 @@
 | `ui-zoom-in-long-sound` | 1.15 s | zoom in panjang, mendekat perlahan |
 | `ui-zoom-out` | 1.15 s | zoom out, melihat gambaran besar |
 | `underwater-transmitter-hum` | 13.62 s (suasana/loop) | dengung pemancar bawah air (latar) |
+| `underwater-white-noise` | 4.98 s (suasana/loop) | desau bawah air (latar) |
 | `urban-city-sounds-and-light-car-traffic` | 23.89 s (suasana/loop) | kota + lalu lintas ringan (latar) |
 | `urban-square-atmosphere` | 52.88 s (suasana/loop) | alun-alun kota (latar) |
 | `urban-street-and-kids` | 40.12 s (suasana/loop) | jalanan kota + anak-anak (latar) |

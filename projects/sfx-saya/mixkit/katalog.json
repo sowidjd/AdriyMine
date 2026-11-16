@@ -1860,6 +1860,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-diving-sea-ambience-1205.wav",
+  "nama": "diving-sea-ambience",
+  "durasi_s": 10.14,
+  "bunyi_mulai_s": 0.51,
+  "peak_db": -14.0,
+  "suasana_loop": true,
+  "cocok_untuk": "suasana menyelam (latar)",
+  "normal": "normal/diving-sea-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-dog-barking-twice-1.wav",
   "nama": "dog-barking-twice",
   "durasi_s": 1.62,
@@ -5808,6 +5820,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-rowing-on-the-sea-loop-1182.wav",
+  "nama": "rowing-on-the-sea-loop",
+  "durasi_s": 11.77,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -0.5,
+  "suasana_loop": true,
+  "cocok_untuk": "mendayung perahu (loop)",
+  "normal": "normal/rowing-on-the-sea-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-running-out-from-sea-1192.wav",
+  "nama": "running-out-from-sea",
+  "durasi_s": 8.09,
+  "bunyi_mulai_s": 0.12,
+  "peak_db": -1.4,
+  "suasana_loop": false,
+  "cocok_untuk": "berlari keluar dari laut, cipratan",
+  "normal": "normal/running-out-from-sea.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-running-through-the-forest-1232.wav",
   "nama": "running-through-the-forest",
   "durasi_s": 14.64,
@@ -5928,6 +5964,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-sci-fi-deep-sea-1207.wav",
+  "nama": "sci-fi-deep-sea",
+  "durasi_s": 7.21,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -0.5,
+  "suasana_loop": true,
+  "cocok_untuk": "laut dalam sci-fi, misterius (latar)",
+  "normal": "normal/sci-fi-deep-sea.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-sci-fi-fall-749.wav",
   "nama": "sci-fi-fall",
   "durasi_s": 0.68,
@@ -6000,6 +6048,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-sea-mine-deep-explosion-1186.wav",
+  "nama": "sea-mine-deep-explosion",
+  "durasi_s": 4.97,
+  "bunyi_mulai_s": 0.29,
+  "peak_db": -0.1,
+  "suasana_loop": false,
+  "cocok_untuk": "ledakan ranjau di laut dalam, \"bum\" teredam",
+  "normal": "normal/sea-mine-deep-explosion.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-sea-mine-explosion-1184.wav",
+  "nama": "sea-mine-explosion",
+  "durasi_s": 3.1,
+  "bunyi_mulai_s": 0.05,
+  "peak_db": -0.9,
+  "suasana_loop": false,
+  "cocok_untuk": "ledakan di laut",
+  "normal": "normal/sea-mine-explosion.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-sea-swimming-loop-1181.wav",
   "nama": "sea-swimming-loop",
   "durasi_s": 10.35,
@@ -6020,6 +6092,18 @@
   "suasana_loop": false,
   "cocok_untuk": "cipratan air laut",
   "normal": "normal/sea-water-splash.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-sea-wave-noise-1202.wav",
+  "nama": "sea-wave-noise",
+  "durasi_s": 2.89,
+  "bunyi_mulai_s": 0.05,
+  "peak_db": -1.0,
+  "suasana_loop": true,
+  "cocok_untuk": "desau ombak (latar)",
+  "normal": "normal/sea-wave-noise.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -6272,6 +6356,18 @@
   "suasana_loop": false,
   "cocok_untuk": "napas zombie, horor",
   "normal": "normal/single-zombie-breath.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-sinking-in-the-sea-1178.wav",
+  "nama": "sinking-in-the-sea",
+  "durasi_s": 31.44,
+  "bunyi_mulai_s": 0.06,
+  "peak_db": -1.3,
+  "suasana_loop": false,
+  "cocok_untuk": "tenggelam ke laut, \"blub-blub\"",
+  "normal": "normal/sinking-in-the-sea.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -6888,6 +6984,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-strong-wind-sea-breeze-1201.wav",
+  "nama": "strong-wind-sea-breeze",
+  "durasi_s": 21.52,
+  "bunyi_mulai_s": 0.63,
+  "peak_db": -5.2,
+  "suasana_loop": true,
+  "cocok_untuk": "angin laut kencang (latar)",
+  "normal": "normal/strong-wind-sea-breeze.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-sub-urban-ambience-and-birds-371.wav",
   "nama": "sub-urban-ambience-and-birds",
   "durasi_s": 62.38,
@@ -6992,6 +7100,18 @@
   "suasana_loop": true,
   "cocok_untuk": "menelan air \"gluk\", gugup/haus",
   "normal": "normal/swallowing-a-water-drink-in-the-throat.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-swashing-sea-water-1179.wav",
+  "nama": "swashing-sea-water",
+  "durasi_s": 11.47,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -0.1,
+  "suasana_loop": true,
+  "cocok_untuk": "air laut berdebur",
+  "normal": "normal/swashing-sea-water.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -7436,6 +7556,18 @@
   "suasana_loop": true,
   "cocok_untuk": "dengung pemancar bawah air (latar)",
   "normal": "normal/underwater-transmitter-hum.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-underwater-white-noise-1209.wav",
+  "nama": "underwater-white-noise",
+  "durasi_s": 4.98,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -6.5,
+  "suasana_loop": true,
+  "cocok_untuk": "desau bawah air (latar)",
+  "normal": "normal/underwater-white-noise.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

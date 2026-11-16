@@ -14,6 +14,10 @@ SAAT = {'cinematic-whoosh-fast-transition': 'transisi cepat antar adegan', 'cine
  'keyboard-typing': 'mengetik, chat, kerja di laptop', 'intro-transition': 'pembuka bagian/judul baru', 'footsteps-on-tall-grass': 'berjalan di rumput, alam, mengendap', 'flock-of-wild-geese': 'kawanan burung, alam liar, migrasi',
  'female-astonished-gasp': 'kaget/takjub "hah!", reaksi fakta mengejutkan', 'fast-whoosh-transition': 'transisi cepat', 'epic-orchestra-transition': 'transisi megah, pengungkapan besar',
  'crowd-laugh': 'penonton tertawa, momen lucu',
+ 'sci-fi-deep-sea': 'laut dalam sci-fi, misterius (latar)', 'sea-mine-deep-explosion': 'ledakan ranjau di laut dalam, "bum" teredam', 'diving-sea-ambience': 'suasana menyelam (latar)',
+ 'swashing-sea-water': 'air laut berdebur', 'strong-wind-sea-breeze': 'angin laut kencang (latar)', 'sea-mine-explosion': 'ledakan di laut', 'sea-wave-noise': 'desau ombak (latar)',
+ 'running-out-from-sea': 'berlari keluar dari laut, cipratan', 'underwater-white-noise': 'desau bawah air (latar)', 'sinking-in-the-sea': 'tenggelam ke laut, "blub-blub"',
+ 'rowing-on-the-sea-loop': 'mendayung perahu (loop)',
  'motorboat-on-the-sea': 'perahu motor di laut', 'sea-waves-on-a-rocky-shore': 'ombak di pantai berbatu (latar)', 'stormy-sea-waves-loop': 'laut badai (latar)',
  'gentle-sea-wave': 'ombak lembut, tenang', 'sea-swimming-loop': 'berenang di laut', 'wooden-ship-on-the-sea': 'kapal kayu di laut, berderit (latar)', 'windy-sea-loop': 'laut berangin (latar)',
  'sea-water-splash': 'cipratan air laut', 'sea-waves-ambience': 'suasana ombak (latar)', 'rough-sea-waves-loop': 'ombak kasar (latar)', 'jump-into-the-water': 'lompat ke air "byur"',
@@ -254,7 +258,7 @@ for f in sorted(os.listdir('audio')):
     if base in seen: base = f"{base}-{m.group(1) if m else len(seen)}"   # same name, different sound: keep both
     seen[base] = 1
     y, sr = librosa.load('audio/' + f, sr=None, mono=True); peak = float(np.abs(y).max())
-    nz = np.where(np.abs(y) > peak * .05)[0]; lead = nz[0] / sr if len(nz) else 0; amb = any(k in base for k in AMB) and not any(k in base for k in ('transition', 'strike', 'swoosh', 'fish', 'rattlesnake', 'hawk', 'impact', 'notification', 'strange-animal', 'woosh', 'whoosh', 'explosion', 'ignition', 'spell', 'meteor', 'beam', 'match', 'walking', 'running', 'footsteps', 'shriek', 'screech', 'splash', 'jump', 'snore', 'smacking', 'purr', 'growl', 'grunting', 'lightning-strike'))
+    nz = np.where(np.abs(y) > peak * .05)[0]; lead = nz[0] / sr if len(nz) else 0; amb = any(k in base for k in AMB) and not any(k in base for k in ('transition', 'strike', 'swoosh', 'fish', 'rattlesnake', 'hawk', 'impact', 'notification', 'strange-animal', 'woosh', 'whoosh', 'explosion', 'ignition', 'spell', 'meteor', 'beam', 'match', 'walking', 'running', 'footsteps', 'shriek', 'screech', 'splash', 'jump', 'explosion', 'running-out', 'sinking', 'snore', 'smacking', 'purr', 'growl', 'grunting', 'lightning-strike'))
     z, _ = librosa.load('audio/' + f, sr=48000, mono=False); z = np.atleast_2d(z)
     if lead > .3: z = z[:, max(0, int((lead - .02) * 48000)):]
     z = z / (np.abs(z).max() + 1e-9) * 10 ** ((-12 if amb else -3) / 20)
