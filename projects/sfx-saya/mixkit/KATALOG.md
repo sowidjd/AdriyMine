@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-683 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+696 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -68,6 +68,7 @@
 | `birthday-crowd-party-cheer` | 5.38 s | sorakan pesta ulang tahun |
 | `blizzard-cold-winds` | 130.55 s (suasana/loop) | badai salju, dingin ekstrem |
 | `body-impact-falling-into-the-sand` | 1.1 s | jatuh ke pasir, gedebuk |
+| `boing-hit-sound` | 1.24 s | "BOING!" memantul, lucu |
 | `boy-says-volcano` | 1.62 s | anak bilang "volcano!" (bahasa Inggris), sains/gunung api |
 | `breeze-through-the-trees` | 14.33 s (suasana/loop) | angin sepoi di pepohonan |
 | `bus-departure-zone` | 8.76 s (suasana/loop) | area keberangkatan bus (latar) |
@@ -91,17 +92,22 @@
 | `cartoon-air-blow` | 1.66 s | tiupan udara ala kartun, lucu |
 | `cartoon-animal-crying-in-pain` | 2.83 s | hewan kartun kesakitan, lucu |
 | `cartoon-clown-fun-nose-sound` | 0.59 s | hidung badut "honk", lucu/konyol |
+| `cartoon-dazzle-hit-and-birds` | 1.87 s | kena pukul lalu pusing + burung berputar di kepala, lucu |
+| `cartoon-failure-piano` | 2.31 s | piano gagal kartun, zonk |
 | `cartoon-falling-eco` | 3.0 s | jatuh kartun bergema, lucu |
 | `cartoon-falling-whistle` | 2.69 s | siulan jatuh kartun "fiuuu~", jatuh lucu |
+| `cartoon-friendly-kiss` | 1.03 s | cium kartun ramah "muah" |
 | `cartoon-girl-saying-no-no-no` | 1.8 s | "no no no" kartun, menolak lucu |
 | `cartoon-insect-running-fast` | 1.64 s | serangga kartun lari cepat, lucu, kabur |
 | `cartoon-kitty-begging-meow` | 2.63 s | kucing kartun mengeong memelas, imut |
+| `cartoon-laugh-voice` | 2.08 s | tawa kartun |
 | `cartoon-monkey-applause` | 4.28 s | monyet kartun bertepuk tangan, lucu |
 | `cartoon-monkey-mocking-and-giggling` | 2.01 s | monyet kartun mengejek & cekikikan, meledek |
 | `cartoon-positive-sound` | 2.94 s | bunyi positif kartun, "yeay" |
 | `cartoon-sad-party-horn` | 1.55 s | terompet pesta sedih ala kartun, zonk |
 | `cartoon-toy-whistle` | 1.21 s | lucu, konyol, gagal lucu |
 | `cartoon-vocal-yawn` | 1.75 s | menguap ala kartun, ngantuk lucu |
+| `cartoon-voice-laugh` | 1.26 s | tawa suara kartun |
 | `cheering-crowd-loud-whistle` | 14.76 s | sorakan + siulan keras, kemenangan |
 | `chewing-something-crunchy` | 0.94 s | mengunyah renyah, ngemil, kerupuk |
 | `chickens-and-pigeons` | 5.11 s (suasana/loop) | ayam & merpati, halaman rumah desa (latar) |
@@ -132,6 +138,7 @@
 | `classroom-spontaneous-applause` | 6.54 s | tepuk tangan spontan di kelas |
 | `clock-countdown-bleeps` | 5.0 s | hitung mundur, waktu hampir habis |
 | `close-sea-waves-loop` | 29.0 s (suasana/loop) | ombak dari dekat (latar) |
+| `clown-horn-at-circus` | 2.48 s | terompet badut sirkus "honk honk" |
 | `cock-cry` | 4.21 s | ayam jantan berkokok, pagi hari, bangun |
 | `concert-hall-stomping-applause` | 16.59 s | tepuk + hentakan kaki di gedung konser, meriah |
 | `conference-audience-clapping-strongly` | 8.6 s | tepuk tangan kuat di konferensi, pengakuan |
@@ -254,6 +261,8 @@
 | `fridge-motor-hum` | 6.9 s (suasana/loop) | motor kulkas berdengung (latar) |
 | `frightening-zombie-roar` | 1.04 s | raungan zombie menakutkan, horor |
 | `fuel-explosion` | 2.98 s | ledakan bahan bakar, dahsyat |
+| `funny-cartoon-fast-splat` | 1.04 s | cipratan kartun "splat!", lucu |
+| `funny-squeaky-toy-hits` | 1.08 s | mainan bunyi "cit-cit" dipukul, lucu |
 | `futuristic-cinematic-sweep` | 1.29 s | sapuan sinematik futuristik, reveal |
 | `futuristic-electronic-engine-fail` | 6.78 s | mesin elektronik mati/gagal, error |
 | `futuristic-metal-transition-sweep` | 0.95 s | transisi logam futuristik |
@@ -283,6 +292,7 @@
 | `happy-party-horn-sound` | 2.01 s | terompet pesta ceria, "yeay!" |
 | `hard-big-horse-snort` | 1.48 s | kuda mendengus keras |
 | `hard-horror-hit-drum` | 4.14 s | pukulan drum horor keras, jump scare / fakta mengejutkan |
+| `hard-pop-click` | 1.17 s | pop/klik keras, teks muncul |
 | `hawk-call-squawk` | 2.41 s | teriakan elang/burung pemangsa |
 | `heavy-fall-into-mud` | 0.63 s | jatuh berat ke lumpur "plok" |
 | `heavy-grass-step` | 0.66 s | langkah berat di rumput |
@@ -344,6 +354,7 @@
 | `landing-jet-flying-whoosh` | 11.46 s | jet mendarat + whoosh |
 | `large-drone-engine` | 70.51 s (suasana/loop) | mesin drone besar |
 | `large-fly-buzzing` | 1.33 s | lalat besar berdengung, mengganggu |
+| `laughing-cartoon-creature` | 3.53 s | makhluk kartun tertawa |
 | `laughing-children-indoors` | 10.21 s | anak-anak tertawa di dalam ruangan |
 | `light-rain-atmosphere` | 72.9 s (suasana/loop) | suasana gerimis (latar) |
 | `light-rain-loop` | 15.0 s (suasana/loop) | hujan ringan, santai, sendu |
@@ -360,6 +371,7 @@
 | `long-giant-water-pour-into-vat` | 27.5 s (suasana/loop) | air tumpah banyak ke bak besar |
 | `long-kiss` | 1.2 s | cium panjang |
 | `long-loving-kiss` | 1.05 s | cium panjang penuh sayang |
+| `long-pop` | 0.48 s | pop panjang |
 | `lose-life-falling` | 3.52 s | kehilangan nyawa ala game, gagal |
 | `lost-kid-sobbing` | 1.82 s | anak menangis tersedu, sedih/haru |
 | `loud-bike-bell` | 3.5 s | bel sepeda keras |
@@ -629,6 +641,7 @@
 | `transition-flying-swoosh` | 2.75 s | transisi terbang whoosh |
 | `transition-windy-swoosh` | 3.2 s | transisi berangin, angin kencang |
 | `transport-airplane-flying-rumble` | 63.52 s | pesawat angkut bergemuruh |
+| `trombone-disappoint` | 2.65 s | trombon kecewa "wah-wah", gagal lucu |
 | `tropical-bird-squeak` | 1.26 s | burung tropis mencicit |
 | `truck-horn` | 0.96 s | klakson truk keras, kaget |
 | `trumpet-fanfare` | 8.0 s | kemenangan, pengumuman resmi, "ta-da!" |
