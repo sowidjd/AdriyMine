@@ -1,0 +1,468 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Peregrine Falcon</title>
+<style>
+@font-face { font-family: 'Fredoka'; src: url(fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; }
+html,body{margin:0;background:#222}canvas{height:100vh;display:block;margin:auto}
+</style></head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// "Burung seberat sebungkus beras ini lebih cepat dari Whoosh" — gaya pensil warna (colored-pencil science illustration).
+// Jam video = narasi: window.TL = timeline.json (diisi render.mjs). renderAt(t) menggambar satu frame; CUES = efek suara.
+const W = 1080, H = 1920, TAU = Math.PI * 2;
+const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const FONT = 'Fredoka, "DejaVu Sans", sans-serif';
+const C = { paper: '#F8F4EA', graph: '#33241C', sky: '#B3D4E6', grass: '#8DAA45', clay: '#D97757', clayDk: '#A84D33', amber: '#E3A33B', slate: '#56657A',
+  slateDk: '#3C4757', belly: '#EFE6D2', helmet: '#2E3440', yellow: '#E8B730', white: '#FCFAF0', red: '#C8463C', cream: '#FFF6E2', blue: '#5D86B8' };
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x)), lerp = (a, b, k) => a + (b - a) * k, seg = (t, a, b) => clamp((t - a) / (b - a));
+const ease = x => { x = clamp(x); return x * x * (3 - 2 * x); }, easeOut = x => 1 - Math.pow(1 - clamp(x), 3), easeIn = x => Math.pow(clamp(x), 3);
+const backOut = x => { x = clamp(x); const s = 1.7; return 1 + (s + 1) * Math.pow(x - 1, 3) + s * Math.pow(x - 1, 2); };
+const hash = n => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+function mixh(a, b, k) { const pa = parseInt(a.slice(1), 16), pb = parseInt(b.slice(1), 16), c = i => Math.round(lerp((pa >> i) & 255, (pb >> i) & 255, clamp(k))); return '#' + ((1 << 24) + (c(16) << 16) + (c(8) << 8) + c(0)).toString(16).slice(1); }
+const rgba = (h, a) => { const p = parseInt(h.slice(1), 16); return `rgba(${(p >> 16) & 255},${(p >> 8) & 255},${p & 255},${a})`; };
+let T = 0, BOIL = 0;   // only contours boil: 3 drawings cycled, a new one every 2 frames (12/s)
+
+// ---------- timeline (narration is the clock) ----------
+const EST = [['h1', 3.6], ['h2', 1.8], ['h3', 2.6], ['k1', 3.8], ['k2', 3.6], ['k3', 3.0], ['d1', 3.2], ['d2', 3.4], ['w1', 3.0], ['w2', 3.4], ['w3', 3.4],
+  ['r1', 2.8], ['r1b', 4.0], ['r2', 3.0], ['r2b', 5.4], ['r3', 2.8], ['r3b', 5.6], ['a1', 2.8], ['a2', 2.4], ['f1', 4.2], ['f2', 3.8], ['f3', 4.0], ['f4', 2.0],
+  ['e1', 4.4], ['e2', 2.8], ['c1', 6.0], ['c2', 1.4]];
+function estTL() { let t = .35; const lines = EST.map(([id, d]) => { const l = { id, t0: t, t1: t + d, cap: '' }; t += d + .3; return l; }); return { duration: t + 1.2, lines }; }
+let TL = null, LN = {};
+function setTL(tl) { TL = tl; LN = {}; tl.lines.forEach(l => LN[l.id] = l); buildScenes(); }
+const t0 = id => LN[id].t0, t1 = id => LN[id].t1;
+
+// ---------- paper & pencil ----------
+let PAPER = null, TOOTH = null;
+function makePaper() {
+  PAPER = document.createElement('canvas'); PAPER.width = W; PAPER.height = H; const p = PAPER.getContext('2d');
+  p.fillStyle = C.paper; p.fillRect(0, 0, W, H);
+  for (let i = 0; i < 60; i++) { const g = p.createRadialGradient(hash(i) * W, hash(i + 9) * H, 0, hash(i) * W, hash(i + 9) * H, 120 + 200 * hash(i + 3)); g.addColorStop(0, 'rgba(120,90,50,0.035)'); g.addColorStop(1, 'rgba(120,90,50,0)'); p.fillStyle = g; p.fillRect(0, 0, W, H); }
+  p.strokeStyle = 'rgba(110,80,50,0.06)'; p.lineWidth = 1;
+  for (let i = 0; i < 2600; i++) { const x = hash(i * 3.1) * W, y = hash(i * 7.7) * H, a = hash(i * 1.3) * TAU, l = 4 + 10 * hash(i * 2.9); p.beginPath(); p.moveTo(x, y); p.lineTo(x + Math.cos(a) * l, y + Math.sin(a) * l); p.stroke(); }
+  TOOTH = document.createElement('canvas'); TOOTH.width = 256; TOOTH.height = 256; const q = TOOTH.getContext('2d'), im = q.createImageData(256, 256);
+  for (let i = 0; i < 256 * 256; i++) { const v = 205 + 50 * Math.pow(hash(i * 0.731 + 5), 0.6); im.data[i * 4] = v; im.data[i * 4 + 1] = v; im.data[i * 4 + 2] = v; im.data[i * 4 + 3] = 255; }
+  q.putImageData(im, 0, 0);
+}
+const ell = (cx, cy, rx, ry, n = 28, rot = 0) => Array.from({ length: n }, (_, i) => { const a = i / n * TAU, x = Math.cos(a) * rx, y = Math.sin(a) * ry; return [cx + x * Math.cos(rot) - y * Math.sin(rot), cy + x * Math.sin(rot) + y * Math.cos(rot)]; });
+function rr(x, y, w, h, r, n = 4) { const P = [], c = [[x + w - r, y + r, -Math.PI / 2], [x + w - r, y + h - r, 0], [x + r, y + h - r, Math.PI / 2], [x + r, y + r, Math.PI]];
+  for (const [cx, cy, a0] of c) for (let i = 0; i <= n; i++) { const a = a0 + i / n * Math.PI / 2; P.push([cx + Math.cos(a) * r, cy + Math.sin(a) * r]); } return P; }
+function pathOf(pts, closed = true) { const p = new Path2D(); pts.forEach(([x, y], i) => i ? p.lineTo(x, y) : p.moveTo(x, y)); if (closed) p.closePath(); return p; }
+function bbox(pts) { let a = 1e9, b = 1e9, c = -1e9, d = -1e9; for (const [x, y] of pts) { a = Math.min(a, x); b = Math.min(b, y); c = Math.max(c, x); d = Math.max(d, y); } return [a, b, c, d]; }
+// hatching inside the current clip: parallel strokes at angle `ang`, stable (seeded by id), short patches slightly re-angled
+function hatch(b, col, id, ang = .9, gap = 7, lw = 2.2, alpha = .55) {
+  const [x0, y0, x1, y1] = b, cx = (x0 + x1) / 2, cy = (y0 + y1) / 2, R = Math.hypot(x1 - x0, y1 - y0) / 2 + 10;
+  ctx.strokeStyle = rgba(col, alpha); ctx.lineWidth = lw; ctx.lineCap = 'round';
+  const n = Math.ceil(2 * R / gap);
+  ctx.beginPath();
+  for (let i = 0; i < n; i++) {
+    const a = ang + (hash(id * 13 + Math.floor(i / 6)) - .5) * .25, off = -R + i * gap + (hash(id + i * 3.3) - .5) * 2.5;
+    const nx = Math.cos(a + Math.PI / 2), ny = Math.sin(a + Math.PI / 2), dx = Math.cos(a), dy = Math.sin(a);
+    const L1 = R * (.75 + .25 * hash(id + i)), s0 = -R + 30 * hash(id * 2 + i);
+    ctx.moveTo(cx + nx * off + dx * s0, cy + ny * off + dy * s0); ctx.lineTo(cx + nx * off + dx * L1, cy + ny * off + dy * L1);
+  }
+  ctx.stroke();
+}
+// a pencilled shape: L0 broad fill, L1 hatching, optional L2 shadow cross-hatch (shadeFn returns a Path2D), graphite contour
+function shape(pts, col, id, o = {}) {
+  const p = pathOf(pts), b = bbox(pts);
+  ctx.save(); ctx.clip(p);
+  ctx.fillStyle = rgba(col, o.fill ?? .62); ctx.fillRect(b[0] - 2, b[1] - 2, b[2] - b[0] + 4, b[3] - b[1] + 4);
+  if (o.hatch !== false) hatch(b, o.hcol || mixh(col, C.graph, .12), id, o.ang ?? .85, o.gap ?? 7, o.lw ?? 2.2, o.halpha ?? .5);
+  if (o.shade) { ctx.save(); ctx.clip(o.shade); ctx.fillStyle = rgba(mixh(col, '#2B3550', .35), .28); ctx.fillRect(b[0], b[1], b[2] - b[0], b[3] - b[1]); hatch(b, mixh(col, '#2B3550', .45), id + 77, (o.ang ?? .85) + .95, 8, 2, .5); ctx.restore(); }
+  ctx.restore();
+  if (o.line !== false) contour(pts, true, id, o.lw2 ?? 2.6, o.lcol);
+}
+function contour(pts, closed, id, lw = 2.6, col = C.graph, alpha = .85) {
+  const k = BOIL, j = 1.1;
+  ctx.strokeStyle = rgba(col, alpha); ctx.lineWidth = lw; ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+  ctx.beginPath();
+  const n = pts.length, P = pts.map(([x, y], i) => [x + (hash(id * 31 + i * 7 + k * 101) - .5) * 2 * j, y + (hash(id * 17 + i * 5 + k * 59) - .5) * 2 * j]);
+  P.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); if (closed) ctx.closePath(); ctx.stroke();
+}
+const line = (pts, lw = 3, col = C.graph, id = 1, alpha = .85) => contour(pts, false, id, lw, col, alpha);
+function sky(top, bottom, id = 5, y1 = H) {
+  const g = ctx.createLinearGradient(0, 0, 0, y1); g.addColorStop(0, rgba(top, .7)); g.addColorStop(1, rgba(bottom, .6));
+  ctx.fillStyle = g; ctx.fillRect(-200, -200, W + 400, y1 + 200);
+  ctx.save(); ctx.beginPath(); ctx.rect(-200, -200, W + 400, y1 + 200); ctx.clip(); hatch([-200, -200, W + 200, y1], mixh(top, bottom, .5), id, .08, 11, 2.4, .25); ctx.restore();
+}
+function cloud(x, y, s, id) { const P = []; for (let i = 0; i <= 24; i++) { const a = Math.PI + i / 24 * Math.PI, r = s * (.8 + .25 * Math.sin(i * 1.7 + id)); P.push([x + Math.cos(a) * r * 1.6, y + Math.sin(a) * r * .7]); } shape(P, C.white, id, { fill: .75, halpha: .25, lw2: 2, lcol: '#7B8A99' }); }
+
+// ---------- text on paper ----------
+function tag(str, x, y, size, o = {}) {   // a cream paper tag, pencilled edge; *word* = amber highlight
+  const k = backOut(seg(o.age ?? 1, 0, .25)), out = 1 - seg(o.age ?? 0, (o.life ?? 99) - .15, o.life ?? 99);
+  if (k <= 0 || out <= 0) return;
+  ctx.save(); ctx.globalAlpha = out; ctx.translate(x, y); ctx.rotate(o.rot ?? 0); ctx.scale(k, k);
+  ctx.font = `700 ${size}px ${FONT}`;
+  const words = str.split(' ').map(s => ({ t: s.replace(/\*/g, ''), hi: s.includes('*') })), sp = ctx.measureText(' ').width, maxW = o.maxW ?? 880;
+  const lines = [[]]; let w = 0; for (const wd of words) { const ww = ctx.measureText(wd.t).width; if (w + ww > maxW && lines.at(-1).length) { lines.push([]); w = 0; } lines.at(-1).push({ ...wd, w: ww }); w += ww + sp; }
+  const lh = size * 1.2, widths = lines.map(l => l.reduce((s, q) => s + q.w, 0) + sp * (l.length - 1)), bw = Math.max(...widths) + size * .9, bh = lines.length * lh + size * .55;
+  if (!o.bare) shape(rr(-bw / 2, -bh / 2, bw, bh, 14), o.bg || C.cream, 900 + size, { fill: .96, halpha: .12, gap: 9, lw2: 2.4 });
+  ctx.textBaseline = 'middle';
+  lines.forEach((ln, i) => { let cx = -widths[i] / 2; const cy = (i - (lines.length - 1) / 2) * lh + size * .04;
+    for (const wd of ln) { if (wd.hi) { ctx.fillStyle = rgba(C.amber, .55); ctx.fillRect(cx - 4, cy - size * .05, wd.w + 8, size * .45); }
+      ctx.fillStyle = o.col || C.graph; ctx.fillText(wd.t, cx, cy); cx += wd.w + sp; } });
+  ctx.restore();
+}
+function caption(t) {   // the narration line on a paper slip, inside the safe box (y <= 1540)
+  if (!TL) return;
+  for (const l of TL.lines) if (t >= l.t0 - .05 && t < l.t1 + .25 && l.cap) { tag(l.cap, W / 2, 1440, 52, { age: t - l.t0 + .05, life: l.t1 + .3 - l.t0, maxW: 800 }); break; }
+}
+
+// ---------- characters & props ----------
+const FACES = { neutral: { eyes: 'normal' }, curious: { eyes: 'normal', look: [.6, -.5], mouth: 'o' }, surprised: { eyes: 'wide', mouth: 'O' },
+  squint: { eyes: 'squint', mouth: 'wobble' }, happy: { eyes: 'happy', mouth: 'smile' }, star: { eyes: 'star', mouth: 'O' }, cool: { eyes: 'happy', mouth: 'smirk' } };
+function clawd(x, y, u, o = {}) {
+  const F = { ...FACES[o.face || 'neutral'], ...o }, sq = o.sq || 0, id = 4000;
+  ctx.save(); ctx.translate(x, y + (o.dy || 0) * u); ctx.rotate(o.rot || 0); ctx.scale(1 + sq * .6, 1 - sq);
+  const [aL, aR] = o.arms || [.2, .2];
+  for (const [side, a] of [[-1, aL], [1, aR]]) { ctx.save(); ctx.translate(side * 4.9 * u, -4.5 * u); ctx.rotate(side < 0 ? a : -a); shape(side < 0 ? [[-2.2 * u, -.5 * u], [0, -.5 * u], [0, .5 * u], [-2.2 * u, .5 * u]] : [[0, -.5 * u], [2.2 * u, -.5 * u], [2.2 * u, .5 * u], [0, .5 * u]], C.clay, id + side * 3, { lw2: 2.2 }); ctx.restore(); }
+  [-4, -2, 1, 3].forEach((lx, i) => shape([[lx * u, -2.3 * u], [(lx + 1) * u, -2.3 * u], [(lx + 1) * u, 0], [lx * u, 0]], C.clayDk, id + 10 + i, { lw2: 2.2 }));
+  shape(rr(-5 * u, -8 * u, 10 * u, 6 * u, u * .3), C.clay, id + 20, { shade: new Path2D(pathOf([[-5 * u, -3.6 * u], [5 * u, -3.6 * u], [5 * u, -2 * u], [-5 * u, -2 * u]])) });
+  const [lx, ly] = F.look || [0, 0];
+  for (const s of [-1, 1]) { const ex = s * 2.5 * u + lx * .5 * u, ey = -6 * u + ly * .5 * u;
+    if (F.eyes === 'wide') { shape(ell(ex, ey, .6 * u, 1.05 * u, 18), C.graph, id + 30 + s, { fill: .95, hatch: false, line: false }); ctx.fillStyle = C.white; ctx.beginPath(); ctx.arc(ex + .2 * u, ey - .45 * u, .17 * u, 0, TAU); ctx.fill(); }
+    else if (F.eyes === 'happy') line([[s * 2.5 * u - .7 * u, -5.8 * u], [s * 2.5 * u, -6.5 * u], [s * 2.5 * u + .7 * u, -5.8 * u]], u * .2, C.graph, id + 40 + s);
+    else if (F.eyes === 'squint') { line([[s * 2.5 * u - .8 * u, -6.4 * u], [s * 2.5 * u + .1 * u, -6 * u], [s * 2.5 * u - .8 * u, -5.6 * u]].map(([px, py]) => [s < 0 ? px : 2 * s * 2.5 * u - px, py]), u * .2, C.graph, id + 45 + s); }
+    else if (F.eyes === 'star') { const P = []; for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, r = i % 2 ? .38 * u : .95 * u; P.push([s * 2.5 * u + Math.cos(a) * r, -6 * u + Math.sin(a) * r]); } shape(P, C.amber, id + 50 + s, { fill: .95, hatch: false, lw2: 2 }); }
+    else shape(ell(ex, ey, .38 * u, .95 * u, 16), C.graph, id + 60 + s, { fill: .95, hatch: false, line: false }); }
+  const m = F.mouth, my = -4.2 * u;
+  if (m === 'O') shape(ell(0, my, .5 * u, .65 * u, 14), C.graph, id + 70, { fill: .9, hatch: false, line: false });
+  else if (m === 'o') shape(ell(0, my, .28 * u, .32 * u, 12), C.graph, id + 71, { fill: .9, hatch: false, line: false });
+  else if (m === 'smile') line([[-.9 * u, my - .15 * u], [0, my + .35 * u], [.9 * u, my - .15 * u]], u * .18, C.graph, id + 72);
+  else if (m === 'smirk') line([[-.7 * u, my + .1 * u], [.2 * u, my + .2 * u], [.9 * u, my - .25 * u]], u * .18, C.graph, id + 73);
+  else if (m === 'wobble') line([[-1 * u, my], [-.5 * u, my - .25 * u], [0, my + .1 * u], [.5 * u, my - .25 * u], [1 * u, my]], u * .18, C.graph, id + 74);
+  if (o.goggles) { for (const s of [-1, 1]) shape(ell(s * 2.5 * u, -6 * u, 1.35 * u, 1.25 * u, 20), '#9CCFE8', id + 80 + s, { fill: .35, hatch: false, lw2: u * .22 }); line([[-1.15 * u, -6 * u], [1.15 * u, -6 * u]], u * .22, C.graph, id + 83); }
+  if (o.binoculars) { for (const s of [-1, 1]) shape(rr(s * 1.25 * u - 1 * u, -7 * u, 2 * u, 2.2 * u, .4 * u), C.graph, id + 90 + s, { fill: .9, halpha: .3 }); }
+  ctx.restore();
+}
+// The falcon, side view facing right, length ~2.2*s. o.fold 0 (wings spread) .. 1 (stoop teardrop); o.flap -1..1; o.perch (upright with feet)
+function falcon(x, y, s, o = {}) {
+  const fold = clamp(o.fold ?? 0), flap = o.flap ?? 0, id = o.id ?? 7000;
+  ctx.save(); ctx.translate(x, y); ctx.rotate(o.rot ?? 0); ctx.scale(o.flip ? -1 : 1, 1);
+  const body = []; const len = lerp(1, 1.12, fold), th = lerp(.24, .17, fold);
+  for (let i = 0; i <= 20; i++) { const u = i / 20, xx = lerp(.55, -.62, u) * len, w = th * Math.sin(Math.PI * Math.pow(u, .7)) * (1 - .35 * u); body.push([xx * s, -w * s]); }
+  for (let i = 20; i >= 0; i--) { const u = i / 20, xx = lerp(.55, -.62, u) * len, w = th * .9 * Math.sin(Math.PI * Math.pow(u, .7)) * (1 - .3 * u); body.push([xx * s, w * s]); }
+  // tail
+  const tl = -.6 * len * s; shape([[tl, -.05 * s], [tl - lerp(.42, .3, fold) * s, -lerp(.12, .04, fold) * s], [tl - lerp(.45, .32, fold) * s, lerp(.1, .03, fold) * s], [tl, .06 * s]], C.slateDk, id + 1, { ang: 0 });
+  // far wing (behind), near wing (front)
+  const wing = (far) => {
+    const up = far ? .75 : 1, f = flap * (far ? .8 : 1);
+    const tip = [lerp(-.25, -.66, fold) * s, lerp(-.95 * up - .35 * f, -.08, fold) * s], mid = [lerp(.02, -.35, fold) * s, lerp(-.45 * up - .2 * f, -.1, fold) * s];
+    const P = [[.22 * s, -.1 * s], mid, tip, [lerp(-.3, -.6, fold) * s, lerp(-.55 * up - .2 * f, -.02, fold) * s], [-.25 * s, -.05 * s]];
+    shape(P, far ? C.slateDk : C.slate, id + (far ? 3 : 4), { ang: -.6, shade: far ? null : new Path2D(pathOf([[-.6 * s, -1.2 * s], [.3 * s, -1.2 * s], [-.1 * s, -.2 * s], [-.6 * s, -.1 * s]])) });
+    if (!far && fold < .8) for (let i = 0; i < 4; i++) line([[lerp(mid[0], tip[0], .2 + i * .2), lerp(mid[1], tip[1], .2 + i * .2)], [lerp(mid[0], tip[0], .2 + i * .2) - .12 * s, lerp(mid[1], tip[1], .2 + i * .2) + .14 * s]], 1.6, C.graph, id + 20 + i, .5);
+  };
+  if (!o.perch) wing(true);
+  shape(body, C.slate, id + 5, { ang: .2, shade: new Path2D(pathOf([[-1 * s, 0], [.6 * s, 0], [.6 * s, .4 * s], [-1 * s, .4 * s]])) });
+  // pale barred belly
+  ctx.save(); ctx.clip(pathOf(body)); shape([[.5 * s, .02 * s], [-.5 * s, .04 * s], [-.5 * s, .4 * s], [.5 * s, .4 * s]], C.belly, id + 6, { ang: 1.4, halpha: .3, line: false });
+  for (let i = 0; i < 9; i++) line([[(.35 - i * .09) * s, (.08 + .03 * (i % 2)) * s], [(.31 - i * .09) * s, (.12 + .03 * (i % 2)) * s]], 2.4, C.slateDk, id + 30 + i, .7); ctx.restore();
+  if (o.perch) { for (const k of [0, 1]) { line([[(-.02 + k * .1) * s, .18 * s], [(0 + k * .1) * s, .36 * s]], s * .04, C.yellow, id + 40 + k, 1); line([[(-.06 + k * .1) * s, .37 * s], [(.08 + k * .1) * s, .37 * s]], s * .03, C.yellow, id + 42 + k, 1); } }
+  // head: dark helmet + moustache, white cheek, yellow eye-ring, hooked beak
+  const hx = .52 * len * s, hy = -.06 * s, hr = .17 * s;
+  shape(ell(hx, hy, hr, hr * .95, 22), C.white, id + 7, { fill: .9, halpha: .15 });
+  ctx.save(); ctx.clip(pathOf(ell(hx, hy, hr, hr * .95, 22)));
+  shape([[hx - hr * 1.2, hy - hr * 1.2], [hx + hr * 1.1, hy - hr * 1.2], [hx + hr * .6, hy - hr * .15], [hx + hr * .1, hy - hr * .05], [hx + hr * .15, hy + hr * .9], [hx - hr * .25, hy + hr * 1.1], [hx - hr * 1.2, hy + hr]], C.helmet, id + 8, { fill: .9, line: false });
+  ctx.restore(); contour(ell(hx, hy, hr, hr * .95, 22), true, id + 9);
+  shape([[hx + hr * .82, hy - hr * .25], [hx + hr * 1.45, hy - hr * .05], [hx + hr * 1.35, hy + hr * .3], [hx + hr * 1.12, hy + hr * .22], [hx + hr * .85, hy + hr * .2]], '#C9B47A', id + 10, { fill: .9, halpha: .2, lw2: 2 });
+  shape(ell(hx + hr * .45, hy - hr * .2, hr * .3, hr * .3, 14), C.yellow, id + 11, { fill: .95, hatch: false, lw2: 1.8 });
+  ctx.fillStyle = C.graph; ctx.beginPath(); ctx.arc(hx + hr * .5, hy - hr * .2, hr * .16, 0, TAU); ctx.fill();
+  ctx.fillStyle = C.white; ctx.beginPath(); ctx.arc(hx + hr * .56, hy - hr * .27, hr * .05, 0, TAU); ctx.fill();
+  if (o.membrane) { const k = clamp(o.membrane); ctx.save(); ctx.clip(pathOf(ell(hx + hr * .45, hy - hr * .2, hr * .31, hr * .31, 14))); ctx.fillStyle = 'rgba(170,205,230,0.55)'; ctx.fillRect(hx + hr * .78 - hr * .66 * k, hy - hr * .6, hr * .66 * k, hr * .8); ctx.restore(); }
+  if (!o.perch) wing(false); else shape([[.3 * s, -.15 * s], [-.1 * s, -.18 * s], [-.62 * s, .02 * s], [-.1 * s, .1 * s], [.3 * s, .05 * s]], C.slate, id + 12, { ang: -.3 });
+  ctx.restore();
+}
+function train(x, y, s, id = 8000, cars = 4) {   // a generic high-speed train (no logo), nose to the right
+  const cw = 3.2 * s, h = .62 * s;
+  for (let c = cars - 1; c >= 0; c--) {
+    const x0 = x - c * (cw + .08 * s), nose = c === 0;
+    const P = nose ? [[x0 - cw, y - h], [x0 - .2 * s, y - h], [x0 + 1.1 * s, y - .12 * s], [x0 + 1.2 * s, y], [x0 - cw, y]] : [[x0 - cw, y - h], [x0, y - h], [x0, y], [x0 - cw, y]];
+    shape(P, '#F2F0EA', id + c, { ang: .05, halpha: .2, shade: new Path2D(pathOf([[x0 - cw, y - .2 * s], [x0 + 1.3 * s, y - .2 * s], [x0 + 1.3 * s, y], [x0 - cw, y]])) });
+    shape([[x0 - cw + .1 * s, y - .32 * s], [x0 + (nose ? .7 : -.1) * s, y - .32 * s], [x0 + (nose ? .62 : -.1) * s, y - .24 * s], [x0 - cw + .1 * s, y - .24 * s]], C.red, id + 20 + c, { fill: .9, hatch: false, lw2: 1.4 });
+    shape([[x0 - cw + .2 * s, y - .54 * s], [x0 + (nose ? -.25 : -.2) * s, y - .54 * s], [x0 + (nose ? .1 : -.2) * s, y - .42 * s], [x0 - cw + .2 * s, y - .42 * s]], '#3E4A5C', id + 30 + c, { fill: .85, halpha: .3, lw2: 1.4 });
+  }
+}
+function city(t, light, id = 9000, baseY = 1180, parallax = 0) {
+  const tint = mixh('#7F8FA8', '#C99A6B', light);
+  for (let i = 0; i < 14; i++) { const w = 70 + 70 * hash(i + id), h = 160 + 430 * hash(i * 3 + id), x = -60 + i * 85 + 20 * hash(i + 7) - parallax * (.4 + .3 * hash(i));
+    shape([[x, baseY - h], [x + w, baseY - h], [x + w, baseY], [x, baseY]], mixh(tint, C.paper, .35 + .3 * hash(i * 5)), id + i, { ang: 1.5, gap: 9, halpha: .35, lw2: 1.8, lcol: '#55606E' });
+    ctx.strokeStyle = rgba(light > .5 ? '#F2C66B' : '#E9EEF5', .5); ctx.lineWidth = 3;
+    for (let r = 0; r < h / 40 - 1; r++) for (let q = 0; q < w / 22 - 1; q++) if (hash(i * 100 + r * 7 + q) > .55) { ctx.beginPath(); ctx.moveTo(x + 10 + q * 22, baseY - h + 20 + r * 40); ctx.lineTo(x + 20 + q * 22, baseY - h + 20 + r * 40); ctx.stroke(); }
+  }
+  // a Monas-like obelisk: an Indonesian skyline
+  const mx = 760 - parallax * .5; shape([[mx - 18, baseY - 470], [mx + 18, baseY - 470], [mx + 26, baseY - 60], [mx - 26, baseY - 60]], mixh('#ECE6D6', tint, .2), id + 50, { ang: 1.5, halpha: .3 });
+  shape([[mx - 90, baseY - 60], [mx + 90, baseY - 60], [mx + 110, baseY], [mx - 110, baseY]], mixh('#ECE6D6', tint, .25), id + 51, { ang: 0 });
+  shape(ell(mx, baseY - 490, 14, 24, 14), C.amber, id + 52, { fill: .9, hatch: false, lw2: 1.8 });
+}
+function gauge(x, y, r, val, o = {}) {   // speedometer 0..400 km/jam
+  shape(ell(x, y, r, r, 40).slice(20).concat([[x + r, y + 8], [x - r, y + 8]]), C.cream, 9500, { fill: .95, halpha: .15, lw2: 3 });
+  const A = v => Math.PI + clamp(v / 400) * Math.PI;
+  ctx.save(); ctx.beginPath(); ctx.moveTo(x, y); ctx.arc(x, y, r * .92, A(350), A(400)); ctx.closePath(); ctx.fillStyle = rgba(C.red, .35); ctx.fill(); ctx.restore();
+  for (let v = 0; v <= 400; v += 50) { const a = A(v); line([[x + Math.cos(a) * r * .8, y + Math.sin(a) * r * .8], [x + Math.cos(a) * r * .93, y + Math.sin(a) * r * .93]], 3, C.graph, 9510 + v);
+    ctx.font = `600 ${r * .12}px ${FONT}`; ctx.fillStyle = C.graph; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(v, x + Math.cos(a) * r * .66, y + Math.sin(a) * r * .66); }
+  const a = A(val); line([[x, y], [x + Math.cos(a) * r * .86, y + Math.sin(a) * r * .86]], 7, C.red, 9590, 1);
+  shape(ell(x, y, r * .07, r * .07, 12), C.graph, 9591, { fill: .95, hatch: false });
+  ctx.font = `700 ${r * .3}px ${FONT}`; ctx.fillStyle = val > 350 ? C.red : C.graph; ctx.textAlign = 'center'; ctx.fillText(Math.round(val), x, y - r * .3);
+  ctx.font = `600 ${r * .11}px ${FONT}`; ctx.fillStyle = C.graph; ctx.fillText('km/jam', x, y - r * .1); ctx.textAlign = 'left';
+}
+function windLines(t, x0, y0, w, h, dir = 1, n = 14, col = '#6E8FB8', id = 9600, speed = 1) {
+  for (let i = 0; i < n; i++) { const p = ((t * speed * (1.2 + hash(i + id)) + hash(i * 3 + id)) % 1), x = x0 + (dir > 0 ? p : 1 - p) * w, y = y0 + hash(i * 7 + id) * h, l = 60 + 90 * hash(i + 2);
+    line([[x, y], [x - dir * l, y + 4 * Math.sin(i)]], 3, col, id + i, .55 * Math.sin(p * Math.PI)); }
+}
+function magnifier(x, y, r, inner, id = 9700) {   // a pencilled lens: `inner` draws the magnified view, clipped to the circle
+  ctx.save(); ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.clip(); ctx.fillStyle = C.paper; ctx.fillRect(x - r, y - r, 2 * r, 2 * r); inner(); ctx.restore();
+  contour(ell(x, y, r, r, 48), true, id, 7); contour(ell(x, y, r + 14, r + 14, 48), true, id + 1, 3);
+  const a = .8; shape([[x + Math.cos(a) * (r + 10) - 16, y + Math.sin(a) * (r + 10)], [x + Math.cos(a) * (r + 10) + 16, y + Math.sin(a) * (r + 10) - 16], [x + Math.cos(a) * (r + 150) + 26, y + Math.sin(a) * (r + 150) - 6], [x + Math.cos(a) * (r + 150) - 6, y + Math.sin(a) * (r + 150) + 26]], '#7A5236', id + 2, { ang: .8 });
+}
+function card(x, y, w, h, title, sub, icon, age, id, hi = false) {
+  const k = backOut(seg(age, 0, .3)); if (k <= 0) return;
+  ctx.save(); ctx.translate(x, y); ctx.scale(k, k);
+  shape(rr(-w / 2, -h / 2, w, h, 22), hi ? '#FFE9B8' : C.cream, id, { fill: .96, halpha: .15, lw2: 3 });
+  ctx.save(); ctx.translate(0, -h * .12); icon(); ctx.restore();
+  ctx.font = `700 ${w * .13}px ${FONT}`; ctx.fillStyle = C.graph; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(title, 0, h * .3);
+  if (sub) { ctx.font = `500 ${w * .085}px ${FONT}`; ctx.fillText(sub, 0, h * .42); }
+  ctx.textAlign = 'left'; ctx.restore();
+}
+
+// ---------- scenes ----------
+const GROUPS = [['hook', ['h1', 'h2', 'h3']], ['kenal', ['k1', 'k2', 'k3']], ['dive', ['d1', 'd2']], ['wind', ['w1', 'w2', 'w3']], ['r1', ['r1', 'r1b']],
+  ['r2', ['r2', 'r2b']], ['r3', ['r3', 'r3b']], ['rec', ['a1', 'a2', 'f1', 'f2', 'f3', 'f4']], ['end', ['e1', 'e2']], ['cta', ['c1', 'c2']]];
+let SC = [];
+function buildScenes() {
+  SC = GROUPS.map(([name, ids], i) => ({ name, ids, a: i === 0 ? 0 : t0(ids[0]) - .3 }));
+  SC.forEach((s, i) => s.b = i + 1 < SC.length ? SC[i + 1].a : TL.duration);
+  buildCues();
+}
+const S = {};
+// HOOK: a high-speed train streaks past the skyline; a tiny falcon overtakes it; then a balance: falcon = a bag of rice
+S.hook = (t) => {
+  const L = seg(t, 0, t1('h3'));
+  sky(mixh('#A9CBE6', '#F2D7A6', 0), mixh('#F7E3C3', '#F7E3C3', 0), 11, 1250);
+  cloud(250 - t * 20, 330, 70, 21); cloud(820 - t * 14, 220, 55, 22);
+  const shake = Math.sin(t * 90) * 2 * (t < t1('h2') ? 1 : 0);
+  ctx.save(); ctx.translate(0, shake);
+  city(t, .2, 9000, 1180, t * 30);
+  shape([[-50, 1180], [W + 50, 1180], [W + 50, 1250], [-50, 1250]], '#B9AE9A', 23, { ang: 0 });   // viaduct deck
+  for (let i = 0; i < 6; i++) shape([[i * 210 - 20, 1250], [i * 210 + 30, 1250], [i * 210 + 40, 1700], [i * 210 - 30, 1700]], '#C8BEAA', 30 + i, { ang: 1.5, halpha: .3 });
+  shape([[-50, 1600], [W + 50, 1600], [W + 50, 2000], [-50, 2000]], C.grass, 40, { ang: .2 });
+  const tx = lerp(-250, 1500, easeIn(seg(t, 0, t0('h2') + .6)) * .55 + seg(t, 0, t0('h2') + .6) * .45);
+  if (t < t0('h3') + .4) { train(tx, 1180, 120, 8000, 4); windLines(t, 0, 1000, W, 170, 1, 18, '#8AA0B8', 9600, 1.6); }
+  // the falcon dives past the train's nose during h2
+  const fp = seg(t, t0('h2') - .1, t0('h2') + 1.1);
+  if (fp > 0 && fp < 1) { falcon(lerp(-100, 1250, easeIn(fp) * .6 + fp * .4), lerp(820, 1040, fp), 120, { fold: .95, rot: .18, id: 7100 }); windLines(t, 0, 950, W, 120, 1, 10, '#5D86B8', 9650, 2.2); }
+  ctx.restore();
+  // h3: freeze to a pencil plate: balance scale, falcon vs rice bag
+  const pk = seg(t, t0('h3') - .2, t0('h3') + .35);
+  if (pk > 0) {
+    ctx.save(); ctx.globalAlpha = pk; ctx.drawImage(PAPER, 0, 0); ctx.restore();
+    const tilt = .06 * Math.sin(t * 2) * Math.exp(-(t - t0('h3')) * 1.5);
+    ctx.save(); ctx.globalAlpha = pk; ctx.translate(540, 1030); ctx.rotate(tilt);
+    shape([[-330, -8], [330, -8], [330, 8], [-330, 8]], '#8E6B4A', 300, { ang: 0 });
+    for (const s of [-1, 1]) { line([[s * 300, 0], [s * 300 - 90, 140]], 3, C.graph, 310 + s); line([[s * 300, 0], [s * 300 + 90, 140]], 3, C.graph, 312 + s);
+      shape(ell(s * 300, 150, 120, 22, 24), '#B8A27E', 320 + s, { ang: 0 }); }
+    falcon(-300, 60, 190, { perch: true, rot: -1.25, id: 7200 });
+    shape([[210, 40], [390, 40], [400, 140], [200, 140]], '#EADFC6', 330, { ang: 1.3 });
+    ctx.font = `700 34px ${FONT}`; ctx.fillStyle = C.red; ctx.textAlign = 'center'; ctx.fillText('BERAS', 300, 82); ctx.font = `700 40px ${FONT}`; ctx.fillStyle = C.graph; ctx.fillText('1,5 kg', 300, 122); ctx.textAlign = 'left';
+    ctx.restore();
+    ctx.save(); ctx.globalAlpha = pk; shape([[520, 1030], [560, 1030], [580, 1330], [500, 1330]], '#8E6B4A', 340, { ang: 1.5 }); shape([[420, 1330], [660, 1330], [680, 1370], [400, 1370]], '#8E6B4A', 341, { ang: 0 }); ctx.restore();
+  }
+  // hook title (big, centre, ≤7 words)
+  if (t < t0('h3')) tag('Lebih cepat dari *WHOOSH?!*', 540, 420, 96, { age: t - t0('h2') + .1, rot: -.03 });
+  else tag('Beratnya = *sebungkus beras*', 540, 420, 84, { age: t - t0('h3'), rot: .02 });
+  if (t < t0('h2')) tag('350 km/jam', 540, 640, 70, { age: t - .3, bg: '#FBE3DC' });
+};
+// KENAL: a skyscraper ledge at dawn; the falcon perched; Clawd with binoculars; dawn → gold light
+S.kenal = (t, l) => {
+  const dawn = ease(seg(t, t0('k1'), t1('k3')));
+  sky(mixh('#B9A6DA', '#9EC6E6', dawn), mixh('#F3B98F', '#F7E2B0', dawn), 12);
+  if (dawn < .9) { ctx.save(); ctx.globalAlpha = 1 - dawn; ctx.fillStyle = C.white; for (let i = 0; i < 12; i++) { ctx.beginPath(); ctx.arc(hash(i) * W, hash(i + 3) * 700, 3, 0, TAU); ctx.fill(); } ctx.restore(); }
+  const sunY = lerp(1150, 520, dawn); shape(ell(830, sunY, 90, 90, 28), mixh('#F29A6B', '#F6CF5A', dawn), 50, { fill: .8, ang: .1 });
+  cloud(300, 520, 60, 51); cloud(700, 300, 45, 52);
+  city(t, .2 + .5 * dawn, 9100, 1500, 0);
+  const pan = ease(seg(t, t0('k1') - .3, t0('k1') + 1.2));
+  ctx.save(); ctx.translate(0, lerp(260, 0, pan));
+  shape([[-40, 1040], [700, 1040], [700, 2100], [-40, 2100]], '#B7AFA2', 60, { ang: 1.55, gap: 8, shade: new Path2D(pathOf([[450, 1040], [700, 1040], [700, 2100], [450, 2100]])) });   // the tower
+  for (let r = 0; r < 8; r++) for (let q = 0; q < 5; q++) shape([[40 + q * 130, 1120 + r * 120], [120 + q * 130, 1120 + r * 120], [120 + q * 130, 1190 + r * 120], [40 + q * 130, 1190 + r * 120]], mixh('#6E8FB8', '#F2C66B', dawn * .6), 70 + r * 5 + q, { ang: .9, halpha: .3, lw2: 1.6 });
+  shape([[-40, 1010], [740, 1010], [740, 1050], [-40, 1050]], '#9B9284', 61, { ang: 0 });   // ledge
+  const look = seg(t, t0('k3'), t0('k3') + .6);
+  falcon(470, 900, 230, { perch: true, rot: -1.25 + .25 * look, id: 7300 });
+  ctx.restore();
+  // Clawd on a lower roof with binoculars, peeking up
+  clawd(170, 1640, 22, { face: t > t0('k3') ? 'surprised' : 'curious', binoculars: t > t0('k2') + .5, arms: t > t0('k2') + .5 ? [1.2, 1.2] : [.2, .2], dy: -.2 * Math.abs(Math.sin(t * 3)) });
+  if (t > t0('k1') && t < t0('k2') + 1) tag('ALAP-ALAP KAWAH', 300, 330, 54, { age: t - t0('k1') - .3, rot: -.04 });
+  if (t > t0('k1') + .9 && t < t0('k2') + 1) tag('Falco peregrinus', 340, 420, 40, { age: t - t0('k1') - 1, bare: true, col: '#6B5A4C' });
+  // prey: a pigeon flapping far below during k3
+  if (t > t0('k3')) { const px = lerp(1150, 700, seg(t, t0('k3'), t1('k3') + .5)); falcon(px, 1300 + 20 * Math.sin(t * 4), 60, { flap: Math.sin(t * 22), id: 7350, flip: true }); }
+};
+// DIVE: the falcon folds its wings and falls; the speedometer races past 320
+S.dive = (t) => {
+  sky('#9CC8EC', '#E3F0F7', 13); cloud(200, 1500 - (t - t0('d1')) * 400, 80, 61); cloud(820, 2000 - (t - t0('d1')) * 500, 70, 62);
+  const fold = ease(seg(t, t0('d1') + .6, t0('d1') + 1.4)), fall = seg(t, t0('d1') + 1.2, t1('d2'));
+  windLines(t, 0, 0, W, H, -1, fall > 0 ? 22 : 0, '#7FA2C8', 9700, 1.5);
+  ctx.save(); ctx.translate(560, lerp(700, 760, fall)); ctx.rotate(lerp(0, 1.25, fold));
+  falcon(0, 0, 320, { fold, flap: fold < .5 ? Math.sin(t * 9) * (1 - fold * 2) : 0, id: 7400 });
+  ctx.restore();
+  for (let i = 0; i < 8 && fall > 0; i++) line([[540 + (i - 4) * 40, 300 - i * 30], [540 + (i - 4) * 40, 300 - i * 30 - 220]], 4, '#5D86B8', 9800 + i, .4);   // speed streaks above
+  const v = 320 * easeIn(seg(t, t0('d2') - .4, t0('d2') + 1.2)) + 8 * Math.sin(t * 30) * seg(t, t0('d2') + 1.2, t0('d2') + 1.4);
+  gauge(540, 1280, 230, v);
+  if (t > t0('d2')) tag('NUKIK!', 300, 380, 110, { age: t - t0('d2'), rot: -.08, bg: '#FBE3DC' });
+};
+// WIND: Clawd faces a 320 km/jam wind (squint, cheeks flapping) vs a calm falcon in sunglasses-cool
+S.wind = (t) => {
+  ctx.drawImage(PAPER, 0, 0);
+  const suffer = seg(t, t0('w1') + .6, t0('w3'));
+  shape(rr(80, 260, 920, 1150, 30), '#DCEAF2', 1000, { fill: .5, halpha: .25 });
+  windLines(t, 80, 300, 920, 1050, -1, Math.round(10 + 16 * suffer), '#5D86B8', 9900, 1.6);
+  const calm = seg(t, t0('w3') - .1, t0('w3') + .4);
+  ctx.save(); ctx.beginPath(); ctx.rect(80, 260, 920, 1150); ctx.clip();
+  clawd(lerp(540, 380, calm) + Math.sin(t * 40) * 6 * suffer * (1 - calm), 1220, 34, { face: t < t0('w2') ? 'curious' : 'squint', rot: -.12 * suffer, arms: [1.3 * suffer + .2, .4], sq: -.05 * suffer });
+  if (t > t0('w2')) { const items = ['Mata perih', 'Napas sesak', 'Dihantam tembok']; items.forEach((s, i) => { const a = t - t0('w2') - i * .9; if (a > 0 && calm < 1) tag(s, 300 + i * 190, 520 + i * 120, 48, { age: a, rot: (i - 1) * .06, bg: '#FBE3DC' }); }); }
+  if (calm > 0) { ctx.save(); ctx.globalAlpha = calm; ctx.translate(780, 900); ctx.rotate(1.2); falcon(0, 0, 230, { fold: 1, id: 7500 }); ctx.restore(); }
+  ctx.restore();
+  if (t > t0('w3') + 1) { const a = t - t0('w3') - 1; [1, 2, 3].forEach((n, i) => tag(`${n}`, 330 + i * 210, 470, 110, { age: a - i * .2, bg: '#FFE9B8' })); tag('rahasia', 540, 620, 64, { age: a - .6, bare: true }); }
+};
+// RAHASIA 1: magnifier — spread wings morph into a teardrop; air slips around it
+S.r1 = (t) => {
+  ctx.drawImage(PAPER, 0, 0);
+  tag('Rahasia *1*', 540, 330, 80, { age: t - t0('r1') + .2 });
+  const fold = ease(seg(t, t0('r1b') - .2, t0('r1b') + 1.2)), r = 360 * backOut(seg(t, t0('r1') - .2, t0('r1') + .5));
+  if (r > 5) magnifier(540, 900, r, () => {
+    ctx.fillStyle = rgba('#DCEAF2', .6); ctx.fillRect(0, 400, W, 1000);
+    for (let i = 0; i < 9; i++) { const yy = 680 + i * 52, bend = (1 - Math.abs(i - 4) / 4.5) * 90 * fold, ph = (t * 1.3 + i * .13) % 1;
+      const P = []; for (let k = 0; k <= 30; k++) { const xx = 200 + k * 23, d = Math.exp(-Math.pow((xx - 560) / 160, 2)); P.push([xx, yy + Math.sign(i - 4 || 1) * bend * d * (fold > .1 ? 1 : 0)]); }
+      line(P, 3, '#5D86B8', 9950 + i, .35 + .3 * Math.sin(ph * Math.PI)); }
+    ctx.save(); ctx.translate(560, 900); falcon(0, 0, 300, { fold, flap: (1 - fold) * Math.sin(t * 6), id: 7600 }); ctx.restore();
+  });
+  if (fold > .9) tag('= tetes air', 760, 1230, 52, { age: t - t0('r1b') - 1.2, rot: .05, bg: '#DDEBF5' });
+};
+// RAHASIA 2: beak close-up; the nostril cone splits the incoming air; a jet engine intake beside it
+S.r2 = (t) => {
+  ctx.drawImage(PAPER, 0, 0);
+  tag('Rahasia *2*', 540, 330, 80, { age: t - t0('r2') + .2 });
+  const r = 360 * backOut(seg(t, t0('r2') - .2, t0('r2') + .5)), flow = seg(t, t0('r2b') - .3, t0('r2b') + 1);
+  if (r > 5) magnifier(540, 900, r, () => {
+    // the falcon's own head, magnified: the nostril sits on the yellow cere at the base of the beak
+    ctx.fillStyle = rgba('#DCEAF2', .5); ctx.fillRect(0, 400, W, 1000);
+    falcon(-450, 1010, 1400, { fold: 1, id: 1100 });
+    const nx = 628, ny = 915;
+    shape(ell(nx, ny, 46, 34, 24), "#2A211D", 1101, { fill: .92, halpha: .25 });
+    shape([[nx - 30, ny], [nx + 20, ny - 12], [nx + 30, ny], [nx + 20, ny + 12]], '#EBD9A8', 1102, { ang: 0, lw2: 2.4 });   // the tubercle (cone)
+    for (let i = 0; i < 6; i++) { const yy = ny - 40 + i * 16, p = (t * 1.6 + i * .17) % 1, x = lerp(900, nx + 50, p);
+      const dy = (i < 3 ? -1 : 1) * 45 * Math.max(0, (nx + 150 - x) / 150) * flow; if (flow > 0) line([[x + 70, yy], [x, yy + dy]], 4, '#5D86B8', 1110 + i, .75); }
+  });
+  if (t > t0('r2b') + 2) { const a = t - t0('r2b') - 2, k = backOut(seg(a, 0, .3)); ctx.save(); ctx.translate(800, 1290); ctx.scale(k, k);
+    shape(rr(-150, -70, 300, 140, 60), '#B9C3CF', 1120, { ang: 0 }); shape([[-150, -45], [-215, 0], [-150, 45]], '#8C98A6', 1121, { ang: 0 }); ctx.restore();
+    tag('mesin jet', 800, 1400, 44, { age: a - .2, bare: true }); }
+};
+// RAHASIA 3: the eye; a third eyelid slides across like swimming goggles; Clawd tries goggles
+S.r3 = (t) => {
+  ctx.drawImage(PAPER, 0, 0);
+  tag('Rahasia *3*', 540, 330, 80, { age: t - t0('r3') + .2 });
+  const r = 360 * backOut(seg(t, t0('r3') - .2, t0('r3') + .5)), blink = .5 - .5 * Math.cos(clamp((t - t0('r3b') - .3) * 2.2) * TAU * 1.5);
+  if (r > 5) magnifier(540, 900, r, () => {
+    shape(ell(540, 900, 380, 380, 40), C.white, 1200, { fill: .9, halpha: .15 });
+    shape([[160, 640], [920, 640], [700, 820], [400, 880], [160, 900]], C.helmet, 1201, { fill: .9 });
+    shape(ell(560, 900, 190, 190, 36), C.yellow, 1202, { fill: .95, ang: .3 });
+    shape(ell(570, 895, 120, 120, 32), C.graph, 1203, { fill: .95, hatch: false });
+    ctx.fillStyle = C.white; ctx.beginPath(); ctx.arc(610, 850, 26, 0, TAU); ctx.fill();
+    if (t > t0('r3b')) { ctx.save(); ctx.beginPath(); ctx.arc(560, 900, 190, 0, TAU); ctx.clip(); const w = 380 * blink; ctx.fillStyle = 'rgba(160,200,228,0.55)'; ctx.fillRect(750 - w, 700, w, 400); hatch([750 - w, 700, 750, 1100], '#8FB6D6', 1210, .2, 10, 2, .35); ctx.restore(); }
+  });
+  if (t > t0('r3b') + 1.6) { const a = t - t0('r3b') - 1.6; clawd(870, 1420, 15, { face: 'happy', goggles: true, arms: [.3, 1.2 + .3 * Math.sin(t * 8)], dy: -.6 * Math.abs(Math.sin(a * 5)) * seg(a, 0, .1) }); }
+};
+// RECORD: Adriy.Project tag, "320 BUKAN rekornya", 1999 card, plane at 5.000 m, gauge smashes past 350, falcon overtakes the train
+S.rec = (t) => {
+  const gold = ease(seg(t, t0('f1'), t1('f4')));
+  if (t < t0('f1')) { ctx.drawImage(PAPER, 0, 0);
+    clawd(540, 1250, 34, { face: t < t0('a2') ? 'surprised' : 'curious', arms: [.6, .6], dy: -.4 * Math.abs(Math.sin(t * 2)) });
+    if (t < t0('a1') + 1.8) tag('Adriy.Project', 540, 470, 44, { age: t - t0('a1') - .2, bg: '#EDE3F5', life: 1.8 });
+    if (t > t0('a2')) { tag('320', 540, 640, 150, { age: t - t0('a2') }); const s = seg(t, t0('a2') + .6, t0('a2') + 1); if (s > 0) line([[360, 700], [lerp(360, 720, s), lerp(700, 580, s)]], 12, C.red, 1300, 1); }
+    return; }
+  sky(mixh('#9EC6E6', '#E9B36B', gold), mixh('#EAF2F5', '#F6D7A0', gold), 14);
+  if (t < t0('f3')) {
+    card(540, 520, 520, 380, 'FRIGHTFUL', 'rekor tahun 1999', () => { ctx.translate(0, 10); falcon(0, 0, 150, { fold: .3, flap: Math.sin(t * 6), id: 7700 }); }, t - t0('f1'), 1310);
+    if (t > t0('f2')) { const a = t - t0('f2'), py = lerp(980, 1060, seg(a, 0, 2));
+      shape([[260, py], [560, py - 20], [640, py], [560, py + 20]], '#D9DDE2', 1320, { ang: 0 }); shape([[420, py - 10], [470, py - 90], [500, py - 90], [480, py - 5]], '#C4CAD2', 1321, { ang: 0 }); shape([[300, py - 5], [270, py - 50], [290, py - 50], [320, py - 2]], '#C4CAD2', 1322, { ang: 0 });
+      line([[820, 900], [820, 1420]], 4, C.graph, 1330); tag('5.182 m', 870, 900, 46, { age: a - .3, bare: false }); line([[800, 1420], [840, 1420]], 4, C.graph, 1331);
+      const drop = seg(a, 1.2, 3.2); if (drop > 0) { ctx.save(); ctx.translate(lerp(560, 600, drop), lerp(py + 40, 1380, easeIn(drop))); ctx.rotate(1.3); falcon(0, 0, 90, { fold: 1, id: 7710 }); ctx.restore(); } }
+  } else if (t < t0('f4')) {
+    const v = lerp(0, 389, easeOut(seg(t, t0('f3'), t0('f3') + 2.2))); gauge(540, 1000, 300, v);
+    if (v > 388) tag('389 km/jam!', 540, 560, 100, { age: t - t0('f3') - 2.2, rot: -.04, bg: '#FFE9B8' });
+  } else {   // the callback race: falcon overtakes the train
+    const a = t - t0('f4'); city(t, .7, 9200, 1180, a * 60);
+    shape([[-50, 1180], [W + 50, 1180], [W + 50, 1250], [-50, 1250]], '#B9AE9A', 1340, { ang: 0 });
+    train(lerp(700, 1000, seg(a, 0, 3)), 1180, 110, 8100, 3);
+    const fx = lerp(100, 1250, easeIn(seg(a, 0, 1.6))); ctx.save(); ctx.translate(fx, 1010); ctx.rotate(.05); falcon(0, 0, 130, { fold: .9, id: 7720 }); ctx.restore();
+    windLines(t, 0, 950, W, 150, 1, 14, '#C88A3A', 9750, 2);
+    tag('389 > 350', 540, 520, 110, { age: a, bg: '#FFE9B8' });
+  }
+};
+// END: golden skyline, a small falcon on a rooftop, Clawd looks up starstruck (rhymes with the opening skyline)
+S.end = (t) => {
+  const gold = ease(seg(t, t0('e1') - .3, t1('e2')));
+  sky(mixh('#E9B36B', '#E38A5B', gold), '#F6D7A0', 15);
+  shape(ell(800, 820, 110, 110, 30), '#F2B54A', 1400, { fill: .85 });
+  city(t, .85, 9300, 1460, 0);
+  shape([[560, 1460 - 600], [700, 1460 - 600], [700, 1460], [560, 1460]], '#9E8B78', 1401, { ang: 1.5 });
+  const zoom = ease(seg(t, t0('e2') - .2, t0('e2') + 1.5));
+  falcon(630, 860 - 40, lerp(70, 110, zoom), { perch: true, rot: -1.25, id: 7800 });
+  shape([[-40, 1460], [W + 40, 1460], [W + 40, 2000], [-40, 2000]], '#C9A27A', 1402, { ang: .2 });
+  clawd(300, 1700, 26, { face: t > t0('e2') ? 'star' : 'curious', look: [.5, -1], arms: t > t0('e2') ? [1.1, 1.1] : [.2, .2], dy: -.3 * Math.abs(Math.sin(t * 2.5)) });
+};
+// CTA: three cards to choose from, Clawd waving
+S.cta = (t) => {
+  ctx.drawImage(PAPER, 0, 0);
+  const items = [['Badan peluru', () => { ctx.rotate(.6); falcon(0, 0, 90, { fold: 1, id: 7900 }); }], ['Hidung jet', () => { shape(rr(-70, -32, 140, 64, 30), '#B9C3CF', 1500, { ang: 0 }); shape([[-70, -22], [-105, 0], [-70, 22]], '#8C98A6', 1501, { ang: 0 }); }],
+    ['Kacamata bawaan', () => { for (const s of [-1, 1]) shape(ell(s * 45, 0, 40, 36, 20), '#9CCFE8', 1510 + s, { fill: .5, lw2: 5 }); line([[-5, 0], [5, 0]], 5, C.graph, 1513); }]];
+  items.forEach(([s, ic], i) => card(200 + i * 340, 760, 300, 340, s, '', ic, t - t0('c1') - .3 - i * .35, 1520 + i, false));
+  tag('Pilih yang mana?', 540, 450, 80, { age: t - t0('c1') - 1.5, rot: -.03 });
+  clawd(540, 1340, 28, { face: 'happy', arms: [.3, 1.2 + .4 * Math.sin(t * 9)], dy: -.4 * Math.abs(Math.sin(t * 4)) });
+  if (t > t0('c2')) tag('Tulis di *komentar!*', 540, 1020, 70, { age: t - t0('c2') });
+};
+
+// ---------- sound cues (sfx-kit, CC0) ----------
+let CUES = [];
+function buildCues() {
+  const c = (t, f, g = 1) => CUES.push([+t.toFixed(3), f, g]); CUES = [];
+  c(0, 'whooshes/whoosh-slow-hard', .9); c(0, 'booms-and-bass/bass-rumble-short', .5); c(t0('h2') - .05, 'whooshes/whoosh-fast-hard', 1);
+  c(t0('h3') - .2, 'impacts/impact-heavy-firm', .8); c(t0('h3') + .1, 'pops/pop-medium-in', .7);
+  c(t0('k1') - .3, 'reverse-whooshes/reverse-whoosh-medium-soft', .6); c(t0('k1') + .3, 'writing-and-drawing/writing-pencil-write', .5);
+  c(t0('d1') + .6, 'whooshes/whoosh-medium-soft', .7); c(t0('d2') - 1.6, 'risers-and-fallers/riser-2s-strong', .7); c(t0('d2'), 'cinematic-hits/cinematic-drum-big', .7); c(t0('d2') - .2, 'data/data-countup-medium', .6);
+  c(t0('w2'), 'whooshes/whoosh-slow-hard', .6); c(t0('w2') + .9, 'impacts/impact-medium-soft', .5); c(t0('w2') + 1.8, 'impacts/impact-heavy-soft', .6);
+  c(t0('w3') + 1, 'tones/tone-step-1', .7); c(t0('w3') + 1.2, 'tones/tone-step-3', .7); c(t0('w3') + 1.4, 'tones/tone-step-5', .7);
+  for (const id of ['r1', 'r2', 'r3']) { c(t0(id) - .25, 'whooshes/whoosh-medium-medium', .6); c(t0(id) + .1, 'writing-and-drawing/writing-pencil-draw', .45); }
+  c(t0('r3b') + 1.6, 'pops/pop-large-in', .6);
+  c(t0('a1'), 'risers-and-fallers/riser-2s-soft', .5); c(t0('a2') + .6, 'impacts/impact-medium-hard', .8);
+  c(t0('f1') - .2, 'whooshes/whoosh-medium-soft', .6); c(t0('f2') + .2, 'booms-and-bass/bass-rumble-long', .35); c(t0('f2') + 1.2, 'risers-and-fallers/faller-2s-soft', .6);
+  c(t0('f3'), 'data/data-countup-long', .7); c(t0('f3') + 2.2, 'cinematic-hits/cinematic-drum-big', .8); c(t0('f3') + 2.2, 'shimmers/shimmer-medium-bright', .6);
+  c(t0('f4') - .05, 'whooshes/whoosh-fast-hard', 1); c(t0('f4') + .3, 'celebration/celebration-popper', .6);
+  c(t0('e2'), 'shimmers/shimmer-long-soft', .6);
+  [0, 1, 2].forEach(i => c(t0('c1') + .3 + i * .35, 'pops/pop-medium-in', .7)); c(t0('c2'), 'tones/tone-ding-mid', .6);
+  for (const s of SC.slice(1)) c(s.a, 'writing-and-drawing/writing-scribble', .25);   // pencil flick at every scene change
+  CUES.sort((a, b) => a[0] - b[0]);
+}
+
+// ---------- render ----------
+function renderAt(t) {
+  T = t; BOIL = Math.floor(t * 12) % 3;
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
+  ctx.drawImage(PAPER, 0, 0);
+  const i = Math.max(0, SC.findIndex(s => t >= s.a && t < s.b)), s = SC[i < 0 ? SC.length - 1 : i];
+  ctx.save(); S[s.name](t); ctx.restore();
+  // transition: the new scene is revealed by a growing pencilled circle over the old one (0.45 s)
+  const prev = SC[i - 1], k = seg(t, s.a, s.a + .45);
+  if (prev && k < 1) { ctx.save(); const r = easeOut(k) * 1300; ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.arc(540, 900, r, 0, TAU, true); ctx.clip('evenodd'); ctx.drawImage(PAPER, 0, 0); S[prev.name](t); ctx.restore(); contour(ell(540, 900, easeOut(k) * 1300, easeOut(k) * 1300, 64), true, 9999, 6); }
+  caption(t);
+  // paper tooth over everything (pencil only lands on the raised grain)
+  ctx.globalCompositeOperation = 'multiply'; ctx.globalAlpha = .45; ctx.fillStyle = ctx.createPattern(TOOTH, 'repeat'); ctx.fillRect(0, 0, W, H);
+  ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
+  if (t < .2) { ctx.fillStyle = `rgba(20,16,12,${1 - t / .2})`; ctx.fillRect(0, 0, W, H); }
+  if (TL && t > TL.duration - .35) { ctx.fillStyle = `rgba(20,16,12,${seg(t, TL.duration - .35, TL.duration)})`; ctx.fillRect(0, 0, W, H); }
+  return cv.toDataURL('image/jpeg', .9);
+}
+window.renderAt = renderAt; window.setTL = setTL;
+window.ready = (async () => { await document.fonts.load(`700 40px Fredoka`); await document.fonts.load(`500 40px Fredoka`); makePaper(); if (!TL) setTL(window.TL || estTL()); window.CUES = CUES; window.DUR = TL.duration; return true; })();
+if (!location.search.includes('render')) window.ready.then(() => { const s0 = performance.now(); (function loop() { renderAt(((performance.now() - s0) / 1000) % TL.duration); requestAnimationFrame(loop); })(); });
+</script>
+</body>
+</html>

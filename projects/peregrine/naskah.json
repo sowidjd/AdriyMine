@@ -1,0 +1,33 @@
+{
+ "judul": "Burung seberat sebungkus beras ini lebih cepat dari Whoosh",
+ "lead": 0.35,
+ "lines": [
+  {"id": "h1", "gap": 0.25, "style": "dramatic documentary narrator, impressed, strong emphasis", "text": "Kereta cepat Whoosh. Tiga ratus lima puluh kilometer per jam.", "cap": "Kereta cepat Whoosh: *350 km/jam*"},
+  {"id": "h2", "gap": 0.15, "style": "suspenseful, lowering voice, mysterious", "text": "Tapi ada yang bisa nyalip dia...", "cap": "Tapi ada yang bisa *nyalip* dia..."},
+  {"id": "h3", "gap": 0.5, "style": "surprised reveal, amused, lively", "text": "dan beratnya nggak lebih dari sebungkus beras.", "cap": "...beratnya cuma *sebungkus beras.*"},
+  {"id": "k1", "gap": 0.3, "style": "friendly, warm, storytelling", "text": "Kenalin, alap-alap kawah. Orang luar nyebutnya peregrine falcon.", "cap": "Kenalin: *alap-alap kawah* (peregrine falcon)"},
+  {"id": "k2", "gap": 0.2, "style": "calm, observant, storytelling", "text": "Dia suka nongkrong di tebing, atau di atap gedung tinggi di kota.", "cap": "Nongkrong di tebing & *atap gedung tinggi*"},
+  {"id": "k3", "gap": 0.35, "style": "quiet, tense, whispering a little", "text": "Dari atas, dia ngintip burung lain yang lagi terbang.", "cap": "Dari atas, dia *ngintip* mangsa..."},
+  {"id": "d1", "gap": 0.2, "style": "building tension, slow then sudden", "text": "Begitu ketemu mangsa, sayapnya dilipat. Dan dia jatuh.", "cap": "Sayap dilipat... dan dia *jatuh.*"},
+  {"id": "d2", "gap": 0.45, "style": "energetic, excited, fast", "text": "Nukik! Lebih dari tiga ratus dua puluh kilometer per jam!", "cap": "Nukik: *> 320 km/jam!*"},
+  {"id": "w1", "gap": 0.2, "style": "playful, inviting the listener to imagine", "text": "Coba bayangin kamu melek di depan angin secepat itu.", "cap": "Bayangin kamu melek di depan angin secepat itu..."},
+  {"id": "w2", "gap": 0.3, "style": "dramatic, comedic suffering, short punchy phrases", "text": "Mata perih. Napas sesak. Badan kayak dihantam tembok.", "cap": "Mata perih. Napas sesak. *Dihantam tembok.*"},
+  {"id": "w3", "gap": 0.4, "style": "curious, then confident", "text": "Tapi falcon santai aja. Kok bisa? Ada tiga rahasia.", "cap": "Tapi falcon santai. Kok bisa? *3 rahasia.*"},
+  {"id": "r1", "gap": 0.15, "style": "energetic announcer, punchy", "text": "Rahasia pertama: badannya berubah jadi peluru.", "cap": "Rahasia 1: badan jadi *peluru*"},
+  {"id": "r1b", "gap": 0.4, "style": "clear explainer, lively", "text": "Sayap dilipat rapat, badannya ramping kayak tetes air. Angin jadi meleset.", "cap": "Ramping kayak *tetes air*: angin meleset"},
+  {"id": "r2", "gap": 0.15, "style": "energetic announcer, punchy", "text": "Rahasia kedua: di lubang hidungnya ada tonjolan kecil.", "cap": "Rahasia 2: *tonjolan* di lubang hidung"},
+  {"id": "r2b", "gap": 0.4, "style": "clear explainer, fascinated", "text": "Tonjolan ini mecah angin yang masuk, jadi napasnya tetap aman. Mirip kerucut di depan mesin jet.", "cap": "Memecah angin, napas tetap aman. Mirip *mesin jet*"},
+  {"id": "r3", "gap": 0.15, "style": "energetic announcer, punchy", "text": "Rahasia ketiga: dia punya kelopak mata ketiga.", "cap": "Rahasia 3: *kelopak mata ketiga*"},
+  {"id": "r3b", "gap": 0.5, "style": "playful, clear explainer", "text": "Selaput tipis yang nutup mata kayak kacamata renang. Matanya terlindungi, tapi dia tetap bisa lihat.", "cap": "Kayak *kacamata renang*: terlindungi, tetap bisa lihat"},
+  {"id": "a1", "gap": 0.3, "style": "conspiratorial, amazed, slower", "text": "Dan ini yang bikin kita di Adriy.Project melongo.", "cap": "Ini yang bikin kita *melongo...*"},
+  {"id": "a2", "gap": 0.35, "style": "suspenseful reveal, firm", "text": "Tiga ratus dua puluh itu, bukan rekornya.", "cap": "320 itu *BUKAN* rekornya."},
+  {"id": "f1", "gap": 0.2, "style": "documentary storytelling, clear", "text": "Tahun sembilan belas sembilan puluh sembilan, ada falcon bernama Frightful.", "cap": "1999: falcon bernama *Frightful*"},
+  {"id": "f2", "gap": 0.2, "style": "documentary storytelling, building up", "text": "Dia dilepas dari pesawat, di ketinggian lebih dari lima ribu meter.", "cap": "Dilepas dari pesawat, *> 5.000 meter*"},
+  {"id": "f3", "gap": 0.2, "style": "building excitement, emphatic", "text": "Kecepatannya tercatat tiga ratus delapan puluh sembilan kilometer per jam.", "cap": "Tercatat: *389 km/jam!*"},
+  {"id": "f4", "gap": 0.6, "style": "triumphant, excited, big smile", "text": "Lebih cepat dari kereta Whoosh!", "cap": "Lebih cepat dari *Whoosh!*"},
+  {"id": "e1", "gap": 0.2, "style": "warm, reflective, slower", "text": "Jadi kalau lain kali kamu lihat burung kecil di atas gedung, jangan diremehin.", "cap": "Lihat burung kecil di atas gedung? *Jangan diremehin.*"},
+  {"id": "e2", "gap": 0.5, "style": "warm, admiring", "text": "Bisa jadi itu atlet tercepat di dunia hewan.", "cap": "Bisa jadi itu *atlet tercepat* di dunia hewan"},
+  {"id": "c1", "gap": 0.2, "style": "cheerful, inviting, friendly smile in the voice", "text": "Kalau kamu bisa punya satu kemampuan falcon: badan peluru, hidung jet, atau kacamata bawaan, pilih yang mana?", "cap": "Pilih satu: *peluru, hidung jet,* atau *kacamata?*"},
+  {"id": "c2", "gap": 0.0, "style": "cheerful, energetic", "text": "Tulis di komentar!", "cap": "Tulis di *komentar!*"}
+ ]
+}
