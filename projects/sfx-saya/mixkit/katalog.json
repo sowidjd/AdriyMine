@@ -444,6 +444,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-bell-notification-933.wav",
+  "nama": "bell-notification",
+  "durasi_s": 3.36,
+  "bunyi_mulai_s": 0.09,
+  "peak_db": -3.0,
+  "suasana_loop": false,
+  "cocok_untuk": "notifikasi lonceng",
+  "normal": "normal/bell-notification.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-bicycle-pedal-accelerating-2104.wav",
   "nama": "bicycle-pedal-accelerating",
   "durasi_s": 6.09,
@@ -776,6 +788,18 @@
   "suasana_loop": true,
   "cocok_untuk": "angin sepoi di pepohonan",
   "normal": "normal/breeze-through-the-trees.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-bubble-pop-up-alert-notification-2357.wav",
+  "nama": "bubble-pop-up-alert-notification",
+  "durasi_s": 0.38,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -5.0,
+  "suasana_loop": false,
+  "cocok_untuk": "notifikasi gelembung pop-up",
+  "normal": "normal/bubble-pop-up-alert-notification.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1680,6 +1704,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-confirmation-tone-2867.wav",
+  "nama": "confirmation-tone",
+  "durasi_s": 1.3,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -0.6,
+  "suasana_loop": false,
+  "cocok_untuk": "nada konfirmasi",
+  "normal": "normal/confirmation-tone.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-cool-impact-movie-trailer-2909.wav",
   "nama": "cool-impact-movie-trailer",
   "durasi_s": 6.0,
@@ -1688,6 +1724,18 @@
   "suasana_loop": false,
   "cocok_untuk": "hantaman keren ala trailer, judul muncul",
   "normal": "normal/cool-impact-movie-trailer.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-correct-answer-tone-2870.wav",
+  "nama": "correct-answer-tone",
+  "durasi_s": 1.96,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -2.4,
+  "suasana_loop": false,
+  "cocok_untuk": "jawaban BENAR, kuis \"ting!\"",
+  "normal": "normal/correct-answer-tone.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2144,6 +2192,18 @@
   "suasana_loop": true,
   "cocok_untuk": "daun kering bergemerisik, langkah di hutan, musim kemarau",
   "normal": "normal/dry-leaves-rustling.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-dry-pop-up-notification-alert-2356.wav",
+  "nama": "dry-pop-up-notification-alert",
+  "durasi_s": 0.3,
+  "bunyi_mulai_s": 0.03,
+  "peak_db": -5.0,
+  "suasana_loop": false,
+  "cocok_untuk": "pop-up notifikasi kering",
+  "normal": "normal/dry-pop-up-notification-alert.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3324,6 +3384,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-gaming-lock-2848.wav",
+  "nama": "gaming-lock",
+  "durasi_s": 1.14,
+  "bunyi_mulai_s": 0.02,
+  "peak_db": -2.8,
+  "suasana_loop": false,
+  "cocok_untuk": "terkunci ala game",
+  "normal": "normal/gaming-lock.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-garbage-pile-falling-398.wav",
   "nama": "garbage-pile-falling",
   "durasi_s": 10.7,
@@ -3476,6 +3548,18 @@
   "suasana_loop": false,
   "cocok_untuk": "pengering rambut menyala, pagi buru-buru",
   "normal": "normal/hairdryer-hum.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-happy-bells-notification-937.wav",
+  "nama": "happy-bells-notification",
+  "durasi_s": 3.02,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -1.9,
+  "suasana_loop": false,
+  "cocok_untuk": "notifikasi lonceng ceria",
+  "normal": "normal/happy-bells-notification.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -4944,6 +5028,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-message-pop-alert-2354.mp3",
+  "nama": "message-pop-alert",
+  "durasi_s": 1.07,
+  "bunyi_mulai_s": 0.07,
+  "peak_db": -5.8,
+  "suasana_loop": false,
+  "cocok_untuk": "pesan masuk \"pop\"",
+  "normal": "normal/message-pop-alert.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-messy-metal-objects-falling-396.wav",
   "nama": "messy-metal-objects-falling",
   "durasi_s": 5.45,
@@ -5748,6 +5844,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-positive-notification-951.wav",
+  "nama": "positive-notification",
+  "durasi_s": 2.8,
+  "bunyi_mulai_s": 0.05,
+  "peak_db": -3.6,
+  "suasana_loop": false,
+  "cocok_untuk": "notifikasi positif, berhasil",
+  "normal": "normal/positive-notification.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-pouring-water-to-mug-1310.wav",
   "nama": "pouring-water-to-mug",
   "durasi_s": 4.6,
@@ -6252,6 +6360,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-sci-fi-click-900.wav",
+  "nama": "sci-fi-click",
+  "durasi_s": 0.7,
+  "bunyi_mulai_s": 0.12,
+  "peak_db": -4.7,
+  "suasana_loop": false,
+  "cocok_untuk": "klik sci-fi",
+  "normal": "normal/sci-fi-click.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-sci-fi-computer-technology-2501.wav",
   "nama": "sci-fi-computer-technology",
   "durasi_s": 30.0,
@@ -6260,6 +6380,18 @@
   "suasana_loop": false,
   "cocok_untuk": "komputer sci-fi bekerja",
   "normal": "normal/sci-fi-computer-technology.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-sci-fi-confirmation-914.wav",
+  "nama": "sci-fi-confirmation",
+  "durasi_s": 1.04,
+  "bunyi_mulai_s": 0.13,
+  "peak_db": -4.0,
+  "suasana_loop": false,
+  "cocok_untuk": "konfirmasi sci-fi",
+  "normal": "normal/sci-fi-confirmation.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -6932,6 +7064,42 @@
   "suasana_loop": false,
   "cocok_untuk": "whoosh api lembut",
   "normal": "normal/soft-woosh-fire.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-software-interface-back-2575.wav",
+  "nama": "software-interface-back",
+  "durasi_s": 1.33,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -1.0,
+  "suasana_loop": false,
+  "cocok_untuk": "kembali/back di layar",
+  "normal": "normal/software-interface-back.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-software-interface-remove-2576.wav",
+  "nama": "software-interface-remove",
+  "durasi_s": 2.16,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -1.0,
+  "suasana_loop": false,
+  "cocok_untuk": "hapus item di layar",
+  "normal": "normal/software-interface-remove.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-software-interface-start-2574.wav",
+  "nama": "software-interface-start",
+  "durasi_s": 2.35,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -1.0,
+  "suasana_loop": false,
+  "cocok_untuk": "mulai/start di layar",
+  "normal": "normal/software-interface-start.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -8456,6 +8624,18 @@
   "suasana_loop": false,
   "cocok_untuk": "singa terluka menggeram",
   "normal": "normal/wounded-lion-growling.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-wrong-answer-fail-notification-946.wav",
+  "nama": "wrong-answer-fail-notification",
+  "durasi_s": 1.95,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -0.5,
+  "suasana_loop": false,
+  "cocok_untuk": "jawaban SALAH, kuis \"teng-tong\"",
+  "normal": "normal/wrong-answer-fail-notification.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

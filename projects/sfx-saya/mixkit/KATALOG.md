@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-710 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+725 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -43,6 +43,7 @@
 | `basketball-falling-indoor` | 3.1 s | bola basket jatuh memantul |
 | `bass-rumble-hum` | 7.0 s | gemuruh bass, tegang |
 | `beach-waves-with-children-ambience` | 52.0 s (suasana/loop) | ombak pantai + anak-anak bermain, ceria |
+| `bell-notification` | 3.36 s | notifikasi lonceng |
 | `bicycle-pedal-accelerating` | 6.09 s | mengayuh makin cepat |
 | `bicycle-pedals` | 3.07 s | pedal sepeda |
 | `big-army-crowd-marching` | 8.65 s | pasukan berbaris, kekuatan massa, kompak |
@@ -71,6 +72,7 @@
 | `boing-hit-sound` | 1.24 s | "BOING!" memantul, lucu |
 | `boy-says-volcano` | 1.62 s | anak bilang "volcano!" (bahasa Inggris), sains/gunung api |
 | `breeze-through-the-trees` | 14.33 s (suasana/loop) | angin sepoi di pepohonan |
+| `bubble-pop-up-alert-notification` | 0.38 s | notifikasi gelembung pop-up |
 | `bus-departure-zone` | 8.76 s (suasana/loop) | area keberangkatan bus (latar) |
 | `bus-interior-ambience-with-people` | 19.24 s (suasana/loop) | di dalam bus + penumpang (latar), mirip angkot/TransJakarta |
 | `bus-passing-by-in-a-city` | 14.08 s | bus lewat di kota |
@@ -146,7 +148,9 @@
 | `cock-cry` | 4.21 s | ayam jantan berkokok, pagi hari, bangun |
 | `concert-hall-stomping-applause` | 16.59 s | tepuk + hentakan kaki di gedung konser, meriah |
 | `conference-audience-clapping-strongly` | 8.6 s | tepuk tangan kuat di konferensi, pengakuan |
+| `confirmation-tone` | 1.3 s | nada konfirmasi |
 | `cool-impact-movie-trailer` | 6.0 s | hantaman keren ala trailer, judul muncul |
+| `correct-answer-tone` | 1.96 s | jawaban BENAR, kuis "ting!" |
 | `cow-animal-breath` | 3.56 s | napas sapi, dengusan hewan besar |
 | `cow-defecating` | 1.9 s | sapi buang kotoran (humor kasar, hati-hati) |
 | `cow-moo` | 2.86 s | sapi melenguh |
@@ -185,6 +189,7 @@
 | `drone-spaceship-sound` | 2.15 s | pesawat drone sci-fi |
 | `drum-joke-accent` | 2.48 s | drum aksen lelucon "ba-dum-tss" (rimshot), punchline |
 | `dry-leaves-rustling` | 1.3 s (suasana/loop) | daun kering bergemerisik, langkah di hutan, musim kemarau |
+| `dry-pop-up-notification-alert` | 0.3 s | pop-up notifikasi kering |
 | `dusty-debris-short-fall` | 2.12 s | puing berdebu jatuh singkat |
 | `eating-crispy-cookies` | 16.52 s | makan biskuit renyah |
 | `eating-crunchy-food-with-mouth-open` | 12.5 s | mengunyah renyah mulut terbuka, kriuk keras |
@@ -283,6 +288,7 @@
 | `futuristic-zoom-move` | 2.17 s | gerak zoom futuristik |
 | `game-engine-hum` | 6.17 s (suasana/loop) | dengung mesin game (latar) |
 | `game-show-suspense-waiting` | 41.81 s (suasana/loop) | menunggu jawaban, kuis, tegang lucu |
+| `gaming-lock` | 1.14 s | terkunci ala game |
 | `garbage-pile-falling` | 10.7 s | tumpukan sampah jatuh, berantakan |
 | `gasping-zombie` | 1.93 s | zombie terengah-engah, horor |
 | `gentle-sea-wave` | 4.85 s (suasana/loop) | ombak lembut, tenang |
@@ -296,6 +302,7 @@
 | `grass-step` | 0.58 s | satu langkah di rumput |
 | `gravel-stones-small-avalanche` | 1.4 s | longsor kerikil kecil |
 | `hairdryer-hum` | 27.83 s | pengering rambut menyala, pagi buru-buru |
+| `happy-bells-notification` | 3.02 s | notifikasi lonceng ceria |
 | `happy-birthday-crowd-cheer` | 5.17 s | sorakan ulang tahun, perayaan |
 | `happy-child-laughing` | 2.4 s | tawa anak bahagia |
 | `happy-crowd-cheer` | 4.38 s | sorakan gembira, berhasil! |
@@ -418,6 +425,7 @@
 | `melodic-airport-announcement-ding` | 3.51 s (suasana/loop) | bunyi pengumuman bandara "ding-dong" melodis, perhatian! |
 | `melodic-songbird-chirp` | 1.83 s | kicau burung merdu |
 | `melodical-flute-music-notification` | 7.54 s | notifikasi lembut, alam, ceria |
+| `message-pop-alert` | 1.07 s | pesan masuk "pop" |
 | `messy-metal-objects-falling` | 5.45 s | barang logam berantakan jatuh, ricuh |
 | `metal-tank-door-closing` | 1.81 s | pintu logam tank ditutup, berat |
 | `metal-tank-gear-shift` | 1.29 s | tank ganti gigi |
@@ -485,6 +493,7 @@
 | `plastic-cd-cover-close-hard` | 0.67 s | tutup plastik dibanting, keputusan final |
 | `plastic-rubbish-objects-falling` | 2.33 s | sampah plastik berjatuhan |
 | `playground-with-kids-playing` | 20.83 s (suasana/loop) | taman bermain anak (latar) |
+| `positive-notification` | 2.8 s | notifikasi positif, berhasil |
 | `pouring-water-to-mug` | 4.6 s (suasana/loop) | menuang air ke gelas/mug, ngopi |
 | `propellers-working` | 1.86 s | baling-baling berputar |
 | `quick-bomb-drop-explosion` | 10.16 s | bom jatuh lalu meledak, dramatis |
@@ -527,7 +536,9 @@
 | `scared-horse-neighing` | 2.48 s | kuda ketakutan meringkik |
 | `scary-woods-at-night` | 50.16 s (suasana/loop) | hutan seram malam hari (latar) |
 | `sci-fi-battle-laser-shots` | 2.61 s | tembakan laser, pertempuran sci-fi |
+| `sci-fi-click` | 0.7 s | klik sci-fi |
 | `sci-fi-computer-technology` | 30.0 s | komputer sci-fi bekerja |
+| `sci-fi-confirmation` | 1.04 s | konfirmasi sci-fi |
 | `sci-fi-deep-sea` | 7.21 s (suasana/loop) | laut dalam sci-fi, misterius (latar) |
 | `sci-fi-fall` | 0.68 s | jatuh ala sci-fi |
 | `sci-fi-helicopter-engine-hum` | 4.81 s | mesin helikopter sci-fi |
@@ -584,6 +595,9 @@
 | `small-wood-plank-pile-drop` | 1.72 s | tumpukan papan kayu jatuh |
 | `small-young-crowd-clapping` | 16.5 s | anak muda bertepuk tangan |
 | `soft-woosh-fire` | 4.61 s | whoosh api lembut |
+| `software-interface-back` | 1.33 s | kembali/back di layar |
+| `software-interface-remove` | 2.16 s | hapus item di layar |
+| `software-interface-start` | 2.35 s | mulai/start di layar |
 | `space-alien-invasion` | 13.32 s | invasi alien, sci-fi, ancaman dari luar angkasa |
 | `space-ship-hum` | 46.0 s (suasana/loop) | dengung pesawat luar angkasa (latar) |
 | `spaceship-drone-moves` | 2.15 s | drone/pesawat bergerak melintas |
@@ -711,6 +725,7 @@
 | `wood-plank-dominoes-fall` | 2.5 s | papan kayu jatuh beruntun seperti domino, efek berantai |
 | `wooden-ship-on-the-sea` | 33.35 s (suasana/loop) | kapal kayu di laut, berderit (latar) |
 | `wounded-lion-growling` | 5.34 s | singa terluka menggeram |
+| `wrong-answer-fail-notification` | 1.95 s | jawaban SALAH, kuis "teng-tong" |
 | `yawn-of-adult-man` | 1.26 s | orang dewasa menguap |
 | `young-man-coughing` | 1.19 s | cowok batuk |
 | `young-tired-male-yawns` | 2.98 s | cowok capek menguap, ngantuk |
