@@ -132,6 +132,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-big-wild-lion-growl-95.wav",
+  "nama": "big-wild-lion-growl",
+  "durasi_s": 2.66,
+  "bunyi_mulai_s": 0.39,
+  "peak_db": -4.9,
+  "suasana_loop": false,
+  "cocok_untuk": "auman/geraman singa, kekuatan, raja hutan",
+  "normal": "normal/big-wild-lion-growl.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-bird-singing-and-flapping-wings-2432.wav",
   "nama": "bird-singing-and-flapping-wings",
   "durasi_s": 3.67,
@@ -984,6 +996,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-nature-ambience-with-lightning-strike-and-thunder-3093.wav",
+  "nama": "nature-ambience-with-lightning-strike-and-thunder",
+  "durasi_s": 28.75,
+  "bunyi_mulai_s": 0.57,
+  "peak_db": -2.2,
+  "suasana_loop": false,
+  "cocok_untuk": "alam + petir menyambar, cuaca dramatis",
+  "normal": "normal/nature-ambience-with-lightning-strike-and-thunder.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-night-crickets-near-the-swamp-1782.wav",
   "nama": "night-crickets-near-the-swamp",
   "durasi_s": 33.74,
@@ -1404,6 +1428,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-sphinx-cat-purr-3091.wav",
+  "nama": "sphinx-cat-purr",
+  "durasi_s": 7.3,
+  "bunyi_mulai_s": 0.14,
+  "peak_db": -9.0,
+  "suasana_loop": false,
+  "cocok_untuk": "kucing mendengkur, nyaman, manja",
+  "normal": "normal/sphinx-cat-purr.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-sphinx-cat-purr-and-quiet-growl-3092.wav",
+  "nama": "sphinx-cat-purr-and-quiet-growl",
+  "durasi_s": 2.78,
+  "bunyi_mulai_s": 0.12,
+  "peak_db": -9.0,
+  "suasana_loop": false,
+  "cocok_untuk": "kucing mendengkur lalu menggeram pelan, \"jangan ganggu\"",
+  "normal": "normal/sphinx-cat-purr-and-quiet-growl.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-stadium-crowd-light-applause-362.wav",
   "nama": "stadium-crowd-light-applause",
   "durasi_s": 11.09,
@@ -1700,6 +1748,18 @@
   "suasana_loop": true,
   "cocok_untuk": "air mengalir, sungai, tenang",
   "normal": "normal/water-flowing-ambience-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-wild-animal-hungry-grunting-8.wav",
+  "nama": "wild-animal-hungry-grunting",
+  "durasi_s": 4.18,
+  "bunyi_mulai_s": 0.3,
+  "peak_db": -0.1,
+  "suasana_loop": false,
+  "cocok_untuk": "hewan liar lapar menggeram, ancaman",
+  "normal": "normal/wild-animal-hungry-grunting.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

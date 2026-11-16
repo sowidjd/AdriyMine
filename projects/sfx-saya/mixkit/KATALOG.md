@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-149 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+154 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -17,6 +17,7 @@
 | `beach-waves-with-children-ambience` | 52.0 s (suasana/loop) | ombak pantai + anak-anak bermain, ceria |
 | `big-fire-burning` | 3.51 s (suasana/loop) | api besar berkobar (latar) |
 | `big-fire-flame-burning` | 8.27 s (suasana/loop) | nyala api besar (latar) |
+| `big-wild-lion-growl` | 2.66 s | auman/geraman singa, kekuatan, raja hutan |
 | `bird-singing-and-flapping-wings` | 3.67 s | burung berkicau & mengepak sayap (dekat) |
 | `birds-chirping-in-the-jungle` | 6.69 s (suasana/loop) | kicau burung di hutan tropis |
 | `birds-chirping-near-the-river` | 90.13 s (suasana/loop) | pagi di sungai, alam damai |
@@ -88,6 +89,7 @@
 | `morning-sound-in-a-garden` | 110.44 s (suasana/loop) | pagi di taman/kebun, segar |
 | `movie-trailer-epic-impact` | 4.87 s | angka/fakta besar muncul, hantaman epik |
 | `mystwrious-bass-pulse` | 16.56 s | misterius, tegang, sesuatu akan terungkap |
+| `nature-ambience-with-lightning-strike-and-thunder` | 28.75 s | alam + petir menyambar, cuaca dramatis |
 | `night-crickets-near-the-swamp` | 33.74 s (suasana/loop) | jangkrik malam dekat rawa (latar) |
 | `night-forest-with-insects` | 84.0 s (suasana/loop) | hutan malam, serangga, misterius tenang |
 | `night-vision-starting` | 1.15 s | kacamata malam/teknologi menyala, mulai memindai |
@@ -123,6 +125,8 @@
 | `small-waves-harbor-rocks` | 77.86 s (suasana/loop) | ombak kecil di batu pelabuhan |
 | `soft-woosh-fire` | 4.61 s | whoosh api lembut |
 | `space-alien-invasion` | 13.32 s | invasi alien, sci-fi, ancaman dari luar angkasa |
+| `sphinx-cat-purr` | 7.3 s | kucing mendengkur, nyaman, manja |
+| `sphinx-cat-purr-and-quiet-growl` | 2.78 s | kucing mendengkur lalu menggeram pelan, "jangan ganggu" |
 | `stadium-crowd-light-applause` | 11.09 s | tepuk tangan stadion, pengakuan besar |
 | `strange-animal-of-the-desert` | 2.79 s | suara hewan aneh di gurun, misterius |
 | `strong-wild-wind-in-a-storm` | 13.65 s (suasana/loop) | angin kencang badai, terhempas |
@@ -148,6 +152,7 @@
 | `walking-in-the-forest` | 28.15 s | berjalan di hutan |
 | `walking-through-dry-forest-leaves` | 31.79 s | berjalan di atas daun kering |
 | `water-flowing-ambience-loop` | 51.0 s (suasana/loop) | air mengalir, sungai, tenang |
+| `wild-animal-hungry-grunting` | 4.18 s | hewan liar lapar menggeram, ancaman |
 | `wind-in-a-desolate-world` | 13.03 s (suasana/loop) | angin di dunia sepi/kosong, hampa |
 | `wind-in-futuristic-city` | 13.41 s (suasana/loop) | angin di kota masa depan, sci-fi sepi |
 | `wind-in-the-forest` | 25.32 s (suasana/loop) | angin di hutan |

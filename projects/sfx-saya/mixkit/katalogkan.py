@@ -14,6 +14,9 @@ SAAT = {'cinematic-whoosh-fast-transition': 'transisi cepat antar adegan', 'cine
  'keyboard-typing': 'mengetik, chat, kerja di laptop', 'intro-transition': 'pembuka bagian/judul baru', 'footsteps-on-tall-grass': 'berjalan di rumput, alam, mengendap', 'flock-of-wild-geese': 'kawanan burung, alam liar, migrasi',
  'female-astonished-gasp': 'kaget/takjub "hah!", reaksi fakta mengejutkan', 'fast-whoosh-transition': 'transisi cepat', 'epic-orchestra-transition': 'transisi megah, pengungkapan besar',
  'crowd-laugh': 'penonton tertawa, momen lucu',
+ 'sphinx-cat-purr-and-quiet-growl': 'kucing mendengkur lalu menggeram pelan, "jangan ganggu"', 'sphinx-cat-purr': 'kucing mendengkur, nyaman, manja',
+ 'wild-animal-hungry-grunting': 'hewan liar lapar menggeram, ancaman', 'big-wild-lion-growl': 'auman/geraman singa, kekuatan, raja hutan',
+ 'nature-ambience-with-lightning-strike-and-thunder': 'alam + petir menyambar, cuaca dramatis',
  'sleeping-mouth-smacking-lips': 'orang tidur berdecap, lucu, ngantuk', 'space-alien-invasion': 'invasi alien, sci-fi, ancaman dari luar angkasa',
  'twilight-jungle': 'hutan saat senja (latar)', 'man-strong-snore': 'dengkuran keras, tidur pulas, lucu', 'terror-night-ambiance': 'malam mencekam (latar)',
  'old-subway-train-arrives': 'kereta tua datang, stasiun', 'night-vision-starting': 'kacamata malam/teknologi menyala, mulai memindai',
@@ -64,7 +67,7 @@ out = []
 for f in sorted(os.listdir('audio')):
     base = re.sub(r'^mixkit-|-\d+\.wav$', '', f)
     y, sr = librosa.load('audio/' + f, sr=None, mono=True); peak = float(np.abs(y).max())
-    nz = np.where(np.abs(y) > peak * .05)[0]; lead = nz[0] / sr if len(nz) else 0; amb = any(k in base for k in AMB) and not any(k in base for k in ('transition', 'strike', 'swoosh', 'fish', 'rattlesnake', 'hawk', 'impact', 'notification', 'strange-animal', 'woosh', 'whoosh', 'explosion', 'ignition', 'spell', 'meteor', 'beam', 'match', 'walking', 'running', 'footsteps', 'shriek', 'screech', 'snore', 'smacking'))
+    nz = np.where(np.abs(y) > peak * .05)[0]; lead = nz[0] / sr if len(nz) else 0; amb = any(k in base for k in AMB) and not any(k in base for k in ('transition', 'strike', 'swoosh', 'fish', 'rattlesnake', 'hawk', 'impact', 'notification', 'strange-animal', 'woosh', 'whoosh', 'explosion', 'ignition', 'spell', 'meteor', 'beam', 'match', 'walking', 'running', 'footsteps', 'shriek', 'screech', 'snore', 'smacking', 'purr', 'growl', 'grunting', 'lightning-strike'))
     z, _ = librosa.load('audio/' + f, sr=48000, mono=False); z = np.atleast_2d(z)
     if lead > .3: z = z[:, max(0, int((lead - .02) * 48000)):]
     z = z / (np.abs(z).max() + 1e-9) * 10 ** ((-12 if amb else -3) / 20)
