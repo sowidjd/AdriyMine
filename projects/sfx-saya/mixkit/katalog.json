@@ -168,6 +168,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-birds-in-the-jungle-2434.wav",
+  "nama": "birds-in-the-jungle",
+  "durasi_s": 60.83,
+  "bunyi_mulai_s": 0.78,
+  "peak_db": -14.9,
+  "suasana_loop": true,
+  "cocok_untuk": "burung di hutan tropis",
+  "normal": "normal/birds-in-the-jungle.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-blizzard-cold-winds-1153.wav",
   "nama": "blizzard-cold-winds",
   "durasi_s": 130.55,
@@ -432,6 +444,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-european-forest-ambience-1213.wav",
+  "nama": "european-forest-ambience",
+  "durasi_s": 161.3,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -17.1,
+  "suasana_loop": true,
+  "cocok_untuk": "hutan subtropis (latar)",
+  "normal": "normal/european-forest-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-fast-ignition-fire-1349.wav",
   "nama": "fast-ignition-fire",
   "durasi_s": 4.93,
@@ -588,6 +612,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-footsteps-in-the-forest-ground-1230.wav",
+  "nama": "footsteps-in-the-forest-ground",
+  "durasi_s": 34.2,
+  "bunyi_mulai_s": 0.16,
+  "peak_db": -1.3,
+  "suasana_loop": false,
+  "cocok_untuk": "langkah di tanah hutan, mengendap",
+  "normal": "normal/footsteps-in-the-forest-ground.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-footsteps-on-tall-grass-532.wav",
   "nama": "footsteps-on-tall-grass",
   "durasi_s": 23.1,
@@ -596,6 +632,30 @@
   "suasana_loop": false,
   "cocok_untuk": "berjalan di rumput, alam, mengendap",
   "normal": "normal/footsteps-on-tall-grass.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-forest-birds-singing-1212.wav",
+  "nama": "forest-birds-singing",
+  "durasi_s": 2.22,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -3.1,
+  "suasana_loop": true,
+  "cocok_untuk": "kicau burung hutan, pagi damai",
+  "normal": "normal/forest-birds-singing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-forest-rain-loop-1225.wav",
+  "nama": "forest-rain-loop",
+  "durasi_s": 24.75,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -8.5,
+  "suasana_loop": true,
+  "cocok_untuk": "hujan di hutan (latar)",
+  "normal": "normal/forest-rain-loop.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -792,6 +852,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-man-running-in-the-forest-1236.wav",
+  "nama": "man-running-in-the-forest",
+  "durasi_s": 11.24,
+  "bunyi_mulai_s": 1.27,
+  "peak_db": -0.0,
+  "suasana_loop": false,
+  "cocok_untuk": "orang berlari di hutan, dikejar, buru-buru",
+  "normal": "normal/man-running-in-the-forest.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-martial-arts-fast-punch-2047.wav",
   "nama": "martial-arts-fast-punch",
   "durasi_s": 1.34,
@@ -812,6 +884,18 @@
   "suasana_loop": false,
   "cocok_untuk": "notifikasi lembut, alam, ceria",
   "normal": "normal/melodical-flute-music-notification.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-morning-sound-in-a-garden-2464.wav",
+  "nama": "morning-sound-in-a-garden",
+  "durasi_s": 110.44,
+  "bunyi_mulai_s": 1.83,
+  "peak_db": -15.1,
+  "suasana_loop": true,
+  "cocok_untuk": "pagi di taman/kebun, segar",
+  "normal": "normal/morning-sound-in-a-garden.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -852,6 +936,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-owl-in-a-forest-2466.wav",
+  "nama": "owl-in-a-forest",
+  "durasi_s": 90.14,
+  "bunyi_mulai_s": 0.22,
+  "peak_db": -14.1,
+  "suasana_loop": true,
+  "cocok_untuk": "burung hantu di hutan, malam misterius",
+  "normal": "normal/owl-in-a-forest.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-papers-blowing-in-the-windstorm-2653.wav",
   "nama": "papers-blowing-in-the-windstorm",
   "durasi_s": 5.2,
@@ -872,6 +968,18 @@
   "suasana_loop": true,
   "cocok_untuk": "pantai ramai, orang berenang, liburan",
   "normal": "normal/people-bathing-in-the-sea-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-quiet-forest-ambience-1220.wav",
+  "nama": "quiet-forest-ambience",
+  "durasi_s": 152.08,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -13.6,
+  "suasana_loop": true,
+  "cocok_untuk": "hutan sunyi (latar)",
+  "normal": "normal/quiet-forest-ambience.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -972,6 +1080,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-river-in-the-forest-with-birds-1216.wav",
+  "nama": "river-in-the-forest-with-birds",
+  "durasi_s": 95.0,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -12.3,
+  "suasana_loop": true,
+  "cocok_untuk": "sungai di hutan + burung",
+  "normal": "normal/river-in-the-forest-with-birds.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-river-water-flow-and-surroundings-2452.wav",
   "nama": "river-water-flow-and-surroundings",
   "durasi_s": 60.13,
@@ -980,6 +1100,18 @@
   "suasana_loop": true,
   "cocok_untuk": "sungai mengalir + suasana sekitar",
   "normal": "normal/river-water-flow-and-surroundings.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-running-through-the-forest-1232.wav",
+  "nama": "running-through-the-forest",
+  "durasi_s": 14.64,
+  "bunyi_mulai_s": 0.19,
+  "peak_db": -1.3,
+  "suasana_loop": false,
+  "cocok_untuk": "berlari menembus hutan",
+  "normal": "normal/running-through-the-forest.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1140,6 +1272,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-summer-night-in-the-forest-1227.wav",
+  "nama": "summer-night-in-the-forest",
+  "durasi_s": 126.0,
+  "bunyi_mulai_s": 0.31,
+  "peak_db": -12.7,
+  "suasana_loop": true,
+  "cocok_untuk": "malam musim panas di hutan (latar)",
+  "normal": "normal/summer-night-in-the-forest.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-technological-futuristic-hum-2133.wav",
   "nama": "technological-futuristic-hum",
   "durasi_s": 6.0,
@@ -1272,6 +1416,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-walking-in-the-forest-1214.wav",
+  "nama": "walking-in-the-forest",
+  "durasi_s": 28.15,
+  "bunyi_mulai_s": 1.01,
+  "peak_db": -0.1,
+  "suasana_loop": false,
+  "cocok_untuk": "berjalan di hutan",
+  "normal": "normal/walking-in-the-forest.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-walking-through-dry-forest-leaves-1222.wav",
+  "nama": "walking-through-dry-forest-leaves",
+  "durasi_s": 31.79,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -1.0,
+  "suasana_loop": false,
+  "cocok_untuk": "berjalan di atas daun kering",
+  "normal": "normal/walking-through-dry-forest-leaves.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-water-flowing-ambience-loop-3126.wav",
   "nama": "water-flowing-ambience-loop",
   "durasi_s": 51.0,
@@ -1308,6 +1476,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-wind-in-the-forest-1237.wav",
+  "nama": "wind-in-the-forest",
+  "durasi_s": 25.32,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -28.1,
+  "suasana_loop": true,
+  "cocok_untuk": "angin di hutan",
+  "normal": "normal/wind-in-the-forest.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-wind-in-the-top-of-the-mountain-1267.wav",
   "nama": "wind-in-the-top-of-the-mountain",
   "durasi_s": 31.8,
@@ -1316,6 +1496,18 @@
   "suasana_loop": true,
   "cocok_untuk": "angin di puncak gunung, ketinggian",
   "normal": "normal/wind-in-the-top-of-the-mountain.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-windy-humming-forest-with-birds-1238.wav",
+  "nama": "windy-humming-forest-with-birds",
+  "durasi_s": 125.35,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -8.1,
+  "suasana_loop": true,
+  "cocok_untuk": "hutan berangin + burung",
+  "normal": "normal/windy-humming-forest-with-birds.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
