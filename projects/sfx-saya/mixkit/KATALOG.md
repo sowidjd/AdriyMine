@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-378 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+387 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -30,6 +30,7 @@
 | `baby-toy-music-box-lullaby` | 16.02 s | kotak musik nina bobo, lembut, kenangan masa kecil |
 | `basketball-falling-indoor` | 3.1 s | bola basket jatuh memantul |
 | `beach-waves-with-children-ambience` | 52.0 s (suasana/loop) | ombak pantai + anak-anak bermain, ceria |
+| `big-army-crowd-marching` | 8.65 s | pasukan berbaris, kekuatan massa, kompak |
 | `big-fire-burning` | 3.51 s (suasana/loop) | api besar berkobar (latar) |
 | `big-fire-flame-burning` | 8.27 s (suasana/loop) | nyala api besar (latar) |
 | `big-loving-kiss` | 1.15 s | cium besar penuh sayang |
@@ -89,6 +90,7 @@
 | `crickets-at-night-in-nature` | 90.13 s (suasana/loop) | jangkrik malam di alam (latar) |
 | `crowd-in-church-applauding` | 18.77 s | tepuk tangan di aula bergema, khidmat |
 | `crowd-laugh` | 4.12 s | penonton tertawa, momen lucu |
+| `crunchy-road-fast-walking-loop` | 23.21 s | jalan cepat di jalan berkerikil |
 | `cybernetic-technology-affirmation` | 2.12 s | konfirmasi sistem siber, data diterima |
 | `deep-child-breathing-and-exhaling` | 2.41 s | anak menarik napas dalam, tenang |
 | `desert-ambience` | 60.15 s (suasana/loop) | suasana gurun (latar) |
@@ -137,8 +139,13 @@
 | `flirtatious-double-kiss` | 0.56 s | cium genit dua kali, "muach muach" |
 | `flock-of-wild-geese` | 5.22 s (suasana/loop) | kawanan burung, alam liar, migrasi |
 | `football-team-applause` | 4.68 s | tepuk tangan tim sepak bola, sportif |
+| `footsteps-in-a-tunnel-loop` | 8.14 s | langkah bergema di terowongan, misterius |
 | `footsteps-in-the-forest-ground` | 34.2 s | langkah di tanah hutan, mengendap |
+| `footsteps-in-woods-loop` | 24.0 s | langkah di hutan (loop) |
+| `footsteps-on-heels-on-the-pavement` | 5.25 s | langkah sepatu hak di trotoar |
+| `footsteps-on-mattress-loop` | 26.12 s | langkah di atas kasur, lucu |
 | `footsteps-on-tall-grass` | 23.1 s | berjalan di rumput, alam, mengendap |
+| `footsteps-on-the-snow` | 10.12 s | langkah di salju |
 | `forest-at-night` | 47.04 s (suasana/loop) | hutan malam (latar) |
 | `forest-birds-singing` | 2.22 s (suasana/loop) | kicau burung hutan, pagi damai |
 | `forest-rain-loop` | 24.75 s (suasana/loop) | hujan di hutan (latar) |
@@ -326,6 +333,7 @@
 | `stones-and-rocks-falling` | 4.25 s | batu-batu berjatuhan, longsor |
 | `stones-falling-down-the-mountain` | 1.88 s (suasana/loop) | batu jatuh dari gunung |
 | `strange-animal-of-the-desert` | 2.79 s | suara hewan aneh di gurun, misterius |
+| `street-ambience-with-walking-people` | 47.08 s | jalanan ramai orang berjalan (latar) |
 | `strong-breathing-of-a-person` | 5.11 s | napas berat, capek, panik |
 | `strong-wild-wind-in-a-storm` | 13.65 s (suasana/loop) | angin kencang badai, terhempas |
 | `subway-interior-ambience` | 32.95 s (suasana/loop) | di dalam kereta/KRL (latar) |
@@ -364,6 +372,7 @@
 | `vocal-kids-playing-and-screaming` | 4.01 s (suasana/loop) | anak-anak main & teriak (latar) |
 | `vocal-male-yawn` | 3.41 s | cowok menguap |
 | `walking-in-the-forest` | 28.15 s | berjalan di hutan |
+| `walking-on-stones-loop` | 15.33 s | jalan di atas batu |
 | `walking-through-dry-forest-leaves` | 31.79 s | berjalan di atas daun kering |
 | `wallowing-drink-quickly` | 3.61 s | minum cepat glek-glek, haus |
 | `water-flowing-ambience-loop` | 51.0 s (suasana/loop) | air mengalir, sungai, tenang |

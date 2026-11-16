@@ -288,6 +288,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-big-army-crowd-marching-461.wav",
+  "nama": "big-army-crowd-marching",
+  "durasi_s": 8.65,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -0.9,
+  "suasana_loop": false,
+  "cocok_untuk": "pasukan berbaris, kekuatan massa, kompak",
+  "normal": "normal/big-army-crowd-marching.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-big-fire-burning-1335.wav",
   "nama": "big-fire-burning",
   "durasi_s": 3.51,
@@ -996,6 +1008,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-crunchy-road-fast-walking-loop-1274.wav",
+  "nama": "crunchy-road-fast-walking-loop",
+  "durasi_s": 23.21,
+  "bunyi_mulai_s": 0.05,
+  "peak_db": -0.6,
+  "suasana_loop": false,
+  "cocok_untuk": "jalan cepat di jalan berkerikil",
+  "normal": "normal/crunchy-road-fast-walking-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-cybernetic-technology-affirmation-3116.wav",
   "nama": "cybernetic-technology-affirmation",
   "durasi_s": 2.12,
@@ -1572,6 +1596,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-footsteps-in-a-tunnel-loop-543.wav",
+  "nama": "footsteps-in-a-tunnel-loop",
+  "durasi_s": 8.14,
+  "bunyi_mulai_s": 0.03,
+  "peak_db": -5.0,
+  "suasana_loop": false,
+  "cocok_untuk": "langkah bergema di terowongan, misterius",
+  "normal": "normal/footsteps-in-a-tunnel-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-footsteps-in-the-forest-ground-1230.wav",
   "nama": "footsteps-in-the-forest-ground",
   "durasi_s": 34.2,
@@ -1584,6 +1620,42 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-footsteps-in-woods-loop-533.wav",
+  "nama": "footsteps-in-woods-loop",
+  "durasi_s": 24.0,
+  "bunyi_mulai_s": 0.17,
+  "peak_db": -8.9,
+  "suasana_loop": false,
+  "cocok_untuk": "langkah di hutan (loop)",
+  "normal": "normal/footsteps-in-woods-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-footsteps-on-heels-on-the-pavement-542.wav",
+  "nama": "footsteps-on-heels-on-the-pavement",
+  "durasi_s": 5.25,
+  "bunyi_mulai_s": 0.19,
+  "peak_db": -1.1,
+  "suasana_loop": false,
+  "cocok_untuk": "langkah sepatu hak di trotoar",
+  "normal": "normal/footsteps-on-heels-on-the-pavement.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-footsteps-on-mattress-loop-534.wav",
+  "nama": "footsteps-on-mattress-loop",
+  "durasi_s": 26.12,
+  "bunyi_mulai_s": 0.2,
+  "peak_db": -12.5,
+  "suasana_loop": false,
+  "cocok_untuk": "langkah di atas kasur, lucu",
+  "normal": "normal/footsteps-on-mattress-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-footsteps-on-tall-grass-532.wav",
   "nama": "footsteps-on-tall-grass",
   "durasi_s": 23.1,
@@ -1592,6 +1664,18 @@
   "suasana_loop": false,
   "cocok_untuk": "berjalan di rumput, alam, mengendap",
   "normal": "normal/footsteps-on-tall-grass.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-footsteps-on-the-snow-539.wav",
+  "nama": "footsteps-on-the-snow",
+  "durasi_s": 10.12,
+  "bunyi_mulai_s": 0.15,
+  "peak_db": -0.5,
+  "suasana_loop": false,
+  "cocok_untuk": "langkah di salju",
+  "normal": "normal/footsteps-on-the-snow.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3840,6 +3924,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-street-ambience-with-walking-people-375.wav",
+  "nama": "street-ambience-with-walking-people",
+  "durasi_s": 47.08,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -8.9,
+  "suasana_loop": false,
+  "cocok_untuk": "jalanan ramai orang berjalan (latar)",
+  "normal": "normal/street-ambience-with-walking-people.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-strong-breathing-of-a-person-2232.wav",
   "nama": "strong-breathing-of-a-person",
   "durasi_s": 5.11,
@@ -4292,6 +4388,18 @@
   "suasana_loop": false,
   "cocok_untuk": "berjalan di hutan",
   "normal": "normal/walking-in-the-forest.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-walking-on-stones-loop-1269.wav",
+  "nama": "walking-on-stones-loop",
+  "durasi_s": 15.33,
+  "bunyi_mulai_s": 0.19,
+  "peak_db": -9.8,
+  "suasana_loop": false,
+  "cocok_untuk": "jalan di atas batu",
+  "normal": "normal/walking-on-stones-loop.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
