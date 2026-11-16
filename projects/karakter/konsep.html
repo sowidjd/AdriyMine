@@ -1,0 +1,72 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Konsep karakter</title>
+<style>@font-face { font-family: 'Fredoka'; src: url(../_bersama/fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; } html,body{margin:0;background:#FBF7EE}</style></head>
+<body><canvas id="c" width="1800" height="2100"></canvas>
+<script>
+// Tiga konsep karakter pengganti Clawd untuk Adriy.Project. Bentuk dasar sederhana (lingkaran, kapsul) supaya bisa digambar ulang di semua gaya.
+const cv = document.getElementById('c'), x = cv.getContext('2d'), TAU = Math.PI * 2, INK = '#2B2420', F = 'Fredoka, sans-serif';
+function blob(cx, cy, rx, ry, col, lw = 6) { x.fillStyle = col; x.beginPath(); x.ellipse(cx, cy, rx, ry, 0, 0, TAU); x.fill(); x.lineWidth = lw; x.strokeStyle = INK; x.stroke(); }
+function eyes(cx, cy, s, mood) {   // mood: senang, kaget, bingung
+  for (const d of [-1, 1]) { const ex = cx + d * 26 * s, ey = cy;
+    if (mood === 'senang') { x.lineWidth = 6 * s; x.strokeStyle = INK; x.beginPath(); x.arc(ex, ey + 6 * s, 14 * s, Math.PI * 1.15, Math.PI * 1.85); x.stroke(); }
+    else { blob(ex, ey, 17 * s * (mood === 'kaget' ? 1.15 : 1), 21 * s * (mood === 'kaget' ? 1.15 : 1), '#FFFFFF', 4 * s); x.fillStyle = INK; x.beginPath(); x.arc(ex + (mood === 'bingung' ? 5 * d * s : 3 * s), ey + 3 * s, 9 * s, 0, TAU); x.fill(); x.fillStyle = '#FFF'; x.beginPath(); x.arc(ex + 6 * s, ey - 4 * s, 3.5 * s, 0, TAU); x.fill(); } }
+}
+function mouth(cx, cy, s, mood) { x.lineWidth = 5 * s; x.strokeStyle = INK; x.beginPath();
+  if (mood === 'senang') { x.arc(cx, cy - 6 * s, 16 * s, .2, Math.PI - .2); x.stroke(); }
+  else if (mood === 'kaget') { x.fillStyle = INK; x.ellipse(cx, cy, 9 * s, 12 * s, 0, 0, TAU); x.fill(); }
+  else { x.moveTo(cx - 14 * s, cy + 2 * s); x.quadraticCurveTo(cx - 4 * s, cy - 8 * s, cx + 4 * s, cy + 2 * s); x.quadraticCurveTo(cx + 10 * s, cy + 8 * s, cx + 16 * s, cy - 2 * s); x.stroke(); } }
+function cheeks(cx, cy, s) { x.fillStyle = 'rgba(240,110,110,.35)'; for (const d of [-1, 1]) { x.beginPath(); x.ellipse(cx + d * 52 * s, cy + 26 * s, 13 * s, 8 * s, 0, 0, TAU); x.fill(); } }
+// A. ORI — penjelajah bulat dengan antena kaca pembesar ("Explore More")
+function ori(cx, cy, s, mood) {
+  x.lineWidth = 6 * s; x.strokeStyle = INK; x.beginPath(); x.moveTo(cx + 10 * s, cy - 92 * s); x.quadraticCurveTo(cx + 20 * s, cy - 140 * s, cx + 46 * s, cy - 152 * s); x.stroke();
+  blob(cx + 58 * s, cy - 160 * s, 20 * s, 20 * s, '#CFEFFF', 5 * s); x.beginPath(); x.moveTo(cx + 70 * s, cy - 146 * s); x.lineTo(cx + 84 * s, cy - 132 * s); x.lineWidth = 7 * s; x.stroke();
+  for (const d of [-1, 1]) blob(cx + d * 40 * s, cy + 98 * s, 22 * s, 13 * s, '#1F7A72', 5 * s);
+  blob(cx, cy, 100 * s, 98 * s, '#2BB3A3', 6 * s);
+  x.fillStyle = '#7ED8CC'; x.beginPath(); x.ellipse(cx, cy + 40 * s, 62 * s, 42 * s, 0, 0, TAU); x.fill();
+  for (const d of [-1, 1]) blob(cx + d * 104 * s, cy + 18 * s, 18 * s, 28 * s, '#2BB3A3', 5 * s);
+  eyes(cx, cy - 20 * s, s, mood); mouth(cx, cy + 28 * s, s, mood); cheeks(cx, cy - 20 * s, s);
+  x.fillStyle = '#F2B84B'; x.strokeStyle = INK; x.lineWidth = 4 * s; x.beginPath(); x.moveTo(cx - 70 * s, cy - 66 * s); x.lineTo(cx - 40 * s, cy - 88 * s); x.lineTo(cx - 34 * s, cy - 62 * s); x.closePath(); x.fill(); x.stroke();   // little map-pin badge
+}
+// B. KUKU — burung hantu kecil berkacamata besar & syal ("Know More")
+function kuku(cx, cy, s, mood) {
+  for (const d of [-1, 1]) { x.fillStyle = '#8A5A3C'; x.strokeStyle = INK; x.lineWidth = 5 * s; x.beginPath(); x.moveTo(cx + d * 40 * s, cy - 88 * s); x.lineTo(cx + d * 70 * s, cy - 128 * s); x.lineTo(cx + d * 78 * s, cy - 76 * s); x.closePath(); x.fill(); x.stroke(); }
+  for (const d of [-1, 1]) blob(cx + d * 34 * s, cy + 102 * s, 18 * s, 10 * s, '#F2A23B', 4 * s);
+  blob(cx, cy, 92 * s, 104 * s, '#A9714B', 6 * s);
+  x.fillStyle = '#F1DCC0'; x.beginPath(); x.ellipse(cx, cy + 34 * s, 58 * s, 56 * s, 0, 0, TAU); x.fill();
+  for (const d of [-1, 1]) blob(cx + d * 92 * s, cy + 20 * s, 20 * s, 44 * s, '#8A5A3C', 5 * s);
+  for (const d of [-1, 1]) blob(cx + d * 30 * s, cy - 24 * s, 34 * s, 34 * s, '#FFFFFF', 7 * s);   // big round glasses
+  x.lineWidth = 6 * s; x.beginPath(); x.moveTo(cx - 4 * s, cy - 24 * s); x.lineTo(cx + 4 * s, cy - 24 * s); x.stroke();
+  for (const d of [-1, 1]) { if (mood === 'senang') { x.beginPath(); x.lineWidth = 6 * s; x.arc(cx + d * 30 * s, cy - 18 * s, 12 * s, Math.PI * 1.15, Math.PI * 1.85); x.stroke(); } else { x.fillStyle = INK; x.beginPath(); x.arc(cx + d * 30 * s + (mood === 'bingung' ? d * 6 * s : 0), cy - 22 * s, (mood === 'kaget' ? 13 : 10) * s, 0, TAU); x.fill(); } }
+  x.fillStyle = '#F2A23B'; x.beginPath(); x.moveTo(cx - 10 * s, cy + 6 * s); x.lineTo(cx + 10 * s, cy + 6 * s); x.lineTo(cx, cy + (mood === 'kaget' ? 30 : 22) * s); x.closePath(); x.fill(); x.lineWidth = 4 * s; x.stroke();
+  x.fillStyle = '#D9534F'; x.beginPath(); x.moveTo(cx - 70 * s, cy + 52 * s); x.quadraticCurveTo(cx, cy + 80 * s, cx + 70 * s, cy + 52 * s); x.lineTo(cx + 64 * s, cy + 72 * s); x.quadraticCurveTo(cx, cy + 98 * s, cx - 64 * s, cy + 72 * s); x.closePath(); x.fill(); x.stroke();
+  x.beginPath(); x.moveTo(cx + 40 * s, cy + 70 * s); x.lineTo(cx + 54 * s, cy + 116 * s); x.lineTo(cx + 30 * s, cy + 112 * s); x.closePath(); x.fill(); x.stroke();
+}
+// C. BOLI — robot kecil dengan layar wajah (ekspresi = gambar di layar) & roda
+function boli(cx, cy, s, mood) {
+  x.lineWidth = 6 * s; x.strokeStyle = INK; x.beginPath(); x.moveTo(cx, cy - 100 * s); x.lineTo(cx, cy - 136 * s); x.stroke(); blob(cx, cy - 144 * s, 14 * s, 14 * s, mood === 'kaget' ? '#FF6B5B' : '#FFD45A', 5 * s);
+  blob(cx, cy + 112 * s, 40 * s, 22 * s, '#4B4F5C', 5 * s);
+  x.fillStyle = '#F06A3C'; x.strokeStyle = INK; x.lineWidth = 6 * s; x.beginPath(); x.roundRect(cx - 100 * s, cy - 100 * s, 200 * s, 196 * s, 46 * s); x.fill(); x.stroke();
+  x.fillStyle = '#1C2A3A'; x.beginPath(); x.roundRect(cx - 74 * s, cy - 74 * s, 148 * s, 104 * s, 24 * s); x.fill(); x.stroke();
+  x.fillStyle = '#7FF0D2'; x.strokeStyle = '#7FF0D2';
+  for (const d of [-1, 1]) { if (mood === 'senang') { x.lineWidth = 7 * s; x.beginPath(); x.arc(cx + d * 30 * s, cy - 18 * s, 13 * s, Math.PI * 1.15, Math.PI * 1.85); x.stroke(); } else if (mood === 'kaget') { x.beginPath(); x.arc(cx + d * 30 * s, cy - 26 * s, 15 * s, 0, TAU); x.fill(); } else { x.fillRect(cx + d * 30 * s - 10 * s, cy - 40 * s + (d > 0 ? 8 * s : 0), 20 * s, 26 * s); } }
+  x.lineWidth = 6 * s; x.beginPath(); if (mood === 'senang') x.arc(cx, cy - 6 * s, 18 * s, .3, Math.PI - .3); else if (mood === 'kaget') x.ellipse(cx, cy + 6 * s, 9 * s, 11 * s, 0, 0, TAU); else { x.moveTo(cx - 16 * s, cy + 8 * s); x.lineTo(cx + 16 * s, cy + 2 * s); } x.stroke();
+  for (const d of [-1, 1]) { x.fillStyle = '#F06A3C'; x.strokeStyle = INK; x.lineWidth = 5 * s; x.beginPath(); x.roundRect(cx + d * 100 * s - (d > 0 ? 0 : 26 * s), cy - 6 * s, 26 * s, 60 * s, 13 * s); x.fill(); x.stroke(); }
+  x.fillStyle = '#FFD45A'; x.beginPath(); x.arc(cx + 52 * s, cy + 66 * s, 9 * s, 0, TAU); x.fill(); x.stroke();
+}
+(async () => {
+  await document.fonts.load('700 40px Fredoka');
+  x.fillStyle = '#FBF7EE'; x.fillRect(0, 0, 1800, 2100);
+  x.fillStyle = INK; x.font = `700 72px ${F}`; x.textAlign = 'center'; x.fillText('Konsep karakter Adriy.Project', 900, 110);
+  x.font = `500 38px ${F}`; x.fillText('Pilih satu (atau gabungkan). Ekspresi: senang · kaget · bingung', 900, 170);
+  const rows = [['A. ORI', 'Penjelajah bulat, antena kaca pembesar', '“Explore More”: suka menyelidiki apa saja', ori, '#2BB3A3'],
+    ['B. KUKU', 'Burung hantu kecil berkacamata & syal merah', '“Know More”: pintar, tapi kocak & gampang kaget', kuku, '#A9714B'],
+    ['C. BOLI', 'Robot kecil, wajahnya layar', 'Ekspresinya bisa berubah jadi gambar apa saja', boli, '#F06A3C']];
+  rows.forEach(([n, d1, d2, fn, col], r) => {
+    const y = 300 + r * 600; x.fillStyle = '#FFFFFF'; x.strokeStyle = '#E3D9C6'; x.lineWidth = 4; x.beginPath(); x.roundRect(60, y - 60, 1680, 560, 36); x.fill(); x.stroke();
+    x.textAlign = 'left'; x.fillStyle = col; x.font = `700 64px ${F}`; x.fillText(n, 110, y + 20); x.fillStyle = INK; x.font = `500 34px ${F}`; x.fillText(d1, 110, y + 80); x.fillText(d2, 110, y + 130);
+    ['senang', 'kaget', 'bingung'].forEach((m, i) => { const cx = 1000 + i * 280, cy = y + 250; fn(cx, cy, .9, m); x.fillStyle = '#8A7F70'; x.font = `500 30px ${F}`; x.textAlign = 'center'; x.fillText(m, cx, y + 470); });
+    fn(330, y + 340, .6, 'senang');
+  });
+  window.done = true;
+})();
+</script></body></html>
