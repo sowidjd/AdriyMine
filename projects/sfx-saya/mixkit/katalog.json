@@ -24,6 +24,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-air-traffic-ambience-with-helicopter-2714.wav",
+  "nama": "air-traffic-ambience-with-helicopter",
+  "durasi_s": 41.73,
+  "bunyi_mulai_s": 0.58,
+  "peak_db": -3.6,
+  "suasana_loop": true,
+  "cocok_untuk": "lalu lintas udara + helikopter (latar)",
+  "normal": "normal/air-traffic-ambience-with-helicopter.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-air-woosh-1489.wav",
   "nama": "air-woosh",
   "durasi_s": 2.32,
@@ -512,6 +524,18 @@
   "suasana_loop": true,
   "cocok_untuk": "area keberangkatan bus (latar)",
   "normal": "normal/bus-departure-zone.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-bus-interior-ambience-with-people-2707.wav",
+  "nama": "bus-interior-ambience-with-people",
+  "durasi_s": 19.24,
+  "bunyi_mulai_s": 0.12,
+  "peak_db": -6.2,
+  "suasana_loop": true,
+  "cocok_untuk": "di dalam bus + penumpang (latar), mirip angkot/TransJakarta",
+  "normal": "normal/bus-interior-ambience-with-people.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2640,6 +2664,42 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-helicopter-engine-working-close-2699.wav",
+  "nama": "helicopter-engine-working-close",
+  "durasi_s": 1.86,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -2.1,
+  "suasana_loop": false,
+  "cocok_untuk": "mesin helikopter dari dekat",
+  "normal": "normal/helicopter-engine-working-close.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-helicopter-flying-far-away-2696.wav",
+  "nama": "helicopter-flying-far-away",
+  "durasi_s": 45.41,
+  "bunyi_mulai_s": 1.04,
+  "peak_db": -0.4,
+  "suasana_loop": false,
+  "cocok_untuk": "helikopter menjauh",
+  "normal": "normal/helicopter-flying-far-away.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-helicopter-flying-far-away-2715.wav",
+  "nama": "helicopter-flying-far-away",
+  "durasi_s": 26.36,
+  "bunyi_mulai_s": 0.18,
+  "peak_db": -18.4,
+  "suasana_loop": false,
+  "cocok_untuk": "helikopter menjauh",
+  "normal": "normal/helicopter-flying-far-away.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-helicopter-flying-in-the-sky-2700.wav",
   "nama": "helicopter-flying-in-the-sky",
   "durasi_s": 19.68,
@@ -3588,6 +3648,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-metal-tank-door-closing-2754.wav",
+  "nama": "metal-tank-door-closing",
+  "durasi_s": 1.81,
+  "bunyi_mulai_s": 0.42,
+  "peak_db": -1.2,
+  "suasana_loop": false,
+  "cocok_untuk": "pintu logam tank ditutup, berat",
+  "normal": "normal/metal-tank-door-closing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-metal-tank-gear-shift-2757.wav",
+  "nama": "metal-tank-gear-shift",
+  "durasi_s": 1.29,
+  "bunyi_mulai_s": 0.12,
+  "peak_db": -3.7,
+  "suasana_loop": false,
+  "cocok_untuk": "tank ganti gigi",
+  "normal": "normal/metal-tank-gear-shift.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-metal-tool-falling-820.wav",
   "nama": "metal-tool-falling",
   "durasi_s": 0.75,
@@ -4248,6 +4332,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-propellers-working-2698.wav",
+  "nama": "propellers-working",
+  "durasi_s": 1.86,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -2.9,
+  "suasana_loop": false,
+  "cocok_untuk": "baling-baling berputar",
+  "normal": "normal/propellers-working.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-quick-bomb-drop-explosion-1697.wav",
   "nama": "quick-bomb-drop-explosion",
   "durasi_s": 10.16,
@@ -4692,6 +4788,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-sci-fi-helicopter-engine-hum-2718.wav",
+  "nama": "sci-fi-helicopter-engine-hum",
+  "durasi_s": 4.81,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -11.1,
+  "suasana_loop": false,
+  "cocok_untuk": "mesin helikopter sci-fi",
+  "normal": "normal/sci-fi-helicopter-engine-hum.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-sci-fi-loading-operative-system-2529.wav",
   "nama": "sci-fi-loading-operative-system",
   "durasi_s": 2.63,
@@ -5100,6 +5208,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-small-tank-hatch-opening-2755.wav",
+  "nama": "small-tank-hatch-opening",
+  "durasi_s": 1.87,
+  "bunyi_mulai_s": 0.18,
+  "peak_db": -4.1,
+  "suasana_loop": false,
+  "cocok_untuk": "tutup palka tank dibuka",
+  "normal": "normal/small-tank-hatch-opening.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-small-waves-harbor-rocks-1208.wav",
   "nama": "small-waves-harbor-rocks",
   "durasi_s": 77.86,
@@ -5252,6 +5372,18 @@
   "suasana_loop": false,
   "cocok_untuk": "motor sport menyala",
   "normal": "normal/sports-bike-engine.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-sports-bike-working-motor-2729.wav",
+  "nama": "sports-bike-working-motor",
+  "durasi_s": 8.36,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -1.8,
+  "suasana_loop": false,
+  "cocok_untuk": "motor sport menyala",
+  "normal": "normal/sports-bike-working-motor.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -5832,6 +5964,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-train-station-ambience-2677.wav",
+  "nama": "train-station-ambience",
+  "durasi_s": 17.01,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -22.0,
+  "suasana_loop": true,
+  "cocok_untuk": "stasiun kereta (latar), mirip stasiun KRL",
+  "normal": "normal/train-station-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-transition-windy-swoosh-1474.wav",
   "nama": "transition-windy-swoosh",
   "durasi_s": 3.2,
@@ -5940,6 +6084,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-urban-tram-station-ambience-2676.wav",
+  "nama": "urban-tram-station-ambience",
+  "durasi_s": 9.11,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -22.4,
+  "suasana_loop": true,
+  "cocok_untuk": "halte trem kota (latar)",
+  "normal": "normal/urban-tram-station-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-user-interface-zoom-in-2618.wav",
   "nama": "user-interface-zoom-in",
   "durasi_s": 0.66,
@@ -5972,6 +6128,42 @@
   "suasana_loop": true,
   "cocok_untuk": "pesta/kafe sangat ramai (latar)",
   "normal": "normal/very-crowded-pub-or-party-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-very-old-war-tank-2756.wav",
+  "nama": "very-old-war-tank",
+  "durasi_s": 18.91,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -5.6,
+  "suasana_loop": false,
+  "cocok_untuk": "tank perang tua, sejarah",
+  "normal": "normal/very-old-war-tank.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-vibrating-wind-passing-by-2705.wav",
+  "nama": "vibrating-wind-passing-by",
+  "durasi_s": 5.02,
+  "bunyi_mulai_s": 0.61,
+  "peak_db": -1.4,
+  "suasana_loop": true,
+  "cocok_untuk": "angin bergetar melintas",
+  "normal": "normal/vibrating-wind-passing-by.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-video-game-helicopter-2716.wav",
+  "nama": "video-game-helicopter",
+  "durasi_s": 3.73,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -1.0,
+  "suasana_loop": false,
+  "cocok_untuk": "helikopter ala video game",
+  "normal": "normal/video-game-helicopter.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

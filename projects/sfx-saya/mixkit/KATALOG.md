@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-529 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+545 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -8,6 +8,7 @@
 |---|---|---|
 | `aggressive-beast-roar` | 1.46 s | monster/binatang buas, ancaman, kaget |
 | `ah-woman-exclamation-of-pain` | 1.23 s | "ah!" kesakitan |
+| `air-traffic-ambience-with-helicopter` | 41.73 s (suasana/loop) | lalu lintas udara + helikopter (latar) |
 | `air-woosh` | 2.32 s | gerak udara ringan, teks masuk |
 | `air-zoom-vacuum` | 1.27 s | tersedot, zoom masuk, menghilang |
 | `airy-metal-board-hit` | 1.74 s | papan logam dipukul, bergaung |
@@ -49,6 +50,7 @@
 | `boy-says-volcano` | 1.62 s | anak bilang "volcano!" (bahasa Inggris), sains/gunung api |
 | `breeze-through-the-trees` | 14.33 s (suasana/loop) | angin sepoi di pepohonan |
 | `bus-departure-zone` | 8.76 s (suasana/loop) | area keberangkatan bus (latar) |
+| `bus-interior-ambience-with-people` | 19.24 s (suasana/loop) | di dalam bus + penumpang (latar), mirip angkot/TransJakarta |
 | `bus-passing-by-in-a-city` | 14.08 s | bus lewat di kota |
 | `bus-station-ambience` | 21.95 s (suasana/loop) | terminal bus (latar) |
 | `bus-station-environment` | 22.36 s (suasana/loop) | suasana terminal bus (latar) |
@@ -226,6 +228,9 @@
 | `heavy-rain-and-thunder-in-background` | 22.27 s (suasana/loop) | hujan deras + petir di kejauhan |
 | `heavy-rain-drops` | 12.17 s (suasana/loop) | tetes hujan deras, dramatis |
 | `heavy-storm-rain-loop` | 18.0 s (suasana/loop) | badai hujan deras (latar) |
+| `helicopter-engine-working-close` | 1.86 s | mesin helikopter dari dekat |
+| `helicopter-flying-far-away` | 45.41 s | helikopter menjauh |
+| `helicopter-flying-far-away` | 26.36 s | helikopter menjauh |
 | `helicopter-flying-in-the-sky` | 19.68 s | helikopter terbang |
 | `helicopter-propellers-in-the-sky` | 19.11 s | baling-baling helikopter |
 | `high-tech-bleep` | 0.69 s | bip teknologi singkat |
@@ -305,6 +310,8 @@
 | `medium-size-group-applause-and-laugh` | 8.29 s | tawa + tepuk tangan kelompok sedang |
 | `melodical-flute-music-notification` | 7.54 s | notifikasi lembut, alam, ceria |
 | `messy-metal-objects-falling` | 5.45 s | barang logam berantakan jatuh, ricuh |
+| `metal-tank-door-closing` | 1.81 s | pintu logam tank ditutup, berat |
+| `metal-tank-gear-shift` | 1.29 s | tank ganti gigi |
 | `metal-tool-falling` | 0.75 s | perkakas logam jatuh |
 | `metal-tools-box-browsing` | 1.37 s | mengaduk kotak perkakas, mencari sesuatu |
 | `modern-technology-select` | 0.5 s | pilih/tap modern |
@@ -360,6 +367,7 @@
 | `plastic-rubbish-objects-falling` | 2.33 s | sampah plastik berjatuhan |
 | `playground-with-kids-playing` | 20.83 s (suasana/loop) | taman bermain anak (latar) |
 | `pouring-water-to-mug` | 4.6 s (suasana/loop) | menuang air ke gelas/mug, ngopi |
+| `propellers-working` | 1.86 s | baling-baling berputar |
 | `quick-bomb-drop-explosion` | 10.16 s | bom jatuh lalu meledak, dramatis |
 | `quick-drilling-machine-hum` | 0.48 s (suasana/loop) | bor cepat, renovasi tetangga |
 | `quiet-forest-ambience` | 152.08 s (suasana/loop) | hutan sunyi (latar) |
@@ -397,6 +405,7 @@
 | `sci-fi-battle-laser-shots` | 2.61 s | tembakan laser, pertempuran sci-fi |
 | `sci-fi-computer-technology` | 30.0 s | komputer sci-fi bekerja |
 | `sci-fi-fall` | 0.68 s | jatuh ala sci-fi |
+| `sci-fi-helicopter-engine-hum` | 4.81 s | mesin helikopter sci-fi |
 | `sci-fi-loading-operative-system` | 2.63 s | sistem sedang loading, memproses |
 | `sci-fi-machine-deep-hum` | 40.0 s (suasana/loop) | dengung mesin sci-fi dalam (latar) |
 | `sci-fi-metal-robot-collapse` | 3.61 s | robot logam ambruk |
@@ -431,6 +440,7 @@
 | `small-meteor-falling` | 5.04 s | meteor jatuh, sesuatu meluncur dari langit |
 | `small-military-parade-marching-troops` | 45.21 s | parade militer kecil berbaris, disiplin |
 | `small-stone-avalanche` | 2.87 s | longsor batu kecil |
+| `small-tank-hatch-opening` | 1.87 s | tutup palka tank dibuka |
 | `small-waves-harbor-rocks` | 77.86 s (suasana/loop) | ombak kecil di batu pelabuhan |
 | `small-wood-plank-pile-drop` | 1.72 s | tumpukan papan kayu jatuh |
 | `small-young-crowd-clapping` | 16.5 s | anak muda bertepuk tangan |
@@ -444,6 +454,7 @@
 | `spinning-fire-fx` | 2.51 s | api berputar, efek sihir/transisi |
 | `spinning-rattle-noise` | 3.79 s | kerincing berputar |
 | `sports-bike-engine` | 14.2 s | motor sport menyala |
+| `sports-bike-working-motor` | 8.36 s | motor sport menyala |
 | `sports-crowd-ambience-background` | 30.3 s (suasana/loop) | penonton olahraga (latar) |
 | `squeezing-party-trumpet` | 1.96 s | terompet pesta diremas, lucu |
 | `stadium-chaotic-loud-applause-drums-and-chants` | 17.27 s | stadion heboh: tepuk tangan, drum & yel-yel |
@@ -492,6 +503,7 @@
 | `toy-mechanism` | 1.13 s | mekanisme mainan diputar, "krek-krek" |
 | `tractors-working-on-the-field` | 44.26 s (suasana/loop) | traktor di sawah/ladang |
 | `trailer-screaming-people-annihilation` | 10.19 s | orang menjerit panik ala trailer bencana |
+| `train-station-ambience` | 17.01 s (suasana/loop) | stasiun kereta (latar), mirip stasiun KRL |
 | `transition-windy-swoosh` | 3.2 s | transisi berangin, angin kencang |
 | `trumpet-fanfare` | 8.0 s | kemenangan, pengumuman resmi, "ta-da!" |
 | `twilight-jungle` | 13.57 s (suasana/loop) | hutan saat senja (latar) |
@@ -501,9 +513,13 @@
 | `urban-city-sounds-and-light-car-traffic` | 23.89 s (suasana/loop) | kota + lalu lintas ringan (latar) |
 | `urban-square-atmosphere` | 52.88 s (suasana/loop) | alun-alun kota (latar) |
 | `urban-street-and-kids` | 40.12 s (suasana/loop) | jalanan kota + anak-anak (latar) |
+| `urban-tram-station-ambience` | 9.11 s (suasana/loop) | halte trem kota (latar) |
 | `user-interface-zoom-in` | 0.66 s | zoom in, fokus ke detail |
 | `vacuum-swoosh-transition` | 2.26 s | transisi tersedot/menghilang |
 | `very-crowded-pub-or-party-loop` | 36.0 s (suasana/loop) | pesta/kafe sangat ramai (latar) |
+| `very-old-war-tank` | 18.91 s | tank perang tua, sejarah |
+| `vibrating-wind-passing-by` | 5.02 s (suasana/loop) | angin bergetar melintas |
+| `video-game-helicopter` | 3.73 s | helikopter ala video game |
 | `vintage-telephone-ringtone` | 7.39 s | telepon jadul berdering, panggilan, zaman dulu |
 | `vocal-kids-playing-and-screaming` | 4.01 s (suasana/loop) | anak-anak main & teriak (latar) |
 | `vocal-male-yawn` | 3.41 s | cowok menguap |
