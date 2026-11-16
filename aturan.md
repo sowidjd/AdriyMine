@@ -112,6 +112,56 @@ Cahaya adalah alat bercerita, bukan hiasan.
 
 ---
 
+## 9. Penentuan gaya animasi: harus sesuai tema & judul, tidak boleh asal
+
+Gaya animasi bukan hiasan: **gaya harus ikut bercerita**. Penonton harus bisa "menangkap" masalahnya dari gambarnya saja, bahkan sebelum membaca teks. Gaya yang dipilih karena "keren" tapi tidak nyambung dengan judul **dilarang**.
+
+### Langkah wajib (tulis jawabannya di naskah sebelum membuat animasi)
+1. **Cari metafora inti judul.** Judul itu "seperti apa" kalau digambar?
+   *Contoh: "Gajian tgl 25, tgl 5 bokek" → uang = nyawa di game yang terus berkurang.*
+2. **Pilih gaya yang bahasa visualnya = metafora itu.**
+   *→ Microgame Frenzy (bar nyawa, "GAME OVER").*
+3. **Tulis 1 kalimat alasan:** "Gaya X dipilih karena ___ di judul terlihat sebagai ___."
+   Kalau kalimat ini tidak bisa ditulis dengan jelas, gayanya **salah**: pilih ulang.
+4. **Cek suasana:** gaya harus cocok dengan emosi utama video (lucu, tegang, haru, kagum).
+   Gaya seram tidak untuk tema lucu; gaya imut tidak untuk tema yang menyentuh.
+5. **Cek selang-seling:** gaya tidak boleh sama dengan video sebelumnya (catat di Riwayat).
+6. **Cek kelayakan teknis:** server tanpa GPU. Gaya penuh tekstur/efek cahaya berat dicoba dulu 3 frame; kalau render > 2 detik per frame, sederhanakan efeknya, jangan ganti ke gaya yang tidak nyambung.
+
+### Gaya yang cocok per kategori (pilihan utama, bukan satu-satunya)
+Nama gaya mengacu ke repo `repos/lemo-opuscar/styles/` dan `repos/mg-styles-15/`.
+
+| Kategori | Gaya yang cocok | Alasan |
+|---|---|---|
+| 🧠 Otak & kebiasaan | Whiteboard Explainer, Sketchnote, Flat Vector, Isometric Infographic | Menjelaskan "isi kepala" dengan gambar sederhana & jelas |
+| 📱 HP & fokus | Sci-fi HUD, Liminal/Backrooms, CRT ASCII, Mascot Screencast | Dunia layar: notifikasi, feed tanpa ujung, terjebak di dalam HP |
+| 💬 Chat & sosial | Stick-figure Explainer, Manga Panels, Mid-century Cartoon | Situasi antarmanusia, ekspresi & dialog visual, gampang membayangkan diri sendiri |
+| 😳 Perasaan & pikiran | Paper-cut Lightbox, Watercolor, Crayon Picture Book, Double Exposure | Lembut & emosional; pikiran jadi bayangan/warna |
+| 💸 Uang & belanja | Microgame Frenzy, Pop Art, Spreadsheet Film, Rhythm Game Show | Angka, skor, diskon yang "teriak", saldo yang berkurang |
+| ⏰ Waktu & produktivitas | Live Countdown Split-screen, Flat cartoon (gaya video #1), Swiss Motion | Jam, deadline, timer, ritme harian |
+| 🌍 Alam & hewan | Watercolor, Colored-pencil Science, Ukiyo-e, Woodcut | Terasa seperti buku alam/dokumenter |
+| 🌍 Tubuh & kesehatan | Colored-pencil Science, Isometric Infographic, Line-art Cutaway | Bagian tubuh "dibedah" dengan jelas |
+| 🌍 Sains sehari-hari | Exploded Teardown, Blueprint, Scale Zoom Explainer | Membongkar cara kerja benda di sekitar kita |
+| 🌍 Sejarah & asal-usul | 1920s Newsreel, Halftone Dossier, Vintage Engraving Collage | Terasa "zaman dulu" dan seperti arsip |
+| 🌍 Teknologi & internet | Dark Tech Keynote, Circuit Board, CRT ASCII | Dunia digital & mesin |
+
+### Gaya yang dilarang untuk tema tertentu
+- **Gaya seram/gelap** (Backrooms, Scratch Film) → tidak untuk tema lucu ringan atau anak-anak.
+- **Gaya imut/anak** (Crayon, Picture Book) → tidak untuk tema uang serius atau fakta teknis.
+- **Gaya "zaman dulu"** (Newsreel, Engraving) → tidak untuk tema HP/internet, kecuali sengaja dijadikan lelucon dan alasannya ditulis.
+- **Gaya teknis/dingin** (Blueprint, HUD) → tidak untuk tema perasaan.
+- **Gaya dengan banyak teks** (Text Flash Cuts, Caption News) → hati-hati menumpuk dengan teks narasi; teks tetap harus terbaca.
+
+### Contoh penentuan yang benar
+| Judul | Metafora inti | Gaya | Alasan 1 kalimat |
+|---|---|---|---|
+| Alarm bunyi 7 kali, tetep telat | Pagi yang berulang & kacau | Flat cartoon + line boil | Kamar & alarm yang sederhana membuat penonton langsung melihat dirinya sendiri |
+| Masuk kamar, lupa mau ngapain | Pintu "menghapus" isi kepala | Whiteboard Explainer | Isi kepala Clawd digambar lalu benar-benar terhapus penghapus saat melewati pintu |
+| Belanja 200rb biar gratis ongkir 10rb | Diskon yang menjebak | Pop Art | Tulisan "GRATIS ONGKIR!" berteriak seperti iklan, kontras dengan struk yang membengkak |
+| Ngetik panjang, kirim "wkwk" | Kata-kata yang ditelan | Manga Panels | Panel demi panel ekspresi ragu, gelembung teks yang dihapus satu per satu |
+| Scroll 5 menit jadi jam 2 pagi | Feed = lorong tanpa ujung | Liminal/Backrooms | Lorong yang tak berujung terasa seperti feed yang tidak pernah habis |
+| Burung seukuran ayam nukik 320 km/jam | Kecepatan alam yang luar biasa | Watercolor (dokumenter alam) | Terasa seperti buku alam; garis kecepatan cat air menunjukkan tukikan |
+
 ## Checklist sebelum video dianggap selesai
 
 - [ ] Kategori berbeda dari video sebelumnya (lihat Riwayat); ada tema umum dalam 3 video terakhir
@@ -124,11 +174,12 @@ Cahaya adalah alat bercerita, bukan hiasan.
 - [ ] Suasana berubah: masalah → penjelasan → solusi → penutup
 - [ ] Minimal 3 latar/komposisi, dengan detail kehidupan Indonesia
 - [ ] Minimal 2 pergantian cahaya, momen terpenting paling terang
+- [ ] Gaya animasi dipilih lewat 6 langkah §9: metafora inti + alasan 1 kalimat ditulis, tidak termasuk gaya yang dilarang, beda dari video sebelumnya
 - [ ] Teks tidak di area tertutup tombol TikTok
 - [ ] Ditutup dengan ajakan komentar yang memancing jawaban
 
 ## Riwayat video
 
-| # | Judul | Kategori | Suasana dominan | Waktu/cahaya |
-|---|---|---|---|---|
-| 1 | Alarm bunyi 7 kali, tetep telat | ⏰ Waktu & produktivitas | Lucu → semangat | Malam → pagi |
+| # | Judul | Kategori | Gaya animasi | Suasana dominan | Waktu/cahaya |
+|---|---|---|---|---|---|
+| 1 | Alarm bunyi 7 kali, tetep telat | ⏰ Waktu & produktivitas | Flat cartoon + line boil | Lucu → semangat | Malam → pagi |
