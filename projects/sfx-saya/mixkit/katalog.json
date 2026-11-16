@@ -1236,6 +1236,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-drone-spaceship-sound-2743.wav",
+  "nama": "drone-spaceship-sound",
+  "durasi_s": 2.15,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -15.2,
+  "suasana_loop": false,
+  "cocok_untuk": "pesawat drone sci-fi",
+  "normal": "normal/drone-spaceship-sound.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-dry-leaves-rustling-2430.wav",
   "nama": "dry-leaves-rustling",
   "durasi_s": 1.3,
@@ -1304,6 +1316,18 @@
   "suasana_loop": false,
   "cocok_untuk": "listrik korslet, glitch, error",
   "normal": "normal/electric-buzz-glitch.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-electric-low-buzzer-2961.wav",
+  "nama": "electric-low-buzzer",
+  "durasi_s": 1.9,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -3.9,
+  "suasana_loop": false,
+  "cocok_untuk": "buzzer listrik rendah, salah/tolak",
+  "normal": "normal/electric-low-buzzer.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2100,6 +2124,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-game-engine-hum-2644.wav",
+  "nama": "game-engine-hum",
+  "durasi_s": 6.17,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -2.1,
+  "suasana_loop": true,
+  "cocok_untuk": "dengung mesin game (latar)",
+  "normal": "normal/game-engine-hum.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-game-show-suspense-waiting-667.wav",
   "nama": "game-show-suspense-waiting",
   "durasi_s": 41.81,
@@ -2216,6 +2252,18 @@
   "suasana_loop": false,
   "cocok_untuk": "longsor kerikil kecil",
   "normal": "normal/gravel-stones-small-avalanche.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-hairdryer-hum-1894.wav",
+  "nama": "hairdryer-hum",
+  "durasi_s": 27.83,
+  "bunyi_mulai_s": 0.07,
+  "peak_db": -0.6,
+  "suasana_loop": false,
+  "cocok_untuk": "pengering rambut menyala, pagi buru-buru",
+  "normal": "normal/hairdryer-hum.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3360,6 +3408,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-noise-of-spinning-rattle-2642.wav",
+  "nama": "noise-of-spinning-rattle",
+  "durasi_s": 7.28,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -7.3,
+  "suasana_loop": false,
+  "cocok_untuk": "kerincing berputar (variasi)",
+  "normal": "normal/noise-of-spinning-rattle.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-noisy-metal-falling-393.wav",
   "nama": "noisy-metal-falling",
   "durasi_s": 1.23,
@@ -4428,6 +4488,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-spaceship-large-drone-2742.wav",
+  "nama": "spaceship-large-drone",
+  "durasi_s": 2.15,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -15.2,
+  "suasana_loop": true,
+  "cocok_untuk": "pesawat besar berdengung (latar)",
+  "normal": "normal/spaceship-large-drone.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-sphinx-cat-purr-3091.wav",
   "nama": "sphinx-cat-purr",
   "durasi_s": 7.3,
@@ -4448,6 +4520,30 @@
   "suasana_loop": false,
   "cocok_untuk": "kucing mendengkur lalu menggeram pelan, \"jangan ganggu\"",
   "normal": "normal/sphinx-cat-purr-and-quiet-growl.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-spinning-fire-fx-2640.wav",
+  "nama": "spinning-fire-fx",
+  "durasi_s": 2.51,
+  "bunyi_mulai_s": 0.17,
+  "peak_db": -4.3,
+  "suasana_loop": false,
+  "cocok_untuk": "api berputar, efek sihir/transisi",
+  "normal": "normal/spinning-fire-fx.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-spinning-rattle-noise-2643.wav",
+  "nama": "spinning-rattle-noise",
+  "durasi_s": 3.79,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -11.0,
+  "suasana_loop": false,
+  "cocok_untuk": "kerincing berputar",
+  "normal": "normal/spinning-rattle-noise.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -4752,6 +4848,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-terror-whooshy-hum-2612.wav",
+  "nama": "terror-whooshy-hum",
+  "durasi_s": 2.97,
+  "bunyi_mulai_s": 0.13,
+  "peak_db": -2.4,
+  "suasana_loop": false,
+  "cocok_untuk": "dengung whoosh horor",
+  "normal": "normal/terror-whooshy-hum.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-theatre-audience-light-applause-519.wav",
   "nama": "theatre-audience-light-applause",
   "durasi_s": 8.52,
@@ -4856,6 +4964,18 @@
   "suasana_loop": false,
   "cocok_untuk": "cowok capek menguap",
   "normal": "normal/tired-man-yawns.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-toy-mechanism-2823.wav",
+  "nama": "toy-mechanism",
+  "durasi_s": 1.13,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -4.1,
+  "suasana_loop": false,
+  "cocok_untuk": "mekanisme mainan diputar, \"krek-krek\"",
+  "normal": "normal/toy-mechanism.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

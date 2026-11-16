@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-442 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+452 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -109,12 +109,14 @@
 | `dog-barking-twice` | 1.62 s | anjing menggonggong, kejutan lucu |
 | `donkey-crying` | 12.27 s | keledai meringkik, lucu/konyol |
 | `donkey-crying-screech` | 14.81 s | keledai menjerit nyaring, kaget lucu |
+| `drone-spaceship-sound` | 2.15 s | pesawat drone sci-fi |
 | `dry-leaves-rustling` | 1.3 s (suasana/loop) | daun kering bergemerisik, langkah di hutan, musim kemarau |
 | `dusty-debris-short-fall` | 2.12 s | puing berdebu jatuh singkat |
 | `eating-crispy-cookies` | 16.52 s | makan biskuit renyah |
 | `eating-crunchy-food-with-mouth-open` | 12.5 s | mengunyah renyah mulut terbuka, kriuk keras |
 | `educational-rattle-toy-shaker` | 2.44 s | mainan kerincingan bayi |
 | `electric-buzz-glitch` | 1.02 s | listrik korslet, glitch, error |
+| `electric-low-buzzer` | 1.9 s | buzzer listrik rendah, salah/tolak |
 | `electric-welding-and-sparkles` | 7.92 s | las listrik + percikan, bengkel |
 | `electricity-buzz` | 2.9 s | dengung/korslet listrik |
 | `electricity-buzz` | 12.35 s | dengung/korslet listrik |
@@ -181,6 +183,7 @@
 | `futuristic-sci-fi-computer-ambience` | 23.5 s (suasana/loop) | ruang komputer masa depan (latar) |
 | `futuristic-transition-sweep` | 2.34 s | transisi futuristik |
 | `futuristic-zoom-move` | 2.17 s | gerak zoom futuristik |
+| `game-engine-hum` | 6.17 s (suasana/loop) | dengung mesin game (latar) |
 | `game-show-suspense-waiting` | 41.81 s (suasana/loop) | menunggu jawaban, kuis, tegang lucu |
 | `garbage-pile-falling` | 10.7 s | tumpukan sampah jatuh, berantakan |
 | `gasping-zombie` | 1.93 s | zombie terengah-engah, horor |
@@ -191,6 +194,7 @@
 | `glass-break-with-hammer-thud` | 1.44 s | kaca pecah dipukul palu, hancur |
 | `grass-step` | 0.58 s | satu langkah di rumput |
 | `gravel-stones-small-avalanche` | 1.4 s | longsor kerikil kecil |
+| `hairdryer-hum` | 27.83 s | pengering rambut menyala, pagi buru-buru |
 | `happy-child-laughing` | 2.4 s | tawa anak bahagia |
 | `hard-horror-hit-drum` | 4.14 s | pukulan drum horor keras, jump scare / fakta mengejutkan |
 | `hawk-call-squawk` | 2.41 s | teriakan elang/burung pemangsa |
@@ -286,6 +290,7 @@
 | `night-crickets-near-the-swamp` | 33.74 s (suasana/loop) | jangkrik malam dekat rawa (latar) |
 | `night-forest-with-insects` | 84.0 s (suasana/loop) | hutan malam, serangga, misterius tenang |
 | `night-vision-starting` | 1.15 s | kacamata malam/teknologi menyala, mulai memindai |
+| `noise-of-spinning-rattle` | 7.28 s | kerincing berputar (variasi) |
 | `noisy-metal-falling` | 1.23 s | logam berisik berjatuhan |
 | `old-subway-train-arrives` | 18.77 s (suasana/loop) | kereta tua datang, stasiun |
 | `one-clap` | 0.2 s | satu tepukan, "oke!" / ide |
@@ -375,8 +380,11 @@
 | `space-alien-invasion` | 13.32 s | invasi alien, sci-fi, ancaman dari luar angkasa |
 | `space-ship-hum` | 46.0 s (suasana/loop) | dengung pesawat luar angkasa (latar) |
 | `spaceship-drone-moves` | 2.15 s | drone/pesawat bergerak melintas |
+| `spaceship-large-drone` | 2.15 s (suasana/loop) | pesawat besar berdengung (latar) |
 | `sphinx-cat-purr` | 7.3 s | kucing mendengkur, nyaman, manja |
 | `sphinx-cat-purr-and-quiet-growl` | 2.78 s | kucing mendengkur lalu menggeram pelan, "jangan ganggu" |
+| `spinning-fire-fx` | 2.51 s | api berputar, efek sihir/transisi |
+| `spinning-rattle-noise` | 3.79 s | kerincing berputar |
 | `stadium-crowd-light-applause` | 11.09 s | tepuk tangan stadion, pengakuan besar |
 | `stand-up-club-audience-applause` | 20.16 s | tepuk tangan klub stand-up comedy |
 | `stone-debris-falling` | 7.0 s | reruntuhan batu berjatuhan |
@@ -402,6 +410,7 @@
 | `terrifying-creature-breath` | 3.43 s | napas makhluk mengerikan |
 | `terror-night-ambiance` | 118.09 s (suasana/loop) | malam mencekam (latar) |
 | `terror-transition` | 12.48 s | transisi horor/mengagetkan |
+| `terror-whooshy-hum` | 2.97 s | dengung whoosh horor |
 | `theatre-audience-light-applause` | 8.52 s | tepuk tangan ringan di teater |
 | `thin-metal-plate-drop` | 1.29 s | pelat logam jatuh "klontang" |
 | `thunder-rumble-and-light-rain` | 25.75 s (suasana/loop) | gemuruh petir + gerimis, muram |
@@ -411,6 +420,7 @@
 | `thunderstorm-in-the-forest` | 32.0 s (suasana/loop) | badai petir di hutan |
 | `tick-tock-clock-timer` | 16.85 s | waktu berjalan, menunggu, deadline |
 | `tired-man-yawns` | 3.38 s | cowok capek menguap |
+| `toy-mechanism` | 1.13 s | mekanisme mainan diputar, "krek-krek" |
 | `tractors-working-on-the-field` | 44.26 s (suasana/loop) | traktor di sawah/ladang |
 | `transition-windy-swoosh` | 3.2 s | transisi berangin, angin kencang |
 | `trumpet-fanfare` | 8.0 s | kemenangan, pengumuman resmi, "ta-da!" |
