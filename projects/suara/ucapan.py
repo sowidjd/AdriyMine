@@ -1,10 +1,12 @@
 """Kamus ucapan untuk tiruan suara (VoxCPM2), hasil pelatihan & pengecekan dengan Whisper.
+Pelajaran dari pelatihan alfabet: huruf yang diucapkan tanpa konteks membuat nada melonjak; beri kalimat pengantar
+("Sekarang hurufnya: ...") lalu potong pengantarnya (lihat alfabet_versi.py). Di dalam kalimat biasa, konteks sudah ada.
   from ucapan import siapkan
   siapkan("Taruh HP jauh dari kasur, matikan alarm.")  ->  "Taruh Ha Pé jauh dari kasur, matikan alarrm."
 Hanya untuk teks yang dibacakan; teks di layar tetap memakai ejaan asli."""
 import json, os, re
 HERE = os.path.dirname(os.path.abspath(__file__))
-HURUF = json.load(open(os.path.join(HERE, 'kamus_huruf.json')))   # A -> "Aa", B -> "Bé", ... (lolos cek Whisper)
+HURUF = json.load(open(os.path.join(HERE, 'kamus_huruf.json')))   # A -> "A", B -> "Bé", ... (alfabet versi 2: lolos cek Whisper & dipilih pemilik suara)
 # kata yang terbukti sering salah ucap -> ejaan bantu yang berhasil (lihat projects/bangun-pagi/perbaiki_ucapan.py)
 KATA = {'alarm': 'alarrm', 'Alarm': 'Alarrm', 'snooze': 'snuz', 'Snooze': 'Snuz', 'Cahaya': 'Cahaaya', 'cahaya': 'cahaaya',
         'weekend': 'wiken', 'Weekend': 'Wiken', 'Clawd': 'Klod'}
