@@ -2,11 +2,14 @@
 	path = repos/lemo-opuscar
 	url = https://github.com/lemomo-ai/lemo-opuscar
 	shallow = true
+	ignore = dirty
 [submodule "repos/mg-styles-15"]
 	path = repos/mg-styles-15
 	url = https://github.com/Vincentwei1021/mg-styles-15
 	shallow = true
+	ignore = dirty
 [submodule "repos/ClaudeAnimationBase"]
 	path = repos/ClaudeAnimationBase
 	url = https://github.com/JohnHeibel/ClaudeAnimationBase
 	shallow = true
+	ignore = dirty

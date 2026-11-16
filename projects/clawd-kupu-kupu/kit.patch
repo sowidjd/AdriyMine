@@ -1,0 +1,48 @@
+diff --git a/package-lock.json b/package-lock.json
+index e5e5f2f..61ddd79 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -7,6 +7,7 @@
+     "": {
+       "name": "claude-animation-base",
+       "version": "1.0.0",
++      "license": "MIT",
+       "dependencies": {
+         "p5": "^2.3.3",
+         "p5.brush": "^2.2.3",
+diff --git a/render.mjs b/render.mjs
+index e675a87..847a041 100644
+--- a/render.mjs
++++ b/render.mjs
+@@ -70,7 +70,7 @@ async function openPage(tag = '') {
+   const page = await browser.newPage();
+   page.on('console', m => { if (['error', 'warn'].includes(m.type())) console.log(`[page${tag}]`, m.text()); });
+   page.on('pageerror', e => console.log(`[page error${tag}]`, e.message));
+-  await page.goto(pathToFileURL(resolve('studio.html')).href + '?render', { waitUntil: 'networkidle0' });
++  await page.goto(pathToFileURL(resolve('studio.html')).href + '?render', { waitUntil: 'load' });
+   await page.waitForFunction('window.ready === true', { timeout: 60000 });
+   if (args.loop) {
+     const ok = await page.evaluate(name => { if (!LOOPS[name]) return false; window.LOOP = LOOPS[name]; return true; }, args.loop);
+diff --git a/src/config.js b/src/config.js
+index 276c368..0908c3a 100644
+--- a/src/config.js
++++ b/src/config.js
+@@ -2,4 +2,4 @@
+ //   duration: the video's length in seconds.
+ //   bpm:      the rhythm that bounces, dances and pulse() follow. Clawd always moves to some beat; if the video has music,
+ //             set this to the song's tempo, and set offset to the time in seconds of its first downbeat.
+-const PROJECT = { duration: 11, bpm: 120, offset: 0 };
++const PROJECT = { duration: 15, bpm: 120, offset: 0 };
+diff --git a/studio.html b/studio.html
+index b330d73..e7c4a5b 100644
+--- a/studio.html
++++ b/studio.html
+@@ -29,7 +29,7 @@
+ <!-- reference sheets (standalone loops) -->
+ <script src="src/sheets.js"></script>
+ <!-- your video: add a script per scene file, in order -->
+-<script src="src/scenes/demo.js"></script>
++<script src="src/scenes/butterfly.js"></script>
+ <script>
+   // Open studio.html?loop=emotions (or views) to scrub a standalone loop instead of the video.
+   const q = new URLSearchParams(location.search).get('loop'); if (q && LOOPS[q]) window.LOOP = LOOPS[q];
