@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-696 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+710 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -91,11 +91,13 @@
 | `cars-starting` | 14.28 s | beberapa mobil dinyalakan |
 | `cartoon-air-blow` | 1.66 s | tiupan udara ala kartun, lucu |
 | `cartoon-animal-crying-in-pain` | 2.83 s | hewan kartun kesakitan, lucu |
+| `cartoon-character-sneeze` | 1.11 s | tokoh kartun bersin "hatchi!" |
 | `cartoon-clown-fun-nose-sound` | 0.59 s | hidung badut "honk", lucu/konyol |
 | `cartoon-dazzle-hit-and-birds` | 1.87 s | kena pukul lalu pusing + burung berputar di kepala, lucu |
 | `cartoon-failure-piano` | 2.31 s | piano gagal kartun, zonk |
 | `cartoon-falling-eco` | 3.0 s | jatuh kartun bergema, lucu |
 | `cartoon-falling-whistle` | 2.69 s | siulan jatuh kartun "fiuuu~", jatuh lucu |
+| `cartoon-fart-sound` | 1.12 s | kentut kartun (humor receh, hati-hati) |
 | `cartoon-friendly-kiss` | 1.03 s | cium kartun ramah "muah" |
 | `cartoon-girl-saying-no-no-no` | 1.8 s | "no no no" kartun, menolak lucu |
 | `cartoon-insect-running-fast` | 1.64 s | serangga kartun lari cepat, lucu, kabur |
@@ -105,6 +107,7 @@
 | `cartoon-monkey-mocking-and-giggling` | 2.01 s | monyet kartun mengejek & cekikikan, meledek |
 | `cartoon-positive-sound` | 2.94 s | bunyi positif kartun, "yeay" |
 | `cartoon-sad-party-horn` | 1.55 s | terompet pesta sedih ala kartun, zonk |
+| `cartoon-strong-fart` | 1.38 s | kentut kartun keras (humor receh, hati-hati) |
 | `cartoon-toy-whistle` | 1.21 s | lucu, konyol, gagal lucu |
 | `cartoon-vocal-yawn` | 1.75 s | menguap ala kartun, ngantuk lucu |
 | `cartoon-voice-laugh` | 1.26 s | tawa suara kartun |
@@ -138,6 +141,7 @@
 | `classroom-spontaneous-applause` | 6.54 s | tepuk tangan spontan di kelas |
 | `clock-countdown-bleeps` | 5.0 s | hitung mundur, waktu hampir habis |
 | `close-sea-waves-loop` | 29.0 s (suasana/loop) | ombak dari dekat (latar) |
+| `clown-funny-sound` | 1.92 s | suara badut lucu |
 | `clown-horn-at-circus` | 2.48 s | terompet badut sirkus "honk honk" |
 | `cock-cry` | 4.21 s | ayam jantan berkokok, pagi hari, bangun |
 | `concert-hall-stomping-applause` | 16.59 s | tepuk + hentakan kaki di gedung konser, meriah |
@@ -154,6 +158,7 @@
 | `creepy-cavern-ambience-loop` | 47.8 s (suasana/loop) | gua seram, gelap, misteri |
 | `creepy-clang` | 3.5 s | dentang seram, horor |
 | `creepy-demon-heavy-breathing` | 5.16 s | napas setan berat, horor |
+| `creepy-little-creature` | 1.93 s | makhluk kecil seram-lucu |
 | `crickets-and-insects-in-the-wild-ambience` | 26.01 s (suasana/loop) | alam malam, sepi, canggung |
 | `crickets-at-night-in-nature` | 90.13 s (suasana/loop) | jangkrik malam di alam (latar) |
 | `crowd-chanting-at-stadium` | 11.07 s | suporter bernyanyi di stadion |
@@ -178,6 +183,7 @@
 | `double-little-bird-chirp` | 0.59 s | cicit burung kecil dua kali, imut |
 | `double-party-trumpet` | 1.86 s | terompet pesta dua kali |
 | `drone-spaceship-sound` | 2.15 s | pesawat drone sci-fi |
+| `drum-joke-accent` | 2.48 s | drum aksen lelucon "ba-dum-tss" (rimshot), punchline |
 | `dry-leaves-rustling` | 1.3 s (suasana/loop) | daun kering bergemerisik, langkah di hutan, musim kemarau |
 | `dusty-debris-short-fall` | 2.12 s | puing berdebu jatuh singkat |
 | `eating-crispy-cookies` | 16.52 s | makan biskuit renyah |
@@ -262,7 +268,11 @@
 | `frightening-zombie-roar` | 1.04 s | raungan zombie menakutkan, horor |
 | `fuel-explosion` | 2.98 s | ledakan bahan bakar, dahsyat |
 | `funny-cartoon-fast-splat` | 1.04 s | cipratan kartun "splat!", lucu |
+| `funny-clown-horn-sounds` | 2.48 s | terompet badut lucu |
+| `funny-fail-low-tone` | 1.52 s | nada rendah gagal lucu |
+| `funny-giggling` | 2.09 s | cekikikan lucu |
 | `funny-squeaky-toy-hits` | 1.08 s | mainan bunyi "cit-cit" dipukul, lucu |
+| `funny-video-game-slide` | 1.04 s | meluncur lucu ala game |
 | `futuristic-cinematic-sweep` | 1.29 s | sapuan sinematik futuristik, reveal |
 | `futuristic-electronic-engine-fail` | 6.78 s | mesin elektronik mati/gagal, error |
 | `futuristic-metal-transition-sweep` | 0.95 s | transisi logam futuristik |
@@ -356,6 +366,7 @@
 | `large-fly-buzzing` | 1.33 s | lalat besar berdengung, mengganggu |
 | `laughing-cartoon-creature` | 3.53 s | makhluk kartun tertawa |
 | `laughing-children-indoors` | 10.21 s | anak-anak tertawa di dalam ruangan |
+| `laughing-teenagers` | 11.79 s | remaja tertawa |
 | `light-rain-atmosphere` | 72.9 s (suasana/loop) | suasana gerimis (latar) |
 | `light-rain-loop` | 15.0 s (suasana/loop) | hujan ringan, santai, sendu |
 | `light-ship-engine-flutter-whosh-by` | 7.0 s | perahu motor lewat, whoosh |
@@ -412,6 +423,7 @@
 | `metal-tank-gear-shift` | 1.29 s | tank ganti gigi |
 | `metal-tool-falling` | 0.75 s | perkakas logam jatuh |
 | `metal-tools-box-browsing` | 1.37 s | mengaduk kotak perkakas, mencari sesuatu |
+| `metallic-boing-hit` | 1.21 s | "boing" logam, memantul lucu |
 | `modern-technology-select` | 0.5 s | pilih/tap modern |
 | `monkey-excited-screech` | 1.91 s | monyet menjerit girang |
 | `monster-breath` | 4.31 s | napas monster, seram |
@@ -477,6 +489,7 @@
 | `propellers-working` | 1.86 s | baling-baling berputar |
 | `quick-bomb-drop-explosion` | 10.16 s | bom jatuh lalu meledak, dramatis |
 | `quick-drilling-machine-hum` | 0.48 s (suasana/loop) | bor cepat, renovasi tetangga |
+| `quick-funny-kiss` | 1.24 s | cium cepat lucu |
 | `quiet-forest-ambience` | 152.08 s (suasana/loop) | hutan sunyi (latar) |
 | `racing-motorcycle-engine` | 7.35 s | motor balap meraung |
 | `racing-motorcycle-engine-speeding-up` | 9.22 s | motor balap ngebut |
@@ -686,6 +699,7 @@
 | `windy-humming-forest-with-birds` | 125.35 s (suasana/loop) | hutan berangin + burung |
 | `windy-sea-loop` | 30.39 s (suasana/loop) | laut berangin (latar) |
 | `wine-bottles-clinking` | 1.18 s | botol/gelas berdenting, bersulang (pertimbangkan konteks) |
+| `winning-an-extra-bonus` | 1.55 s | dapat bonus ala game, "hore!" |
 | `wizard-fire-woosh` | 1.09 s | sihir api, transisi magis |
 | `wolf-attack` | 1.52 s | serigala menyerang |
 | `wolf-creature-howling-roar` | 5.02 s | lolongan + raungan makhluk serigala |

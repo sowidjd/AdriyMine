@@ -1020,6 +1020,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-cartoon-character-sneeze-2209.wav",
+  "nama": "cartoon-character-sneeze",
+  "durasi_s": 1.11,
+  "bunyi_mulai_s": 0.02,
+  "peak_db": -1.2,
+  "suasana_loop": false,
+  "cocok_untuk": "tokoh kartun bersin \"hatchi!\"",
+  "normal": "normal/cartoon-character-sneeze.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-cartoon-clown-fun-nose-sound-528.wav",
   "nama": "cartoon-clown-fun-nose-sound",
   "durasi_s": 0.59,
@@ -1076,6 +1088,18 @@
   "suasana_loop": false,
   "cocok_untuk": "siulan jatuh kartun \"fiuuu~\", jatuh lucu",
   "normal": "normal/cartoon-falling-whistle.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-cartoon-fart-sound-2891.wav",
+  "nama": "cartoon-fart-sound",
+  "durasi_s": 1.12,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -1.2,
+  "suasana_loop": false,
+  "cocok_untuk": "kentut kartun (humor receh, hati-hati)",
+  "normal": "normal/cartoon-fart-sound.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1184,6 +1208,18 @@
   "suasana_loop": false,
   "cocok_untuk": "terompet pesta sedih ala kartun, zonk",
   "normal": "normal/cartoon-sad-party-horn.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-cartoon-strong-fart-3050.wav",
+  "nama": "cartoon-strong-fart",
+  "durasi_s": 1.38,
+  "bunyi_mulai_s": 0.03,
+  "peak_db": -0.2,
+  "suasana_loop": false,
+  "cocok_untuk": "kentut kartun keras (humor receh, hati-hati)",
+  "normal": "normal/cartoon-strong-fart.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1584,6 +1620,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-clown-funny-sound-2880.wav",
+  "nama": "clown-funny-sound",
+  "durasi_s": 1.92,
+  "bunyi_mulai_s": 0.04,
+  "peak_db": -1.3,
+  "suasana_loop": false,
+  "cocok_untuk": "suara badut lucu",
+  "normal": "normal/clown-funny-sound.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-clown-horn-at-circus-715.wav",
   "nama": "clown-horn-at-circus",
   "durasi_s": 2.48,
@@ -1772,6 +1820,18 @@
   "suasana_loop": false,
   "cocok_untuk": "napas setan berat, horor",
   "normal": "normal/creepy-demon-heavy-breathing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-creepy-little-creature-2873.wav",
+  "nama": "creepy-little-creature",
+  "durasi_s": 1.93,
+  "bunyi_mulai_s": 0.14,
+  "peak_db": -3.2,
+  "suasana_loop": false,
+  "cocok_untuk": "makhluk kecil seram-lucu",
+  "normal": "normal/creepy-little-creature.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2060,6 +2120,18 @@
   "suasana_loop": false,
   "cocok_untuk": "pesawat drone sci-fi",
   "normal": "normal/drone-spaceship-sound.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-drum-joke-accent-579.wav",
+  "nama": "drum-joke-accent",
+  "durasi_s": 2.48,
+  "bunyi_mulai_s": 0.04,
+  "peak_db": -0.3,
+  "suasana_loop": false,
+  "cocok_untuk": "drum aksen lelucon \"ba-dum-tss\" (rimshot), punchline",
+  "normal": "normal/drum-joke-accent.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3072,6 +3144,42 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-funny-clown-horn-sounds-2886.wav",
+  "nama": "funny-clown-horn-sounds",
+  "durasi_s": 2.48,
+  "bunyi_mulai_s": 0.02,
+  "peak_db": -0.7,
+  "suasana_loop": false,
+  "cocok_untuk": "terompet badut lucu",
+  "normal": "normal/funny-clown-horn-sounds.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-funny-fail-low-tone-2876.wav",
+  "nama": "funny-fail-low-tone",
+  "durasi_s": 1.52,
+  "bunyi_mulai_s": 0.02,
+  "peak_db": -2.0,
+  "suasana_loop": false,
+  "cocok_untuk": "nada rendah gagal lucu",
+  "normal": "normal/funny-fail-low-tone.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-funny-giggling-2885.wav",
+  "nama": "funny-giggling",
+  "durasi_s": 2.09,
+  "bunyi_mulai_s": 0.05,
+  "peak_db": -0.7,
+  "suasana_loop": false,
+  "cocok_untuk": "cekikikan lucu",
+  "normal": "normal/funny-giggling.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-funny-squeaky-toy-hits-2813.wav",
   "nama": "funny-squeaky-toy-hits",
   "durasi_s": 1.08,
@@ -3080,6 +3188,18 @@
   "suasana_loop": false,
   "cocok_untuk": "mainan bunyi \"cit-cit\" dipukul, lucu",
   "normal": "normal/funny-squeaky-toy-hits.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-funny-video-game-slide-2888.wav",
+  "nama": "funny-video-game-slide",
+  "durasi_s": 1.04,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -3.6,
+  "suasana_loop": false,
+  "cocok_untuk": "meluncur lucu ala game",
+  "normal": "normal/funny-video-game-slide.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -4200,6 +4320,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-laughing-teenagers-429.wav",
+  "nama": "laughing-teenagers",
+  "durasi_s": 11.79,
+  "bunyi_mulai_s": 0.02,
+  "peak_db": -0.1,
+  "suasana_loop": false,
+  "cocok_untuk": "remaja tertawa",
+  "normal": "normal/laughing-teenagers.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-light-rain-atmosphere-2474.wav",
   "nama": "light-rain-atmosphere",
   "durasi_s": 72.9,
@@ -4868,6 +5000,18 @@
   "suasana_loop": false,
   "cocok_untuk": "mengaduk kotak perkakas, mencari sesuatu",
   "normal": "normal/metal-tools-box-browsing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-metallic-boing-hit-2895.wav",
+  "nama": "metallic-boing-hit",
+  "durasi_s": 1.21,
+  "bunyi_mulai_s": 0.02,
+  "peak_db": -0.3,
+  "suasana_loop": false,
+  "cocok_untuk": "\"boing\" logam, memantul lucu",
+  "normal": "normal/metallic-boing-hit.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -5648,6 +5792,18 @@
   "suasana_loop": true,
   "cocok_untuk": "bor cepat, renovasi tetangga",
   "normal": "normal/quick-drilling-machine-hum.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-quick-funny-kiss-2193.wav",
+  "nama": "quick-funny-kiss",
+  "durasi_s": 1.24,
+  "bunyi_mulai_s": 0.04,
+  "peak_db": -1.3,
+  "suasana_loop": false,
+  "cocok_untuk": "cium cepat lucu",
+  "normal": "normal/quick-funny-kiss.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -8156,6 +8312,18 @@
   "suasana_loop": false,
   "cocok_untuk": "botol/gelas berdenting, bersulang (pertimbangkan konteks)",
   "normal": "normal/wine-bottles-clinking.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-winning-an-extra-bonus-2060.wav",
+  "nama": "winning-an-extra-bonus",
+  "durasi_s": 1.55,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -0.4,
+  "suasana_loop": false,
+  "cocok_untuk": "dapat bonus ala game, \"hore!\"",
+  "normal": "normal/winning-an-extra-bonus.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
