@@ -1,0 +1,211 @@
+[
+ {
+  "file": "mixkit-aggressive-beast-roar-13.wav",
+  "nama": "aggressive-beast-roar",
+  "durasi_s": 1.46,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -0.1,
+  "cocok_untuk": "monster/binatang buas, ancaman, kaget",
+  "normal": "normal/aggressive-beast-roar.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-air-woosh-1489.wav",
+  "nama": "air-woosh",
+  "durasi_s": 2.32,
+  "bunyi_mulai_s": 0.31,
+  "peak_db": -1.6,
+  "cocok_untuk": "gerak udara ringan, teks masuk",
+  "normal": "normal/air-woosh.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-air-zoom-vacuum-2608.wav",
+  "nama": "air-zoom-vacuum",
+  "durasi_s": 1.27,
+  "bunyi_mulai_s": 0.26,
+  "peak_db": -1.0,
+  "cocok_untuk": "tersedot, zoom masuk, menghilang",
+  "normal": "normal/air-zoom-vacuum.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-arcade-retro-game-over-213.wav",
+  "nama": "arcade-retro-game-over",
+  "durasi_s": 1.67,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -4.7,
+  "cocok_untuk": "gagal, game over, kalah",
+  "normal": "normal/arcade-retro-game-over.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-arrow-whoosh-1491.wav",
+  "nama": "arrow-whoosh",
+  "durasi_s": 1.1,
+  "bunyi_mulai_s": 0.19,
+  "peak_db": -1.0,
+  "cocok_untuk": "sesuatu melesat, panah, gerak cepat",
+  "normal": "normal/arrow-whoosh.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-cartoon-toy-whistle-616.wav",
+  "nama": "cartoon-toy-whistle",
+  "durasi_s": 1.21,
+  "bunyi_mulai_s": 0.12,
+  "peak_db": -3.0,
+  "cocok_untuk": "lucu, konyol, gagal lucu",
+  "normal": "normal/cartoon-toy-whistle.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-cinematic-laser-gun-thunder-1287.wav",
+  "nama": "cinematic-laser-gun-thunder",
+  "durasi_s": 4.81,
+  "bunyi_mulai_s": 0.18,
+  "peak_db": -0.1,
+  "cocok_untuk": "ledakan sci-fi, kekuatan besar, dramatis",
+  "normal": "normal/cinematic-laser-gun-thunder.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-cinematic-transition-swoosh-heartbeat-trailer-488.wav",
+  "nama": "cinematic-transition-swoosh-heartbeat-trailer",
+  "durasi_s": 8.11,
+  "bunyi_mulai_s": 0.36,
+  "peak_db": -0.0,
+  "cocok_untuk": "transisi tegang ala trailer",
+  "normal": "normal/cinematic-transition-swoosh-heartbeat-trailer.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-cinematic-tunnel-reverb-woosh-1486.wav",
+  "nama": "cinematic-tunnel-reverb-woosh",
+  "durasi_s": 6.75,
+  "bunyi_mulai_s": 0.24,
+  "peak_db": -1.4,
+  "cocok_untuk": "masuk ke dunia lain, flashback, transisi dalam",
+  "normal": "normal/cinematic-tunnel-reverb-woosh.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-cinematic-whoosh-fast-transition-1492.wav",
+  "nama": "cinematic-whoosh-fast-transition",
+  "durasi_s": 1.33,
+  "bunyi_mulai_s": 0.38,
+  "peak_db": -2.2,
+  "cocok_untuk": "transisi cepat antar adegan",
+  "normal": "normal/cinematic-whoosh-fast-transition.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-classic-alarm-995.wav",
+  "nama": "classic-alarm",
+  "durasi_s": 5.03,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -2.3,
+  "cocok_untuk": "jam beker berbunyi, bangun pagi",
+  "normal": "normal/classic-alarm.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-crickets-and-insects-in-the-wild-ambience-39.wav",
+  "nama": "crickets-and-insects-in-the-wild-ambience",
+  "durasi_s": 26.01,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -15.0,
+  "cocok_untuk": "alam malam, sepi, canggung",
+  "normal": "normal/crickets-and-insects-in-the-wild-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-dog-barking-twice-1.wav",
+  "nama": "dog-barking-twice",
+  "durasi_s": 1.62,
+  "bunyi_mulai_s": 0.03,
+  "peak_db": -1.0,
+  "cocok_untuk": "anjing menggonggong, kejutan lucu",
+  "normal": "normal/dog-barking-twice.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-fast-rocket-whoosh-1714.wav",
+  "nama": "fast-rocket-whoosh",
+  "durasi_s": 4.75,
+  "bunyi_mulai_s": 0.6,
+  "peak_db": -2.0,
+  "cocok_untuk": "roket, melesat sangat cepat",
+  "normal": "normal/fast-rocket-whoosh.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-fast-small-sweep-transition-166.wav",
+  "nama": "fast-small-sweep-transition",
+  "durasi_s": 0.78,
+  "bunyi_mulai_s": 0.13,
+  "peak_db": -3.9,
+  "cocok_untuk": "transisi kecil, kartu/teks berganti",
+  "normal": "normal/fast-small-sweep-transition.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-game-show-suspense-waiting-667.wav",
+  "nama": "game-show-suspense-waiting",
+  "durasi_s": 41.81,
+  "bunyi_mulai_s": 0.6,
+  "peak_db": -1.0,
+  "cocok_untuk": "menunggu jawaban, kuis, tegang lucu",
+  "normal": "normal/game-show-suspense-waiting.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-retro-game-emergency-alarm-1000.wav",
+  "nama": "retro-game-emergency-alarm",
+  "durasi_s": 25.43,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -3.0,
+  "cocok_untuk": "bahaya gaya game, darurat lucu",
+  "normal": "normal/retro-game-emergency-alarm.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-retro-game-notification-212.wav",
+  "nama": "retro-game-notification",
+  "durasi_s": 1.47,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -8.2,
+  "cocok_untuk": "notifikasi gaya game, poin didapat",
+  "normal": "normal/retro-game-notification.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-small-group-cheer-and-applause-518.wav",
+  "nama": "small-group-cheer-and-applause",
+  "durasi_s": 10.6,
+  "bunyi_mulai_s": 0.12,
+  "peak_db": -1.3,
+  "cocok_untuk": "berhasil, sorakan, perayaan kecil",
+  "normal": "normal/small-group-cheer-and-applause.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ }
+]

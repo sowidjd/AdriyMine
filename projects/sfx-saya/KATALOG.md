@@ -1,7 +1,7 @@
 # Efek suara milik pemilik (ElevenLabs)
 
 Dibuat pemilik dengan ElevenLabs (model `eleven_text_to_sound_v2`). Asli MP3 di `audio/`, versi rapi (WAV 48 kHz, jeda awal dipangkas, volume disamakan: puncak -3 dBFS, suasana -12 dBFS) di `normal/`.
-Detail lengkap (prompt, tag, durasi, volume): `katalog.json`.
+Detail lengkap (prompt, tag, durasi, volume): `katalog.json`. Efek tambahan dari Mixkit: `mixkit/KATALOG.md`.
 
 **Lisensi:** hasil ElevenLabs. Boleh dipakai komersial (TikTok yang dimonetisasi) **hanya bila dibuat dengan paket berbayar**; paket gratis mewajibkan atribusi dan tidak untuk komersial. Status: lihat bagian bawah.
 
