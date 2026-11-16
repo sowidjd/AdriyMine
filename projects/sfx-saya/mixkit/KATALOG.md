@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-410 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+422 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -24,11 +24,13 @@
 | `arcade-retro-game-over` | 1.67 s | gagal, game over, kalah |
 | `arctic-winds` | 38.94 s (suasana/loop) | angin kutub, dingin |
 | `arrow-whoosh` | 1.1 s | sesuatu melesat, panah, gerak cepat |
+| `atv-engine-motor-hum` | 34.4 s | mesin ATV/motor menyala |
 | `audience-light-applause` | 5.71 s | tepuk tangan ringan, apresiasi kecil |
 | `auditorium-moderate-applause-and-cheering` | 17.84 s | tepuk tangan + sorakan di auditorium |
 | `baby-saying-soccer` | 1.23 s | bayi bilang "soccer" (bahasa Inggris), lucu |
 | `baby-toy-music-box-lullaby` | 16.02 s | kotak musik nina bobo, lembut, kenangan masa kecil |
 | `basketball-falling-indoor` | 3.1 s | bola basket jatuh memantul |
+| `bass-rumble-hum` | 7.0 s | gemuruh bass, tegang |
 | `beach-waves-with-children-ambience` | 52.0 s (suasana/loop) | ombak pantai + anak-anak bermain, ceria |
 | `big-army-crowd-marching` | 8.65 s | pasukan berbaris, kekuatan massa, kompak |
 | `big-fire-burning` | 3.51 s (suasana/loop) | api besar berkobar (latar) |
@@ -66,6 +68,8 @@
 | `children-voices-in-school` | 122.33 s (suasana/loop) | suara anak-anak di sekolah (latar) |
 | `cinematic-laser-gun-thunder` | 4.81 s (suasana/loop) | ledakan sci-fi, kekuatan besar, dramatis |
 | `cinematic-mystery-heartbeat-transition` | 67.27 s | transisi misteri + detak jantung, menuju reveal |
+| `cinematic-room-tone-loop` | 12.38 s (suasana/loop) | suasana ruangan sunyi sinematik (latar) |
+| `cinematic-transition-brass-hum` | 20.88 s | transisi brass sinematik, megah |
 | `cinematic-transition-swoosh-heartbeat-trailer` | 8.11 s | transisi tegang ala trailer |
 | `cinematic-tunnel-reverb-woosh` | 6.75 s | masuk ke dunia lain, flashback, transisi dalam |
 | `cinematic-whoosh-fast-transition` | 1.33 s | transisi cepat antar adegan |
@@ -110,6 +114,7 @@
 | `eating-crunchy-food-with-mouth-open` | 12.5 s | mengunyah renyah mulut terbuka, kriuk keras |
 | `educational-rattle-toy-shaker` | 2.44 s | mainan kerincingan bayi |
 | `electric-buzz-glitch` | 1.02 s | listrik korslet, glitch, error |
+| `electric-welding-and-sparkles` | 7.92 s | las listrik + percikan, bengkel |
 | `electronics-power-up` | 5.02 s | alat elektronik menyala, power up |
 | `end-of-show-clapping-crowd` | 8.95 s | tepuk tangan akhir pertunjukan |
 | `ending-show-audience-clapping` | 24.48 s | tepuk tangan penutup acara |
@@ -227,6 +232,8 @@
 | `lose-life-falling` | 3.52 s | kehilangan nyawa ala game, gagal |
 | `lost-kid-sobbing` | 1.82 s | anak menangis tersedu, sedih/haru |
 | `loud-creature-breathing` | 1.9 s | napas makhluk besar, seram |
+| `low-drone-engine-hum` | 88.4 s (suasana/loop) | dengung mesin rendah, tegang (latar) |
+| `low-electricity-humming` | 19.2 s (suasana/loop) | dengung listrik rendah (latar) |
 | `magic-marimba` | 3.34 s | marimba ajaib, keajaiban kecil, ide muncul |
 | `male-astonished-gasp` | 1.27 s | cowok terkesiap "hah!", kaget/takjub |
 | `male-clearing-the-throat` | 1.48 s | berdehem "ehem", canggung, mau bicara serius |
@@ -254,6 +261,7 @@
 | `monster-breath` | 4.31 s | napas monster, seram |
 | `monster-footstep` | 3.0 s | langkah monster, berat & mengancam |
 | `morning-sound-in-a-garden` | 110.44 s (suasana/loop) | pagi di taman/kebun, segar |
+| `motorcycle-engine-working` | 2.68 s | mesin motor menyala, ojek/jalanan |
 | `movie-trailer-epic-impact` | 4.87 s | angka/fakta besar muncul, hantaman epik |
 | `musical-game-over` | 2.67 s | game over bermusik, gagal lucu |
 | `mystwrious-bass-pulse` | 16.56 s | misterius, tegang, sesuatu akan terungkap |
@@ -294,6 +302,7 @@
 | `rattlesnake-in-desert` | 4.17 s | ular derik di gurun |
 | `rattlesnake-moving-the-tail` | 1.03 s | ekor ular derik bergetar, peringatan |
 | `rattlesnake-ready-to-hunt` | 1.02 s | ular derik siap menyerang, bahaya |
+| `refrigerator-hum` | 35.84 s (suasana/loop) | dengung kulkas (latar dapur, tengah malam) |
 | `restaurant-background-ambience` | 57.78 s (suasana/loop) | suasana restoran/warung ramai (latar) |
 | `retro-confirmation-tone` | 1.84 s | nada konfirmasi jadul |
 | `retro-game-emergency-alarm` | 25.43 s | bahaya gaya game, darurat lucu |
@@ -315,6 +324,7 @@
 | `sci-fi-computer-technology` | 30.0 s | komputer sci-fi bekerja |
 | `sci-fi-fall` | 0.68 s | jatuh ala sci-fi |
 | `sci-fi-loading-operative-system` | 2.63 s | sistem sedang loading, memproses |
+| `sci-fi-machine-deep-hum` | 40.0 s (suasana/loop) | dengung mesin sci-fi dalam (latar) |
 | `sci-fi-metal-robot-collapse` | 3.61 s | robot logam ambruk |
 | `sea-waves-with-birds-loop` | 38.04 s (suasana/loop) | ombak + burung laut (latar) |
 | `short-fire-whoosh` | 3.19 s | whoosh api singkat |
@@ -363,6 +373,7 @@
 | `summer-night-crickets-loop` | 42.0 s (suasana/loop) | jangkrik malam (latar) |
 | `summer-night-in-the-forest` | 126.0 s (suasana/loop) | malam musim panas di hutan (latar) |
 | `swallowing-a-water-drink-in-the-throat` | 2.26 s (suasana/loop) | menelan air "gluk", gugup/haus |
+| `synthetic-power-bass-transition` | 6.57 s | transisi bass bertenaga |
 | `system-break` | 1.97 s | sistem rusak/crash, error total |
 | `technological-futuristic-hum` | 6.0 s (suasana/loop) | teknologi canggih, futuristik, mesin/AI |
 | `technology-alert-transition` | 5.0 s | transisi peringatan teknologi |
@@ -400,6 +411,7 @@
 | `wallowing-drink-quickly` | 3.61 s | minum cepat glek-glek, haus |
 | `water-flowing-ambience-loop` | 51.0 s (suasana/loop) | air mengalir, sungai, tenang |
 | `water-pour-light-stream` | 36.5 s (suasana/loop) | tuang air aliran kecil |
+| `whoosh-resonating-metallic-hit` | 3.33 s | whoosh + hantaman logam bergaung, judul muncul |
 | `wild-animal-hungry-grunting` | 4.18 s | hewan liar lapar menggeram, ancaman |
 | `wind-in-a-desolate-world` | 13.03 s (suasana/loop) | angin di dunia sepi/kosong, hampa |
 | `wind-in-futuristic-city` | 13.41 s (suasana/loop) | angin di kota masa depan, sci-fi sepi |
