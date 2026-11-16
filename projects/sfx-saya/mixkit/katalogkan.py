@@ -206,9 +206,12 @@ SAAT = {'cinematic-whoosh-fast-transition': 'transisi cepat antar adegan', 'cine
  'tick-tock-clock-timer': 'waktu berjalan, menunggu, deadline', 'technological-futuristic-hum': 'teknologi canggih, futuristik, mesin/AI',
  'stadium-crowd-light-applause': 'tepuk tangan stadion, pengakuan besar', 'small-crowd-laugh-and-applause': 'tertawa + tepuk tangan, lucu yang berhasil', 'cool-impact-movie-trailer': 'hantaman keren ala trailer, judul muncul', 'clock-countdown-bleeps': 'hitung mundur, waktu hampir habis'}
 AMB = ('ambience', 'rain', 'loop', 'storm', 'birds-singing', 'geese', 'suspense-waiting', 'futuristic-hum', 'forest', 'river', 'flowing', 'breeze', 'thunderstorm', 'leaves-rustling', 'rain-drops', 'wolves', 'thunder', 'storm', 'jungle', 'heavy-rain', 'wind', 'water', 'sea', 'waves', 'beach', 'ambiance', 'desert', 'arctic', 'blizzard', 'cavern', 'winds', 'desolate', 'mountain', 'futuristic-city', 'wind-tunnel', 'fire-burning', 'flame-burning', 'campfire', 'windstorm', 'forest', 'garden', 'jungle', 'owl-in', 'crickets', 'atmosphere', 'scary-woods', 'horror-ambience', 'twilight', 'terror-night', 'subway-interior', 'computer-ambience', 'machine-hum', 'transmitter-hum', 'people-indoors', 'playground', 'kids-playing-and-screaming', 'restaurant', 'applause-ambience', 'sleep-breathing', 'children-voices-in-school', 'street-ambience', 'hotel-lobby', 'bus-station', 'refrigerator-hum', 'deep-hum', 'room-tone', 'electricity-humming', 'drone-engine', 'industrial-hum', 'space-ship-hum', 'machine-engine-hum', 'alien-technology-hum', 'fridge-motor', 'tractors', 'game-engine-hum', 'large-drone', 'crowded-pub', 'fair-ambience', 'crowd-talking', 'urban-city', 'supermarket', 'sub-urban', 'airport', 'big-crowd-indoor', 'dining-noise', 'subway-station', 'downtown', 'shopping-center', 'church-bells-in-the-distance', 'shopping-mall', 'street-ambien', 'children-crowd', 'urban-square', 'park-playground', 'crowded-beach', 'coming-into-church', 'escalator-hum', 'urban-street-and-kids', 'tourists-crowd', 'children-audience-talking', 'sports-crowd-ambience', 'bus-station-ambience', 'bus-departure-zone', 'air-traffic-ambience', 'tram-station', 'train-station-ambience', 'bus-interior')
-out = []
+out = []; seen = {}
 for f in sorted(os.listdir('audio')):
     base = re.sub(r'^mixkit-|-\d+\.(wav|mp3)$', '', f)
+    key = base; m = re.search(r'-(\d+)\.(wav|mp3)$', f)
+    if base in seen: base = f"{base}-{m.group(1) if m else len(seen)}"   # same name, different sound: keep both
+    seen[base] = 1
     y, sr = librosa.load('audio/' + f, sr=None, mono=True); peak = float(np.abs(y).max())
     nz = np.where(np.abs(y) > peak * .05)[0]; lead = nz[0] / sr if len(nz) else 0; amb = any(k in base for k in AMB) and not any(k in base for k in ('transition', 'strike', 'swoosh', 'fish', 'rattlesnake', 'hawk', 'impact', 'notification', 'strange-animal', 'woosh', 'whoosh', 'explosion', 'ignition', 'spell', 'meteor', 'beam', 'match', 'walking', 'running', 'footsteps', 'shriek', 'screech', 'snore', 'smacking', 'purr', 'growl', 'grunting', 'lightning-strike'))
     z, _ = librosa.load('audio/' + f, sr=48000, mono=False); z = np.atleast_2d(z)
@@ -217,7 +220,7 @@ for f in sorted(os.listdir('audio')):
     if z.shape[0] == 1: z = np.vstack([z, z])
     sf.write('normal/' + base + '.wav', z.T, 48000, subtype='PCM_16')
     out.append({'file': f, 'nama': base, 'durasi_s': round(len(y) / sr, 2), 'bunyi_mulai_s': round(lead, 2), 'peak_db': round(20 * np.log10(peak + 1e-12), 1), 'suasana_loop': amb,
-                'cocok_untuk': SAAT.get(base, ''), 'normal': 'normal/' + base + '.wav', 'sumber': 'Mixkit (mixkit.co)',
+                'cocok_untuk': SAAT.get(key, ''), 'normal': 'normal/' + base + '.wav', 'sumber': 'Mixkit (mixkit.co)',
                 'lisensi': 'Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya'})
 json.dump(out, open('katalog.json', 'w'), ensure_ascii=False, indent=1)
 L = ['# Efek suara Mixkit (dari pemilik)', '', f'{len(out)} efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.', '',

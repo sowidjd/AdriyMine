@@ -137,7 +137,7 @@
 | `electric-low-buzzer` | 1.9 s | buzzer listrik rendah, salah/tolak |
 | `electric-welding-and-sparkles` | 7.92 s | las listrik + percikan, bengkel |
 | `electricity-buzz` | 2.9 s | dengung/korslet listrik |
-| `electricity-buzz` | 12.35 s | dengung/korslet listrik |
+| `electricity-buzz-910` | 12.35 s | dengung/korslet listrik |
 | `electricity-intense-hum` | 48.51 s | dengung listrik kuat |
 | `electricity-reactor-buzz` | 12.06 s | dengung reaktor listrik |
 | `electronics-power-up` | 5.02 s | alat elektronik menyala, power up |
@@ -230,7 +230,7 @@
 | `heavy-storm-rain-loop` | 18.0 s (suasana/loop) | badai hujan deras (latar) |
 | `helicopter-engine-working-close` | 1.86 s | mesin helikopter dari dekat |
 | `helicopter-flying-far-away` | 45.41 s | helikopter menjauh |
-| `helicopter-flying-far-away` | 26.36 s | helikopter menjauh |
+| `helicopter-flying-far-away-2715` | 26.36 s | helikopter menjauh |
 | `helicopter-flying-in-the-sky` | 19.68 s | helikopter terbang |
 | `helicopter-propellers-in-the-sky` | 19.11 s | baling-baling helikopter |
 | `high-tech-bleep` | 0.69 s | bip teknologi singkat |

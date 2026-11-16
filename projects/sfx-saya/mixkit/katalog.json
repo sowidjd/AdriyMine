@@ -1573,13 +1573,13 @@
  },
  {
   "file": "mixkit-electricity-buzz-910.wav",
-  "nama": "electricity-buzz",
+  "nama": "electricity-buzz-910",
   "durasi_s": 12.35,
   "bunyi_mulai_s": 0.1,
   "peak_db": -15.0,
   "suasana_loop": false,
   "cocok_untuk": "dengung/korslet listrik",
-  "normal": "normal/electricity-buzz.wav",
+  "normal": "normal/electricity-buzz-910.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2689,13 +2689,13 @@
  },
  {
   "file": "mixkit-helicopter-flying-far-away-2715.wav",
-  "nama": "helicopter-flying-far-away",
+  "nama": "helicopter-flying-far-away-2715",
   "durasi_s": 26.36,
   "bunyi_mulai_s": 0.18,
   "peak_db": -18.4,
   "suasana_loop": false,
   "cocok_untuk": "helikopter menjauh",
-  "normal": "normal/helicopter-flying-far-away.wav",
+  "normal": "normal/helicopter-flying-far-away-2715.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
