@@ -444,6 +444,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-small-crowd-laugh-and-applause-422.wav",
+  "nama": "small-crowd-laugh-and-applause",
+  "durasi_s": 5.76,
+  "bunyi_mulai_s": 0.6,
+  "peak_db": -7.5,
+  "suasana_loop": false,
+  "cocok_untuk": "tertawa + tepuk tangan, lucu yang berhasil",
+  "normal": "normal/small-crowd-laugh-and-applause.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-small-group-cheer-and-applause-518.wav",
   "nama": "small-group-cheer-and-applause",
   "durasi_s": 10.6,
@@ -452,6 +464,90 @@
   "suasana_loop": false,
   "cocok_untuk": "berhasil, sorakan, perayaan kecil",
   "normal": "normal/small-group-cheer-and-applause.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-stadium-crowd-light-applause-362.wav",
+  "nama": "stadium-crowd-light-applause",
+  "durasi_s": 11.09,
+  "bunyi_mulai_s": 0.76,
+  "peak_db": -3.1,
+  "suasana_loop": false,
+  "cocok_untuk": "tepuk tangan stadion, pengakuan besar",
+  "normal": "normal/stadium-crowd-light-applause.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-technological-futuristic-hum-2133.wav",
+  "nama": "technological-futuristic-hum",
+  "durasi_s": 6.0,
+  "bunyi_mulai_s": 0.21,
+  "peak_db": -5.2,
+  "suasana_loop": true,
+  "cocok_untuk": "teknologi canggih, futuristik, mesin/AI",
+  "normal": "normal/technological-futuristic-hum.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-tick-tock-clock-timer-1045.wav",
+  "nama": "tick-tock-clock-timer",
+  "durasi_s": 16.85,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -11.9,
+  "suasana_loop": false,
+  "cocok_untuk": "waktu berjalan, menunggu, deadline",
+  "normal": "normal/tick-tock-clock-timer.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-transition-windy-swoosh-1474.wav",
+  "nama": "transition-windy-swoosh",
+  "durasi_s": 3.2,
+  "bunyi_mulai_s": 0.34,
+  "peak_db": -2.1,
+  "suasana_loop": false,
+  "cocok_untuk": "transisi berangin, angin kencang",
+  "normal": "normal/transition-windy-swoosh.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-trumpet-fanfare-2293.wav",
+  "nama": "trumpet-fanfare",
+  "durasi_s": 8.0,
+  "bunyi_mulai_s": 0.04,
+  "peak_db": -4.5,
+  "suasana_loop": false,
+  "cocok_untuk": "kemenangan, pengumuman resmi, \"ta-da!\"",
+  "normal": "normal/trumpet-fanfare.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-vacuum-swoosh-transition-1465.wav",
+  "nama": "vacuum-swoosh-transition",
+  "durasi_s": 2.26,
+  "bunyi_mulai_s": 0.2,
+  "peak_db": -5.5,
+  "suasana_loop": false,
+  "cocok_untuk": "transisi tersedot/menghilang",
+  "normal": "normal/vacuum-swoosh-transition.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-vintage-telephone-ringtone-1356.wav",
+  "nama": "vintage-telephone-ringtone",
+  "durasi_s": 7.39,
+  "bunyi_mulai_s": 0.06,
+  "peak_db": -0.1,
+  "suasana_loop": false,
+  "cocok_untuk": "telepon jadul berdering, panggilan, zaman dulu",
+  "normal": "normal/vintage-telephone-ringtone.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  }

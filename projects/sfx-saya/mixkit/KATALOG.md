@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-38 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+46 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -43,4 +43,12 @@
 | `retro-game-notification` | 1.47 s | notifikasi gaya game, poin didapat |
 | `sad-game-over-trombone` | 5.61 s | gagal lucu "wah wah wah", kecewa |
 | `sick-man-sneeze` | 0.86 s | bersin, sakit, kejutan lucu |
+| `small-crowd-laugh-and-applause` | 5.76 s | tertawa + tepuk tangan, lucu yang berhasil |
 | `small-group-cheer-and-applause` | 10.6 s | berhasil, sorakan, perayaan kecil |
+| `stadium-crowd-light-applause` | 11.09 s | tepuk tangan stadion, pengakuan besar |
+| `technological-futuristic-hum` | 6.0 s (suasana/loop) | teknologi canggih, futuristik, mesin/AI |
+| `tick-tock-clock-timer` | 16.85 s | waktu berjalan, menunggu, deadline |
+| `transition-windy-swoosh` | 3.2 s | transisi berangin, angin kencang |
+| `trumpet-fanfare` | 8.0 s | kemenangan, pengumuman resmi, "ta-da!" |
+| `vacuum-swoosh-transition` | 2.26 s | transisi tersedot/menghilang |
+| `vintage-telephone-ringtone` | 7.39 s | telepon jadul berdering, panggilan, zaman dulu |
