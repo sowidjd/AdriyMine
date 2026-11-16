@@ -14,6 +14,13 @@ SAAT = {'cinematic-whoosh-fast-transition': 'transisi cepat antar adegan', 'cine
  'keyboard-typing': 'mengetik, chat, kerja di laptop', 'intro-transition': 'pembuka bagian/judul baru', 'footsteps-on-tall-grass': 'berjalan di rumput, alam, mengendap', 'flock-of-wild-geese': 'kawanan burung, alam liar, migrasi',
  'female-astonished-gasp': 'kaget/takjub "hah!", reaksi fakta mengejutkan', 'fast-whoosh-transition': 'transisi cepat', 'epic-orchestra-transition': 'transisi megah, pengungkapan besar',
  'crowd-laugh': 'penonton tertawa, momen lucu',
+ 'fast-ignition-fire': 'api menyala cepat, "wush!", semangat membara', 'big-fire-burning': 'api besar berkobar (latar)', 'fire-spell-with-explosion': 'sihir api + ledakan, momen dahsyat',
+ 'small-meteor-falling': 'meteor jatuh, sesuatu meluncur dari langit', 'big-fire-flame-burning': 'nyala api besar (latar)', 'fireball-spell': 'bola api, serangan, energi',
+ 'wizard-fire-woosh': 'sihir api, transisi magis', 'intense-long-fire-beam': 'semburan api panjang, kekuatan besar', 'ghost-fire-swoosh': 'api hantu, transisi misterius',
+ 'fire-woosh': 'whoosh api, transisi panas', 'fire-match-lighting': 'korek api dinyalakan, ide kecil, awal sesuatu', 'fuel-explosion': 'ledakan bahan bakar, dahsyat',
+ 'fire-explosion': 'ledakan api', 'soft-woosh-fire': 'whoosh api lembut', 'papers-blowing-in-the-windstorm': 'kertas beterbangan diterpa angin, berantakan, kacau',
+ 'campfire-burning-crackles': 'api unggun berderak, hangat, cerita malam', 'campfire-night-wind': 'api unggun + angin malam (latar)', 'fire-swoosh-burning': 'whoosh lalu terbakar',
+ 'short-fire-whoosh': 'whoosh api singkat',
  'wind-in-futuristic-city': 'angin di kota masa depan, sci-fi sepi', 'strange-animal-of-the-desert': 'suara hewan aneh di gurun, misterius',
  'rattlesnake-ready-to-hunt': 'ular derik siap menyerang, bahaya', 'rattlesnake-in-desert': 'ular derik di gurun', 'rattlesnake-moving-the-tail': 'ekor ular derik bergetar, peringatan',
  'wind-in-a-desolate-world': 'angin di dunia sepi/kosong, hampa', 'arctic-winds': 'angin kutub, dingin', 'ambient-sound-in-the-desert': 'suasana gurun',
@@ -38,12 +45,12 @@ SAAT = {'cinematic-whoosh-fast-transition': 'transisi cepat antar adegan', 'cine
  'trumpet-fanfare': 'kemenangan, pengumuman resmi, "ta-da!"', 'transition-windy-swoosh': 'transisi berangin, angin kencang',
  'tick-tock-clock-timer': 'waktu berjalan, menunggu, deadline', 'technological-futuristic-hum': 'teknologi canggih, futuristik, mesin/AI',
  'stadium-crowd-light-applause': 'tepuk tangan stadion, pengakuan besar', 'small-crowd-laugh-and-applause': 'tertawa + tepuk tangan, lucu yang berhasil', 'cool-impact-movie-trailer': 'hantaman keren ala trailer, judul muncul', 'clock-countdown-bleeps': 'hitung mundur, waktu hampir habis'}
-AMB = ('ambience', 'rain', 'loop', 'storm', 'birds-singing', 'geese', 'suspense-waiting', 'futuristic-hum', 'forest', 'river', 'flowing', 'breeze', 'thunderstorm', 'leaves-rustling', 'rain-drops', 'wolves', 'thunder', 'storm', 'jungle', 'heavy-rain', 'wind', 'water', 'sea', 'waves', 'beach', 'ambiance', 'desert', 'arctic', 'blizzard', 'cavern', 'winds', 'desolate', 'mountain', 'futuristic-city', 'wind-tunnel')
+AMB = ('ambience', 'rain', 'loop', 'storm', 'birds-singing', 'geese', 'suspense-waiting', 'futuristic-hum', 'forest', 'river', 'flowing', 'breeze', 'thunderstorm', 'leaves-rustling', 'rain-drops', 'wolves', 'thunder', 'storm', 'jungle', 'heavy-rain', 'wind', 'water', 'sea', 'waves', 'beach', 'ambiance', 'desert', 'arctic', 'blizzard', 'cavern', 'winds', 'desolate', 'mountain', 'futuristic-city', 'wind-tunnel', 'fire-burning', 'flame-burning', 'campfire', 'windstorm')
 out = []
 for f in sorted(os.listdir('audio')):
     base = re.sub(r'^mixkit-|-\d+\.wav$', '', f)
     y, sr = librosa.load('audio/' + f, sr=None, mono=True); peak = float(np.abs(y).max())
-    nz = np.where(np.abs(y) > peak * .05)[0]; lead = nz[0] / sr if len(nz) else 0; amb = any(k in base for k in AMB) and not any(k in base for k in ('transition', 'strike', 'swoosh', 'fish', 'rattlesnake', 'hawk', 'impact', 'notification', 'strange-animal'))
+    nz = np.where(np.abs(y) > peak * .05)[0]; lead = nz[0] / sr if len(nz) else 0; amb = any(k in base for k in AMB) and not any(k in base for k in ('transition', 'strike', 'swoosh', 'fish', 'rattlesnake', 'hawk', 'impact', 'notification', 'strange-animal', 'woosh', 'whoosh', 'explosion', 'ignition', 'spell', 'meteor', 'beam', 'match'))
     z, _ = librosa.load('audio/' + f, sr=48000, mono=False); z = np.atleast_2d(z)
     if lead > .3: z = z[:, max(0, int((lead - .02) * 48000)):]
     z = z / (np.abs(z).max() + 1e-9) * 10 ** ((-12 if amb else -3) / 20)

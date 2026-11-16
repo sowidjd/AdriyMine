@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-93 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+112 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -15,6 +15,8 @@
 | `arctic-winds` | 38.94 s (suasana/loop) | angin kutub, dingin |
 | `arrow-whoosh` | 1.1 s | sesuatu melesat, panah, gerak cepat |
 | `beach-waves-with-children-ambience` | 52.0 s (suasana/loop) | ombak pantai + anak-anak bermain, ceria |
+| `big-fire-burning` | 3.51 s (suasana/loop) | api besar berkobar (latar) |
+| `big-fire-flame-burning` | 8.27 s (suasana/loop) | nyala api besar (latar) |
 | `bird-singing-and-flapping-wings` | 3.67 s | burung berkicau & mengepak sayap (dekat) |
 | `birds-chirping-in-the-jungle` | 6.69 s (suasana/loop) | kicau burung di hutan tropis |
 | `birds-chirping-near-the-river` | 90.13 s (suasana/loop) | pagi di sungai, alam damai |
@@ -22,6 +24,8 @@
 | `body-impact-falling-into-the-sand` | 1.1 s | jatuh ke pasir, gedebuk |
 | `breeze-through-the-trees` | 14.33 s (suasana/loop) | angin sepoi di pepohonan |
 | `calm-thunderstorm-in-the-jungle` | 49.0 s (suasana/loop) | badai tenang di hutan tropis |
+| `campfire-burning-crackles` | 14.08 s (suasana/loop) | api unggun berderak, hangat, cerita malam |
+| `campfire-night-wind` | 30.75 s (suasana/loop) | api unggun + angin malam (latar) |
 | `cartoon-toy-whistle` | 1.21 s | lucu, konyol, gagal lucu |
 | `cinematic-laser-gun-thunder` | 4.81 s (suasana/loop) | ledakan sci-fi, kekuatan besar, dramatis |
 | `cinematic-transition-swoosh-heartbeat-trailer` | 8.11 s | transisi tegang ala trailer |
@@ -38,20 +42,30 @@
 | `dog-barking-twice` | 1.62 s | anjing menggonggong, kejutan lucu |
 | `dry-leaves-rustling` | 1.3 s (suasana/loop) | daun kering bergemerisik, langkah di hutan, musim kemarau |
 | `epic-orchestra-transition` | 7.12 s | transisi megah, pengungkapan besar |
+| `fast-ignition-fire` | 4.93 s | api menyala cepat, "wush!", semangat membara |
 | `fast-rocket-whoosh` | 4.75 s | roket, melesat sangat cepat |
 | `fast-small-sweep-transition` | 0.78 s | transisi kecil, kartu/teks berganti |
 | `fast-whoosh-transition` | 1.76 s | transisi cepat |
 | `female-astonished-gasp` | 1.09 s | kaget/takjub "hah!", reaksi fakta mengejutkan |
+| `fire-explosion` | 6.01 s | ledakan api |
+| `fire-match-lighting` | 6.14 s | korek api dinyalakan, ide kecil, awal sesuatu |
+| `fire-spell-with-explosion` | 8.6 s | sihir api + ledakan, momen dahsyat |
+| `fire-swoosh-burning` | 3.63 s | whoosh lalu terbakar |
+| `fire-woosh` | 2.14 s | whoosh api, transisi panas |
+| `fireball-spell` | 2.65 s | bola api, serangan, energi |
 | `fish-moving-in-water` | 2.29 s | ikan bergerak di air, kecipak |
 | `flock-of-wild-geese` | 5.22 s (suasana/loop) | kawanan burung, alam liar, migrasi |
 | `footsteps-on-tall-grass` | 23.1 s | berjalan di rumput, alam, mengendap |
+| `fuel-explosion` | 2.98 s | ledakan bahan bakar, dahsyat |
 | `game-show-suspense-waiting` | 41.81 s (suasana/loop) | menunggu jawaban, kuis, tegang lucu |
+| `ghost-fire-swoosh` | 2.85 s | api hantu, transisi misterius |
 | `hawk-call-squawk` | 2.41 s | teriakan elang/burung pemangsa |
 | `heavy-rain` | 7.5 s (suasana/loop) | hujan deras |
 | `heavy-rain-and-thunder-in-background` | 22.27 s (suasana/loop) | hujan deras + petir di kejauhan |
 | `heavy-rain-drops` | 12.17 s (suasana/loop) | tetes hujan deras, dramatis |
 | `heavy-storm-rain-loop` | 18.0 s (suasana/loop) | badai hujan deras (latar) |
 | `horror-sci-fi-wind-tunnel` | 64.0 s (suasana/loop) | lorong angin horor/sci-fi, mencekam |
+| `intense-long-fire-beam` | 9.0 s | semburan api panjang, kekuatan besar |
 | `intro-transition` | 7.51 s | pembuka bagian/judul baru |
 | `jungle-rain-and-birds` | 80.0 s (suasana/loop) | hujan di hutan + burung |
 | `keyboard-typing` | 26.31 s | mengetik, chat, kerja di laptop |
@@ -63,6 +77,7 @@
 | `movie-trailer-epic-impact` | 4.87 s | angka/fakta besar muncul, hantaman epik |
 | `mystwrious-bass-pulse` | 16.56 s | misterius, tegang, sesuatu akan terungkap |
 | `night-forest-with-insects` | 84.0 s (suasana/loop) | hutan malam, serangga, misterius tenang |
+| `papers-blowing-in-the-windstorm` | 5.2 s (suasana/loop) | kertas beterbangan diterpa angin, berantakan, kacau |
 | `people-bathing-in-the-sea-ambience` | 15.34 s (suasana/loop) | pantai ramai, orang berenang, liburan |
 | `rain-and-thunder-storm` | 29.0 s (suasana/loop) | badai, hujan petir, suasana muram/dramatis |
 | `rain-in-the-jungle-and-birds` | 30.17 s (suasana/loop) | hujan hutan + burung |
@@ -76,10 +91,13 @@
 | `sad-game-over-trombone` | 5.61 s | gagal lucu "wah wah wah", kecewa |
 | `sand-in-the-desert` | 5.53 s (suasana/loop) | pasir tertiup di gurun |
 | `sea-waves-with-birds-loop` | 38.04 s (suasana/loop) | ombak + burung laut (latar) |
+| `short-fire-whoosh` | 3.19 s | whoosh api singkat |
 | `sick-man-sneeze` | 0.86 s | bersin, sakit, kejutan lucu |
 | `small-crowd-laugh-and-applause` | 5.76 s | tertawa + tepuk tangan, lucu yang berhasil |
 | `small-group-cheer-and-applause` | 10.6 s | berhasil, sorakan, perayaan kecil |
+| `small-meteor-falling` | 5.04 s | meteor jatuh, sesuatu meluncur dari langit |
 | `small-waves-harbor-rocks` | 77.86 s (suasana/loop) | ombak kecil di batu pelabuhan |
+| `soft-woosh-fire` | 4.61 s | whoosh api lembut |
 | `stadium-crowd-light-applause` | 11.09 s | tepuk tangan stadion, pengakuan besar |
 | `strange-animal-of-the-desert` | 2.79 s | suara hewan aneh di gurun, misterius |
 | `strong-wild-wind-in-a-storm` | 13.65 s (suasana/loop) | angin kencang badai, terhempas |
@@ -98,4 +116,5 @@
 | `wind-in-a-desolate-world` | 13.03 s (suasana/loop) | angin di dunia sepi/kosong, hampa |
 | `wind-in-futuristic-city` | 13.41 s (suasana/loop) | angin di kota masa depan, sci-fi sepi |
 | `wind-in-the-top-of-the-mountain` | 31.8 s (suasana/loop) | angin di puncak gunung, ketinggian |
+| `wizard-fire-woosh` | 1.09 s | sihir api, transisi magis |
 | `wolves-at-scary-forest` | 9.74 s (suasana/loop) | serigala di hutan seram, horor/ancaman |

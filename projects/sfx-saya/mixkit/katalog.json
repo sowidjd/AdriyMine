@@ -108,6 +108,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-big-fire-burning-1335.wav",
+  "nama": "big-fire-burning",
+  "durasi_s": 3.51,
+  "bunyi_mulai_s": 0.14,
+  "peak_db": -0.5,
+  "suasana_loop": true,
+  "cocok_untuk": "api besar berkobar (latar)",
+  "normal": "normal/big-fire-burning.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-big-fire-flame-burning-1331.wav",
+  "nama": "big-fire-flame-burning",
+  "durasi_s": 8.27,
+  "bunyi_mulai_s": 0.16,
+  "peak_db": -4.7,
+  "suasana_loop": true,
+  "cocok_untuk": "nyala api besar (latar)",
+  "normal": "normal/big-fire-flame-burning.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-bird-singing-and-flapping-wings-2432.wav",
   "nama": "bird-singing-and-flapping-wings",
   "durasi_s": 3.67,
@@ -188,6 +212,30 @@
   "suasana_loop": true,
   "cocok_untuk": "badai tenang di hutan tropis",
   "normal": "normal/calm-thunderstorm-in-the-jungle.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-campfire-burning-crackles-1329.wav",
+  "nama": "campfire-burning-crackles",
+  "durasi_s": 14.08,
+  "bunyi_mulai_s": 0.17,
+  "peak_db": -21.3,
+  "suasana_loop": true,
+  "cocok_untuk": "api unggun berderak, hangat, cerita malam",
+  "normal": "normal/campfire-burning-crackles.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-campfire-night-wind-1736.wav",
+  "nama": "campfire-night-wind",
+  "durasi_s": 30.75,
+  "bunyi_mulai_s": 0.4,
+  "peak_db": -4.0,
+  "suasana_loop": true,
+  "cocok_untuk": "api unggun + angin malam (latar)",
+  "normal": "normal/campfire-night-wind.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -384,6 +432,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-fast-ignition-fire-1349.wav",
+  "nama": "fast-ignition-fire",
+  "durasi_s": 4.93,
+  "bunyi_mulai_s": 0.48,
+  "peak_db": -1.8,
+  "suasana_loop": false,
+  "cocok_untuk": "api menyala cepat, \"wush!\", semangat membara",
+  "normal": "normal/fast-ignition-fire.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-fast-rocket-whoosh-1714.wav",
   "nama": "fast-rocket-whoosh",
   "durasi_s": 4.75,
@@ -432,6 +492,78 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-fire-explosion-1343.wav",
+  "nama": "fire-explosion",
+  "durasi_s": 6.01,
+  "bunyi_mulai_s": 0.32,
+  "peak_db": -1.7,
+  "suasana_loop": false,
+  "cocok_untuk": "ledakan api",
+  "normal": "normal/fire-explosion.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-fire-match-lighting-2590.wav",
+  "nama": "fire-match-lighting",
+  "durasi_s": 6.14,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -8.2,
+  "suasana_loop": false,
+  "cocok_untuk": "korek api dinyalakan, ide kecil, awal sesuatu",
+  "normal": "normal/fire-match-lighting.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-fire-spell-with-explosion-1338.wav",
+  "nama": "fire-spell-with-explosion",
+  "durasi_s": 8.6,
+  "bunyi_mulai_s": 0.17,
+  "peak_db": -0.6,
+  "suasana_loop": false,
+  "cocok_untuk": "sihir api + ledakan, momen dahsyat",
+  "normal": "normal/fire-spell-with-explosion.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-fire-swoosh-burning-1328.wav",
+  "nama": "fire-swoosh-burning",
+  "durasi_s": 3.63,
+  "bunyi_mulai_s": 0.76,
+  "peak_db": -0.2,
+  "suasana_loop": false,
+  "cocok_untuk": "whoosh lalu terbakar",
+  "normal": "normal/fire-swoosh-burning.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-fire-woosh-1348.wav",
+  "nama": "fire-woosh",
+  "durasi_s": 2.14,
+  "bunyi_mulai_s": 0.3,
+  "peak_db": -2.2,
+  "suasana_loop": false,
+  "cocok_untuk": "whoosh api, transisi panas",
+  "normal": "normal/fire-woosh.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-fireball-spell-1347.wav",
+  "nama": "fireball-spell",
+  "durasi_s": 2.65,
+  "bunyi_mulai_s": 0.23,
+  "peak_db": -1.6,
+  "suasana_loop": false,
+  "cocok_untuk": "bola api, serangan, energi",
+  "normal": "normal/fireball-spell.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-fish-moving-in-water-2921.wav",
   "nama": "fish-moving-in-water",
   "durasi_s": 2.29,
@@ -468,6 +600,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-fuel-explosion-1705.wav",
+  "nama": "fuel-explosion",
+  "durasi_s": 2.98,
+  "bunyi_mulai_s": 0.05,
+  "peak_db": -1.2,
+  "suasana_loop": false,
+  "cocok_untuk": "ledakan bahan bakar, dahsyat",
+  "normal": "normal/fuel-explosion.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-game-show-suspense-waiting-667.wav",
   "nama": "game-show-suspense-waiting",
   "durasi_s": 41.81,
@@ -476,6 +620,18 @@
   "suasana_loop": true,
   "cocok_untuk": "menunggu jawaban, kuis, tegang lucu",
   "normal": "normal/game-show-suspense-waiting.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-ghost-fire-swoosh-1340.wav",
+  "nama": "ghost-fire-swoosh",
+  "durasi_s": 2.85,
+  "bunyi_mulai_s": 0.28,
+  "peak_db": -2.8,
+  "suasana_loop": false,
+  "cocok_untuk": "api hantu, transisi misterius",
+  "normal": "normal/ghost-fire-swoosh.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -548,6 +704,18 @@
   "suasana_loop": true,
   "cocok_untuk": "lorong angin horor/sci-fi, mencekam",
   "normal": "normal/horror-sci-fi-wind-tunnel.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-intense-long-fire-beam-1341.wav",
+  "nama": "intense-long-fire-beam",
+  "durasi_s": 9.0,
+  "bunyi_mulai_s": 0.25,
+  "peak_db": -1.1,
+  "suasana_loop": false,
+  "cocok_untuk": "semburan api panjang, kekuatan besar",
+  "normal": "normal/intense-long-fire-beam.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -680,6 +848,18 @@
   "suasana_loop": true,
   "cocok_untuk": "hutan malam, serangga, misterius tenang",
   "normal": "normal/night-forest-with-insects.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-papers-blowing-in-the-windstorm-2653.wav",
+  "nama": "papers-blowing-in-the-windstorm",
+  "durasi_s": 5.2,
+  "bunyi_mulai_s": 0.03,
+  "peak_db": -4.9,
+  "suasana_loop": true,
+  "cocok_untuk": "kertas beterbangan diterpa angin, berantakan, kacau",
+  "normal": "normal/papers-blowing-in-the-windstorm.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -840,6 +1020,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-short-fire-whoosh-1345.wav",
+  "nama": "short-fire-whoosh",
+  "durasi_s": 3.19,
+  "bunyi_mulai_s": 0.24,
+  "peak_db": -2.1,
+  "suasana_loop": false,
+  "cocok_untuk": "whoosh api singkat",
+  "normal": "normal/short-fire-whoosh.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-sick-man-sneeze-2213.wav",
   "nama": "sick-man-sneeze",
   "durasi_s": 0.86,
@@ -876,6 +1068,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-small-meteor-falling-1337.wav",
+  "nama": "small-meteor-falling",
+  "durasi_s": 5.04,
+  "bunyi_mulai_s": 0.25,
+  "peak_db": -2.1,
+  "suasana_loop": false,
+  "cocok_untuk": "meteor jatuh, sesuatu meluncur dari langit",
+  "normal": "normal/small-meteor-falling.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-small-waves-harbor-rocks-1208.wav",
   "nama": "small-waves-harbor-rocks",
   "durasi_s": 77.86,
@@ -884,6 +1088,18 @@
   "suasana_loop": true,
   "cocok_untuk": "ombak kecil di batu pelabuhan",
   "normal": "normal/small-waves-harbor-rocks.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-soft-woosh-fire-1346.wav",
+  "nama": "soft-woosh-fire",
+  "durasi_s": 4.61,
+  "bunyi_mulai_s": 0.29,
+  "peak_db": -3.0,
+  "suasana_loop": false,
+  "cocok_untuk": "whoosh api lembut",
+  "normal": "normal/soft-woosh-fire.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1100,6 +1316,18 @@
   "suasana_loop": true,
   "cocok_untuk": "angin di puncak gunung, ketinggian",
   "normal": "normal/wind-in-the-top-of-the-mountain.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-wizard-fire-woosh-1326.wav",
+  "nama": "wizard-fire-woosh",
+  "durasi_s": 1.09,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -0.3,
+  "suasana_loop": false,
+  "cocok_untuk": "sihir api, transisi magis",
+  "normal": "normal/wizard-fire-woosh.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
