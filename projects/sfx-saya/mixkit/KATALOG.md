@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-300 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+308 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -57,8 +57,10 @@
 | `cinematic-transition-swoosh-heartbeat-trailer` | 8.11 s | transisi tegang ala trailer |
 | `cinematic-tunnel-reverb-woosh` | 6.75 s | masuk ke dunia lain, flashback, transisi dalam |
 | `cinematic-whoosh-fast-transition` | 1.33 s | transisi cepat antar adegan |
+| `clapping-fast` | 3.46 s | tepuk tangan cepat satu orang, semangat |
 | `clapping-indoors` | 22.75 s | tepuk tangan di dalam ruangan |
 | `clapping-male-crowd` | 6.8 s | kerumunan cowok bertepuk tangan |
+| `clapping-slowly` | 2.67 s | tepuk tangan pelan, sarkas "hebat..." |
 | `classic-alarm` | 5.03 s | jam beker berbunyi, bangun pagi |
 | `classroom-long-applause-and-whistle` | 19.0 s | tepuk tangan kelas + siulan, anak sekolah |
 | `classroom-spontaneous-applause` | 6.54 s | tepuk tangan spontan di kelas |
@@ -189,6 +191,7 @@
 | `night-forest-with-insects` | 84.0 s (suasana/loop) | hutan malam, serangga, misterius tenang |
 | `night-vision-starting` | 1.15 s | kacamata malam/teknologi menyala, mulai memindai |
 | `old-subway-train-arrives` | 18.77 s (suasana/loop) | kereta tua datang, stasiun |
+| `one-clap` | 0.2 s | satu tepukan, "oke!" / ide |
 | `one-man-clapping` | 3.0 s | satu orang bertepuk tangan, sarkas/canggung |
 | `ow-exclamation-of-pain` | 0.49 s | "aw!" kesakitan, lucu |
 | `owl-in-a-forest` | 90.14 s (suasana/loop) | burung hantu di hutan, malam misterius |
@@ -202,6 +205,8 @@
 | `person-yawns-deeply` | 3.03 s | menguap panjang & dalam, ngantuk berat |
 | `persons-mouth-blowing` | 1.13 s | meniup dengan mulut, "fiuh" |
 | `persons-nose-blowing` | 1.28 s | buang ingus, flu, lucu |
+| `plastic-cd-box-closed-hard` | 0.88 s | kotak plastik ditutup keras, "klak" |
+| `plastic-cd-cover-close-hard` | 0.67 s | tutup plastik dibanting, keputusan final |
 | `playground-with-kids-playing` | 20.83 s (suasana/loop) | taman bermain anak (latar) |
 | `quiet-forest-ambience` | 152.08 s (suasana/loop) | hutan sunyi (latar) |
 | `rain-and-thunder-storm` | 29.0 s (suasana/loop) | badai, hujan petir, suasana muram/dramatis |
@@ -230,6 +235,7 @@
 | `sci-fi-loading-operative-system` | 2.63 s | sistem sedang loading, memproses |
 | `sea-waves-with-birds-loop` | 38.04 s (suasana/loop) | ombak + burung laut (latar) |
 | `short-fire-whoosh` | 3.19 s | whoosh api singkat |
+| `short-slap-or-clap` | 3.1 s | tamparan/tepukan singkat, "plak" |
 | `sick-male-cough` | 1.1 s | batuk orang sakit |
 | `sick-man-coughing` | 1.24 s | batuk orang sakit |
 | `sick-man-sneeze` | 0.86 s | bersin, sakit, kejutan lucu |
@@ -241,6 +247,7 @@
 | `sleeping-mouth-smacking-lips` | 2.81 s | orang tidur berdecap, lucu, ngantuk |
 | `small-audience-weak-applause` | 7.55 s | tepuk tangan lemah/sepi, canggung, gagal lucu |
 | `small-cricket-screech` | 1.42 s | jangkrik kecil berderik (dekat) |
+| `small-crowd-clapping` | 15.0 s | kerumunan kecil bertepuk tangan |
 | `small-crowd-laugh-and-applause` | 5.76 s | tertawa + tepuk tangan, lucu yang berhasil |
 | `small-crowd-ovation` | 6.4 s | standing ovation kecil |
 | `small-group-cheer-and-applause` | 10.6 s | berhasil, sorakan, perayaan kecil |
@@ -306,3 +313,4 @@
 | `young-man-coughing` | 1.19 s | cowok batuk |
 | `young-tired-male-yawns` | 2.98 s | cowok capek menguap, ngantuk |
 | `young-woman-sneeze` | 1.62 s | cewek bersin |
+| `zippo-fire-close` | 0.27 s | korek zippo ditutup, keren |

@@ -612,6 +612,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-clapping-fast-480.wav",
+  "nama": "clapping-fast",
+  "durasi_s": 3.46,
+  "bunyi_mulai_s": 0.14,
+  "peak_db": -1.7,
+  "suasana_loop": false,
+  "cocok_untuk": "tepuk tangan cepat satu orang, semangat",
+  "normal": "normal/clapping-fast.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-clapping-indoors-3039.wav",
   "nama": "clapping-indoors",
   "durasi_s": 22.75,
@@ -632,6 +644,18 @@
   "suasana_loop": false,
   "cocok_untuk": "kerumunan cowok bertepuk tangan",
   "normal": "normal/clapping-male-crowd.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-clapping-slowly-479.wav",
+  "nama": "clapping-slowly",
+  "durasi_s": 2.67,
+  "bunyi_mulai_s": 0.13,
+  "peak_db": -1.8,
+  "suasana_loop": false,
+  "cocok_untuk": "tepuk tangan pelan, sarkas \"hebat...\"",
+  "normal": "normal/clapping-slowly.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2196,6 +2220,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-one-clap-481.wav",
+  "nama": "one-clap",
+  "durasi_s": 0.2,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -3.8,
+  "suasana_loop": false,
+  "cocok_untuk": "satu tepukan, \"oke!\" / ide",
+  "normal": "normal/one-clap.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-one-man-clapping-482.wav",
   "nama": "one-man-clapping",
   "durasi_s": 3.0,
@@ -2348,6 +2384,30 @@
   "suasana_loop": false,
   "cocok_untuk": "buang ingus, flu, lucu",
   "normal": "normal/persons-nose-blowing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-plastic-cd-box-closed-hard-483.wav",
+  "nama": "plastic-cd-box-closed-hard",
+  "durasi_s": 0.88,
+  "bunyi_mulai_s": 0.32,
+  "peak_db": -1.8,
+  "suasana_loop": false,
+  "cocok_untuk": "kotak plastik ditutup keras, \"klak\"",
+  "normal": "normal/plastic-cd-box-closed-hard.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-plastic-cd-cover-close-hard-486.wav",
+  "nama": "plastic-cd-cover-close-hard",
+  "durasi_s": 0.67,
+  "bunyi_mulai_s": 0.36,
+  "peak_db": -3.6,
+  "suasana_loop": false,
+  "cocok_untuk": "tutup plastik dibanting, keputusan final",
+  "normal": "normal/plastic-cd-cover-close-hard.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2688,6 +2748,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-short-slap-or-clap-2167.wav",
+  "nama": "short-slap-or-clap",
+  "durasi_s": 3.1,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -0.7,
+  "suasana_loop": false,
+  "cocok_untuk": "tamparan/tepukan singkat, \"plak\"",
+  "normal": "normal/short-slap-or-clap.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-sick-male-cough-2225.wav",
   "nama": "sick-male-cough",
   "durasi_s": 1.1,
@@ -2816,6 +2888,18 @@
   "suasana_loop": false,
   "cocok_untuk": "jangkrik kecil berderik (dekat)",
   "normal": "normal/small-cricket-screech.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-small-crowd-clapping-3035.wav",
+  "nama": "small-crowd-clapping",
+  "durasi_s": 15.0,
+  "bunyi_mulai_s": 0.26,
+  "peak_db": -3.5,
+  "suasana_loop": false,
+  "cocok_untuk": "kerumunan kecil bertepuk tangan",
+  "normal": "normal/small-crowd-clapping.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3596,6 +3680,18 @@
   "suasana_loop": false,
   "cocok_untuk": "cewek bersin",
   "normal": "normal/young-woman-sneeze.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-zippo-fire-close-1334.wav",
+  "nama": "zippo-fire-close",
+  "durasi_s": 0.27,
+  "bunyi_mulai_s": 0.15,
+  "peak_db": -10.7,
+  "suasana_loop": false,
+  "cocok_untuk": "korek zippo ditutup, keren",
+  "normal": "normal/zippo-fire-close.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  }
