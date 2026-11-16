@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-623 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+633 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -27,6 +27,7 @@
 | `animal-eating-herb` | 1.44 s | hewan mengunyah rumput |
 | `animal-eating-juicy-meat` | 5.25 s | hewan makan daging berair |
 | `animated-small-group-applause` | 4.13 s | kelompok kecil bertepuk tangan semangat |
+| `annoyed-big-dog-barking` | 3.04 s | anjing besar menggonggong kesal |
 | `applause-ambience-loop` | 13.18 s (suasana/loop) | tepuk tangan (latar, loop) |
 | `arabian-mystery-harp-notification` | 3.52 s | notifikasi harpa misterius ala Timur Tengah, fakta unik |
 | `arcade-retro-game-over` | 1.67 s | gagal, game over, kalah |
@@ -91,6 +92,7 @@
 | `cartoon-insect-running-fast` | 1.64 s | serangga kartun lari cepat, lucu, kabur |
 | `cartoon-kitty-begging-meow` | 2.63 s | kucing kartun mengeong memelas, imut |
 | `cartoon-monkey-applause` | 4.28 s | monyet kartun bertepuk tangan, lucu |
+| `cartoon-monkey-mocking-and-giggling` | 2.01 s | monyet kartun mengejek & cekikikan, meledek |
 | `cartoon-positive-sound` | 2.94 s | bunyi positif kartun, "yeay" |
 | `cartoon-sad-party-horn` | 1.55 s | terompet pesta sedih ala kartun, zonk |
 | `cartoon-toy-whistle` | 1.21 s | lucu, konyol, gagal lucu |
@@ -128,6 +130,7 @@
 | `cool-impact-movie-trailer` | 6.0 s | hantaman keren ala trailer, judul muncul |
 | `cow-animal-breath` | 3.56 s | napas sapi, dengusan hewan besar |
 | `cow-defecating` | 1.9 s | sapi buang kotoran (humor kasar, hati-hati) |
+| `cow-moo` | 2.86 s | sapi melenguh |
 | `cow-moo-in-the-barn` | 2.12 s | sapi melenguh "mooo" |
 | `creaking-public-toilet-door` | 3.56 s | pintu toilet umum berderit |
 | `creature-cry-of-hurt` | 1.43 s | makhluk menjerit terluka |
@@ -151,6 +154,7 @@
 | `dirt-debris-falling` | 5.5 s | tanah & puing berjatuhan |
 | `distant-sea-humming-ambiance` | 44.86 s (suasana/loop) | laut di kejauhan, tenang, luas |
 | `dog-barking-twice` | 1.62 s | anjing menggonggong, kejutan lucu |
+| `domestic-cat-hungry-meow` | 0.87 s | kucing lapar mengeong minta makan |
 | `donkey-crying` | 12.27 s | keledai meringkik, lucu/konyol |
 | `donkey-crying-screech` | 14.81 s | keledai menjerit nyaring, kaget lucu |
 | `double-party-trumpet` | 1.86 s | terompet pesta dua kali |
@@ -185,6 +189,7 @@
 | `falling-on-foil` | 0.61 s | jatuh di atas foil, kresek |
 | `falling-on-tree-leaves` | 0.95 s | jatuh ke tumpukan daun |
 | `falling-on-undergrowth` | 0.52 s | jatuh ke semak |
+| `farm-animals-in-the-morning` | 44.36 s (suasana/loop) | hewan ternak di pagi hari, suasana desa (latar) |
 | `farm-pig-drinking-water` | 9.84 s (suasana/loop) | babi minum air (pertimbangkan penonton) |
 | `fast-bike-passing-by` | 1.76 s | sepeda melintas cepat |
 | `fast-bike-wheel-spin` | 3.36 s | roda sepeda berputar cepat |
@@ -248,6 +253,7 @@
 | `garbage-pile-falling` | 10.7 s | tumpukan sampah jatuh, berantakan |
 | `gasping-zombie` | 1.93 s | zombie terengah-engah, horor |
 | `ghost-fire-swoosh` | 2.85 s | api hantu, transisi misterius |
+| `giant-dog-aggressive-growl` | 5.57 s | anjing besar menggeram galak |
 | `giant-monster-footstep` | 3.43 s | langkah monster raksasa "DUM", menggetarkan |
 | `girls-audience-applause` | 6.55 s | penonton cewek bertepuk tangan |
 | `girls-crowd-cheer-scream-and-applause` | 6.08 s | cewek-cewek bersorak & menjerit, heboh |
@@ -279,6 +285,8 @@
 | `horde-of-barking-dogs` | 10.53 s | banyak anjing menggonggong, ribut |
 | `horror-ambience` | 82.14 s (suasana/loop) | suasana horor, mencekam (latar) |
 | `horror-sci-fi-wind-tunnel` | 64.0 s (suasana/loop) | lorong angin horor/sci-fi, mencekam |
+| `horse-fast-gallop-in-the-dirt` | 13.17 s | kuda berlari kencang di tanah |
+| `horse-fast-gallop-on-a-concrete-surface` | 12.97 s | kuda berlari di jalan keras |
 | `hotel-conversation-and-laughter-with-dining-noise` | 24.04 s (suasana/loop) | restoran ramai mengobrol + tawa + alat makan (latar) |
 | `hotel-lobby-crowd-ambience-and-footsteps` | 16.5 s | lobi hotel ramai + langkah (latar) |
 | `human-bites-a-juicy-sausage` | 1.19 s | menggigit sosis berair |
@@ -325,6 +333,7 @@
 | `little-birds-singing-in-the-trees` | 8.33 s (suasana/loop) | pagi, taman, alam tenang |
 | `little-boy-gibberish-talk` | 2.53 s | anak kecil ngoceh tak jelas, lucu |
 | `little-boy-saying-hiya` | 1.15 s | anak kecil bilang "hiya!", semangat lucu |
+| `little-cat-pain-meow` | 1.38 s | anak kucing mengeong kesakitan |
 | `little-cute-kiss` | 1.08 s | cium kecil, imut, sayang |
 | `little-pug-dog-heavy-breathing` | 5.71 s | anjing pug ngos-ngosan, lucu, capek |
 | `long-giant-water-pour-into-vat` | 27.5 s (suasana/loop) | air tumpah banyak ke bak besar |
@@ -621,6 +630,7 @@
 | `wizard-fire-woosh` | 1.09 s | sihir api, transisi magis |
 | `wolf-howling` | 8.03 s | serigala melolong, malam |
 | `wolves-at-scary-forest` | 9.74 s (suasana/loop) | serigala di hutan seram, horor/ancaman |
+| `wolves-pack-howling` | 6.5 s (suasana/loop) | kawanan serigala melolong |
 | `woman-coughing-fast` | 1.1 s | cewek batuk cepat |
 | `woman-cry-of-pain` | 1.42 s | jeritan kesakitan cewek |
 | `wood-plank-dominoes-fall` | 2.5 s | papan kayu jatuh beruntun seperti domino, efek berantai |
