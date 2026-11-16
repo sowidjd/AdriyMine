@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-545 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+560 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -11,6 +11,11 @@
 | `air-traffic-ambience-with-helicopter` | 41.73 s (suasana/loop) | lalu lintas udara + helikopter (latar) |
 | `air-woosh` | 2.32 s | gerak udara ringan, teks masuk |
 | `air-zoom-vacuum` | 1.27 s | tersedot, zoom masuk, menghilang |
+| `airplane-flying-by-rumble` | 36.95 s | pesawat lewat bergemuruh |
+| `airplane-seatbelt-tone` | 1.12 s (suasana/loop) | nada sabuk pengaman pesawat "ding" |
+| `airport-announcement-ding` | 4.65 s (suasana/loop) | bunyi pengumuman bandara "ding-dong" |
+| `airport-departures-hall` | 130.76 s (suasana/loop) | ruang keberangkatan bandara (latar) |
+| `airport-radar-ping` | 2.56 s (suasana/loop) | ping radar bandara |
 | `airy-metal-board-hit` | 1.74 s | papan logam dipukul, bergaung |
 | `alarm-tone` | 1.08 s | nada alarm, peringatan |
 | `alien-technology-button` | 0.87 s | tombol teknologi alien, aneh |
@@ -160,6 +165,7 @@
 | `falling-on-undergrowth` | 0.52 s | jatuh ke semak |
 | `farm-pig-drinking-water` | 9.84 s (suasana/loop) | babi minum air (pertimbangkan penonton) |
 | `fast-ignition-fire` | 4.93 s | api menyala cepat, "wush!", semangat membara |
+| `fast-jet-engine-flying-over` | 16.27 s | jet melintas cepat, "ngeeeng" |
 | `fast-rocket-whoosh` | 4.75 s | roket, melesat sangat cepat |
 | `fast-small-sweep-transition` | 0.78 s | transisi kecil, kartu/teks berganti |
 | `fast-whoosh-transition` | 1.76 s | transisi cepat |
@@ -201,6 +207,7 @@
 | `futuristic-cinematic-sweep` | 1.29 s | sapuan sinematik futuristik, reveal |
 | `futuristic-electronic-engine-fail` | 6.78 s | mesin elektronik mati/gagal, error |
 | `futuristic-metal-transition-sweep` | 0.95 s | transisi logam futuristik |
+| `futuristic-radar-ping` | 2.21 s | ping radar futuristik |
 | `futuristic-sci-fi-computer-ambience` | 23.5 s (suasana/loop) | ruang komputer masa depan (latar) |
 | `futuristic-transition-sweep` | 2.34 s | transisi futuristik |
 | `futuristic-zoom-move` | 2.17 s | gerak zoom futuristik |
@@ -261,11 +268,14 @@
 | `interface-device-click` | 1.05 s | klik tombol/perangkat |
 | `interface-option-select` | 1.55 s | memilih opsi di layar |
 | `intro-transition` | 7.51 s | pembuka bagian/judul baru |
+| `jet-airplane-engine-taking-off` | 10.81 s | jet lepas landas, mulai/berangkat |
+| `jet-plane-hum-flying` | 29.82 s (suasana/loop) | dengung jet terbang (latar) |
 | `jungle-rain-and-birds` | 80.0 s (suasana/loop) | hujan di hutan + burung |
 | `keyboard-typing` | 26.31 s | mengetik, chat, kerja di laptop |
 | `kid-giggle-laugh` | 2.28 s | anak cekikikan, geli |
 | `kids-cartoon-close-bells` | 2.01 s | lonceng kartun anak, penutup ceria |
 | `kids-playing-and-laughing` | 6.99 s | anak bermain & tertawa |
+| `landing-jet-flying-whoosh` | 11.46 s | jet mendarat + whoosh |
 | `large-drone-engine` | 70.51 s (suasana/loop) | mesin drone besar |
 | `laughing-children-indoors` | 10.21 s | anak-anak tertawa di dalam ruangan |
 | `light-rain-atmosphere` | 72.9 s (suasana/loop) | suasana gerimis (latar) |
@@ -284,6 +294,7 @@
 | `lost-kid-sobbing` | 1.82 s | anak menangis tersedu, sedih/haru |
 | `loud-children-crowd-outdoors` | 35.41 s (suasana/loop) | anak-anak ramai di luar, jam istirahat sekolah (latar) |
 | `loud-creature-breathing` | 1.9 s | napas makhluk besar, seram |
+| `low-airplane-flying-over` | 10.42 s | pesawat terbang rendah melintas |
 | `low-drone-engine-hum` | 88.4 s (suasana/loop) | dengung mesin rendah, tegang (latar) |
 | `low-electricity-humming` | 19.2 s (suasana/loop) | dengung listrik rendah (latar) |
 | `magic-marimba` | 3.34 s | marimba ajaib, keajaiban kecil, ide muncul |
@@ -308,6 +319,7 @@
 | `martial-arts-fast-punch` | 1.34 s | pukulan, "dihantam", fakta yang menampar |
 | `mechanical-technology-movements` | 2.5 s | mesin/robot bergerak, mekanisme |
 | `medium-size-group-applause-and-laugh` | 8.29 s | tawa + tepuk tangan kelompok sedang |
+| `melodic-airport-announcement-ding` | 3.51 s (suasana/loop) | bunyi pengumuman bandara "ding-dong" melodis, perhatian! |
 | `melodical-flute-music-notification` | 7.54 s | notifikasi lembut, alam, ceria |
 | `messy-metal-objects-falling` | 5.45 s | barang logam berantakan jatuh, ricuh |
 | `metal-tank-door-closing` | 1.81 s | pintu logam tank ditutup, berat |
@@ -352,6 +364,7 @@
 | `people-at-the-supermarket-ambience` | 31.58 s (suasana/loop) | suasana supermarket/minimarket (latar) |
 | `people-bathing-in-the-sea-ambience` | 15.34 s (suasana/loop) | pantai ramai, orang berenang, liburan |
 | `people-coming-into-church` | 85.0 s (suasana/loop) | orang berdatangan ke gereja (latar, perhatikan konteks) |
+| `people-in-airport-ambience` | 23.87 s (suasana/loop) | bandara ramai (latar) |
 | `people-in-fair-ambience-and-laughter` | 15.01 s (suasana/loop) | pasar malam/bazar ramai + tawa (latar) |
 | `people-indoors-ambience` | 51.72 s (suasana/loop) | orang ramai di dalam ruangan (latar) |
 | `percussion-tick-tock-timer` | 24.9 s | tik-tok perkusi, waktu berjalan berirama |
@@ -505,6 +518,7 @@
 | `trailer-screaming-people-annihilation` | 10.19 s | orang menjerit panik ala trailer bencana |
 | `train-station-ambience` | 17.01 s (suasana/loop) | stasiun kereta (latar), mirip stasiun KRL |
 | `transition-windy-swoosh` | 3.2 s | transisi berangin, angin kencang |
+| `transport-airplane-flying-rumble` | 63.52 s | pesawat angkut bergemuruh |
 | `trumpet-fanfare` | 8.0 s | kemenangan, pengumuman resmi, "ta-da!" |
 | `twilight-jungle` | 13.57 s (suasana/loop) | hutan saat senja (latar) |
 | `ui-zoom-in-long-sound` | 1.15 s | zoom in panjang, mendekat perlahan |
@@ -520,6 +534,7 @@
 | `very-old-war-tank` | 18.91 s | tank perang tua, sejarah |
 | `vibrating-wind-passing-by` | 5.02 s (suasana/loop) | angin bergetar melintas |
 | `video-game-helicopter` | 3.73 s | helikopter ala video game |
+| `vintage-airplane-landing` | 26.89 s | pesawat tua mendarat, sejarah |
 | `vintage-telephone-ringtone` | 7.39 s | telepon jadul berdering, panggilan, zaman dulu |
 | `vocal-kids-playing-and-screaming` | 4.01 s (suasana/loop) | anak-anak main & teriak (latar) |
 | `vocal-male-yawn` | 3.41 s | cowok menguap |

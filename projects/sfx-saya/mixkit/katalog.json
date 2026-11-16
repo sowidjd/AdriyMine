@@ -60,6 +60,66 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-airplane-flying-by-rumble-1588.wav",
+  "nama": "airplane-flying-by-rumble",
+  "durasi_s": 36.95,
+  "bunyi_mulai_s": 0.23,
+  "peak_db": -6.9,
+  "suasana_loop": false,
+  "cocok_untuk": "pesawat lewat bergemuruh",
+  "normal": "normal/airplane-flying-by-rumble.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-airplane-seatbelt-tone-1585.wav",
+  "nama": "airplane-seatbelt-tone",
+  "durasi_s": 1.12,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -1.0,
+  "suasana_loop": true,
+  "cocok_untuk": "nada sabuk pengaman pesawat \"ding\"",
+  "normal": "normal/airplane-seatbelt-tone.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-airport-announcement-ding-1569.wav",
+  "nama": "airport-announcement-ding",
+  "durasi_s": 4.65,
+  "bunyi_mulai_s": 0.19,
+  "peak_db": -1.2,
+  "suasana_loop": true,
+  "cocok_untuk": "bunyi pengumuman bandara \"ding-dong\"",
+  "normal": "normal/airport-announcement-ding.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-airport-departures-hall-357.wav",
+  "nama": "airport-departures-hall",
+  "durasi_s": 130.76,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -4.0,
+  "suasana_loop": true,
+  "cocok_untuk": "ruang keberangkatan bandara (latar)",
+  "normal": "normal/airport-departures-hall.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-airport-radar-ping-1582.mp3",
+  "nama": "airport-radar-ping",
+  "durasi_s": 2.56,
+  "bunyi_mulai_s": 0.05,
+  "peak_db": -5.6,
+  "suasana_loop": true,
+  "cocok_untuk": "ping radar bandara",
+  "normal": "normal/airport-radar-ping.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-airy-metal-board-hit-3177.wav",
   "nama": "airy-metal-board-hit",
   "durasi_s": 1.74,
@@ -1848,6 +1908,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-fast-jet-engine-flying-over-1580.wav",
+  "nama": "fast-jet-engine-flying-over",
+  "durasi_s": 16.27,
+  "bunyi_mulai_s": 1.13,
+  "peak_db": -1.7,
+  "suasana_loop": false,
+  "cocok_untuk": "jet melintas cepat, \"ngeeeng\"",
+  "normal": "normal/fast-jet-engine-flying-over.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-fast-rocket-whoosh-1714.wav",
   "nama": "fast-rocket-whoosh",
   "durasi_s": 4.75,
@@ -2336,6 +2408,18 @@
   "suasana_loop": false,
   "cocok_untuk": "transisi logam futuristik",
   "normal": "normal/futuristic-metal-transition-sweep.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-futuristic-radar-ping-1583.wav",
+  "nama": "futuristic-radar-ping",
+  "durasi_s": 2.21,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -8.8,
+  "suasana_loop": false,
+  "cocok_untuk": "ping radar futuristik",
+  "normal": "normal/futuristic-radar-ping.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3060,6 +3144,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-jet-airplane-engine-taking-off-1577.wav",
+  "nama": "jet-airplane-engine-taking-off",
+  "durasi_s": 10.81,
+  "bunyi_mulai_s": 0.06,
+  "peak_db": -1.4,
+  "suasana_loop": false,
+  "cocok_untuk": "jet lepas landas, mulai/berangkat",
+  "normal": "normal/jet-airplane-engine-taking-off.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-jet-plane-hum-flying-1574.wav",
+  "nama": "jet-plane-hum-flying",
+  "durasi_s": 29.82,
+  "bunyi_mulai_s": 1.16,
+  "peak_db": -3.3,
+  "suasana_loop": true,
+  "cocok_untuk": "dengung jet terbang (latar)",
+  "normal": "normal/jet-plane-hum-flying.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-jungle-rain-and-birds-2392.wav",
   "nama": "jungle-rain-and-birds",
   "durasi_s": 80.0,
@@ -3116,6 +3224,18 @@
   "suasana_loop": false,
   "cocok_untuk": "anak bermain & tertawa",
   "normal": "normal/kids-playing-and-laughing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-landing-jet-flying-whoosh-1576.wav",
+  "nama": "landing-jet-flying-whoosh",
+  "durasi_s": 11.46,
+  "bunyi_mulai_s": 0.55,
+  "peak_db": -1.7,
+  "suasana_loop": false,
+  "cocok_untuk": "jet mendarat + whoosh",
+  "normal": "normal/landing-jet-flying-whoosh.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3332,6 +3452,18 @@
   "suasana_loop": false,
   "cocok_untuk": "napas makhluk besar, seram",
   "normal": "normal/loud-creature-breathing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-low-airplane-flying-over-1579.wav",
+  "nama": "low-airplane-flying-over",
+  "durasi_s": 10.42,
+  "bunyi_mulai_s": 0.07,
+  "peak_db": -1.7,
+  "suasana_loop": false,
+  "cocok_untuk": "pesawat terbang rendah melintas",
+  "normal": "normal/low-airplane-flying-over.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3620,6 +3752,18 @@
   "suasana_loop": false,
   "cocok_untuk": "tawa + tepuk tangan kelompok sedang",
   "normal": "normal/medium-size-group-applause-and-laugh.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-melodic-airport-announcement-ding-1570.wav",
+  "nama": "melodic-airport-announcement-ding",
+  "durasi_s": 3.51,
+  "bunyi_mulai_s": 0.02,
+  "peak_db": -0.7,
+  "suasana_loop": true,
+  "cocok_untuk": "bunyi pengumuman bandara \"ding-dong\" melodis, perhatian!",
+  "normal": "normal/melodic-airport-announcement-ding.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -4148,6 +4292,18 @@
   "suasana_loop": true,
   "cocok_untuk": "orang berdatangan ke gereja (latar, perhatikan konteks)",
   "normal": "normal/people-coming-into-church.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-people-in-airport-ambience-1567.wav",
+  "nama": "people-in-airport-ambience",
+  "durasi_s": 23.87,
+  "bunyi_mulai_s": 0.19,
+  "peak_db": -5.3,
+  "suasana_loop": true,
+  "cocok_untuk": "bandara ramai (latar)",
+  "normal": "normal/people-in-airport-ambience.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -5988,6 +6144,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-transport-airplane-flying-rumble-1590.wav",
+  "nama": "transport-airplane-flying-rumble",
+  "durasi_s": 63.52,
+  "bunyi_mulai_s": 4.68,
+  "peak_db": -4.8,
+  "suasana_loop": false,
+  "cocok_untuk": "pesawat angkut bergemuruh",
+  "normal": "normal/transport-airplane-flying-rumble.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-trumpet-fanfare-2293.wav",
   "nama": "trumpet-fanfare",
   "durasi_s": 8.0,
@@ -6164,6 +6332,18 @@
   "suasana_loop": false,
   "cocok_untuk": "helikopter ala video game",
   "normal": "normal/video-game-helicopter.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-vintage-airplane-landing-1586.wav",
+  "nama": "vintage-airplane-landing",
+  "durasi_s": 26.89,
+  "bunyi_mulai_s": 0.62,
+  "peak_db": -1.8,
+  "suasana_loop": false,
+  "cocok_untuk": "pesawat tua mendarat, sejarah",
+  "normal": "normal/vintage-airplane-landing.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
