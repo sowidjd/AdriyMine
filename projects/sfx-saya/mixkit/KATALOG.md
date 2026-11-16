@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-506 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+508 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -285,10 +285,12 @@
 | `man-coughing` | 1.1 s | batuk |
 | `man-coughing-hard` | 2.32 s | batuk keras, tersedak |
 | `man-running-in-the-forest` | 11.24 s | orang berlari di hutan, dikejar, buru-buru |
+| `man-slweepy-long-yawn` | 2.74 s | menguap panjang ngantuk |
 | `man-stretches-and-yawns` | 4.8 s | menggeliat + menguap, bangun tidur |
 | `man-stretching-in-the-morning` | 2.25 s | menggeliat pagi, siap mulai hari |
 | `man-strong-snore` | 1.49 s | dengkuran keras, tidur pulas, lucu |
 | `man-waking-up-in-the-morning` | 6.29 s | cowok bangun pagi (menggeliat, bergumam) |
+| `man-yawning-heavily` | 3.37 s | menguap berat, ngantuk parah |
 | `man-yawns-quietly` | 3.86 s | menguap pelan, diam-diam ngantuk |
 | `martial-arts-fast-punch` | 1.34 s | pukulan, "dihantam", fakta yang menampar |
 | `mechanical-technology-movements` | 2.5 s | mesin/robot bergerak, mekanisme |

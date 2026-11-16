@@ -3348,6 +3348,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-man-slweepy-long-yawn-2273.wav",
+  "nama": "man-slweepy-long-yawn",
+  "durasi_s": 2.74,
+  "bunyi_mulai_s": 0.19,
+  "peak_db": -6.6,
+  "suasana_loop": false,
+  "cocok_untuk": "menguap panjang ngantuk",
+  "normal": "normal/man-slweepy-long-yawn.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-man-stretches-and-yawns-2468.wav",
   "nama": "man-stretches-and-yawns",
   "durasi_s": 4.8,
@@ -3392,6 +3404,18 @@
   "suasana_loop": false,
   "cocok_untuk": "cowok bangun pagi (menggeliat, bergumam)",
   "normal": "normal/man-waking-up-in-the-morning.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-man-yawning-heavily-2276.wav",
+  "nama": "man-yawning-heavily",
+  "durasi_s": 3.37,
+  "bunyi_mulai_s": 0.13,
+  "peak_db": -4.1,
+  "suasana_loop": false,
+  "cocok_untuk": "menguap berat, ngantuk parah",
+  "normal": "normal/man-yawning-heavily.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
