@@ -10,10 +10,15 @@ HERE = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.join(HERE, 'alf
 REF = os.path.abspath(sys.argv[1]); PENGANTAR = 'Sekarang hurufnya:'
 
 def med_f0(y, sr):
+    """Median nada bagian bersuara (pYIN, rentang suara laki-laki 70-320 Hz supaya tidak salah baca 2x lipat).
+    Bila hampir tidak ada bagian bersuara di rentang itu (suara melengking/aneh), kembalikan nilai yang pasti ditolak."""
     y = librosa.resample(np.asarray(y, np.float32), orig_sr=sr, target_sr=16000)
-    f0 = librosa.yin(y, fmin=60, fmax=600, sr=16000, frame_length=2048, hop_length=160)
-    rms = librosa.feature.rms(y=y, frame_length=2048, hop_length=160)[0][:len(f0)]
-    return float(np.median(f0[rms > rms.max() * .2]))
+    f0, v, _ = librosa.pyin(y, fmin=70, fmax=320, sr=16000, frame_length=1024, hop_length=160)
+    g = f0[~np.isnan(f0)]
+    rms = librosa.feature.rms(y=y, frame_length=1024, hop_length=160)[0]
+    loud = (rms > rms.max() * .2).sum()
+    if len(g) < max(5, .2 * loud): return SPK * 4 if 'SPK' in globals() else float('nan')
+    return float(np.median(g))
 r, rsr = sf.read(REF); SPK = med_f0(r, rsr)
 
 # kelompok huruf -> ejaan yang dicoba (G/I/J dipisah karena sering tertukar)
@@ -37,6 +42,7 @@ from voxcpm import VoxCPM
 m = VoxCPM.from_pretrained('openbmb/VoxCPM2', load_denoiser=False); SR = m.tts_model.sample_rate
 kp = os.path.join(HERE, 'kamus_huruf.json'); kamus = json.load(open(kp)) if os.path.exists(kp) else {}
 for grp, cands in KELOMPOK:
+    if os.path.exists(os.path.join(OUT, f'v3_{grp}.wav')): continue
     best = None
     for c in cands:
         for _ in range(3):
