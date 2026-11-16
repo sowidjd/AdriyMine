@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-488 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+494 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -265,6 +265,7 @@
 | `long-loving-kiss` | 1.05 s | cium panjang penuh sayang |
 | `lose-life-falling` | 3.52 s | kehilangan nyawa ala game, gagal |
 | `lost-kid-sobbing` | 1.82 s | anak menangis tersedu, sedih/haru |
+| `loud-children-crowd-outdoors` | 35.41 s (suasana/loop) | anak-anak ramai di luar, jam istirahat sekolah (latar) |
 | `loud-creature-breathing` | 1.9 s | napas makhluk besar, seram |
 | `low-drone-engine-hum` | 88.4 s (suasana/loop) | dengung mesin rendah, tegang (latar) |
 | `low-electricity-humming` | 19.2 s (suasana/loop) | dengung listrik rendah (latar) |
@@ -315,6 +316,7 @@
 | `owl-in-a-forest` | 90.14 s (suasana/loop) | burung hantu di hutan, malam misterius |
 | `owl-shriek` | 1.18 s | jeritan burung hantu, kaget/seram |
 | `papers-blowing-in-the-windstorm` | 5.2 s (suasana/loop) | kertas beterbangan diterpa angin, berantakan, kacau |
+| `park-playground-with-kids` | 61.57 s (suasana/loop) | taman bermain anak (latar) |
 | `party-sad-horn` | 1.95 s | terompet pesta sedih, kecewa lucu |
 | `party-trumpet` | 2.31 s | terompet pesta |
 | `party-trumpet-horn-isolated` | 1.29 s | terompet pesta tunggal |
@@ -339,6 +341,7 @@
 | `quick-drilling-machine-hum` | 0.48 s (suasana/loop) | bor cepat, renovasi tetangga |
 | `quiet-forest-ambience` | 152.08 s (suasana/loop) | hutan sunyi (latar) |
 | `rain-and-thunder-storm` | 29.0 s (suasana/loop) | badai, hujan petir, suasana muram/dramatis |
+| `rain-and-traffic-with-church-bells-in-the-distance` | 102.08 s (suasana/loop) | hujan + lalu lintas + lonceng gereja di kejauhan (latar) |
 | `rain-in-the-jungle-and-birds` | 30.17 s (suasana/loop) | hujan hutan + burung |
 | `rain-long-loop` | 57.07 s (suasana/loop) | hujan panjang (latar) |
 | `rattlesnake-in-desert` | 4.17 s | ular derik di gurun |
@@ -373,6 +376,7 @@
 | `screaming-people-at-mechanical-game-fair` | 10.7 s | orang menjerit di wahana pasar malam, seru/takut |
 | `sea-waves-with-birds-loop` | 38.04 s (suasana/loop) | ombak + burung laut (latar) |
 | `shopping-center-crowd` | 28.85 s (suasana/loop) | mal ramai (latar) |
+| `shopping-mall-ambience-crowd` | 49.77 s (suasana/loop) | suasana mal (latar) |
 | `short-buzzer-sound` | 1.06 s | buzzer singkat "teeet", salah/waktu habis |
 | `short-fire-whoosh` | 3.19 s | whoosh api singkat |
 | `short-slap-or-clap` | 3.1 s | tamparan/tepukan singkat, "plak" |
@@ -420,6 +424,7 @@
 | `stones-and-rocks-falling` | 4.25 s | batu-batu berjatuhan, longsor |
 | `stones-falling-down-the-mountain` | 1.88 s (suasana/loop) | batu jatuh dari gunung |
 | `strange-animal-of-the-desert` | 2.79 s | suara hewan aneh di gurun, misterius |
+| `street-ambien-with-carriage-and-people` | 10.38 s (suasana/loop) | jalanan dengan kereta kuda & orang (latar), mirip delman |
 | `street-ambience-with-walking-people` | 47.08 s | jalanan ramai orang berjalan (latar) |
 | `strong-breathing-of-a-person` | 5.11 s | napas berat, capek, panik |
 | `strong-wild-wind-in-a-storm` | 13.65 s (suasana/loop) | angin kencang badai, terhempas |
@@ -460,6 +465,7 @@
 | `ui-zoom-out` | 1.15 s | zoom out, melihat gambaran besar |
 | `underwater-transmitter-hum` | 13.62 s (suasana/loop) | dengung pemancar bawah air (latar) |
 | `urban-city-sounds-and-light-car-traffic` | 23.89 s (suasana/loop) | kota + lalu lintas ringan (latar) |
+| `urban-square-atmosphere` | 52.88 s (suasana/loop) | alun-alun kota (latar) |
 | `user-interface-zoom-in` | 0.66 s | zoom in, fokus ke detail |
 | `vacuum-swoosh-transition` | 2.26 s | transisi tersedot/menghilang |
 | `very-crowded-pub-or-party-loop` | 36.0 s (suasana/loop) | pesta/kafe sangat ramai (latar) |

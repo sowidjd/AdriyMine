@@ -3108,6 +3108,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-loud-children-crowd-outdoors-448.wav",
+  "nama": "loud-children-crowd-outdoors",
+  "durasi_s": 35.41,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -1.3,
+  "suasana_loop": true,
+  "cocok_untuk": "anak-anak ramai di luar, jam istirahat sekolah (latar)",
+  "normal": "normal/loud-children-crowd-outdoors.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-loud-creature-breathing-2231.wav",
   "nama": "loud-creature-breathing",
   "durasi_s": 1.9,
@@ -3708,6 +3720,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-park-playground-with-kids-372.wav",
+  "nama": "park-playground-with-kids",
+  "durasi_s": 61.57,
+  "bunyi_mulai_s": 0.55,
+  "peak_db": -12.6,
+  "suasana_loop": true,
+  "cocok_untuk": "taman bermain anak (latar)",
+  "normal": "normal/park-playground-with-kids.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-party-sad-horn-973.wav",
   "nama": "party-sad-horn",
   "durasi_s": 1.95,
@@ -3992,6 +4016,18 @@
   "suasana_loop": true,
   "cocok_untuk": "badai, hujan petir, suasana muram/dramatis",
   "normal": "normal/rain-and-thunder-storm.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-rain-and-traffic-with-church-bells-in-the-distance-370.wav",
+  "nama": "rain-and-traffic-with-church-bells-in-the-distance",
+  "durasi_s": 102.08,
+  "bunyi_mulai_s": 0.21,
+  "peak_db": -13.9,
+  "suasana_loop": true,
+  "cocok_untuk": "hujan + lalu lintas + lonceng gereja di kejauhan (latar)",
+  "normal": "normal/rain-and-traffic-with-church-bells-in-the-distance.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -4400,6 +4436,18 @@
   "suasana_loop": true,
   "cocok_untuk": "mal ramai (latar)",
   "normal": "normal/shopping-center-crowd.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-shopping-mall-ambience-crowd-434.wav",
+  "nama": "shopping-mall-ambience-crowd",
+  "durasi_s": 49.77,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -0.3,
+  "suasana_loop": true,
+  "cocok_untuk": "suasana mal (latar)",
+  "normal": "normal/shopping-mall-ambience-crowd.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -4968,6 +5016,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-street-ambien-with-carriage-and-people-353.wav",
+  "nama": "street-ambien-with-carriage-and-people",
+  "durasi_s": 10.38,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -1.4,
+  "suasana_loop": true,
+  "cocok_untuk": "jalanan dengan kereta kuda & orang (latar), mirip delman",
+  "normal": "normal/street-ambien-with-carriage-and-people.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-street-ambience-with-walking-people-375.wav",
   "nama": "street-ambience-with-walking-people",
   "durasi_s": 47.08,
@@ -5444,6 +5504,18 @@
   "suasana_loop": true,
   "cocok_untuk": "kota + lalu lintas ringan (latar)",
   "normal": "normal/urban-city-sounds-and-light-car-traffic.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-urban-square-atmosphere-346.wav",
+  "nama": "urban-square-atmosphere",
+  "durasi_s": 52.88,
+  "bunyi_mulai_s": 0.24,
+  "peak_db": -21.8,
+  "suasana_loop": true,
+  "cocok_untuk": "alun-alun kota (latar)",
+  "normal": "normal/urban-square-atmosphere.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
