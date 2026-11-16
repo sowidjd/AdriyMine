@@ -38,7 +38,7 @@ ref = os.path.abspath(sys.argv[1])
 if len(sys.argv) > 2: todo = [int(x) for x in sys.argv[2].split(',')]
 else: todo = [int(k) for k, (sc, _) in json.load(open(os.path.join(HERE, 'cek_ucapan.json'))).items() if sc < .9]
 from transformers import pipeline
-asr = pipeline('automatic-speech-recognition', model='openai/whisper-small', device='cpu')
+asr = pipeline('automatic-speech-recognition', model=os.environ.get('JUDGE', 'openai/whisper-medium'), device='cpu')
 def hear(wav, sr):
     a = librosa.resample(np.asarray(wav, np.float32), orig_sr=sr, target_sr=16000)
     return asr({'raw': a, 'sampling_rate': 16000}, generate_kwargs={'language': 'indonesian', 'task': 'transcribe'})['text'].strip()

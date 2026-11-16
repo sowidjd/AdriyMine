@@ -70,7 +70,7 @@ def style(i):
     if i == 17: return "mysterious, slowing down with suspense"
     if i == 18: return "surprised and happy, bright"
     if i in (19, 24, 29, 38): return "energetic announcer, excited, punchy"
-    if i in (31, 32, 33, 34, 35): return "counting down, intense, getting louder"
+    if i in (31, 32, 33, 34, 35): return "counting down, firm and clear, crisp articulation"
     if i == 36: return "shouting with excitement, very energetic"
     if i <= 44: return "upbeat, confident, conversational, expressive"
     return "warm, cheerful, inviting, friendly smile in the voice"

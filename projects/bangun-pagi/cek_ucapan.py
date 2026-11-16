@@ -11,7 +11,7 @@ LINES = eval(src[src.index('LINES = [') + 8: src.index('\n]\n', src.index('LINES
 
 NUM = {'0': 'nol', '1': 'satu', '2': 'dua', '3': 'tiga', '4': 'empat', '5': 'lima', '6': 'enam', '7': 'tujuh', '8': 'delapan', '9': 'sembilan', '10': 'sepuluh'}
 # words the listener may legitimately hear spelled another way
-SAME = {'klod': 'claude', 'clod': 'claude', 'klot': 'claude', 'snuz': 'snooze', 'snus': 'snooze', 'wiken': 'weekend', 'tetap': 'tetep', 'trick': 'trik'}
+SAME = {'klod': 'claude', 'clod': 'claude', 'klot': 'claude', 'snuz': 'snooze', 'snus': 'snooze', 'snooz': 'snooze', 'teller': 'teler', 'wiken': 'weekend', 'tetap': 'tetep', 'trick': 'trik'}
 def norm(s):
     s = s.lower()
     s = re.sub(r'\d+', lambda m: ' ' + NUM.get(m.group(), m.group()) + ' ', s)
