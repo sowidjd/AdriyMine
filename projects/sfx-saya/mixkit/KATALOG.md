@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-245 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+260 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -13,10 +13,13 @@
 | `alarm-tone` | 1.08 s | nada alarm, peringatan |
 | `alien-technology-button` | 0.87 s | tombol teknologi alien, aneh |
 | `ambient-sound-in-the-desert` | 7.69 s (suasana/loop) | suasana gurun |
+| `animated-small-group-applause` | 4.13 s | kelompok kecil bertepuk tangan semangat |
 | `arabian-mystery-harp-notification` | 3.52 s | notifikasi harpa misterius ala Timur Tengah, fakta unik |
 | `arcade-retro-game-over` | 1.67 s | gagal, game over, kalah |
 | `arctic-winds` | 38.94 s (suasana/loop) | angin kutub, dingin |
 | `arrow-whoosh` | 1.1 s | sesuatu melesat, panah, gerak cepat |
+| `audience-light-applause` | 5.71 s | tepuk tangan ringan, apresiasi kecil |
+| `auditorium-moderate-applause-and-cheering` | 17.84 s | tepuk tangan + sorakan di auditorium |
 | `beach-waves-with-children-ambience` | 52.0 s (suasana/loop) | ombak pantai + anak-anak bermain, ceria |
 | `big-fire-burning` | 3.51 s (suasana/loop) | api besar berkobar (latar) |
 | `big-fire-flame-burning` | 8.27 s (suasana/loop) | nyala api besar (latar) |
@@ -34,8 +37,10 @@
 | `campfire-burning-crackles` | 14.08 s (suasana/loop) | api unggun berderak, hangat, cerita malam |
 | `campfire-night-wind` | 30.75 s (suasana/loop) | api unggun + angin malam (latar) |
 | `cartoon-girl-saying-no-no-no` | 1.8 s | "no no no" kartun, menolak lucu |
+| `cartoon-monkey-applause` | 4.28 s | monyet kartun bertepuk tangan, lucu |
 | `cartoon-toy-whistle` | 1.21 s | lucu, konyol, gagal lucu |
 | `cartoon-vocal-yawn` | 1.75 s | menguap ala kartun, ngantuk lucu |
+| `cheering-crowd-loud-whistle` | 14.76 s | sorakan + siulan keras, kemenangan |
 | `chewing-something-crunchy` | 0.94 s | mengunyah renyah, ngemil, kerupuk |
 | `child-deep-breath` | 1.7 s | anak tarik napas dalam |
 | `child-laughing-happily` | 0.76 s | anak tertawa gembira |
@@ -44,11 +49,14 @@
 | `cinematic-tunnel-reverb-woosh` | 6.75 s | masuk ke dunia lain, flashback, transisi dalam |
 | `cinematic-whoosh-fast-transition` | 1.33 s | transisi cepat antar adegan |
 | `classic-alarm` | 5.03 s | jam beker berbunyi, bangun pagi |
+| `classroom-long-applause-and-whistle` | 19.0 s | tepuk tangan kelas + siulan, anak sekolah |
 | `clock-countdown-bleeps` | 5.0 s | hitung mundur, waktu hampir habis |
+| `conference-audience-clapping-strongly` | 8.6 s | tepuk tangan kuat di konferensi, pengakuan |
 | `cool-impact-movie-trailer` | 6.0 s | hantaman keren ala trailer, judul muncul |
 | `creepy-cavern-ambience-loop` | 47.8 s (suasana/loop) | gua seram, gelap, misteri |
 | `crickets-and-insects-in-the-wild-ambience` | 26.01 s (suasana/loop) | alam malam, sepi, canggung |
 | `crickets-at-night-in-nature` | 90.13 s (suasana/loop) | jangkrik malam di alam (latar) |
+| `crowd-in-church-applauding` | 18.77 s | tepuk tangan di aula bergema, khidmat |
 | `crowd-laugh` | 4.12 s | penonton tertawa, momen lucu |
 | `cybernetic-technology-affirmation` | 2.12 s | konfirmasi sistem siber, data diterima |
 | `deep-child-breathing-and-exhaling` | 2.41 s | anak menarik napas dalam, tenang |
@@ -58,6 +66,8 @@
 | `dry-leaves-rustling` | 1.3 s (suasana/loop) | daun kering bergemerisik, langkah di hutan, musim kemarau |
 | `electric-buzz-glitch` | 1.02 s | listrik korslet, glitch, error |
 | `electronics-power-up` | 5.02 s | alat elektronik menyala, power up |
+| `end-of-show-clapping-crowd` | 8.95 s | tepuk tangan akhir pertunjukan |
+| `ending-show-audience-clapping` | 24.48 s | tepuk tangan penutup acara |
 | `epic-orchestra-transition` | 7.12 s | transisi megah, pengungkapan besar |
 | `european-forest-ambience` | 161.3 s (suasana/loop) | hutan subtropis (latar) |
 | `fast-ignition-fire` | 4.93 s | api menyala cepat, "wush!", semangat membara |
@@ -88,6 +98,7 @@
 | `futuristic-zoom-move` | 2.17 s | gerak zoom futuristik |
 | `game-show-suspense-waiting` | 41.81 s (suasana/loop) | menunggu jawaban, kuis, tegang lucu |
 | `ghost-fire-swoosh` | 2.85 s | api hantu, transisi misterius |
+| `girls-audience-applause` | 6.55 s | penonton cewek bertepuk tangan |
 | `happy-child-laughing` | 2.4 s | tawa anak bahagia |
 | `hawk-call-squawk` | 2.41 s | teriakan elang/burung pemangsa |
 | `heavy-rain` | 7.5 s (suasana/loop) | hujan deras |
@@ -148,6 +159,7 @@
 | `night-forest-with-insects` | 84.0 s (suasana/loop) | hutan malam, serangga, misterius tenang |
 | `night-vision-starting` | 1.15 s | kacamata malam/teknologi menyala, mulai memindai |
 | `old-subway-train-arrives` | 18.77 s (suasana/loop) | kereta tua datang, stasiun |
+| `one-man-clapping` | 3.0 s | satu orang bertepuk tangan, sarkas/canggung |
 | `ow-exclamation-of-pain` | 0.49 s | "aw!" kesakitan, lucu |
 | `owl-in-a-forest` | 90.14 s (suasana/loop) | burung hantu di hutan, malam misterius |
 | `owl-shriek` | 1.18 s | jeritan burung hantu, kaget/seram |
@@ -171,6 +183,8 @@
 | `retro-confirmation-tone` | 1.84 s | nada konfirmasi jadul |
 | `retro-game-emergency-alarm` | 25.43 s | bahaya gaya game, darurat lucu |
 | `retro-game-notification` | 1.47 s | notifikasi gaya game, poin didapat |
+| `rhythmic-applause-and-cheering` | 14.34 s | tepuk berirama + sorakan, euforia |
+| `rhythmic-audience-clapping-loop` | 5.03 s (suasana/loop) | tepuk tangan berirama, semangat (loop) |
 | `river-in-the-forest-with-birds` | 95.0 s (suasana/loop) | sungai di hutan + burung |
 | `river-water-flow-and-surroundings` | 60.13 s (suasana/loop) | sungai mengalir + suasana sekitar |
 | `robot-positive-item-acquired` | 1.5 s | robot dapat item, "berhasil!" ala game |
@@ -194,6 +208,7 @@
 | `sleeping-mouth-smacking-lips` | 2.81 s | orang tidur berdecap, lucu, ngantuk |
 | `small-cricket-screech` | 1.42 s | jangkrik kecil berderik (dekat) |
 | `small-crowd-laugh-and-applause` | 5.76 s | tertawa + tepuk tangan, lucu yang berhasil |
+| `small-crowd-ovation` | 6.4 s | standing ovation kecil |
 | `small-group-cheer-and-applause` | 10.6 s | berhasil, sorakan, perayaan kecil |
 | `small-meteor-falling` | 5.04 s | meteor jatuh, sesuatu meluncur dari langit |
 | `small-waves-harbor-rocks` | 77.86 s (suasana/loop) | ombak kecil di batu pelabuhan |
