@@ -85,16 +85,21 @@ function ecg(x, y, w, h, t, bpm, span, o = {}) {
 }
 function bus(x, y, s, id) { GAYA.shape(rr(x, y - 70 * s, 240 * s, 70 * s, 10 * s), '#D9634C', id, {}); for (let i = 0; i < 5; i++) GAYA.shape(rr(x + (12 + i * 44) * s, y - 60 * s, 34 * s, 26 * s, 4 * s), '#CFE3F0', id + 1 + i, { fill: .8 }); for (const wx of [40, 190]) GAYA.shape(ell(x + wx * s, y, 14 * s, 14 * s, 14), '#3A3A3A', id + 9, {}); }
 // ---------- scenes ----------
-GROUPS = [['hook', ['h1', 'h2', 'h3']], ['kenal', ['k1', 'k2']], ['dugaan', ['k3', 'k4']], ['brand', ['a1', 'a1b']], ['riset', ['f1']], ['selam', ['f2', 'f3']], ['banding', ['f4']],
+GROUPS = [['hook', ['h1', 'h2', 'h3']], ['kenal', ['k1', 'k2']], ['dugaan', ['k3', 'k4']], ['brand', ['a1', 'a1b']], ['riset', ['f1']], ['selam', ['f2', 'f3']],
   ['hemat', ['x1']], ['naik', ['x2', 'x3']], ['kamu', ['e1', 'e2']], ['cta', ['c1', 'c2']], ['akhir', ['z']]];
 // HOOK: the abyss; a vast shape glides past; a single slow heartbeat glow
-S.hook = (t) => {
-  sea('#22436B', '#0B1A2E'); bubbles(t, 300, 1700, 10, 3);
-  const k = seg(t, 0, t1('h2') + 1);
-  whale(lerp(1500, 380, k), 900, 1500, { heart: Math.exp(-Math.max(0, t - t0('h2') - .2) * 2.2) * (t > t0('h2') ? 1 : 0) + Math.exp(-t * 3) * .8 });
-  if (t > t0('h3')) clawd(820, 1330, 18, { face: 'shock', goggles: true, arms: [1.2, 1.2], mark: '!', markAge: t - t0('h3'), dy: -.3 * Math.sin(t * 2) });
-  if (t < t0('h2')) tag('Hewan *terbesar* di Bumi...', 540, 330, 80, { age: t + .3 });
-  else tag('Jantungnya *2× semenit*', 540, 330, 88, { age: t - t0('h2'), rot: -.02 });
+S.hook = (t) => {   // payoff up front: your fast heart strip vs the giant's two lonely beats
+  const deep = ease(seg(t, t0('h2') - .3, t0('h2') + .6));
+  sea(mixh('#9FD0EA', '#22436B', deep), mixh('#3E78A6', '#0B1A2E', deep)); bubbles(t, 300, 1700, 10, 3);
+  ecg(90, 470, 900, 220, t * 4, 64, 15, { label: 'jantungmu: ± 60× semenit', col: '#C9433E', id: 1 });
+  if (t > t0('h2') - .2) { ctx.save(); ctx.globalAlpha = seg(t, t0('h2') - .2, t0('h2') + .3); ecg(90, 720, 900, 220, t * 4, 2, 60, { label: 'paus biru: bisa cuma 2×', col: '#3E6FA6', id: 2 }); ctx.restore();
+    whale(lerp(1400, 560, easeOut(seg(t, t0('h2') - .2, t0('h2') + 2.2))), 1110, 1100, { heart: pulse(t - t0('h2'), 2) }); }
+  const mv = ease(seg(t, t0('h2') - .3, t0('h2') + .5));
+  if (mv < 1) heartIcon(540, 1020 - 40 * mv, 60 * (1 + .3 * pulse(t, 64)), '#E0605A');
+  clawd(lerp(540, 200, mv), 1340, lerp(26, 15, mv), { face: t > t0('h2') + .5 ? 'shock' : 'curious', goggles: true, arms: [.3, .3], mark: t > t0('h3') ? '?' : 'heart', markAge: t > t0('h3') ? t - t0('h3') : t - .2 });
+  if (t < t0('h2')) tag('Jantungmu: *60×* semenit', 540, 310, 84, { age: t + .3 });
+  else if (t < t0('h3')) tag('Paus biru: *cuma 2×!*', 540, 310, 88, { age: t - t0('h2'), rot: -.02 });
+  else tag('...dan dia *baik-baik aja*', 540, 310, 76, { age: t - t0('h3') });
 };
 // KENAL: surface, sun rays; measuring tape > 30 m; 2.5 city buses for scale
 S.kenal = (t) => {
@@ -166,7 +171,7 @@ S.naik = (t) => {
   const bpm = Math.round(lerp(2, 37, seg(t, t0('x2') + .5, t0('x2') + 3.5)));
   GAYA.shape(rr(110, 1080, 380, 200, 30), '#FFF9EE', 1900, { text: true }); heartIcon(190, 1180, 40 * (1 + .25 * pulse(t, bpm)), '#E0605A');
   ctx.font = `700 96px ${FONT}`; ctx.fillStyle = INKW; ctx.fillText(bpm, 260, 1215); ctx.font = `600 34px ${FONT}`; ctx.fillText('/menit', 380, 1215);
-  if (t > t0('x3')) { const a = t - t0('x3'); tag('*REM*', 640, 1130, 70, { age: a - .3, bg: '#DCE9F5', rot: -.05 }); tag('*GAS*', 860, 1130, 70, { age: a - 1.6, bg: '#FBDCD6', rot: .05 }); }
+  if (t > t0('x3')) { const a = t - t0('x3'); tag('*REM*', 640, 1130, 70, { age: a - 1.5, bg: '#DCE9F5', rot: -.05 }); tag('*GAS*', 860, 1130, 70, { age: a - 2.8, bg: '#FBDCD6', rot: .05 }); }
 };
 // KAMU: hold your breath; feel your heart; a little "brake" in us too
 S.kamu = (t) => {
@@ -187,21 +192,22 @@ S.cta = (t) => {
 S.akhir = (t) => S.cta(t);
 // ---------- sound ----------
 window.cues = () => {
-  c(0, 'mk:underwater-white-noise', .5); c(0, 'booms-and-bass/bass-rumble-long', .4); c(.1, 'mk:inside-a-beating-heart', .9); c(t0('h2') + .2, 'mk:inside-a-beating-heart', 1);
+  c(0, 'mk:inside-a-beating-heart', .6); c(0, 'data/data-progress-short', .3); c(t0('h2') - .2, 'mk:underwater-white-noise', .5); c(t0('h2') - .2, 'booms-and-bass/bass-rumble-long', .4); c(t0('h2') + .2, 'mk:inside-a-beating-heart', 1);
   c(t0('h3'), 'mk:male-astonished-gasp', .5); c(t0('k1') - .3, 'mk:sea-water-splash', .5); c(t0('k1') + .8, 'data/data-progress-short', .5); [0, .5, 1].forEach(d => c(t0('k2') + d, 'pops/pop-medium-in', .6));
   for (let i = 0; i < 8; i++) c(t0('k3') + .4 + i * .43, 'impacts/impact-light-firm', .45);
   c(t0('k4'), 'mk:wrong-answer-fail-notification', .5); c(t0('k4') + .1, 'impacts/impact-heavy-firm', .6);
   c(t1('a1') - .15, 'logo-stings/sting-bright-short', 1); [0, .35, .7].forEach(d => c(t0('a1b') + .2 + d, 'data/data-tick', .7));
   c(t0('f1'), 'mk:gentle-sea-wave', .5); c(t0('f1') + 2.6, 'mk:hard-pop-click', .7);
   c(t0('f2') - .3, 'mk:diving-sea-ambience', .5); c(t0('f2'), 'risers-and-fallers/faller-2s-soft', .5); c(t0('f3') + .1, 'mk:inside-a-beating-heart', .9);
-  c(t0('f4') + .2, 'mk:inside-a-beating-heart', .5); c(t0('x1') + .3, 'mk:liquid-bubble', .6);
+  c(t0('x1') + .3, 'mk:liquid-bubble', .6);
   c(t0('x2'), 'risers-and-fallers/riser-2s-strong', .6); c(t0('x2') + 3, 'mk:sea-water-splash', .8); c(t0('x2') + 1, 'data/data-countup-medium', .5);
-  c(t0('x3') + .3, 'pops/pop-large-in', .6); c(t0('x3') + 1.6, 'pops/pop-large-in', .6);
+  c(t0('x3') + 1.5, 'pops/pop-large-in', .6); c(t0('x3') + 2.8, 'pops/pop-large-in', .6); c(t0('x3') + 3, 'shimmers/shimmer-medium-bright', .5);
   c(t0('e1') + .8, 'whooshes/whoosh-slow-soft', .3); c(t0('e2'), 'shimmers/shimmer-long-soft', .5);
   c(t0('c1') + 1.5, 'tones/tone-ding-mid', .6); c(t0('c2') + .1, 'pops/pop-medium-in', .6);
   c(t0('z') - .3, 'logo-stings/sting-warm-long', 1);
   for (const s of SC.slice(1)) if (s.name !== 'akhir') c(s.a, 'mk:liquid-bubble', .3);
 };
+const _bs = buildScenes; buildScenes = function () { CAM_PUNCH = [[t0('h2') + .2, .06], [t0('k4'), .07], [t0('f3'), .06], [t0('x3') + 1.5, .05]]; _bs(); };
 </script>
 </body>
 </html>

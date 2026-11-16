@@ -1,118 +1,179 @@
 {
  "judul": "Lagu nyangkut dari bangun tidur, padahal kamu nggak suka",
- "lead": 0.35,
+ "lead": 0.3,
  "lines": [
   {
    "id": "h1",
    "gap": 0.2,
-   "style": "groggy, sleepy, then annoyed",
-   "text": "Baru bangun, mata belum melek, tapi di kepala udah ada lagu.",
-   "cap": "Baru bangun... *udah ada lagu*"
+   "style": "groggy, annoyed, comedic",
+   "text": "Kamu bangun tidur, dan lagu yang kamu benci udah muter di kepala.",
+   "cap": "Bangun tidur, *lagu nyebelin* udah muter",
+   "kunci": [
+    "bangun",
+    "lagu",
+    "kepala"
+   ]
   },
   {
    "id": "h2",
-   "gap": 0.3,
-   "style": "exasperated, comedic",
-   "text": "Lagunya itu-itu aja, dan kamu bahkan nggak suka!",
-   "cap": "Itu-itu aja. *Nggak suka pula!*"
+   "gap": 0.25,
+   "style": "lively, revealing",
+   "text": "Penelitian ke sembilan puluh delapan orang nemu satu obatnya: permen karet.",
+   "cap": "98 orang diteliti. Obatnya: *permen karet*",
+   "kunci": [
+    "sembilan puluh delapan",
+    "permen karet"
+   ]
   },
   {
    "id": "h3",
    "gap": 0.4,
-   "style": "sly, teasing, mysterious",
-   "text": "Ada cara aneh buat ngusirnya: permen karet.",
-   "cap": "Obatnya? *Permen karet.*"
+   "style": "sly, curious",
+   "text": "Tapi kenapa permen karet? Ini jawabannya.",
+   "cap": "Tapi *kenapa?*",
+   "kunci": [
+    "kenapa"
+   ]
   },
   {
    "id": "k1",
    "gap": 0.25,
    "style": "clear explainer, friendly",
    "text": "Lagu yang muter terus di kepala ini namanya earworm. Cacing telinga.",
-   "cap": "Namanya: *earworm* (cacing telinga)"
+   "cap": "Namanya: *earworm* (cacing telinga)",
+   "kunci": [
+    "cacing telinga"
+   ]
   },
   {
    "id": "k2",
    "gap": 0.25,
    "style": "playful, lively",
    "text": "Hampir semua orang pernah kena. Biasanya cuma potongan pendek, diputar ulang terus, kayak kaset rusak.",
-   "cap": "Potongan pendek, *diulang terus*"
+   "cap": "Potongan pendek, *diulang terus*",
+   "kunci": [
+    "potongan",
+    "kaset"
+   ]
   },
   {
    "id": "k3",
    "gap": 0.9,
    "style": "comedic, frustrated",
-   "text": "Dicoba dilupain, eh malah muter lagi.",
-   "cap": "Dilupain... *malah muter lagi*"
+   "text": "Mau dilupain, eh malah muter lagi.",
+   "cap": "Dilupain... *malah muter lagi*",
+   "kunci": [
+    "dilupain",
+    "muter"
+   ]
   },
   {
    "id": "a1",
    "gap": 0.9,
    "style": "warm, proud, slower, clear emphasis on the channel name",
    "text": "Waktu kami di Adriy.Project nemu penelitian soal ini...",
-   "cap": "Waktu kami di *Adriy.Project* nemu penelitiannya..."
+   "cap": "Waktu kami di *Adriy.Project* nemu penelitiannya...",
+   "kunci": [
+    "titik"
+   ]
   },
   {
    "id": "a1b",
    "gap": 0.35,
    "style": "amused, laughing a little",
    "text": "jawabannya bikin kami ngakak.",
-   "cap": "...jawabannya bikin *ngakak.*"
+   "cap": "...jawabannya bikin *ngakak.*",
+   "kunci": [
+    "ngakak"
+   ]
   },
   {
    "id": "f1",
    "gap": 0.2,
    "style": "storytelling, clear",
-   "text": "Peneliti di Universitas Reading, Inggris, sengaja nyetelin lagu yang gampang nyangkut ke sembilan puluh delapan orang.",
-   "cap": "Univ. Reading: *98 orang* disetel lagu nyangkut"
+   "text": "Peneliti di Universitas Reading, Inggris, nyetelin lagu yang gampang nyangkut ke sembilan puluh delapan orang.",
+   "cap": "Univ. Reading: *98 orang* disetel lagu nyangkut",
+   "kunci": [
+    "peneliti",
+    "inggris",
+    "sembilan puluh delapan"
+   ]
   },
   {
    "id": "f2",
    "gap": 0.3,
    "style": "suspenseful, playful",
    "text": "Lalu sebagian dari mereka disuruh ngunyah permen karet.",
-   "cap": "Sebagian *ngunyah permen karet*"
+   "cap": "Sebagian *ngunyah permen karet*",
+   "kunci": [
+    "ngunyah",
+    "permen karet"
+   ]
   },
   {
    "id": "f3",
    "gap": 0.4,
    "style": "excited reveal",
-   "text": "Hasilnya? Yang ngunyah, lebih jarang mendengar lagu itu di kepalanya.",
-   "cap": "Hasil: lagunya *lebih jarang muncul!*"
+   "text": "Hasilnya? Kelompok permen karet lebih jarang mendengar lagu itu di kepala.",
+   "cap": "Hasil: lagunya *lebih jarang muncul!*",
+   "kunci": [
+    "kelompok",
+    "jarang"
+   ]
   },
   {
    "id": "x1",
    "gap": 0.25,
    "style": "clear explainer, fascinated",
-   "text": "Soalnya, ngebayangin lagu itu mirip ngomong dalam hati. Nah, ngunyah bikin mulut dalam hati itu sibuk.",
-   "cap": "Ngunyah = *\"mulut dalam hati\" sibuk*"
+   "text": "Kenapa? Ngebayangin lagu itu mirip ngomong dalam hati. Ngunyah bikin mulut dalam hati itu sibuk.",
+   "cap": "Ngunyah = *\"mulut dalam hati\" sibuk*",
+   "kunci": [
+    "dalam hati",
+    "sibuk"
+   ]
   },
   {
    "id": "x2",
    "gap": 0.5,
    "style": "comedic, punchy",
    "text": "Mulutnya sibuk, konsernya bubar.",
-   "cap": "Mulut sibuk, *konser bubar!*"
+   "cap": "Mulut sibuk, *konser bubar!*",
+   "kunci": [
+    "konser",
+    "bubar"
+   ]
   },
   {
    "id": "s1",
    "gap": 0.5,
-   "style": "warm, encouraging",
-   "text": "Jadi kalau ada lagu bandel nyangkut, coba kunyah permen karet sebentar.",
-   "cap": "Lagu bandel? *Kunyah permen karet*"
+   "style": "warm, encouraging, clear payoff",
+   "text": "Jadi itu obatnya: kalau ada lagu bandel nyangkut, kunyah permen karet sebentar.",
+   "cap": "Obatnya: *kunyah permen karet*",
+   "kunci": [
+    "obatnya",
+    "permen karet"
+   ]
   },
   {
    "id": "c1",
    "gap": 0.25,
    "style": "cheerful, inviting, friendly",
-   "text": "Lagu apa yang paling sering nyangkut di kepalamu? Tulis judulnya di komentar!",
-   "cap": "Lagu apa yang nyangkut? *Tulis di komentar!*"
+   "text": "Lagu apa yang paling sering nyangkut di kepalamu? Tulis judul lagunya di komentar!",
+   "cap": "Lagu apa yang nyangkut? *Tulis di komentar!*",
+   "kunci": [
+    "judul",
+    "komentar"
+   ]
   },
   {
    "id": "c2",
    "gap": 0.45,
    "style": "friendly, upbeat",
    "text": "Ikuti, biar nggak ketinggalan fakta kayak gini.",
-   "cap": "*Ikuti* biar nggak ketinggalan"
+   "cap": "*Ikuti* biar nggak ketinggalan",
+   "kunci": [
+    "ikuti"
+   ]
   },
   {
    "id": "z",

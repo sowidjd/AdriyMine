@@ -10,7 +10,7 @@ HURUF = json.load(open(os.path.join(HERE, 'kamus_huruf.json')))   # A -> "A", B 
 # kata yang terbukti sering salah ucap -> ejaan bantu yang berhasil (lihat projects/bangun-pagi/perbaiki_ucapan.py)
 KATA = {'Adriy.Project': 'Adri titik Project', 'Whoosh': 'Wush', 'WHOOSH': 'Wush', 'alarm': 'alarrm', 'Alarm': 'Alarrm', 'snooze': 'snuz', 'Snooze': 'Snuz', 'Cahaya': 'Cahaaya', 'cahaya': 'cahaaya',
         'weekend': 'wiken', 'Weekend': 'Wiken', 'Clawd': 'Klod',
-        'Explore More, Know More': 'Eksplor mor, nou mor', 'wkwk': 'wekwek', 'spotlight effect': 'spotlait efek', 'earworm': 'irworm', 'Reading': 'Reding', 'chat': 'cet'}
+        'Explore More, Know More': 'Eksplor mor, nou mor', 'wkwk': 'wekwek', 'spotlight effect': 'spotlait efek', 'earworm': 'irworm', 'Reading': 'Reding', 'chat': 'cet', 'Cornell': 'Kornel'}
 
 def eja(singkatan):
     """'HP' -> 'Ha Pé', 'AI' -> 'Aa I' : singkatan dibaca per huruf dengan ejaan yang sudah lolos pelatihan."""

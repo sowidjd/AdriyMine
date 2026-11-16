@@ -64,15 +64,15 @@ GROUPS = [['hook', ['h1', 'h2', 'h3']], ['nama', ['k1', 'k2']], ['lawan', ['k3']
   ['trik', ['s1']], ['cta', ['c1', 'c2']], ['akhir', ['z']]];
 // HOOK: grey morning in bed; the worm crawls out of Clawd's ear and starts its loop; then: gum
 S.hook = (t) => {
-  shade(.16 * (1 - seg(t, t0('h3'), t0('h3') + .6))); GAYA.shape([[640, 470], [980, 470], [980, 800], [640, 800]], GR, 100, { gap: 14 }); ctx.fillStyle = `rgba(255,190,120,${.35 + .3 * seg(t, t0('h3'), t0('h3') + .6)})`; ctx.fillRect(644, 474, 332, 322);   // window, sunrise
+  shade(.16 * (1 - seg(t, t0('h2'), t0('h2') + .6))); GAYA.shape([[640, 470], [980, 470], [980, 800], [640, 800]], GR, 100, { gap: 14 }); ctx.fillStyle = `rgba(255,190,120,${.35 + .3 * seg(t, t0('h2'), t0('h2') + .6)})`; ctx.fillRect(644, 474, 332, 322);   // window, sunrise
   GAYA.shape([[-20, 1150], [1100, 1150], [1100, 1700], [-20, 1700]], GR, 101, { gap: 18 }); GAYA.shape([[60, 1060], [420, 1060], [440, 1160], [40, 1160]], GR, 102, { hatch: false });   // bed & pillow
-  const angry = t > t0('h2'), gumOn = t > t0('h3');
-  clawd(380, 1150, 26, { face: gumOn ? 'curious' : angry ? 'squint' : 'sleepy', arms: angry && !gumOn ? [1.6, 1.6] : [.2, .2], mark: angry && !gumOn ? 'cloud' : null, markAge: t - t0('h2') });
+  const angry = t > t0('h1') + 1.4, gumOn = t > t0('h2');
+  clawd(360, 1150, 30, { face: gumOn ? 'curious' : angry ? 'squint' : 'sleepy', arms: angry && !gumOn ? [1.6, 1.6] : [.2, .2], mark: angry && !gumOn ? 'cloud' : null, markAge: t - t0('h1') - 1.4 });
   const out = seg(t, .3, 1.6); if (out > 0) { orbit(380, 880, 260, 90, t, angry ? 7 : 4, angry ? 1.2 : 1, angry ? 2.6 : 1.6); worm(lerp(380, 380 + Math.cos(t * 1.6) * 260, out), lerp(1020, 880 + Math.sin(t * 1.6) * 90, out), 1.6); }
-  if (gumOn) { const a = t - t0('h3'); ctx.save(); ctx.translate(780, 1000); ctx.scale(backOut(seg(a, .3, .6)), backOut(seg(a, .3, .6))); gum(0, 0, 2); ctx.restore(); mark('sparkle', 840, 900, 30, a - .5); }
-  if (t < t0('h2')) tag('Bangun tidur, *udah ada lagu*', 540, 330, 76, { age: t + .3 });
-  else if (t < t0('h3')) tag('Nggak suka, *tapi muter terus!*', 540, 330, 72, { age: t - t0('h2') });
-  else tag('Obatnya? *Permen karet*', 540, 330, 84, { age: t - t0('h3') });
+  if (gumOn) { const a = t - t0('h2'); ctx.font = `700 130px ${FONT}`; ctx.fillStyle = ACC; ctx.textAlign = 'center'; ctx.fillText('98', 800, 940); ctx.textAlign = 'left'; if (t > t0('h3')) mark('?', 380, 760, 40, t - t0('h3')); ctx.save(); ctx.translate(800, 1060); ctx.scale(backOut(seg(a, .3, .6)), backOut(seg(a, .3, .6))); gum(0, 0, 2); ctx.restore(); mark('sparkle', 870, 990, 30, a - .5); }
+  if (t < t0('h2')) tag('Bangun tidur, *lagu nyebelin* muter', 540, 330, 72, { age: t + .3 });
+  else if (t < t0('h3')) tag('98 orang: obatnya *permen karet*', 540, 330, 70, { age: t - t0('h2') });
+  else tag('Tapi *kenapa?*', 540, 330, 96, { age: t - t0('h3') });
 };
 // NAMA: inside the head the worm runs a loop track; then a cassette loop "short piece, again and again"
 S.nama = (t) => {
@@ -122,11 +122,11 @@ S.hasil = (t) => {
 };
 // KENAPA: the "inner mouth" sings the song; chewing keeps it busy; the concert in the head is cancelled
 S.kenapa = (t) => {
-  head(470, 820, 1.9); const chew = t > t0('x1') + 3, a = t - t0('x1');
+  head(470, 820, 1.9); const chew = t > t0('x1') + 3.4, a = t - t0('x1');
   ctx.save(); ctx.translate(510, 720); const k = chew ? .5 + .5 * Math.sin(t * 14) : .5 + .5 * Math.sin(t * 6);   // the little mouth inside
   GAYA.shape(ell(0, 0, 90, 20 + 40 * k, 20), ACC, 4100, { hatch: false }); ctx.restore();
-  if (!chew) orbit(510, 720, 180, 80, t, 4, .9, 2); else { for (let i = 0; i < 4; i++) { const p = seg(a, 3 + i * .2, 4 + i * .2); note(400 + i * 80, lerp(650, 1100, easeIn(p)), .9, 4110 + i * 3); } gum(860, 1110, 1.4); }
-  tag(chew ? 'Mulut *sibuk ngunyah*' : '"Nyanyi" = *ngomong dalam hati*', 540, 330, 62, { age: chew ? a - 3 : a - .2 });
+  if (!chew) orbit(510, 720, 180, 80, t, 4, .9, 2); else { for (let i = 0; i < 4; i++) { const p = seg(a, 3.4 + i * .2, 4.4 + i * .2); note(400 + i * 80, lerp(650, 1100, easeIn(p)), .9, 4110 + i * 3); } gum(860, 1110, 1.4); }
+  tag(chew ? 'Mulut *sibuk ngunyah*' : '"Nyanyi" = *ngomong dalam hati*', 540, 330, 62, { age: chew ? a - 3.4 : a - .8 });
   if (t > t0('x2')) { const b = t - t0('x2'); ctx.save(); ctx.translate(540, 1250); ctx.rotate(-.06); ctx.scale(backOut(seg(b, 0, .3)), backOut(seg(b, 0, .3))); GAYA.shape(rr(-260, -70, 520, 140, 16), '#FFFDF6', 4120, { text: true }); ctx.font = `700 76px ${FONT}`; ctx.fillStyle = '#C9433E'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('KONSER BUBAR', 0, 4); ctx.textAlign = 'left'; ctx.restore(); }
 };
 // TRIK: Clawd chews; the worm waves goodbye and fades; morning turns bright
@@ -150,18 +150,19 @@ S.cta = (t) => {
 S.akhir = (t) => S.cta(t);
 // ---------- sound ----------
 window.cues = () => {
-  c(0, 'mk:cartoon-vocal-yawn', .6); c(.3, 'pops/pop-small-bubble', .5); c(t0('h2'), 'mk:boing-hit-sound', .4); c(t0('h3') + .3, 'shimmers/shimmer-medium-sparkle', .6);
+  c(0, 'mk:cartoon-vocal-yawn', .6); c(.3, 'pops/pop-small-bubble', .5); c(t0('h1') + 1.4, 'mk:boing-hit-sound', .4); c(t0('h2') + .3, 'shimmers/shimmer-medium-sparkle', .6); c(t0('h2') + .1, 'data/data-number-land', .6); c(t0('h3') + .1, 'pops/pop-large-in', .6);
   c(t0('k1') + .5, 'writing-and-drawing/writing-pencil-write', .4); c(t0('k2'), 'mk:hard-pop-click', .6);
   c(t0('k3') + .3, 'whooshes/whoosh-medium-medium', .6); c(t0('k3') + 1.4, 'mk:boing-hit-sound', .7);
   c(t1('a1') - .15, 'logo-stings/sting-bright-short', 1); c(t0('a1b'), 'mk:crowd-laugh', .4);
   c(t0('f1') + .4, 'data/data-progress-long', .4); c(t0('f2') + .2, 'pops/pop-medium-in', .6);
   c(t0('f3') + .5, 'data/data-bar-grow', .6); c(t0('f3') + 1.2, 'data/data-bar-grow', .6); c(t0('f3') + 2.3, 'mk:correct-answer-tone', .6);
-  c(t0('x1') + 3, 'mk:chewing-something-crunchy', .5); c(t0('x2'), 'mk:cartoon-failure-piano', .5); c(t0('x2') + .1, 'impacts/impact-medium-firm', .5);
+  c(t0('x1') + 3.4, 'mk:chewing-something-crunchy', .5); c(t0('x2'), 'mk:cartoon-failure-piano', .5); c(t0('x2') + .1, 'impacts/impact-medium-firm', .5);
   c(t0('s1') + .3, 'mk:chewing-something-crunchy', .4); c(t0('s1') + 3.5, 'shimmers/shimmer-long-soft', .5);
   c(t0('c1') + 1, 'writing-and-drawing/writing-pencil-write', .5); c(t0('c1') + 2.2, 'tones/tone-ding-mid', .6); c(t0('c2'), 'pops/pop-large-in', .6);
   c(t0('z') - .3, 'logo-stings/sting-warm-long', 1);
   for (const s of SC.slice(1)) if (s.name !== 'akhir') c(s.a, 'writing-and-drawing/writing-scribble', .3);
 };
+const _bs = buildScenes; buildScenes = function () { CAM_PUNCH = [[t0('h1') + 1.4, .05], [t0('h2') + .1, .06], [t0('k3') + 1.4, .06], [t0('x2'), .06]]; _bs(); };
 </script>
 </body>
 </html>

@@ -53,7 +53,8 @@ function caption(t) {   // narration line inside the safe box (y <= 1540)
 function clawd(x, y, u, o = {}) {
   if (HIDE_CLAWD && !o.end) return;
   const sq = o.sq || 0, id = 4000, F = o.face || 'neutral', S = GAYA.shape, L = GAYA.line, ink = GAYA.ink || C.ink;
-  ctx.save(); ctx.translate(x, y + (o.dy || 0) * u); ctx.rotate(o.rot || 0); ctx.scale((1 + sq * .6) * (o.flip ? -1 : 1), 1 - sq);
+  const br = .012 * Math.sin(T * 2.6 + x * .01), blink = ['neutral', 'curious', 'worried', 'sad', 'surprised'].includes(F) && ((T + x * .003) % 3.4) < .12;
+  ctx.save(); ctx.translate(x, y + (o.dy || 0) * u); ctx.rotate(o.rot || 0); ctx.scale((1 + sq * .6 - br * .5) * (o.flip ? -1 : 1), 1 - sq + br);
   const [aL, aR] = o.arms || [.2, .2], body = o.color || C.clay, dark = o.dark || C.clayDk;
   for (const [side, a] of [[-1, aL], [1, aR]]) { ctx.save(); ctx.translate(side * 4.9 * u, -4.5 * u); ctx.rotate(side < 0 ? a : -a); S(side < 0 ? [[-2.2 * u, -.5 * u], [0, -.5 * u], [0, .5 * u], [-2.2 * u, .5 * u]] : [[0, -.5 * u], [2.2 * u, -.5 * u], [2.2 * u, .5 * u], [0, .5 * u]], body, id + side * 3, {}); ctx.restore(); }
   const step = o.walk ? Math.sin(o.walk) : 0;
@@ -62,7 +63,8 @@ function clawd(x, y, u, o = {}) {
   const [lx, ly] = o.look || [0, 0];
   const dot = (cx, cy, rx, ry) => { ctx.fillStyle = ink; ctx.beginPath(); ctx.ellipse(cx, cy, rx, ry, 0, 0, TAU); ctx.fill(); };
   for (const s of [-1, 1]) { const ex = s * 2.5 * u + lx * .5 * u, ey = -6 * u + ly * .5 * u;
-    if (F === 'surprised' || F === 'shock') { ctx.fillStyle = C.white; ctx.beginPath(); ctx.ellipse(ex, ey, .75 * u, 1.1 * u, 0, 0, TAU); ctx.fill(); ctx.strokeStyle = ink; ctx.lineWidth = u * .15; ctx.stroke(); dot(ex, ey + .1 * u, .32 * u, .45 * u); }
+    if (blink) L([[ex - .6 * u, ey], [ex + .6 * u, ey]], u * .22, ink, id + 49 + s);
+    else if (F === 'surprised' || F === 'shock') { ctx.fillStyle = C.white; ctx.beginPath(); ctx.ellipse(ex, ey, .75 * u, 1.1 * u, 0, 0, TAU); ctx.fill(); ctx.strokeStyle = ink; ctx.lineWidth = u * .15; ctx.stroke(); dot(ex, ey + .1 * u, .32 * u, .45 * u); }
     else if (F === 'happy' || F === 'laugh') L([[s * 2.5 * u - .7 * u, -5.8 * u], [s * 2.5 * u, -6.5 * u], [s * 2.5 * u + .7 * u, -5.8 * u]], u * .22, ink, id + 40 + s);
     else if (F === 'squint') L([[s * 2.5 * u - s * .8 * u, -6.4 * u], [s * 2.5 * u + s * .1 * u, -6 * u], [s * 2.5 * u - s * .8 * u, -5.6 * u]], u * .22, ink, id + 45 + s);
     else if (F === 'sleepy') L([[s * 2.5 * u - .7 * u, -6 * u], [s * 2.5 * u + .7 * u, -6 * u]], u * .22, ink, id + 47 + s);
@@ -138,6 +140,13 @@ function buildScenes() {
   SC.forEach((s, i) => s.b = i + 1 < SC.length ? SC[i + 1].a : TL.duration);
   buildCues();
 }
+// camera: every scene slowly pushes in (1 -> 1.06) around its focus; CAM_PUNCH beats give a quick zoom bump (like a cut-in)
+let CAM_PUNCH = [];
+function cam(t, s) {
+  const p = seg(t, s.a, s.b), z0 = 1 + .06 * ease(p);
+  let z = z0; for (const [tp, st] of CAM_PUNCH) { const d = t - tp; if (d > 0 && d < .6) z += st * Math.exp(-d * 7) * (1 - Math.exp(-d * 40)); }
+  const fx = (s.fx ?? 540), fy = (s.fy ?? 860); ctx.translate(fx, fy); ctx.scale(z, z); ctx.translate(-fx, -fy);
+}
 let CUES = []; const c = (t, f, g = 1) => CUES.push([+(+t).toFixed(3), f, g]);
 function buildCues() { CUES = []; if (window.cues) window.cues(); CUES.sort((a, b) => a[0] - b[0]); window.CUES = CUES; }
 function renderAt(t) {
@@ -145,9 +154,9 @@ function renderAt(t) {
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
   HIDE_CLAWD = !!(LN.z && t > t0('z') - .3); GAYA.bg(t);
   const i = Math.max(0, SC.findIndex(s => t >= s.a && t < s.b)), s = SC[i];
-  ctx.save(); S[s.name](t); ctx.restore();
+  ctx.save(); cam(t, s); S[s.name](t); ctx.restore();
   const prev = SC[i - 1], k = seg(t, s.a, s.a + .5);
-  if (prev && k < 1) GAYA.trans(k, () => { GAYA.bg(t); ctx.save(); S[prev.name](t); ctx.restore(); }, t);
+  if (prev && k < 1) GAYA.trans(k, () => { GAYA.bg(t); ctx.save(); cam(t, prev); S[prev.name](t); ctx.restore(); }, t);
   if (!(LN.z && t > t0('z') - .3)) caption(t);
   if (LN.z) endCard(t, t0('z') - .3);
   GAYA.post(t);

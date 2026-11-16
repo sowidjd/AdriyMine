@@ -1,0 +1,153 @@
+{
+ "judul": "Jantung paus biru cuma berdetak 2 kali semenit",
+ "lead": 0.35,
+ "lines": [
+  {
+   "id": "h1",
+   "gap": 0.15,
+   "style": "deep documentary narrator, awed, slow",
+   "text": "Hewan terbesar yang pernah hidup di Bumi...",
+   "cap": "Hewan *terbesar* yang pernah hidup..."
+  },
+  {
+   "id": "h2",
+   "gap": 0.3,
+   "style": "mysterious, whispering, slow",
+   "text": "jantungnya cuma berdetak dua kali dalam semenit.",
+   "cap": "...jantungnya berdetak *2× semenit*"
+  },
+  {
+   "id": "h3",
+   "gap": 0.4,
+   "style": "curious, surprised",
+   "text": "Kok bisa masih hidup?",
+   "cap": "Kok bisa *masih hidup?*"
+  },
+  {
+   "id": "k1",
+   "gap": 0.2,
+   "style": "warm documentary storytelling",
+   "text": "Kenalin, paus biru. Panjangnya bisa lebih dari tiga puluh meter.",
+   "cap": "Paus biru: panjang *> 30 meter*"
+  },
+  {
+   "id": "k2",
+   "gap": 0.3,
+   "style": "playful, light",
+   "text": "Kira-kira sepanjang dua setengah bus kota yang dijejerin.",
+   "cap": "Kira-kira *2,5 bus kota*"
+  },
+  {
+   "id": "k3",
+   "gap": 0.2,
+   "style": "curious, thoughtful",
+   "text": "Banyak orang ngira, badan segede itu pasti jantungnya berdetak cepat dan kencang.",
+   "cap": "Dikira: jantungnya *cepat & kencang*"
+  },
+  {
+   "id": "k4",
+   "gap": 0.9,
+   "style": "firm, confident reveal",
+   "text": "Ternyata kebalikannya.",
+   "cap": "Ternyata *kebalikannya.*"
+  },
+  {
+   "id": "a1",
+   "gap": 0.9,
+   "style": "warm, proud, slower, clear emphasis on the channel name",
+   "text": "Waktu kami di Adriy.Project baca catatan detak jantungnya...",
+   "cap": "Waktu kami di *Adriy.Project* baca catatannya..."
+  },
+  {
+   "id": "a1b",
+   "gap": 0.35,
+   "style": "amazed, wide-eyed, slower",
+   "text": "kami sampai ngitung ulang.",
+   "cap": "...kami sampai *ngitung ulang.*"
+  },
+  {
+   "id": "f1",
+   "gap": 0.2,
+   "style": "documentary storytelling, clear",
+   "text": "Tahun dua ribu sembilan belas, peneliti nempelin alat perekam di badan seekor paus biru.",
+   "cap": "2019: alat perekam *ditempel* di paus biru"
+  },
+  {
+   "id": "f2",
+   "gap": 0.2,
+   "style": "slow, deep, calm",
+   "text": "Pas dia menyelam cari makan, jantungnya melambat, cuma empat sampai delapan kali semenit.",
+   "cap": "Saat menyelam: *4–8×* semenit"
+  },
+  {
+   "id": "f3",
+   "gap": 0.4,
+   "style": "whispering, amazed",
+   "text": "Paling lambat, cuma dua kali.",
+   "cap": "Paling lambat: *2×!*"
+  },
+  {
+   "id": "f4",
+   "gap": 0.4,
+   "style": "lively, comparing, friendly",
+   "text": "Bandingin sama jantung kamu: enam puluh sampai seratus kali semenit.",
+   "cap": "Jantungmu: *60–100×* semenit"
+  },
+  {
+   "id": "x1",
+   "gap": 0.3,
+   "style": "clear explainer, fascinated",
+   "text": "Detak yang lambat bikin oksigennya hemat, jadi dia kuat menyelam lama.",
+   "cap": "Lambat = *hemat oksigen*"
+  },
+  {
+   "id": "x2",
+   "gap": 0.3,
+   "style": "energetic, building up",
+   "text": "Begitu naik ke permukaan buat napas, jantungnya ngebut, sampai tiga puluh tujuh kali semenit.",
+   "cap": "Di permukaan: ngebut sampai *37×*"
+  },
+  {
+   "id": "x3",
+   "gap": 0.5,
+   "style": "amazed, admiring",
+   "text": "Dari dua, ke tiga puluh tujuh. Jantung raksasa ini jago ngerem, dan jago ngegas.",
+   "cap": "Jago *ngerem* & jago *ngegas*"
+  },
+  {
+   "id": "e1",
+   "gap": 0.3,
+   "style": "calm, gentle, inviting",
+   "text": "Coba sekarang tahan napas sebentar, dan rasain detak jantungmu.",
+   "cap": "Tahan napas... *rasain detaknya*"
+  },
+  {
+   "id": "e2",
+   "gap": 0.5,
+   "style": "warm, reflective",
+   "text": "Tubuh kita juga punya rem kecil kayak gitu, walaupun nggak sehebat paus.",
+   "cap": "Tubuh kita juga punya *rem kecil*"
+  },
+  {
+   "id": "c1",
+   "gap": 0.25,
+   "style": "cheerful, inviting, friendly",
+   "text": "Kalau kamu bisa menyelam bareng paus biru, kamu mau ngapain duluan? Tulis di komentar!",
+   "cap": "Menyelam bareng paus biru? *Tulis di komentar!*"
+  },
+  {
+   "id": "c2",
+   "gap": 0.45,
+   "style": "friendly, warm",
+   "text": "Simpan video ini, biar bisa pamer fakta ke teman.",
+   "cap": "*Simpan* biar bisa pamer ke teman"
+  },
+  {
+   "id": "z",
+   "gap": 0.0,
+   "style": "warm, confident, gentle smile in the voice, medium tempo",
+   "text": "Explore More, Know More.",
+   "cap": ""
+  }
+ ]
+}
