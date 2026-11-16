@@ -1,1 +1,311 @@
-{"duration": 173.9, "lines": [{"id": "h1", "t0": 0.3, "t1": 2.3, "cap": "Berhenti hapus pesan *3 paragraf*"}, {"id": "h2", "t0": 2.5, "t1": 5.7, "cap": "Ada *alasan* kamu selalu ragu"}, {"id": "h3", "t0": 5.9, "t1": 8.3, "cap": "...dan *bukan* karena lebay"}, {"id": "m1", "t0": 9.2, "t1": 10.2, "cap": "Coba ingat-ingat..."}, {"id": "m2", "t0": 10.4, "t1": 13.2, "cap": "Malam-malam, balas pesan *gebetan*"}, {"id": "m3", "t0": 13.4, "t1": 16.6, "cap": "Ketik panjang, *rapi*"}, {"id": "m4", "t0": 16.8, "t1": 20.0, "cap": "\"Kok kepanjangan, ya?\""}, {"id": "m5", "t0": 20.3, "t1": 22.7, "cap": "Dikira *lebay?* Dia *ilfil?*"}, {"id": "m6", "t0": 22.95, "t1": 24.95, "cap": "Hapus. Ketik. *Hapus lagi.*"}, {"id": "m7", "t0": 25.15, "t1": 27.15, "cap": "Yang terkirim: *wkwk*"}, {"id": "m8", "t0": 28.05, "t1": 29.65, "cap": "Atau di *grup kelas*"}, {"id": "m9", "t0": 29.85, "t1": 33.85, "cap": "Takut dikira *nggak nyimak*"}, {"id": "m10", "t0": 34.05, "t1": 36.05, "cap": "Jempol di tombol *kirim*..."}, {"id": "m11", "t0": 36.25, "t1": 39.45, "cap": "...lalu *pura-pura* nggak jadi nanya"}, {"id": "m12", "t0": 39.75, "t1": 43.75, "cap": "Kayak dibaca pakai *kaca pembesar*"}, {"id": "m13", "t0": 44.05, "t1": 47.65, "cap": "*10 menit* buat 1 pesan"}, {"id": "d1", "t0": 48.55, "t1": 51.75, "cap": "Dikira: *kurang percaya diri*"}, {"id": "d2", "t0": 51.95, "t1": 53.95, "cap": "Atau terlalu *baper*"}, {"id": "d3", "t0": 54.15, "t1": 57.35, "cap": "\"Udah, *bodo amat!*\""}, {"id": "d4", "t0": 57.55, "t1": 59.15, "cap": "Besoknya: *kejadian lagi*"}, {"id": "d5", "t0": 59.45, "t1": 61.45, "cap": "Masalahnya *bukan di situ*"}, {"id": "p1", "t0": 62.35, "t1": 65.95, "cap": "Namanya: *spotlight effect*"}, {"id": "p2", "t0": 66.15, "t1": 70.95, "cap": "Efek *lampu sorot*"}, {"id": "p3", "t0": 71.15, "t1": 75.15, "cap": "2000: percobaan di *Universitas Cornell*"}, {"id": "p4", "t0": 75.35, "t1": 79.35, "cap": "Pakai *kaos memalukan*"}, {"id": "p5", "t0": 79.55, "t1": 82.75, "cap": "Masuk ke *ruangan ramai*"}, {"id": "p6", "t0": 82.95, "t1": 86.55, "cap": "\"Berapa yang *lihat kaosmu?*\""}, {"id": "p7", "t0": 86.75, "t1": 88.75, "cap": "Tebakan: *separuh* ruangan"}, {"id": "a1", "t0": 89.65, "t1": 92.05, "cap": "Waktu kami di *Adriy.Project* baca hasilnya..."}, {"id": "a1b", "t0": 92.95, "t1": 94.15, "cap": "...kami *ketawa sendiri*"}, {"id": "p8", "t0": 94.5, "t1": 98.1, "cap": "Aslinya: *± 1 dari 5* orang"}, {"id": "p9", "t0": 98.5, "t1": 100.1, "cap": "Kenapa *meleset jauh?*"}, {"id": "p10", "t0": 100.3, "t1": 103.9, "cap": "Kita merasakan diri *dari dalam*"}, {"id": "p11", "t0": 104.1, "t1": 108.1, "cap": "Dikira orang lain lihat *sejelas itu*"}, {"id": "p12", "t0": 108.3, "t1": 110.7, "cap": "Padahal mereka *sibuk sendiri*"}, {"id": "p13", "t0": 111.0, "t1": 115.0, "cap": "Hal mirip: rasa *gugup*"}, {"id": "p14", "t0": 115.2, "t1": 119.2, "cap": "Gugupmu *nggak sejelas itu*"}, {"id": "s1", "t0": 120.1, "t1": 122.9, "cap": "Terus, *gimana?*"}, {"id": "s2", "t0": 123.15, "t1": 125.95, "cap": "1. Ingat *efek lampu sorot*"}, {"id": "s3", "t0": 126.15, "t1": 133.75, "cap": "Tahu efeknya = *lebih tenang*"}, {"id": "s4", "t0": 134.05, "t1": 136.85, "cap": "2. Baca *1 kali* saja"}, {"id": "s5", "t0": 137.05, "t1": 140.65, "cap": "Ada kata yang *nyakitin?*"}, {"id": "s6", "t0": 140.85, "t1": 142.85, "cap": "Nggak ada? *Kirim!*"}, {"id": "s7", "t0": 143.15, "t1": 145.15, "cap": "3. Lihat *besoknya*"}, {"id": "s8", "t0": 145.35, "t1": 148.55, "cap": "Ada yang bahas? *Biasanya nggak.*"}, {"id": "r1", "t0": 149.45, "t1": 153.85, "cap": "Lampu sorot itu *cuma di kepala kita*"}, {"id": "c1", "t0": 154.35, "t1": 155.95, "cap": "Sekarang *giliran kamu*"}, {"id": "c2", "t0": 156.15, "t1": 159.35, "cap": "Tim *hapus* atau tim *kirim?*"}, {"id": "c3", "t0": 159.55, "t1": 164.35, "cap": "Tulis *\"hapus\"* atau *\"kirim\"* di komentar!"}, {"id": "c4", "t0": 164.55, "t1": 169.35, "cap": "Kirim ke teman yang suka bales *wkwk*"}, {"id": "z", "t0": 169.8, "t1": 171.4, "cap": ""}], "perkiraan": true}
+{
+ "duration": 165.78,
+ "lines": [
+  {
+   "id": "h1",
+   "t0": 0.3,
+   "t1": 2.401,
+   "cap": "Berhenti hapus pesan *3 paragraf*"
+  },
+  {
+   "id": "h2",
+   "t0": 2.601,
+   "t1": 5.999,
+   "cap": "Ada *alasan* kamu selalu ragu"
+  },
+  {
+   "id": "h3",
+   "t0": 6.199,
+   "t1": 9.655,
+   "cap": "...dan *bukan* karena lebay"
+  },
+  {
+   "id": "m1",
+   "t0": 10.555,
+   "t1": 11.672,
+   "cap": "Coba ingat-ingat..."
+  },
+  {
+   "id": "m2",
+   "t0": 11.872,
+   "t1": 14.431,
+   "cap": "Malam-malam, balas pesan *gebetan*"
+  },
+  {
+   "id": "m3",
+   "t0": 14.631,
+   "t1": 17.669,
+   "cap": "Ketik panjang, *rapi*"
+  },
+  {
+   "id": "m4",
+   "t0": 17.869,
+   "t1": 21.574,
+   "cap": "\"Kok kepanjangan, ya?\""
+  },
+  {
+   "id": "m5",
+   "t0": 21.874,
+   "t1": 24.401,
+   "cap": "Dikira *lebay?* Dia *ilfil?*"
+  },
+  {
+   "id": "m6",
+   "t0": 24.651,
+   "t1": 26.733,
+   "cap": "Hapus. Ketik. *Hapus lagi.*"
+  },
+  {
+   "id": "m7",
+   "t0": 26.933,
+   "t1": 29.638,
+   "cap": "Yang terkirim: *wkwk*"
+  },
+  {
+   "id": "m8",
+   "t0": 30.538,
+   "t1": 31.849,
+   "cap": "Atau di *grup kelas*"
+  },
+  {
+   "id": "m9",
+   "t0": 32.049,
+   "t1": 35.022,
+   "cap": "Takut dikira *nggak nyimak*"
+  },
+  {
+   "id": "m10",
+   "t0": 35.222,
+   "t1": 37.111,
+   "cap": "Jempol di tombol *kirim*..."
+  },
+  {
+   "id": "m11",
+   "t0": 37.311,
+   "t1": 39.991,
+   "cap": "...lalu *pura-pura* nggak jadi nanya"
+  },
+  {
+   "id": "m12",
+   "t0": 40.291,
+   "t1": 43.722,
+   "cap": "Kayak dibaca pakai *kaca pembesar*"
+  },
+  {
+   "id": "m13",
+   "t0": 44.022,
+   "t1": 48.281,
+   "cap": "*10 menit* buat 1 pesan"
+  },
+  {
+   "id": "d1",
+   "t0": 49.181,
+   "t1": 52.141,
+   "cap": "Dikira: *kurang percaya diri*"
+  },
+  {
+   "id": "d2",
+   "t0": 52.341,
+   "t1": 53.853,
+   "cap": "Atau terlalu *baper*"
+  },
+  {
+   "id": "d3",
+   "t0": 54.053,
+   "t1": 56.879,
+   "cap": "\"Udah, *bodo amat!*\""
+  },
+  {
+   "id": "d4",
+   "t0": 57.079,
+   "t1": 59.417,
+   "cap": "Besoknya: *kejadian lagi*"
+  },
+  {
+   "id": "d5",
+   "t0": 59.717,
+   "t1": 61.426,
+   "cap": "Masalahnya *bukan di situ*"
+  },
+  {
+   "id": "p1",
+   "t0": 62.326,
+   "t1": 66.377,
+   "cap": "Namanya: *spotlight effect*"
+  },
+  {
+   "id": "p2",
+   "t0": 66.577,
+   "t1": 69.966,
+   "cap": "Efek *lampu sorot*"
+  },
+  {
+   "id": "p3",
+   "t0": 70.166,
+   "t1": 73.835,
+   "cap": "2000: percobaan di *Universitas Cornell*"
+  },
+  {
+   "id": "p4",
+   "t0": 74.035,
+   "t1": 77.075,
+   "cap": "Pakai *kaos memalukan*"
+  },
+  {
+   "id": "p5",
+   "t0": 77.275,
+   "t1": 80.099,
+   "cap": "Masuk ke *ruangan ramai*"
+  },
+  {
+   "id": "p6",
+   "t0": 80.299,
+   "t1": 84.521,
+   "cap": "\"Berapa yang *lihat kaosmu?*\""
+  },
+  {
+   "id": "p7",
+   "t0": 84.721,
+   "t1": 86.768,
+   "cap": "Tebakan: *separuh* ruangan"
+  },
+  {
+   "id": "a1",
+   "t0": 87.668,
+   "t1": 90.477,
+   "cap": "Waktu kami di *Adriy.Project* baca hasilnya..."
+  },
+  {
+   "id": "a1b",
+   "t0": 91.377,
+   "t1": 92.613,
+   "cap": "...kami *ketawa sendiri*"
+  },
+  {
+   "id": "p8",
+   "t0": 92.963,
+   "t1": 96.004,
+   "cap": "Aslinya: *± 1 dari 5* orang"
+  },
+  {
+   "id": "p9",
+   "t0": 96.404,
+   "t1": 97.916,
+   "cap": "Kenapa *meleset jauh?*"
+  },
+  {
+   "id": "p10",
+   "t0": 98.116,
+   "t1": 102.049,
+   "cap": "Kita merasakan diri *dari dalam*"
+  },
+  {
+   "id": "p11",
+   "t0": 102.249,
+   "t1": 105.251,
+   "cap": "Dikira orang lain lihat *sejelas itu*"
+  },
+  {
+   "id": "p12",
+   "t0": 105.451,
+   "t1": 108.524,
+   "cap": "Padahal mereka *sibuk sendiri*"
+  },
+  {
+   "id": "p13",
+   "t0": 108.824,
+   "t1": 111.183,
+   "cap": "Hal mirip: rasa *gugup*"
+  },
+  {
+   "id": "p14",
+   "t0": 111.383,
+   "t1": 115.62,
+   "cap": "Gugupmu *nggak sejelas itu*"
+  },
+  {
+   "id": "s1",
+   "t0": 116.52,
+   "t1": 119.057,
+   "cap": "Terus, *gimana?*"
+  },
+  {
+   "id": "s2",
+   "t0": 119.307,
+   "t1": 122.7,
+   "cap": "1. Ingat *efek lampu sorot*"
+  },
+  {
+   "id": "s3",
+   "t0": 122.9,
+   "t1": 128.842,
+   "cap": "Tahu efeknya = *lebih tenang*"
+  },
+  {
+   "id": "s4",
+   "t0": 129.142,
+   "t1": 131.84,
+   "cap": "2. Baca *1 kali* saja"
+  },
+  {
+   "id": "s5",
+   "t0": 132.04,
+   "t1": 134.616,
+   "cap": "Ada kata yang *nyakitin?*"
+  },
+  {
+   "id": "s6",
+   "t0": 134.816,
+   "t1": 136.648,
+   "cap": "Nggak ada? *Kirim!*"
+  },
+  {
+   "id": "s7",
+   "t0": 136.948,
+   "t1": 139.02,
+   "cap": "3. Lihat *besoknya*"
+  },
+  {
+   "id": "s8",
+   "t0": 139.22,
+   "t1": 142.796,
+   "cap": "Ada yang bahas? *Biasanya nggak.*"
+  },
+  {
+   "id": "r1",
+   "t0": 143.696,
+   "t1": 147.982,
+   "cap": "Lampu sorot itu *cuma di kepala kita*"
+  },
+  {
+   "id": "c1",
+   "t0": 148.482,
+   "t1": 150.193,
+   "cap": "Sekarang *giliran kamu*"
+  },
+  {
+   "id": "c2",
+   "t0": 150.393,
+   "t1": 153.515,
+   "cap": "Tim *hapus* atau tim *kirim?*"
+  },
+  {
+   "id": "c3",
+   "t0": 153.715,
+   "t1": 158.735,
+   "cap": "Tulis *\"hapus\"* atau *\"kirim\"* di komentar!"
+  },
+  {
+   "id": "c4",
+   "t0": 158.935,
+   "t1": 161.712,
+   "cap": "Kirim ke teman yang suka bales *wkwk*"
+  },
+  {
+   "id": "z",
+   "t0": 162.162,
+   "t1": 164.58,
+   "cap": ""
+  }
+ ]
+}
