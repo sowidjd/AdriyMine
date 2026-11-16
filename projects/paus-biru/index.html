@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Jantung paus biru</title>
+<style>
+@font-face { font-family: 'Fredoka'; src: url(../_bersama/fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; }
+html,body{margin:0;background:#222}canvas{height:100vh;display:block;margin:auto}
+</style></head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script src="../_bersama/dasar.js"></script>
+<script>
+// "Jantung paus biru cuma berdetak 2 kali semenit" — gaya CAT AIR (watercolor): sapuan transparan berlapis, tepi menggelap, kertas bertekstur.
+// Metafora: laut yang tenang & dalam; detak jantung = gelombang pelan yang menyebar seperti tetesan cat di air.
+let GRAIN = null, BLOOM = null;
+const INKW = '#2B3A4A';
+const GAYA = {
+  ink: INKW, hi: '#F2C26B', card: '#FFF9EE',
+  init() {
+    GRAIN = document.createElement('canvas'); GRAIN.width = GRAIN.height = 256; const q = GRAIN.getContext('2d'), im = q.createImageData(256, 256);
+    for (let i = 0; i < 65536; i++) { const v = 215 + 40 * Math.pow(hash(i * .913 + 2), .7); im.data[i * 4] = v; im.data[i * 4 + 1] = v - 3; im.data[i * 4 + 2] = v - 8; im.data[i * 4 + 3] = 255; }
+    q.putImageData(im, 0, 0);
+    BLOOM = document.createElement('canvas'); BLOOM.width = W; BLOOM.height = H; const b = BLOOM.getContext('2d');   // pigment blooms (cauliflower marks) for the multiply pass
+    for (let i = 0; i < 90; i++) { const x = hash(i) * W, y = hash(i + 7) * H, r = 60 + 220 * hash(i + 3), g = b.createRadialGradient(x, y, r * .6, x, y, r);
+      g.addColorStop(0, 'rgba(255,255,255,0)'); g.addColorStop(.85, `rgba(120,110,140,${.06 + .06 * hash(i + 5)})`); g.addColorStop(1, 'rgba(255,255,255,0)'); b.fillStyle = g; b.fillRect(x - r, y - r, 2 * r, 2 * r); }
+  },
+  shape(pts, col, id, o = {}) {   // a wash: two offset translucent layers + darker pooled edge; no black outline
+    const a = o.fill ?? .62, j = o.text ? 0 : 3;
+    for (let k = 0; k < 2; k++) { const dx = (hash(id * 3 + k) - .5) * 2 * j, dy = (hash(id * 5 + k) - .5) * 2 * j;
+      ctx.save(); ctx.translate(dx, dy); ctx.fillStyle = rgba(col, k ? a * .55 : a); ctx.fill(pathOf(pts)); ctx.restore(); }
+    const p = pathOf(pts); ctx.strokeStyle = rgba(mixh(col, '#1B2638', .35), o.text ? .45 : .5); ctx.lineWidth = o.text ? 3 : 4; ctx.lineJoin = 'round'; ctx.stroke(p);
+  },
+  line(pts, lw, col = INKW, id, alpha = 1) { ctx.strokeStyle = rgba(col, alpha * .9); ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke(pathOf(pts, false)); },
+  bg() { ctx.fillStyle = '#F7F2E7'; ctx.fillRect(0, 0, W, H); },
+  trans(k, drawPrev) {   // a wet bloom spreads from the centre: the new scene bleeds in
+    const r = easeOut(k) * 1400, P = []; for (let i = 0; i < 48; i++) { const a = i / 48 * TAU, rr2 = r * (1 + .08 * Math.sin(i * 3.7) + .05 * Math.sin(i * 7.1)); P.push([540 + Math.cos(a) * rr2, 900 + Math.sin(a) * rr2]); }
+    ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, H); P.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); ctx.closePath(); ctx.clip('evenodd'); drawPrev(); ctx.restore();
+  },
+  post(t) {
+    ctx.globalCompositeOperation = 'multiply'; ctx.globalAlpha = .18; ctx.drawImage(BLOOM, 0, 0); ctx.globalAlpha = .55; ctx.fillStyle = ctx.createPattern(GRAIN, 'repeat'); ctx.fillRect(0, 0, W, H);
+    ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
+  },
+};
+// ---------- painting helpers ----------
+function sea(top, bottom, y0 = 0) {   // graded wash
+  const g = ctx.createLinearGradient(0, y0, 0, H); g.addColorStop(0, top); g.addColorStop(1, bottom); ctx.fillStyle = g; ctx.fillRect(0, y0, W, H - y0);
+  for (let i = 0; i < 7; i++) { ctx.fillStyle = rgba(mixh(top, bottom, i / 7), .12); ctx.beginPath(); const yy = y0 + (H - y0) * (i + .5) / 7; ctx.moveTo(0, yy); for (let x = 0; x <= W; x += 60) ctx.lineTo(x, yy + 20 * Math.sin(x * .01 + i * 2)); ctx.lineTo(W, yy + 120); ctx.lineTo(0, yy + 120); ctx.fill(); }
+}
+function rays(t, a = .25) { ctx.save(); for (let i = 0; i < 6; i++) { const x = 100 + i * 180 + 40 * Math.sin(t * .3 + i), w = 60 + 40 * hash(i); const g = ctx.createLinearGradient(0, 0, 0, 1300); g.addColorStop(0, `rgba(255,250,220,${a})`); g.addColorStop(1, 'rgba(255,250,220,0)'); ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x + w, 0); ctx.lineTo(x + w * 2.5 - 150, 1300); ctx.lineTo(x - 150, 1300); ctx.fill(); } ctx.restore(); }
+function bubbles(t, x, y, n = 8, id = 1) { for (let i = 0; i < n; i++) { const p = (t * .35 + hash(i + id)) % 1, bx = x + 40 * Math.sin(t * 2 + i) + (hash(i * 3 + id) - .5) * 120, by = y - p * 700; ctx.strokeStyle = `rgba(255,255,255,${.7 * (1 - p)})`; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(bx, by, 6 + 10 * hash(i + id * 2), 0, TAU); ctx.stroke(); } }
+// blue whale, side view facing right, length L px. o.heart: 0..1 pulse glow; o.tilt
+function whale(x, y, L, o = {}) {
+  ctx.save(); ctx.translate(x, y); ctx.rotate(o.tilt || 0); ctx.scale(o.flip ? -1 : 1, 1);
+  const sw = Math.sin(T * 1.2 + (o.ph || 0)) * .04, P = [];
+  for (let i = 0; i <= 30; i++) { const u = i / 30, xx = lerp(.5, -.5, u) * L, w = .085 * L * Math.pow(Math.sin(Math.PI * Math.pow(u, .55)), .9) * (1 - .55 * u); P.push([xx, -w + sw * u * u * L * .3]); }
+  for (let i = 30; i >= 0; i--) { const u = i / 30, xx = lerp(.5, -.5, u) * L, w = .07 * L * Math.pow(Math.sin(Math.PI * Math.pow(u, .55)), .9) * (1 - .5 * u); P.push([xx, w + sw * u * u * L * .3]); }
+  const tx = -.5 * L, ty = sw * L * .3;   // fluke
+  GAYA.shape([[tx + .02 * L, ty], [tx - .09 * L, ty - .075 * L], [tx - .06 * L, ty], [tx - .09 * L, ty + .075 * L]], '#5E7FA3', 1200, {});
+  GAYA.shape(P, '#6F8FB2', 1201, {});
+  ctx.save(); ctx.clip(pathOf(P));   // mottled skin + pale throat with grooves
+  for (let i = 0; i < 40; i++) { ctx.fillStyle = rgba(i % 3 ? '#A9C0D6' : '#4F6E92', .35); ctx.beginPath(); ctx.ellipse((hash(i) - .5) * L, (hash(i + 9) - .6) * .12 * L, 4 + 10 * hash(i + 3), 3 + 6 * hash(i + 4), 0, 0, TAU); ctx.fill(); }
+  ctx.fillStyle = rgba('#C9D9E6', .55); ctx.beginPath(); ctx.ellipse(.22 * L, .05 * L, .3 * L, .035 * L, 0, 0, TAU); ctx.fill();
+  for (let i = 0; i < 6; i++) GAYA.line([[.42 * L, (.02 + i * .009) * L], [.02 * L, (.035 + i * .009) * L]], 2, '#47607E', 1210 + i, .45);
+  ctx.restore();
+  GAYA.shape([[-.26 * L, -.045 * L], [-.3 * L, -.075 * L], [-.33 * L, -.04 * L]], '#4F6E92', 1202, {});   // small dorsal fin
+  GAYA.shape([[.21 * L, .045 * L], [.13 * L, .115 * L], [.1 * L, .108 * L], [.16 * L, .04 * L]], '#5E7FA3', 1203, {});   // flipper
+  ctx.fillStyle = INKW; ctx.beginPath(); ctx.ellipse(.33 * L, -.005 * L, .008 * L, .006 * L, 0, 0, TAU); ctx.fill();   // eye
+  GAYA.line([[.5 * L, .005 * L], [.36 * L, .018 * L]], 3, '#3D5675', 1204, .7);   // mouth line
+  if (o.heart != null) { const p = clamp(o.heart), r = .035 * L * (1 + .35 * p); const g = ctx.createRadialGradient(.12 * L, .02 * L, 0, .12 * L, .02 * L, r * 3); g.addColorStop(0, `rgba(240,90,90,${.35 + .5 * p})`); g.addColorStop(1, 'rgba(240,90,90,0)'); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(.12 * L, .02 * L, r * 3, 0, TAU); ctx.fill(); heartIcon(.12 * L, .02 * L, r, '#E0605A'); }
+  if (o.tag) { GAYA.shape(rr(-.05 * L, -.11 * L, .07 * L, .03 * L, 6), '#E8A84A', 1205, { text: true }); }
+  ctx.restore();
+}
+function heartIcon(x, y, r, col) { const P = []; for (let i = 0; i < 30; i++) { const a = i / 30 * TAU; P.push([x + 16 * Math.pow(Math.sin(a), 3) * r / 16, y - (13 * Math.cos(a) - 5 * Math.cos(2 * a) - 2 * Math.cos(3 * a) - Math.cos(4 * a)) * r / 16]); } GAYA.shape(P, col, 1300, { fill: .85 }); }
+// heart-rate pulse: 1 at each beat, decaying; beats every 60/bpm seconds
+const pulse = (t, bpm, ph = 0) => { const per = 60 / bpm, x = ((t + ph) % per) / per * per; return Math.exp(-x * 5); };
+// ECG strip: window `span` seconds wide, beats at bpm, drawn as a painted line on a card
+function ecg(x, y, w, h, t, bpm, span, o = {}) {
+  GAYA.shape(rr(x, y, w, h, 18), '#FFF9EE', 1400 + (o.id || 0), { text: true, fill: .9 });
+  ctx.save(); ctx.beginPath(); ctx.rect(x + 10, y + 10, w - 20, h - 20); ctx.clip();
+  ctx.strokeStyle = rgba('#E8B4B4', .5); ctx.lineWidth = 1; for (let gx = x; gx < x + w; gx += 30) { ctx.beginPath(); ctx.moveTo(gx, y); ctx.lineTo(gx, y + h); ctx.stroke(); }
+  const per = 60 / bpm, mid = y + h * .62, P = [];
+  for (let i = 0; i <= 300; i++) { const tt = t - span + span * i / 300, ph = ((tt % per) + per) % per, d = ph - per * .5, a = Math.abs(d) < .06 ? (d < 0 ? -1 : .6) * (1 - Math.abs(d) / .06) : 0; P.push([x + 10 + (w - 20) * i / 300, mid - a * h * .45]); }
+  GAYA.line(P, 5, o.col || '#C9433E', 1410, 1);
+  ctx.restore();
+  if (o.label) { ctx.font = `700 34px ${FONT}`; ctx.fillStyle = INKW; ctx.fillText(o.label, x + 24, y + 46); }
+}
+function bus(x, y, s, id) { GAYA.shape(rr(x, y - 70 * s, 240 * s, 70 * s, 10 * s), '#D9634C', id, {}); for (let i = 0; i < 5; i++) GAYA.shape(rr(x + (12 + i * 44) * s, y - 60 * s, 34 * s, 26 * s, 4 * s), '#CFE3F0', id + 1 + i, { fill: .8 }); for (const wx of [40, 190]) GAYA.shape(ell(x + wx * s, y, 14 * s, 14 * s, 14), '#3A3A3A', id + 9, {}); }
+// ---------- scenes ----------
+GROUPS = [['hook', ['h1', 'h2', 'h3']], ['kenal', ['k1', 'k2']], ['dugaan', ['k3', 'k4']], ['brand', ['a1', 'a1b']], ['riset', ['f1']], ['selam', ['f2', 'f3']], ['banding', ['f4']],
+  ['hemat', ['x1']], ['naik', ['x2', 'x3']], ['kamu', ['e1', 'e2']], ['cta', ['c1', 'c2']], ['akhir', ['z']]];
+// HOOK: the abyss; a vast shape glides past; a single slow heartbeat glow
+S.hook = (t) => {
+  sea('#22436B', '#0B1A2E'); bubbles(t, 300, 1700, 10, 3);
+  const k = seg(t, 0, t1('h2') + 1);
+  whale(lerp(1500, 380, k), 900, 1500, { heart: Math.exp(-Math.max(0, t - t0('h2') - .2) * 2.2) * (t > t0('h2') ? 1 : 0) + Math.exp(-t * 3) * .8 });
+  if (t > t0('h3')) clawd(820, 1330, 18, { face: 'shock', goggles: true, arms: [1.2, 1.2], mark: '!', markAge: t - t0('h3'), dy: -.3 * Math.sin(t * 2) });
+  if (t < t0('h2')) tag('Hewan *terbesar* di Bumi...', 540, 330, 80, { age: t + .3 });
+  else tag('Jantungnya *2× semenit*', 540, 330, 88, { age: t - t0('h2'), rot: -.02 });
+};
+// KENAL: surface, sun rays; measuring tape > 30 m; 2.5 city buses for scale
+S.kenal = (t) => {
+  sea('#8FC3E0', '#2F6390', 0); rays(t, .35);
+  const k = ease(seg(t, t0('k1') - .3, t0('k1') + 1));
+  whale(540, 720, 980, { ph: 1, tilt: -.02 });
+  const tp = seg(t, t0('k1') + .8, t0('k1') + 2.2); if (tp > 0) { GAYA.line([[50, 560], [lerp(50, 1030, tp), 560]], 6, '#F2C26B', 1500, 1); for (let i = 0; i <= 10 * tp; i++) GAYA.line([[50 + i * 98, 545], [50 + i * 98, 575]], 3, INKW, 1501 + i, .8); if (tp > .95) tag('> 30 meter', 540, 470, 64, { age: t - t0('k1') - 2.2 }); }
+  if (t > t0('k2')) { const a = t - t0('k2'); [0, 1, 2].forEach(i => { const w = i === 2 ? .5 : 1; if (a > i * .5) { ctx.save(); ctx.beginPath(); ctx.rect(70 + i * 395, 900, 395 * w, 200); ctx.clip(); bus(70 + i * 395, 1060, 1.6, 1520 + i * 10); ctx.restore(); } }); tag('≈ *2,5 bus kota*', 540, 1200, 64, { age: a - 1.3 }); }
+  clawd(880, 1350, 13, { face: t > t0('k2') + 1 ? 'star' : 'surprised', goggles: true, arms: [1.2, .2] });
+};
+// DUGAAN: what people imagine: a huge heart thumping fast; then a big "no"
+S.dugaan = (t) => {
+  ctx.fillStyle = '#F7EEE4'; ctx.fillRect(0, 0, W, H);
+  const no = t > t0('k4'), p = no ? pulse(t, 2) : pulse(t, 140);
+  const r = 230 * (1 + .12 * p); heartIcon(540, 760, r, '#E0605A');
+  if (!no) { for (let i = 0; i < 3; i++) GAYA.line([[300 - i * 30, 600 + i * 60], [230 - i * 30, 580 + i * 60]], 8, '#E0605A', 1600 + i, .6 * p); tag('DUG-DUG-DUG!', 540, 330, 84, { age: t - t0('k3') - .5, bg: '#FBDCD6' }); }
+  clawd(220, 1320, 18, { face: no ? 'shock' : 'curious', mark: no ? '!' : 'cloud', markAge: no ? t - t0('k4') : t - t0('k3') });
+  if (no) { const a = t - t0('k4'), s = seg(a, 0, .25); GAYA.line([[300, 520], [lerp(300, 780, s), lerp(520, 1000, s)]], 22, '#C9433E', 1610, .9); const s2 = seg(a, .2, .45); GAYA.line([[780, 520], [lerp(780, 300, s2), lerp(520, 1000, s2)]], 22, '#C9433E', 1611, .9); tag('*Kebalikannya!*', 540, 330, 90, { age: a - .3 }); }
+};
+// BRAND: warm paper, stamp, Clawd recounting with fingers
+S.brand = (t) => {
+  ctx.fillStyle = '#FBEBD0'; ctx.fillRect(0, 0, W, H); rays(t, .2);
+  const st = t1('a1') - .15, bAge = t - st;
+  clawd(540, 1260, 32, { face: t < st ? 'curious' : t < t0('a1b') ? 'happy' : 'surprised', arms: bAge > 0 && t < t0('a1b') + .3 ? [.6, 1.45] : [1.0, 1.0], mark: t > t0('a1b') ? '?' : null, markAge: t - t0('a1b') });
+  if (bAge > -.1) brandStamp(540, 560, bAge, TL.duration);
+  if (t > t0('a1b')) { const a = t - t0('a1b'); for (let i = 0; i < 3; i++) if (a > .2 + i * .35) tag(`${i + 1}...`, 280 + i * 260, 880, 60, { age: a - .2 - i * .35, bare: true }); }
+};
+// RISET: a research boat; a pole sets a suction-cup recorder on the whale's back
+S.riset = (t) => {
+  sea('#BFE0F0', '#3E78A6', 700); ctx.fillStyle = '#EAF4F8'; ctx.fillRect(0, 0, W, 700); rays(t, .2);
+  const a = t - t0('f1'), placed = a > 2.6;
+  whale(560, 960, 900, { ph: 2, tag: placed });
+  const bx = 300 + 10 * Math.sin(t); GAYA.shape([[bx - 200, 640], [bx + 200, 640], [bx + 150, 720], [bx - 160, 720]], '#E9E2D2', 1700, {}); GAYA.shape(rr(bx - 60, 560, 120, 80, 10), '#D9634C', 1701, {});
+  const reach = ease(seg(a, 1, 2.6)); GAYA.line([[bx + 120, 640], [lerp(bx + 200, 520, reach), lerp(620, 870, reach)]], 6, '#7A5A3A', 1702, 1);
+  if (placed) { ctx.save(); ctx.globalAlpha = .5 + .5 * Math.sin(t * 6); ctx.fillStyle = '#E8A84A'; ctx.beginPath(); ctx.arc(520, 875, 16, 0, TAU); ctx.fill(); ctx.restore(); tag('alat perekam', 520, 1100, 50, { age: a - 2.8 }); }
+  tag('*2019*', 220, 300, 96, { age: a - .2, rot: -.05 }); clawd(860, 520, 10, { face: 'curious', arms: [.2, 1.2] });
+};
+// SELAM: diving into the deep; the ECG strip slows to 4-8 per minute, then 2
+S.selam = (t) => {
+  const d = ease(seg(t, t0('f2') - .3, t1('f3'))); sea(mixh('#3E78A6', '#163257', d), mixh('#163257', '#060E1B', d)); bubbles(t, 700, 1500, 6, 9);
+  const slow = t > t0('f3'), bpm = slow ? 2 : 6;
+  whale(560, lerp(950, 1100, d), 820, { tilt: .25, heart: pulse(t - t0('f2'), slow ? 2 : 6) * .9, ph: 3 });
+  ecg(90, 260, 900, 260, t * 6, bpm, 60, { label: 'detak / 1 menit', id: 1 });
+  tag(slow ? 'Paling lambat: *2×!*' : 'Saat menyelam: *4–8×* semenit', 540, 640, slow ? 84 : 62, { age: slow ? t - t0('f3') : t - t0('f2') - .5 });
+  ctx.font = `700 40px ${FONT}`; ctx.fillStyle = '#EAF4F8'; ctx.fillText(`⬇ ${Math.round(lerp(0, 184, d))} m`, 820, 1300);
+};
+// BANDING: your heart vs the whale's, side by side, same one-minute window
+S.banding = (t) => {
+  ctx.fillStyle = '#F7F2E7'; ctx.fillRect(0, 0, W, H);
+  ecg(90, 330, 900, 260, t * 6, 80, 60, { label: 'jantung kamu: 60–100×', col: '#C9433E', id: 2 });
+  ecg(90, 680, 900, 260, t * 6, 2, 60, { label: 'paus biru: bisa cuma 2×', col: '#3E6FA6', id: 3 });
+  clawd(300, 1300, 18, { face: 'shock', arms: [.3, .3], mark: 'heart', markAge: t - t0('f4') });
+  whale(780, 1180, 380, { heart: pulse(t, 2) * .8 });
+};
+// HEMAT: an oxygen "tank" that drains slowly because the heart is slow
+S.hemat = (t) => {
+  sea('#2F6390', '#0F2440'); const a = t - t0('x1');
+  whale(480, 1000, 820, { heart: pulse(t, 6) * .6, ph: 4 }); bubbles(t, 200, 1300, 6, 4);
+  const lvl = lerp(1, .78, seg(a, 0, 5)); GAYA.shape(rr(860, 300, 120, 520, 30), '#FFF9EE', 1800, { text: true }); GAYA.shape(rr(870, 310 + 500 * (1 - lvl), 100, 500 * lvl, 24), '#7DC3E8', 1801, { fill: .9 });
+  ctx.font = `700 52px ${FONT}`; ctx.fillStyle = '#FFF9EE'; ctx.textAlign = 'center'; ctx.fillText('O₂', 920, 880); ctx.textAlign = 'left';
+  tag('Lambat = *hemat oksigen*', 460, 330, 70, { age: a - .3 });
+};
+// NAIK: rising to the bright surface, a spout; heart rate climbs to 37
+S.naik = (t) => {
+  const up = ease(seg(t, t0('x2') - .3, t0('x2') + 3)); sea(mixh('#163257', '#9FD0EA', up), mixh('#0B1A2E', '#3E78A6', up)); rays(t, .35 * up);
+  const sy = 560; ctx.fillStyle = rgba('#EAF6FB', .8 * up); ctx.fillRect(0, 0, W, sy - 140 + 140 * (1 - up));
+  whale(560, lerp(1400, 700, up), 900, { tilt: lerp(-.35, 0, up), heart: pulse(t, lerp(2, 37, up)), ph: 5 });
+  if (up > .95) { const a = t - t0('x2') - 3; for (let i = 0; i < 14; i++) { const p = (a * .9 + i / 14) % 1; ctx.fillStyle = `rgba(255,255,255,${.8 * (1 - p)})`; ctx.beginPath(); ctx.arc(760 + (hash(i) - .5) * 90 * p, 560 - p * 330, 14 + 20 * p, 0, TAU); ctx.fill(); } }
+  const bpm = Math.round(lerp(2, 37, seg(t, t0('x2') + .5, t0('x2') + 3.5)));
+  GAYA.shape(rr(110, 1080, 380, 200, 30), '#FFF9EE', 1900, { text: true }); heartIcon(190, 1180, 40 * (1 + .25 * pulse(t, bpm)), '#E0605A');
+  ctx.font = `700 96px ${FONT}`; ctx.fillStyle = INKW; ctx.fillText(bpm, 260, 1215); ctx.font = `600 34px ${FONT}`; ctx.fillText('/menit', 380, 1215);
+  if (t > t0('x3')) { const a = t - t0('x3'); tag('*REM*', 640, 1130, 70, { age: a - .3, bg: '#DCE9F5', rot: -.05 }); tag('*GAS*', 860, 1130, 70, { age: a - 1.6, bg: '#FBDCD6', rot: .05 }); }
+};
+// KAMU: hold your breath; feel your heart; a little "brake" in us too
+S.kamu = (t) => {
+  sea('#D9EEF7', '#9CC8E2'); const a = t - t0('e1'), hold = a > .8;
+  clawd(540, 1200, 34, { face: hold ? 'squint' : 'curious', cheeks: hold, sq: hold ? -.03 : 0, arms: [.2, .2] });
+  heartIcon(800, 980, 60 * (1 + .25 * pulse(t, hold ? 60 : 75)), '#E0605A');
+  if (t > t0('e2')) { ctx.save(); ctx.globalAlpha = .35; whale(540, 520, 900, { ph: 6 }); ctx.restore(); tag('Kita juga punya *rem kecil*', 540, 330, 66, { age: t - t0('e2') }); }
+  else tag('Tahan napas...', 540, 330, 80, { age: a - .2 });
+};
+// CTA: swimming alongside the whale; comment prompt; save
+S.cta = (t) => {
+  sea('#9FD0EA', '#3E78A6'); rays(t, .3); whale(520, 760, 900, { ph: 7 });
+  clawd(820, 1180, 16, { face: 'happy', goggles: true, arms: [.3, 1.2 + .3 * Math.sin(t * 8)], dy: -.4 * Math.sin(t * 2) }); bubbles(t, 820, 1100, 6, 7);
+  if (t > t0('c1') + 1.5) tag('Tulis di *komentar!*', 540, 1000, 70, { age: t - t0('c1') - 1.5 });
+  tag('Menyelam bareng *paus biru?*', 540, 330, 68, { age: t - t0('c1') - .2 });
+  if (t > t0('c2')) { const a = t - t0('c2'), k = backOut(seg(a, 0, .3)); ctx.save(); ctx.translate(250, 1180); ctx.scale(k, k); GAYA.shape([[-50, -70], [50, -70], [50, 70], [0, 30], [-50, 70]], '#F2C26B', 1950, {}); ctx.restore(); }
+};
+S.akhir = (t) => S.cta(t);
+// ---------- sound ----------
+window.cues = () => {
+  c(0, 'mk:underwater-white-noise', .5); c(0, 'booms-and-bass/bass-rumble-long', .4); c(.1, 'mk:inside-a-beating-heart', .9); c(t0('h2') + .2, 'mk:inside-a-beating-heart', 1);
+  c(t0('h3'), 'mk:male-astonished-gasp', .5); c(t0('k1') - .3, 'mk:sea-water-splash', .5); c(t0('k1') + .8, 'data/data-progress-short', .5); [0, .5, 1].forEach(d => c(t0('k2') + d, 'pops/pop-medium-in', .6));
+  for (let i = 0; i < 8; i++) c(t0('k3') + .4 + i * .43, 'impacts/impact-light-firm', .45);
+  c(t0('k4'), 'mk:wrong-answer-fail-notification', .5); c(t0('k4') + .1, 'impacts/impact-heavy-firm', .6);
+  c(t1('a1') - .15, 'logo-stings/sting-bright-short', 1); [0, .35, .7].forEach(d => c(t0('a1b') + .2 + d, 'data/data-tick', .7));
+  c(t0('f1'), 'mk:gentle-sea-wave', .5); c(t0('f1') + 2.6, 'mk:hard-pop-click', .7);
+  c(t0('f2') - .3, 'mk:diving-sea-ambience', .5); c(t0('f2'), 'risers-and-fallers/faller-2s-soft', .5); c(t0('f3') + .1, 'mk:inside-a-beating-heart', .9);
+  c(t0('f4') + .2, 'mk:inside-a-beating-heart', .5); c(t0('x1') + .3, 'mk:liquid-bubble', .6);
+  c(t0('x2'), 'risers-and-fallers/riser-2s-strong', .6); c(t0('x2') + 3, 'mk:sea-water-splash', .8); c(t0('x2') + 1, 'data/data-countup-medium', .5);
+  c(t0('x3') + .3, 'pops/pop-large-in', .6); c(t0('x3') + 1.6, 'pops/pop-large-in', .6);
+  c(t0('e1') + .8, 'whooshes/whoosh-slow-soft', .3); c(t0('e2'), 'shimmers/shimmer-long-soft', .5);
+  c(t0('c1') + 1.5, 'tones/tone-ding-mid', .6); c(t0('c2') + .1, 'pops/pop-medium-in', .6);
+  c(t0('z') - .3, 'logo-stings/sting-warm-long', 1);
+  for (const s of SC.slice(1)) if (s.name !== 'akhir') c(s.a, 'mk:liquid-bubble', .3);
+};
+</script>
+</body>
+</html>

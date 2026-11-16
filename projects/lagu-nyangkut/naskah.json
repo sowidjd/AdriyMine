@@ -1,0 +1,125 @@
+{
+ "judul": "Lagu nyangkut dari bangun tidur, padahal kamu nggak suka",
+ "lead": 0.35,
+ "lines": [
+  {
+   "id": "h1",
+   "gap": 0.2,
+   "style": "groggy, sleepy, then annoyed",
+   "text": "Baru bangun, mata belum melek, tapi di kepala udah ada lagu.",
+   "cap": "Baru bangun... *udah ada lagu*"
+  },
+  {
+   "id": "h2",
+   "gap": 0.3,
+   "style": "exasperated, comedic",
+   "text": "Lagunya itu-itu aja, dan kamu bahkan nggak suka!",
+   "cap": "Itu-itu aja. *Nggak suka pula!*"
+  },
+  {
+   "id": "h3",
+   "gap": 0.4,
+   "style": "sly, teasing, mysterious",
+   "text": "Ada cara aneh buat ngusirnya: permen karet.",
+   "cap": "Obatnya? *Permen karet.*"
+  },
+  {
+   "id": "k1",
+   "gap": 0.25,
+   "style": "clear explainer, friendly",
+   "text": "Lagu yang muter terus di kepala ini namanya earworm. Cacing telinga.",
+   "cap": "Namanya: *earworm* (cacing telinga)"
+  },
+  {
+   "id": "k2",
+   "gap": 0.25,
+   "style": "playful, lively",
+   "text": "Hampir semua orang pernah kena. Biasanya cuma potongan pendek, diputar ulang terus, kayak kaset rusak.",
+   "cap": "Potongan pendek, *diulang terus*"
+  },
+  {
+   "id": "k3",
+   "gap": 0.9,
+   "style": "comedic, frustrated",
+   "text": "Dicoba dilupain, eh malah muter lagi.",
+   "cap": "Dilupain... *malah muter lagi*"
+  },
+  {
+   "id": "a1",
+   "gap": 0.9,
+   "style": "warm, proud, slower, clear emphasis on the channel name",
+   "text": "Waktu kami di Adriy.Project nemu penelitian soal ini...",
+   "cap": "Waktu kami di *Adriy.Project* nemu penelitiannya..."
+  },
+  {
+   "id": "a1b",
+   "gap": 0.35,
+   "style": "amused, laughing a little",
+   "text": "jawabannya bikin kami ngakak.",
+   "cap": "...jawabannya bikin *ngakak.*"
+  },
+  {
+   "id": "f1",
+   "gap": 0.2,
+   "style": "storytelling, clear",
+   "text": "Peneliti di Universitas Reading, Inggris, sengaja nyetelin lagu yang gampang nyangkut ke sembilan puluh delapan orang.",
+   "cap": "Univ. Reading: *98 orang* disetel lagu nyangkut"
+  },
+  {
+   "id": "f2",
+   "gap": 0.3,
+   "style": "suspenseful, playful",
+   "text": "Lalu sebagian dari mereka disuruh ngunyah permen karet.",
+   "cap": "Sebagian *ngunyah permen karet*"
+  },
+  {
+   "id": "f3",
+   "gap": 0.4,
+   "style": "excited reveal",
+   "text": "Hasilnya? Yang ngunyah, lebih jarang mendengar lagu itu di kepalanya.",
+   "cap": "Hasil: lagunya *lebih jarang muncul!*"
+  },
+  {
+   "id": "x1",
+   "gap": 0.25,
+   "style": "clear explainer, fascinated",
+   "text": "Soalnya, ngebayangin lagu itu mirip ngomong dalam hati. Nah, ngunyah bikin mulut dalam hati itu sibuk.",
+   "cap": "Ngunyah = *\"mulut dalam hati\" sibuk*"
+  },
+  {
+   "id": "x2",
+   "gap": 0.5,
+   "style": "comedic, punchy",
+   "text": "Mulutnya sibuk, konsernya bubar.",
+   "cap": "Mulut sibuk, *konser bubar!*"
+  },
+  {
+   "id": "s1",
+   "gap": 0.5,
+   "style": "warm, encouraging",
+   "text": "Jadi kalau ada lagu bandel nyangkut, coba kunyah permen karet sebentar.",
+   "cap": "Lagu bandel? *Kunyah permen karet*"
+  },
+  {
+   "id": "c1",
+   "gap": 0.25,
+   "style": "cheerful, inviting, friendly",
+   "text": "Lagu apa yang paling sering nyangkut di kepalamu? Tulis judulnya di komentar!",
+   "cap": "Lagu apa yang nyangkut? *Tulis di komentar!*"
+  },
+  {
+   "id": "c2",
+   "gap": 0.45,
+   "style": "friendly, upbeat",
+   "text": "Ikuti, biar nggak ketinggalan fakta kayak gini.",
+   "cap": "*Ikuti* biar nggak ketinggalan"
+  },
+  {
+   "id": "z",
+   "gap": 0.0,
+   "style": "warm, confident, gentle smile in the voice, medium tempo",
+   "text": "Explore More, Know More.",
+   "cap": ""
+  }
+ ]
+}

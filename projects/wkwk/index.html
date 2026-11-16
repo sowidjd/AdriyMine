@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Ngetik 3 paragraf, kirim wkwk</title>
+<style>
+@font-face { font-family: 'Fredoka'; src: url(../_bersama/fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; }
+html,body{margin:0;background:#222}canvas{height:100vh;display:block;margin:auto}
+</style></head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script src="../_bersama/dasar.js"></script>
+<script>
+// "Ngetik 3 paragraf, dihapus, kirim wkwk" — gaya MANGA PANELS: tinta hitam tegas, screentone titik, satu warna aksen (oranye Clawd + kuning sorot).
+// Metafora: kata-kata yang "ditelan" panel demi panel; panggung + lampu sorot = spotlight effect.
+const INK = '#141414', PAPERC = '#FBFAF6';
+let TONE = null, TONE2 = null;
+const GAYA = {
+  ink: INK, hi: '#F5C542', card: '#FFFFFF',
+  init() {   // screentone patterns (dot grids), drawn once
+    const mk = (sp, r) => { const c = document.createElement('canvas'); c.width = c.height = sp; const q = c.getContext('2d'); q.fillStyle = 'rgba(20,20,20,0.85)'; q.beginPath(); q.arc(sp / 2, sp / 2, r, 0, TAU); q.fill(); return ctx.createPattern(c, 'repeat'); };
+    TONE = mk(12, 2.2); TONE2 = mk(9, 2.6);
+  },
+  shape(pts, col, id, o = {}) {
+    const p = pathOf(pts); ctx.fillStyle = rgba(col, o.fill ?? 1); ctx.fill(p);
+    if (o.tone) { ctx.save(); ctx.clip(p); ctx.globalAlpha *= o.tone; ctx.fillStyle = TONE; ctx.fillRect(-3000, -3000, 6000, 6000); ctx.restore(); }
+    if (o.line !== false) { ctx.strokeStyle = INK; ctx.lineWidth = o.lw ?? (o.text ? 4 : 5); ctx.lineJoin = 'round'; ctx.stroke(p); }
+  },
+  line(pts, lw, col = INK, id, alpha = 1) { ctx.strokeStyle = rgba(col, alpha); ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke(pathOf(pts, false)); },
+  bg() { ctx.fillStyle = PAPERC; ctx.fillRect(0, 0, W, H); },
+  trans(k, drawPrev) {   // manga page cut: a diagonal slash sweeps across; the old panel stays beyond it
+    const x = lerp(-700, W + 700, easeOut(k)), P = [[x, -100], [W + 900, -100], [W + 900, H + 100], [x - 700, H + 100]];
+    ctx.save(); ctx.clip(pathOf(P)); drawPrev(); ctx.restore();
+    GAYA.line([[x, -100], [x - 700, H + 100]], 14, INK, 1, 1);
+  },
+  post(t) {},
+};
+// ---------- manga helpers ----------
+function tone(x, y, w, h, a = .25, pat = TONE) { ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = pat; ctx.fillRect(x, y, w, h); ctx.restore(); }
+function panel(x, y, w, h, draw, o = {}) {   // a bordered panel; contents clipped
+  ctx.save(); ctx.beginPath(); ctx.rect(x, y, w, h); ctx.clip(); ctx.fillStyle = o.bg || '#FFFFFF'; ctx.fillRect(x, y, w, h); ctx.translate(x, y); draw(w, h); ctx.restore();
+  ctx.strokeStyle = INK; ctx.lineWidth = 7; ctx.strokeRect(x, y, w, h);
+}
+function focusLines(cx, cy, r0, n = 70, col = INK, a = .9, seed = 1) {   // manga "concentration lines"
+  ctx.save(); ctx.fillStyle = rgba(col, a);
+  for (let i = 0; i < n; i++) { const an = i / n * TAU + hash(i + seed) * .05, w = .006 + .012 * hash(i * 3 + seed), r1 = r0 + 60 * hash(i * 7 + seed + BOIL);
+    ctx.beginPath(); ctx.moveTo(cx + Math.cos(an) * r1, cy + Math.sin(an) * r1); ctx.lineTo(cx + Math.cos(an - w) * 1600, cy + Math.sin(an - w) * 1600); ctx.lineTo(cx + Math.cos(an + w) * 1600, cy + Math.sin(an + w) * 1600); ctx.fill(); }
+  ctx.restore();
+}
+function speedLines(x, y, w, h, n = 30, a = .6) { ctx.save(); ctx.strokeStyle = rgba(INK, a); for (let i = 0; i < n; i++) { const yy = y + hash(i + BOIL * 31) * h, l = w * (.3 + .6 * hash(i * 5)); ctx.lineWidth = 1 + 3 * hash(i * 3); ctx.beginPath(); ctx.moveTo(x + w - l, yy); ctx.lineTo(x + w, yy); ctx.stroke(); } ctx.restore(); }
+function sfxWord(str, x, y, size, rot = 0, age = 1, col = '#FFFFFF') {   // hand-lettered sound effect (onomatopoeia) with thick outline
+  const k = backOut(seg(age, 0, .2)); if (k <= 0) return;
+  ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(k, k); ctx.font = `700 ${size}px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.lineJoin = 'round'; ctx.lineWidth = size * .18; ctx.strokeStyle = INK; ctx.strokeText(str, 0, 0); ctx.fillStyle = col; ctx.fillText(str, 0, 0); ctx.restore();
+}
+function bubble(x, y, w, h, tailX, tailY, o = {}) {   // speech/chat bubble
+  const P = rr(x - w / 2, y - h / 2, w, h, Math.min(40, h / 2)); GAYA.shape(P, o.bg || '#FFFFFF', 600, { text: true, lw: 5 });
+  if (tailX != null) { ctx.fillStyle = o.bg || '#FFFFFF'; ctx.beginPath(); ctx.moveTo(x - 30, y + h / 2 - 3); ctx.lineTo(tailX, tailY); ctx.lineTo(x + 20, y + h / 2 - 3); ctx.fill(); GAYA.line([[x - 30, y + h / 2], [tailX, tailY], [x + 20, y + h / 2]], 5, INK, 601); }
+}
+function phone(x, y, s, draw, o = {}) {   // a big phone; draw(w,h) paints the screen
+  const w = 470 * s, h = 900 * s;
+  ctx.save(); ctx.translate(x, y); ctx.rotate(o.rot || 0);
+  GAYA.shape(rr(-w / 2 - 22 * s, -h / 2 - 40 * s, w + 44 * s, h + 80 * s, 50 * s), '#2B2B2E', 700, {});
+  ctx.save(); ctx.beginPath(); ctx.rect(-w / 2, -h / 2, w, h); ctx.clip(); ctx.translate(-w / 2, -h / 2); ctx.fillStyle = o.screen || '#F4F6F8'; ctx.fillRect(0, 0, w, h); draw(w, h); ctx.restore();
+  ctx.restore();
+}
+function textLines(x, y, w, n, gap = 34, prog = 1) {   // grey "typed text" bars, n lines, revealed by prog (0..1)
+  const tot = n * w; let rem = prog * tot;
+  for (let i = 0; i < n && rem > 0; i++) { const lw = (i === n - 1 ? .55 : .85 + .15 * hash(i)) * w, d = Math.min(lw, rem); rem -= lw; ctx.fillStyle = '#5E6670'; ctx.fillRect(x, y + i * gap, d, 14); }
+}
+function person(x, y, s, o = {}) {   // a simple manga crowd figure (head + shoulders), facing us; o.look: eyes on Clawd
+  GAYA.shape(rr(x - 45 * s, y, 90 * s, 90 * s, 30 * s), o.shirt || '#D9D9D9', 610, { tone: o.tone ?? .5, lw: 4 });
+  GAYA.shape(ell(x, y - 30 * s, 34 * s, 38 * s, 20), '#FFFFFF', 611, { lw: 4 });
+  ctx.fillStyle = INK; ctx.fillRect(x - 34 * s, y - 70 * s, 68 * s, 22 * s);
+  const ex = o.look ? 8 * s : 0; for (const sx of [-1, 1]) { ctx.beginPath(); ctx.arc(x + sx * 12 * s + ex, y - 30 * s, 4.5 * s, 0, TAU); ctx.fill(); }
+}
+function room(t, night) {   // bedroom: dark blue night with phone glow
+  ctx.fillStyle = mixh('#F2EFE8', '#1E2433', night); ctx.fillRect(0, 0, W, H); tone(0, 0, W, H, .18 + .25 * night);
+  GAYA.shape([[620, 260], [960, 260], [960, 640], [620, 640]], mixh('#CFE6F5', '#2E3D5C', night), 620, { lw: 6 });   // window
+  GAYA.line([[790, 260], [790, 640]], 6, INK, 621); GAYA.line([[620, 450], [960, 450]], 6, INK, 622);
+  if (night > .5) { ctx.fillStyle = '#F5EBC8'; ctx.beginPath(); ctx.arc(880, 330, 34, 0, TAU); ctx.fill(); ctx.fillStyle = mixh('#CFE6F5', '#2E3D5C', night); ctx.beginPath(); ctx.arc(866, 320, 30, 0, TAU); ctx.fill(); }
+  GAYA.shape([[-20, 1180], [1100, 1180], [1100, 1960], [-20, 1960]], mixh('#E9D9C2', '#2A2F3D', night), 623, { tone: .5 });   // bed
+  GAYA.shape([[60, 1100], [430, 1100], [450, 1200], [40, 1200]], '#FFFFFF', 624, { tone: .2 });   // pillow
+  GAYA.line([[120, 1560], [260, 1500], [330, 1580], [460, 1520]], 5, INK, 625);   // tangled charger cable
+}
+// ---------- scenes ----------
+GROUPS = [['hook', ['h1', 'h2', 'h3']], ['juri', ['k1', 'k2']], ['panggung', ['k3', 'e1']], ['riset', ['e2', 'e3']], ['brand', ['a1', 'a1b', 'e4']], ['lega', ['e5']],
+  ['trik', ['s1', 's2', 's3']], ['cta', ['c1', 'c2']], ['akhir', ['z']]];
+// HOOK: night, phone glow. Typing fills the draft, everything is deleted, "wkwk" is sent.
+S.hook = (t) => {
+  room(t, 1);
+  const glow = ctx.createRadialGradient(540, 820, 0, 540, 820, 700); glow.addColorStop(0, 'rgba(190,225,255,0.45)'); glow.addColorStop(1, 'rgba(190,225,255,0)'); ctx.fillStyle = glow; ctx.fillRect(0, 0, W, H);
+  const typing = seg(t, 0, t0('h1') + 1.6), del = seg(t, t0('h1') + 2.3, t1('h1') - .1), sent = t > t0('h2') + .9;
+  phone(540, 860, .95, (w, h) => {
+    ctx.fillStyle = '#DDE3EA'; ctx.fillRect(0, 0, w, 90); ctx.fillStyle = INK; ctx.font = `700 34px ${FONT}`; ctx.fillText('Doi', 90, 58); GAYA.shape(ell(50, 46, 26, 26, 16), C.clay, 701, { lw: 3 });
+    bubble(150, 170, 220, 70, null, null, { bg: '#FFFFFF' }); ctx.fillStyle = INK; ctx.font = `500 30px ${FONT}`; ctx.fillText('lagi apa?', 82, 180);
+    if (sent) { const a = t - t0('h2') - .9, k = backOut(seg(a, 0, .3)); ctx.save(); ctx.translate(w - 130, 290); ctx.scale(k, k); bubble(0, 0, 170, 76, null, null, { bg: '#FFD98A' }); ctx.font = `700 40px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('wkwk', 0, 2); ctx.restore(); }
+    // draft box grows with typing, then shrinks while deleting
+    const n = Math.max(0, Math.round(lerp(0, 9, typing) * (1 - del))), bh = sent ? 70 : 70 + n * 36;
+    GAYA.shape(rr(20, h - bh - 30, w - 120, bh, 26), '#FFFFFF', 702, { lw: 4 }); if (!sent) textLines(44, h - bh - 4, w - 170, Math.max(1, n), 36, n ? 1 : 0);
+    GAYA.shape(ell(w - 55, h - 65, 36, 36, 18), sent ? '#4F7FB8' : '#9AA3AD', 703, { lw: 3 });
+  });
+  const wink = t > t0('h3');
+  clawd(900, 1330, 18, { face: t < t0('h1') + 2.3 ? 'curious' : t < t0('h2') ? 'worried' : wink ? 'happy' : 'sad', arms: [.2, 1.2], mark: t > t0('h1') + 2.3 && t < t0('h2') ? 'sweat' : wink ? 'idea' : null, markAge: wink ? t - t0('h3') : t - t0('h1') - 2.3, dy: -.3 * Math.abs(Math.sin(t * 6)) * (wink ? 1 : 0) });
+  if (t > t0('h1') + 2.3 && t < t0('h2')) sfxWord('HAPUS!', 260, 1180, 90, -.15, t - t0('h1') - 2.3, '#FFFFFF');
+  if (t < t0('h2') + .6) tag('Ngetik *3 paragraf*...', 540, 300, 84, { age: t + .2, rot: -.02 });
+  else tag('...yang dikirim *wkwk*', 540, 300, 84, { age: t - t0('h2') - .6, rot: .02 });
+};
+// JURI: three judges hold up score cards above Clawd's head
+S.juri = (t) => {
+  ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); focusLines(540, 1120, 330, 60, INK, .12, 3);
+  const cards = ['LEBAY?', 'KEPANJANGAN?', 'ILFIL?'];
+  cards.forEach((s, i) => { const a = t - t0('k2') - i * .75 - .2, up = backOut(seg(a, 0, .3)), x = 220 + i * 320;
+    panel(x - 140, 300, 280, 360, (w, h) => { tone(0, 0, w, h, .35); person(w / 2, 220, 1.4, { tone: .8, shirt: '#3A3A3A' }); });
+    if (up > 0) { ctx.save(); ctx.translate(x, 740); ctx.scale(up, up); ctx.rotate((i - 1) * .08); GAYA.shape(rr(-150, -60, 300, 120, 14), '#FFFFFF', 630 + i, { lw: 5 }); ctx.font = `700 ${s.length > 8 ? 38 : 52}px ${FONT}`; ctx.fillStyle = C.red; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(s, 0, 2); ctx.restore(); } });
+  if (t < t0('k2')) tag('Otak jadi *juri*', 540, 930, 70, { age: t - t0('k1') - .3 });
+  clawd(540, 1290, 30, { face: t > t0('k2') ? 'worried' : 'curious', phone: true, arms: [.9, .2], mark: t > t0('k2') + 1 ? 'sweat' : null, markAge: t - t0('k2') - 1, dx: 0, rot: Math.sin(t * 20) * .02 * seg(t, t0('k2'), t0('k2') + .5) });
+};
+// PANGGUNG: dark stage, one spotlight on Clawd, an audience of eyes; then the name of the effect
+S.panggung = (t) => {
+  const dark = ease(seg(t, t0('k3') - .2, t0('k3') + .6)), title = t > t0('e1');
+  ctx.fillStyle = mixh('#FFFFFF', '#121418', dark); ctx.fillRect(0, 0, W, H); tone(0, 0, W, H, .25 * dark, TONE2);
+  for (const s of [-1, 1]) GAYA.shape([[540 + s * 560, 200], [540 + s * 330, 200], [540 + s * 380, 1300], [540 + s * 560, 1300]], '#7A1E1E', 640 + s, { tone: .45 });   // curtains
+  GAYA.shape([[-20, 1180], [1100, 1180], [1100, 1400], [-20, 1400]], '#6B4A2E', 642, { tone: .3 });   // stage boards
+  const on = seg(t, t0('k3') + .7, t0('k3') + .8);
+  if (on > 0) { ctx.save(); ctx.globalAlpha = on; const g = ctx.createLinearGradient(0, 200, 0, 1200); g.addColorStop(0, 'rgba(255,240,180,0.15)'); g.addColorStop(1, 'rgba(255,240,180,0.6)');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(500, 200); ctx.lineTo(580, 200); ctx.lineTo(780, 1220); ctx.lineTo(300, 1220); ctx.fill(); ctx.fillStyle = 'rgba(255,240,180,0.55)'; ctx.beginPath(); ctx.ellipse(540, 1220, 240, 40, 0, 0, TAU); ctx.fill(); ctx.restore(); }
+  clawd(540, 1210, 28, { face: on > 0 ? 'shock' : 'curious', phone: true, arms: [.9, .3], sq: on > 0 ? .06 * Math.exp(-(t - t0('k3') - .7) * 4) : 0, mark: on > 0 ? '!' : null, markAge: t - t0('k3') - .8 });
+  for (let i = 0; i < 14 && dark > .3; i++) { const x = 60 + i * 74, y = 1345 + 30 * hash(i), blink = hash(Math.floor(t * 2) + i) > .93;   // audience heads with glowing eyes
+    ctx.fillStyle = '#05060A'; ctx.beginPath(); ctx.ellipse(x, y, 40, 46, 0, 0, TAU); ctx.fill(); if (!blink && on > 0) { ctx.fillStyle = '#FFFFFF'; for (const s of [-1, 1]) { ctx.beginPath(); ctx.ellipse(x + s * 13, y - 8, 8, 6, 0, 0, TAU); ctx.fill(); } } }
+  if (title) { const a = t - t0('e1'); ctx.save(); ctx.globalAlpha = seg(a, 0, .2); focusLines(540, 520, 250, 80, '#FFFFFF', .55, 7); ctx.restore();
+    sfxWord('SPOTLIGHT', 540, 450, 120, -.05, a, '#F5C542'); sfxWord('EFFECT', 540, 580, 120, -.05, a - .15, '#F5C542'); tag('efek lampu sorot', 540, 720, 50, { age: a - 1.2 }); }
+};
+// RISET: daylight classroom; Clawd walks in wearing an embarrassing shirt; guess: half the room is staring
+S.riset = (t) => {
+  ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H);
+  GAYA.shape([[60, 260], [1020, 260], [1020, 520], [60, 520]], '#E8EEF2', 650, { tone: .15 });   // board
+  ctx.fillStyle = INK; ctx.font = `700 46px ${FONT}`; ctx.fillText('PENELITIAN', 100, 330); ctx.font = `500 40px ${FONT}`; ctx.fillText('Cornell University, 2000', 100, 400); ctx.fillText('(Gilovich dkk.)', 100, 460);
+  GAYA.shape([[820, 560], [980, 560], [980, 1000], [820, 1000]], '#C9A27A', 651, { tone: .3 });   // door
+  const walk = seg(t, t0('e2') + 1.2, t0('e2') + 3.5), cx = lerp(900, 640, walk);
+  const guess = t > t0('e3');
+  const seats = []; for (let r = 0; r < 2; r++) for (let q = 0; q < 5; q++) seats.push([140 + q * 190, 1110 + r * 160, r * 5 + q]);
+  seats.forEach(([x, y, i]) => { if (!guess || i % 2) person(x, y, 1.1, { tone: .4 }); });
+  clawd(cx, 1000, 18, { face: walk < 1 ? 'curious' : 'worried', walk: walk > 0 && walk < 1 ? t * 10 : 0, blush: walk > .3, arms: [.2, .2] });
+  // the embarrassing shirt print: a goofy duck on Clawd's body
+  ctx.save(); ctx.translate(cx, 1000 - 5 * 18); GAYA.shape(ell(0, 0, 34, 28, 16), '#FFE14D', 652, { lw: 3 }); GAYA.shape([[28, -2], [52, 4], [28, 10]], '#F08A2B', 653, { lw: 3 }); ctx.fillStyle = INK; ctx.beginPath(); ctx.arc(12, -8, 4, 0, TAU); ctx.fill(); ctx.restore();
+  if (t < t0('e3')) tag('Pakai *kaos memalukan*', 480, 640, 62, { age: t - t0('e2') - .4 });
+  if (guess) { const a = t - t0('e3');
+    seats.forEach(([x, y, i]) => { if (i % 2 === 0) { person(x, y, 1.1, { tone: .4, look: true }); if (a > .3 + i * .05) { ctx.save(); ctx.translate(x, y - 95); ctx.scale(backOut(seg(a, .3 + i * .05, .6 + i * .05)), 1); GAYA.shape(ell(0, 0, 30, 18, 16), '#FFFFFF', 660 + i, { lw: 3 }); ctx.fillStyle = INK; ctx.beginPath(); ctx.arc(4, 0, 9, 0, TAU); ctx.fill(); ctx.restore(); } } });
+    bubble(420, 700, 330, 140, 560, 860, { bg: '#FFFFFF' }); ctx.font = `700 76px ${FONT}`; ctx.fillStyle = C.red; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('50%?', 420, 704); ctx.textAlign = 'left';
+  }
+};
+// BRAND + reveal: warm stamp moment, then only 1 of 5 really noticed
+S.brand = (t) => {
+  ctx.fillStyle = '#FFF4DF'; ctx.fillRect(0, 0, W, H); tone(0, 0, W, H, .08);
+  if (t < t0('e4')) { const st = t1('a1') - .15, bAge = t - st;
+    clawd(540, 1260, 32, { face: t < st ? 'curious' : t < t0('a1b') ? 'happy' : 'laugh', arms: bAge > 0 && t < t0('a1b') + .3 ? [.6, 1.45] : [1.2, 1.2], dy: t > t0('a1b') ? -.5 * Math.abs(Math.sin(t * 9)) : 0 });
+    if (bAge > -.1) brandStamp(540, 560, bAge, t0('e4') + .2 - st);
+    if (t > t0('a1b')) sfxWord('HAHAHA', 820, 900, 70, .15, t - t0('a1b'), '#FFFFFF');
+    return; }
+  const a = t - t0('e4');
+  for (let i = 0; i < 5; i++) { const x = 140 + i * 200, look = i === 2; person(x, 760, 1.6, { tone: look ? .2 : .55, look }); if (look && a > .8) { ctx.save(); ctx.strokeStyle = C.red; ctx.lineWidth = 8; ctx.beginPath(); ctx.ellipse(x, 760, 110, 140, 0, 0, TAU); ctx.stroke(); ctx.restore(); } }
+  tag('Aslinya: *± 1 dari 5*', 540, 420, 84, { age: a - .2 });
+  const s = seg(a, 1.6, 2); ctx.font = `700 120px ${FONT}`; ctx.textAlign = 'center'; ctx.fillStyle = '#9AA3AD'; ctx.fillText('50%', 330, 1130); ctx.fillStyle = C.red; if (a > 2) { ctx.save(); ctx.translate(780, 1130); ctx.scale(backOut(seg(a, 2, 2.3)), backOut(seg(a, 2, 2.3))); ctx.fillText('±20%', 0, 0); ctx.restore(); } ctx.textAlign = 'left';
+  if (s > 0) GAYA.line([[220, 1150], [lerp(220, 450, s), lerp(1150, 1080, s)]], 12, C.red, 670, 1);
+  clawd(540, 1330, 14, { face: a > 2 ? 'surprised' : 'curious', arms: [.3, .3] });
+};
+// LEGA: everyone is busy with themselves; each in their own little panel, Clawd's chat is tiny
+S.lega = (t) => {
+  ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H);
+  const items = [['cermin', '#BFE3FF'], ['makan', '#FFD98A'], ['tugas', '#D7F0C8'], ['jerawat', '#FFC9C2']];
+  items.forEach(([s, col], i) => { const a = t - t0('e5') - i * .5, x = 70 + (i % 2) * 480, y = 260 + Math.floor(i / 2) * 470;
+    if (a > 0) panel(x, y, 450, 430, (w, h) => { ctx.fillStyle = col; ctx.fillRect(0, 0, w, h); tone(0, 0, w, h, .15); person(w / 2, 300, 1.6, { tone: .3 });
+      bubble(w / 2, 95, 300, 110, w / 2 - 20, 175, {}); ctx.font = `700 46px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(s + '...', w / 2, 98); ctx.textAlign = 'left'; }); });
+  const a = t - t0('e5') - 2.5; if (a > 0) { ctx.save(); ctx.translate(540, 1240); ctx.scale(backOut(seg(a, 0, .3)), backOut(seg(a, 0, .3))); bubble(0, 0, 200, 70, null, null, { bg: '#FFD98A' }); ctx.font = `700 32px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('chat kamu', 0, 2); ctx.textAlign = 'left'; ctx.restore(); }
+  clawd(880, 1330, 14, { face: a > .5 ? 'happy' : 'curious', arms: [.2, .2], mark: a > .5 ? 'sparkle' : null, markAge: a - .5 });
+};
+// TRIK: the one-read rule, then send; the reply is "wkwk" again
+S.trik = (t) => {
+  const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#FFF7E0'); g.addColorStop(1, '#FFE2B0'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); focusLines(540, 860, 520, 50, '#E3A33B', .25, 9);
+  const step1 = t > t0('s2'), step2 = t > t0('s2') + 2.2, send = seg(t, t0('s2') + 3.6, t0('s2') + 4.1), reply = t > t0('s3') + 1;
+  phone(540, 820, .85, (w, h) => {
+    ctx.fillStyle = '#DDE3EA'; ctx.fillRect(0, 0, w, 80); ctx.fillStyle = INK; ctx.font = `700 32px ${FONT}`; ctx.fillText('Doi', 80, 52);
+    if (send < 1) { GAYA.shape(rr(20, h - 330 - send * 300, w - 40, 250, 26), '#FFFFFF', 710, { lw: 4 }); textLines(44, h - 300 - send * 300, w - 90, 5, 40, 1); }
+    if (send > 0) { const y = lerp(h - 200, 260, easeOut(send)); bubble(w - 200, y, 300, 180, null, null, { bg: '#BFE3FF' }); textLines(w - 330, y - 50, 250, 3, 36, 1); }
+    if (reply) { const a = t - t0('s3') - 1; ctx.save(); ctx.translate(140, 520); ctx.scale(backOut(seg(a, 0, .3)), backOut(seg(a, 0, .3))); bubble(0, 0, 180, 76, null, null, {}); ctx.font = `700 40px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('wkwk', 0, 2); ctx.restore(); }
+  });
+  if (t < t0('s2')) tag('Coba *trik* ini', 540, 300, 84, { age: t - t0('s1') + .2 });
+  if (step1) tag('1× *baca ulang* ✓', 300, 300, 56, { age: t - t0('s2'), rot: -.04 });
+  if (step2) tag('Nggak nyakitin? *Kirim!*', 700, 420, 56, { age: t - t0('s2') - 2.2, rot: .04 });
+  if (send > 0 && send < 1) speedLines(0, 500, W, 600, 30, .5);
+  clawd(870, 1330, 18, { face: reply ? 'laugh' : step2 ? 'happy' : 'curious', arms: reply ? [1.3, 1.3] : [.3, .3], dy: reply ? -.5 * Math.abs(Math.sin(t * 9)) : 0 });
+};
+// CTA: count your deleted chats; arrow to the comments; send to a friend
+S.cta = (t) => {
+  ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); tone(0, 0, W, H, .07);
+  const a = t - t0('c1');
+  panel(110, 300, 860, 520, (w, h) => { ctx.fillStyle = '#FFF4DF'; ctx.fillRect(0, 0, w, h);
+    ctx.font = `700 54px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.fillText('Chat yang kuhapus', w / 2, 110); ctx.fillText('hari ini:', w / 2, 180);
+    const n = Math.floor(lerp(0, 12, seg(a, .8, 4))) + (a > 4 ? 0 : 0); ctx.font = `700 200px ${FONT}`; ctx.fillStyle = C.red; ctx.fillText(a > 4.2 ? '??' : n, w / 2, 400); ctx.textAlign = 'left'; });
+  if (t > t0('c1') + 2.5) tag('Tulis di *komentar!*', 540, 940, 70, { age: t - t0('c1') - 2.5 });
+  const share = t > t0('c2');
+  clawd(500, 1330, 24, { face: 'happy', arms: [.3, share ? .3 : 1.45], dy: -.3 * Math.abs(Math.sin(t * 4)) });
+  if (!share) { const k = .5 + .5 * Math.sin(t * 6); GAYA.shape([[780 + k * 20, 1040], [880 + k * 20, 1110], [800 + k * 20, 1150]], C.yellow, 720, {}); GAYA.line([[640, 1190], [800 + k * 20, 1120]], 10, INK, 721, 1); }
+  if (share) { const s = seg(t, t0('c2') + .3, t0('c2') + 1.8); ctx.save(); ctx.translate(lerp(620, 900, s), lerp(1150, 1000, s)); ctx.rotate(-.4); GAYA.shape([[-60, 0], [60, -40], [10, 40]], '#FFFFFF', 722, {}); ctx.restore(); }
+};
+S.akhir = (t) => { S.cta(t); };
+// ---------- sound (Mixkit milik pemilik 'mk:' + sfx-kit CC0) ----------
+window.cues = () => {
+  c(0, 'mk:smartphone-typing', .8); c(t0('h1') + .9, 'mk:keyboard-typing', .4); c(t0('h1') + 2.3, 'whooshes/whoosh-fast-hard', .6); c(t0('h1') + 2.3, 'mk:hard-pop-click', .5);
+  c(t0('h2') + .9, 'mk:message-pop-alert', 1); c(t0('h3') + .1, 'mk:boing-hit-sound', .5);
+  c(t0('k2') + .2, 'pops/pop-medium-in', .7); c(t0('k2') + .95, 'pops/pop-medium-in', .7); c(t0('k2') + 1.7, 'pops/pop-medium-in', .7);
+  c(t0('k3') + .7, 'impacts/impact-heavy-firm', .7); c(t0('k3') + 1.2, 'mk:big-crowd-talking-loop', .25);
+  c(t0('e1'), 'cinematic-hits/cinematic-drum-big', .6); c(t0('e1') + .15, 'whooshes/whoosh-medium-medium', .5);
+  c(t0('e3') + .3, 'tones/tone-step-1', .5); c(t0('e3') + .6, 'tones/tone-step-3', .5);
+  c(t1('a1') - .15, 'logo-stings/sting-bright-short', 1); c(t0('a1b'), 'mk:crowd-laugh', .45);
+  c(t0('e4') + .8, 'mk:correct-answer-tone', .6); c(t0('e4') + 1.6, 'impacts/impact-medium-hard', .6); c(t0('e4') + 2, 'pops/pop-large-in', .6);
+  [0, 1, 2, 3].forEach(i => c(t0('e5') + i * .5, 'pops/pop-small-in', .6)); c(t0('e5') + 3, 'shimmers/shimmer-medium-bright', .5);
+  c(t0('s2'), 'mk:correct-answer-tone', .5); c(t0('s2') + 2.2, 'mk:correct-answer-tone', .5); c(t0('s2') + 3.6, 'whooshes/whoosh-fast-hard', .8); c(t0('s3') + 1, 'mk:message-pop-alert', .9); c(t0('s3') + 1.3, 'mk:crowd-laugh', .35);
+  c(t0('c1') + .8, 'data/data-countup-medium', .5); c(t0('c1') + 2.5, 'tones/tone-ding-mid', .6); c(t0('c2') + .3, 'whooshes/whoosh-medium-soft', .6);
+  c(t0('z') - .3, 'logo-stings/sting-warm-long', 1);
+  for (const s of SC.slice(1)) if (s.name !== 'akhir') c(s.a, 'whooshes/whoosh-medium-soft', .35);
+};
+</script>
+</body>
+</html>
