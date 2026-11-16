@@ -153,10 +153,20 @@ ramp(117.9, 123.5, .35)
 MUS *= gain[:, None]
 
 def norm(x, peak): return x / (np.abs(x).max() + 1e-9) * peak
-mix = norm(MUS, .3) + norm(SFX, .85)
+NARR = os.path.join(HERE, 'narasi.wav')
+if os.path.exists(NARR) and '--no-narasi' not in __import__('sys').argv:
+    # with narration: the voice leads, music ducks under it, effects sit a little lower
+    import soundfile as sf
+    v, _ = sf.read(NARR); v = np.pad(v, (0, max(0, N - len(v))))[:N]
+    e = np.convolve(np.abs(v), np.ones(int(.25 * SR)) / int(.25 * SR), 'same'); e = np.clip(e / (e.max() * .25 + 1e-9), 0, 1)
+    e = np.convolve(e, np.ones(int(.3 * SR)) / int(.3 * SR), 'same')
+    mix = norm(MUS, .3) * (1 - .6 * e)[:, None] + norm(SFX, .6) + norm(v, .95)[:, None]
+    out_name = 'audio_narasi.wav'
+else:
+    mix = norm(MUS, .3) + norm(SFX, .85); out_name = 'audio.wav'
 mix = np.tanh(mix * 1.3) / np.tanh(1.3)
 fo = int(.4 * SR); mix[-fo:] *= np.linspace(1, 0, fo)[:, None]
 pcm = (norm(mix, .9) * 32767).astype('<i2')
-with wave.open(os.path.join(HERE, 'audio.wav'), 'wb') as w:
+with wave.open(os.path.join(HERE, out_name), 'wb') as w:
     w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(pcm.tobytes())
-print('wrote audio.wav')
+print('wrote', out_name)
