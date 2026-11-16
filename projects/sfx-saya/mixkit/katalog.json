@@ -60,6 +60,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-beach-waves-with-children-ambience-1193.wav",
+  "nama": "beach-waves-with-children-ambience",
+  "durasi_s": 52.0,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -9.5,
+  "suasana_loop": true,
+  "cocok_untuk": "ombak pantai + anak-anak bermain, ceria",
+  "normal": "normal/beach-waves-with-children-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-bird-singing-and-flapping-wings-2432.wav",
   "nama": "bird-singing-and-flapping-wings",
   "durasi_s": 3.67,
@@ -236,6 +248,18 @@
   "suasana_loop": false,
   "cocok_untuk": "penonton tertawa, momen lucu",
   "normal": "normal/crowd-laugh.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-distant-sea-humming-ambiance-1191.wav",
+  "nama": "distant-sea-humming-ambiance",
+  "durasi_s": 44.86,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -8.7,
+  "suasana_loop": true,
+  "cocok_untuk": "laut di kejauhan, tenang, luas",
+  "normal": "normal/distant-sea-humming-ambiance.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -552,6 +576,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-people-bathing-in-the-sea-ambience-348.wav",
+  "nama": "people-bathing-in-the-sea-ambience",
+  "durasi_s": 15.34,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -4.5,
+  "suasana_loop": true,
+  "cocok_untuk": "pantai ramai, orang berenang, liburan",
+  "normal": "normal/people-bathing-in-the-sea-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-rain-and-thunder-storm-2390.wav",
   "nama": "rain-and-thunder-storm",
   "durasi_s": 29.0,
@@ -636,6 +672,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-sea-waves-with-birds-loop-1185.wav",
+  "nama": "sea-waves-with-birds-loop",
+  "durasi_s": 38.04,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -1.7,
+  "suasana_loop": true,
+  "cocok_untuk": "ombak + burung laut (latar)",
+  "normal": "normal/sea-waves-with-birds-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-sick-man-sneeze-2213.wav",
   "nama": "sick-man-sneeze",
   "durasi_s": 0.86,
@@ -668,6 +716,18 @@
   "suasana_loop": false,
   "cocok_untuk": "berhasil, sorakan, perayaan kecil",
   "normal": "normal/small-group-cheer-and-applause.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-small-waves-harbor-rocks-1208.wav",
+  "nama": "small-waves-harbor-rocks",
+  "durasi_s": 77.86,
+  "bunyi_mulai_s": 1.8,
+  "peak_db": -7.5,
+  "suasana_loop": true,
+  "cocok_untuk": "ombak kecil di batu pelabuhan",
+  "normal": "normal/small-waves-harbor-rocks.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-71 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+76 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -11,6 +11,7 @@
 | `air-zoom-vacuum` | 1.27 s | tersedot, zoom masuk, menghilang |
 | `arcade-retro-game-over` | 1.67 s | gagal, game over, kalah |
 | `arrow-whoosh` | 1.1 s | sesuatu melesat, panah, gerak cepat |
+| `beach-waves-with-children-ambience` | 52.0 s (suasana/loop) | ombak pantai + anak-anak bermain, ceria |
 | `bird-singing-and-flapping-wings` | 3.67 s | burung berkicau & mengepak sayap (dekat) |
 | `birds-chirping-in-the-jungle` | 6.69 s (suasana/loop) | kicau burung di hutan tropis |
 | `birds-chirping-near-the-river` | 90.13 s (suasana/loop) | pagi di sungai, alam damai |
@@ -26,6 +27,7 @@
 | `cool-impact-movie-trailer` | 6.0 s | hantaman keren ala trailer, judul muncul |
 | `crickets-and-insects-in-the-wild-ambience` | 26.01 s (suasana/loop) | alam malam, sepi, canggung |
 | `crowd-laugh` | 4.12 s | penonton tertawa, momen lucu |
+| `distant-sea-humming-ambiance` | 44.86 s (suasana/loop) | laut di kejauhan, tenang, luas |
 | `dog-barking-twice` | 1.62 s | anjing menggonggong, kejutan lucu |
 | `dry-leaves-rustling` | 1.3 s (suasana/loop) | daun kering bergemerisik, langkah di hutan, musim kemarau |
 | `epic-orchestra-transition` | 7.12 s | transisi megah, pengungkapan besar |
@@ -52,6 +54,7 @@
 | `movie-trailer-epic-impact` | 4.87 s | angka/fakta besar muncul, hantaman epik |
 | `mystwrious-bass-pulse` | 16.56 s | misterius, tegang, sesuatu akan terungkap |
 | `night-forest-with-insects` | 84.0 s (suasana/loop) | hutan malam, serangga, misterius tenang |
+| `people-bathing-in-the-sea-ambience` | 15.34 s (suasana/loop) | pantai ramai, orang berenang, liburan |
 | `rain-and-thunder-storm` | 29.0 s (suasana/loop) | badai, hujan petir, suasana muram/dramatis |
 | `rain-in-the-jungle-and-birds` | 30.17 s (suasana/loop) | hujan hutan + burung |
 | `rain-long-loop` | 57.07 s (suasana/loop) | hujan panjang (latar) |
@@ -59,9 +62,11 @@
 | `retro-game-notification` | 1.47 s | notifikasi gaya game, poin didapat |
 | `river-water-flow-and-surroundings` | 60.13 s (suasana/loop) | sungai mengalir + suasana sekitar |
 | `sad-game-over-trombone` | 5.61 s | gagal lucu "wah wah wah", kecewa |
+| `sea-waves-with-birds-loop` | 38.04 s (suasana/loop) | ombak + burung laut (latar) |
 | `sick-man-sneeze` | 0.86 s | bersin, sakit, kejutan lucu |
 | `small-crowd-laugh-and-applause` | 5.76 s | tertawa + tepuk tangan, lucu yang berhasil |
 | `small-group-cheer-and-applause` | 10.6 s | berhasil, sorakan, perayaan kecil |
+| `small-waves-harbor-rocks` | 77.86 s (suasana/loop) | ombak kecil di batu pelabuhan |
 | `stadium-crowd-light-applause` | 11.09 s | tepuk tangan stadion, pengakuan besar |
 | `strong-wild-wind-in-a-storm` | 13.65 s (suasana/loop) | angin kencang badai, terhempas |
 | `technological-futuristic-hum` | 6.0 s (suasana/loop) | teknologi canggih, futuristik, mesin/AI |
