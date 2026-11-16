@@ -96,6 +96,42 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-animal-eating-flesh-2245.wav",
+  "nama": "animal-eating-flesh",
+  "durasi_s": 20.75,
+  "bunyi_mulai_s": 0.82,
+  "peak_db": -2.5,
+  "suasana_loop": false,
+  "cocok_untuk": "hewan buas makan daging, alam liar",
+  "normal": "normal/animal-eating-flesh.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-animal-eating-herb-2241.wav",
+  "nama": "animal-eating-herb",
+  "durasi_s": 1.44,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -7.4,
+  "suasana_loop": false,
+  "cocok_untuk": "hewan mengunyah rumput",
+  "normal": "normal/animal-eating-herb.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-animal-eating-juicy-meat-2246.wav",
+  "nama": "animal-eating-juicy-meat",
+  "durasi_s": 5.25,
+  "bunyi_mulai_s": 0.23,
+  "peak_db": -8.2,
+  "suasana_loop": false,
+  "cocok_untuk": "hewan makan daging berair",
+  "normal": "normal/animal-eating-juicy-meat.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-animated-small-group-applause-523.wav",
   "nama": "animated-small-group-applause",
   "durasi_s": 4.13,
@@ -984,6 +1020,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-eating-crispy-cookies-122.wav",
+  "nama": "eating-crispy-cookies",
+  "durasi_s": 16.52,
+  "bunyi_mulai_s": 0.29,
+  "peak_db": -0.3,
+  "suasana_loop": false,
+  "cocok_untuk": "makan biskuit renyah",
+  "normal": "normal/eating-crispy-cookies.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-eating-crunchy-food-with-mouth-open-120.wav",
+  "nama": "eating-crunchy-food-with-mouth-open",
+  "durasi_s": 12.5,
+  "bunyi_mulai_s": 0.06,
+  "peak_db": -1.1,
+  "suasana_loop": false,
+  "cocok_untuk": "mengunyah renyah mulut terbuka, kriuk keras",
+  "normal": "normal/eating-crunchy-food-with-mouth-open.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-educational-rattle-toy-shaker-2818.wav",
   "nama": "educational-rattle-toy-shaker",
   "durasi_s": 2.44,
@@ -1064,6 +1124,18 @@
   "suasana_loop": true,
   "cocok_untuk": "hutan subtropis (latar)",
   "normal": "normal/european-forest-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-farm-pig-drinking-water-2242.wav",
+  "nama": "farm-pig-drinking-water",
+  "durasi_s": 9.84,
+  "bunyi_mulai_s": 0.18,
+  "peak_db": -2.6,
+  "suasana_loop": true,
+  "cocok_untuk": "babi minum air (pertimbangkan penonton)",
+  "normal": "normal/farm-pig-drinking-water.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1584,6 +1656,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-human-eating-a-potato-chip-131.wav",
+  "nama": "human-eating-a-potato-chip",
+  "durasi_s": 8.1,
+  "bunyi_mulai_s": 0.66,
+  "peak_db": -4.4,
+  "suasana_loop": false,
+  "cocok_untuk": "makan keripik kentang, ngemil",
+  "normal": "normal/human-eating-a-potato-chip.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-human-eating-dry-cereal-130.wav",
+  "nama": "human-eating-dry-cereal",
+  "durasi_s": 12.4,
+  "bunyi_mulai_s": 0.16,
+  "peak_db": -8.5,
+  "suasana_loop": false,
+  "cocok_untuk": "makan sereal kering, sarapan",
+  "normal": "normal/human-eating-dry-cereal.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-human-fighter-pain-scream-2768.wav",
   "nama": "human-fighter-pain-scream",
   "durasi_s": 1.07,
@@ -1592,6 +1688,18 @@
   "suasana_loop": false,
   "cocok_untuk": "teriakan kesakitan, dramatis/lucu berlebihan",
   "normal": "normal/human-fighter-pain-scream.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-human-male-enjoy-humm-129.wav",
+  "nama": "human-male-enjoy-humm",
+  "durasi_s": 1.01,
+  "bunyi_mulai_s": 0.12,
+  "peak_db": -2.1,
+  "suasana_loop": false,
+  "cocok_untuk": "\"hmm~\" menikmati makanan, enak",
+  "normal": "normal/human-male-enjoy-humm.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3264,6 +3372,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-swallowing-a-water-drink-in-the-throat-150.wav",
+  "nama": "swallowing-a-water-drink-in-the-throat",
+  "durasi_s": 2.26,
+  "bunyi_mulai_s": 0.29,
+  "peak_db": -13.4,
+  "suasana_loop": true,
+  "cocok_untuk": "menelan air \"gluk\", gugup/haus",
+  "normal": "normal/swallowing-a-water-drink-in-the-throat.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-technological-futuristic-hum-2133.wav",
   "nama": "technological-futuristic-hum",
   "durasi_s": 6.0,
@@ -3608,6 +3728,18 @@
   "suasana_loop": false,
   "cocok_untuk": "berjalan di atas daun kering",
   "normal": "normal/walking-through-dry-forest-leaves.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-wallowing-drink-quickly-161.wav",
+  "nama": "wallowing-drink-quickly",
+  "durasi_s": 3.61,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -0.4,
+  "suasana_loop": false,
+  "cocok_untuk": "minum cepat glek-glek, haus",
+  "normal": "normal/wallowing-drink-quickly.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

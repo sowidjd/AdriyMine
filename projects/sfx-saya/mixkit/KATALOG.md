@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-317 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+328 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -14,6 +14,9 @@
 | `alien-technology-button` | 0.87 s | tombol teknologi alien, aneh |
 | `ambient-sound-in-the-desert` | 7.69 s (suasana/loop) | suasana gurun |
 | `an-artificial-respirator` | 23.75 s | alat bantu napas, rumah sakit |
+| `animal-eating-flesh` | 20.75 s | hewan buas makan daging, alam liar |
+| `animal-eating-herb` | 1.44 s | hewan mengunyah rumput |
+| `animal-eating-juicy-meat` | 5.25 s | hewan makan daging berair |
 | `animated-small-group-applause` | 4.13 s | kelompok kecil bertepuk tangan semangat |
 | `applause-ambience-loop` | 13.18 s (suasana/loop) | tepuk tangan (latar, loop) |
 | `arabian-mystery-harp-notification` | 3.52 s | notifikasi harpa misterius ala Timur Tengah, fakta unik |
@@ -88,6 +91,8 @@
 | `donkey-crying` | 12.27 s | keledai meringkik, lucu/konyol |
 | `donkey-crying-screech` | 14.81 s | keledai menjerit nyaring, kaget lucu |
 | `dry-leaves-rustling` | 1.3 s (suasana/loop) | daun kering bergemerisik, langkah di hutan, musim kemarau |
+| `eating-crispy-cookies` | 16.52 s | makan biskuit renyah |
+| `eating-crunchy-food-with-mouth-open` | 12.5 s | mengunyah renyah mulut terbuka, kriuk keras |
 | `educational-rattle-toy-shaker` | 2.44 s | mainan kerincingan bayi |
 | `electric-buzz-glitch` | 1.02 s | listrik korslet, glitch, error |
 | `electronics-power-up` | 5.02 s | alat elektronik menyala, power up |
@@ -95,6 +100,7 @@
 | `ending-show-audience-clapping` | 24.48 s | tepuk tangan penutup acara |
 | `epic-orchestra-transition` | 7.12 s | transisi megah, pengungkapan besar |
 | `european-forest-ambience` | 161.3 s (suasana/loop) | hutan subtropis (latar) |
+| `farm-pig-drinking-water` | 9.84 s (suasana/loop) | babi minum air (pertimbangkan penonton) |
 | `fast-ignition-fire` | 4.93 s | api menyala cepat, "wush!", semangat membara |
 | `fast-rocket-whoosh` | 4.75 s | roket, melesat sangat cepat |
 | `fast-small-sweep-transition` | 0.78 s | transisi kecil, kartu/teks berganti |
@@ -138,7 +144,10 @@
 | `high-tech-notification-bleep` | 0.55 s | notifikasi canggih |
 | `horror-ambience` | 82.14 s (suasana/loop) | suasana horor, mencekam (latar) |
 | `horror-sci-fi-wind-tunnel` | 64.0 s (suasana/loop) | lorong angin horor/sci-fi, mencekam |
+| `human-eating-a-potato-chip` | 8.1 s | makan keripik kentang, ngemil |
+| `human-eating-dry-cereal` | 12.4 s | makan sereal kering, sarapan |
 | `human-fighter-pain-scream` | 1.07 s | teriakan kesakitan, dramatis/lucu berlebihan |
+| `human-male-enjoy-humm` | 1.01 s | "hmm~" menikmati makanan, enak |
 | `human-mouth-fast-blow` | 0.41 s | tiupan cepat |
 | `human-nose-blow` | 1.03 s | buang ingus |
 | `hungry-man-eating` | 1.33 s | orang lapar makan lahap |
@@ -278,6 +287,7 @@
 | `summer-night-crickets` | 32.71 s (suasana/loop) | jangkrik malam (latar) |
 | `summer-night-crickets-loop` | 42.0 s (suasana/loop) | jangkrik malam (latar) |
 | `summer-night-in-the-forest` | 126.0 s (suasana/loop) | malam musim panas di hutan (latar) |
+| `swallowing-a-water-drink-in-the-throat` | 2.26 s (suasana/loop) | menelan air "gluk", gugup/haus |
 | `technological-futuristic-hum` | 6.0 s (suasana/loop) | teknologi canggih, futuristik, mesin/AI |
 | `technology-alert-transition` | 5.0 s | transisi peringatan teknologi |
 | `technology-computer-calculations` | 4.0 s | komputer menghitung, data diproses |
@@ -307,6 +317,7 @@
 | `vocal-male-yawn` | 3.41 s | cowok menguap |
 | `walking-in-the-forest` | 28.15 s | berjalan di hutan |
 | `walking-through-dry-forest-leaves` | 31.79 s | berjalan di atas daun kering |
+| `wallowing-drink-quickly` | 3.61 s | minum cepat glek-glek, haus |
 | `water-flowing-ambience-loop` | 51.0 s (suasana/loop) | air mengalir, sungai, tenang |
 | `wild-animal-hungry-grunting` | 4.18 s | hewan liar lapar menggeram, ancaman |
 | `wind-in-a-desolate-world` | 13.03 s (suasana/loop) | angin di dunia sepi/kosong, hampa |
