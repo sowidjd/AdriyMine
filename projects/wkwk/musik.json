@@ -1,2 +1,17 @@
-{"nama": "wkwk-tiktok", "musik": [{"file": "interior-birdecorator-explore_silly.ogg", "dari": "awal", "sampai": "e1", "gain": 1.0},
- {"file": "sketchbook-2025-11-12.ogg", "dari": "e2", "sampai": "akhir", "gain": 0.9}]}
+{
+ "nama": "wkwk-tiktok",
+ "musik": [
+  {
+   "file": "interior-birdecorator-explore_silly.ogg",
+   "dari": "awal",
+   "sampai": "p2",
+   "gain": 1.0
+  },
+  {
+   "file": "sketchbook-2025-11-12.ogg",
+   "dari": "p3",
+   "sampai": "akhir",
+   "gain": 0.9
+  }
+ ]
+}

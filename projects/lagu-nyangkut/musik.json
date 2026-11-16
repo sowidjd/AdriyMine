@@ -1,2 +1,28 @@
-{"nama": "lagu-nyangkut-tiktok", "musik": [{"file": "sketchbook-2024-02-28_01.ogg", "dari": "k1", "sampai": "akhir", "gain": 0.8}],
- "jingle": [["h1", "h3", 0.9], ["k1", "k1", 0.5], ["k3", "k3", 0.7]]}
+{
+ "nama": "lagu-nyangkut-tiktok",
+ "musik": [
+  {
+   "file": "sketchbook-2024-02-28_01.ogg",
+   "dari": "m1",
+   "sampai": "akhir",
+   "gain": 0.8
+  }
+ ],
+ "jingle": [
+  [
+   "h1",
+   "h2",
+   0.9
+  ],
+  [
+   "m2",
+   "m3",
+   0.6
+  ],
+  [
+   "d4",
+   "d4",
+   0.7
+  ]
+ ]
+}

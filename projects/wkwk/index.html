@@ -82,172 +82,274 @@ function room(t, night) {   // bedroom: dark blue night with phone glow
   GAYA.line([[120, 1560], [260, 1500], [330, 1580], [460, 1520]], 5, INK, 625);   // tangled charger cable
 }
 // ---------- scenes ----------
-GROUPS = [['hook', ['h1', 'h2', 'h3']], ['ulang', ['k1', 'k1b']], ['panggung', ['k2', 'e1']], ['riset', ['e2', 'e3']], ['brand', ['a1', 'a1b', 'e4']], ['lega', ['e5']],
-  ['trik', ['s1', 's2']], ['cta', ['c1', 'c2']], ['akhir', ['z']]];
-// HOOK (0-8 s): the delete key is being hammered -> a big STOP; then the payoff up front: "you think 50%... actually 1 in 5"; then "there's research"
+GROUPS = [['hook', ['h1', 'h2', 'h3']], ['malam', ['m1', 'm2', 'm3']], ['juri', ['m4', 'm5']], ['hapus', ['m6', 'm7']], ['grup', ['m8', 'm9', 'm10', 'm11']],
+  ['kaca', ['m12', 'm13']], ['dugaan', ['d1', 'd2', 'd3', 'd4', 'd5']], ['panggung', ['p1', 'p2']], ['riset', ['p3', 'p4', 'p5', 'p6', 'p7']], ['brand', ['a1', 'a1b', 'p8']],
+  ['dalam', ['p9', 'p10', 'p11', 'p12']], ['gugup', ['p13', 'p14']], ['langkah1', ['s1', 's2', 's3']], ['langkah2', ['s4', 's5', 's6']], ['langkah3', ['s7', 's8']],
+  ['rangkum', ['r1']], ['cta', ['c1', 'c2', 'c3', 'c4']], ['akhir', ['z']]];
+const age = id => T - t0(id);
+function chatPhone(t, o) {   // the gebetan chat: o.lines (draft lines), o.sent (show "wkwk" bubble from age), o.glow
+  phone(540, 860, .92, (w, h) => {
+    ctx.fillStyle = '#DDE3EA'; ctx.fillRect(0, 0, w, 86); ctx.fillStyle = INK; ctx.font = `700 34px ${FONT}`; ctx.fillText('Gebetan', 86, 56); GAYA.shape(ell(46, 44, 24, 24, 16), '#E58FA6', 701, { lw: 3 });
+    bubble(150, 170, 230, 70, null, null, {}); ctx.fillStyle = INK; ctx.font = `500 30px ${FONT}`; ctx.fillText('lagi apa?', 78, 180);
+    if (o.sent != null && o.sent > 0) { const k = backOut(seg(o.sent, 0, .3)); ctx.save(); ctx.translate(w - 130, 300); ctx.scale(k, k); bubble(0, 0, 170, 76, null, null, { bg: '#FFD98A' }); ctx.font = `700 40px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('wkwk', 0, 2); ctx.restore(); }
+    const n = Math.max(0, Math.round(o.lines)), bh = 70 + n * 36;
+    GAYA.shape(rr(20, h - bh - 30, w - 120, bh, 26), '#FFFFFF', 702, { lw: 4 }); if (n) textLines(44, h - bh - 4, w - 170, n, 36, 1);
+    GAYA.shape(ell(w - 55, h - 65, 36, 36, 18), o.sentBtn ? '#4F7FB8' : '#9AA3AD', 703, { lw: 3 });
+  });
+}
+// HOOK: the delete key is hammered -> STOP; "there's a reason" (question marks); "and it's NOT because you're lebay"
 S.hook = (t) => {
   ctx.fillStyle = '#1E2433'; ctx.fillRect(0, 0, W, H); tone(0, 0, W, H, .35);
-  const stop = t > .9, a2 = t - t0('h2'), a3 = t - t0('h3');
+  const stop = t > .9;
   if (t < t0('h2')) {
-    const left = stop ? 6 : Math.max(1, Math.round(10 - t * 5));
-    phone(540, 900, .9, (w, h) => { ctx.fillStyle = '#DDE3EA'; ctx.fillRect(0, 0, w, 86); ctx.fillStyle = INK; ctx.font = `700 34px ${FONT}`; ctx.fillText('Doi', 86, 56); GAYA.shape(ell(46, 44, 24, 24, 16), C.clay, 701, { lw: 3 });
-      GAYA.shape(rr(20, h - 470, w - 40, 420, 26), '#FFFFFF', 702, { lw: 4 }); textLines(44, h - 440, w - 90, left, 38, 1);
-      GAYA.shape(rr(w - 210, h - 40 - 0, 180, 0.1, 2), '#FFFFFF', 703, { line: false }); });
+    chatPhone(t, { lines: stop ? 6 : Math.max(1, 10 - t * 5) });
     if (!stop) speedLines(0, 1300, W, 200, 20, .5);
     clawd(830, 1340, 20, { face: stop ? 'shock' : 'worried', arms: [.2, stop ? 1.5 : 1.1 + .3 * Math.sin(t * 30)], mark: stop ? '!' : 'sweat', markAge: stop ? t - .9 : t });
     if (stop) { const k = backOut(seg(t, .9, 1.15)); ctx.save(); ctx.translate(540, 760); ctx.scale(k, k); ctx.rotate(-.08); GAYA.shape(ell(0, 0, 230, 230, 8, Math.PI / 8), C.red, 730, { lw: 8 }); sfxWord('STOP', 0, 10, 150, 0, 1, '#FFFFFF'); ctx.restore(); }
-    tag('Berhenti hapus chat *3 paragraf!*', 540, 300, 76, { age: t + .2, rot: -.02 });
-  } else {
-    ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); focusLines(540, 860, 420, 60, INK, .1, 4);
-    const real = t > t0('h2') + 2.3;   // "Padahal, cuma sekitar satu dari lima"
-    for (let i = 0; i < 10; i++) { const x = 140 + (i % 5) * 200, y = 760 + Math.floor(i / 5) * 230, look = real ? (i === 2 || i === 6) : (i % 2 === 0); person(x, y, 1.25, { tone: look ? .15 : .55, look });   // 10 people: guess 5 look, really 2
-      if (look) { GAYA.shape(ell(x, y - 120, 28, 18, 16), '#FFFFFF', 740 + i, { lw: 4 }); ctx.fillStyle = INK; ctx.beginPath(); ctx.arc(x + 4, y - 120, 9, 0, TAU); ctx.fill(); } }
-    ctx.font = `700 150px ${FONT}`; ctx.textAlign = 'center'; ctx.fillStyle = real ? '#B8BEC6' : C.red; ctx.fillText('50%', 300, 1200);
-    if (real) { const k = backOut(seg(a2, 2.3, 2.6)); ctx.save(); ctx.translate(760, 1200); ctx.scale(k, k); ctx.fillStyle = C.red; ctx.font = `700 130px ${FONT}`; ctx.fillText('1/5', 0, 0); ctx.restore(); GAYA.line([[180, 1170], [420, 1110]], 12, C.red, 741, 1); }
-    ctx.textAlign = 'left';
-    tag(real ? 'Aslinya cuma *1 dari 5*' : 'Kamu ngira *separuh* lihat', 540, 300, 76, { age: real ? a2 - 2.3 : a2, rot: .02 });
-    if (a3 > 0) { const k = backOut(seg(a3, .1, .35)); ctx.save(); ctx.translate(540, 520); ctx.rotate(-.06); ctx.scale(k, k); GAYA.shape(rr(-330, -70, 660, 140, 14), '#FFE14D', 750, { lw: 6 }); ctx.font = `700 70px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('ADA PENELITIANNYA', 0, 4); ctx.textAlign = 'left'; ctx.restore(); }
-    clawd(540, 1380, 14, { face: a3 > 0 ? 'happy' : real ? 'shock' : 'curious', mark: a3 > 0 ? 'idea' : null, markAge: a3 });
-  }
+    tag('Berhenti hapus pesan *3 paragraf!*', 540, 300, 74, { age: t + .2, rot: -.02 });
+    return; }
+  ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); focusLines(540, 900, 380, 60, INK, .12, 4);
+  for (let i = 0; i < 6; i++) { const a = T * 1.4 + i; mark('?', 540 + Math.cos(a) * 330, 860 + Math.sin(a) * 260, 20, age('h2') - i * .12); }
+  clawd(540, 1250, 30, { face: t > t0('h3') ? 'happy' : 'worried', arms: [.4, .4], phone: true, mark: t > t0('h3') ? 'idea' : 'sweat', markAge: t > t0('h3') ? age('h3') : age('h2') });
+  if (t < t0('h3')) tag('Ada *alasannya*...', 540, 300, 90, { age: age('h2') });
+  else { tag('...bukan karena *LEBAY*', 540, 300, 84, { age: age('h3') }); const s2 = seg(age('h3'), 1.2, 1.5); if (s2 > 0) GAYA.line([[560, 330], [lerp(560, 860, s2), lerp(330, 270, s2)]], 12, C.red, 731, 1); }
 };
-// ULANG: night, phone glow. Typing fills the draft, everything is deleted, "wkwk" is sent.
-S.ulang = (t) => {
-  room(t, 1);
-  const glow = ctx.createRadialGradient(540, 820, 0, 540, 820, 700); glow.addColorStop(0, 'rgba(190,225,255,0.45)'); glow.addColorStop(1, 'rgba(190,225,255,0)'); ctx.fillStyle = glow; ctx.fillRect(0, 0, W, H);
-  const typing = seg(t, t0('k1') - .3, t0('k1') + 2), del = seg(t, t0('k1') + 2.6, t1('k1') - .1), sent = t > t0('k1b') + .9;
-  phone(540, 860, .95, (w, h) => {
-    ctx.fillStyle = '#DDE3EA'; ctx.fillRect(0, 0, w, 90); ctx.fillStyle = INK; ctx.font = `700 34px ${FONT}`; ctx.fillText('Doi', 90, 58); GAYA.shape(ell(50, 46, 26, 26, 16), C.clay, 701, { lw: 3 });
-    bubble(150, 170, 220, 70, null, null, { bg: '#FFFFFF' }); ctx.fillStyle = INK; ctx.font = `500 30px ${FONT}`; ctx.fillText('lagi apa?', 82, 180);
-    if (sent) { const a = t - t0('k1b') - .9, k = backOut(seg(a, 0, .3)); ctx.save(); ctx.translate(w - 130, 290); ctx.scale(k, k); bubble(0, 0, 170, 76, null, null, { bg: '#FFD98A' }); ctx.font = `700 40px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('wkwk', 0, 2); ctx.restore(); }
-    // draft box grows with typing, then shrinks while deleting
-    const n = Math.max(0, Math.round(lerp(0, 9, typing) * (1 - del))), bh = sent ? 70 : 70 + n * 36;
-    GAYA.shape(rr(20, h - bh - 30, w - 120, bh, 26), '#FFFFFF', 702, { lw: 4 }); if (!sent) textLines(44, h - bh - 4, w - 170, Math.max(1, n), 36, n ? 1 : 0);
-    GAYA.shape(ell(w - 55, h - 65, 36, 36, 18), sent ? '#4F7FB8' : '#9AA3AD', 703, { lw: 3 });
-  });
-  const wink = t > (t1('k1b') + .2);
-  clawd(900, 1330, 18, { face: t < t0('k1') + 2.6 ? 'curious' : t < t0('k1b') ? 'worried' : wink ? 'happy' : 'sad', arms: [.2, 1.2], mark: t > t0('k1') + 2.6 && t < t0('k1b') ? 'sweat' : wink ? 'idea' : null, markAge: wink ? t - (t1('k1b') + .2) : t - t0('k1') - 2.6, dy: -.3 * Math.abs(Math.sin(t * 6)) * (wink ? 1 : 0) });
-  if (t > t0('k1') + 2.6 && t < t0('k1b')) sfxWord('HAPUS!', 260, 1180, 90, -.15, t - t0('k1') - 2.6, '#FFFFFF');
-  if (t < t0('k1b') + .6) tag('Ngetik *panjang*...', 540, 300, 84, { age: t - t0('k1') + .2, rot: -.02 });
-  else tag('...yang dikirim *wkwk*', 540, 300, 84, { age: t - t0('k1b') - .6, rot: .02 });
+// MALAM: night bedroom, a long reply being typed to the crush
+S.malam = (t) => {
+  room(t, 1); const glow = ctx.createRadialGradient(540, 820, 0, 540, 820, 700); glow.addColorStop(0, 'rgba(190,225,255,0.45)'); glow.addColorStop(1, 'rgba(190,225,255,0)'); ctx.fillStyle = glow; ctx.fillRect(0, 0, W, H);
+  chatPhone(t, { lines: lerp(0, 9, seg(t, t0('m3') - .2, t1('m3') + .5)) });
+  clawd(900, 1330, 18, { face: t > t0('m3') ? 'happy' : 'curious', arms: [.2, 1.1 + .25 * Math.sin(t * 24) * (t > t0('m3') ? 1 : 0)], blush: t > t0('m2') + 1.5 });
+  if (t < t0('m2')) tag('Coba *ingat-ingat*...', 540, 300, 80, { age: age('m1') + .2 });
+  else tag('Balas pesan *gebetan*', 540, 300, 80, { age: age('m2') });
 };
-// JURI: three judges hold up score cards above Clawd's head
+// JURI: the brain turns into three judges holding score cards
 S.juri = (t) => {
   ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); focusLines(540, 1120, 330, 60, INK, .12, 3);
-  const cards = ['LEBAY?', 'KEPANJANGAN?', 'ILFIL?'];
-  cards.forEach((s, i) => { const a = t - t0('k2') - i * .75 - .2, up = backOut(seg(a, 0, .3)), x = 220 + i * 320;
+  const cards = ['KEPANJANGAN?', 'LEBAY?', 'ILFIL?'], at = [t0('m4') + 1, t0('m5') + .1, t0('m5') + 1.1];
+  cards.forEach((s, i) => { const a = t - at[i], up = backOut(seg(a, 0, .3)), x = 220 + i * 320;
     panel(x - 140, 300, 280, 360, (w, h) => { tone(0, 0, w, h, .35); person(w / 2, 220, 1.4, { tone: .8, shirt: '#3A3A3A' }); });
     if (up > 0) { ctx.save(); ctx.translate(x, 740); ctx.scale(up, up); ctx.rotate((i - 1) * .08); GAYA.shape(rr(-150, -60, 300, 120, 14), '#FFFFFF', 630 + i, { lw: 5 }); ctx.font = `700 ${s.length > 8 ? 38 : 52}px ${FONT}`; ctx.fillStyle = C.red; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(s, 0, 2); ctx.restore(); } });
-  if (t < t0('k2')) tag('Otak jadi *juri*', 540, 930, 70, { age: t - t0('k1') - .3 });
-  clawd(540, 1290, 30, { face: t > t0('k2') ? 'worried' : 'curious', phone: true, arms: [.9, .2], mark: t > t0('k2') + 1 ? 'sweat' : null, markAge: t - t0('k2') - 1, dx: 0, rot: Math.sin(t * 20) * .02 * seg(t, t0('k2'), t0('k2') + .5) });
+  clawd(540, 1290, 30, { face: t > t0('m5') ? 'worried' : 'curious', phone: true, arms: [.9, .2], mark: t > t0('m5') + 1 ? 'sweat' : '?', markAge: t > t0('m5') + 1 ? t - t0('m5') - 1 : age('m4') - .5, rot: Math.sin(t * 20) * .02 * seg(t, t0('m5'), t0('m5') + .5) });
 };
-// PANGGUNG: dark stage, one spotlight on Clawd, an audience of eyes; then the name of the effect
-S.panggung = (t) => {
-  const dark = ease(seg(t, t0('k2') - .2, t0('k2') + .6)), title = t > t0('e1');
-  ctx.fillStyle = mixh('#FFFFFF', '#121418', dark); ctx.fillRect(0, 0, W, H); tone(0, 0, W, H, .25 * dark, TONE2);
-  for (const s of [-1, 1]) GAYA.shape([[540 + s * 560, 200], [540 + s * 330, 200], [540 + s * 380, 1300], [540 + s * 560, 1300]], '#7A1E1E', 640 + s, { tone: .45 });   // curtains
-  GAYA.shape([[-20, 1180], [1100, 1180], [1100, 1400], [-20, 1400]], '#6B4A2E', 642, { tone: .3 });   // stage boards
-  const on = seg(t, t0('k2') + .7, t0('k2') + .8);
-  if (on > 0) { ctx.save(); ctx.globalAlpha = on; const g = ctx.createLinearGradient(0, 200, 0, 1200); g.addColorStop(0, 'rgba(255,240,180,0.15)'); g.addColorStop(1, 'rgba(255,240,180,0.6)');
-    ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(500, 200); ctx.lineTo(580, 200); ctx.lineTo(780, 1220); ctx.lineTo(300, 1220); ctx.fill(); ctx.fillStyle = 'rgba(255,240,180,0.55)'; ctx.beginPath(); ctx.ellipse(540, 1220, 240, 40, 0, 0, TAU); ctx.fill(); ctx.restore(); }
-  clawd(540, 1210, 28, { face: on > 0 ? 'shock' : 'curious', phone: true, arms: [.9, .3], sq: on > 0 ? .06 * Math.exp(-(t - t0('k2') - .7) * 4) : 0, mark: on > 0 ? '!' : null, markAge: t - t0('k2') - .8 });
-  for (let i = 0; i < 14 && dark > .3; i++) { const x = 60 + i * 74, y = 1345 + 30 * hash(i), blink = hash(Math.floor(t * 2) + i) > .93;   // audience heads with glowing eyes
-    ctx.fillStyle = '#05060A'; ctx.beginPath(); ctx.ellipse(x, y, 40, 46, 0, 0, TAU); ctx.fill(); if (!blink && on > 0) { ctx.fillStyle = '#FFFFFF'; for (const s of [-1, 1]) { ctx.beginPath(); ctx.ellipse(x + s * 13, y - 8, 8, 6, 0, 0, TAU); ctx.fill(); } } }
-  if (title) { const a = t - t0('e1'); ctx.save(); ctx.globalAlpha = seg(a, 0, .2); focusLines(540, 520, 250, 80, '#FFFFFF', .55, 7); ctx.restore();
-    sfxWord('SPOTLIGHT', 540, 450, 120, -.05, a, '#F5C542'); sfxWord('EFFECT', 540, 580, 120, -.05, a - .15, '#F5C542'); tag('efek lampu sorot', 540, 720, 50, { age: a - 1.2 }); }
+// HAPUS: delete, type again, delete again... "wkwk" goes out
+S.hapus = (t) => {
+  room(t, 1);
+  const a = age('m6'), cyc = a < 0 ? 9 : a < .8 ? lerp(9, 0, a / .8) : a < 1.6 ? lerp(0, 6, (a - .8) / .8) : a < 2.4 ? lerp(6, 0, (a - 1.6) / .8) : 0, sent = t > t0('m7') + 1.2;
+  chatPhone(t, { lines: sent ? 0 : cyc, sent: sent ? t - t0('m7') - 1.2 : null, sentBtn: sent });
+  const del = a > 0 && a < .8 || a > 1.6 && a < 2.4;
+  if (del) sfxWord(a < .8 ? 'HAPUS!' : 'HAPUS LAGI!', 300, 1180, 80, -.15, (a < .8 ? a : a - 1.6), '#FFFFFF');
+  clawd(900, 1330, 18, { face: sent ? 'sad' : 'worried', arms: [.2, 1.2], mark: sent ? 'cloud' : 'sweat', markAge: sent ? t - t0('m7') - 1.2 : a });
 };
-// RISET: daylight classroom; Clawd walks in wearing an embarrassing shirt; guess: half the room is staring
-S.riset = (t) => {
-  ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H);
-  GAYA.shape([[60, 260], [1020, 260], [1020, 520], [60, 520]], '#E8EEF2', 650, { tone: .15 });   // board
-  ctx.fillStyle = INK; ctx.font = `700 46px ${FONT}`; ctx.fillText('PENELITIAN', 100, 330); ctx.font = `500 40px ${FONT}`; ctx.fillText('Cornell University, 2000', 100, 400); ctx.fillText('(Gilovich dkk.)', 100, 460);
-  GAYA.shape([[820, 560], [980, 560], [980, 1000], [820, 1000]], '#C9A27A', 651, { tone: .3 });   // door
-  const walk = seg(t, t0('e2') + 1.2, t0('e2') + 3.5), cx = lerp(900, 640, walk);
-  const guess = t > t0('e3');
-  const seats = []; for (let r = 0; r < 2; r++) for (let q = 0; q < 5; q++) seats.push([140 + q * 190, 1110 + r * 160, r * 5 + q]);
-  seats.forEach(([x, y, i]) => { if (!guess || i % 2) person(x, y, 1.1, { tone: .4 }); });
-  clawd(cx, 1000, 18, { face: walk < 1 ? 'curious' : 'worried', walk: walk > 0 && walk < 1 ? t * 10 : 0, blush: walk > .3, arms: [.2, .2] });
-  // the embarrassing shirt print: a goofy duck on Clawd's body
-  ctx.save(); ctx.translate(cx, 1000 - 5 * 18); GAYA.shape(ell(0, 0, 34, 28, 16), '#FFE14D', 652, { lw: 3 }); GAYA.shape([[28, -2], [52, 4], [28, 10]], '#F08A2B', 653, { lw: 3 }); ctx.fillStyle = INK; ctx.beginPath(); ctx.arc(12, -8, 4, 0, TAU); ctx.fill(); ctx.restore();
-  if (t < t0('e3')) tag('Pakai *kaos memalukan*', 480, 640, 62, { age: t - t0('e2') - .4 });
-  if (guess) { const a = t - t0('e3');
-    seats.forEach(([x, y, i]) => { if (i % 2 === 0) { person(x, y, 1.1, { tone: .4, look: true }); if (a > .3 + i * .05) { ctx.save(); ctx.translate(x, y - 95); ctx.scale(backOut(seg(a, .3 + i * .05, .6 + i * .05)), 1); GAYA.shape(ell(0, 0, 30, 18, 16), '#FFFFFF', 660 + i, { lw: 3 }); ctx.fillStyle = INK; ctx.beginPath(); ctx.arc(4, 0, 9, 0, TAU); ctx.fill(); ctx.restore(); } } });
-    bubble(420, 700, 330, 140, 560, 860, { bg: '#FFFFFF' }); ctx.font = `700 76px ${FONT}`; ctx.fillStyle = C.red; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('50%?', 420, 704); ctx.textAlign = 'left';
+// GRUP: the class group chat; a question about homework typed, thumb on send... deleted
+S.grup = (t) => {
+  ctx.fillStyle = '#F2EFE8'; ctx.fillRect(0, 0, W, H); tone(0, 0, W, H, .12);
+  const typed = seg(t, t0('m9') + .3, t0('m9') + 2.3), del = seg(t, t0('m11') + .2, t0('m11') + 1), q = 'Bu, tugasnya dikumpul kapan?';
+  phone(540, 860, .92, (w, h) => {
+    ctx.fillStyle = '#C9E7D2'; ctx.fillRect(0, 0, w, 86); ctx.fillStyle = INK; ctx.font = `700 32px ${FONT}`; ctx.fillText('Grup Kelas 12 IPA 2', 30, 56);
+    const msgs = [['Rani', 'besok ulangan ya?'], ['Dimas', 'iya kayaknya'], ['Bu Sari', 'jangan lupa tugas bab 3']];
+    msgs.forEach(([n, m], i) => { const y = 160 + i * 120; bubble(190, y, 300, 80, null, null, {}); ctx.font = `700 22px ${FONT}`; ctx.fillStyle = '#4F7FB8'; ctx.fillText(n, 60, y - 18); ctx.font = `500 26px ${FONT}`; ctx.fillStyle = INK; ctx.fillText(m, 60, y + 16); });
+    GAYA.shape(rr(20, h - 110, w - 120, 80, 26), '#FFFFFF', 760, { lw: 4 });
+    const shown = q.slice(0, Math.round(q.length * typed * (1 - del))); ctx.font = `500 26px ${FONT}`; ctx.fillStyle = INK; ctx.fillText(shown, 40, h - 60);
+    GAYA.shape(ell(w - 55, h - 70, 36, 36, 18), '#4F7FB8', 761, { lw: 3 });
+  });
+  // the hesitating thumb over the send button
+  if (t > t0('m10') - .2 && del < 1) { const hov = Math.sin(t * 8) * 10; ctx.save(); ctx.translate(745 + hov, 1215 + 60); ctx.rotate(-.5); GAYA.shape(rr(-34, -10, 68, 150, 30), '#E8B48F', 762, { lw: 4 }); ctx.restore(); }
+  clawd(170, 1360, 15, { face: t > t0('m11') ? 'sad' : 'worried', mark: t > t0('m11') + 1 ? 'sweat' : null, markAge: t - t0('m11') - 1 });
+  if (t < t0('m9')) tag('Atau di *grup kelas*', 540, 300, 80, { age: age('m8') + .2 });
+  else if (t < t0('m11')) tag('Takut dikira *nggak nyimak*', 540, 300, 70, { age: age('m9') });
+  else tag('...pura-pura *nggak jadi*', 540, 300, 76, { age: age('m11') });
+};
+// KACA: a giant magnifying glass over the message, eyes behind it; then a clock eats 10 minutes
+S.kaca = (t) => {
+  ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); focusLines(540, 820, 360, 70, INK, .1, 6);
+  if (t < t0('m13')) {
+    bubble(540, 820, 520, 220, null, null, { bg: '#BFE3FF' }); textLines(320, 760, 440, 4, 36, 1);
+    for (let i = 0; i < 7; i++) { const a = i / 7 * TAU + T * .3, x = 540 + Math.cos(a) * 420, y = 820 + Math.sin(a) * 380; GAYA.shape(ell(x, y, 44, 28, 16), '#FFFFFF', 770 + i, { lw: 4 }); ctx.fillStyle = INK; ctx.beginPath(); ctx.arc(x + (540 - x) * .03, y + (820 - y) * .03, 12, 0, TAU); ctx.fill(); }
+    const r = 190, gx = 540 + Math.sin(t * 1.5) * 120, gy = 820 + Math.cos(t * 1.2) * 40; ctx.save(); ctx.beginPath(); ctx.arc(gx, gy, r, 0, TAU); ctx.clip(); ctx.translate(gx, gy); ctx.scale(1.6, 1.6); ctx.translate(-gx, -gy); bubble(540, 820, 520, 220, null, null, { bg: '#BFE3FF' }); textLines(320, 760, 440, 4, 36, 1); ctx.restore();
+    GAYA.line(ell(gx, gy, r, r, 48).concat([[gx + r, gy]]), 12, INK, 778, 1); GAYA.line([[gx + r * .7, gy + r * .7], [gx + r * 1.4, gy + r * 1.4]], 30, INK, 779, 1);
+    tag('Dibaca pakai *kaca pembesar*', 540, 300, 72, { age: age('m12') });
+  } else {
+    const a = age('m13'), k = seg(a, .2, 3.5); GAYA.shape(ell(540, 800, 260, 260, 48), '#FFFFFF', 780, { lw: 8 });
+    for (let i = 0; i < 12; i++) { const an = i / 12 * TAU; GAYA.line([[540 + Math.cos(an) * 220, 800 + Math.sin(an) * 220], [540 + Math.cos(an) * 245, 800 + Math.sin(an) * 245]], 6, INK, 781 + i, 1); }
+    ctx.fillStyle = rgba(C.red, .35); ctx.beginPath(); ctx.moveTo(540, 800); ctx.arc(540, 800, 240, -Math.PI / 2, -Math.PI / 2 + k * TAU / 6); ctx.fill();
+    const an = -Math.PI / 2 + k * TAU / 6; GAYA.line([[540, 800], [540 + Math.cos(an) * 200, 800 + Math.sin(an) * 200]], 10, INK, 795, 1);
+    tag('*10 menit* buat 1 pesan', 540, 300, 80, { age: a });
+    clawd(540, 1330, 18, { face: 'sad', mark: 'cloud', markAge: a - .5 });
   }
 };
-// BRAND + reveal: warm stamp moment, then only 1 of 5 really noticed
+// DUGAAN: the usual guesses: low confidence meter, "baper", a brave "BODO AMAT!", next day... again; a big NO
+S.dugaan = (t) => {
+  ctx.fillStyle = '#FFF7E8'; ctx.fillRect(0, 0, W, H); tone(0, 0, W, H, .06);
+  if (t < t0('d3')) {
+    GAYA.shape(rr(160, 480, 760, 90, 40), '#FFFFFF', 800, { lw: 5 }); const v = lerp(.8, .18, ease(seg(age('d1'), .5, 1.8))); GAYA.shape(rr(170, 490, 740 * v, 70, 34), C.red, 801, { lw: 3 });
+    ctx.font = `700 44px ${FONT}`; ctx.fillStyle = INK; ctx.fillText('percaya diri', 170, 450);
+    if (t > t0('d2')) { const k = backOut(seg(age('d2'), 0, .3)); ctx.save(); ctx.translate(780, 720); ctx.rotate(.1); ctx.scale(k, k); GAYA.shape(rr(-150, -55, 300, 110, 18), '#FFC9C2', 802, { lw: 5 }); ctx.font = `700 60px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('BAPER', 0, 3); ctx.textAlign = 'left'; ctx.restore(); }
+    clawd(400, 1300, 26, { face: t > t0('d2') ? 'sad' : 'worried', arms: [.2, .2] });
+    tag('Dikira: *kurang percaya diri*', 540, 300, 70, { age: age('d1') });
+  } else if (t < t0('d4')) {
+    focusLines(540, 900, 300, 70, '#E3A33B', .35, 8); sfxWord('BODO AMAT!', 540, 620, 120, -.06, age('d3') + .1, '#F5C542');
+    clawd(540, 1300, 32, { face: 'happy', arms: [1.5, 1.5], dy: -.6 * Math.abs(Math.sin(t * 8)) });
+  } else {
+    const a = age('d4'); GAYA.shape(rr(330, 480, 420, 420, 30), '#FFFFFF', 810, { lw: 6 }); GAYA.shape(rr(330, 480, 420, 110, 30), C.red, 811, { lw: 6 });
+    ctx.font = `700 64px ${FONT}`; ctx.fillStyle = '#FFFFFF'; ctx.textAlign = 'center'; ctx.fillText('BESOKNYA', 540, 560); ctx.fillStyle = INK; ctx.font = `700 200px ${FONT}`; ctx.fillText(a > .4 ? '13' : '12', 540, 820); ctx.textAlign = 'left';
+    clawd(540, 1300, 26, { face: t > t0('d5') ? 'shock' : 'sad', phone: true, mark: t > t0('d5') ? '!' : 'sweat', markAge: t > t0('d5') ? age('d5') : a });
+    if (t > t0('d5')) { const s = seg(age('d5'), .2, .5); GAYA.line([[250, 420], [lerp(250, 830, s), lerp(420, 980, s)]], 20, C.red, 812, .9); const s2 = seg(age('d5'), .4, .7); GAYA.line([[830, 420], [lerp(830, 250, s2), lerp(420, 980, s2)]], 20, C.red, 813, .9); tag('Masalahnya *bukan di situ*', 540, 300, 72, { age: age('d5') }); }
+    else tag('Besoknya: *kejadian lagi*', 540, 300, 76, { age: a });
+  }
+};
+// PANGGUNG: the name of the feeling: a spotlight on a dark stage
+S.panggung = (t) => {
+  const dark = ease(seg(t, t0('p1') - .5, t0('p1') + .3)), on = seg(t, t0('p1') + .4, t0('p1') + .5), title = t > t0('p1') + 1.2;
+  ctx.fillStyle = mixh('#FFFFFF', '#121418', dark); ctx.fillRect(0, 0, W, H); tone(0, 0, W, H, .25 * dark, TONE2);
+  for (const s of [-1, 1]) GAYA.shape([[540 + s * 560, 200], [540 + s * 330, 200], [540 + s * 380, 1300], [540 + s * 560, 1300]], '#7A1E1E', 640 + s, { tone: .45 });
+  GAYA.shape([[-20, 1180], [1100, 1180], [1100, 1400], [-20, 1400]], '#6B4A2E', 642, { tone: .3 });
+  if (on > 0) { ctx.save(); ctx.globalAlpha = on; const g = ctx.createLinearGradient(0, 200, 0, 1200); g.addColorStop(0, 'rgba(255,240,180,0.15)'); g.addColorStop(1, 'rgba(255,240,180,0.6)');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(500, 200); ctx.lineTo(580, 200); ctx.lineTo(780, 1220); ctx.lineTo(300, 1220); ctx.fill(); ctx.fillStyle = 'rgba(255,240,180,0.55)'; ctx.beginPath(); ctx.ellipse(540, 1220, 240, 40, 0, 0, TAU); ctx.fill(); ctx.restore(); }
+  clawd(540, 1210, 28, { face: on > 0 ? 'shock' : 'curious', phone: true, arms: [.9, .3], mark: on > 0 ? '!' : null, markAge: t - t0('p1') - .5 });
+  for (let i = 0; i < 14 && dark > .3; i++) { const x = 60 + i * 74, y = 1345 + 30 * hash(i), blink = hash(Math.floor(t * 2) + i) > .93;
+    ctx.fillStyle = '#05060A'; ctx.beginPath(); ctx.ellipse(x, y, 40, 46, 0, 0, TAU); ctx.fill(); if (!blink && on > 0) { ctx.fillStyle = '#FFFFFF'; for (const s of [-1, 1]) { ctx.beginPath(); ctx.ellipse(x + s * 13, y - 8, 8, 6, 0, 0, TAU); ctx.fill(); } } }
+  if (title) { const a = t - t0('p1') - 1.2; ctx.save(); ctx.globalAlpha = seg(a, 0, .2); focusLines(540, 520, 250, 80, '#FFFFFF', .55, 7); ctx.restore();
+    sfxWord('SPOTLIGHT', 540, 450, 120, -.05, a, '#F5C542'); sfxWord('EFFECT', 540, 580, 120, -.05, a - .15, '#F5C542'); if (t > t0('p2')) tag('efek *lampu sorot*', 540, 720, 54, { age: age('p2') }); }
+};
+// RISET: Cornell 2000: the embarrassing shirt, the full room, the guess
+S.riset = (t) => {
+  ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H);
+  GAYA.shape([[60, 260], [1020, 260], [1020, 520], [60, 520]], '#E8EEF2', 650, { tone: .15 });
+  ctx.fillStyle = INK; ctx.font = `700 46px ${FONT}`; ctx.fillText('PERCOBAAN', 100, 330); ctx.font = `500 40px ${FONT}`; ctx.fillText('Cornell University, 2000', 100, 400); ctx.fillText('(Gilovich dkk.)', 100, 460);
+  GAYA.shape([[820, 560], [980, 560], [980, 1000], [820, 1000]], '#C9A27A', 651, { tone: .3 });
+  const walk = seg(t, t0('p5') - .3, t0('p5') + 2), cx = lerp(900, 640, walk), guess = t > t0('p7'), ask = t > t0('p6');
+  const seats = []; for (let r = 0; r < 2; r++) for (let q = 0; q < 5; q++) seats.push([140 + q * 190, 1110 + r * 160, r * 5 + q]);
+  seats.forEach(([x, y, i]) => person(x, y, 1.1, { tone: .4, look: guess && i % 2 === 0 }));
+  if (t > t0('p4') - .2) { clawd(cx, 1000, 18, { face: ask ? 'curious' : walk < 1 ? 'worried' : 'worried', walk: walk > 0 && walk < 1 ? t * 10 : 0, blush: true, arms: [.2, .2] });
+    ctx.save(); ctx.translate(cx, 1000 - 5 * 18); GAYA.shape(ell(0, 0, 34, 28, 16), '#FFE14D', 652, { lw: 3 }); GAYA.shape([[28, -2], [52, 4], [28, 10]], '#F08A2B', 653, { lw: 3 }); ctx.fillStyle = INK; ctx.beginPath(); ctx.arc(12, -8, 4, 0, TAU); ctx.fill(); ctx.restore(); }
+  if (t < t0('p4')) tag('Percobaan *unik*', 480, 640, 62, { age: age('p3') });
+  else if (t < t0('p6')) tag('Pakai *kaos memalukan*', 480, 640, 62, { age: age('p4') });
+  if (ask && !guess) { bubble(420, 700, 420, 140, 560, 860, {}); ctx.font = `700 54px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('Berapa yang lihat?', 420, 704); ctx.textAlign = 'left'; }
+  if (guess) { bubble(420, 700, 330, 140, 560, 860, {}); ctx.font = `700 76px ${FONT}`; ctx.fillStyle = C.red; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('50%?', 420, 704); ctx.textAlign = 'left'; }
+};
+// BRAND + reveal: warm stamp, then only about 1 in 5 really noticed
 S.brand = (t) => {
   ctx.fillStyle = '#FFF4DF'; ctx.fillRect(0, 0, W, H); tone(0, 0, W, H, .08);
-  if (t < t0('e4')) { const st = t1('a1') - .15, bAge = t - st;
+  if (t < t0('p8')) { const st = t1('a1') - .15, bAge = t - st;
     clawd(540, 1260, 32, { face: t < st ? 'curious' : t < t0('a1b') ? 'happy' : 'laugh', arms: bAge > 0 && t < t0('a1b') + .3 ? [.6, 1.45] : [1.2, 1.2], dy: t > t0('a1b') ? -.5 * Math.abs(Math.sin(t * 9)) : 0 });
-    if (bAge > -.1) brandStamp(540, 560, bAge, t0('e4') + .2 - st);
+    if (bAge > -.1) brandStamp(540, 560, bAge, t0('p8') + .2 - st);
     if (t > t0('a1b')) sfxWord('HAHAHA', 820, 900, 70, .15, t - t0('a1b'), '#FFFFFF');
     return; }
-  const a = t - t0('e4');
-  for (let i = 0; i < 5; i++) { const x = 140 + i * 200, look = i === 2; person(x, 760, 1.6, { tone: look ? .2 : .55, look }); if (look && a > .8) { ctx.save(); ctx.strokeStyle = C.red; ctx.lineWidth = 8; ctx.beginPath(); ctx.ellipse(x, 760, 110, 140, 0, 0, TAU); ctx.stroke(); ctx.restore(); } }
-  tag('Aslinya: *± 1 dari 5*', 540, 420, 84, { age: a - .2 });
-  const s = seg(a, 1.6, 2); ctx.font = `700 120px ${FONT}`; ctx.textAlign = 'center'; ctx.fillStyle = '#9AA3AD'; ctx.fillText('50%', 330, 1130); ctx.fillStyle = C.red; if (a > 2) { ctx.save(); ctx.translate(780, 1130); ctx.scale(backOut(seg(a, 2, 2.3)), backOut(seg(a, 2, 2.3))); ctx.fillText('±20%', 0, 0); ctx.restore(); } ctx.textAlign = 'left';
-  if (s > 0) GAYA.line([[220, 1150], [lerp(220, 450, s), lerp(1150, 1080, s)]], 12, C.red, 670, 1);
-  clawd(540, 1330, 14, { face: a > 2 ? 'surprised' : 'curious', arms: [.3, .3] });
+  const a = age('p8');
+  for (let i = 0; i < 10; i++) { const x = 140 + (i % 5) * 200, y = 640 + Math.floor(i / 5) * 230, look = i === 2 || i === 6; person(x, y, 1.25, { tone: look ? .15 : .55, look }); if (look && a > .8) { ctx.save(); ctx.strokeStyle = C.red; ctx.lineWidth = 8; ctx.beginPath(); ctx.ellipse(x, y - 10, 90, 120, 0, 0, TAU); ctx.stroke(); ctx.restore(); } }
+  tag('Aslinya: *± 1 dari 5*', 540, 340, 84, { age: a - .2 });
+  ctx.font = `700 120px ${FONT}`; ctx.textAlign = 'center'; ctx.fillStyle = '#9AA3AD'; ctx.fillText('50%', 330, 1180); ctx.fillStyle = C.red; if (a > 1.6) { ctx.save(); ctx.translate(780, 1180); const k = backOut(seg(a, 1.6, 1.9)); ctx.scale(k, k); ctx.fillText('±20%', 0, 0); ctx.restore(); } ctx.textAlign = 'left';
+  const s = seg(a, 1.2, 1.6); if (s > 0) GAYA.line([[220, 1150], [lerp(220, 450, s), lerp(1150, 1080, s)]], 12, C.red, 670, 1);
 };
-// LEGA: everyone is busy with themselves; each in their own little panel, Clawd's chat is tiny
-S.lega = (t) => {
+// DALAM: we feel ourselves from the inside -> a giant self under a spotlight; others see a tiny figure; everyone busy with their own thoughts
+S.dalam = (t) => {
   ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H);
-  const items = [['cermin', '#BFE3FF'], ['makan', '#FFD98A'], ['tugas', '#D7F0C8'], ['jerawat', '#FFC9C2']];
-  items.forEach(([s, col], i) => { const a = t - t0('e5') - i * .5, x = 70 + (i % 2) * 480, y = 260 + Math.floor(i / 2) * 470;
+  if (t < t0('p12')) {
+    panel(70, 260, 450, 900, (w, h) => { ctx.fillStyle = '#1E2433'; ctx.fillRect(0, 0, w, h); const g = ctx.createLinearGradient(0, 0, 0, h); g.addColorStop(0, 'rgba(255,240,180,0.2)'); g.addColorStop(1, 'rgba(255,240,180,0.6)'); ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(w / 2 - 30, 0); ctx.lineTo(w / 2 + 30, 0); ctx.lineTo(w - 20, h); ctx.lineTo(20, h); ctx.fill();
+      clawd(w / 2, 720, 30 * (1 + .04 * Math.sin(T * 6)), { face: 'worried', mark: 'sweat', markAge: 1 }); ctx.font = `700 40px ${FONT}`; ctx.fillStyle = '#FFFFFF'; ctx.textAlign = 'center'; ctx.fillText('yang kamu rasa', w / 2, 70); ctx.textAlign = 'left'; });
+    if (t > t0('p11')) panel(560, 260, 450, 900, (w, h) => { tone(0, 0, w, h, .1); for (let i = 0; i < 6; i++) person(80 + (i % 3) * 145, 420 + Math.floor(i / 3) * 260, .9, { tone: .5 }); clawd(w / 2, 840, 7, { face: 'curious' }); ctx.font = `700 40px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.fillText('yang orang lihat', w / 2, 70); ctx.textAlign = 'left'; });
+    return; }
+  const items = [['makan apa ya...', '#FFD98A'], ['jerawatku...', '#FFC9C2'], ['tugas belum...', '#D7F0C8'], ['rambutku...', '#BFE3FF']];
+  items.forEach(([s, col], i) => { const a = age('p12') - i * .4, x = 70 + (i % 2) * 480, y = 260 + Math.floor(i / 2) * 470;
     if (a > 0) panel(x, y, 450, 430, (w, h) => { ctx.fillStyle = col; ctx.fillRect(0, 0, w, h); tone(0, 0, w, h, .15); person(w / 2, 300, 1.6, { tone: .3 });
-      bubble(w / 2, 95, 300, 110, w / 2 - 20, 175, {}); ctx.font = `700 46px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(s + '...', w / 2, 98); ctx.textAlign = 'left'; }); });
-  const a = t - t0('e5') - 2.5; if (a > 0) { ctx.save(); ctx.translate(540, 1240); ctx.scale(backOut(seg(a, 0, .3)), backOut(seg(a, 0, .3))); bubble(0, 0, 200, 70, null, null, { bg: '#FFD98A' }); ctx.font = `700 32px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('chat kamu', 0, 2); ctx.textAlign = 'left'; ctx.restore(); }
-  clawd(880, 1330, 14, { face: a > .5 ? 'happy' : 'curious', arms: [.2, .2], mark: a > .5 ? 'sparkle' : null, markAge: a - .5 });
+      bubble(w / 2, 95, 340, 110, w / 2 - 20, 175, {}); ctx.font = `700 40px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(s, w / 2, 98); ctx.textAlign = 'left'; }); });
+  clawd(880, 1330, 14, { face: age('p12') > 2 ? 'happy' : 'curious', mark: age('p12') > 2 ? 'sparkle' : null, markAge: age('p12') - 2 });
 };
-// TRIK: the one-read rule, then send; the reply is "wkwk" again
-S.trik = (t) => {
+// GUGUP: what you feel inside (pounding heart, sweat) vs what others actually see (calm)
+S.gugup = (t) => {
+  ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); const a = age('p14');
+  panel(70, 300, 450, 820, (w, h) => { ctx.fillStyle = '#FFE1DC'; ctx.fillRect(0, 0, w, h); focusLines(w / 2, 520, 120, 40, C.red, .25, 11); clawd(w / 2, 640, 24, { face: 'worried', mark: 'sweat', markAge: 1, rot: Math.sin(T * 30) * .03 }); mark('heart', w / 2 + 120, 300, 16 + 3 * Math.abs(Math.sin(T * 9)), 1); ctx.font = `700 40px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.fillText('yang kamu rasa', w / 2, 70); ctx.textAlign = 'left'; });
+  if (a > 0) panel(560, 300, 450, 820, (w, h) => { ctx.fillStyle = '#E3F2E3'; ctx.fillRect(0, 0, w, h); clawd(w / 2, 640, 24, { face: 'neutral' }); ctx.font = `700 40px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.fillText('yang orang lihat', w / 2, 70); ctx.textAlign = 'left'; });
+};
+// LANGKAH 1: switch off the spotlight in your head; 2003: knowing calms speakers
+S.langkah1 = (t) => {
+  const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#FFF7E0'); g.addColorStop(1, '#FFE2B0'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  if (t < t0('s3')) {
+    focusLines(540, 860, 520, 50, '#E3A33B', .25, 9);
+    const off = seg(t, t0('s2') + 1.5, t0('s2') + 1.7);
+    if (t > t0('s2')) { ctx.save(); ctx.globalAlpha = 1 - off; ctx.fillStyle = 'rgba(255,240,180,0.6)'; ctx.beginPath(); ctx.moveTo(500, 260); ctx.lineTo(580, 260); ctx.lineTo(760, 1240); ctx.lineTo(320, 1240); ctx.fill(); ctx.restore(); }
+    clawd(540, 1240, 30, { face: off > 0 ? 'happy' : 'curious', arms: off > 0 ? [1.3, 1.3] : [.3, .3], mark: off > 0 ? 'idea' : '?', markAge: off > 0 ? t - t0('s2') - 1.7 : age('s1') });
+    if (t < t0('s2')) tag('Terus, *gimana?*', 540, 300, 96, { age: age('s1') }); else tag('1. Ingat *efek lampu sorot*', 540, 300, 72, { age: age('s2') });
+    return; }
+  const a = age('s3');
+  clawd(540, 980, 26, { face: a > 2 ? 'happy' : 'curious', arms: [.3, a > 2 ? 1.4 : .3], mark: a > 2.5 ? 'sparkle' : null, markAge: a - 2.5 });
+  GAYA.shape(rr(380, 900, 320, 300, 20), '#8E6B4A', 840, { tone: .3 });   // podium in front
+  for (let i = 0; i < 9; i++) person(130 + i * 105, 1360, .8, { tone: .45 });
+  tag('2003: tahu efeknya = *lebih tenang*', 540, 300, 64, { age: a });
+};
+// LANGKAH 2: read once, check for hurtful words, send
+S.langkah2 = (t) => {
   const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#FFF7E0'); g.addColorStop(1, '#FFE2B0'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); focusLines(540, 860, 520, 50, '#E3A33B', .25, 9);
-  const step1 = t > t0('s1') + 1.4, step2 = t > t0('s1') + 3.2, send = seg(t, t0('s1') + 4.4, t0('s1') + 4.9), reply = t > t0('s2') + .6;
+  const send = seg(t, t0('s6') + .3, t0('s6') + .8), reply = t > t0('s6') + 1.6;
   phone(540, 820, .85, (w, h) => {
-    ctx.fillStyle = '#DDE3EA'; ctx.fillRect(0, 0, w, 80); ctx.fillStyle = INK; ctx.font = `700 32px ${FONT}`; ctx.fillText('Doi', 80, 52);
+    ctx.fillStyle = '#DDE3EA'; ctx.fillRect(0, 0, w, 80); ctx.fillStyle = INK; ctx.font = `700 32px ${FONT}`; ctx.fillText('Gebetan', 80, 52);
     if (send < 1) { GAYA.shape(rr(20, h - 330 - send * 300, w - 40, 250, 26), '#FFFFFF', 710, { lw: 4 }); textLines(44, h - 300 - send * 300, w - 90, 5, 40, 1); }
     if (send > 0) { const y = lerp(h - 200, 260, easeOut(send)); bubble(w - 200, y, 300, 180, null, null, { bg: '#BFE3FF' }); textLines(w - 330, y - 50, 250, 3, 36, 1); }
-    if (reply) { const a = t - t0('s2') - .6; ctx.save(); ctx.translate(140, 520); ctx.scale(backOut(seg(a, 0, .3)), backOut(seg(a, 0, .3))); bubble(0, 0, 180, 76, null, null, {}); ctx.font = `700 40px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('wkwk', 0, 2); ctx.restore(); }
+    if (reply) { const a = t - t0('s6') - 1.6; ctx.save(); ctx.translate(140, 520); ctx.scale(backOut(seg(a, 0, .3)), backOut(seg(a, 0, .3))); bubble(0, 0, 220, 76, null, null, {}); ctx.font = `700 34px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('wah, seru!', 0, 2); ctx.restore(); }
   });
-  if (!step1) tag('Ini *triknya*', 540, 300, 84, { age: t - t0('s1') + .2 });
-  if (step1) tag('Cek *1 kali* ✓', 300, 300, 60, { age: t - t0('s1') - 1.4, rot: -.04 });
-  if (step2) tag('Nggak nyakitin? *Kirim!*', 700, 420, 56, { age: t - t0('s1') - 3.2, rot: .04 });
+  tag('2. Baca *1 kali* saja', 300, 300, 58, { age: age('s4'), rot: -.04 });
+  if (t > t0('s5')) tag('Ada kata *nyakitin?*', 760, 420, 52, { age: age('s5'), rot: .04 });
+  if (t > t0('s6')) tag('Nggak ada? *Kirim!*', 330, 1260, 60, { age: age('s6'), rot: -.03 });
   if (send > 0 && send < 1) speedLines(0, 500, W, 600, 30, .5);
-  clawd(870, 1330, 18, { face: reply ? 'laugh' : step2 ? 'happy' : 'curious', arms: reply ? [1.3, 1.3] : [.3, .3], dy: reply ? -.5 * Math.abs(Math.sin(t * 9)) : 0 });
+  clawd(870, 1330, 18, { face: reply ? 'laugh' : 'curious', arms: reply ? [1.3, 1.3] : [.3, .3], dy: reply ? -.5 * Math.abs(Math.sin(t * 9)) : 0 });
 };
-// CTA: count your deleted chats; arrow to the comments; send to a friend
+// LANGKAH 3: check the next day: nobody talks about it
+S.langkah3 = (t) => {
+  ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); tone(0, 0, W, H, .06);
+  GAYA.shape(rr(330, 420, 420, 420, 30), '#FFFFFF', 850, { lw: 6 }); GAYA.shape(rr(330, 420, 420, 110, 30), '#4F7FB8', 851, { lw: 6 });
+  ctx.font = `700 64px ${FONT}`; ctx.fillStyle = '#FFFFFF'; ctx.textAlign = 'center'; ctx.fillText('BESOKNYA', 540, 500); ctx.fillStyle = INK; ctx.font = `700 200px ${FONT}`; ctx.fillText('?', 540, 760); ctx.textAlign = 'left';
+  if (t > t0('s8')) { for (let i = 0; i < 5; i++) person(140 + i * 200, 1080, 1.1, { tone: .4 }); for (let i = 0; i < 5; i++) { ctx.font = `700 40px ${FONT}`; ctx.fillStyle = '#9AA3AD'; ctx.textAlign = 'center'; ctx.fillText('...', 140 + i * 200, 960); ctx.textAlign = 'left'; } }
+  tag(t < t0('s8') ? '3. Lihat *besoknya*' : 'Ada yang bahas? *Biasanya nggak*', 540, 300, 66, { age: t < t0('s8') ? age('s7') : age('s8') });
+  clawd(880, 1350, 14, { face: t > t0('s8') + 1 ? 'happy' : 'curious', mark: t > t0('s8') + 1 ? 'sparkle' : null, markAge: age('s8') - 1 });
+};
+// RANGKUM: the spotlight lives only in your head: a small lamp inside Clawd's head clicks off; warm light
+S.rangkum = (t) => {
+  const a = age('r1'), off = seg(a, 2.2, 2.4); ctx.fillStyle = mixh('#2A2F3D', '#FFF1D6', off); ctx.fillRect(0, 0, W, H);
+  if (off < 1) { ctx.save(); ctx.globalAlpha = 1 - off; ctx.fillStyle = 'rgba(255,240,180,0.6)'; ctx.beginPath(); ctx.moveTo(500, 520); ctx.lineTo(580, 520); ctx.lineTo(760, 1240); ctx.lineTo(320, 1240); ctx.fill(); ctx.restore(); }
+  GAYA.shape(rr(490, 470, 100, 60, 12), '#9AA3AD', 860, { lw: 4 });
+  clawd(540, 1240, 32, { face: off > 0 ? 'happy' : 'curious', arms: off > 0 ? [1.2, 1.2] : [.3, .3], mark: off > 0 ? 'sparkle' : null, markAge: a - 2.4 });
+  tag('Lampu sorot itu *cuma di kepala kita*', 540, 300, 64, { age: a });
+};
+// CTA: a poll "HAPUS vs KIRIM" pointing to the comments; then send to the friend who always replies wkwk
 S.cta = (t) => {
   ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); tone(0, 0, W, H, .07);
-  const a = t - t0('c1');
-  panel(110, 300, 860, 520, (w, h) => { ctx.fillStyle = '#FFF4DF'; ctx.fillRect(0, 0, w, h);
-    ctx.font = `700 54px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.fillText('Chat yang kuhapus', w / 2, 110); ctx.fillText('hari ini:', w / 2, 180);
-    const n = Math.floor(lerp(0, 12, seg(a, .8, 4))) + (a > 4 ? 0 : 0); ctx.font = `700 200px ${FONT}`; ctx.fillStyle = C.red; ctx.fillText(a > 4.2 ? '??' : n, w / 2, 400); ctx.textAlign = 'left'; });
-  if (t > t0('c1') + 2.5) tag('Tulis di *komentar!*', 540, 940, 70, { age: t - t0('c1') - 2.5 });
-  const share = t > t0('c2');
-  clawd(500, 1330, 24, { face: 'happy', arms: [.3, share ? .3 : 1.45], dy: -.3 * Math.abs(Math.sin(t * 4)) });
-  if (!share) { const k = .5 + .5 * Math.sin(t * 6); GAYA.shape([[780 + k * 20, 1040], [880 + k * 20, 1110], [800 + k * 20, 1150]], C.yellow, 720, {}); GAYA.line([[640, 1190], [800 + k * 20, 1120]], 10, INK, 721, 1); }
-  if (share) { const s = seg(t, t0('c2') + .3, t0('c2') + 1.8); ctx.save(); ctx.translate(lerp(620, 900, s), lerp(1150, 1000, s)); ctx.rotate(-.4); GAYA.shape([[-60, 0], [60, -40], [10, 40]], '#FFFFFF', 722, {}); ctx.restore(); }
+  const a = age('c1');
+  if (t < t0('c4')) {
+    tag('Sekarang *giliran kamu*', 540, 300, 80, { age: a });
+    if (t > t0('c2')) { const b = age('c2'); [['HAPUS', C.red, 250], ['KIRIM', '#4F7FB8', 830]].forEach(([s, col, x], i) => { const k = backOut(seg(b, i * .5, i * .5 + .3)); ctx.save(); ctx.translate(x, 700); ctx.scale(k, k); GAYA.shape(rr(-170, -110, 340, 220, 30), col, 870 + i, { lw: 6 }); ctx.font = `700 76px ${FONT}`; ctx.fillStyle = '#FFFFFF'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(s, 0, 4); ctx.textAlign = 'left'; ctx.restore(); }); ctx.font = `700 70px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.fillText('atau', 540, 724); ctx.textAlign = 'left'; }
+    if (t > t0('c3')) { tag('Tulis di *komentar!*', 540, 980, 70, { age: age('c3') }); const k = .5 + .5 * Math.sin(t * 6); GAYA.shape([[800 + k * 20, 1060], [900 + k * 20, 1130], [820 + k * 20, 1170]], C.yellow, 880, {}); GAYA.line([[660, 1210], [820 + k * 20, 1140]], 10, INK, 881, 1); }
+    clawd(500, 1340, 22, { face: 'happy', arms: [.3, t > t0('c3') ? 1.45 : 1.2], dy: -.3 * Math.abs(Math.sin(t * 4)) });
+  } else {
+    const b = age('c4'), s = seg(b, .3, 1.8);
+    tag('Kirim ke teman yang suka bales *wkwk*', 540, 300, 60, { age: b });
+    clawd(300, 1200, 22, { face: 'happy', arms: [.3, 1.4] }); person(820, 1150, 1.4, { tone: .3 });
+    bubble(820, 900, 200, 80, 820, 990, { bg: '#FFD98A' }); ctx.font = `700 40px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('wkwk', 820, 902); ctx.textAlign = 'left';
+    ctx.save(); ctx.translate(lerp(420, 740, s), lerp(1050, 1000, s) - 120 * Math.sin(s * Math.PI)); ctx.rotate(-.4); GAYA.shape([[-60, 0], [60, -40], [10, 40]], '#FFFFFF', 882, {}); ctx.restore();
+  }
 };
-S.akhir = (t) => { S.cta(t); };
+S.akhir = (t) => { ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); };
 // ---------- sound (Mixkit milik pemilik 'mk:' + sfx-kit CC0) ----------
 window.cues = () => {
   c(0, 'mk:keyboard-typing', .5); c(.9, 'impacts/impact-heavy-hard', .8); c(.9, 'mk:wrong-answer-fail-notification', .5);
-  c(t0('h2'), 'whooshes/whoosh-fast-medium', .6); [0, .2, .4].forEach(d => c(t0('h2') + .3 + d, 'pops/pop-small-in', .6)); c(t0('h2') + 2.3, 'impacts/impact-medium-hard', .7); c(t0('h2') + 2.3, 'mk:correct-answer-tone', .6);
-  c(t0('h3') + .1, 'impacts/impact-heavy-firm', .6); c(t0('h3') + .2, 'mk:boing-hit-sound', .4);
-  c(t0('k1') - .2, 'mk:smartphone-typing', .7); c(t0('k1') + 2.6, 'whooshes/whoosh-fast-hard', .5); c(t0('k1') + 2.6, 'mk:hard-pop-click', .5); c(t0('k1b') + .9, 'mk:message-pop-alert', 1);
-  c(t0('k2') + .7, 'impacts/impact-heavy-firm', .7); c(t0('k2') + 1.2, 'mk:big-crowd-talking-loop', .25);
-  c(t0('e1'), 'cinematic-hits/cinematic-drum-big', .6); c(t0('e1') + .15, 'whooshes/whoosh-medium-medium', .5);
-  c(t0('e3') + .3, 'tones/tone-step-1', .5); c(t0('e3') + .6, 'tones/tone-step-3', .5);
+  c(t0('h2'), 'whooshes/whoosh-fast-medium', .6); [0, .15, .3].forEach(d => c(t0('h2') + d, 'pops/pop-small-in', .5)); c(t0('h3') + 1.2, 'impacts/impact-medium-hard', .6);
+  c(t0('m3') - .2, 'mk:smartphone-typing', .7); c(t0('m4') + 1, 'pops/pop-medium-in', .7); c(t0('m5') + .1, 'pops/pop-medium-in', .7); c(t0('m5') + 1.1, 'pops/pop-medium-in', .7);
+  c(t0('m6'), 'whooshes/whoosh-fast-hard', .5); c(t0('m6') + .8, 'mk:keyboard-typing', .4); c(t0('m6') + 1.6, 'whooshes/whoosh-fast-hard', .5); c(t0('m7') + 1.2, 'mk:message-pop-alert', 1);
+  c(t0('m9') + .3, 'mk:smartphone-typing', .5); c(t0('m11') + .2, 'mk:hard-pop-click', .5);
+  c(t0('m12'), 'whooshes/whoosh-slow-hard', .4); c(t0('m13') + .2, 'data/data-countup-long', .4);
+  c(t0('d2'), 'pops/pop-large-in', .6); c(t0('d3'), 'mk:crowd-laugh', .25); c(t0('d3') + .1, 'impacts/impact-heavy-firm', .5); c(t0('d4') + .4, 'data/data-tick', .7); c(t0('d5') + .2, 'mk:wrong-answer-fail-notification', .5);
+  c(t0('p1') + .4, 'impacts/impact-heavy-firm', .7); c(t0('p1') + .8, 'mk:big-crowd-talking-loop', .2); c(t0('p1') + 1.2, 'cinematic-hits/cinematic-drum-big', .6);
+  c(t0('p5') - .3, 'mk:hard-pop-click', .3); c(t0('p7') + .3, 'tones/tone-step-1', .5); c(t0('p7') + .6, 'tones/tone-step-3', .5);
   c(t1('a1') - .15, 'logo-stings/sting-bright-short', 1); c(t0('a1b'), 'mk:crowd-laugh', .45);
-  c(t0('e4') + .8, 'mk:correct-answer-tone', .6); c(t0('e4') + 1.6, 'impacts/impact-medium-hard', .6); c(t0('e4') + 2, 'pops/pop-large-in', .6);
-  [0, 1, 2, 3].forEach(i => c(t0('e5') + i * .5, 'pops/pop-small-in', .6)); c(t0('e5') + 3, 'shimmers/shimmer-medium-bright', .5);
-  c(t0('s1') + 1.4, 'mk:correct-answer-tone', .5); c(t0('s1') + 3.2, 'mk:correct-answer-tone', .5); c(t0('s1') + 4.4, 'whooshes/whoosh-fast-hard', .8); c(t0('s2') + .6, 'mk:message-pop-alert', .9); c(t0('s2') + .9, 'mk:crowd-laugh', .35);
-  c(t0('c1') + .8, 'data/data-countup-medium', .5); c(t0('c1') + 2.5, 'tones/tone-ding-mid', .6); c(t0('c2') + .3, 'whooshes/whoosh-medium-soft', .6);
+  c(t0('p8') + .8, 'mk:correct-answer-tone', .6); c(t0('p8') + 1.2, 'impacts/impact-medium-hard', .6); c(t0('p8') + 1.6, 'pops/pop-large-in', .6);
+  c(t0('p11'), 'whooshes/whoosh-medium-soft', .5); [0, 1, 2, 3].forEach(i => c(t0('p12') + i * .4, 'pops/pop-small-in', .6)); c(t0('p14'), 'pops/pop-medium-in', .6);
+  c(t0('s2') + 1.5, 'mk:hard-pop-click', .8); c(t0('s2') + 1.7, 'shimmers/shimmer-medium-bright', .5); c(t0('s3') + 2, 'mk:theatre-audience-light-applause', .3);
+  c(t0('s4'), 'mk:correct-answer-tone', .4); c(t0('s6') + .3, 'whooshes/whoosh-fast-hard', .8); c(t0('s6') + 1.6, 'mk:message-pop-alert', .9);
+  c(t0('s8') + 1, 'shimmers/shimmer-short-bright', .5); c(t0('r1') + 2.2, 'mk:hard-pop-click', .8); c(t0('r1') + 2.4, 'shimmers/shimmer-long-soft', .5);
+  c(t0('c2'), 'pops/pop-large-in', .6); c(t0('c2') + .5, 'pops/pop-large-in', .6); c(t0('c3'), 'tones/tone-ding-mid', .6); c(t0('c4') + .3, 'whooshes/whoosh-medium-soft', .6);
   c(t0('z') - .3, 'logo-stings/sting-warm-long', 1);
-  for (const s of SC.slice(1)) if (s.name !== 'akhir') c(s.a, 'whooshes/whoosh-medium-soft', .35);
+  for (const s of SC.slice(1)) if (s.name !== 'akhir') c(s.a, 'whooshes/whoosh-medium-soft', .3);
 };
-CAM_PUNCH = [];
-const _bs = buildScenes; buildScenes = function () { CAM_PUNCH = [[.9, .08], [t0('h2') + 2.3, .06], [t0('h3') + .1, .05], [t0('k2') + .7, .06], [t0('e4') + 2, .05]]; _bs(); };
+const _bs = buildScenes; buildScenes = function () { CAM_PUNCH = [[.9, .08], [t0('h3') + 1.2, .05], [t0('m7') + 1.2, .06], [t0('d3'), .07], [t0('d5') + .3, .05], [t0('p1') + .4, .06], [t0('p8') + 1.6, .05], [t0('s2') + 1.5, .05]]; _bs(); };
 </script>
 </body>
 </html>

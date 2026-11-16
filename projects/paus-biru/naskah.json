@@ -9,8 +9,7 @@
    "text": "Jantungmu berdetak sekitar enam puluh kali semenit.",
    "cap": "Jantungmu: *± 60×* semenit",
    "kunci": [
-    "jantung",
-    "enam puluh"
+    "jantung"
    ]
   },
   {
@@ -20,59 +19,215 @@
    "text": "Jantung paus biru, bisa turun sampai cuma dua.",
    "cap": "Paus biru: *cuma 2×*",
    "kunci": [
-    "paus biru",
-    "dua"
+    "paus biru"
    ]
   },
   {
    "id": "h3",
-   "gap": 0.4,
+   "gap": 0.2,
    "style": "curious, firm",
-   "text": "Dan dia baik-baik aja. Kok bisa?",
-   "cap": "Dan dia *baik-baik aja.* Kok bisa?",
+   "text": "Dan dia baik-baik saja.",
+   "cap": "Dan dia *baik-baik saja*",
    "kunci": [
     "baik"
    ]
   },
   {
-   "id": "k1",
-   "gap": 0.2,
-   "style": "warm documentary storytelling",
-   "text": "Paus biru itu hewan terbesar yang pernah hidup. Panjangnya bisa lebih dari tiga puluh meter.",
-   "cap": "Hewan *terbesar*: panjang *> 30 meter*",
+   "id": "h4",
+   "gap": 0.9,
+   "style": "warm, inviting",
+   "text": "Gimana bisa? Kita bahas pelan-pelan.",
+   "cap": "Gimana bisa? *Kita bahas.*",
    "kunci": [
-    "hewan",
-    "terbesar",
-    "tiga puluh"
+    "gimana",
+    "bahas"
    ]
   },
   {
-   "id": "k2",
+   "id": "m1",
+   "gap": 0.2,
+   "style": "friendly storytelling",
+   "text": "Bayangin kamu menyelam di kolam renang.",
+   "cap": "Bayangin kamu *menyelam*",
+   "kunci": [
+    "menyelam",
+    "kolam"
+   ]
+  },
+  {
+   "id": "m2",
+   "gap": 0.2,
+   "style": "tense, slower",
+   "text": "Baru sebentar, dada sudah terasa sesak.",
+   "cap": "Dada mulai *sesak*",
+   "kunci": [
+    "dada",
+    "sesak"
+   ]
+  },
+  {
+   "id": "m3",
+   "gap": 0.3,
+   "style": "urgent, quick",
+   "text": "Kamu buru-buru naik ke atas buat ambil napas.",
+   "cap": "Buru-buru *ambil napas*",
+   "kunci": [
+    "napas"
+   ]
+  },
+  {
+   "id": "m4",
+   "gap": 0.2,
+   "style": "clear explainer",
+   "text": "Soalnya, tubuh kita butuh oksigen terus-menerus.",
+   "cap": "Tubuh butuh *oksigen terus*",
+   "kunci": [
+    "oksigen"
+   ]
+  },
+  {
+   "id": "m5",
+   "gap": 0.2,
+   "style": "clear explainer",
+   "text": "Otak, otot, semuanya minta jatah oksigen.",
+   "cap": "Otak & otot *minta oksigen*",
+   "kunci": [
+    "otak",
+    "otot"
+   ]
+  },
+  {
+   "id": "m6",
+   "gap": 0.9,
+   "style": "clear, warm",
+   "text": "Dan yang mengantar oksigen itu, darah yang dipompa jantung.",
+   "cap": "Darah dipompa *jantung*",
+   "kunci": [
+    "darah",
+    "jantung"
+   ]
+  },
+  {
+   "id": "m7",
+   "gap": 0.2,
+   "style": "awed, slower",
+   "text": "Sekarang bayangin, kamu jadi paus biru.",
+   "cap": "Sekarang jadi *paus biru*",
+   "kunci": [
+    "paus biru"
+   ]
+  },
+  {
+   "id": "m8",
+   "gap": 0.2,
+   "style": "documentary, awed",
+   "text": "Hewan terbesar yang pernah hidup di Bumi.",
+   "cap": "Hewan *terbesar* yang pernah hidup",
+   "kunci": [
+    "hewan",
+    "terbesar"
+   ]
+  },
+  {
+   "id": "m9",
+   "gap": 0.2,
+   "style": "documentary",
+   "text": "Panjangnya bisa lebih dari tiga puluh meter.",
+   "cap": "Panjang *> 30 meter*",
+   "kunci": [
+    "panjangnya",
+    "meter"
+   ]
+  },
+  {
+   "id": "m10",
    "gap": 0.3,
    "style": "playful, light",
    "text": "Kira-kira dua setengah bus kota yang dijejerin.",
-   "cap": "Kira-kira *2,5 bus kota*",
+   "cap": "≈ *2,5 bus kota*",
    "kunci": [
     "bus"
    ]
   },
   {
-   "id": "k3",
+   "id": "m11",
    "gap": 0.2,
-   "style": "curious, thoughtful",
-   "text": "Wajar kalau kita ngira, jantung segede itu pasti berdetak cepat dan kencang.",
-   "cap": "Dikira: jantungnya *cepat & kencang*",
+   "style": "explainer",
+   "text": "Dia juga bernapas pakai paru-paru, sama seperti kita.",
+   "cap": "Napas pakai *paru-paru*",
    "kunci": [
-    "cepat",
+    "paru-paru"
+   ]
+  },
+  {
+   "id": "m12",
+   "gap": 0.2,
+   "style": "explainer, building",
+   "text": "Tapi makanannya ada jauh di bawah laut.",
+   "cap": "Makanan di *bawah laut*",
+   "kunci": [
+    "makanannya",
+    "laut"
+   ]
+  },
+  {
+   "id": "m13",
+   "gap": 0.2,
+   "style": "explainer, tense",
+   "text": "Jadi setiap makan, dia harus tahan napas dan menyelam dalam.",
+   "cap": "Tahan napas, *menyelam dalam*",
+   "kunci": [
+    "tahan napas",
+    "menyelam"
+   ]
+  },
+  {
+   "id": "m14",
+   "gap": 0.9,
+   "style": "puzzled, curious",
+   "text": "Badan sebesar itu, oksigennya dari mana?",
+   "cap": "Oksigennya *dari mana?*",
+   "kunci": [
+    "oksigennya"
+   ]
+  },
+  {
+   "id": "d1",
+   "gap": 0.2,
+   "style": "thoughtful",
+   "text": "Banyak orang mengira, jantung segede itu pasti memompa super kencang.",
+   "cap": "Dikira: memompa *super kencang*",
+   "kunci": [
+    "jantung",
     "kencang"
    ]
   },
   {
-   "id": "k4",
+   "id": "d2",
+   "gap": 0.2,
+   "style": "thoughtful",
+   "text": "Biar darahnya sampai ke ujung ekor.",
+   "cap": "Biar sampai *ujung ekor*",
+   "kunci": [
+    "ekor"
+   ]
+  },
+  {
+   "id": "d3",
+   "gap": 0.2,
+   "style": "agreeing, light",
+   "text": "Kedengarannya masuk akal.",
+   "cap": "Masuk akal...",
+   "kunci": [
+    "masuk akal"
+   ]
+  },
+  {
+   "id": "d4",
    "gap": 0.9,
    "style": "firm, confident reveal",
-   "text": "Ternyata kebalikannya.",
-   "cap": "Ternyata *kebalikannya.*",
+   "text": "Tapi ternyata, kebalikannya.",
+   "cap": "Ternyata *kebalikannya*",
    "kunci": [
     "kebalikannya"
    ]
@@ -89,30 +244,40 @@
   },
   {
    "id": "a1b",
-   "gap": 0.35,
+   "gap": 0.4,
    "style": "amazed, wide-eyed, slower",
-   "text": "kami sampai ngitung ulang.",
-   "cap": "...kami sampai *ngitung ulang.*",
+   "text": "kami sampai menghitung ulang.",
+   "cap": "...kami sampai *menghitung ulang*",
    "kunci": [
-    "ngitung"
+    "menghitung"
    ]
   },
   {
-   "id": "f1",
+   "id": "p1",
    "gap": 0.2,
-   "style": "documentary storytelling, clear",
-   "text": "Tahun dua ribu sembilan belas, peneliti nempelin alat perekam di badan paus biru. Ini rekaman detak jantung paus biru yang pertama.",
-   "cap": "2019: rekaman detak jantung paus biru *pertama*",
+   "style": "documentary storytelling",
+   "text": "Tahun dua ribu sembilan belas, peneliti Stanford memasang alat perekam di badan paus biru.",
+   "cap": "2019: alat perekam dari *Stanford*",
    "kunci": [
-    "perekam",
+    "stanford",
+    "perekam"
+   ]
+  },
+  {
+   "id": "p2",
+   "gap": 0.2,
+   "style": "documentary, amazed",
+   "text": "Ini rekaman detak jantung paus biru yang pertama.",
+   "cap": "Rekaman detak jantung paus biru *pertama*",
+   "kunci": [
     "pertama"
    ]
   },
   {
-   "id": "f2",
+   "id": "p3",
    "gap": 0.2,
    "style": "slow, deep, calm",
-   "text": "Saat menyelam cari makan, jantungnya melambat. Empat sampai delapan kali semenit.",
+   "text": "Saat menyelam mencari makan, jantungnya melambat. Empat sampai delapan kali semenit.",
    "cap": "Saat menyelam: *4–8×* semenit",
    "kunci": [
     "menyelam",
@@ -120,40 +285,102 @@
    ]
   },
   {
-   "id": "f3",
-   "gap": 0.4,
+   "id": "p4",
+   "gap": 0.3,
    "style": "whispering, amazed",
-   "text": "Paling lambat, cuma dua kali.",
+   "text": "Paling lambat, dua kali.",
    "cap": "Paling lambat: *2×!*",
    "kunci": [
     "lambat"
    ]
   },
   {
-   "id": "x1",
+   "id": "p5",
    "gap": 0.3,
-   "style": "clear explainer, fascinated",
-   "text": "Detak lambat bikin oksigennya hemat, jadi dia kuat menyelam lama.",
-   "cap": "Lambat = *hemat oksigen*",
+   "style": "awed, slow",
+   "text": "Artinya, jeda antar detak bisa sampai setengah menit.",
+   "cap": "Jeda antar detak: *± 30 detik*",
+   "kunci": [
+    "setengah menit"
+   ]
+  },
+  {
+   "id": "p6",
+   "gap": 0.2,
+   "style": "clear explainer",
+   "text": "Kenapa melambat? Supaya oksigen di tubuhnya hemat.",
+   "cap": "Lambat = *oksigen hemat*",
    "kunci": [
     "oksigen",
     "hemat"
    ]
   },
   {
-   "id": "x2",
-   "gap": 0.3,
-   "style": "energetic, building up",
-   "text": "Begitu naik buat napas, jantungnya ngebut, sampai tiga puluh tujuh kali semenit.",
-   "cap": "Di permukaan: ngebut sampai *37×*",
+   "id": "p7",
+   "gap": 0.2,
+   "style": "clear explainer",
+   "text": "Jadi dia kuat menyelam lebih lama.",
+   "cap": "Kuat menyelam *lebih lama*",
    "kunci": [
-    "napas",
-    "tiga puluh tujuh"
+    "lebih lama"
    ]
   },
   {
-   "id": "x3",
-   "gap": 0.5,
+   "id": "p8",
+   "gap": 0.2,
+   "style": "lively explainer",
+   "text": "Saat menerjang kawanan makanan, detaknya naik sebentar. Sekitar dua setengah kali lipat.",
+   "cap": "Saat menerjang makanan: naik *± 2,5×*",
+   "kunci": [
+    "naik",
+    "lipat"
+   ]
+  },
+  {
+   "id": "p9",
+   "gap": 0.9,
+   "style": "thoughtful explainer",
+   "text": "Peneliti menduga, pembuluh darah besarnya yang lentur, terus mendorong darah di sela detak.",
+   "cap": "Pembuluh besar yang *lentur* ikut mendorong",
+   "kunci": [
+    "pembuluh",
+    "lentur"
+   ]
+  },
+  {
+   "id": "s1",
+   "gap": 0.2,
+   "style": "curious, building",
+   "text": "Lalu, apa yang terjadi saat dia naik untuk bernapas?",
+   "cap": "Saat naik untuk *bernapas?*",
+   "kunci": [
+    "bernapas"
+   ]
+  },
+  {
+   "id": "s2",
+   "gap": 0.2,
+   "style": "energetic, building up",
+   "text": "Jantungnya ngebut. Sampai sekitar tiga puluh tujuh kali semenit.",
+   "cap": "Ngebut sampai *± 37×*",
+   "kunci": [
+    "ngebut"
+   ]
+  },
+  {
+   "id": "s3",
+   "gap": 0.3,
+   "style": "clear explainer",
+   "text": "Supaya oksigen baru cepat tersebar ke seluruh badan.",
+   "cap": "Oksigen baru *cepat tersebar*",
+   "kunci": [
+    "oksigen",
+    "seluruh badan"
+   ]
+  },
+  {
+   "id": "s4",
+   "gap": 0.4,
    "style": "amazed, admiring, clear payoff",
    "text": "Jadi itu jawabannya: jantung raksasa ini jago ngerem, dan jago ngegas.",
    "cap": "Jawabannya: jago *ngerem* & jago *ngegas*",
@@ -163,43 +390,115 @@
    ]
   },
   {
-   "id": "e1",
-   "gap": 0.3,
-   "style": "calm, gentle, inviting",
-   "text": "Coba tahan napasmu sebentar, dan rasain detak jantungmu.",
-   "cap": "Tahan napas... *rasain detaknya*",
+   "id": "s5",
+   "gap": 0.2,
+   "style": "thoughtful, awed",
+   "text": "Peneliti bahkan menduga, jantung paus biru bekerja hampir di batas maksimal.",
+   "cap": "Jantungnya hampir di *batas maksimal*",
    "kunci": [
-    "tahan",
-    "napas"
+    "batas maksimal"
    ]
   },
   {
-   "id": "e2",
-   "gap": 0.5,
-   "style": "warm, reflective",
-   "text": "Tubuh kita juga punya rem kecil kayak gitu, walaupun nggak sehebat paus.",
-   "cap": "Tubuh kita juga punya *rem kecil*",
+   "id": "s6",
+   "gap": 0.9,
+   "style": "awed, slower",
+   "text": "Mungkin itu sebabnya, belum pernah ada hewan yang lebih besar dari paus biru.",
+   "cap": "Mungkin itu sebab tak ada yang *lebih besar*",
    "kunci": [
-    "tubuh",
-    "rem"
+    "lebih besar"
+   ]
+  },
+  {
+   "id": "s7",
+   "gap": 0.2,
+   "style": "warm, friendly",
+   "text": "Tubuh kita juga punya rem kecil seperti itu.",
+   "cap": "Kita juga punya *rem kecil*",
+   "kunci": [
+    "rem kecil"
+   ]
+  },
+  {
+   "id": "s8",
+   "gap": 0.2,
+   "style": "clear, gentle",
+   "text": "Saat wajah masuk air dingin dan napas ditahan, detak jantung kita ikut melambat.",
+   "cap": "Wajah di air dingin = *detak melambat*",
+   "kunci": [
+    "air dingin",
+    "melambat"
+   ]
+  },
+  {
+   "id": "s9",
+   "gap": 0.9,
+   "style": "warm, light",
+   "text": "Tapi jauh lebih kecil dibanding paus.",
+   "cap": "...tapi *jauh lebih kecil*",
+   "kunci": [
+    "lebih kecil"
+   ]
+  },
+  {
+   "id": "r1",
+   "gap": 0.5,
+   "style": "warm, reflective, slower",
+   "text": "Jadi, makin besar bukan berarti makin cepat. Kadang, pelan justru kunci bertahan.",
+   "cap": "Pelan justru *kunci bertahan*",
+   "kunci": [
+    "makin besar",
+    "bertahan"
    ]
   },
   {
    "id": "c1",
-   "gap": 0.25,
-   "style": "cheerful, inviting, friendly",
-   "text": "Kalau bisa menyelam bareng paus biru, kamu mau ngapain duluan? Tulis di komentar!",
-   "cap": "Menyelam bareng paus biru? *Tulis di komentar!*",
+   "gap": 0.2,
+   "style": "warm, inviting, friendly",
+   "text": "Nah, sekarang giliran kamu.",
+   "cap": "Sekarang *giliran kamu*",
+   "kunci": [
+    "giliran"
+   ]
+  },
+  {
+   "id": "c2",
+   "gap": 0.2,
+   "style": "playful, curious",
+   "text": "Tahan napas sepuluh detik, terus rasakan detak jantungmu.",
+   "cap": "Tahan napas *10 detik*...",
+   "kunci": [
+    "tahan napas",
+    "sepuluh detik"
+   ]
+  },
+  {
+   "id": "c3",
+   "gap": 0.2,
+   "style": "cheerful, inviting",
+   "text": "Terasa melambat, atau makin kencang? Tulis lambat atau kencang di komentar.",
+   "cap": "Tulis *\"lambat\"* atau *\"kencang\"* di komentar!",
    "kunci": [
     "komentar"
    ]
   },
   {
-   "id": "c2",
+   "id": "c4",
+   "gap": 0.2,
+   "style": "playful",
+   "text": "Aku penasaran, jantung siapa yang paling mirip paus.",
+   "cap": "Siapa yang paling *mirip paus?*",
+   "kunci": [
+    "penasaran",
+    "paus"
+   ]
+  },
+  {
+   "id": "c5",
    "gap": 0.45,
    "style": "friendly, warm",
-   "text": "Simpan video ini, biar bisa pamer ke teman.",
-   "cap": "*Simpan* biar bisa pamer ke teman",
+   "text": "Simpan video ini, biar kamu bisa pamer fakta paus biru ke teman.",
+   "cap": "*Simpan* buat pamer ke teman",
    "kunci": [
     "simpan"
    ]

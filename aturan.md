@@ -296,11 +296,56 @@ Setiap skrip **wajib** punya CTA dan **wajib** ditutup dengan kalimat khas **"Ex
 - ❌ "Explore More, Know More" diucapkan lalu masih ada kalimat lain sesudahnya
 - ❌ "Explore More, Know More bersama Adriy.Project!" (menambah kata & menyebut nama di akhir)
 
+## 12. Durasi & alur: masalah dibahas tuntas dulu, baru solusi (dari pemilik)
+
+Masukan pemilik: video terlalu cepat melompat ke penyelesaian, padahal pembahasan masalahnya belum selesai. Penonton butuh waktu untuk **mencerna** dulu.
+
+**Durasi minimal: 2 menit 43 detik (163 detik).** Durasi panjang diisi dengan **pembahasan yang lebih dalam**, bukan kalimat yang diulang-ulang atau jeda kosong.
+
+**Alur wajib & pembagian waktu (perkiraan):**
+| Bagian | Isi | Porsi |
+|---|---|---|
+| 1. Hook | 0–8 detik, aturan §3 | ± 5% |
+| 2. Masalah | Ceritakan masalahnya lewat **contoh nyata sehari-hari** (minimal 2 situasi berbeda), rasa yang muncul ("kok gini ya?"), dan **kenapa ini mengganggu**. Penonton harus mengangguk "iya, gue banget" | ± 25% |
+| 3. Dugaan umum | Apa yang biasanya orang kira / lakukan, dan **kenapa itu tidak berhasil** | ± 10% |
+| 4. Penyebab | Penjelasan ilmiah **langkah demi langkah**, satu ide per adegan, pakai perumpamaan sehari-hari. Bukti/penelitian disebut di sini. Momen "Adriy.Project" (§10) masuk di bagian ini | ± 30% |
+| 5. Solusi | Baru di sini trik/jawaban. Jelaskan **cara melakukannya** (langkah 1-2-3) dan contoh penerapannya | ± 20% |
+| 6. Rangkuman + CTA | Ulang inti dalam 1 kalimat, lalu CTA (§11) dan "Explore More, Know More" | ± 10% |
+
+**Larangan:**
+- Solusi/trik **tidak boleh** muncul sebelum bagian Masalah dan Penyebab selesai (paling cepat di **55–60% durasi**). Hook boleh *menjanjikan* jawaban, tapi tidak *menjelaskannya*.
+- Setiap bagian diberi **jeda napas** (0,5–1 detik) dan adegan berganti, supaya penonton sempat mencerna.
+- Satu kalimat = satu ide. Kalimat panjang dipecah.
+
+## 13. CTA yang bagus (ajakan di akhir, dari pemilik)
+
+CTA harus terasa seperti **ajakan ngobrol**, bukan perintah. Susunan (melengkapi §11):
+1. **Jembatan:** hubungkan isi video ke penonton secara pribadi ("Nah, sekarang giliran kamu.").
+2. **Pertanyaan yang gampang dijawab** dalam 1–3 kata atau angka, dan **memancing cerita** ("Kamu tim A atau tim B? Tulis A atau B di komentar!", "Berapa kali hari ini? Tulis angkanya!"). Beri **contoh jawaban** supaya penonton tidak ragu.
+3. **Alasan untuk menjawab:** "Aku penasaran siapa yang paling parah," "Jawaban paling lucu aku balas."
+4. **CTA kedua** (pilih satu): kirim ke teman yang **spesifik** ("teman yang paling sering…"), atau simpan **dengan alasan** ("simpan buat dicoba besok pagi"), atau ikuti **dengan janji** ("masih ada fakta aneh soal tubuhmu minggu depan").
+5. "Explore More, Know More."
+
+Contoh benar: "Nah, sekarang giliran kamu. Kamu tim ngapus chat, atau tim langsung kirim? Tulis 'hapus' atau 'kirim' di komentar. Aku penasaran mana yang lebih banyak. Terus, kirim video ini ke teman yang paling sering bales 'wkwk' doang."
+Contoh salah: "Tulis di komentar ya!" (tidak jelas apa yang ditulis); tiga perintah sekaligus.
+
+## 14. Ejaan untuk suara (supaya tidak salah ucap)
+
+Model suara bukan model khusus bahasa Indonesia, jadi beberapa tulisan salah dibaca. Aturan saat menulis naskah:
+- **Huruf "c"** sering dibaca "k" (cara → kara, chat → ket). Ikuti hasil tes di `projects/suara/ucapan.py` (kamus otomatis), dan sebisa mungkin pilih kata tanpa "c" yang rawan ("pesan" daripada "chat", "jalan" daripada "cara" bila maknanya sama).
+- **Singkatan & bahasa gaul ketik** ("wkwk", "otw", "btw") **tidak dibacakan apa adanya**. Tulis bentuk ucapannya ("ketawa ngakak", "we-ka-we-ka") atau tampilkan hanya sebagai teks di layar.
+- **Hindari kalimat yang bikin lidah belibet:** banyak konsonan berdekatan, kata asing berderet, atau kata mirip berulang ("cek chat", "ngunyah, nyanyi"). Ganti dengan kata yang lebih mudah diucapkan.
+- Kalimat maksimal **± 12 kata**. Kalimat panjang dipecah dua.
+- Setiap kalimat punya **kata kunci** yang wajib terdengar jelas (dicek otomatis dengan Whisper). Kalau gagal 4 kali, **ganti katanya**, jangan dipaksakan.
+
 ## Checklist sebelum video dianggap selesai
 
 - [ ] Topik memenuhi minimal 1 dari Tiga Tips (§0); tips yang dipenuhi & emosi inti disebut di laporan; tag emosi, gaya karakter & efek suara mengikuti emosi inti
 
 - [ ] Topik tidak ada di `projects/SUDAH-DIBUAT.md`
+- [ ] Durasi ≥ 2:43; alur §12 (masalah ± 25% → dugaan → penyebab → solusi baru di ≥ 55% durasi → rangkuman); setiap bagian ada jeda napas
+- [ ] CTA sesuai §13 (jembatan, pertanyaan mudah + contoh jawaban, alasan menjawab, CTA kedua yang spesifik)
+- [ ] Ejaan untuk suara sesuai §14 (huruf c, bahasa gaul, kalimat ≤ 12 kata, tidak belibet)
 - [ ] Tema sesuai urutan selang-seling §1 (urutan sesudah tema terakhir di Riwayat); jenis "Umum"/"Sehari-hari" berbeda dari video sebelumnya
 - [ ] Untuk tema umum: semua fakta & angka sudah dicek ke sumber
 - [ ] Judul spesifik, ≤ 10 kata, bukan "Tips/Cara…"

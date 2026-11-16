@@ -1,2 +1,17 @@
-{"nama": "paus-biru-tiktok", "musik": [{"file": "sketchbook-2024-03-06_02.ogg", "dari": "awal", "sampai": "f3", "gain": 1.0},
- {"file": "sketchbook-2024-09-18.ogg", "dari": "x1", "sampai": "akhir", "gain": 0.9}]}
+{
+ "nama": "paus-biru-tiktok",
+ "musik": [
+  {
+   "file": "sketchbook-2024-03-06_02.ogg",
+   "dari": "awal",
+   "sampai": "p5",
+   "gain": 1.0
+  },
+  {
+   "file": "sketchbook-2024-09-18.ogg",
+   "dari": "p6",
+   "sampai": "akhir",
+   "gain": 0.9
+  }
+ ]
+}

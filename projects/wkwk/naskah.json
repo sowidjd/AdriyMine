@@ -4,10 +4,10 @@
  "lines": [
   {
    "id": "h1",
-   "gap": 0.15,
+   "gap": 0.2,
    "style": "firm, teasing, punchy",
-   "text": "Berhenti ngapus chat tiga paragrafmu.",
-   "cap": "Berhenti hapus chat *3 paragraf*",
+   "text": "Berhenti ngapus pesan tiga paragrafmu.",
+   "cap": "Berhenti hapus pesan *3 paragraf*",
    "kunci": [
     "berhenti",
     "paragraf"
@@ -15,84 +15,283 @@
   },
   {
    "id": "h2",
-   "gap": 0.15,
-   "style": "playful, building suspense",
-   "text": "Kamu ngira separuh orang bakal merhatiin. Padahal, cuma sekitar satu dari lima.",
-   "cap": "Dikira *separuh*. Aslinya *1 dari 5*.",
+   "gap": 0.2,
+   "style": "curious, intriguing",
+   "text": "Ada alasan kenapa kamu selalu ragu sebelum kirim.",
+   "cap": "Ada *alasan* kamu selalu ragu",
    "kunci": [
-    "separuh",
-    "satu dari lima"
+    "alasan",
+    "ragu"
    ]
   },
   {
    "id": "h3",
-   "gap": 0.4,
-   "style": "curious, confident",
-   "text": "Kok bisa? Ada penelitiannya.",
-   "cap": "Kok bisa? *Ada penelitiannya.*",
+   "gap": 0.9,
+   "style": "playful, confident",
+   "text": "Dan alasannya bukan karena kamu lebay.",
+   "cap": "...dan *bukan* karena lebay",
    "kunci": [
-    "penelitian"
+    "lebay"
    ]
   },
   {
-   "id": "k1",
-   "gap": 0.15,
-   "style": "comedic, fast, relatable",
-   "text": "Kamu pasti pernah. Ngetik panjang, dibaca ulang, dihapus semua.",
-   "cap": "Ngetik panjang... *hapus semua*",
+   "id": "m1",
+   "gap": 0.2,
+   "style": "friendly storytelling, slow",
+   "text": "Coba ingat-ingat.",
+   "cap": "Coba ingat-ingat...",
    "kunci": [
-    "pernah",
+    "ingat"
+   ]
+  },
+  {
+   "id": "m2",
+   "gap": 0.2,
+   "style": "storytelling, soft",
+   "text": "Malam-malam, kamu mau balas pesan dari gebetan.",
+   "cap": "Malam-malam, balas pesan *gebetan*",
+   "kunci": [
+    "malam",
+    "gebetan"
+   ]
+  },
+  {
+   "id": "m3",
+   "gap": 0.2,
+   "style": "storytelling, careful",
+   "text": "Kamu ketik panjang, rapi, pakai titik koma segala.",
+   "cap": "Ketik panjang, *rapi*",
+   "kunci": [
     "panjang",
-    "dihapus"
+    "rapi"
    ]
   },
   {
-   "id": "k1b",
-   "gap": 0.35,
-   "style": "deadpan, comedic timing",
-   "text": "Terus yang dikirim cuma: wkwk.",
-   "cap": "Yang dikirim: *wkwk.*"
-  },
-  {
-   "id": "k2",
-   "gap": 0.35,
-   "style": "dramatic, slower, theatrical",
-   "text": "Rasanya kayak lagi di panggung, disorot lampu, dan semua orang ngeliatin.",
-   "cap": "Kayak *disorot lampu panggung*",
-   "kunci": [
-    "panggung",
-    "lampu"
-   ]
-  },
-  {
-   "id": "e1",
+   "id": "m4",
    "gap": 0.3,
+   "style": "hesitant, doubtful",
+   "text": "Terus kamu baca lagi. Kok kayak kepanjangan, ya?",
+   "cap": "\"Kok kepanjangan, ya?\"",
+   "kunci": [
+    "kepanjangan"
+   ]
+  },
+  {
+   "id": "m5",
+   "gap": 0.25,
+   "style": "anxious, quick",
+   "text": "Nanti dikira lebay? Nanti dia ilfil?",
+   "cap": "Dikira *lebay?* Dia *ilfil?*",
+   "kunci": [
+    "lebay"
+   ]
+  },
+  {
+   "id": "m6",
+   "gap": 0.2,
+   "style": "frustrated, rhythmic",
+   "text": "Hapus. Ketik ulang. Hapus lagi.",
+   "cap": "Hapus. Ketik. *Hapus lagi.*",
+   "kunci": [
+    "hapus",
+    "ketik"
+   ]
+  },
+  {
+   "id": "m7",
+   "gap": 0.9,
+   "style": "deadpan, comedic timing",
+   "text": "Akhirnya yang terkirim cuma: wkwk.",
+   "cap": "Yang terkirim: *wkwk*"
+  },
+  {
+   "id": "m8",
+   "gap": 0.2,
+   "style": "storytelling, lively",
+   "text": "Atau di grup kelas.",
+   "cap": "Atau di *grup kelas*",
+   "kunci": [
+    "grup",
+    "kelas"
+   ]
+  },
+  {
+   "id": "m9",
+   "gap": 0.2,
+   "style": "storytelling, worried",
+   "text": "Kamu mau nanya soal tugas, tapi takut dikira nggak nyimak.",
+   "cap": "Takut dikira *nggak nyimak*",
+   "kunci": [
+    "tugas",
+    "takut"
+   ]
+  },
+  {
+   "id": "m10",
+   "gap": 0.2,
+   "style": "tense, slower",
+   "text": "Jempol sudah di tombol kirim.",
+   "cap": "Jempol di tombol *kirim*...",
+   "kunci": [
+    "jempol",
+    "kirim"
+   ]
+  },
+  {
+   "id": "m11",
+   "gap": 0.3,
+   "style": "sad, comedic",
+   "text": "Lalu kamu hapus, dan pura-pura nggak jadi nanya.",
+   "cap": "...lalu *pura-pura* nggak jadi nanya",
+   "kunci": [
+    "pura-pura"
+   ]
+  },
+  {
+   "id": "m12",
+   "gap": 0.3,
+   "style": "dramatic, slower",
+   "text": "Rasanya kayak semua orang bakal baca pesanmu pakai kaca pembesar.",
+   "cap": "Kayak dibaca pakai *kaca pembesar*",
+   "kunci": [
+    "semua orang",
+    "pembesar"
+   ]
+  },
+  {
+   "id": "m13",
+   "gap": 0.9,
+   "style": "sympathetic, tired",
+   "text": "Capek, kan? Sepuluh menit habis, cuma buat satu pesan.",
+   "cap": "*10 menit* buat 1 pesan",
+   "kunci": [
+    "capek",
+    "sepuluh menit"
+   ]
+  },
+  {
+   "id": "d1",
+   "gap": 0.2,
+   "style": "thoughtful, explaining",
+   "text": "Biasanya kita mikir, ini karena kurang percaya diri.",
+   "cap": "Dikira: *kurang percaya diri*",
+   "kunci": [
+    "percaya diri"
+   ]
+  },
+  {
+   "id": "d2",
+   "gap": 0.2,
+   "style": "thoughtful",
+   "text": "Atau karena kita terlalu baper.",
+   "cap": "Atau terlalu *baper*",
+   "kunci": [
+    "baper"
+   ]
+  },
+  {
+   "id": "d3",
+   "gap": 0.2,
+   "style": "cheerful then flat",
+   "text": "Terus kita semangatin diri sendiri: udah, bodo amat!",
+   "cap": "\"Udah, *bodo amat!*\"",
+   "kunci": [
+    "bodo amat"
+   ]
+  },
+  {
+   "id": "d4",
+   "gap": 0.3,
+   "style": "deflated, comedic",
+   "text": "Tapi besoknya, kejadian lagi.",
+   "cap": "Besoknya: *kejadian lagi*",
+   "kunci": [
+    "besoknya"
+   ]
+  },
+  {
+   "id": "d5",
+   "gap": 0.9,
+   "style": "firm, mysterious",
+   "text": "Karena masalahnya bukan di situ.",
+   "cap": "Masalahnya *bukan di situ*",
+   "kunci": [
+    "masalahnya"
+   ]
+  },
+  {
+   "id": "p1",
+   "gap": 0.2,
    "style": "clear explainer, intrigued",
-   "text": "Ahli psikologi nyebut perasaan ini spotlight effect. Efek lampu sorot.",
+   "text": "Ahli psikologi punya nama untuk perasaan ini: spotlight effect.",
    "cap": "Namanya: *spotlight effect*",
    "kunci": [
     "psikologi"
    ]
   },
   {
-   "id": "e2",
+   "id": "p2",
    "gap": 0.2,
-   "style": "storytelling, amused",
-   "text": "Di Universitas Cornell, mahasiswa disuruh pakai kaos yang bikin malu, terus masuk ke ruangan penuh orang.",
-   "cap": "Cornell: pakai *kaos memalukan* ke ruangan ramai",
+   "style": "clear, warm",
+   "text": "Efek lampu sorot. Kita merasa ada lampu panggung yang terus menyorot kita.",
+   "cap": "Efek *lampu sorot*",
    "kunci": [
-    "kaos",
-    "ruangan"
+    "lampu",
+    "panggung"
    ]
   },
   {
-   "id": "e3",
+   "id": "p3",
+   "gap": 0.2,
+   "style": "storytelling, curious",
+   "text": "Tahun dua ribu, peneliti di Universitas Cornell bikin percobaan unik.",
+   "cap": "2000: percobaan di *Universitas Cornell*",
+   "kunci": [
+    "tahun dua ribu",
+    "percobaan"
+   ]
+  },
+  {
+   "id": "p4",
+   "gap": 0.2,
+   "style": "storytelling, amused",
+   "text": "Mahasiswa disuruh pakai kaos bergambar penyanyi jadul yang bikin malu.",
+   "cap": "Pakai *kaos memalukan*",
+   "kunci": [
+    "kaos",
+    "malu"
+   ]
+  },
+  {
+   "id": "p5",
+   "gap": 0.2,
+   "style": "storytelling",
+   "text": "Lalu mereka masuk ke ruangan yang penuh orang.",
+   "cap": "Masuk ke *ruangan ramai*",
+   "kunci": [
+    "ruangan",
+    "penuh"
+   ]
+  },
+  {
+   "id": "p6",
+   "gap": 0.2,
+   "style": "curious, asking",
+   "text": "Setelah keluar, mereka ditanya: berapa orang yang lihat kaosmu?",
+   "cap": "\"Berapa yang *lihat kaosmu?*\"",
+   "kunci": [
+    "berapa",
+    "kaosmu"
+   ]
+  },
+  {
+   "id": "p7",
    "gap": 0.9,
    "style": "playful suspense",
-   "text": "Mereka nebak, separuh ruangan bakal ngeliatin kaosnya.",
-   "cap": "Tebakan mereka: *separuh* ruangan lihat",
+   "text": "Tebakan mereka: sekitar separuh ruangan.",
+   "cap": "Tebakan: *separuh* ruangan",
    "kunci": [
-    "nebak",
+    "tebakan",
     "separuh"
    ]
   },
@@ -111,67 +310,218 @@
    "gap": 0.35,
    "style": "amused, laughing a little",
    "text": "kami ketawa sendiri.",
-   "cap": "...kami *ketawa sendiri.*",
+   "cap": "...kami *ketawa sendiri*",
    "kunci": [
     "ketawa"
    ]
   },
   {
-   "id": "e4",
-   "gap": 0.35,
+   "id": "p8",
+   "gap": 0.4,
    "style": "firm reveal, emphatic",
    "text": "Yang beneran sadar, cuma sekitar satu dari lima orang.",
-   "cap": "Aslinya: cuma sekitar *1 dari 5* orang",
+   "cap": "Aslinya: *± 1 dari 5* orang",
    "kunci": [
     "satu dari lima"
    ]
   },
   {
-   "id": "e5",
-   "gap": 0.45,
-   "style": "warm, reassuring, kind",
-   "text": "Soalnya, orang lain sibuk mikirin dirinya sendiri. Sama kayak kamu.",
-   "cap": "Orang lain *sibuk mikirin dirinya sendiri*",
+   "id": "p9",
+   "gap": 0.2,
+   "style": "curious, thoughtful",
+   "text": "Kenapa tebakannya meleset jauh?",
+   "cap": "Kenapa *meleset jauh?*",
+   "kunci": [
+    "meleset"
+   ]
+  },
+  {
+   "id": "p10",
+   "gap": 0.2,
+   "style": "clear explainer, calm",
+   "text": "Karena kita merasakan diri kita dari dalam, setiap detik.",
+   "cap": "Kita merasakan diri *dari dalam*",
+   "kunci": [
+    "dari dalam",
+    "setiap detik"
+   ]
+  },
+  {
+   "id": "p11",
+   "gap": 0.2,
+   "style": "clear explainer",
+   "text": "Jadi kita kira, orang lain juga melihat kita sejelas itu.",
+   "cap": "Dikira orang lain lihat *sejelas itu*",
+   "kunci": [
+    "orang lain",
+    "sejelas"
+   ]
+  },
+  {
+   "id": "p12",
+   "gap": 0.3,
+   "style": "warm, reassuring",
+   "text": "Padahal, mereka sibuk dengan pikirannya sendiri.",
+   "cap": "Padahal mereka *sibuk sendiri*",
    "kunci": [
     "sibuk",
     "sendiri"
    ]
   },
   {
-   "id": "s1",
-   "gap": 0.35,
-   "style": "energetic, confident, clear",
-   "text": "Jadi ini triknya: cukup cek chat kamu sekali. Kalau nggak ada yang nyakitin, langsung kirim.",
-   "cap": "Triknya: *cek sekali*. Aman? *Kirim.*",
+   "id": "p13",
+   "gap": 0.2,
+   "style": "explainer, interested",
+   "text": "Tim yang sama juga nemu hal mirip soal rasa gugup.",
+   "cap": "Hal mirip: rasa *gugup*",
    "kunci": [
-    "triknya",
-    "cek",
-    "sekali",
-    "kirim"
+    "gugup"
+   ]
+  },
+  {
+   "id": "p14",
+   "gap": 0.9,
+   "style": "warm, reassuring",
+   "text": "Kita yakin gugup kita kelihatan jelas. Padahal, nggak sejelas itu.",
+   "cap": "Gugupmu *nggak sejelas itu*",
+   "kunci": [
+    "gugup",
+    "sejelas"
+   ]
+  },
+  {
+   "id": "s1",
+   "gap": 0.25,
+   "style": "energetic, upbeat",
+   "text": "Terus, gimana biar nggak ngapus pesan terus?",
+   "cap": "Terus, *gimana?*",
+   "kunci": [
+    "gimana",
+    "pesan"
    ]
   },
   {
    "id": "s2",
+   "gap": 0.2,
+   "style": "clear, confident",
+   "text": "Langkah pertama: ingat efek lampu sorot ini.",
+   "cap": "1. Ingat *efek lampu sorot*",
+   "kunci": [
+    "langkah pertama",
+    "lampu sorot"
+   ]
+  },
+  {
+   "id": "s3",
+   "gap": 0.3,
+   "style": "clear explainer, encouraging",
+   "text": "Penelitian tahun dua ribu tiga nemu: orang yang tahu soal efek ini, lebih tenang saat bicara di depan umum.",
+   "cap": "Tahu efeknya = *lebih tenang*",
+   "kunci": [
+    "dua ribu tiga",
+    "tenang"
+   ]
+  },
+  {
+   "id": "s4",
+   "gap": 0.2,
+   "style": "clear, confident",
+   "text": "Langkah kedua: baca pesanmu satu kali saja.",
+   "cap": "2. Baca *1 kali* saja",
+   "kunci": [
+    "langkah kedua",
+    "satu kali"
+   ]
+  },
+  {
+   "id": "s5",
+   "gap": 0.2,
+   "style": "clear, gentle",
+   "text": "Tanya ke diri sendiri: ada kata yang nyakitin, nggak?",
+   "cap": "Ada kata yang *nyakitin?*",
+   "kunci": [
+    "nyakitin"
+   ]
+  },
+  {
+   "id": "s6",
+   "gap": 0.3,
+   "style": "upbeat, decisive",
+   "text": "Kalau nggak ada, langsung kirim.",
+   "cap": "Nggak ada? *Kirim!*",
+   "kunci": [
+    "langsung kirim"
+   ]
+  },
+  {
+   "id": "s7",
+   "gap": 0.2,
+   "style": "clear, playful",
+   "text": "Langkah ketiga: lihat lagi besoknya.",
+   "cap": "3. Lihat *besoknya*",
+   "kunci": [
+    "langkah ketiga",
+    "besoknya"
+   ]
+  },
+  {
+   "id": "s8",
+   "gap": 0.9,
+   "style": "playful, knowing",
+   "text": "Ada yang ngebahas pesanmu? Biasanya sih, nggak ada.",
+   "cap": "Ada yang bahas? *Biasanya nggak.*",
+   "kunci": [
+    "ngebahas"
+   ]
+  },
+  {
+   "id": "r1",
    "gap": 0.5,
-   "style": "comedic, cheeky",
-   "text": "Paling-paling dibales: wkwk.",
-   "cap": "Paling dibales: *wkwk*"
+   "style": "warm, reflective, slower",
+   "text": "Jadi ingat ya: lampu sorot itu, cuma ada di kepala kita.",
+   "cap": "Lampu sorot itu *cuma di kepala kita*",
+   "kunci": [
+    "lampu sorot",
+    "kepala"
+   ]
   },
   {
    "id": "c1",
-   "gap": 0.25,
-   "style": "cheerful, inviting, friendly",
-   "text": "Ngaku deh, hari ini udah ngehapus chat berapa kali? Tulis angkanya di komentar!",
-   "cap": "Hari ini hapus chat berapa kali? *Tulis di komentar!*",
+   "gap": 0.2,
+   "style": "warm, inviting, friendly",
+   "text": "Nah, sekarang giliran kamu.",
+   "cap": "Sekarang *giliran kamu*",
    "kunci": [
-    "komentar"
+    "giliran"
    ]
   },
   {
    "id": "c2",
+   "gap": 0.2,
+   "style": "playful, curious",
+   "text": "Kamu tim ngapus pesan, atau tim langsung kirim?",
+   "cap": "Tim *hapus* atau tim *kirim?*",
+   "kunci": [
+    "tim",
+    "kirim"
+   ]
+  },
+  {
+   "id": "c3",
+   "gap": 0.2,
+   "style": "cheerful, inviting",
+   "text": "Tulis hapus atau kirim di komentar. Aku penasaran, mana yang lebih banyak.",
+   "cap": "Tulis *\"hapus\"* atau *\"kirim\"* di komentar!",
+   "kunci": [
+    "komentar",
+    "penasaran"
+   ]
+  },
+  {
+   "id": "c4",
    "gap": 0.45,
    "style": "friendly, playful",
-   "text": "Kirim ke teman yang suka bales wkwk doang.",
+   "text": "Terus kirim video ini ke teman yang paling sering bales wkwk doang.",
    "cap": "Kirim ke teman yang suka bales *wkwk*",
    "kunci": [
     "teman"

@@ -1,0 +1,188 @@
+{
+ "judul": "Ngetik 3 paragraf, dihapus, kirim \"wkwk\"",
+ "lead": 0.3,
+ "lines": [
+  {
+   "id": "h1",
+   "gap": 0.15,
+   "style": "firm, teasing, punchy",
+   "text": "Berhenti ngapus chat tiga paragrafmu.",
+   "cap": "Berhenti hapus chat *3 paragraf*",
+   "kunci": [
+    "berhenti",
+    "paragraf"
+   ]
+  },
+  {
+   "id": "h2",
+   "gap": 0.15,
+   "style": "playful, building suspense",
+   "text": "Kamu ngira separuh orang bakal merhatiin. Padahal, cuma sekitar satu dari lima.",
+   "cap": "Dikira *separuh*. Aslinya *1 dari 5*.",
+   "kunci": [
+    "separuh",
+    "satu dari lima"
+   ]
+  },
+  {
+   "id": "h3",
+   "gap": 0.4,
+   "style": "curious, confident",
+   "text": "Kok bisa? Ada penelitiannya.",
+   "cap": "Kok bisa? *Ada penelitiannya.*",
+   "kunci": [
+    "penelitian"
+   ]
+  },
+  {
+   "id": "k1",
+   "gap": 0.15,
+   "style": "comedic, fast, relatable",
+   "text": "Kamu pasti pernah. Ngetik panjang, dibaca ulang, dihapus semua.",
+   "cap": "Ngetik panjang... *hapus semua*",
+   "kunci": [
+    "pernah",
+    "panjang",
+    "dihapus"
+   ]
+  },
+  {
+   "id": "k1b",
+   "gap": 0.35,
+   "style": "deadpan, comedic timing",
+   "text": "Terus yang dikirim cuma: wkwk.",
+   "cap": "Yang dikirim: *wkwk.*"
+  },
+  {
+   "id": "k2",
+   "gap": 0.35,
+   "style": "dramatic, slower, theatrical",
+   "text": "Rasanya kayak lagi di panggung, disorot lampu, dan semua orang ngeliatin.",
+   "cap": "Kayak *disorot lampu panggung*",
+   "kunci": [
+    "panggung",
+    "lampu"
+   ]
+  },
+  {
+   "id": "e1",
+   "gap": 0.3,
+   "style": "clear explainer, intrigued",
+   "text": "Ahli psikologi nyebut perasaan ini spotlight effect. Efek lampu sorot.",
+   "cap": "Namanya: *spotlight effect*",
+   "kunci": [
+    "psikologi"
+   ]
+  },
+  {
+   "id": "e2",
+   "gap": 0.2,
+   "style": "storytelling, amused",
+   "text": "Di Universitas Cornell, mahasiswa disuruh pakai kaos yang bikin malu, terus masuk ke ruangan penuh orang.",
+   "cap": "Cornell: pakai *kaos memalukan* ke ruangan ramai",
+   "kunci": [
+    "kaos",
+    "ruangan"
+   ]
+  },
+  {
+   "id": "e3",
+   "gap": 0.9,
+   "style": "playful suspense",
+   "text": "Mereka nebak, separuh ruangan bakal ngeliatin kaosnya.",
+   "cap": "Tebakan mereka: *separuh* ruangan lihat",
+   "kunci": [
+    "nebak",
+    "separuh"
+   ]
+  },
+  {
+   "id": "a1",
+   "gap": 0.9,
+   "style": "warm, proud, slower, clear emphasis on the channel name",
+   "text": "Waktu kami di Adriy.Project baca hasilnya...",
+   "cap": "Waktu kami di *Adriy.Project* baca hasilnya...",
+   "kunci": [
+    "titik"
+   ]
+  },
+  {
+   "id": "a1b",
+   "gap": 0.35,
+   "style": "amused, laughing a little",
+   "text": "kami ketawa sendiri.",
+   "cap": "...kami *ketawa sendiri.*",
+   "kunci": [
+    "ketawa"
+   ]
+  },
+  {
+   "id": "e4",
+   "gap": 0.35,
+   "style": "firm reveal, emphatic",
+   "text": "Yang beneran sadar, cuma sekitar satu dari lima orang.",
+   "cap": "Aslinya: cuma sekitar *1 dari 5* orang",
+   "kunci": [
+    "satu dari lima"
+   ]
+  },
+  {
+   "id": "e5",
+   "gap": 0.45,
+   "style": "warm, reassuring, kind",
+   "text": "Soalnya, orang lain sibuk mikirin dirinya sendiri. Sama kayak kamu.",
+   "cap": "Orang lain *sibuk mikirin dirinya sendiri*",
+   "kunci": [
+    "sibuk",
+    "sendiri"
+   ]
+  },
+  {
+   "id": "s1",
+   "gap": 0.35,
+   "style": "energetic, confident, clear",
+   "text": "Jadi ini triknya: cukup cek chat kamu sekali. Kalau nggak ada yang nyakitin, langsung kirim.",
+   "cap": "Triknya: *cek sekali*. Aman? *Kirim.*",
+   "kunci": [
+    "triknya",
+    "cek",
+    "sekali",
+    "kirim"
+   ]
+  },
+  {
+   "id": "s2",
+   "gap": 0.5,
+   "style": "comedic, cheeky",
+   "text": "Paling-paling dibales: wkwk.",
+   "cap": "Paling dibales: *wkwk*"
+  },
+  {
+   "id": "c1",
+   "gap": 0.25,
+   "style": "cheerful, inviting, friendly",
+   "text": "Ngaku deh, hari ini udah ngehapus chat berapa kali? Tulis angkanya di komentar!",
+   "cap": "Hari ini hapus chat berapa kali? *Tulis di komentar!*",
+   "kunci": [
+    "komentar"
+   ]
+  },
+  {
+   "id": "c2",
+   "gap": 0.45,
+   "style": "friendly, playful",
+   "text": "Kirim ke teman yang suka bales wkwk doang.",
+   "cap": "Kirim ke teman yang suka bales *wkwk*",
+   "kunci": [
+    "teman"
+   ]
+  },
+  {
+   "id": "z",
+   "gap": 0.0,
+   "style": "warm, confident, gentle smile in the voice, medium tempo",
+   "text": "Explore More, Know More.",
+   "cap": ""
+  }
+ ]
+}

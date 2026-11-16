@@ -10,7 +10,9 @@ HURUF = json.load(open(os.path.join(HERE, 'kamus_huruf.json')))   # A -> "A", B 
 # kata yang terbukti sering salah ucap -> ejaan bantu yang berhasil (lihat projects/bangun-pagi/perbaiki_ucapan.py)
 KATA = {'Adriy.Project': 'Adri titik Project', 'Whoosh': 'Wush', 'WHOOSH': 'Wush', 'alarm': 'alarrm', 'Alarm': 'Alarrm', 'snooze': 'snuz', 'Snooze': 'Snuz', 'Cahaya': 'Cahaaya', 'cahaya': 'cahaaya',
         'weekend': 'wiken', 'Weekend': 'Wiken', 'Clawd': 'Klod',
-        'Explore More, Know More': 'Eksplor mor, nou mor', 'wkwk': 'wekwek', 'spotlight effect': 'spotlait efek', 'earworm': 'irworm', 'Reading': 'Reding', 'chat': 'cet', 'Cornell': 'Kornel'}
+        'Explore More, Know More': 'Eksplor mor, nou mor', 'wkwk': 'wakakak', 'spotlight effect': 'spotlait efek', 'earworm': 'irworm', 'Reading': 'Reding', 'Cornell': 'Kornel'}
+
+ASING = {'Project', 'Cornell', 'effect', 'Explore'}
 
 def eja(singkatan):
     """'HP' -> 'Ha Pé', 'AI' -> 'Aa I' : singkatan dibaca per huruf dengan ejaan yang sudah lolos pelatihan."""
@@ -18,6 +20,9 @@ def eja(singkatan):
 
 def siapkan(teks, baca_huruf=True):
     for k, v in KATA.items(): teks = re.sub(rf'(?<![\w.]){re.escape(k)}(?![\w])', v, teks)
+    # huruf c Indonesia = bunyi "ch": model membaca "c" sebagai "k" (cara -> kara). Hasil tes Whisper: "chara", "chacing", "chepat" diucapkan benar.
+    # Kata asing yang sudah diubah kamus (Project, dll.) tidak disentuh.
+    teks = re.sub(r"[A-Za-z]+", lambda m: m.group() if m.group() in ASING else re.sub(r'c(?!h)', 'ch', re.sub(r'C(?!h)', 'Ch', m.group())), teks)
     if baca_huruf:   # kata kapital 2-5 huruf tanpa vokal di tengah dianggap singkatan (HP, TV, AI, DM)
         teks = re.sub(r'\b[A-Z]{2,5}\b', lambda m: eja(m.group()), teks)
     return teks
