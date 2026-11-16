@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-560 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+576 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -39,12 +39,21 @@
 | `basketball-falling-indoor` | 3.1 s | bola basket jatuh memantul |
 | `bass-rumble-hum` | 7.0 s | gemuruh bass, tegang |
 | `beach-waves-with-children-ambience` | 52.0 s (suasana/loop) | ombak pantai + anak-anak bermain, ceria |
+| `bicycle-pedal-accelerating` | 6.09 s | mengayuh makin cepat |
+| `bicycle-pedals` | 3.07 s | pedal sepeda |
 | `big-army-crowd-marching` | 8.65 s | pasukan berbaris, kekuatan massa, kompak |
 | `big-crowd-talking-loop` | 59.74 s (suasana/loop) | keramaian orang mengobrol (latar) |
 | `big-fire-burning` | 3.51 s (suasana/loop) | api besar berkobar (latar) |
 | `big-fire-flame-burning` | 8.27 s (suasana/loop) | nyala api besar (latar) |
 | `big-loving-kiss` | 1.15 s | cium besar penuh sayang |
 | `big-wild-lion-growl` | 2.66 s | auman/geraman singa, kekuatan, raja hutan |
+| `bike-bell-ring` | 2.84 s | bel sepeda berdering |
+| `bike-magical-bell` | 2.15 s | bel sepeda ajaib, ide/keajaiban kecil |
+| `bike-passing-by-a-gravel-road` | 4.74 s | sepeda lewat di kerikil |
+| `bike-pedalling-on-street-loop` | 42.35 s (suasana/loop) | mengayuh sepeda di jalan (loop) |
+| `bike-pedalling-on-the-road` | 46.49 s | mengayuh sepeda di jalan |
+| `bike-ring-bell` | 2.3 s | bel sepeda "kring kring" |
+| `bike-wheel-spinning` | 14.95 s | roda sepeda berputar |
 | `bird-singing-and-flapping-wings` | 3.67 s | burung berkicau & mengepak sayap (dekat) |
 | `birds-chirping-in-the-jungle` | 6.69 s (suasana/loop) | kicau burung di hutan tropis |
 | `birds-chirping-near-the-river` | 90.13 s (suasana/loop) | pagi di sungai, alam damai |
@@ -164,6 +173,8 @@
 | `falling-on-tree-leaves` | 0.95 s | jatuh ke tumpukan daun |
 | `falling-on-undergrowth` | 0.52 s | jatuh ke semak |
 | `farm-pig-drinking-water` | 9.84 s (suasana/loop) | babi minum air (pertimbangkan penonton) |
+| `fast-bike-passing-by` | 1.76 s | sepeda melintas cepat |
+| `fast-bike-wheel-spin` | 3.36 s | roda sepeda berputar cepat |
 | `fast-ignition-fire` | 4.93 s | api menyala cepat, "wush!", semangat membara |
 | `fast-jet-engine-flying-over` | 16.27 s | jet melintas cepat, "ngeeeng" |
 | `fast-rocket-whoosh` | 4.75 s | roket, melesat sangat cepat |
@@ -184,6 +195,7 @@
 | `flirtatious-double-kiss` | 0.56 s | cium genit dua kali, "muach muach" |
 | `flock-of-wild-geese` | 5.22 s (suasana/loop) | kawanan burung, alam liar, migrasi |
 | `fly-buzz-trapped-in-a-window` | 8.16 s (suasana/loop) | lalat terjebak di jendela, mengganggu, bosan |
+| `flying-space-bike` | 4.34 s | sepeda terbang sci-fi |
 | `football-team-applause` | 4.68 s | tepuk tangan tim sepak bola, sportif |
 | `footsteps-in-a-muddy-puddle` | 3.75 s | langkah di genangan lumpur, cipratan |
 | `footsteps-in-a-tunnel-loop` | 8.14 s | langkah bergema di terowongan, misterius |
@@ -292,6 +304,7 @@
 | `long-loving-kiss` | 1.05 s | cium panjang penuh sayang |
 | `lose-life-falling` | 3.52 s | kehilangan nyawa ala game, gagal |
 | `lost-kid-sobbing` | 1.82 s | anak menangis tersedu, sedih/haru |
+| `loud-bike-bell` | 3.5 s | bel sepeda keras |
 | `loud-children-crowd-outdoors` | 35.41 s (suasana/loop) | anak-anak ramai di luar, jam istirahat sekolah (latar) |
 | `loud-creature-breathing` | 1.9 s | napas makhluk besar, seram |
 | `low-airplane-flying-over` | 10.42 s | pesawat terbang rendah melintas |
@@ -350,6 +363,7 @@
 | `night-vision-starting` | 1.15 s | kacamata malam/teknologi menyala, mulai memindai |
 | `noise-of-spinning-rattle` | 7.28 s | kerincing berputar (variasi) |
 | `noisy-metal-falling` | 1.23 s | logam berisik berjatuhan |
+| `notification-bike-bell` | 1.09 s | bel sepeda sebagai notifikasi |
 | `old-subway-train-arrives` | 18.77 s (suasana/loop) | kereta tua datang, stasiun |
 | `one-clap` | 0.2 s | satu tepukan, "oke!" / ide |
 | `one-man-clapping` | 3.0 s | satu orang bertepuk tangan, sarkas/canggung |
@@ -442,6 +456,7 @@
 | `sleeping-mouth-smacking-lips` | 2.81 s | orang tidur berdecap, lucu, ngantuk |
 | `slow-tram-passing` | 12.28 s | trem/kereta lambat lewat |
 | `small-audience-weak-applause` | 7.55 s | tepuk tangan lemah/sepi, canggung, gagal lucu |
+| `small-bike-bell-ding` | 3.25 s | bel sepeda kecil "ting" |
 | `small-cricket-screech` | 1.42 s | jangkrik kecil berderik (dekat) |
 | `small-crowd-clapping` | 15.0 s | kerumunan kecil bertepuk tangan |
 | `small-crowd-laugh-and-applause` | 5.76 s | tertawa + tepuk tangan, lucu yang berhasil |
@@ -535,6 +550,7 @@
 | `vibrating-wind-passing-by` | 5.02 s (suasana/loop) | angin bergetar melintas |
 | `video-game-helicopter` | 3.73 s | helikopter ala video game |
 | `vintage-airplane-landing` | 26.89 s | pesawat tua mendarat, sejarah |
+| `vintage-bicycle-horn` | 2.93 s | klakson sepeda jadul "tet-tet" (bola karet), lucu |
 | `vintage-telephone-ringtone` | 7.39 s | telepon jadul berdering, panggilan, zaman dulu |
 | `vocal-kids-playing-and-screaming` | 4.01 s (suasana/loop) | anak-anak main & teriak (latar) |
 | `vocal-male-yawn` | 3.41 s | cowok menguap |

@@ -396,6 +396,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-bicycle-pedal-accelerating-2104.wav",
+  "nama": "bicycle-pedal-accelerating",
+  "durasi_s": 6.09,
+  "bunyi_mulai_s": 0.26,
+  "peak_db": -9.9,
+  "suasana_loop": false,
+  "cocok_untuk": "mengayuh makin cepat",
+  "normal": "normal/bicycle-pedal-accelerating.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-bicycle-pedals-1611.wav",
+  "nama": "bicycle-pedals",
+  "durasi_s": 3.07,
+  "bunyi_mulai_s": 0.04,
+  "peak_db": -1.1,
+  "suasana_loop": false,
+  "cocok_untuk": "pedal sepeda",
+  "normal": "normal/bicycle-pedals.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-big-army-crowd-marching-461.wav",
   "nama": "big-army-crowd-marching",
   "durasi_s": 8.65,
@@ -464,6 +488,90 @@
   "suasana_loop": false,
   "cocok_untuk": "auman/geraman singa, kekuatan, raja hutan",
   "normal": "normal/big-wild-lion-growl.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-bike-bell-ring-595.wav",
+  "nama": "bike-bell-ring",
+  "durasi_s": 2.84,
+  "bunyi_mulai_s": 0.04,
+  "peak_db": -3.8,
+  "suasana_loop": false,
+  "cocok_untuk": "bel sepeda berdering",
+  "normal": "normal/bike-bell-ring.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-bike-magical-bell-591.wav",
+  "nama": "bike-magical-bell",
+  "durasi_s": 2.15,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -10.9,
+  "suasana_loop": false,
+  "cocok_untuk": "bel sepeda ajaib, ide/keajaiban kecil",
+  "normal": "normal/bike-magical-bell.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-bike-passing-by-a-gravel-road-1608.wav",
+  "nama": "bike-passing-by-a-gravel-road",
+  "durasi_s": 4.74,
+  "bunyi_mulai_s": 0.94,
+  "peak_db": -0.2,
+  "suasana_loop": false,
+  "cocok_untuk": "sepeda lewat di kerikil",
+  "normal": "normal/bike-passing-by-a-gravel-road.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-bike-pedalling-on-street-loop-1603.wav",
+  "nama": "bike-pedalling-on-street-loop",
+  "durasi_s": 42.35,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -11.8,
+  "suasana_loop": true,
+  "cocok_untuk": "mengayuh sepeda di jalan (loop)",
+  "normal": "normal/bike-pedalling-on-street-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-bike-pedalling-on-the-road-1605.wav",
+  "nama": "bike-pedalling-on-the-road",
+  "durasi_s": 46.49,
+  "bunyi_mulai_s": 0.18,
+  "peak_db": -6.7,
+  "suasana_loop": false,
+  "cocok_untuk": "mengayuh sepeda di jalan",
+  "normal": "normal/bike-pedalling-on-the-road.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-bike-ring-bell-1604.wav",
+  "nama": "bike-ring-bell",
+  "durasi_s": 2.3,
+  "bunyi_mulai_s": 0.06,
+  "peak_db": -3.3,
+  "suasana_loop": false,
+  "cocok_untuk": "bel sepeda \"kring kring\"",
+  "normal": "normal/bike-ring-bell.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-bike-wheel-spinning-1613.wav",
+  "nama": "bike-wheel-spinning",
+  "durasi_s": 14.95,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -11.8,
+  "suasana_loop": false,
+  "cocok_untuk": "roda sepeda berputar",
+  "normal": "normal/bike-wheel-spinning.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1896,6 +2004,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-fast-bike-passing-by-1606.wav",
+  "nama": "fast-bike-passing-by",
+  "durasi_s": 1.76,
+  "bunyi_mulai_s": 0.18,
+  "peak_db": -10.0,
+  "suasana_loop": false,
+  "cocok_untuk": "sepeda melintas cepat",
+  "normal": "normal/fast-bike-passing-by.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-fast-bike-wheel-spin-1614.wav",
+  "nama": "fast-bike-wheel-spin",
+  "durasi_s": 3.36,
+  "bunyi_mulai_s": 0.22,
+  "peak_db": -5.7,
+  "suasana_loop": false,
+  "cocok_untuk": "roda sepeda berputar cepat",
+  "normal": "normal/fast-bike-wheel-spin.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-fast-ignition-fire-1349.wav",
   "nama": "fast-ignition-fire",
   "durasi_s": 4.93,
@@ -2132,6 +2264,18 @@
   "suasana_loop": true,
   "cocok_untuk": "lalat terjebak di jendela, mengganggu, bosan",
   "normal": "normal/fly-buzz-trapped-in-a-window.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-flying-space-bike-1612.wav",
+  "nama": "flying-space-bike",
+  "durasi_s": 4.34,
+  "bunyi_mulai_s": 0.28,
+  "peak_db": -2.8,
+  "suasana_loop": false,
+  "cocok_untuk": "sepeda terbang sci-fi",
+  "normal": "normal/flying-space-bike.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3432,6 +3576,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-loud-bike-bell-1607.wav",
+  "nama": "loud-bike-bell",
+  "durasi_s": 3.5,
+  "bunyi_mulai_s": 0.05,
+  "peak_db": -1.9,
+  "suasana_loop": false,
+  "cocok_untuk": "bel sepeda keras",
+  "normal": "normal/loud-bike-bell.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-loud-children-crowd-outdoors-448.wav",
   "nama": "loud-children-crowd-outdoors",
   "durasi_s": 35.41,
@@ -4124,6 +4280,18 @@
   "suasana_loop": false,
   "cocok_untuk": "logam berisik berjatuhan",
   "normal": "normal/noisy-metal-falling.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-notification-bike-bell-594.wav",
+  "nama": "notification-bike-bell",
+  "durasi_s": 1.09,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -2.2,
+  "suasana_loop": false,
+  "cocok_untuk": "bel sepeda sebagai notifikasi",
+  "normal": "normal/notification-bike-bell.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -5228,6 +5396,18 @@
   "suasana_loop": false,
   "cocok_untuk": "tepuk tangan lemah/sepi, canggung, gagal lucu",
   "normal": "normal/small-audience-weak-applause.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-small-bike-bell-ding-1609.wav",
+  "nama": "small-bike-bell-ding",
+  "durasi_s": 3.25,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -6.3,
+  "suasana_loop": false,
+  "cocok_untuk": "bel sepeda kecil \"ting\"",
+  "normal": "normal/small-bike-bell-ding.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -6344,6 +6524,18 @@
   "suasana_loop": false,
   "cocok_untuk": "pesawat tua mendarat, sejarah",
   "normal": "normal/vintage-airplane-landing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-vintage-bicycle-horn-716.wav",
+  "nama": "vintage-bicycle-horn",
+  "durasi_s": 2.93,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -0.6,
+  "suasana_loop": false,
+  "cocok_untuk": "klakson sepeda jadul \"tet-tet\" (bola karet), lucu",
+  "normal": "normal/vintage-bicycle-horn.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
