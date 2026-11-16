@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-279 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+289 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -13,6 +13,7 @@
 | `alarm-tone` | 1.08 s | nada alarm, peringatan |
 | `alien-technology-button` | 0.87 s | tombol teknologi alien, aneh |
 | `ambient-sound-in-the-desert` | 7.69 s (suasana/loop) | suasana gurun |
+| `an-artificial-respirator` | 23.75 s | alat bantu napas, rumah sakit |
 | `animated-small-group-applause` | 4.13 s | kelompok kecil bertepuk tangan semangat |
 | `applause-ambience-loop` | 13.18 s (suasana/loop) | tepuk tangan (latar, loop) |
 | `arabian-mystery-harp-notification` | 3.52 s | notifikasi harpa misterius ala Timur Tengah, fakta unik |
@@ -40,6 +41,7 @@
 | `calm-thunderstorm-in-the-jungle` | 49.0 s (suasana/loop) | badai tenang di hutan tropis |
 | `campfire-burning-crackles` | 14.08 s (suasana/loop) | api unggun berderak, hangat, cerita malam |
 | `campfire-night-wind` | 30.75 s (suasana/loop) | api unggun + angin malam (latar) |
+| `cartoon-air-blow` | 1.66 s | tiupan udara ala kartun, lucu |
 | `cartoon-girl-saying-no-no-no` | 1.8 s | "no no no" kartun, menolak lucu |
 | `cartoon-monkey-applause` | 4.28 s | monyet kartun bertepuk tangan, lucu |
 | `cartoon-toy-whistle` | 1.21 s | lucu, konyol, gagal lucu |
@@ -61,7 +63,9 @@
 | `concert-hall-stomping-applause` | 16.59 s | tepuk + hentakan kaki di gedung konser, meriah |
 | `conference-audience-clapping-strongly` | 8.6 s | tepuk tangan kuat di konferensi, pengakuan |
 | `cool-impact-movie-trailer` | 6.0 s | hantaman keren ala trailer, judul muncul |
+| `cow-animal-breath` | 3.56 s | napas sapi, dengusan hewan besar |
 | `creepy-cavern-ambience-loop` | 47.8 s (suasana/loop) | gua seram, gelap, misteri |
+| `creepy-demon-heavy-breathing` | 5.16 s | napas setan berat, horor |
 | `crickets-and-insects-in-the-wild-ambience` | 26.01 s (suasana/loop) | alam malam, sepi, canggung |
 | `crickets-at-night-in-nature` | 90.13 s (suasana/loop) | jangkrik malam di alam (latar) |
 | `crowd-in-church-applauding` | 18.77 s | tepuk tangan di aula bergema, khidmat |
@@ -84,6 +88,7 @@
 | `fast-small-sweep-transition` | 0.78 s | transisi kecil, kartu/teks berganti |
 | `fast-whoosh-transition` | 1.76 s | transisi cepat |
 | `female-astonished-gasp` | 1.09 s | kaget/takjub "hah!", reaksi fakta mengejutkan |
+| `fire-breathing-dragon` | 4.33 s | naga menyemburkan api, dahsyat |
 | `fire-explosion` | 6.01 s | ledakan api |
 | `fire-match-lighting` | 6.14 s | korek api dinyalakan, ide kecil, awal sesuatu |
 | `fire-spell-with-explosion` | 8.6 s | sihir api + ledakan, momen dahsyat |
@@ -127,6 +132,7 @@
 | `hungry-man-eating` | 1.33 s | orang lapar makan lahap |
 | `in-and-out-zoom-sound` | 1.25 s | zoom masuk lalu keluar |
 | `industrial-machine-hum` | 50.0 s (suasana/loop) | dengung mesin pabrik (latar) |
+| `inside-a-beating-heart` | 20.13 s | di dalam jantung berdetak, tubuh/sains, tegang |
 | `intense-long-fire-beam` | 9.0 s | semburan api panjang, kekuatan besar |
 | `interface-device-click` | 1.05 s | klik tombol/perangkat |
 | `interface-option-select` | 1.55 s | memilih opsi di layar |
@@ -141,6 +147,7 @@
 | `little-boy-gibberish-talk` | 2.53 s | anak kecil ngoceh tak jelas, lucu |
 | `little-boy-saying-hiya` | 1.15 s | anak kecil bilang "hiya!", semangat lucu |
 | `little-cute-kiss` | 1.08 s | cium kecil, imut, sayang |
+| `little-pug-dog-heavy-breathing` | 5.71 s | anjing pug ngos-ngosan, lucu, capek |
 | `long-kiss` | 1.2 s | cium panjang |
 | `long-loving-kiss` | 1.05 s | cium panjang penuh sayang |
 | `loud-creature-breathing` | 1.9 s | napas makhluk besar, seram |
@@ -162,6 +169,7 @@
 | `medium-size-group-applause-and-laugh` | 8.29 s | tawa + tepuk tangan kelompok sedang |
 | `melodical-flute-music-notification` | 7.54 s | notifikasi lembut, alam, ceria |
 | `modern-technology-select` | 0.5 s | pilih/tap modern |
+| `monster-breath` | 4.31 s | napas monster, seram |
 | `morning-sound-in-a-garden` | 110.44 s (suasana/loop) | pagi di taman/kebun, segar |
 | `movie-trailer-epic-impact` | 4.87 s | angka/fakta besar muncul, hantaman epik |
 | `mystwrious-bass-pulse` | 16.56 s | misterius, tegang, sesuatu akan terungkap |
@@ -218,6 +226,7 @@
 | `single-artificial-breathe` | 1.15 s | napas buatan/mesin, robot bernapas |
 | `single-cricket-screech` | 1.78 s | satu jangkrik "krik", hening canggung |
 | `single-zombie-breath` | 2.09 s | napas zombie, horor |
+| `sleep-breathing` | 17.91 s (suasana/loop) | napas tidur tenang (latar) |
 | `sleeping-mouth-smacking-lips` | 2.81 s | orang tidur berdecap, lucu, ngantuk |
 | `small-audience-weak-applause` | 7.55 s | tepuk tangan lemah/sepi, canggung, gagal lucu |
 | `small-cricket-screech` | 1.42 s | jangkrik kecil berderik (dekat) |
@@ -248,6 +257,7 @@
 | `technology-computer-calculations` | 4.0 s | komputer menghitung, data diproses |
 | `technology-notification` | 2.08 s | notifikasi teknologi |
 | `technology-transition-slide` | 1.65 s | transisi geser ala teknologi |
+| `terrifying-creature-breath` | 3.43 s | napas makhluk mengerikan |
 | `terror-night-ambiance` | 118.09 s (suasana/loop) | malam mencekam (latar) |
 | `terror-transition` | 12.48 s | transisi horor/mengagetkan |
 | `theatre-audience-light-applause` | 8.52 s | tepuk tangan ringan di teater |
