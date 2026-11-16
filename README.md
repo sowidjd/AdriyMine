@@ -9,6 +9,8 @@ Kumpulan repo animasi/film berbasis kode untuk dipakai bersama Claude Code.
 | `repos/ClaudeAnimationBase` | [JohnHeibel/ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase) | Starter kit animasi karakter Clawd (p5.js) |
 | `repos/shorts-kit` | [howznguyen/shorts-kit](https://github.com/howznguyen/shorts-kit) | Aturan channel (SOUL.md), 20 alur cerita, area aman, caption, cek fakta (MIT) |
 | `repos/sfx-kit` | [wyzowl/sfx-kit](https://github.com/wyzowl/sfx-kit) | 320 efek suara CC0, bebas komersial |
+| `repos/animate` | [cth9191/animate](https://github.com/cth9191/animate) | Animasi Canvas prosedural, 7 gaya (cut paper, riso, pixel, isometric, …), musik sesuai ketukan (MIT) |
+| `repos/video-background-music` | [todd-apptivity/video-background-music](https://github.com/todd-apptivity/video-background-music) | Katalog 334 musik latar CC0 (bebas hak cipta); unduh lewat `projects/musik/ambil_musik.py` |
 | `repos/vertical-video-kit` | [SDuarteCorredor/vertical-video-kit](https://github.com/SDuarteCorredor/vertical-video-kit) | Video 1080×1920, caption kata per kata, area aman (MIT) |
 
 ## Setelah clone

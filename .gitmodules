@@ -28,3 +28,13 @@
 	url = https://github.com/SDuarteCorredor/vertical-video-kit
 	shallow = true
 	ignore = dirty
+[submodule "repos/animate"]
+	path = repos/animate
+	url = https://github.com/cth9191/animate
+	shallow = true
+	ignore = dirty
+[submodule "repos/video-background-music"]
+	path = repos/video-background-music
+	url = https://github.com/todd-apptivity/video-background-music
+	shallow = true
+	ignore = dirty

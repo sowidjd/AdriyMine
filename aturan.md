@@ -85,6 +85,11 @@ Clawd harus **berakting**, bukan hanya berdiri.
   - **Solusi/trik:** semangat → warna cerah, musik berdrum.
   - **Hasil/penutup:** hangat/lega → warna hangat (oranye/kuning), musik manis.
 - **Musik berganti mengikuti suasana**, dan otomatis mengecil saat narasi bicara.
+- **Musik wajib bebas hak cipta.** Hanya dua sumber yang boleh:
+  1. **Katalog CC0** `repos/video-background-music` (334 lagu loop, semua CC0-1.0, ada label suasana/tempo/energi). Ambil dengan `projects/musik/ambil_musik.py cari <suasana>` lalu `ambil <id>`.
+  2. **Musik buatan kode sendiri** (seperti `projects/bangun-pagi/audio.py`): milik kita sepenuhnya.
+- **Dilarang:** lagu populer/viral (walau hanya 5 detik), YouTube Audio Library & Pixabay (lisensinya membatasi), musik buatan AI seperti Suno/Udio (status hak ciptanya belum jelas), dan lagu CC-BY tanpa mencantumkan kredit.
+- Catat judul lagu, sumber & lisensinya di naskah video. Kalau TikTok/YouTube memberi klaim hak cipta pada lagu CC0, ajukan banding dengan menyebut lisensi CC0 dan sumbernya.
 - **Efek suara** untuk setiap kejadian penting (jatuh, notifikasi, pintu, lampu menyala), tapi tidak menutupi narasi.
 
 ## 6. Latar
@@ -113,6 +118,7 @@ Cahaya adalah alat bercerita, bukan hiasan.
 
 - **Ucapan narasi:** pakai `projects/suara/ucapan.py` (kamus ejaan bantu: alarm, snooze, singkatan HP/TV/AI, dan lain-lain), lalu cek dengan `cek_ucapan.py` dan perbaiki dengan `perbaiki_ucapan.py`.
 - **Huruf/angka yang diucapkan sendirian:** gunakan gaya "tegas dan jelas", jangan "teriak".
+- **Gerakan & gaya:** `repos/animate` punya aturan tempo, potongan yang jatuh di ketukan musik, dan pemeriksaan storyboard; pakai sebagai rujukan kualitas gerakan.
 - **Efek suara:** utamakan `repos/sfx-kit` (320 SFX, CC0, bebas komersial). Ikuti `repos/sfx-kit/GUIDE.md` untuk memilih & menaruh suara di momen yang tepat. Efek suara buatan kode hanya kalau tidak ada yang cocok.
 - **Rujukan aturan lengkap:** `repos/shorts-kit/SOUL.md` (aturan channel yang sudah teruji, 20 pola alur cerita di `docs/flows/`, cek fakta di `docs/facts/`) dan `repos/vertical-video-kit` (caption kata per kata, perapian teks untuk suara AI). Kalau ada yang bertentangan dengan aturan.md, **aturan.md yang dipakai**.
 - **Privasi:** file berisi tiruan suara pemilik akun **tidak diunggah ke GitHub**.
@@ -151,6 +157,17 @@ Nama gaya mengacu ke repo `repos/lemo-opuscar/styles/` dan `repos/mg-styles-15/`
 | 🌍 Sains sehari-hari | Exploded Teardown, Blueprint, Scale Zoom Explainer | Membongkar cara kerja benda di sekitar kita |
 | 🌍 Sejarah & asal-usul | 1920s Newsreel, Halftone Dossier, Vintage Engraving Collage | Terasa "zaman dulu" dan seperti arsip |
 | 🌍 Teknologi & internet | Dark Tech Keynote, Circuit Board, CRT ASCII | Dunia digital & mesin |
+
+Gaya tambahan dari `repos/animate` (berbasis Canvas seperti video kita, punya pemeriksa cerita & storyboard):
+| Gaya `animate` | Cocok untuk |
+|---|---|
+| cut paper (kertas sobek, tokoh berwajah) | 😳 perasaan, 💬 sosial, cerita yang hangat |
+| crosshatch (tinta arsir yang "mendidih") | 🧠 isi kepala, 🌍 "di dalam mesin/tubuh" |
+| riso (cetak risograf 3 tinta) | 💸 uang & belanja, 🌍 sejarah, poster yang mencolok |
+| sketchbook (pensil + 1 warna aksen) | 🧠 kebiasaan, ⏰ produktivitas, catatan pribadi |
+| math (gaya penjelas grafik) | 🌍 sains, angka & statistik |
+| pixel (zaman game lama) | 📱 HP & internet, nostalgia |
+| isometric (garis isometrik rapi) | 🌍 cara kerja benda, tubuh sebagai "pabrik"
 
 ### Gaya yang dilarang untuk tema tertentu
 - **Gaya seram/gelap** (Backrooms, Scratch Film) → tidak untuk tema lucu ringan atau anak-anak.
