@@ -52,7 +52,7 @@ Tokoh: Clawd. Narasi: suara pemilik akun (VoxCPM2). ⭐ = rekomendasi untuk dibu
 Topik umum boleh, tapi **judulnya tetap spesifik & bikin penasaran** (aturan.md §2). Kaitkan ke kehidupan penonton.
 
 **Alam & hewan** (gaya narasi seperti rekaman Peregrine Falcon)
-34. ⭐ **Burung ini lebih cepat dari mobil F1, tapi badannya nggak lebih besar dari ayam**: Peregrine Falcon
+34. ⭐ **Burung seukuran ayam ini nukik 320 km/jam, hampir secepat mobil F1**: Peregrine Falcon
 35. **Gurita punya 3 jantung, dan satu berhenti tiap dia berenang**
 36. **Kucing kamu sebenarnya nggak "manja", dia lagi ngasih kode**
 37. **Semut bisa angkat 50x berat badannya. Kalau manusia, setara angkat mobil**

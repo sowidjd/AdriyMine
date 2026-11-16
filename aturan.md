@@ -32,7 +32,7 @@ Judul = momen spesifik yang membuat penonton berpikir **"kok tau sih, ini gue ba
 | Cara bangun pagi | Alarm bunyi 7 kali, tetep telat |
 | Cara fokus belajar | Buka buku, 10 menit kemudian udah di TikTok |
 | Kenapa kita lupa | Masuk kamar, lupa mau ngapain. Ternyata salah pintunya |
-| Fakta burung tercepat | Burung ini lebih cepat dari mobil F1, badannya seukuran ayam |
+| Fakta burung tercepat | Burung seukuran ayam ini nukik 320 km/jam, hampir secepat mobil F1 |
 | Fakta tubuh manusia | Kamu lebih tinggi 1 cm pas bangun tidur |
 | Mengatasi overthinking | Dibales "oke" doang, langsung mikir 3 jam |
 
