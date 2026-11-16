@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-406 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+408 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -168,6 +168,7 @@
 | `futuristic-zoom-move` | 2.17 s | gerak zoom futuristik |
 | `game-show-suspense-waiting` | 41.81 s (suasana/loop) | menunggu jawaban, kuis, tegang lucu |
 | `garbage-pile-falling` | 10.7 s | tumpukan sampah jatuh, berantakan |
+| `gasping-zombie` | 1.93 s | zombie terengah-engah, horor |
 | `ghost-fire-swoosh` | 2.85 s | api hantu, transisi misterius |
 | `giant-monster-footstep` | 3.43 s | langkah monster raksasa "DUM", menggetarkan |
 | `girls-audience-applause` | 6.55 s | penonton cewek bertepuk tangan |
@@ -225,6 +226,7 @@
 | `lost-kid-sobbing` | 1.82 s | anak menangis tersedu, sedih/haru |
 | `loud-creature-breathing` | 1.9 s | napas makhluk besar, seram |
 | `magic-marimba` | 3.34 s | marimba ajaib, keajaiban kecil, ide muncul |
+| `male-astonished-gasp` | 1.27 s | cowok terkesiap "hah!", kaget/takjub |
 | `male-clearing-the-throat` | 1.48 s | berdehem "ehem", canggung, mau bicara serius |
 | `male-falling-scream` | 3.01 s | cowok jatuh berteriak |
 | `male-sleep-breathe` | 5.24 s | napas orang tidur, pulas |

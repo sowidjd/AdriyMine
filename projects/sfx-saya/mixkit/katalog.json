@@ -1944,6 +1944,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-gasping-zombie-963.wav",
+  "nama": "gasping-zombie",
+  "durasi_s": 1.93,
+  "bunyi_mulai_s": 0.07,
+  "peak_db": -1.0,
+  "suasana_loop": false,
+  "cocok_untuk": "zombie terengah-engah, horor",
+  "normal": "normal/gasping-zombie.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-ghost-fire-swoosh-1340.wav",
   "nama": "ghost-fire-swoosh",
   "durasi_s": 2.85,
@@ -2624,6 +2636,18 @@
   "suasana_loop": false,
   "cocok_untuk": "marimba ajaib, keajaiban kecil, ide muncul",
   "normal": "normal/magic-marimba.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-male-astonished-gasp-966.wav",
+  "nama": "male-astonished-gasp",
+  "durasi_s": 1.27,
+  "bunyi_mulai_s": 0.04,
+  "peak_db": -2.9,
+  "suasana_loop": false,
+  "cocok_untuk": "cowok terkesiap \"hah!\", kaget/takjub",
+  "normal": "normal/male-astonished-gasp.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
