@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-401 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+406 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -43,6 +43,7 @@
 | `body-impact-falling-into-the-sand` | 1.1 s | jatuh ke pasir, gedebuk |
 | `boy-says-volcano` | 1.62 s | anak bilang "volcano!" (bahasa Inggris), sains/gunung api |
 | `breeze-through-the-trees` | 14.33 s (suasana/loop) | angin sepoi di pepohonan |
+| `bus-station-environment` | 22.36 s (suasana/loop) | suasana terminal bus (latar) |
 | `busy-park-playground-with-kids-playing` | 60.32 s (suasana/loop) | taman bermain ramai anak-anak (latar) |
 | `calm-thunderstorm-in-the-jungle` | 49.0 s (suasana/loop) | badai tenang di hutan tropis |
 | `campfire-burning-crackles` | 14.08 s (suasana/loop) | api unggun berderak, hangat, cerita malam |
@@ -147,6 +148,7 @@
 | `footsteps-in-the-forest-ground` | 34.2 s | langkah di tanah hutan, mengendap |
 | `footsteps-in-woods-loop` | 24.0 s | langkah di hutan (loop) |
 | `footsteps-on-frozen-ground` | 12.93 s | langkah di tanah beku |
+| `footsteps-on-hay-loop` | 22.37 s | langkah di jerami (loop) |
 | `footsteps-on-heels-on-the-pavement` | 5.25 s | langkah sepatu hak di trotoar |
 | `footsteps-on-mattress-loop` | 26.12 s | langkah di atas kasur, lucu |
 | `footsteps-on-stones-loop` | 29.39 s | langkah di batu (loop) |
@@ -298,6 +300,7 @@
 | `river-water-flow-and-surroundings` | 60.13 s (suasana/loop) | sungai mengalir + suasana sekitar |
 | `robot-baby-annoy-chirp-collect` | 2.0 s | robot kecil berkicau iseng, dapat item, imut |
 | `robot-positive-item-acquired` | 1.5 s | robot dapat item, "berhasil!" ala game |
+| `robot-step` | 1.69 s | langkah robot, mekanis |
 | `rock-golem-walking` | 9.56 s | golem batu berjalan, berat |
 | `running-through-the-forest` | 14.64 s | berlari menembus hutan |
 | `sad-game-over-trombone` | 5.61 s | gagal lucu "wah wah wah", kecewa |
@@ -332,6 +335,7 @@
 | `small-group-moderate-applause` | 6.62 s | tepuk tangan kelompok kecil, sedang |
 | `small-metallic-sci-fi-drop` | 5.5 s | tetes logam sci-fi kecil |
 | `small-meteor-falling` | 5.04 s | meteor jatuh, sesuatu meluncur dari langit |
+| `small-military-parade-marching-troops` | 45.21 s | parade militer kecil berbaris, disiplin |
 | `small-stone-avalanche` | 2.87 s | longsor batu kecil |
 | `small-waves-harbor-rocks` | 77.86 s (suasana/loop) | ombak kecil di batu pelabuhan |
 | `small-wood-plank-pile-drop` | 1.72 s | tumpukan papan kayu jatuh |
@@ -385,6 +389,7 @@
 | `vocal-kids-playing-and-screaming` | 4.01 s (suasana/loop) | anak-anak main & teriak (latar) |
 | `vocal-male-yawn` | 3.41 s | cowok menguap |
 | `walking-in-the-forest` | 28.15 s | berjalan di hutan |
+| `walking-in-the-forest-with-birds` | 16.03 s | jalan di hutan + kicau burung |
 | `walking-on-grass` | 14.6 s | berjalan di rumput |
 | `walking-on-stones-loop` | 15.33 s | jalan di atas batu |
 | `walking-through-dry-forest-leaves` | 31.79 s | berjalan di atas daun kering |
