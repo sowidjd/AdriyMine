@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-260 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+274 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -14,6 +14,7 @@
 | `alien-technology-button` | 0.87 s | tombol teknologi alien, aneh |
 | `ambient-sound-in-the-desert` | 7.69 s (suasana/loop) | suasana gurun |
 | `animated-small-group-applause` | 4.13 s | kelompok kecil bertepuk tangan semangat |
+| `applause-ambience-loop` | 13.18 s (suasana/loop) | tepuk tangan (latar, loop) |
 | `arabian-mystery-harp-notification` | 3.52 s | notifikasi harpa misterius ala Timur Tengah, fakta unik |
 | `arcade-retro-game-over` | 1.67 s | gagal, game over, kalah |
 | `arctic-winds` | 38.94 s (suasana/loop) | angin kutub, dingin |
@@ -48,9 +49,13 @@
 | `cinematic-transition-swoosh-heartbeat-trailer` | 8.11 s | transisi tegang ala trailer |
 | `cinematic-tunnel-reverb-woosh` | 6.75 s | masuk ke dunia lain, flashback, transisi dalam |
 | `cinematic-whoosh-fast-transition` | 1.33 s | transisi cepat antar adegan |
+| `clapping-indoors` | 22.75 s | tepuk tangan di dalam ruangan |
+| `clapping-male-crowd` | 6.8 s | kerumunan cowok bertepuk tangan |
 | `classic-alarm` | 5.03 s | jam beker berbunyi, bangun pagi |
 | `classroom-long-applause-and-whistle` | 19.0 s | tepuk tangan kelas + siulan, anak sekolah |
+| `classroom-spontaneous-applause` | 6.54 s | tepuk tangan spontan di kelas |
 | `clock-countdown-bleeps` | 5.0 s | hitung mundur, waktu hampir habis |
+| `concert-hall-stomping-applause` | 16.59 s | tepuk + hentakan kaki di gedung konser, meriah |
 | `conference-audience-clapping-strongly` | 8.6 s | tepuk tangan kuat di konferensi, pengakuan |
 | `cool-impact-movie-trailer` | 6.0 s | hantaman keren ala trailer, judul muncul |
 | `creepy-cavern-ambience-loop` | 47.8 s (suasana/loop) | gua seram, gelap, misteri |
@@ -84,6 +89,7 @@
 | `fish-moving-in-water` | 2.29 s | ikan bergerak di air, kecipak |
 | `flirtatious-double-kiss` | 0.56 s | cium genit dua kali, "muach muach" |
 | `flock-of-wild-geese` | 5.22 s (suasana/loop) | kawanan burung, alam liar, migrasi |
+| `football-team-applause` | 4.68 s | tepuk tangan tim sepak bola, sportif |
 | `footsteps-in-the-forest-ground` | 34.2 s | langkah di tanah hutan, mengendap |
 | `footsteps-on-tall-grass` | 23.1 s | berjalan di rumput, alam, mengendap |
 | `forest-at-night` | 47.04 s (suasana/loop) | hutan malam (latar) |
@@ -99,6 +105,7 @@
 | `game-show-suspense-waiting` | 41.81 s (suasana/loop) | menunggu jawaban, kuis, tegang lucu |
 | `ghost-fire-swoosh` | 2.85 s | api hantu, transisi misterius |
 | `girls-audience-applause` | 6.55 s | penonton cewek bertepuk tangan |
+| `girls-crowd-cheer-scream-and-applause` | 6.08 s | cewek-cewek bersorak & menjerit, heboh |
 | `happy-child-laughing` | 2.4 s | tawa anak bahagia |
 | `hawk-call-squawk` | 2.41 s | teriakan elang/burung pemangsa |
 | `heavy-rain` | 7.5 s (suasana/loop) | hujan deras |
@@ -148,6 +155,7 @@
 | `man-yawns-quietly` | 3.86 s | menguap pelan, diam-diam ngantuk |
 | `martial-arts-fast-punch` | 1.34 s | pukulan, "dihantam", fakta yang menampar |
 | `mechanical-technology-movements` | 2.5 s | mesin/robot bergerak, mekanisme |
+| `medium-size-group-applause-and-laugh` | 8.29 s | tawa + tepuk tangan kelompok sedang |
 | `melodical-flute-music-notification` | 7.54 s | notifikasi lembut, alam, ceria |
 | `modern-technology-select` | 0.5 s | pilih/tap modern |
 | `morning-sound-in-a-garden` | 110.44 s (suasana/loop) | pagi di taman/kebun, segar |
@@ -206,17 +214,22 @@
 | `single-cricket-screech` | 1.78 s | satu jangkrik "krik", hening canggung |
 | `single-zombie-breath` | 2.09 s | napas zombie, horor |
 | `sleeping-mouth-smacking-lips` | 2.81 s | orang tidur berdecap, lucu, ngantuk |
+| `small-audience-weak-applause` | 7.55 s | tepuk tangan lemah/sepi, canggung, gagal lucu |
 | `small-cricket-screech` | 1.42 s | jangkrik kecil berderik (dekat) |
 | `small-crowd-laugh-and-applause` | 5.76 s | tertawa + tepuk tangan, lucu yang berhasil |
 | `small-crowd-ovation` | 6.4 s | standing ovation kecil |
 | `small-group-cheer-and-applause` | 10.6 s | berhasil, sorakan, perayaan kecil |
+| `small-group-light-applause` | 5.09 s | tepuk tangan ringan kelompok kecil |
+| `small-group-moderate-applause` | 6.62 s | tepuk tangan kelompok kecil, sedang |
 | `small-meteor-falling` | 5.04 s | meteor jatuh, sesuatu meluncur dari langit |
 | `small-waves-harbor-rocks` | 77.86 s (suasana/loop) | ombak kecil di batu pelabuhan |
+| `small-young-crowd-clapping` | 16.5 s | anak muda bertepuk tangan |
 | `soft-woosh-fire` | 4.61 s | whoosh api lembut |
 | `space-alien-invasion` | 13.32 s | invasi alien, sci-fi, ancaman dari luar angkasa |
 | `sphinx-cat-purr` | 7.3 s | kucing mendengkur, nyaman, manja |
 | `sphinx-cat-purr-and-quiet-growl` | 2.78 s | kucing mendengkur lalu menggeram pelan, "jangan ganggu" |
 | `stadium-crowd-light-applause` | 11.09 s | tepuk tangan stadion, pengakuan besar |
+| `stand-up-club-audience-applause` | 20.16 s | tepuk tangan klub stand-up comedy |
 | `strange-animal-of-the-desert` | 2.79 s | suara hewan aneh di gurun, misterius |
 | `strong-breathing-of-a-person` | 5.11 s | napas berat, capek, panik |
 | `strong-wild-wind-in-a-storm` | 13.65 s (suasana/loop) | angin kencang badai, terhempas |
@@ -232,6 +245,7 @@
 | `technology-transition-slide` | 1.65 s | transisi geser ala teknologi |
 | `terror-night-ambiance` | 118.09 s (suasana/loop) | malam mencekam (latar) |
 | `terror-transition` | 12.48 s | transisi horor/mengagetkan |
+| `theatre-audience-light-applause` | 8.52 s | tepuk tangan ringan di teater |
 | `thunder-rumble-and-light-rain` | 25.75 s (suasana/loop) | gemuruh petir + gerimis, muram |
 | `thunder-strike-in-storm` | 7.5 s | petir menyambar, kejutan besar, dramatis |
 | `thunderstorm-and-clear-rain` | 44.22 s (suasana/loop) | badai lalu hujan reda |

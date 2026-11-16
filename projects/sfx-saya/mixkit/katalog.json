@@ -96,6 +96,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-applause-ambience-loop-513.wav",
+  "nama": "applause-ambience-loop",
+  "durasi_s": 13.18,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -0.3,
+  "suasana_loop": true,
+  "cocok_untuk": "tepuk tangan (latar, loop)",
+  "normal": "normal/applause-ambience-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-arabian-mystery-harp-notification-2489.wav",
   "nama": "arabian-mystery-harp-notification",
   "durasi_s": 3.52,
@@ -504,6 +516,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-clapping-indoors-3039.wav",
+  "nama": "clapping-indoors",
+  "durasi_s": 22.75,
+  "bunyi_mulai_s": 0.26,
+  "peak_db": -4.6,
+  "suasana_loop": false,
+  "cocok_untuk": "tepuk tangan di dalam ruangan",
+  "normal": "normal/clapping-indoors.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-clapping-male-crowd-439.wav",
+  "nama": "clapping-male-crowd",
+  "durasi_s": 6.8,
+  "bunyi_mulai_s": 0.04,
+  "peak_db": -0.7,
+  "suasana_loop": false,
+  "cocok_untuk": "kerumunan cowok bertepuk tangan",
+  "normal": "normal/clapping-male-crowd.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-classic-alarm-995.wav",
   "nama": "classic-alarm",
   "durasi_s": 5.03,
@@ -528,6 +564,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-classroom-spontaneous-applause-500.wav",
+  "nama": "classroom-spontaneous-applause",
+  "durasi_s": 6.54,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -6.7,
+  "suasana_loop": false,
+  "cocok_untuk": "tepuk tangan spontan di kelas",
+  "normal": "normal/classroom-spontaneous-applause.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-clock-countdown-bleeps-916.wav",
   "nama": "clock-countdown-bleeps",
   "durasi_s": 5.0,
@@ -536,6 +584,18 @@
   "suasana_loop": false,
   "cocok_untuk": "hitung mundur, waktu hampir habis",
   "normal": "normal/clock-countdown-bleeps.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-concert-hall-stomping-applause-507.wav",
+  "nama": "concert-hall-stomping-applause",
+  "durasi_s": 16.59,
+  "bunyi_mulai_s": 0.64,
+  "peak_db": -2.7,
+  "suasana_loop": false,
+  "cocok_untuk": "tepuk + hentakan kaki di gedung konser, meriah",
+  "normal": "normal/concert-hall-stomping-applause.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -936,6 +996,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-football-team-applause-509.wav",
+  "nama": "football-team-applause",
+  "durasi_s": 4.68,
+  "bunyi_mulai_s": 0.12,
+  "peak_db": -2.0,
+  "suasana_loop": false,
+  "cocok_untuk": "tepuk tangan tim sepak bola, sportif",
+  "normal": "normal/football-team-applause.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-footsteps-in-the-forest-ground-1230.wav",
   "nama": "footsteps-in-the-forest-ground",
   "durasi_s": 34.2,
@@ -1112,6 +1184,18 @@
   "suasana_loop": false,
   "cocok_untuk": "penonton cewek bertepuk tangan",
   "normal": "normal/girls-audience-applause.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-girls-crowd-cheer-scream-and-applause-515.wav",
+  "nama": "girls-crowd-cheer-scream-and-applause",
+  "durasi_s": 6.08,
+  "bunyi_mulai_s": 0.06,
+  "peak_db": -0.1,
+  "suasana_loop": false,
+  "cocok_untuk": "cewek-cewek bersorak & menjerit, heboh",
+  "normal": "normal/girls-crowd-cheer-scream-and-applause.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1700,6 +1784,18 @@
   "suasana_loop": false,
   "cocok_untuk": "mesin/robot bergerak, mekanisme",
   "normal": "normal/mechanical-technology-movements.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-medium-size-group-applause-and-laugh-516.wav",
+  "nama": "medium-size-group-applause-and-laugh",
+  "durasi_s": 8.29,
+  "bunyi_mulai_s": 0.66,
+  "peak_db": -1.3,
+  "suasana_loop": false,
+  "cocok_untuk": "tawa + tepuk tangan kelompok sedang",
+  "normal": "normal/medium-size-group-applause-and-laugh.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2400,6 +2496,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-small-audience-weak-applause-521.wav",
+  "nama": "small-audience-weak-applause",
+  "durasi_s": 7.55,
+  "bunyi_mulai_s": 0.21,
+  "peak_db": -1.0,
+  "suasana_loop": false,
+  "cocok_untuk": "tepuk tangan lemah/sepi, canggung, gagal lucu",
+  "normal": "normal/small-audience-weak-applause.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-small-cricket-screech-1781.wav",
   "nama": "small-cricket-screech",
   "durasi_s": 1.42,
@@ -2448,6 +2556,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-small-group-light-applause-517.wav",
+  "nama": "small-group-light-applause",
+  "durasi_s": 5.09,
+  "bunyi_mulai_s": 0.04,
+  "peak_db": -4.3,
+  "suasana_loop": false,
+  "cocok_untuk": "tepuk tangan ringan kelompok kecil",
+  "normal": "normal/small-group-light-applause.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-small-group-moderate-applause-505.wav",
+  "nama": "small-group-moderate-applause",
+  "durasi_s": 6.62,
+  "bunyi_mulai_s": 0.18,
+  "peak_db": -8.5,
+  "suasana_loop": false,
+  "cocok_untuk": "tepuk tangan kelompok kecil, sedang",
+  "normal": "normal/small-group-moderate-applause.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-small-meteor-falling-1337.wav",
   "nama": "small-meteor-falling",
   "durasi_s": 5.04,
@@ -2468,6 +2600,18 @@
   "suasana_loop": true,
   "cocok_untuk": "ombak kecil di batu pelabuhan",
   "normal": "normal/small-waves-harbor-rocks.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-small-young-crowd-clapping-3036.wav",
+  "nama": "small-young-crowd-clapping",
+  "durasi_s": 16.5,
+  "bunyi_mulai_s": 0.33,
+  "peak_db": -5.3,
+  "suasana_loop": false,
+  "cocok_untuk": "anak muda bertepuk tangan",
+  "normal": "normal/small-young-crowd-clapping.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2528,6 +2672,18 @@
   "suasana_loop": false,
   "cocok_untuk": "tepuk tangan stadion, pengakuan besar",
   "normal": "normal/stadium-crowd-light-applause.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-stand-up-club-audience-applause-508.wav",
+  "nama": "stand-up-club-audience-applause",
+  "durasi_s": 20.16,
+  "bunyi_mulai_s": 0.19,
+  "peak_db": -6.3,
+  "suasana_loop": false,
+  "cocok_untuk": "tepuk tangan klub stand-up comedy",
+  "normal": "normal/stand-up-club-audience-applause.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2708,6 +2864,18 @@
   "suasana_loop": false,
   "cocok_untuk": "transisi horor/mengagetkan",
   "normal": "normal/terror-transition.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-theatre-audience-light-applause-519.wav",
+  "nama": "theatre-audience-light-applause",
+  "durasi_s": 8.52,
+  "bunyi_mulai_s": 0.13,
+  "peak_db": -0.5,
+  "suasana_loop": false,
+  "cocok_untuk": "tepuk tangan ringan di teater",
+  "normal": "normal/theatre-audience-light-applause.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
