@@ -48,9 +48,44 @@ Tokoh: Clawd. Narasi: suara pemilik akun (VoxCPM2). ⭐ = rekomendasi untuk dibu
 32. **Weekend kerasa cepet banget, hari kerja lama**: persepsi waktu
 33. (sudah dibuat) **Alarm bunyi 7 kali, tetep telat**: snooze & sleep inertia
 
+## 🌍 Tema umum: pengetahuan & fakta menarik
+Topik umum boleh, tapi **judulnya tetap spesifik & bikin penasaran** (aturan.md §2). Kaitkan ke kehidupan penonton.
+
+**Alam & hewan** (gaya narasi seperti rekaman Peregrine Falcon)
+34. ⭐ **Burung ini lebih cepat dari mobil F1, tapi badannya nggak lebih besar dari ayam**: Peregrine Falcon
+35. **Gurita punya 3 jantung, dan satu berhenti tiap dia berenang**
+36. **Kucing kamu sebenarnya nggak "manja", dia lagi ngasih kode**
+37. **Semut bisa angkat 50x berat badannya. Kalau manusia, setara angkat mobil**
+38. **Pohon di hutan "ngobrol" lewat akar**
+
+**Tubuh & kesehatan**
+39. ⭐ **Kamu sebenarnya lebih tinggi 1 cm pas bangun tidur**
+40. **Perut bunyi bukan berarti lapar**
+41. **Kenapa nguap itu menular, bahkan baca kata "nguap" aja bisa bikin nguap**
+42. **Mata kedutan, beneran pertanda atau cuma capek?**
+43. **Kenapa kaki kesemutan kalau duduk bersila kelamaan**
+
+**Sains sehari-hari**
+44. ⭐ **Kenapa nasi basi lebih cepat di rice cooker yang "warm" seharian**
+45. **Kenapa langit sore oranye, padahal siangnya biru**
+46. **Kenapa es batu di freezer kadang bening, kadang putih**
+47. **Kenapa HP cepat panas & baterai drop pas dicas sambil main**
+
+**Sejarah & asal-usul**
+48. **Kenapa keyboard susunannya QWERTY, bukan ABCD**
+49. **Asal-usul kata "bokek", "nongkrong", "galau"**
+50. **Kenapa jam dinding muter ke kanan**
+
+**Teknologi & internet**
+51. **Kenapa iklan di HP kayak "dengerin" obrolanmu**
+52. **Ke mana foto yang udah kamu hapus?**
+53. **Kenapa video "loading" selalu macet di 99%**
+
 ## Urutan saran untuk 5 video pertama
 1. Masuk ruangan lupa mau ngapain (#1): universal, fakta mengejutkan
 2. Gratis ongkir (#24): sangat Indonesia, gampang dibagikan
 3. Ngetik panjang kirim "wkwk" (#13): anak muda banget, memancing komentar
 4. Inget momen memalukan (#19): emosional, sering di-*save*
 5. Scroll sampai jam 2 (#8): menyindir penonton yang sedang scroll
+
+Selipkan **tema umum** (🌍) tiap 2–3 video, misalnya sesudah video #3: Peregrine Falcon (#34), cocok dengan gaya narasi rekaman suaramu.

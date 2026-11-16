@@ -10,13 +10,16 @@ Sebelum membuat naskah, baca file ini. Setelah video jadi, cek ulang dengan **Ch
 Penonton bosan kalau tiga video berturut-turut membahas hal yang mirip. Ganti **kategori** setiap video.
 
 **Kategori** (lihat `projects/IDE-KONTEN.md`):
-🧠 Otak & kebiasaan · 📱 HP & fokus · 💬 Chat & sosial · 😳 Perasaan & pikiran · 💸 Uang & belanja · ⏰ Waktu & produktivitas
+🧠 Otak & kebiasaan · 📱 HP & fokus · 💬 Chat & sosial · 😳 Perasaan & pikiran · 💸 Uang & belanja · ⏰ Waktu & produktivitas · 🌍 Tema umum (alam & hewan, tubuh & kesehatan, sains sehari-hari, sejarah & asal-usul, teknologi)
 
 **Aturan:**
 - Dua video berturut-turut **tidak boleh** dari kategori yang sama.
 - Dalam 5 video terakhir, minimal ada **4 kategori berbeda**.
 - Selang-seling juga **suasananya**: setelah video yang berat/emosional (😳), video berikutnya ringan/lucu (🧠 atau 💸).
 - Selang-seling **warna dominan & waktu kejadian**: kalau video sebelumnya malam/gelap, video berikutnya siang/terang.
+- **Selipkan tema umum (🌍) setiap 2–3 video**, supaya akun tidak hanya berisi masalah sehari-hari, tapi juga fakta yang membuat penonton kagum dan ingin membagikan.
+- Tema umum tetap wajib **dikaitkan ke kehidupan penonton** ("…lebih cepat dari motor yang kamu naiki tiap hari") dan tetap mengikuti aturan judul & hook.
+- **Fakta harus benar:** angka dan klaim di tema umum wajib dicek ke sumber terpercaya sebelum dibuat; sebutkan sumbernya di caption.
 - Catat setiap video yang sudah dibuat di **Riwayat** di bawah, lengkap dengan kategorinya.
 
 ## 2. Judul tidak boleh umum, harus menarik perhatian
@@ -29,6 +32,8 @@ Judul = momen spesifik yang membuat penonton berpikir **"kok tau sih, ini gue ba
 | Cara bangun pagi | Alarm bunyi 7 kali, tetep telat |
 | Cara fokus belajar | Buka buku, 10 menit kemudian udah di TikTok |
 | Kenapa kita lupa | Masuk kamar, lupa mau ngapain. Ternyata salah pintunya |
+| Fakta burung tercepat | Burung ini lebih cepat dari mobil F1, badannya seukuran ayam |
+| Fakta tubuh manusia | Kamu lebih tinggi 1 cm pas bangun tidur |
 | Mengatasi overthinking | Dibales "oke" doang, langsung mikir 3 jam |
 
 **Rumus judul (pilih salah satu):**
@@ -109,7 +114,8 @@ Cahaya adalah alat bercerita, bukan hiasan.
 
 ## Checklist sebelum video dianggap selesai
 
-- [ ] Kategori berbeda dari video sebelumnya (lihat Riwayat)
+- [ ] Kategori berbeda dari video sebelumnya (lihat Riwayat); ada tema umum dalam 3 video terakhir
+- [ ] Untuk tema umum: semua fakta & angka sudah dicek ke sumber
 - [ ] Judul spesifik, ≤ 10 kata, bukan "Tips/Cara…"
 - [ ] 3 versi hook ditulis, yang terbaik dipilih; detik 0 sudah bergerak & bersuara
 - [ ] Twist/penasaran di detik 2–3
