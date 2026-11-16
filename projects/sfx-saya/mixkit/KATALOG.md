@@ -332,8 +332,8 @@
 | `intro-transition` | 7.51 s | pembuka bagian/judul baru |
 | `jet-airplane-engine-taking-off` | 10.81 s | jet lepas landas, mulai/berangkat |
 | `jet-plane-hum-flying` | 29.82 s (suasana/loop) | dengung jet terbang (latar) |
-| `jump-in-water` | 2.3 s (suasana/loop) | lompat ke air "byur" |
-| `jump-into-the-water` | 2.28 s (suasana/loop) | lompat ke air "byur" |
+| `jump-in-water` | 2.3 s | lompat ke air "byur" |
+| `jump-into-the-water` | 2.28 s | lompat ke air "byur" |
 | `jungle-rain-and-birds` | 80.0 s (suasana/loop) | hujan di hutan + burung |
 | `keyboard-typing` | 26.31 s | mengetik, chat, kerja di laptop |
 | `keys-moving` | 1.16 s | gemerincing kunci, mau berangkat |
@@ -507,7 +507,7 @@
 | `sci-fi-metal-robot-collapse` | 3.61 s | robot logam ambruk |
 | `screaming-people-at-mechanical-game-fair` | 10.7 s | orang menjerit di wahana pasar malam, seru/takut |
 | `sea-swimming-loop` | 10.35 s (suasana/loop) | berenang di laut |
-| `sea-water-splash` | 1.74 s (suasana/loop) | cipratan air laut |
+| `sea-water-splash` | 1.74 s | cipratan air laut |
 | `sea-waves-ambience` | 151.67 s (suasana/loop) | suasana ombak (latar) |
 | `sea-waves-loop` | 48.25 s (suasana/loop) | ombak laut (latar) |
 | `sea-waves-on-a-rocky-shore` | 121.09 s (suasana/loop) | ombak di pantai berbatu (latar) |
