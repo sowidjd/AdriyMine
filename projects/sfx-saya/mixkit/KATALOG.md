@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-494 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+506 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -70,8 +70,10 @@
 | `chewing-something-crunchy` | 0.94 s | mengunyah renyah, ngemil, kerupuk |
 | `child-deep-breath` | 1.7 s | anak tarik napas dalam |
 | `child-laughing-happily` | 0.76 s | anak tertawa gembira |
+| `children-audience-talking-loop` | 84.18 s (suasana/loop) | anak-anak mengobrol menunggu acara (latar) |
 | `children-happy-countdown` | 9.93 s | anak-anak hitung mundur gembira (bahasa Inggris) |
 | `children-voices-in-school` | 122.33 s (suasana/loop) | suara anak-anak di sekolah (latar) |
+| `church-moderate-applause` | 9.04 s | tepuk tangan di aula (gereja) |
 | `cinematic-laser-gun-thunder` | 4.81 s (suasana/loop) | ledakan sci-fi, kekuatan besar, dramatis |
 | `cinematic-mystery-heartbeat-transition` | 67.27 s | transisi misteri + detak jantung, menuju reveal |
 | `cinematic-room-tone-loop` | 12.38 s (suasana/loop) | suasana ruangan sunyi sinematik (latar) |
@@ -107,6 +109,7 @@
 | `crowd-chanting-at-stadium` | 11.07 s | suporter bernyanyi di stadion |
 | `crowd-in-church-applauding` | 18.77 s | tepuk tangan di aula bergema, khidmat |
 | `crowd-laugh` | 4.12 s | penonton tertawa, momen lucu |
+| `crowded-beach-ambience` | 51.08 s (suasana/loop) | pantai ramai (latar) |
 | `crunchy-footsteps-loop` | 9.26 s | langkah kresek-kresek (loop) |
 | `crunchy-road-fast-walking-loop` | 23.21 s | jalan cepat di jalan berkerikil |
 | `cybernetic-technology-affirmation` | 2.12 s | konfirmasi sistem siber, data diterima |
@@ -135,6 +138,7 @@
 | `electronics-power-up` | 5.02 s | alat elektronik menyala, power up |
 | `end-of-show-clapping-crowd` | 8.95 s | tepuk tangan akhir pertunjukan |
 | `ending-show-audience-clapping` | 24.48 s | tepuk tangan penutup acara |
+| `energetic-crowd-short-chanting` | 3.32 s | yel-yel singkat penuh semangat |
 | `engine-phasing-wobble-swell` | 6.46 s | mesin bergelombang naik, aneh |
 | `epic-orchestra-transition` | 7.12 s | transisi megah, pengungkapan besar |
 | `european-forest-ambience` | 161.3 s (suasana/loop) | hutan subtropis (latar) |
@@ -272,6 +276,7 @@
 | `magic-marimba` | 3.34 s | marimba ajaib, keajaiban kecil, ide muncul |
 | `male-astonished-gasp` | 1.27 s | cowok terkesiap "hah!", kaget/takjub |
 | `male-clearing-the-throat` | 1.48 s | berdehem "ehem", canggung, mau bicara serius |
+| `male-crowd-chanting-revolution` | 5.56 s | kerumunan cowok berseru, demo/perjuangan |
 | `male-falling-scream` | 3.01 s | cowok jatuh berteriak |
 | `male-sleep-breathe` | 5.24 s | napas orang tidur, pulas |
 | `male-sleepy-yawning` | 2.62 s | cowok ngantuk menguap |
@@ -322,6 +327,7 @@
 | `party-trumpet-horn-isolated` | 1.29 s | terompet pesta tunggal |
 | `people-at-the-supermarket-ambience` | 31.58 s (suasana/loop) | suasana supermarket/minimarket (latar) |
 | `people-bathing-in-the-sea-ambience` | 15.34 s (suasana/loop) | pantai ramai, orang berenang, liburan |
+| `people-coming-into-church` | 85.0 s (suasana/loop) | orang berdatangan ke gereja (latar, perhatikan konteks) |
 | `people-in-fair-ambience-and-laughter` | 15.01 s (suasana/loop) | pasar malam/bazar ramai + tawa (latar) |
 | `people-indoors-ambience` | 51.72 s (suasana/loop) | orang ramai di dalam ruangan (latar) |
 | `percussion-tick-tock-timer` | 24.9 s | tik-tok perkusi, waktu berjalan berirama |
@@ -364,6 +370,7 @@
 | `running-through-the-forest` | 14.64 s | berlari menembus hutan |
 | `sad-game-over-trombone` | 5.61 s | gagal lucu "wah wah wah", kecewa |
 | `sad-party-horn-sound` | 1.5 s | terompet pesta lesu, gagal lucu/zonk |
+| `sanctuary-or-cathedral-big-bells` | 24.19 s | lonceng katedral besar (perhatikan konteks) |
 | `sand-in-the-desert` | 5.53 s (suasana/loop) | pasir tertiup di gurun |
 | `satisfied-drink-voice` | 1.57 s | "aah" puas setelah minum, segar |
 | `scary-woods-at-night` | 50.16 s (suasana/loop) | hutan seram malam hari (latar) |
@@ -415,6 +422,7 @@
 | `sphinx-cat-purr-and-quiet-growl` | 2.78 s | kucing mendengkur lalu menggeram pelan, "jangan ganggu" |
 | `spinning-fire-fx` | 2.51 s | api berputar, efek sihir/transisi |
 | `spinning-rattle-noise` | 3.79 s | kerincing berputar |
+| `sports-crowd-ambience-background` | 30.3 s (suasana/loop) | penonton olahraga (latar) |
 | `squeezing-party-trumpet` | 1.96 s | terompet pesta diremas, lucu |
 | `stadium-chaotic-loud-applause-drums-and-chants` | 17.27 s | stadion heboh: tepuk tangan, drum & yel-yel |
 | `stadium-crowd-light-applause` | 11.09 s | tepuk tangan stadion, pengakuan besar |
@@ -430,6 +438,8 @@
 | `strong-wild-wind-in-a-storm` | 13.65 s (suasana/loop) | angin kencang badai, terhempas |
 | `sub-urban-ambience-and-birds` | 62.38 s (suasana/loop) | pinggiran kota + burung, kompleks perumahan (latar) |
 | `subway-interior-ambience` | 32.95 s (suasana/loop) | di dalam kereta/KRL (latar) |
+| `subway-station-escalator` | 25.6 s (suasana/loop) | eskalator stasiun/mal |
+| `subway-station-escalator-hum` | 11.2 s (suasana/loop) | dengung eskalator (latar) |
 | `summer-crickets-loop` | 18.83 s (suasana/loop) | jangkrik musim panas (latar) |
 | `summer-night-crickets` | 32.71 s (suasana/loop) | jangkrik malam (latar) |
 | `summer-night-crickets-loop` | 42.0 s (suasana/loop) | jangkrik malam (latar) |
@@ -455,6 +465,7 @@
 | `thunderstorm-in-the-forest` | 32.0 s (suasana/loop) | badai petir di hutan |
 | `tick-tock-clock-timer` | 16.85 s | waktu berjalan, menunggu, deadline |
 | `tired-man-yawns` | 3.38 s | cowok capek menguap |
+| `tourists-crowd-at-sightseeing-location` | 32.39 s (suasana/loop) | turis ramai di tempat wisata (latar) |
 | `toy-mechanism` | 1.13 s | mekanisme mainan diputar, "krek-krek" |
 | `tractors-working-on-the-field` | 44.26 s (suasana/loop) | traktor di sawah/ladang |
 | `trailer-screaming-people-annihilation` | 10.19 s | orang menjerit panik ala trailer bencana |
@@ -466,6 +477,7 @@
 | `underwater-transmitter-hum` | 13.62 s (suasana/loop) | dengung pemancar bawah air (latar) |
 | `urban-city-sounds-and-light-car-traffic` | 23.89 s (suasana/loop) | kota + lalu lintas ringan (latar) |
 | `urban-square-atmosphere` | 52.88 s (suasana/loop) | alun-alun kota (latar) |
+| `urban-street-and-kids` | 40.12 s (suasana/loop) | jalanan kota + anak-anak (latar) |
 | `user-interface-zoom-in` | 0.66 s | zoom in, fokus ke detail |
 | `vacuum-swoosh-transition` | 2.26 s | transisi tersedot/menghilang |
 | `very-crowded-pub-or-party-loop` | 36.0 s (suasana/loop) | pesta/kafe sangat ramai (latar) |

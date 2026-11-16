@@ -768,6 +768,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-children-audience-talking-loop-359.wav",
+  "nama": "children-audience-talking-loop",
+  "durasi_s": 84.18,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -3.4,
+  "suasana_loop": true,
+  "cocok_untuk": "anak-anak mengobrol menunggu acara (latar)",
+  "normal": "normal/children-audience-talking-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-children-happy-countdown-923.wav",
   "nama": "children-happy-countdown",
   "durasi_s": 9.93,
@@ -788,6 +800,18 @@
   "suasana_loop": true,
   "cocok_untuk": "suara anak-anak di sekolah (latar)",
   "normal": "normal/children-voices-in-school.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-church-moderate-applause-499.wav",
+  "nama": "church-moderate-applause",
+  "durasi_s": 9.04,
+  "bunyi_mulai_s": 0.56,
+  "peak_db": -7.2,
+  "suasana_loop": false,
+  "cocok_untuk": "tepuk tangan di aula (gereja)",
+  "normal": "normal/church-moderate-applause.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1212,6 +1236,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-crowded-beach-ambience-446.wav",
+  "nama": "crowded-beach-ambience",
+  "durasi_s": 51.08,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -0.4,
+  "suasana_loop": true,
+  "cocok_untuk": "pantai ramai (latar)",
+  "normal": "normal/crowded-beach-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-crunchy-footsteps-loop-535.wav",
   "nama": "crunchy-footsteps-loop",
   "durasi_s": 9.26,
@@ -1544,6 +1580,18 @@
   "suasana_loop": false,
   "cocok_untuk": "tepuk tangan penutup acara",
   "normal": "normal/ending-show-audience-clapping.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-energetic-crowd-short-chanting-441.wav",
+  "nama": "energetic-crowd-short-chanting",
+  "durasi_s": 3.32,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -0.7,
+  "suasana_loop": false,
+  "cocok_untuk": "yel-yel singkat penuh semangat",
+  "normal": "normal/energetic-crowd-short-chanting.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3192,6 +3240,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-male-crowd-chanting-revolution-440.wav",
+  "nama": "male-crowd-chanting-revolution",
+  "durasi_s": 5.56,
+  "bunyi_mulai_s": 0.07,
+  "peak_db": -0.5,
+  "suasana_loop": false,
+  "cocok_untuk": "kerumunan cowok berseru, demo/perjuangan",
+  "normal": "normal/male-crowd-chanting-revolution.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-male-falling-scream-392.wav",
   "nama": "male-falling-scream",
   "durasi_s": 3.01,
@@ -3792,6 +3852,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-people-coming-into-church-350.wav",
+  "nama": "people-coming-into-church",
+  "durasi_s": 85.0,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -7.9,
+  "suasana_loop": true,
+  "cocok_untuk": "orang berdatangan ke gereja (latar, perhatikan konteks)",
+  "normal": "normal/people-coming-into-church.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-people-in-fair-ambience-and-laughter-368.wav",
   "nama": "people-in-fair-ambience-and-laughter",
   "durasi_s": 15.01,
@@ -4292,6 +4364,18 @@
   "suasana_loop": false,
   "cocok_untuk": "terompet pesta lesu, gagal lucu/zonk",
   "normal": "normal/sad-party-horn-sound.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-sanctuary-or-cathedral-big-bells-602.wav",
+  "nama": "sanctuary-or-cathedral-big-bells",
+  "durasi_s": 24.19,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -0.3,
+  "suasana_loop": false,
+  "cocok_untuk": "lonceng katedral besar (perhatikan konteks)",
+  "normal": "normal/sanctuary-or-cathedral-big-bells.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -4908,6 +4992,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-sports-crowd-ambience-background-450.wav",
+  "nama": "sports-crowd-ambience-background",
+  "durasi_s": 30.3,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -7.8,
+  "suasana_loop": true,
+  "cocok_untuk": "penonton olahraga (latar)",
+  "normal": "normal/sports-crowd-ambience-background.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-squeezing-party-trumpet-978.wav",
   "nama": "squeezing-party-trumpet",
   "durasi_s": 1.96,
@@ -5084,6 +5180,30 @@
   "suasana_loop": true,
   "cocok_untuk": "di dalam kereta/KRL (latar)",
   "normal": "normal/subway-interior-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-subway-station-escalator-373.wav",
+  "nama": "subway-station-escalator",
+  "durasi_s": 25.6,
+  "bunyi_mulai_s": 0.13,
+  "peak_db": -18.8,
+  "suasana_loop": true,
+  "cocok_untuk": "eskalator stasiun/mal",
+  "normal": "normal/subway-station-escalator.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-subway-station-escalator-hum-374.wav",
+  "nama": "subway-station-escalator-hum",
+  "durasi_s": 11.2,
+  "bunyi_mulai_s": 0.13,
+  "peak_db": -22.3,
+  "suasana_loop": true,
+  "cocok_untuk": "dengung eskalator (latar)",
+  "normal": "normal/subway-station-escalator-hum.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -5388,6 +5508,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-tourists-crowd-at-sightseeing-location-435.wav",
+  "nama": "tourists-crowd-at-sightseeing-location",
+  "durasi_s": 32.39,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -5.2,
+  "suasana_loop": true,
+  "cocok_untuk": "turis ramai di tempat wisata (latar)",
+  "normal": "normal/tourists-crowd-at-sightseeing-location.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-toy-mechanism-2823.wav",
   "nama": "toy-mechanism",
   "durasi_s": 1.13,
@@ -5516,6 +5648,18 @@
   "suasana_loop": true,
   "cocok_untuk": "alun-alun kota (latar)",
   "normal": "normal/urban-square-atmosphere.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-urban-street-and-kids-347.wav",
+  "nama": "urban-street-and-kids",
+  "durasi_s": 40.12,
+  "bunyi_mulai_s": 0.3,
+  "peak_db": -23.3,
+  "suasana_loop": true,
+  "cocok_untuk": "jalanan kota + anak-anak (latar)",
+  "normal": "normal/urban-street-and-kids.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
