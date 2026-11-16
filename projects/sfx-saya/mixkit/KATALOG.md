@@ -1,12 +1,13 @@
 # Efek suara Mixkit (dari pemilik)
 
-199 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+217 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
 | Nama | Durasi | Cocok untuk |
 |---|---|---|
 | `aggressive-beast-roar` | 1.46 s | monster/binatang buas, ancaman, kaget |
+| `ah-woman-exclamation-of-pain` | 1.23 s | "ah!" kesakitan |
 | `air-woosh` | 2.32 s | gerak udara ringan, teks masuk |
 | `air-zoom-vacuum` | 1.27 s | tersedot, zoom masuk, menghilang |
 | `alarm-tone` | 1.08 s | nada alarm, peringatan |
@@ -19,6 +20,7 @@
 | `beach-waves-with-children-ambience` | 52.0 s (suasana/loop) | ombak pantai + anak-anak bermain, ceria |
 | `big-fire-burning` | 3.51 s (suasana/loop) | api besar berkobar (latar) |
 | `big-fire-flame-burning` | 8.27 s (suasana/loop) | nyala api besar (latar) |
+| `big-loving-kiss` | 1.15 s | cium besar penuh sayang |
 | `big-wild-lion-growl` | 2.66 s | auman/geraman singa, kekuatan, raja hutan |
 | `bird-singing-and-flapping-wings` | 3.67 s | burung berkicau & mengepak sayap (dekat) |
 | `birds-chirping-in-the-jungle` | 6.69 s (suasana/loop) | kicau burung di hutan tropis |
@@ -33,6 +35,7 @@
 | `campfire-night-wind` | 30.75 s (suasana/loop) | api unggun + angin malam (latar) |
 | `cartoon-girl-saying-no-no-no` | 1.8 s | "no no no" kartun, menolak lucu |
 | `cartoon-toy-whistle` | 1.21 s | lucu, konyol, gagal lucu |
+| `cartoon-vocal-yawn` | 1.75 s | menguap ala kartun, ngantuk lucu |
 | `chewing-something-crunchy` | 0.94 s | mengunyah renyah, ngemil, kerupuk |
 | `child-laughing-happily` | 0.76 s | anak tertawa gembira |
 | `cinematic-laser-gun-thunder` | 4.81 s (suasana/loop) | ledakan sci-fi, kekuatan besar, dramatis |
@@ -47,6 +50,7 @@
 | `crickets-at-night-in-nature` | 90.13 s (suasana/loop) | jangkrik malam di alam (latar) |
 | `crowd-laugh` | 4.12 s | penonton tertawa, momen lucu |
 | `cybernetic-technology-affirmation` | 2.12 s | konfirmasi sistem siber, data diterima |
+| `deep-child-breathing-and-exhaling` | 2.41 s | anak menarik napas dalam, tenang |
 | `desert-ambience` | 60.15 s (suasana/loop) | suasana gurun (latar) |
 | `distant-sea-humming-ambiance` | 44.86 s (suasana/loop) | laut di kejauhan, tenang, luas |
 | `dog-barking-twice` | 1.62 s | anjing menggonggong, kejutan lucu |
@@ -93,6 +97,8 @@
 | `horror-ambience` | 82.14 s (suasana/loop) | suasana horor, mencekam (latar) |
 | `horror-sci-fi-wind-tunnel` | 64.0 s (suasana/loop) | lorong angin horor/sci-fi, mencekam |
 | `human-fighter-pain-scream` | 1.07 s | teriakan kesakitan, dramatis/lucu berlebihan |
+| `human-mouth-fast-blow` | 0.41 s | tiupan cepat |
+| `hungry-man-eating` | 1.33 s | orang lapar makan lahap |
 | `in-and-out-zoom-sound` | 1.25 s | zoom masuk lalu keluar |
 | `industrial-machine-hum` | 50.0 s (suasana/loop) | dengung mesin pabrik (latar) |
 | `intense-long-fire-beam` | 9.0 s | semburan api panjang, kekuatan besar |
@@ -106,8 +112,12 @@
 | `liquid-bubble` | 1.05 s | gelembung cairan, ide muncul, lab |
 | `little-baby-sneeze` | 0.78 s | bayi bersin, imut |
 | `little-birds-singing-in-the-trees` | 8.33 s (suasana/loop) | pagi, taman, alam tenang |
+| `little-boy-gibberish-talk` | 2.53 s | anak kecil ngoceh tak jelas, lucu |
 | `little-cute-kiss` | 1.08 s | cium kecil, imut, sayang |
+| `long-loving-kiss` | 1.05 s | cium panjang penuh sayang |
+| `loud-creature-breathing` | 1.9 s | napas makhluk besar, seram |
 | `male-clearing-the-throat` | 1.48 s | berdehem "ehem", canggung, mau bicara serius |
+| `male-sleep-breathe` | 5.24 s | napas orang tidur, pulas |
 | `man-running-in-the-forest` | 11.24 s | orang berlari di hutan, dikejar, buru-buru |
 | `man-strong-snore` | 1.49 s | dengkuran keras, tidur pulas, lucu |
 | `martial-arts-fast-punch` | 1.34 s | pukulan, "dihantam", fakta yang menampar |
@@ -117,17 +127,22 @@
 | `morning-sound-in-a-garden` | 110.44 s (suasana/loop) | pagi di taman/kebun, segar |
 | `movie-trailer-epic-impact` | 4.87 s | angka/fakta besar muncul, hantaman epik |
 | `mystwrious-bass-pulse` | 16.56 s | misterius, tegang, sesuatu akan terungkap |
+| `nasty-criature-roar` | 1.79 s | raungan makhluk seram |
 | `nature-ambience-with-lightning-strike-and-thunder` | 28.75 s | alam + petir menyambar, cuaca dramatis |
 | `night-crickets-near-the-swamp` | 33.74 s (suasana/loop) | jangkrik malam dekat rawa (latar) |
 | `night-forest-with-insects` | 84.0 s (suasana/loop) | hutan malam, serangga, misterius tenang |
 | `night-vision-starting` | 1.15 s | kacamata malam/teknologi menyala, mulai memindai |
 | `old-subway-train-arrives` | 18.77 s (suasana/loop) | kereta tua datang, stasiun |
+| `ow-exclamation-of-pain` | 0.49 s | "aw!" kesakitan, lucu |
 | `owl-in-a-forest` | 90.14 s (suasana/loop) | burung hantu di hutan, malam misterius |
 | `owl-shriek` | 1.18 s | jeritan burung hantu, kaget/seram |
 | `papers-blowing-in-the-windstorm` | 5.2 s (suasana/loop) | kertas beterbangan diterpa angin, berantakan, kacau |
 | `people-bathing-in-the-sea-ambience` | 15.34 s (suasana/loop) | pantai ramai, orang berenang, liburan |
 | `people-indoors-ambience` | 51.72 s (suasana/loop) | orang ramai di dalam ruangan (latar) |
+| `person-blows` | 0.42 s | meniup, "fiuh" lega |
 | `person-nasal-laugh` | 2.21 s | tawa tertahan lewat hidung, geli |
+| `persons-mouth-blowing` | 1.13 s | meniup dengan mulut, "fiuh" |
+| `playground-with-kids-playing` | 20.83 s (suasana/loop) | taman bermain anak (latar) |
 | `quiet-forest-ambience` | 152.08 s (suasana/loop) | hutan sunyi (latar) |
 | `rain-and-thunder-storm` | 29.0 s (suasana/loop) | badai, hujan petir, suasana muram/dramatis |
 | `rain-in-the-jungle-and-birds` | 30.17 s (suasana/loop) | hujan hutan + burung |
@@ -153,6 +168,7 @@
 | `sick-man-sneeze` | 0.86 s | bersin, sakit, kejutan lucu |
 | `sick-woman-coughing` | 1.73 s | batuk, sakit |
 | `single-cricket-screech` | 1.78 s | satu jangkrik "krik", hening canggung |
+| `single-zombie-breath` | 2.09 s | napas zombie, horor |
 | `sleeping-mouth-smacking-lips` | 2.81 s | orang tidur berdecap, lucu, ngantuk |
 | `small-cricket-screech` | 1.42 s | jangkrik kecil berderik (dekat) |
 | `small-crowd-laugh-and-applause` | 5.76 s | tertawa + tepuk tangan, lucu yang berhasil |
@@ -205,3 +221,5 @@
 | `windy-humming-forest-with-birds` | 125.35 s (suasana/loop) | hutan berangin + burung |
 | `wizard-fire-woosh` | 1.09 s | sihir api, transisi magis |
 | `wolves-at-scary-forest` | 9.74 s (suasana/loop) | serigala di hutan seram, horor/ancaman |
+| `young-man-coughing` | 1.19 s | cowok batuk |
+| `young-tired-male-yawns` | 2.98 s | cowok capek menguap, ngantuk |

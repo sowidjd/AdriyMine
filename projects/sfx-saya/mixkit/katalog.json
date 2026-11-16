@@ -12,6 +12,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-ah-woman-exclamation-of-pain-2205.wav",
+  "nama": "ah-woman-exclamation-of-pain",
+  "durasi_s": 1.23,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -6.4,
+  "suasana_loop": false,
+  "cocok_untuk": "\"ah!\" kesakitan",
+  "normal": "normal/ah-woman-exclamation-of-pain.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-air-woosh-1489.wav",
   "nama": "air-woosh",
   "durasi_s": 2.32,
@@ -152,6 +164,18 @@
   "suasana_loop": true,
   "cocok_untuk": "nyala api besar (latar)",
   "normal": "normal/big-fire-flame-burning.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-big-loving-kiss-2191.wav",
+  "nama": "big-loving-kiss",
+  "durasi_s": 1.15,
+  "bunyi_mulai_s": 0.07,
+  "peak_db": -0.3,
+  "suasana_loop": false,
+  "cocok_untuk": "cium besar penuh sayang",
+  "normal": "normal/big-loving-kiss.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -324,6 +348,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-cartoon-vocal-yawn-2268.wav",
+  "nama": "cartoon-vocal-yawn",
+  "durasi_s": 1.75,
+  "bunyi_mulai_s": 0.51,
+  "peak_db": -2.9,
+  "suasana_loop": false,
+  "cocok_untuk": "menguap ala kartun, ngantuk lucu",
+  "normal": "normal/cartoon-vocal-yawn.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-chewing-something-crunchy-2244.wav",
   "nama": "chewing-something-crunchy",
   "durasi_s": 0.94,
@@ -488,6 +524,18 @@
   "suasana_loop": false,
   "cocok_untuk": "konfirmasi sistem siber, data diterima",
   "normal": "normal/cybernetic-technology-affirmation.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-deep-child-breathing-and-exhaling-2238.wav",
+  "nama": "deep-child-breathing-and-exhaling",
+  "durasi_s": 2.41,
+  "bunyi_mulai_s": 0.13,
+  "peak_db": -16.7,
+  "suasana_loop": false,
+  "cocok_untuk": "anak menarik napas dalam, tenang",
+  "normal": "normal/deep-child-breathing-and-exhaling.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1044,6 +1092,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-human-mouth-fast-blow-2659.wav",
+  "nama": "human-mouth-fast-blow",
+  "durasi_s": 0.41,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -11.9,
+  "suasana_loop": false,
+  "cocok_untuk": "tiupan cepat",
+  "normal": "normal/human-mouth-fast-blow.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-hungry-man-eating-2252.wav",
+  "nama": "hungry-man-eating",
+  "durasi_s": 1.33,
+  "bunyi_mulai_s": 0.04,
+  "peak_db": -1.0,
+  "suasana_loop": false,
+  "cocok_untuk": "orang lapar makan lahap",
+  "normal": "normal/hungry-man-eating.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-in-and-out-zoom-sound-2622.wav",
   "nama": "in-and-out-zoom-sound",
   "durasi_s": 1.25,
@@ -1200,6 +1272,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-little-boy-gibberish-talk-2260.wav",
+  "nama": "little-boy-gibberish-talk",
+  "durasi_s": 2.53,
+  "bunyi_mulai_s": 0.04,
+  "peak_db": -1.3,
+  "suasana_loop": false,
+  "cocok_untuk": "anak kecil ngoceh tak jelas, lucu",
+  "normal": "normal/little-boy-gibberish-talk.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-little-cute-kiss-2192.wav",
   "nama": "little-cute-kiss",
   "durasi_s": 1.08,
@@ -1212,6 +1296,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-long-loving-kiss-2195.wav",
+  "nama": "long-loving-kiss",
+  "durasi_s": 1.05,
+  "bunyi_mulai_s": 0.19,
+  "peak_db": -0.6,
+  "suasana_loop": false,
+  "cocok_untuk": "cium panjang penuh sayang",
+  "normal": "normal/long-loving-kiss.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-loud-creature-breathing-2231.wav",
+  "nama": "loud-creature-breathing",
+  "durasi_s": 1.9,
+  "bunyi_mulai_s": 0.2,
+  "peak_db": -4.4,
+  "suasana_loop": false,
+  "cocok_untuk": "napas makhluk besar, seram",
+  "normal": "normal/loud-creature-breathing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-male-clearing-the-throat-2226.wav",
   "nama": "male-clearing-the-throat",
   "durasi_s": 1.48,
@@ -1220,6 +1328,18 @@
   "suasana_loop": false,
   "cocok_untuk": "berdehem \"ehem\", canggung, mau bicara serius",
   "normal": "normal/male-clearing-the-throat.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-male-sleep-breathe-2236.wav",
+  "nama": "male-sleep-breathe",
+  "durasi_s": 5.24,
+  "bunyi_mulai_s": 0.21,
+  "peak_db": -13.0,
+  "suasana_loop": false,
+  "cocok_untuk": "napas orang tidur, pulas",
+  "normal": "normal/male-sleep-breathe.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1332,6 +1452,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-nasty-criature-roar-2781.wav",
+  "nama": "nasty-criature-roar",
+  "durasi_s": 1.79,
+  "bunyi_mulai_s": 0.04,
+  "peak_db": -0.7,
+  "suasana_loop": false,
+  "cocok_untuk": "raungan makhluk seram",
+  "normal": "normal/nasty-criature-roar.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-nature-ambience-with-lightning-strike-and-thunder-3093.wav",
   "nama": "nature-ambience-with-lightning-strike-and-thunder",
   "durasi_s": 28.75,
@@ -1388,6 +1520,18 @@
   "suasana_loop": true,
   "cocok_untuk": "kereta tua datang, stasiun",
   "normal": "normal/old-subway-train-arrives.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-ow-exclamation-of-pain-2204.wav",
+  "nama": "ow-exclamation-of-pain",
+  "durasi_s": 0.49,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -3.2,
+  "suasana_loop": false,
+  "cocok_untuk": "\"aw!\" kesakitan, lucu",
+  "normal": "normal/ow-exclamation-of-pain.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1452,6 +1596,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-person-blows-2660.wav",
+  "nama": "person-blows",
+  "durasi_s": 0.42,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -14.9,
+  "suasana_loop": false,
+  "cocok_untuk": "meniup, \"fiuh\" lega",
+  "normal": "normal/person-blows.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-person-nasal-laugh-2883.wav",
   "nama": "person-nasal-laugh",
   "durasi_s": 2.21,
@@ -1460,6 +1616,30 @@
   "suasana_loop": false,
   "cocok_untuk": "tawa tertahan lewat hidung, geli",
   "normal": "normal/person-nasal-laugh.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-persons-mouth-blowing-2661.wav",
+  "nama": "persons-mouth-blowing",
+  "durasi_s": 1.13,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -25.2,
+  "suasana_loop": false,
+  "cocok_untuk": "meniup dengan mulut, \"fiuh\"",
+  "normal": "normal/persons-mouth-blowing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-playground-with-kids-playing-2266.wav",
+  "nama": "playground-with-kids-playing",
+  "durasi_s": 20.83,
+  "bunyi_mulai_s": 0.15,
+  "peak_db": -12.7,
+  "suasana_loop": true,
+  "cocok_untuk": "taman bermain anak (latar)",
+  "normal": "normal/playground-with-kids-playing.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1760,6 +1940,18 @@
   "suasana_loop": false,
   "cocok_untuk": "satu jangkrik \"krik\", hening canggung",
   "normal": "normal/single-cricket-screech.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-single-zombie-breath-2233.wav",
+  "nama": "single-zombie-breath",
+  "durasi_s": 2.09,
+  "bunyi_mulai_s": 0.02,
+  "peak_db": -1.0,
+  "suasana_loop": false,
+  "cocok_untuk": "napas zombie, horor",
+  "normal": "normal/single-zombie-breath.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2384,6 +2576,30 @@
   "suasana_loop": true,
   "cocok_untuk": "serigala di hutan seram, horor/ancaman",
   "normal": "normal/wolves-at-scary-forest.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-young-man-coughing-2227.wav",
+  "nama": "young-man-coughing",
+  "durasi_s": 1.19,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -1.0,
+  "suasana_loop": false,
+  "cocok_untuk": "cowok batuk",
+  "normal": "normal/young-man-coughing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-young-tired-male-yawns-2278.wav",
+  "nama": "young-tired-male-yawns",
+  "durasi_s": 2.98,
+  "bunyi_mulai_s": 0.23,
+  "peak_db": -9.6,
+  "suasana_loop": false,
+  "cocok_untuk": "cowok capek menguap, ngantuk",
+  "normal": "normal/young-tired-male-yawns.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  }
