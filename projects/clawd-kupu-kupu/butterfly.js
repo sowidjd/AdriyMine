@@ -56,7 +56,7 @@
   // The meadow: sky, sun, clouds, far hills (parallax), ground and tufts. warm 0..1 shifts it toward golden hour.
   function meadow(t, camX, warm = 0, x0 = -900, x1 = 3300) {
     boilSeed('sky');
-    paint(rectPts(x0, -700, x1 - x0, G + 700), { wash: mixCol(PAL.sky, WARM, warm * .75), ink: null });
+    paint(rectPts(x0, -700, x1 - x0, G + 700), { wash: mixCol(PAL.sky, '#FBE3B8', warm * .6), ink: null });
     const px = (camX - 960) * .85;   // the sun and clouds barely move: far away
     glow(px + 330, 170, 260, '#FFE6A8', .7);
     paint(ellPts(px + 330, 170, 62, 62, 24), { wash: mixCol('#FFF1C9', '#FFD98A', warm), ink: null });
@@ -137,7 +137,7 @@
     return lerp(1220, 1680, ease(seg(lt, ...B.j2)));
   };
   const BFLY = [[0, [520, 560]], [.6, [800, 610]], [1.2, [1100, 600]], [1.6, [1190, 790]], [2.0, [1360, 640]], [2.55, [1520, 560]],
-                [2.95, [1440, 330]], [3.3, [1290, 430]], [3.75, [1500, 300]], [4.4, [1900, 250]], [5.2, [2300, 320]], [6.0, [2250, 360]]];
+                [2.95, [1440, 330]], [3.3, [1290, 430]], [3.75, [1500, 300]], [4.4, [1900, 250]], [5.2, [2250, 420]], [6.0, [2150, 470]]];
 
   function shotChase(t, lt, dur) {
     const u = B.u, x = xB(lt);
@@ -178,7 +178,7 @@
       const p = path(BFLY, lt); butterfly(p[0], p[1] + 10 * Math.sin(lt * 8), r, flapFast(lt), tilt(BFLY, lt));
     } else if (lt < B.tDown[1]) {
       const k = seg(lt, ...B.tDown), e = ease(k);
-      const p = [lerp(2250, headTop[0], e) + 60 * Math.sin(k * Math.PI * 2) * (1 - k), lerp(360, headTop[1], e) - 70 * Math.sin(k * Math.PI)];
+      const p = [lerp(2150, headTop[0], e) + 50 * Math.sin(k * Math.PI * 2) * (1 - k), lerp(470, headTop[1], e) - 40 * Math.sin(k * Math.PI)];
       butterfly(p[0], p[1], r, k > .9 ? lerp(flap, flapSlow(lt), (k - .9) / .1) : .5 + .5 * Math.sin(lt * TAU * 3.5), -.25 * (1 - k) + .1 * Math.sin(lt * 2));
     } else {
       const a = lt - B.tDown[1], settle = .12 * Math.exp(-a * 4) * Math.sin(a * 14);
