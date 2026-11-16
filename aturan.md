@@ -207,31 +207,36 @@ Gaya tambahan dari `repos/animate` (berbasis Canvas seperti video kita, punya pe
 
 ## 10. Menyebut nama akun: Adriy.Project
 
-Nama akun **Adriy.Project** disebut di dalam narasi supaya penonton ingat, tapi **menyatu dengan isi cerita**, bukan seperti iklan.
+Nama akun **Adriy.Project** disebut di dalam narasi supaya penonton **ingat**, jadi harus terasa sebagai **sebuah momen**, bukan lewat begitu saja seperti angin, tapi juga tidak seperti iklan.
 
-**Aturan:**
-- **Cukup 1 kali per video.** Maksimal 2 kali kalau videonya lebih dari 2 menit, dan jaraknya jauh. Tidak boleh disebut terus-menerus.
-- **Dilarang di awal** (hook, 0–10 detik pertama) dan **dilarang di akhir** (penutup atau ajakan komentar). Awal harus fokus ke hook, akhir harus fokus ke ajakan.
-- **Tempat terbaik: di tengah**, sekitar 30–70% durasi video, tepat di **momen transisi**: sesudah penjelasan "kenapa" dan sebelum trik/solusi, atau saat masuk ke fakta paling mengejutkan.
-- **Harus nyambung dengan kalimat sebelum dan sesudahnya.** Kalimatnya disesuaikan dengan tema video, jangan memakai kalimat yang sama di setiap video.
-- **Gaya bicara santai**, seperti bagian dari cerita, bukan "Jangan lupa follow Adriy.Project ya!".
-- **Di layar:** saat nama disebut, boleh muncul teks kecil "Adriy.Project" sekitar 1,5 detik di kotak aman. Jangan menutupi tokoh atau teks penting.
-- **Cara baca:** "Adri titik Project", sama seperti di rekaman suara pemilik. `projects/suara/ucapan.py` mengubahnya otomatis.
+**Jumlah & posisi:**
+- **1 kali per video** (maksimal 2 kali kalau videonya lebih dari 2 menit, dengan jarak jauh).
+- **Dilarang di awal** (hook, 10 detik pertama) dan **dilarang di akhir** (penutup/ajakan komentar).
+- **Di tengah, sekitar 30–70% durasi**, di momen transisi: sesudah penjelasan dan sebelum fakta paling mengejutkan atau trik utama.
+
+**Supaya terasa (wajib ketiganya):**
+1. **Kalimat khusus untuk nama.** Nama tidak boleh terselip di tengah kalimat panjang. Pakai bentuk **"kami di Adriy.Project …"** (suara tim, membangun identitas), lalu kalimat dipotong atau diberi **jeda 0,5–0,9 detik** sesudah nama. Arahan suara: *lebih pelan, hangat, bangga, penekanan jelas pada nama*.
+2. **Stempel visual.** Lencana "Adriy.Project" dengan desain yang sama di setiap video, ukuran teks ≥ 70 px, di tengah-atas kotak aman, muncul seperti dicap (memantul), bertahan **≥ 2 detik**, dengan sorotan cahaya hangat di belakangnya. **Clawd bereaksi** (menunjuk lencana, mengangguk bangga). Lencana tidak menutupi tokoh atau teks penting lain.
+3. **Logo suara.** Setiap kali nama disebut, bunyi khas yang **selalu sama**: `repos/sfx-kit/sounds/logo-stings/sting-bright-short.wav`, jatuh di jeda sesudah nama. Musik turun sedikit di saat itu supaya bunyi khasnya terdengar.
+
+**Lain-lain:**
+- Bagian kalimat sesudah nama **disesuaikan dengan tema**, jangan sama persis di setiap video.
+- **Cara baca:** "Adri titik Project" (diubah otomatis oleh `projects/suara/ucapan.py`).
+- Caption narasi juga menampilkan nama.
 
 **Contoh kalimat yang benar (disesuaikan tema):**
 | Tema | Kalimat (di tengah video) |
 |---|---|
-| ⏰ Bangun pagi | "Nah, di Adriy.Project kita nyobain cara yang agak aneh, dan ternyata berhasil." |
-| 🧠 Lupa pas masuk ruangan | "Waktu tim Adriy.Project baca penelitiannya, kita kaget: ternyata pintunya yang bikin lupa." |
-| 💸 Gratis ongkir | "Di Adriy.Project kita hitung pakai kalkulator, dan hasilnya bikin nyesek." |
-| 🌍 Peregrine Falcon | "Dan ini yang bikin kita di Adriy.Project melongo: rekornya bukan 320." |
-| 💬 Kirim "wkwk" | "Jujur, di Adriy.Project juga sering gini. Makanya kita cari tahu kenapa." |
+| 🌍 Peregrine Falcon | "Waktu kami di Adriy.Project ngecek rekor resminya…" *(jeda, stempel, bunyi khas)* "…kami langsung melongo." |
+| ⏰ Bangun pagi | "Kami di Adriy.Project nyobain caranya selama seminggu…" *(jeda)* "…dan ternyata berhasil." |
+| 🧠 Lupa pas masuk ruangan | "Kami di Adriy.Project baca penelitiannya…" *(jeda)* "…ternyata pintunya yang bikin lupa." |
+| 💸 Gratis ongkir | "Kami di Adriy.Project hitung pakai kalkulator…" *(jeda)* "…hasilnya bikin nyesek." |
 
 **Contoh yang salah:**
+- ❌ "…yang bikin kita di Adriy.Project melongo." (nama terselip, langsung lewat)
 - ❌ "Halo, selamat datang di Adriy.Project!" (di awal)
 - ❌ "Follow Adriy.Project buat konten lainnya!" (di akhir dan seperti iklan)
-- ❌ Disebut 3 kali dalam video 1 menit
-- ❌ Kalimat yang sama persis di setiap video
+- ❌ Disebut 3 kali dalam video 1 menit, atau tanpa stempel dan bunyi khas
 
 ## Checklist sebelum video dianggap selesai
 
@@ -249,7 +254,7 @@ Nama akun **Adriy.Project** disebut di dalam narasi supaya penonton ingat, tapi 
 - [ ] Minimal 2 pergantian cahaya, momen terpenting paling terang
 - [ ] Gaya animasi dipilih lewat 6 langkah §9: metafora inti + alasan 1 kalimat ditulis, tidak termasuk gaya yang dilarang, beda dari video sebelumnya
 - [ ] Semua teks di kotak aman x 60–927, y 212–1540 (cek dengan garis bantu area aman)
-- [ ] "Adriy.Project" disebut 1 kali (maks. 2 untuk video > 2 menit), di tengah (30–70% durasi), menyatu dengan cerita, tidak di awal/akhir
+- [ ] "Adriy.Project" disebut 1 kali (maks. 2 untuk video > 2 menit), di tengah (30–70% durasi), tidak di awal/akhir, dengan kalimat khusus + jeda, stempel visual ≥ 2 detik + reaksi Clawd, dan bunyi khas sting-bright-short
 - [ ] Ditutup dengan ajakan komentar yang memancing jawaban
 
 ## Riwayat video

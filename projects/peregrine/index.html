@@ -25,7 +25,7 @@ let T = 0, BOIL = 0;   // only contours boil: 3 drawings cycled, a new one every
 
 // ---------- timeline (narration is the clock) ----------
 const EST = [['h1', 3.6], ['h2', 1.8], ['h3', 2.6], ['k1', 3.8], ['k2', 3.6], ['k3', 3.0], ['d1', 3.2], ['d2', 3.4], ['w1', 3.0], ['w2', 3.4], ['w3', 3.4],
-  ['r1', 2.8], ['r1b', 4.0], ['r2', 3.0], ['r2b', 5.4], ['r3', 2.8], ['r3b', 5.6], ['a1', 2.8], ['a2', 2.4], ['f1', 4.2], ['f2', 3.8], ['f3', 4.0], ['f4', 2.0],
+  ['r1', 2.8], ['r1b', 4.0], ['r2', 3.0], ['r2b', 5.4], ['r3', 2.8], ['r3b', 5.6], ['a1', 3.0], ['a1b', 1.6], ['a2', 2.4], ['f1', 4.2], ['f2', 3.8], ['f3', 4.0], ['f4', 2.0],
   ['e1', 4.4], ['e2', 2.8], ['c1', 6.0], ['c2', 1.4]];
 function estTL() { let t = .35; const lines = EST.map(([id, d]) => { const l = { id, t0: t, t1: t + d, cap: '' }; t += d + .3; return l; }); return { duration: t + 1.2, lines }; }
 let TL = null, LN = {};
@@ -225,9 +225,24 @@ function card(x, y, w, h, title, sub, icon, age, id, hi = false) {
   ctx.textAlign = 'left'; ctx.restore();
 }
 
+// the channel badge: same design in every video (paper badge, pencilled ring with a little falcon-wing mark)
+function brandStamp(x, y, age, life) {
+  const k = age < .18 ? lerp(1.6, .92, easeIn(age / .18)) : 1 + .08 * Math.exp(-(age - .18) * 7) * Math.cos((age - .18) * 22), out = 1 - seg(age, life - .25, life);
+  if (out <= 0) return;
+  ctx.save(); ctx.globalAlpha = out * clamp(age / .08);
+  const g = ctx.createRadialGradient(x, y, 0, x, y, 420); g.addColorStop(0, 'rgba(255,214,140,0.55)'); g.addColorStop(1, 'rgba(255,214,140,0)'); ctx.fillStyle = g; ctx.fillRect(x - 420, y - 420, 840, 840);
+  ctx.translate(x, y); ctx.rotate(-.05); ctx.scale(k, k);
+  shape(rr(-330, -95, 660, 190, 34), '#FFE9B8', 9100, { fill: .97, halpha: .18, lw2: 4 });
+  contour(rr(-312, -77, 624, 154, 26), true, 9101, 2.2);
+  shape(ell(-225, 0, 58, 58, 28), C.cream, 9102, { fill: .95, halpha: .15, lw2: 3.5 });
+  shape([[-260, 18], [-220, -34], [-196, -38], [-214, -8], [-186, -10], [-232, 30]], C.slate, 9103, { fill: .9, lw2: 2 });
+  ctx.font = `700 76px ${FONT}`; ctx.fillStyle = C.graph; ctx.textBaseline = 'middle'; ctx.fillText('Adriy.Project', -150, 4);
+  ctx.restore();
+}
+
 // ---------- scenes ----------
 const GROUPS = [['hook', ['h1', 'h2', 'h3']], ['kenal', ['k1', 'k2', 'k3']], ['dive', ['d1', 'd2']], ['wind', ['w1', 'w2', 'w3']], ['r1', ['r1', 'r1b']],
-  ['r2', ['r2', 'r2b']], ['r3', ['r3', 'r3b']], ['rec', ['a1', 'a2', 'f1', 'f2', 'f3', 'f4']], ['end', ['e1', 'e2']], ['cta', ['c1', 'c2']]];
+  ['r2', ['r2', 'r2b']], ['r3', ['r3', 'r3b']], ['rec', ['a1', 'a1b', 'a2', 'f1', 'f2', 'f3', 'f4']], ['end', ['e1', 'e2']], ['cta', ['c1', 'c2']]];
 let SC = [];
 function buildScenes() {
   SC = GROUPS.map(([name, ids], i) => ({ name, ids, a: i === 0 ? 0 : t0(ids[0]) - .3 }));
@@ -374,9 +389,13 @@ S.r3 = (t) => {
 S.rec = (t) => {
   const gold = ease(seg(t, t0('f1'), t1('f4')));
   if (t < t0('f1')) { ctx.drawImage(PAPER, 0, 0);
-    clawd(540, 1250, 34, { face: t < t0('a2') ? 'surprised' : 'curious', arms: [.6, .6], dy: -.4 * Math.abs(Math.sin(t * 2)) });
-    if (t < t0('a1') + 1.8) tag('Adriy.Project', 540, 470, 44, { age: t - t0('a1') - .2, bg: '#EDE3F5', life: 1.8 });
-    if (t > t0('a2')) { tag('320', 540, 640, 150, { age: t - t0('a2') }); const s = seg(t, t0('a2') + .6, t0('a2') + 1); if (s > 0) line([[360, 700], [lerp(360, 720, s), lerp(700, 580, s)]], 12, C.red, 1300, 1); }
+    // the channel moment: badge stamped in the pause after the name, warm light behind it, Clawd points at it proudly
+    const st = t1('a1') - .15, bAge = t - st, show = t < t0('a2') + .2;
+    const pointing = bAge > 0 && t < t0('a1b') + .3;
+    clawd(540, 1250, 34, { face: t < st ? 'curious' : t < t0('a1b') ? 'happy' : t < t0('a2') ? 'surprised' : 'curious', arms: pointing ? [.6, 1.45] : [.6, .6],
+      dy: pointing ? -.5 * Math.abs(Math.sin(bAge * 6)) * Math.exp(-bAge * 1.5) : -.4 * Math.abs(Math.sin(t * 2)) });
+    if (show && bAge > -.1) brandStamp(540, 560, bAge, t0('a2') + .2 - st);
+    if (t > t0('a2') + .2) { tag('320', 540, 640, 150, { age: t - t0('a2') }); const s = seg(t, t0('a2') + .6, t0('a2') + 1); if (s > 0) line([[360, 700], [lerp(360, 720, s), lerp(700, 580, s)]], 12, C.red, 1300, 1); }
     return; }
   sky(mixh('#9EC6E6', '#E9B36B', gold), mixh('#EAF2F5', '#F6D7A0', gold), 14);
   if (t < t0('f3')) {
@@ -432,7 +451,7 @@ function buildCues() {
   c(t0('w3') + 1, 'tones/tone-step-1', .7); c(t0('w3') + 1.2, 'tones/tone-step-3', .7); c(t0('w3') + 1.4, 'tones/tone-step-5', .7);
   for (const id of ['r1', 'r2', 'r3']) { c(t0(id) - .25, 'whooshes/whoosh-medium-medium', .6); c(t0(id) + .1, 'writing-and-drawing/writing-pencil-draw', .45); }
   c(t0('r3b') + 1.6, 'pops/pop-large-in', .6);
-  c(t0('a1'), 'risers-and-fallers/riser-2s-soft', .5); c(t0('a2') + .6, 'impacts/impact-medium-hard', .8);
+  c(t1('a1') - .15, 'logo-stings/sting-bright-short', 1); c(t0('a2') + .8, 'impacts/impact-medium-hard', .8);
   c(t0('f1') - .2, 'whooshes/whoosh-medium-soft', .6); c(t0('f2') + .2, 'booms-and-bass/bass-rumble-long', .35); c(t0('f2') + 1.2, 'risers-and-fallers/faller-2s-soft', .6);
   c(t0('f3'), 'data/data-countup-long', .7); c(t0('f3') + 2.2, 'cinematic-hits/cinematic-drum-big', .8); c(t0('f3') + 2.2, 'shimmers/shimmer-medium-bright', .6);
   c(t0('f4') - .05, 'whooshes/whoosh-fast-hard', 1); c(t0('f4') + .3, 'celebration/celebration-popper', .6);

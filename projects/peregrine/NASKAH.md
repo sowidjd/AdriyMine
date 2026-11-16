@@ -11,7 +11,7 @@
 - **Musik (CC0-1.0, Tallbeard Studios Music Loop Bundle, via `repos/video-background-music`):** "LD 06" (ludum-dare-30-06, uplifting) untuk bagian utama; "LD 03" (ludum-dare-30-03, epic & misterius) untuk bagian rekor
 - **Efek suara:** `repos/sfx-kit` (CC0)
 - **Font:** Fredoka (SIL OFL 1.1)
-- **Hasil:** 1:45 (104,7 s), "Adriy.Project" disebut 1× di 63% durasi
+- **Hasil:** 1:48 (107,9 s), "Adriy.Project" disebut 1× di 61% durasi, dengan kalimat khusus + jeda, stempel visual & bunyi khas sting-bright-short
 - **Nama akun:** disebut 1×, di tengah (sebelum fakta rekor)
 
 ## Cek fakta (aturan: semua angka wajib bersumber)

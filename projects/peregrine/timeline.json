@@ -1,5 +1,5 @@
 {
- "duration": 104.712,
+ "duration": 107.917,
  "lines": [
   {
    "id": "h1",
@@ -106,61 +106,67 @@
   {
    "id": "a1",
    "t0": 65.901,
-   "t1": 68.768,
-   "cap": "Ini yang bikin kita *melongo...*"
+   "t1": 69.436,
+   "cap": "Waktu kami di *Adriy.Project* ngecek rekor resminya..."
+  },
+  {
+   "id": "a1b",
+   "t0": 70.336,
+   "t1": 71.923,
+   "cap": "...kami langsung *melongo.*"
   },
   {
    "id": "a2",
-   "t0": 69.068,
-   "t1": 72.05,
+   "t0": 72.273,
+   "t1": 75.254,
    "cap": "320 itu *BUKAN* rekornya."
   },
   {
    "id": "f1",
-   "t0": 72.4,
-   "t1": 76.92,
+   "t0": 75.604,
+   "t1": 80.124,
    "cap": "1999: falcon bernama *Frightful*"
   },
   {
    "id": "f2",
-   "t0": 77.12,
-   "t1": 80.81,
+   "t0": 80.324,
+   "t1": 84.014,
    "cap": "Dilepas dari pesawat, *> 5.000 meter*"
   },
   {
    "id": "f3",
-   "t0": 81.01,
-   "t1": 84.808,
+   "t0": 84.214,
+   "t1": 88.013,
    "cap": "Tercatat: *389 km/jam!*"
   },
   {
    "id": "f4",
-   "t0": 85.008,
-   "t1": 87.603,
+   "t0": 88.213,
+   "t1": 90.808,
    "cap": "Lebih cepat dari *Whoosh!*"
   },
   {
    "id": "e1",
-   "t0": 88.203,
-   "t1": 92.746,
+   "t0": 91.408,
+   "t1": 95.951,
    "cap": "Lihat burung kecil di atas gedung? *Jangan diremehin.*"
   },
   {
    "id": "e2",
-   "t0": 92.946,
-   "t1": 95.361,
+   "t0": 96.151,
+   "t1": 98.565,
    "cap": "Bisa jadi itu *atlet tercepat* di dunia hewan"
   },
   {
    "id": "c1",
-   "t0": 95.861,
-   "t1": 102.12,
+   "t0": 99.065,
+   "t1": 105.325,
    "cap": "Pilih satu: *peluru, hidung jet,* atau *kacamata?*"
   },
   {
    "id": "c2",
-   "t0": 102.32,
-   "t1": 103.512,
+   "t0": 105.525,
+   "t1": 106.717,
    "cap": "Tulis di *komentar!*"
   }
  ]

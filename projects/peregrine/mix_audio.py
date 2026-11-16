@@ -35,6 +35,8 @@ music = A * eA + B * eB
 env = np.abs(voice[0]); k = int(.2 * SR); env = np.convolve(env, np.ones(k) / k, 'same'); env = np.clip(env / (np.percentile(env, 95) * .5 + 1e-9), 0, 1)
 env = np.convolve(env, np.ones(int(.35 * SR)) / int(.35 * SR), 'same')
 music *= (1 - .68 * env)
+# the channel moment: music dips a little more under the signature sting
+bs = int((L['a1']['t1'] - .3) * SR); be = bs + int(2.0 * SR); dip = np.ones(N); dip[bs:be] = .55; dip = np.convolve(dip, np.ones(int(.25 * SR)) / int(.25 * SR), 'same'); music *= dip
 # effects
 sfx = np.zeros((2, N), np.float32)
 for t, f, g in json.load(open(os.path.join(HERE, 'cues.json'))):
