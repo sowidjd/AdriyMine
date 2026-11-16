@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-508 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+511 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -230,7 +230,9 @@
 | `horror-sci-fi-wind-tunnel` | 64.0 s (suasana/loop) | lorong angin horor/sci-fi, mencekam |
 | `hotel-conversation-and-laughter-with-dining-noise` | 24.04 s (suasana/loop) | restoran ramai mengobrol + tawa + alat makan (latar) |
 | `hotel-lobby-crowd-ambience-and-footsteps` | 16.5 s | lobi hotel ramai + langkah (latar) |
+| `human-bites-a-juicy-sausage` | 1.19 s | menggigit sosis berair |
 | `human-eating-a-potato-chip` | 8.1 s | makan keripik kentang, ngemil |
+| `human-eating-delicious-crispy-food` | 5.0 s | makan gorengan renyah, enak |
 | `human-eating-dry-cereal` | 12.4 s | makan sereal kering, sarapan |
 | `human-fighter-pain-scream` | 1.07 s | teriakan kesakitan, dramatis/lucu berlebihan |
 | `human-male-enjoy-humm` | 1.01 s | "hmm~" menikmati makanan, enak |
@@ -304,6 +306,7 @@
 | `monster-footstep` | 3.0 s | langkah monster, berat & mengancam |
 | `morning-sound-in-a-garden` | 110.44 s (suasana/loop) | pagi di taman/kebun, segar |
 | `motorcycle-engine-working` | 2.68 s | mesin motor menyala, ojek/jalanan |
+| `mouthwash-in-bathroom` | 3.48 s | kumur-kumur di kamar mandi, rutinitas pagi |
 | `movie-trailer-epic-impact` | 4.87 s | angka/fakta besar muncul, hantaman epik |
 | `mowing-the-lawn-engine-hum` | 58.1 s | mesin potong rumput |
 | `musical-game-over` | 2.67 s | game over bermusik, gagal lucu |

@@ -2688,6 +2688,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-human-bites-a-juicy-sausage-117.wav",
+  "nama": "human-bites-a-juicy-sausage",
+  "durasi_s": 1.19,
+  "bunyi_mulai_s": 0.14,
+  "peak_db": -1.1,
+  "suasana_loop": false,
+  "cocok_untuk": "menggigit sosis berair",
+  "normal": "normal/human-bites-a-juicy-sausage.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-human-eating-a-potato-chip-131.wav",
   "nama": "human-eating-a-potato-chip",
   "durasi_s": 8.1,
@@ -2696,6 +2708,18 @@
   "suasana_loop": false,
   "cocok_untuk": "makan keripik kentang, ngemil",
   "normal": "normal/human-eating-a-potato-chip.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-human-eating-delicious-crispy-food-115.wav",
+  "nama": "human-eating-delicious-crispy-food",
+  "durasi_s": 5.0,
+  "bunyi_mulai_s": 0.07,
+  "peak_db": -2.3,
+  "suasana_loop": false,
+  "cocok_untuk": "makan gorengan renyah, enak",
+  "normal": "normal/human-eating-delicious-crispy-food.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3572,6 +3596,18 @@
   "suasana_loop": false,
   "cocok_untuk": "mesin motor menyala, ojek/jalanan",
   "normal": "normal/motorcycle-engine-working.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-mouthwash-in-bathroom-1888.wav",
+  "nama": "mouthwash-in-bathroom",
+  "durasi_s": 3.48,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -0.6,
+  "suasana_loop": false,
+  "cocok_untuk": "kumur-kumur di kamar mandi, rutinitas pagi",
+  "normal": "normal/mouthwash-in-bathroom.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

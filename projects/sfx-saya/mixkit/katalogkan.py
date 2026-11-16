@@ -14,6 +14,7 @@ SAAT = {'cinematic-whoosh-fast-transition': 'transisi cepat antar adegan', 'cine
  'keyboard-typing': 'mengetik, chat, kerja di laptop', 'intro-transition': 'pembuka bagian/judul baru', 'footsteps-on-tall-grass': 'berjalan di rumput, alam, mengendap', 'flock-of-wild-geese': 'kawanan burung, alam liar, migrasi',
  'female-astonished-gasp': 'kaget/takjub "hah!", reaksi fakta mengejutkan', 'fast-whoosh-transition': 'transisi cepat', 'epic-orchestra-transition': 'transisi megah, pengungkapan besar',
  'crowd-laugh': 'penonton tertawa, momen lucu',
+ 'mouthwash-in-bathroom': 'kumur-kumur di kamar mandi, rutinitas pagi', 'human-eating-delicious-crispy-food': 'makan gorengan renyah, enak', 'human-bites-a-juicy-sausage': 'menggigit sosis berair',
  'man-yawning-heavily': 'menguap berat, ngantuk parah', 'man-slweepy-long-yawn': 'menguap panjang ngantuk',
  'church-moderate-applause': 'tepuk tangan di aula (gereja)', 'crowded-beach-ambience': 'pantai ramai (latar)', 'subway-station-escalator': 'eskalator stasiun/mal',
  'people-coming-into-church': 'orang berdatangan ke gereja (latar, perhatikan konteks)', 'subway-station-escalator-hum': 'dengung eskalator (latar)', 'urban-street-and-kids': 'jalanan kota + anak-anak (latar)',
