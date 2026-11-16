@@ -14,11 +14,16 @@ SAAT = {'cinematic-whoosh-fast-transition': 'transisi cepat antar adegan', 'cine
  'keyboard-typing': 'mengetik, chat, kerja di laptop', 'intro-transition': 'pembuka bagian/judul baru', 'footsteps-on-tall-grass': 'berjalan di rumput, alam, mengendap', 'flock-of-wild-geese': 'kawanan burung, alam liar, migrasi',
  'female-astonished-gasp': 'kaget/takjub "hah!", reaksi fakta mengejutkan', 'fast-whoosh-transition': 'transisi cepat', 'epic-orchestra-transition': 'transisi megah, pengungkapan besar',
  'crowd-laugh': 'penonton tertawa, momen lucu',
+ 'birds-chirping-near-the-river': 'pagi di sungai, alam damai', 'night-forest-with-insects': 'hutan malam, serangga, misterius tenang',
+ 'rain-long-loop': 'hujan panjang (latar)', 'dry-leaves-rustling': 'daun kering bergemerisik, langkah di hutan, musim kemarau',
+ 'calm-thunderstorm-in-the-jungle': 'badai tenang di hutan tropis', 'water-flowing-ambience-loop': 'air mengalir, sungai, tenang',
+ 'breeze-through-the-trees': 'angin sepoi di pepohonan', 'liquid-bubble': 'gelembung cairan, ide muncul, lab', 'heavy-rain-drops': 'tetes hujan deras, dramatis',
+ 'wolves-at-scary-forest': 'serigala di hutan seram, horor/ancaman',
  'vintage-telephone-ringtone': 'telepon jadul berdering, panggilan, zaman dulu', 'vacuum-swoosh-transition': 'transisi tersedot/menghilang',
  'trumpet-fanfare': 'kemenangan, pengumuman resmi, "ta-da!"', 'transition-windy-swoosh': 'transisi berangin, angin kencang',
  'tick-tock-clock-timer': 'waktu berjalan, menunggu, deadline', 'technological-futuristic-hum': 'teknologi canggih, futuristik, mesin/AI',
  'stadium-crowd-light-applause': 'tepuk tangan stadion, pengakuan besar', 'small-crowd-laugh-and-applause': 'tertawa + tepuk tangan, lucu yang berhasil', 'cool-impact-movie-trailer': 'hantaman keren ala trailer, judul muncul', 'clock-countdown-bleeps': 'hitung mundur, waktu hampir habis'}
-AMB = ('ambience', 'rain', 'loop', 'storm', 'birds-singing', 'geese', 'suspense-waiting', 'futuristic-hum')
+AMB = ('ambience', 'rain', 'loop', 'storm', 'birds-singing', 'geese', 'suspense-waiting', 'futuristic-hum', 'forest', 'river', 'flowing', 'breeze', 'thunderstorm', 'leaves-rustling', 'rain-drops', 'wolves')
 out = []
 for f in sorted(os.listdir('audio')):
     base = re.sub(r'^mixkit-|-\d+\.wav$', '', f)

@@ -60,6 +60,42 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-birds-chirping-near-the-river-2473.wav",
+  "nama": "birds-chirping-near-the-river",
+  "durasi_s": 90.13,
+  "bunyi_mulai_s": 0.22,
+  "peak_db": -22.9,
+  "suasana_loop": true,
+  "cocok_untuk": "pagi di sungai, alam damai",
+  "normal": "normal/birds-chirping-near-the-river.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-breeze-through-the-trees-2427.wav",
+  "nama": "breeze-through-the-trees",
+  "durasi_s": 14.33,
+  "bunyi_mulai_s": 1.18,
+  "peak_db": -4.6,
+  "suasana_loop": true,
+  "cocok_untuk": "angin sepoi di pepohonan",
+  "normal": "normal/breeze-through-the-trees.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-calm-thunderstorm-in-the-jungle-2415.wav",
+  "nama": "calm-thunderstorm-in-the-jungle",
+  "durasi_s": 49.0,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -2.0,
+  "suasana_loop": true,
+  "cocok_untuk": "badai tenang di hutan tropis",
+  "normal": "normal/calm-thunderstorm-in-the-jungle.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-cartoon-toy-whistle-616.wav",
   "nama": "cartoon-toy-whistle",
   "durasi_s": 1.21,
@@ -192,6 +228,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-dry-leaves-rustling-2430.wav",
+  "nama": "dry-leaves-rustling",
+  "durasi_s": 1.3,
+  "bunyi_mulai_s": 0.02,
+  "peak_db": -10.1,
+  "suasana_loop": true,
+  "cocok_untuk": "daun kering bergemerisik, langkah di hutan, musim kemarau",
+  "normal": "normal/dry-leaves-rustling.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-epic-orchestra-transition-2290.wav",
   "nama": "epic-orchestra-transition",
   "durasi_s": 7.12,
@@ -288,6 +336,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-heavy-rain-drops-2399.wav",
+  "nama": "heavy-rain-drops",
+  "durasi_s": 12.17,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -4.2,
+  "suasana_loop": true,
+  "cocok_untuk": "tetes hujan deras, dramatis",
+  "normal": "normal/heavy-rain-drops.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-intro-transition-1146.wav",
   "nama": "intro-transition",
   "durasi_s": 7.51,
@@ -320,6 +380,18 @@
   "suasana_loop": true,
   "cocok_untuk": "hujan ringan, santai, sendu",
   "normal": "normal/light-rain-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-liquid-bubble-3000.wav",
+  "nama": "liquid-bubble",
+  "durasi_s": 1.05,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -1.7,
+  "suasana_loop": false,
+  "cocok_untuk": "gelembung cairan, ide muncul, lab",
+  "normal": "normal/liquid-bubble.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -384,6 +456,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-night-forest-with-insects-2414.wav",
+  "nama": "night-forest-with-insects",
+  "durasi_s": 84.0,
+  "bunyi_mulai_s": 1.24,
+  "peak_db": -7.9,
+  "suasana_loop": true,
+  "cocok_untuk": "hutan malam, serangga, misterius tenang",
+  "normal": "normal/night-forest-with-insects.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-rain-and-thunder-storm-2390.wav",
   "nama": "rain-and-thunder-storm",
   "durasi_s": 29.0,
@@ -392,6 +476,18 @@
   "suasana_loop": true,
   "cocok_untuk": "badai, hujan petir, suasana muram/dramatis",
   "normal": "normal/rain-and-thunder-storm.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-rain-long-loop-2394.wav",
+  "nama": "rain-long-loop",
+  "durasi_s": 57.07,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -3.3,
+  "suasana_loop": true,
+  "cocok_untuk": "hujan panjang (latar)",
+  "normal": "normal/rain-long-loop.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -548,6 +644,30 @@
   "suasana_loop": false,
   "cocok_untuk": "telepon jadul berdering, panggilan, zaman dulu",
   "normal": "normal/vintage-telephone-ringtone.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-water-flowing-ambience-loop-3126.wav",
+  "nama": "water-flowing-ambience-loop",
+  "durasi_s": 51.0,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -5.6,
+  "suasana_loop": true,
+  "cocok_untuk": "air mengalir, sungai, tenang",
+  "normal": "normal/water-flowing-ambience-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-wolves-at-scary-forest-2485.wav",
+  "nama": "wolves-at-scary-forest",
+  "durasi_s": 9.74,
+  "bunyi_mulai_s": 0.27,
+  "peak_db": -4.1,
+  "suasana_loop": true,
+  "cocok_untuk": "serigala di hutan seram, horor/ancaman",
+  "normal": "normal/wolves-at-scary-forest.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  }
