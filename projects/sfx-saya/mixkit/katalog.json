@@ -1272,6 +1272,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-double-party-trumpet-980.wav",
+  "nama": "double-party-trumpet",
+  "durasi_s": 1.86,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -1.0,
+  "suasana_loop": false,
+  "cocok_untuk": "terompet pesta dua kali",
+  "normal": "normal/double-party-trumpet.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-drone-spaceship-sound-2743.wav",
   "nama": "drone-spaceship-sound",
   "durasi_s": 2.15,
@@ -1796,6 +1808,18 @@
   "suasana_loop": false,
   "cocok_untuk": "bola api, serangan, energi",
   "normal": "normal/fireball-spell.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-fireworks-launch-with-people-976.wav",
+  "nama": "fireworks-launch-with-people",
+  "durasi_s": 6.75,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -0.8,
+  "suasana_loop": false,
+  "cocok_untuk": "kembang api diluncurkan + sorakan orang",
+  "normal": "normal/fireworks-launch-with-people.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3600,6 +3624,42 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-party-sad-horn-973.wav",
+  "nama": "party-sad-horn",
+  "durasi_s": 1.95,
+  "bunyi_mulai_s": 0.14,
+  "peak_db": -7.0,
+  "suasana_loop": false,
+  "cocok_untuk": "terompet pesta sedih, kecewa lucu",
+  "normal": "normal/party-sad-horn.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-party-trumpet-977.wav",
+  "nama": "party-trumpet",
+  "durasi_s": 2.31,
+  "bunyi_mulai_s": 0.14,
+  "peak_db": -1.1,
+  "suasana_loop": false,
+  "cocok_untuk": "terompet pesta",
+  "normal": "normal/party-trumpet.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-party-trumpet-horn-isolated-526.wav",
+  "nama": "party-trumpet-horn-isolated",
+  "durasi_s": 1.29,
+  "bunyi_mulai_s": 0.19,
+  "peak_db": -10.5,
+  "suasana_loop": false,
+  "cocok_untuk": "terompet pesta tunggal",
+  "normal": "normal/party-trumpet-horn-isolated.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-people-bathing-in-the-sea-ambience-348.wav",
   "nama": "people-bathing-in-the-sea-ambience",
   "durasi_s": 15.34,
@@ -4320,6 +4380,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-single-party-trumpet-979.wav",
+  "nama": "single-party-trumpet",
+  "durasi_s": 1.09,
+  "bunyi_mulai_s": 0.03,
+  "peak_db": -0.7,
+  "suasana_loop": false,
+  "cocok_untuk": "terompet pesta sekali tiup",
+  "normal": "normal/single-party-trumpet.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-single-zombie-breath-2233.wav",
   "nama": "single-zombie-breath",
   "durasi_s": 2.09,
@@ -4640,6 +4712,18 @@
   "suasana_loop": false,
   "cocok_untuk": "kerincing berputar",
   "normal": "normal/spinning-rattle-noise.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-squeezing-party-trumpet-978.wav",
+  "nama": "squeezing-party-trumpet",
+  "durasi_s": 1.96,
+  "bunyi_mulai_s": 0.15,
+  "peak_db": -0.6,
+  "suasana_loop": false,
+  "cocok_untuk": "terompet pesta diremas, lucu",
+  "normal": "normal/squeezing-party-trumpet.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -5408,6 +5492,18 @@
   "suasana_loop": true,
   "cocok_untuk": "hutan berangin + burung",
   "normal": "normal/windy-humming-forest-with-birds.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-wine-bottles-clinking-525.wav",
+  "nama": "wine-bottles-clinking",
+  "durasi_s": 1.18,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -2.3,
+  "suasana_loop": false,
+  "cocok_untuk": "botol/gelas berdenting, bersulang (pertimbangkan konteks)",
+  "normal": "normal/wine-bottles-clinking.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

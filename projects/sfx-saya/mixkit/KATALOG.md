@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-461 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+469 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -112,6 +112,7 @@
 | `dog-barking-twice` | 1.62 s | anjing menggonggong, kejutan lucu |
 | `donkey-crying` | 12.27 s | keledai meringkik, lucu/konyol |
 | `donkey-crying-screech` | 14.81 s | keledai menjerit nyaring, kaget lucu |
+| `double-party-trumpet` | 1.86 s | terompet pesta dua kali |
 | `drone-spaceship-sound` | 2.15 s | pesawat drone sci-fi |
 | `dry-leaves-rustling` | 1.3 s (suasana/loop) | daun kering bergemerisik, langkah di hutan, musim kemarau |
 | `dusty-debris-short-fall` | 2.12 s | puing berdebu jatuh singkat |
@@ -156,6 +157,7 @@
 | `fire-swoosh-burning` | 3.63 s | whoosh lalu terbakar |
 | `fire-woosh` | 2.14 s | whoosh api, transisi panas |
 | `fireball-spell` | 2.65 s | bola api, serangan, energi |
+| `fireworks-launch-with-people` | 6.75 s | kembang api diluncurkan + sorakan orang |
 | `fireworks-whooshes-and-bangs` | 7.58 s | kembang api meluncur & meledak, perayaan besar |
 | `fish-moving-in-water` | 2.29 s | ikan bergerak di air, kecipak |
 | `flirtatious-double-kiss` | 0.56 s | cium genit dua kali, "muach muach" |
@@ -306,6 +308,9 @@
 | `owl-in-a-forest` | 90.14 s (suasana/loop) | burung hantu di hutan, malam misterius |
 | `owl-shriek` | 1.18 s | jeritan burung hantu, kaget/seram |
 | `papers-blowing-in-the-windstorm` | 5.2 s (suasana/loop) | kertas beterbangan diterpa angin, berantakan, kacau |
+| `party-sad-horn` | 1.95 s | terompet pesta sedih, kecewa lucu |
+| `party-trumpet` | 2.31 s | terompet pesta |
+| `party-trumpet-horn-isolated` | 1.29 s | terompet pesta tunggal |
 | `people-bathing-in-the-sea-ambience` | 15.34 s (suasana/loop) | pantai ramai, orang berenang, liburan |
 | `people-indoors-ambience` | 51.72 s (suasana/loop) | orang ramai di dalam ruangan (latar) |
 | `percussion-tick-tock-timer` | 24.9 s | tik-tok perkusi, waktu berjalan berirama |
@@ -366,6 +371,7 @@
 | `sick-woman-coughing` | 1.73 s | batuk, sakit |
 | `single-artificial-breathe` | 1.15 s | napas buatan/mesin, robot bernapas |
 | `single-cricket-screech` | 1.78 s | satu jangkrik "krik", hening canggung |
+| `single-party-trumpet` | 1.09 s | terompet pesta sekali tiup |
 | `single-zombie-breath` | 2.09 s | napas zombie, horor |
 | `sleep-breathing` | 17.91 s (suasana/loop) | napas tidur tenang (latar) |
 | `sleeping-mouth-smacking-lips` | 2.81 s | orang tidur berdecap, lucu, ngantuk |
@@ -393,6 +399,7 @@
 | `sphinx-cat-purr-and-quiet-growl` | 2.78 s | kucing mendengkur lalu menggeram pelan, "jangan ganggu" |
 | `spinning-fire-fx` | 2.51 s | api berputar, efek sihir/transisi |
 | `spinning-rattle-noise` | 3.79 s | kerincing berputar |
+| `squeezing-party-trumpet` | 1.96 s | terompet pesta diremas, lucu |
 | `stadium-crowd-light-applause` | 11.09 s | tepuk tangan stadion, pengakuan besar |
 | `stand-up-club-audience-applause` | 20.16 s | tepuk tangan klub stand-up comedy |
 | `stone-debris-falling` | 7.0 s | reruntuhan batu berjatuhan |
@@ -457,6 +464,7 @@
 | `wind-in-the-forest` | 25.32 s (suasana/loop) | angin di hutan |
 | `wind-in-the-top-of-the-mountain` | 31.8 s (suasana/loop) | angin di puncak gunung, ketinggian |
 | `windy-humming-forest-with-birds` | 125.35 s (suasana/loop) | hutan berangin + burung |
+| `wine-bottles-clinking` | 1.18 s | botol/gelas berdenting, bersulang (pertimbangkan konteks) |
 | `wizard-fire-woosh` | 1.09 s | sihir api, transisi magis |
 | `wolves-at-scary-forest` | 9.74 s (suasana/loop) | serigala di hutan seram, horor/ancaman |
 | `woman-coughing-fast` | 1.1 s | cewek batuk cepat |
