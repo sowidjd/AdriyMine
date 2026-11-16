@@ -41,6 +41,34 @@ Penonton bosan kalau tiga video berturut-turut membahas hal yang mirip. Ganti **
 - **Fakta harus benar:** angka dan klaim di tema umum wajib dicek ke sumber terpercaya sebelum dibuat; sebutkan sumbernya di caption.
 - Catat setiap video yang sudah dibuat di **Riwayat** di bawah, lengkap dengan kategorinya.
 
+### Daftar 12 tema & urutan selang-seling (wajib diikuti)
+
+Tema disusun dari koleksi efek suara pemilik (`projects/sfx-saya/`, §8). Urutan di bawah **sudah selang-seling**: nomor ganjil = masalah sehari-hari (penonton merasa "ini gue banget"), nomor genap = pengetahuan umum (penonton kagum). Buat video **berurutan dari atas ke bawah**; setelah nomor 12, kembali ke nomor 1.
+
+| Urutan | Tema | Jenis | Kategori lama | Efek suara | Gaya animasi yang cocok (§9) |
+|---|---|---|---|---|---|
+| 1 | 📱 Kehidupan digital (HP, chat, media sosial) | Sehari-hari | 📱 / 💬 | ⭐⭐⭐ | Mascot Screencast, Sci-fi HUD, Manga Panels |
+| 2 | 🌊 Dunia laut | Umum | 🌍 Alam & hewan | ⭐⭐⭐ | Watercolor, Ukiyo-e |
+| 3 | 🧠 Kebiasaan sehari-hari yang lucu | Sehari-hari | 🧠 | ⭐⭐⭐ | Sketchbook, Whiteboard Explainer |
+| 4 | 🫀 Tubuh manusia | Umum | 🌍 Tubuh & kesehatan | ⭐⭐⭐ | Isometric Infographic, Line-art Cutaway |
+| 5 | 🎮 Uang & belanja ala game | Sehari-hari | 💸 | ⭐⭐ | Microgame Frenzy, Pop Art |
+| 6 | 🐾 Hewan & alam liar | Umum | 🌍 Alam & hewan | ⭐⭐⭐ | Watercolor, Woodcut |
+| 7 | 😳 Perasaan & pikiran | Sehari-hari | 😳 | ⭐ (perlu `soft piano`, `room tone`) | Paper-cut, Watercolor |
+| 8 | 🤖 Teknologi & internet | Umum | 🌍 Teknologi | ⭐⭐ | Dark Tech, Circuit Board, CRT ASCII |
+| 9 | ⏰ Waktu & produktivitas | Sehari-hari | ⏰ | ⭐⭐ | Live Countdown, Swiss Motion |
+| 10 | 🚀 Luar angkasa | Umum | 🌍 Sains | ⭐ | Blueprint, Scale Zoom Explainer |
+| 11 | 🚆 Kendaraan & kota | Sehari-hari | 🌍 Sains sehari-hari | ⭐⭐ | Flat Vector, Isometric |
+| 12 | 📜 Sejarah & asal-usul | Umum | 🌍 Sejarah | ⭐ (perlu `typewriter`, `old radio`) | 1920s Newsreel, Vintage Engraving |
+
+⭐⭐⭐ = efek suara lengkap · ⭐⭐ = cukup · ⭐ = cari tambahan efek dulu (Pixabay) sebelum membuat video.
+
+**Cara memakai:**
+- Lihat kolom **Tema** di Riwayat; video berikutnya = **urutan sesudah** tema terakhir.
+- Boleh **melompat 1 nomor** hanya bila efek suara tema itu masih ⭐ dan belum ditambah, atau pemilik meminta tema lain. Tema yang dilompati dikerjakan berikutnya.
+- Dua video berturut-turut **tidak boleh** sama-sama "Umum" atau sama-sama "Sehari-hari".
+- Gaya animasi tetap dipilih lewat 6 langkah §9; tabel di atas hanya pilihan awal. Gaya tidak boleh sama dengan video sebelumnya.
+- **Video berikutnya: urutan 1 (📱 Kehidupan digital).** Video #2 (burung) = tema 6, tetapi daftar ini baru dibuat, jadi putaran pertama dimulai dari nomor 1. Saat sampai nomor 6, pilih hewan selain falcon.
+
 ## 2. Judul tidak boleh umum, harus menarik perhatian
 
 Judul = momen spesifik yang membuat penonton berpikir **"kok tau sih, ini gue banget"**.
@@ -243,7 +271,7 @@ Nama akun **Adriy.Project** disebut di dalam narasi supaya penonton **ingat**, j
 
 - [ ] Topik memenuhi minimal 1 dari Tiga Tips (§0); tips yang dipenuhi & emosi inti disebut di laporan; tag emosi, gaya karakter & efek suara mengikuti emosi inti
 
-- [ ] Kategori berbeda dari video sebelumnya (lihat Riwayat); ada tema umum dalam 3 video terakhir
+- [ ] Tema sesuai urutan selang-seling §1 (urutan sesudah tema terakhir di Riwayat); jenis "Umum"/"Sehari-hari" berbeda dari video sebelumnya
 - [ ] Untuk tema umum: semua fakta & angka sudah dicek ke sumber
 - [ ] Judul spesifik, ≤ 10 kata, bukan "Tips/Cara…"
 - [ ] 3 versi hook ditulis, yang terbaik dipilih; detik 0 sudah bergerak & bersuara
@@ -260,7 +288,7 @@ Nama akun **Adriy.Project** disebut di dalam narasi supaya penonton **ingat**, j
 
 ## Riwayat video
 
-| # | Judul | Kategori | Gaya animasi | Suasana dominan | Waktu/cahaya |
-|---|---|---|---|---|---|
-| 1 | Alarm bunyi 7 kali, tetep telat | ⏰ Waktu & produktivitas | Flat cartoon + line boil | Lucu → semangat | Malam → pagi |
-| 2 | Burung seberat sebungkus beras ini lebih cepat dari Whoosh | 🌍 Alam & hewan | Pensil warna (colored-pencil science) | Kagum → tegang → takjub | Subuh → siang → keemasan |
+| # | Judul | Tema (urutan §1) | Kategori | Gaya animasi | Suasana dominan | Waktu/cahaya |
+|---|---|---|---|---|---|---|
+| 1 | Alarm bunyi 7 kali, tetep telat | 9. ⏰ Waktu & produktivitas | ⏰ Waktu & produktivitas | Flat cartoon + line boil | Lucu → semangat | Malam → pagi |
+| 2 | Burung seberat sebungkus beras ini lebih cepat dari Whoosh | 6. 🐾 Hewan & alam liar | 🌍 Alam & hewan | Pensil warna (colored-pencil science) | Kagum → tegang → takjub | Subuh → siang → keemasan |
