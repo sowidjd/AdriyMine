@@ -84,6 +84,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-alien-technology-hum-2134.wav",
+  "nama": "alien-technology-hum",
+  "durasi_s": 6.0,
+  "bunyi_mulai_s": 0.49,
+  "peak_db": -10.0,
+  "suasana_loop": true,
+  "cocok_untuk": "dengung teknologi alien (latar)",
+  "normal": "normal/alien-technology-hum.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-ambient-sound-in-the-desert-2488.wav",
   "nama": "ambient-sound-in-the-desert",
   "durasi_s": 7.69,
@@ -1308,6 +1320,54 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-electricity-buzz-2593.wav",
+  "nama": "electricity-buzz",
+  "durasi_s": 2.9,
+  "bunyi_mulai_s": 0.03,
+  "peak_db": -1.1,
+  "suasana_loop": false,
+  "cocok_untuk": "dengung/korslet listrik",
+  "normal": "normal/electricity-buzz.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-electricity-buzz-910.wav",
+  "nama": "electricity-buzz",
+  "durasi_s": 12.35,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -15.0,
+  "suasana_loop": false,
+  "cocok_untuk": "dengung/korslet listrik",
+  "normal": "normal/electricity-buzz.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-electricity-intense-hum-2138.wav",
+  "nama": "electricity-intense-hum",
+  "durasi_s": 48.51,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -11.5,
+  "suasana_loop": false,
+  "cocok_untuk": "dengung listrik kuat",
+  "normal": "normal/electricity-intense-hum.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-electricity-reactor-buzz-904.wav",
+  "nama": "electricity-reactor-buzz",
+  "durasi_s": 12.06,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -10.6,
+  "suasana_loop": false,
+  "cocok_untuk": "dengung reaktor listrik",
+  "normal": "normal/electricity-reactor-buzz.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-electronics-power-up-2602.wav",
   "nama": "electronics-power-up",
   "durasi_s": 5.02,
@@ -1344,6 +1404,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-engine-phasing-wobble-swell-2665.wav",
+  "nama": "engine-phasing-wobble-swell",
+  "durasi_s": 6.46,
+  "bunyi_mulai_s": 0.24,
+  "peak_db": -5.1,
+  "suasana_loop": false,
+  "cocok_untuk": "mesin bergelombang naik, aneh",
+  "normal": "normal/engine-phasing-wobble-swell.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-epic-orchestra-transition-2290.wav",
   "nama": "epic-orchestra-transition",
   "durasi_s": 7.12,
@@ -1364,6 +1436,18 @@
   "suasana_loop": true,
   "cocok_untuk": "hutan subtropis (latar)",
   "normal": "normal/european-forest-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-explainer-video-foley-projector-film-antique-bell-and-howell-start-3013.wav",
+  "nama": "explainer-video-foley-projector-film-antique-bell-and-howell-start",
+  "durasi_s": 29.74,
+  "bunyi_mulai_s": 0.03,
+  "peak_db": -2.0,
+  "suasana_loop": false,
+  "cocok_untuk": "proyektor film jadul menyala, kilas sejarah, \"zaman dulu...\"",
+  "normal": "normal/explainer-video-foley-projector-film-antique-bell-and-howell-start.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1692,6 +1776,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-fly-buzz-trapped-in-a-window-2695.wav",
+  "nama": "fly-buzz-trapped-in-a-window",
+  "durasi_s": 8.16,
+  "bunyi_mulai_s": 0.13,
+  "peak_db": -7.5,
+  "suasana_loop": true,
+  "cocok_untuk": "lalat terjebak di jendela, mengganggu, bosan",
+  "normal": "normal/fly-buzz-trapped-in-a-window.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-football-team-applause-509.wav",
   "nama": "football-team-applause",
   "durasi_s": 4.68,
@@ -1892,6 +1988,18 @@
   "suasana_loop": true,
   "cocok_untuk": "hujan di hutan (latar)",
   "normal": "normal/forest-rain-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-fridge-motor-hum-1865.wav",
+  "nama": "fridge-motor-hum",
+  "durasi_s": 6.9,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -13.9,
+  "suasana_loop": true,
+  "cocok_untuk": "motor kulkas berdengung (latar)",
+  "normal": "normal/fridge-motor-hum.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2388,6 +2496,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-industrial-hum-loop-2139.wav",
+  "nama": "industrial-hum-loop",
+  "durasi_s": 44.91,
+  "bunyi_mulai_s": 0.05,
+  "peak_db": -5.2,
+  "suasana_loop": true,
+  "cocok_untuk": "dengung industri (latar)",
+  "normal": "normal/industrial-hum-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-industrial-machine-engine-hum-loop-3178.wav",
+  "nama": "industrial-machine-engine-hum-loop",
+  "durasi_s": 7.42,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -10.8,
+  "suasana_loop": true,
+  "cocok_untuk": "mesin industri (latar)",
+  "normal": "normal/industrial-machine-engine-hum-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-industrial-machine-hum-2504.wav",
   "nama": "industrial-machine-hum",
   "durasi_s": 50.0,
@@ -2408,6 +2540,30 @@
   "suasana_loop": false,
   "cocok_untuk": "di dalam jantung berdetak, tubuh/sains, tegang",
   "normal": "normal/inside-a-beating-heart.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-intense-electricity-hum-2591.wav",
+  "nama": "intense-electricity-hum",
+  "durasi_s": 28.8,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": 0.0,
+  "suasana_loop": false,
+  "cocok_untuk": "listrik berdengung keras",
+  "normal": "normal/intense-electricity-hum.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-intense-electricity-humming-2131.wav",
+  "nama": "intense-electricity-humming",
+  "durasi_s": 28.8,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": 0.0,
+  "suasana_loop": true,
+  "cocok_untuk": "dengung listrik intens",
+  "normal": "normal/intense-electricity-humming.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2516,6 +2672,18 @@
   "suasana_loop": false,
   "cocok_untuk": "anak bermain & tertawa",
   "normal": "normal/kids-playing-and-laughing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-large-drone-engine-2741.wav",
+  "nama": "large-drone-engine",
+  "durasi_s": 70.51,
+  "bunyi_mulai_s": 0.16,
+  "peak_db": -0.7,
+  "suasana_loop": true,
+  "cocok_untuk": "mesin drone besar",
+  "normal": "normal/large-drone-engine.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3084,6 +3252,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-mowing-the-lawn-engine-hum-1919.wav",
+  "nama": "mowing-the-lawn-engine-hum",
+  "durasi_s": 58.1,
+  "bunyi_mulai_s": 0.16,
+  "peak_db": -5.4,
+  "suasana_loop": false,
+  "cocok_untuk": "mesin potong rumput",
+  "normal": "normal/mowing-the-lawn-engine-hum.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-musical-game-over-959.wav",
   "nama": "musical-game-over",
   "durasi_s": 2.67,
@@ -3464,6 +3644,18 @@
   "suasana_loop": false,
   "cocok_untuk": "bom jatuh lalu meledak, dramatis",
   "normal": "normal/quick-bomb-drop-explosion.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-quick-drilling-machine-hum-815.wav",
+  "nama": "quick-drilling-machine-hum",
+  "durasi_s": 0.48,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -1.0,
+  "suasana_loop": true,
+  "cocok_untuk": "bor cepat, renovasi tetangga",
+  "normal": "normal/quick-drilling-machine-hum.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -4200,6 +4392,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-space-ship-hum-2136.wav",
+  "nama": "space-ship-hum",
+  "durasi_s": 46.0,
+  "bunyi_mulai_s": 0.06,
+  "peak_db": -4.5,
+  "suasana_loop": true,
+  "cocok_untuk": "dengung pesawat luar angkasa (latar)",
+  "normal": "normal/space-ship-hum.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-spaceship-drone-moves-2748.wav",
+  "nama": "spaceship-drone-moves",
+  "durasi_s": 2.15,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -13.7,
+  "suasana_loop": false,
+  "cocok_untuk": "drone/pesawat bergerak melintas",
+  "normal": "normal/spaceship-drone-moves.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-sphinx-cat-purr-3091.wav",
   "nama": "sphinx-cat-purr",
   "durasi_s": 7.3,
@@ -4628,6 +4844,18 @@
   "suasana_loop": false,
   "cocok_untuk": "cowok capek menguap",
   "normal": "normal/tired-man-yawns.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-tractors-working-on-the-field-1597.wav",
+  "nama": "tractors-working-on-the-field",
+  "durasi_s": 44.26,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -1.0,
+  "suasana_loop": true,
+  "cocok_untuk": "traktor di sawah/ladang",
+  "normal": "normal/tractors-working-on-the-field.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

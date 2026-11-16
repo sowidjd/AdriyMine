@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-422 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+441 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -13,6 +13,7 @@
 | `airy-metal-board-hit` | 1.74 s | papan logam dipukul, bergaung |
 | `alarm-tone` | 1.08 s | nada alarm, peringatan |
 | `alien-technology-button` | 0.87 s | tombol teknologi alien, aneh |
+| `alien-technology-hum` | 6.0 s (suasana/loop) | dengung teknologi alien (latar) |
 | `ambient-sound-in-the-desert` | 7.69 s (suasana/loop) | suasana gurun |
 | `an-artificial-respirator` | 23.75 s | alat bantu napas, rumah sakit |
 | `animal-eating-flesh` | 20.75 s | hewan buas makan daging, alam liar |
@@ -115,11 +116,17 @@
 | `educational-rattle-toy-shaker` | 2.44 s | mainan kerincingan bayi |
 | `electric-buzz-glitch` | 1.02 s | listrik korslet, glitch, error |
 | `electric-welding-and-sparkles` | 7.92 s | las listrik + percikan, bengkel |
+| `electricity-buzz` | 2.9 s | dengung/korslet listrik |
+| `electricity-buzz` | 12.35 s | dengung/korslet listrik |
+| `electricity-intense-hum` | 48.51 s | dengung listrik kuat |
+| `electricity-reactor-buzz` | 12.06 s | dengung reaktor listrik |
 | `electronics-power-up` | 5.02 s | alat elektronik menyala, power up |
 | `end-of-show-clapping-crowd` | 8.95 s | tepuk tangan akhir pertunjukan |
 | `ending-show-audience-clapping` | 24.48 s | tepuk tangan penutup acara |
+| `engine-phasing-wobble-swell` | 6.46 s | mesin bergelombang naik, aneh |
 | `epic-orchestra-transition` | 7.12 s | transisi megah, pengungkapan besar |
 | `european-forest-ambience` | 161.3 s (suasana/loop) | hutan subtropis (latar) |
+| `explainer-video-foley-projector-film-antique-bell-and-howell-start` | 29.74 s | proyektor film jadul menyala, kilas sejarah, "zaman dulu..." |
 | `fairy-glitter` | 2.3 s | kilau peri, keajaiban, sihir lembut |
 | `falling-bricks` | 2.96 s | batu bata berjatuhan, runtuh |
 | `falling-empty-can` | 1.4 s | kaleng kosong jatuh "klontang", lucu |
@@ -147,6 +154,7 @@
 | `fish-moving-in-water` | 2.29 s | ikan bergerak di air, kecipak |
 | `flirtatious-double-kiss` | 0.56 s | cium genit dua kali, "muach muach" |
 | `flock-of-wild-geese` | 5.22 s (suasana/loop) | kawanan burung, alam liar, migrasi |
+| `fly-buzz-trapped-in-a-window` | 8.16 s (suasana/loop) | lalat terjebak di jendela, mengganggu, bosan |
 | `football-team-applause` | 4.68 s | tepuk tangan tim sepak bola, sportif |
 | `footsteps-in-a-muddy-puddle` | 3.75 s | langkah di genangan lumpur, cipratan |
 | `footsteps-in-a-tunnel-loop` | 8.14 s | langkah bergema di terowongan, misterius |
@@ -164,6 +172,7 @@
 | `forest-at-night` | 47.04 s (suasana/loop) | hutan malam (latar) |
 | `forest-birds-singing` | 2.22 s (suasana/loop) | kicau burung hutan, pagi damai |
 | `forest-rain-loop` | 24.75 s (suasana/loop) | hujan di hutan (latar) |
+| `fridge-motor-hum` | 6.9 s (suasana/loop) | motor kulkas berdengung (latar) |
 | `frightening-zombie-roar` | 1.04 s | raungan zombie menakutkan, horor |
 | `fuel-explosion` | 2.98 s | ledakan bahan bakar, dahsyat |
 | `futuristic-cinematic-sweep` | 1.29 s | sapuan sinematik futuristik, reveal |
@@ -205,8 +214,12 @@
 | `human-nose-blow` | 1.03 s | buang ingus |
 | `hungry-man-eating` | 1.33 s | orang lapar makan lahap |
 | `in-and-out-zoom-sound` | 1.25 s | zoom masuk lalu keluar |
+| `industrial-hum-loop` | 44.91 s (suasana/loop) | dengung industri (latar) |
+| `industrial-machine-engine-hum-loop` | 7.42 s (suasana/loop) | mesin industri (latar) |
 | `industrial-machine-hum` | 50.0 s (suasana/loop) | dengung mesin pabrik (latar) |
 | `inside-a-beating-heart` | 20.13 s | di dalam jantung berdetak, tubuh/sains, tegang |
+| `intense-electricity-hum` | 28.8 s | listrik berdengung keras |
+| `intense-electricity-humming` | 28.8 s (suasana/loop) | dengung listrik intens |
 | `intense-long-fire-beam` | 9.0 s | semburan api panjang, kekuatan besar |
 | `interface-device-click` | 1.05 s | klik tombol/perangkat |
 | `interface-option-select` | 1.55 s | memilih opsi di layar |
@@ -216,6 +229,7 @@
 | `kid-giggle-laugh` | 2.28 s | anak cekikikan, geli |
 | `kids-cartoon-close-bells` | 2.01 s | lonceng kartun anak, penutup ceria |
 | `kids-playing-and-laughing` | 6.99 s | anak bermain & tertawa |
+| `large-drone-engine` | 70.51 s (suasana/loop) | mesin drone besar |
 | `laughing-children-indoors` | 10.21 s | anak-anak tertawa di dalam ruangan |
 | `light-rain-atmosphere` | 72.9 s (suasana/loop) | suasana gerimis (latar) |
 | `light-rain-loop` | 15.0 s (suasana/loop) | hujan ringan, santai, sendu |
@@ -263,6 +277,7 @@
 | `morning-sound-in-a-garden` | 110.44 s (suasana/loop) | pagi di taman/kebun, segar |
 | `motorcycle-engine-working` | 2.68 s | mesin motor menyala, ojek/jalanan |
 | `movie-trailer-epic-impact` | 4.87 s | angka/fakta besar muncul, hantaman epik |
+| `mowing-the-lawn-engine-hum` | 58.1 s | mesin potong rumput |
 | `musical-game-over` | 2.67 s | game over bermusik, gagal lucu |
 | `mystwrious-bass-pulse` | 16.56 s | misterius, tegang, sesuatu akan terungkap |
 | `nasty-criature-roar` | 1.79 s | raungan makhluk seram |
@@ -295,6 +310,7 @@
 | `playground-with-kids-playing` | 20.83 s (suasana/loop) | taman bermain anak (latar) |
 | `pouring-water-to-mug` | 4.6 s (suasana/loop) | menuang air ke gelas/mug, ngopi |
 | `quick-bomb-drop-explosion` | 10.16 s | bom jatuh lalu meledak, dramatis |
+| `quick-drilling-machine-hum` | 0.48 s (suasana/loop) | bor cepat, renovasi tetangga |
 | `quiet-forest-ambience` | 152.08 s (suasana/loop) | hutan sunyi (latar) |
 | `rain-and-thunder-storm` | 29.0 s (suasana/loop) | badai, hujan petir, suasana muram/dramatis |
 | `rain-in-the-jungle-and-birds` | 30.17 s (suasana/loop) | hujan hutan + burung |
@@ -356,6 +372,8 @@
 | `small-young-crowd-clapping` | 16.5 s | anak muda bertepuk tangan |
 | `soft-woosh-fire` | 4.61 s | whoosh api lembut |
 | `space-alien-invasion` | 13.32 s | invasi alien, sci-fi, ancaman dari luar angkasa |
+| `space-ship-hum` | 46.0 s (suasana/loop) | dengung pesawat luar angkasa (latar) |
+| `spaceship-drone-moves` | 2.15 s | drone/pesawat bergerak melintas |
 | `sphinx-cat-purr` | 7.3 s | kucing mendengkur, nyaman, manja |
 | `sphinx-cat-purr-and-quiet-growl` | 2.78 s | kucing mendengkur lalu menggeram pelan, "jangan ganggu" |
 | `stadium-crowd-light-applause` | 11.09 s | tepuk tangan stadion, pengakuan besar |
@@ -392,6 +410,7 @@
 | `thunderstorm-in-the-forest` | 32.0 s (suasana/loop) | badai petir di hutan |
 | `tick-tock-clock-timer` | 16.85 s | waktu berjalan, menunggu, deadline |
 | `tired-man-yawns` | 3.38 s | cowok capek menguap |
+| `tractors-working-on-the-field` | 44.26 s (suasana/loop) | traktor di sawah/ladang |
 | `transition-windy-swoosh` | 3.2 s | transisi berangin, angin kencang |
 | `trumpet-fanfare` | 8.0 s | kemenangan, pengumuman resmi, "ta-da!" |
 | `twilight-jungle` | 13.57 s (suasana/loop) | hutan saat senja (latar) |
