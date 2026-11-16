@@ -14,6 +14,7 @@ SAAT = {'cinematic-whoosh-fast-transition': 'transisi cepat antar adegan', 'cine
  'keyboard-typing': 'mengetik, chat, kerja di laptop', 'intro-transition': 'pembuka bagian/judul baru', 'footsteps-on-tall-grass': 'berjalan di rumput, alam, mengendap', 'flock-of-wild-geese': 'kawanan burung, alam liar, migrasi',
  'female-astonished-gasp': 'kaget/takjub "hah!", reaksi fakta mengejutkan', 'fast-whoosh-transition': 'transisi cepat', 'epic-orchestra-transition': 'transisi megah, pengungkapan besar',
  'crowd-laugh': 'penonton tertawa, momen lucu',
+ 'hard-horror-hit-drum': 'pukulan drum horor keras, jump scare / fakta mengejutkan', 'cinematic-mystery-heartbeat-transition': 'transisi misteri + detak jantung, menuju reveal',
  'male-astonished-gasp': 'cowok terkesiap "hah!", kaget/takjub', 'gasping-zombie': 'zombie terengah-engah, horor',
  'small-military-parade-marching-troops': 'parade militer kecil berbaris, disiplin', 'bus-station-environment': 'suasana terminal bus (latar)',
  'footsteps-on-hay-loop': 'langkah di jerami (loop)', 'robot-step': 'langkah robot, mekanis', 'walking-in-the-forest-with-birds': 'jalan di hutan + kicau burung',

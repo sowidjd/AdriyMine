@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-408 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+410 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -65,6 +65,7 @@
 | `children-happy-countdown` | 9.93 s | anak-anak hitung mundur gembira (bahasa Inggris) |
 | `children-voices-in-school` | 122.33 s (suasana/loop) | suara anak-anak di sekolah (latar) |
 | `cinematic-laser-gun-thunder` | 4.81 s (suasana/loop) | ledakan sci-fi, kekuatan besar, dramatis |
+| `cinematic-mystery-heartbeat-transition` | 67.27 s | transisi misteri + detak jantung, menuju reveal |
 | `cinematic-transition-swoosh-heartbeat-trailer` | 8.11 s | transisi tegang ala trailer |
 | `cinematic-tunnel-reverb-woosh` | 6.75 s | masuk ke dunia lain, flashback, transisi dalam |
 | `cinematic-whoosh-fast-transition` | 1.33 s | transisi cepat antar adegan |
@@ -177,6 +178,7 @@
 | `grass-step` | 0.58 s | satu langkah di rumput |
 | `gravel-stones-small-avalanche` | 1.4 s | longsor kerikil kecil |
 | `happy-child-laughing` | 2.4 s | tawa anak bahagia |
+| `hard-horror-hit-drum` | 4.14 s | pukulan drum horor keras, jump scare / fakta mengejutkan |
 | `hawk-call-squawk` | 2.41 s | teriakan elang/burung pemangsa |
 | `heavy-fall-into-mud` | 0.63 s | jatuh berat ke lumpur "plok" |
 | `heavy-grass-step` | 0.66 s | langkah berat di rumput |

@@ -708,6 +708,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-cinematic-mystery-heartbeat-transition-492.wav",
+  "nama": "cinematic-mystery-heartbeat-transition",
+  "durasi_s": 67.27,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -1.3,
+  "suasana_loop": false,
+  "cocok_untuk": "transisi misteri + detak jantung, menuju reveal",
+  "normal": "normal/cinematic-mystery-heartbeat-transition.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-cinematic-transition-swoosh-heartbeat-trailer-488.wav",
   "nama": "cinematic-transition-swoosh-heartbeat-trailer",
   "durasi_s": 8.11,
@@ -2048,6 +2060,18 @@
   "suasana_loop": false,
   "cocok_untuk": "tawa anak bahagia",
   "normal": "normal/happy-child-laughing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-hard-horror-hit-drum-565.wav",
+  "nama": "hard-horror-hit-drum",
+  "durasi_s": 4.14,
+  "bunyi_mulai_s": 0.06,
+  "peak_db": -0.7,
+  "suasana_loop": false,
+  "cocok_untuk": "pukulan drum horor keras, jump scare / fakta mengejutkan",
+  "normal": "normal/hard-horror-hit-drum.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
