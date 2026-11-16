@@ -1,0 +1,28 @@
+{
+ "name": "sketchbook-5detik",
+ "title": "Contoh sketchbook 5 detik",
+ "format": {
+  "width": 1080,
+  "height": 1920,
+  "fps": 24,
+  "bpm": 120,
+  "duration": 5.0,
+  "frames": 120
+ },
+ "storyFormat": "morph chain (2 eras, 1 shape morph)",
+ "style": "sketchbook",
+ "review": {
+  "safe": {
+   "top": 240,
+   "bottom": 420,
+   "right": 140
+  },
+  "refs": {}
+ },
+ "music": {
+  "file": "audio/track.wav",
+  "start": 0,
+  "gain": 0,
+  "fade": 0.5
+ }
+}
