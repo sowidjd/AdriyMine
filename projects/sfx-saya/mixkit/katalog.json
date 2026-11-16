@@ -252,6 +252,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-basketball-falling-indoor-394.wav",
+  "nama": "basketball-falling-indoor",
+  "durasi_s": 3.1,
+  "bunyi_mulai_s": 0.13,
+  "peak_db": -0.2,
+  "suasana_loop": false,
+  "cocok_untuk": "bola basket jatuh memantul",
+  "normal": "normal/basketball-falling-indoor.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-beach-waves-with-children-ambience-1193.wav",
   "nama": "beach-waves-with-children-ambience",
   "durasi_s": 52.0,
@@ -476,6 +488,18 @@
   "suasana_loop": false,
   "cocok_untuk": "hewan kartun kesakitan, lucu",
   "normal": "normal/cartoon-animal-crying-in-pain.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-cartoon-falling-eco-407.wav",
+  "nama": "cartoon-falling-eco",
+  "durasi_s": 3.0,
+  "bunyi_mulai_s": 0.04,
+  "peak_db": -0.3,
+  "suasana_loop": false,
+  "cocok_untuk": "jatuh kartun bergema, lucu",
+  "normal": "normal/cartoon-falling-eco.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -972,6 +996,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-digital-cartoon-falling-405.wav",
+  "nama": "digital-cartoon-falling",
+  "durasi_s": 1.41,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -0.3,
+  "suasana_loop": false,
+  "cocok_untuk": "jatuh kartun digital",
+  "normal": "normal/digital-cartoon-falling.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-distant-sea-humming-ambiance-1191.wav",
   "nama": "distant-sea-humming-ambiance",
   "durasi_s": 44.86,
@@ -1232,6 +1268,18 @@
   "suasana_loop": false,
   "cocok_untuk": "jatuh ke tumpukan daun",
   "normal": "normal/falling-on-tree-leaves.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-falling-on-undergrowth-390.wav",
+  "nama": "falling-on-undergrowth",
+  "durasi_s": 0.52,
+  "bunyi_mulai_s": 0.13,
+  "peak_db": -4.0,
+  "suasana_loop": false,
+  "cocok_untuk": "jatuh ke semak",
+  "normal": "normal/falling-on-undergrowth.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1544,6 +1592,18 @@
   "suasana_loop": false,
   "cocok_untuk": "sapuan sinematik futuristik, reveal",
   "normal": "normal/futuristic-cinematic-sweep.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-futuristic-electronic-engine-fail-2941.wav",
+  "nama": "futuristic-electronic-engine-fail",
+  "durasi_s": 6.78,
+  "bunyi_mulai_s": 0.04,
+  "peak_db": -2.6,
+  "suasana_loop": false,
+  "cocok_untuk": "mesin elektronik mati/gagal, error",
+  "normal": "normal/futuristic-electronic-engine-fail.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3144,6 +3204,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-sci-fi-metal-robot-collapse-1429.wav",
+  "nama": "sci-fi-metal-robot-collapse",
+  "durasi_s": 3.61,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -1.2,
+  "suasana_loop": false,
+  "cocok_untuk": "robot logam ambruk",
+  "normal": "normal/sci-fi-metal-robot-collapse.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-sea-waves-with-birds-loop-1185.wav",
   "nama": "sea-waves-with-birds-loop",
   "durasi_s": 38.04,
@@ -3396,6 +3468,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-small-metallic-sci-fi-drop-888.wav",
+  "nama": "small-metallic-sci-fi-drop",
+  "durasi_s": 5.5,
+  "bunyi_mulai_s": 0.12,
+  "peak_db": -7.5,
+  "suasana_loop": false,
+  "cocok_untuk": "tetes logam sci-fi kecil",
+  "normal": "normal/small-metallic-sci-fi-drop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-small-meteor-falling-1337.wav",
   "nama": "small-meteor-falling",
   "durasi_s": 5.04,
@@ -3404,6 +3488,18 @@
   "suasana_loop": false,
   "cocok_untuk": "meteor jatuh, sesuatu meluncur dari langit",
   "normal": "normal/small-meteor-falling.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-small-stone-avalanche-1272.wav",
+  "nama": "small-stone-avalanche",
+  "durasi_s": 2.87,
+  "bunyi_mulai_s": 0.17,
+  "peak_db": -0.4,
+  "suasana_loop": false,
+  "cocok_untuk": "longsor batu kecil",
+  "normal": "normal/small-stone-avalanche.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3540,6 +3636,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-stones-falling-down-the-mountain-1271.wav",
+  "nama": "stones-falling-down-the-mountain",
+  "durasi_s": 1.88,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -1.5,
+  "suasana_loop": true,
+  "cocok_untuk": "batu jatuh dari gunung",
+  "normal": "normal/stones-falling-down-the-mountain.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-strange-animal-of-the-desert-2487.wav",
   "nama": "strange-animal-of-the-desert",
   "durasi_s": 2.79,
@@ -3644,6 +3752,18 @@
   "suasana_loop": true,
   "cocok_untuk": "menelan air \"gluk\", gugup/haus",
   "normal": "normal/swallowing-a-water-drink-in-the-throat.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-system-break-2942.wav",
+  "nama": "system-break",
+  "durasi_s": 1.97,
+  "bunyi_mulai_s": 0.06,
+  "peak_db": -2.5,
+  "suasana_loop": false,
+  "cocok_untuk": "sistem rusak/crash, error total",
+  "normal": "normal/system-break.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

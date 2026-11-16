@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-353 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+363 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -27,6 +27,7 @@
 | `auditorium-moderate-applause-and-cheering` | 17.84 s | tepuk tangan + sorakan di auditorium |
 | `baby-saying-soccer` | 1.23 s | bayi bilang "soccer" (bahasa Inggris), lucu |
 | `baby-toy-music-box-lullaby` | 16.02 s | kotak musik nina bobo, lembut, kenangan masa kecil |
+| `basketball-falling-indoor` | 3.1 s | bola basket jatuh memantul |
 | `beach-waves-with-children-ambience` | 52.0 s (suasana/loop) | ombak pantai + anak-anak bermain, ceria |
 | `big-fire-burning` | 3.51 s (suasana/loop) | api besar berkobar (latar) |
 | `big-fire-flame-burning` | 8.27 s (suasana/loop) | nyala api besar (latar) |
@@ -46,6 +47,7 @@
 | `campfire-night-wind` | 30.75 s (suasana/loop) | api unggun + angin malam (latar) |
 | `cartoon-air-blow` | 1.66 s | tiupan udara ala kartun, lucu |
 | `cartoon-animal-crying-in-pain` | 2.83 s | hewan kartun kesakitan, lucu |
+| `cartoon-falling-eco` | 3.0 s | jatuh kartun bergema, lucu |
 | `cartoon-falling-whistle` | 2.69 s | siulan jatuh kartun "fiuuu~", jatuh lucu |
 | `cartoon-girl-saying-no-no-no` | 1.8 s | "no no no" kartun, menolak lucu |
 | `cartoon-monkey-applause` | 4.28 s | monyet kartun bertepuk tangan, lucu |
@@ -87,6 +89,7 @@
 | `cybernetic-technology-affirmation` | 2.12 s | konfirmasi sistem siber, data diterima |
 | `deep-child-breathing-and-exhaling` | 2.41 s | anak menarik napas dalam, tenang |
 | `desert-ambience` | 60.15 s (suasana/loop) | suasana gurun (latar) |
+| `digital-cartoon-falling` | 1.41 s | jatuh kartun digital |
 | `distant-sea-humming-ambiance` | 44.86 s (suasana/loop) | laut di kejauhan, tenang, luas |
 | `dog-barking-twice` | 1.62 s | anjing menggonggong, kejutan lucu |
 | `donkey-crying` | 12.27 s | keledai meringkik, lucu/konyol |
@@ -109,6 +112,7 @@
 | `falling-male-scream` | 3.83 s | cowok jatuh sambil berteriak "aaaa" |
 | `falling-on-foil` | 0.61 s | jatuh di atas foil, kresek |
 | `falling-on-tree-leaves` | 0.95 s | jatuh ke tumpukan daun |
+| `falling-on-undergrowth` | 0.52 s | jatuh ke semak |
 | `farm-pig-drinking-water` | 9.84 s (suasana/loop) | babi minum air (pertimbangkan penonton) |
 | `fast-ignition-fire` | 4.93 s | api menyala cepat, "wush!", semangat membara |
 | `fast-rocket-whoosh` | 4.75 s | roket, melesat sangat cepat |
@@ -135,6 +139,7 @@
 | `frightening-zombie-roar` | 1.04 s | raungan zombie menakutkan, horor |
 | `fuel-explosion` | 2.98 s | ledakan bahan bakar, dahsyat |
 | `futuristic-cinematic-sweep` | 1.29 s | sapuan sinematik futuristik, reveal |
+| `futuristic-electronic-engine-fail` | 6.78 s | mesin elektronik mati/gagal, error |
 | `futuristic-metal-transition-sweep` | 0.95 s | transisi logam futuristik |
 | `futuristic-sci-fi-computer-ambience` | 23.5 s (suasana/loop) | ruang komputer masa depan (latar) |
 | `futuristic-transition-sweep` | 2.34 s | transisi futuristik |
@@ -268,6 +273,7 @@
 | `sci-fi-battle-laser-shots` | 2.61 s | tembakan laser, pertempuran sci-fi |
 | `sci-fi-computer-technology` | 30.0 s | komputer sci-fi bekerja |
 | `sci-fi-loading-operative-system` | 2.63 s | sistem sedang loading, memproses |
+| `sci-fi-metal-robot-collapse` | 3.61 s | robot logam ambruk |
 | `sea-waves-with-birds-loop` | 38.04 s (suasana/loop) | ombak + burung laut (latar) |
 | `short-fire-whoosh` | 3.19 s | whoosh api singkat |
 | `short-slap-or-clap` | 3.1 s | tamparan/tepukan singkat, "plak" |
@@ -289,7 +295,9 @@
 | `small-group-cheer-and-applause` | 10.6 s | berhasil, sorakan, perayaan kecil |
 | `small-group-light-applause` | 5.09 s | tepuk tangan ringan kelompok kecil |
 | `small-group-moderate-applause` | 6.62 s | tepuk tangan kelompok kecil, sedang |
+| `small-metallic-sci-fi-drop` | 5.5 s | tetes logam sci-fi kecil |
 | `small-meteor-falling` | 5.04 s | meteor jatuh, sesuatu meluncur dari langit |
+| `small-stone-avalanche` | 2.87 s | longsor batu kecil |
 | `small-waves-harbor-rocks` | 77.86 s (suasana/loop) | ombak kecil di batu pelabuhan |
 | `small-wood-plank-pile-drop` | 1.72 s | tumpukan papan kayu jatuh |
 | `small-young-crowd-clapping` | 16.5 s | anak muda bertepuk tangan |
@@ -301,6 +309,7 @@
 | `stand-up-club-audience-applause` | 20.16 s | tepuk tangan klub stand-up comedy |
 | `stone-debris-falling` | 7.0 s | reruntuhan batu berjatuhan |
 | `stones-and-rocks-falling` | 4.25 s | batu-batu berjatuhan, longsor |
+| `stones-falling-down-the-mountain` | 1.88 s (suasana/loop) | batu jatuh dari gunung |
 | `strange-animal-of-the-desert` | 2.79 s | suara hewan aneh di gurun, misterius |
 | `strong-breathing-of-a-person` | 5.11 s | napas berat, capek, panik |
 | `strong-wild-wind-in-a-storm` | 13.65 s (suasana/loop) | angin kencang badai, terhempas |
@@ -310,6 +319,7 @@
 | `summer-night-crickets-loop` | 42.0 s (suasana/loop) | jangkrik malam (latar) |
 | `summer-night-in-the-forest` | 126.0 s (suasana/loop) | malam musim panas di hutan (latar) |
 | `swallowing-a-water-drink-in-the-throat` | 2.26 s (suasana/loop) | menelan air "gluk", gugup/haus |
+| `system-break` | 1.97 s | sistem rusak/crash, error total |
 | `technological-futuristic-hum` | 6.0 s (suasana/loop) | teknologi canggih, futuristik, mesin/AI |
 | `technology-alert-transition` | 5.0 s | transisi peringatan teknologi |
 | `technology-computer-calculations` | 4.0 s | komputer menghitung, data diproses |
