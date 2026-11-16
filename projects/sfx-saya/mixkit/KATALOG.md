@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-583 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+600 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -73,6 +73,14 @@
 | `calm-thunderstorm-in-the-jungle` | 49.0 s (suasana/loop) | badai tenang di hutan tropis |
 | `campfire-burning-crackles` | 14.08 s (suasana/loop) | api unggun berderak, hangat, cerita malam |
 | `campfire-night-wind` | 30.75 s (suasana/loop) | api unggun + angin malam (latar) |
+| `car-door-slam` | 0.71 s | pintu mobil dibanting |
+| `car-double-horn` | 0.92 s | klakson dua kali "tin-tin" |
+| `car-engine-start` | 2.55 s | mobil dinyalakan |
+| `car-explosion-debris` | 9.76 s | mobil meledak + puing, dramatis |
+| `car-horn` | 0.66 s | klakson mobil "tiiin", macet/ditegur |
+| `car-ignition` | 10.46 s | starter mobil |
+| `car-start-ignition` | 4.77 s | kunci kontak mobil diputar |
+| `cars-starting` | 14.28 s | beberapa mobil dinyalakan |
 | `cartoon-air-blow` | 1.66 s | tiupan udara ala kartun, lucu |
 | `cartoon-animal-crying-in-pain` | 2.83 s | hewan kartun kesakitan, lucu |
 | `cartoon-clown-fun-nose-sound` | 0.59 s | hidung badut "honk", lucu/konyol |
@@ -107,6 +115,7 @@
 | `clapping-male-crowd` | 6.8 s | kerumunan cowok bertepuk tangan |
 | `clapping-slowly` | 2.67 s | tepuk tangan pelan, sarkas "hebat..." |
 | `classic-alarm` | 5.03 s | jam beker berbunyi, bangun pagi |
+| `classic-car-horn` | 0.56 s | klakson mobil klasik, lucu |
 | `classroom-long-applause-and-whistle` | 19.0 s | tepuk tangan kelas + siulan, anak sekolah |
 | `classroom-spontaneous-applause` | 6.54 s | tepuk tangan spontan di kelas |
 | `clock-countdown-bleeps` | 5.0 s | hitung mundur, waktu hampir habis |
@@ -175,6 +184,7 @@
 | `farm-pig-drinking-water` | 9.84 s (suasana/loop) | babi minum air (pertimbangkan penonton) |
 | `fast-bike-passing-by` | 1.76 s | sepeda melintas cepat |
 | `fast-bike-wheel-spin` | 3.36 s | roda sepeda berputar cepat |
+| `fast-car-drive-by` | 3.76 s | mobil melintas kencang "ngeeeng" |
 | `fast-ignition-fire` | 4.93 s | api menyala cepat, "wush!", semangat membara |
 | `fast-jet-engine-flying-over` | 16.27 s | jet melintas cepat, "ngeeeng" |
 | `fast-rocket-whoosh` | 4.75 s | roket, melesat sangat cepat |
@@ -248,6 +258,7 @@
 | `heavy-rain` | 7.5 s (suasana/loop) | hujan deras |
 | `heavy-rain-and-thunder-in-background` | 22.27 s (suasana/loop) | hujan deras + petir di kejauhan |
 | `heavy-rain-drops` | 12.17 s (suasana/loop) | tetes hujan deras, dramatis |
+| `heavy-rain-on-car-glass-interior` | 39.63 s (suasana/loop) | hujan deras di kaca mobil, dari dalam (latar) |
 | `heavy-storm-rain-loop` | 18.0 s (suasana/loop) | badai hujan deras (latar) |
 | `helicopter-engine-working-close` | 1.86 s | mesin helikopter dari dekat |
 | `helicopter-flying-far-away` | 45.41 s | helikopter menjauh |
@@ -288,6 +299,7 @@
 | `jump-in-water` | 2.3 s (suasana/loop) | lompat ke air "byur" |
 | `jungle-rain-and-birds` | 80.0 s (suasana/loop) | hujan di hutan + burung |
 | `keyboard-typing` | 26.31 s | mengetik, chat, kerja di laptop |
+| `keys-moving` | 1.16 s | gemerincing kunci, mau berangkat |
 | `kid-giggle-laugh` | 2.28 s | anak cekikikan, geli |
 | `kids-cartoon-close-bells` | 2.01 s | lonceng kartun anak, penutup ceria |
 | `kids-playing-and-laughing` | 6.99 s | anak bermain & tertawa |
@@ -369,6 +381,7 @@
 | `noise-of-spinning-rattle` | 7.28 s | kerincing berputar (variasi) |
 | `noisy-metal-falling` | 1.23 s | logam berisik berjatuhan |
 | `notification-bike-bell` | 1.09 s | bel sepeda sebagai notifikasi |
+| `old-car-arriving` | 10.7 s | mobil tua datang |
 | `old-subway-train-arrives` | 18.77 s (suasana/loop) | kereta tua datang, stasiun |
 | `one-clap` | 0.2 s | satu tepukan, "oke!" / ide |
 | `one-man-clapping` | 3.0 s | satu orang bertepuk tangan, sarkas/canggung |
@@ -380,6 +393,7 @@
 | `party-sad-horn` | 1.95 s | terompet pesta sedih, kecewa lucu |
 | `party-trumpet` | 2.31 s | terompet pesta |
 | `party-trumpet-horn-isolated` | 1.29 s | terompet pesta tunggal |
+| `passing-car-and-urban-ambience` | 14.0 s (suasana/loop) | mobil lewat + suasana kota (latar) |
 | `people-at-the-supermarket-ambience` | 31.58 s (suasana/loop) | suasana supermarket/minimarket (latar) |
 | `people-bathing-in-the-sea-ambience` | 15.34 s (suasana/loop) | pantai ramai, orang berenang, liburan |
 | `people-coming-into-church` | 85.0 s (suasana/loop) | orang berdatangan ke gereja (latar, perhatikan konteks) |
@@ -464,6 +478,7 @@
 | `slow-tram-passing` | 12.28 s | trem/kereta lambat lewat |
 | `small-audience-weak-applause` | 7.55 s | tepuk tangan lemah/sepi, canggung, gagal lucu |
 | `small-bike-bell-ding` | 3.25 s | bel sepeda kecil "ting" |
+| `small-car-horn` | 0.52 s | klakson mobil kecil "tin" |
 | `small-cricket-screech` | 1.42 s | jangkrik kecil berderik (dekat) |
 | `small-crowd-clapping` | 15.0 s | kerumunan kecil bertepuk tangan |
 | `small-crowd-laugh-and-applause` | 5.76 s | tertawa + tepuk tangan, lucu yang berhasil |
@@ -484,6 +499,7 @@
 | `space-ship-hum` | 46.0 s (suasana/loop) | dengung pesawat luar angkasa (latar) |
 | `spaceship-drone-moves` | 2.15 s | drone/pesawat bergerak melintas |
 | `spaceship-large-drone` | 2.15 s (suasana/loop) | pesawat besar berdengung (latar) |
+| `speeding-swoosh` | 4.03 s | swoosh ngebut, transisi cepat |
 | `sphinx-cat-purr` | 7.3 s | kucing mendengkur, nyaman, manja |
 | `sphinx-cat-purr-and-quiet-growl` | 2.78 s | kucing mendengkur lalu menggeram pelan, "jangan ganggu" |
 | `spinning-fire-fx` | 2.51 s | api berputar, efek sihir/transisi |
@@ -541,6 +557,7 @@
 | `train-station-ambience` | 17.01 s (suasana/loop) | stasiun kereta (latar), mirip stasiun KRL |
 | `transition-windy-swoosh` | 3.2 s | transisi berangin, angin kencang |
 | `transport-airplane-flying-rumble` | 63.52 s | pesawat angkut bergemuruh |
+| `truck-horn` | 0.96 s | klakson truk keras, kaget |
 | `trumpet-fanfare` | 8.0 s | kemenangan, pengumuman resmi, "ta-da!" |
 | `twilight-jungle` | 13.57 s (suasana/loop) | hutan saat senja (latar) |
 | `ui-zoom-in-long-sound` | 1.15 s | zoom in panjang, mendekat perlahan |

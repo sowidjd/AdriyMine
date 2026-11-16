@@ -804,6 +804,102 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-car-door-slam-1564.wav",
+  "nama": "car-door-slam",
+  "durasi_s": 0.71,
+  "bunyi_mulai_s": 0.12,
+  "peak_db": -0.1,
+  "suasana_loop": false,
+  "cocok_untuk": "pintu mobil dibanting",
+  "normal": "normal/car-door-slam.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-car-double-horn-719.wav",
+  "nama": "car-double-horn",
+  "durasi_s": 0.92,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -2.4,
+  "suasana_loop": false,
+  "cocok_untuk": "klakson dua kali \"tin-tin\"",
+  "normal": "normal/car-double-horn.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-car-engine-start-1566.wav",
+  "nama": "car-engine-start",
+  "durasi_s": 2.55,
+  "bunyi_mulai_s": 0.18,
+  "peak_db": -6.9,
+  "suasana_loop": false,
+  "cocok_untuk": "mobil dinyalakan",
+  "normal": "normal/car-engine-start.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-car-explosion-debris-1562.wav",
+  "nama": "car-explosion-debris",
+  "durasi_s": 9.76,
+  "bunyi_mulai_s": 0.06,
+  "peak_db": -1.5,
+  "suasana_loop": false,
+  "cocok_untuk": "mobil meledak + puing, dramatis",
+  "normal": "normal/car-explosion-debris.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-car-horn-718.wav",
+  "nama": "car-horn",
+  "durasi_s": 0.66,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -3.0,
+  "suasana_loop": false,
+  "cocok_untuk": "klakson mobil \"tiiin\", macet/ditegur",
+  "normal": "normal/car-horn.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-car-ignition-1535.wav",
+  "nama": "car-ignition",
+  "durasi_s": 10.46,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -2.4,
+  "suasana_loop": false,
+  "cocok_untuk": "starter mobil",
+  "normal": "normal/car-ignition.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-car-start-ignition-1559.wav",
+  "nama": "car-start-ignition",
+  "durasi_s": 4.77,
+  "bunyi_mulai_s": 0.23,
+  "peak_db": -1.2,
+  "suasana_loop": false,
+  "cocok_untuk": "kunci kontak mobil diputar",
+  "normal": "normal/car-start-ignition.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-cars-starting-1561.wav",
+  "nama": "cars-starting",
+  "durasi_s": 14.28,
+  "bunyi_mulai_s": 0.14,
+  "peak_db": -0.0,
+  "suasana_loop": false,
+  "cocok_untuk": "beberapa mobil dinyalakan",
+  "normal": "normal/cars-starting.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-cartoon-air-blow-2656.wav",
   "nama": "cartoon-air-blow",
   "durasi_s": 1.66,
@@ -1208,6 +1304,18 @@
   "suasana_loop": false,
   "cocok_untuk": "jam beker berbunyi, bangun pagi",
   "normal": "normal/classic-alarm.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-classic-car-horn-1565.wav",
+  "nama": "classic-car-horn",
+  "durasi_s": 0.56,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -2.8,
+  "suasana_loop": false,
+  "cocok_untuk": "klakson mobil klasik, lucu",
+  "normal": "normal/classic-car-horn.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2024,6 +2132,18 @@
   "suasana_loop": false,
   "cocok_untuk": "roda sepeda berputar cepat",
   "normal": "normal/fast-bike-wheel-spin.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-fast-car-drive-by-1538.wav",
+  "nama": "fast-car-drive-by",
+  "durasi_s": 3.76,
+  "bunyi_mulai_s": 0.63,
+  "peak_db": -3.0,
+  "suasana_loop": false,
+  "cocok_untuk": "mobil melintas kencang \"ngeeeng\"",
+  "normal": "normal/fast-car-drive-by.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2904,6 +3024,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-heavy-rain-on-car-glass-interior-1248.wav",
+  "nama": "heavy-rain-on-car-glass-interior",
+  "durasi_s": 39.63,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -1.7,
+  "suasana_loop": true,
+  "cocok_untuk": "hujan deras di kaca mobil, dari dalam (latar)",
+  "normal": "normal/heavy-rain-on-car-glass-interior.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-heavy-storm-rain-loop-2400.wav",
   "nama": "heavy-storm-rain-loop",
   "durasi_s": 18.0,
@@ -3380,6 +3512,18 @@
   "suasana_loop": false,
   "cocok_untuk": "mengetik, chat, kerja di laptop",
   "normal": "normal/keyboard-typing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-keys-moving-1558.wav",
+  "nama": "keys-moving",
+  "durasi_s": 1.16,
+  "bunyi_mulai_s": 0.15,
+  "peak_db": -5.9,
+  "suasana_loop": false,
+  "cocok_untuk": "gemerincing kunci, mau berangkat",
+  "normal": "normal/keys-moving.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -4356,6 +4500,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-old-car-arriving-1536.wav",
+  "nama": "old-car-arriving",
+  "durasi_s": 10.7,
+  "bunyi_mulai_s": 0.94,
+  "peak_db": -0.9,
+  "suasana_loop": false,
+  "cocok_untuk": "mobil tua datang",
+  "normal": "normal/old-car-arriving.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-old-subway-train-arrives-2681.wav",
   "nama": "old-subway-train-arrives",
   "durasi_s": 18.77,
@@ -4484,6 +4640,18 @@
   "suasana_loop": false,
   "cocok_untuk": "terompet pesta tunggal",
   "normal": "normal/party-trumpet-horn-isolated.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-passing-car-and-urban-ambience-1554.wav",
+  "nama": "passing-car-and-urban-ambience",
+  "durasi_s": 14.0,
+  "bunyi_mulai_s": 0.32,
+  "peak_db": -1.7,
+  "suasana_loop": true,
+  "cocok_untuk": "mobil lewat + suasana kota (latar)",
+  "normal": "normal/passing-car-and-urban-ambience.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -5496,6 +5664,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-small-car-horn-717.wav",
+  "nama": "small-car-horn",
+  "durasi_s": 0.52,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -3.1,
+  "suasana_loop": false,
+  "cocok_untuk": "klakson mobil kecil \"tin\"",
+  "normal": "normal/small-car-horn.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-small-cricket-screech-1781.wav",
   "nama": "small-cricket-screech",
   "durasi_s": 1.42,
@@ -5732,6 +5912,18 @@
   "suasana_loop": true,
   "cocok_untuk": "pesawat besar berdengung (latar)",
   "normal": "normal/spaceship-large-drone.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-speeding-swoosh-1484.wav",
+  "nama": "speeding-swoosh",
+  "durasi_s": 4.03,
+  "bunyi_mulai_s": 0.22,
+  "peak_db": -1.8,
+  "suasana_loop": false,
+  "cocok_untuk": "swoosh ngebut, transisi cepat",
+  "normal": "normal/speeding-swoosh.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -6416,6 +6608,18 @@
   "suasana_loop": false,
   "cocok_untuk": "pesawat angkut bergemuruh",
   "normal": "normal/transport-airplane-flying-rumble.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-truck-horn-720.wav",
+  "nama": "truck-horn",
+  "durasi_s": 0.96,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -6.5,
+  "suasana_loop": false,
+  "cocok_untuk": "klakson truk keras, kaget",
+  "normal": "normal/truck-horn.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
