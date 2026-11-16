@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-659 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+672 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -131,6 +131,7 @@
 | `classroom-long-applause-and-whistle` | 19.0 s | tepuk tangan kelas + siulan, anak sekolah |
 | `classroom-spontaneous-applause` | 6.54 s | tepuk tangan spontan di kelas |
 | `clock-countdown-bleeps` | 5.0 s | hitung mundur, waktu hampir habis |
+| `close-sea-waves-loop` | 29.0 s (suasana/loop) | ombak dari dekat (latar) |
 | `cock-cry` | 4.21 s | ayam jantan berkokok, pagi hari, bangun |
 | `concert-hall-stomping-applause` | 16.59 s | tepuk + hentakan kaki di gedung konser, meriah |
 | `conference-audience-clapping-strongly` | 8.6 s | tepuk tangan kuat di konferensi, pengakuan |
@@ -264,6 +265,7 @@
 | `game-show-suspense-waiting` | 41.81 s (suasana/loop) | menunggu jawaban, kuis, tegang lucu |
 | `garbage-pile-falling` | 10.7 s | tumpukan sampah jatuh, berantakan |
 | `gasping-zombie` | 1.93 s | zombie terengah-engah, horor |
+| `gentle-sea-wave` | 4.85 s (suasana/loop) | ombak lembut, tenang |
 | `ghost-fire-swoosh` | 2.85 s | api hantu, transisi misterius |
 | `giant-dog-aggressive-growl` | 5.57 s | anjing besar menggeram galak |
 | `giant-monster-footstep` | 3.43 s | langkah monster raksasa "DUM", menggetarkan |
@@ -331,6 +333,7 @@
 | `jet-airplane-engine-taking-off` | 10.81 s | jet lepas landas, mulai/berangkat |
 | `jet-plane-hum-flying` | 29.82 s (suasana/loop) | dengung jet terbang (latar) |
 | `jump-in-water` | 2.3 s (suasana/loop) | lompat ke air "byur" |
+| `jump-into-the-water` | 2.28 s (suasana/loop) | lompat ke air "byur" |
 | `jungle-rain-and-birds` | 80.0 s (suasana/loop) | hujan di hutan + burung |
 | `keyboard-typing` | 26.31 s | mengetik, chat, kerja di laptop |
 | `keys-moving` | 1.16 s | gemerincing kunci, mau berangkat |
@@ -402,6 +405,7 @@
 | `monster-footstep` | 3.0 s | langkah monster, berat & mengancam |
 | `morning-sound-in-a-garden` | 110.44 s (suasana/loop) | pagi di taman/kebun, segar |
 | `motocross-motorcycle-engine` | 19.81 s | motor trail/motocross |
+| `motorboat-on-the-sea` | 51.88 s (suasana/loop) | perahu motor di laut |
 | `motorcycle-changing-gears` | 3.51 s | motor ganti gigi |
 | `motorcycle-engine-decelerating` | 11.17 s | motor melambat, berhenti |
 | `motorcycle-engine-doing-gearshift` | 14.94 s | motor oper gigi |
@@ -485,6 +489,7 @@
 | `robot-positive-item-acquired` | 1.5 s | robot dapat item, "berhasil!" ala game |
 | `robot-step` | 1.69 s | langkah robot, mekanis |
 | `rock-golem-walking` | 9.56 s | golem batu berjalan, berat |
+| `rough-sea-waves-loop` | 70.84 s (suasana/loop) | ombak kasar (latar) |
 | `running-through-the-forest` | 14.64 s | berlari menembus hutan |
 | `sad-game-over-trombone` | 5.61 s | gagal lucu "wah wah wah", kecewa |
 | `sad-party-horn-sound` | 1.5 s | terompet pesta lesu, gagal lucu/zonk |
@@ -501,6 +506,11 @@
 | `sci-fi-machine-deep-hum` | 40.0 s (suasana/loop) | dengung mesin sci-fi dalam (latar) |
 | `sci-fi-metal-robot-collapse` | 3.61 s | robot logam ambruk |
 | `screaming-people-at-mechanical-game-fair` | 10.7 s | orang menjerit di wahana pasar malam, seru/takut |
+| `sea-swimming-loop` | 10.35 s (suasana/loop) | berenang di laut |
+| `sea-water-splash` | 1.74 s (suasana/loop) | cipratan air laut |
+| `sea-waves-ambience` | 151.67 s (suasana/loop) | suasana ombak (latar) |
+| `sea-waves-loop` | 48.25 s (suasana/loop) | ombak laut (latar) |
+| `sea-waves-on-a-rocky-shore` | 121.09 s (suasana/loop) | ombak di pantai berbatu (latar) |
 | `sea-waves-with-birds-loop` | 38.04 s (suasana/loop) | ombak + burung laut (latar) |
 | `sheep-sounds` | 1.47 s | domba mengembik "mbeee", lucu |
 | `ship-engine-loop` | 5.8 s (suasana/loop) | mesin kapal (latar) |
@@ -564,6 +574,7 @@
 | `stone-debris-falling` | 7.0 s | reruntuhan batu berjatuhan |
 | `stones-and-rocks-falling` | 4.25 s | batu-batu berjatuhan, longsor |
 | `stones-falling-down-the-mountain` | 1.88 s (suasana/loop) | batu jatuh dari gunung |
+| `stormy-sea-waves-loop` | 135.73 s (suasana/loop) | laut badai (latar) |
 | `strange-animal-of-the-desert` | 2.79 s | suara hewan aneh di gurun, misterius |
 | `street-ambien-with-carriage-and-people` | 10.38 s (suasana/loop) | jalanan dengan kereta kuda & orang (latar), mirip delman |
 | `street-ambience-with-walking-people` | 47.08 s | jalanan ramai orang berjalan (latar) |
@@ -649,6 +660,7 @@
 | `wind-in-the-forest` | 25.32 s (suasana/loop) | angin di hutan |
 | `wind-in-the-top-of-the-mountain` | 31.8 s (suasana/loop) | angin di puncak gunung, ketinggian |
 | `windy-humming-forest-with-birds` | 125.35 s (suasana/loop) | hutan berangin + burung |
+| `windy-sea-loop` | 30.39 s (suasana/loop) | laut berangin (latar) |
 | `wine-bottles-clinking` | 1.18 s | botol/gelas berdenting, bersulang (pertimbangkan konteks) |
 | `wizard-fire-woosh` | 1.09 s | sihir api, transisi magis |
 | `wolf-attack` | 1.52 s | serigala menyerang |
@@ -659,6 +671,7 @@
 | `woman-coughing-fast` | 1.1 s | cewek batuk cepat |
 | `woman-cry-of-pain` | 1.42 s | jeritan kesakitan cewek |
 | `wood-plank-dominoes-fall` | 2.5 s | papan kayu jatuh beruntun seperti domino, efek berantai |
+| `wooden-ship-on-the-sea` | 33.35 s (suasana/loop) | kapal kayu di laut, berderit (latar) |
 | `wounded-lion-growling` | 5.34 s | singa terluka menggeram |
 | `yawn-of-adult-man` | 1.26 s | orang dewasa menguap |
 | `young-man-coughing` | 1.19 s | cowok batuk |
