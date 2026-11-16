@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-610 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+623 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -22,6 +22,7 @@
 | `alien-technology-hum` | 6.0 s (suasana/loop) | dengung teknologi alien (latar) |
 | `ambient-sound-in-the-desert` | 7.69 s (suasana/loop) | suasana gurun |
 | `an-artificial-respirator` | 23.75 s | alat bantu napas, rumah sakit |
+| `angry-dragon-growl` | 5.13 s | naga menggeram marah |
 | `animal-eating-flesh` | 20.75 s | hewan buas makan daging, alam liar |
 | `animal-eating-herb` | 1.44 s | hewan mengunyah rumput |
 | `animal-eating-juicy-meat` | 5.25 s | hewan makan daging berair |
@@ -88,6 +89,7 @@
 | `cartoon-falling-whistle` | 2.69 s | siulan jatuh kartun "fiuuu~", jatuh lucu |
 | `cartoon-girl-saying-no-no-no` | 1.8 s | "no no no" kartun, menolak lucu |
 | `cartoon-insect-running-fast` | 1.64 s | serangga kartun lari cepat, lucu, kabur |
+| `cartoon-kitty-begging-meow` | 2.63 s | kucing kartun mengeong memelas, imut |
 | `cartoon-monkey-applause` | 4.28 s | monyet kartun bertepuk tangan, lucu |
 | `cartoon-positive-sound` | 2.94 s | bunyi positif kartun, "yeay" |
 | `cartoon-sad-party-horn` | 1.55 s | terompet pesta sedih ala kartun, zonk |
@@ -126,6 +128,7 @@
 | `cool-impact-movie-trailer` | 6.0 s | hantaman keren ala trailer, judul muncul |
 | `cow-animal-breath` | 3.56 s | napas sapi, dengusan hewan besar |
 | `cow-defecating` | 1.9 s | sapi buang kotoran (humor kasar, hati-hati) |
+| `cow-moo-in-the-barn` | 2.12 s | sapi melenguh "mooo" |
 | `creaking-public-toilet-door` | 3.56 s | pintu toilet umum berderit |
 | `creature-cry-of-hurt` | 1.43 s | makhluk menjerit terluka |
 | `creature-sad-crying` | 31.53 s | makhluk menangis sedih |
@@ -273,6 +276,7 @@
 | `high-tech-bleep` | 0.69 s | bip teknologi singkat |
 | `high-tech-bleep-confirmation` | 0.61 s | bip konfirmasi canggih, "berhasil" |
 | `high-tech-notification-bleep` | 0.55 s | notifikasi canggih |
+| `horde-of-barking-dogs` | 10.53 s | banyak anjing menggonggong, ribut |
 | `horror-ambience` | 82.14 s (suasana/loop) | suasana horor, mencekam (latar) |
 | `horror-sci-fi-wind-tunnel` | 64.0 s (suasana/loop) | lorong angin horor/sci-fi, mencekam |
 | `hotel-conversation-and-laughter-with-dining-noise` | 24.04 s (suasana/loop) | restoran ramai mengobrol + tawa + alat makan (latar) |
@@ -295,6 +299,7 @@
 | `inside-the-old-boat-shipyard-ambience` | 21.5 s (suasana/loop) | galangan kapal tua (latar) |
 | `intense-electricity-hum` | 28.8 s | listrik berdengung keras |
 | `intense-electricity-humming` | 28.8 s (suasana/loop) | dengung listrik intens |
+| `intense-horse-stallion-neigh` | 2.52 s | kuda jantan meringkik keras |
 | `intense-long-fire-beam` | 9.0 s | semburan api panjang, kekuatan besar |
 | `interface-device-click` | 1.05 s | klik tombol/perangkat |
 | `interface-option-select` | 1.55 s | memilih opsi di layar |
@@ -354,6 +359,7 @@
 | `man-yawns-quietly` | 3.86 s | menguap pelan, diam-diam ngantuk |
 | `martial-arts-fast-punch` | 1.34 s | pukulan, "dihantam", fakta yang menampar |
 | `mechanical-technology-movements` | 2.5 s | mesin/robot bergerak, mekanisme |
+| `medium-size-angry-dog-bark` | 2.03 s | anjing menggonggong marah |
 | `medium-size-bird-flutter` | 3.26 s | kepakan sayap burung sedang (falcon/merpati) |
 | `medium-size-group-applause-and-laugh` | 8.29 s | tawa + tepuk tangan kelompok sedang |
 | `melodic-airport-announcement-ding` | 3.51 s (suasana/loop) | bunyi pengumuman bandara "ding-dong" melodis, perhatian! |
@@ -380,6 +386,7 @@
 | `musical-game-over` | 2.67 s | game over bermusik, gagal lucu |
 | `mystwrious-bass-pulse` | 16.56 s | misterius, tegang, sesuatu akan terungkap |
 | `nasty-criature-roar` | 1.79 s | raungan makhluk seram |
+| `natural-ambience-with-flowing-water-and-birds` | 48.0 s (suasana/loop) | alam + air mengalir + burung (latar) |
 | `nature-ambience-with-lightning-strike-and-thunder` | 28.75 s | alam + petir menyambar, cuaca dramatis |
 | `newspaper-falling-to-the-floor` | 0.61 s | koran/kertas jatuh ke lantai |
 | `night-crickets-near-the-swamp` | 33.74 s (suasana/loop) | jangkrik malam dekat rawa (latar) |
@@ -454,6 +461,7 @@
 | `sanctuary-or-cathedral-big-bells` | 24.19 s | lonceng katedral besar (perhatikan konteks) |
 | `sand-in-the-desert` | 5.53 s (suasana/loop) | pasir tertiup di gurun |
 | `satisfied-drink-voice` | 1.57 s | "aah" puas setelah minum, segar |
+| `scared-horse-neighing` | 2.48 s | kuda ketakutan meringkik |
 | `scary-woods-at-night` | 50.16 s (suasana/loop) | hutan seram malam hari (latar) |
 | `sci-fi-battle-laser-shots` | 2.61 s | tembakan laser, pertempuran sci-fi |
 | `sci-fi-computer-technology` | 30.0 s | komputer sci-fi bekerja |
@@ -464,6 +472,7 @@
 | `sci-fi-metal-robot-collapse` | 3.61 s | robot logam ambruk |
 | `screaming-people-at-mechanical-game-fair` | 10.7 s | orang menjerit di wahana pasar malam, seru/takut |
 | `sea-waves-with-birds-loop` | 38.04 s (suasana/loop) | ombak + burung laut (latar) |
+| `sheep-sounds` | 1.47 s | domba mengembik "mbeee", lucu |
 | `ship-engine-loop` | 5.8 s (suasana/loop) | mesin kapal (latar) |
 | `ship-hull-creak` | 7.87 s | lambung kapal berderit, tua/tegang |
 | `shopping-center-crowd` | 28.85 s (suasana/loop) | mal ramai (latar) |
@@ -538,6 +547,7 @@
 | `summer-night-crickets-loop` | 42.0 s (suasana/loop) | jangkrik malam (latar) |
 | `summer-night-in-the-forest` | 126.0 s (suasana/loop) | malam musim panas di hutan (latar) |
 | `swallowing-a-water-drink-in-the-throat` | 2.26 s (suasana/loop) | menelan air "gluk", gugup/haus |
+| `sweet-kitty-meow` | 0.88 s | kucing mengeong manis |
 | `synthetic-power-bass-transition` | 6.57 s | transisi bass bertenaga |
 | `system-break` | 1.97 s | sistem rusak/crash, error total |
 | `tank-engine-working` | 15.43 s | mesin tank, berat & kuat |
@@ -567,6 +577,7 @@
 | `transition-flying-swoosh` | 2.75 s | transisi terbang whoosh |
 | `transition-windy-swoosh` | 3.2 s | transisi berangin, angin kencang |
 | `transport-airplane-flying-rumble` | 63.52 s | pesawat angkut bergemuruh |
+| `tropical-bird-squeak` | 1.26 s | burung tropis mencicit |
 | `truck-horn` | 0.96 s | klakson truk keras, kaget |
 | `trumpet-fanfare` | 8.0 s | kemenangan, pengumuman resmi, "ta-da!" |
 | `twilight-jungle` | 13.57 s (suasana/loop) | hutan saat senja (latar) |
@@ -600,6 +611,7 @@
 | `water-pour-light-stream` | 36.5 s (suasana/loop) | tuang air aliran kecil |
 | `whoosh-resonating-metallic-hit` | 3.33 s | whoosh + hantaman logam bergaung, judul muncul |
 | `wild-animal-hungry-grunting` | 4.18 s | hewan liar lapar menggeram, ancaman |
+| `wild-lion-animal-roar` | 1.28 s | auman singa liar |
 | `wind-in-a-desolate-world` | 13.03 s (suasana/loop) | angin di dunia sepi/kosong, hampa |
 | `wind-in-futuristic-city` | 13.41 s (suasana/loop) | angin di kota masa depan, sci-fi sepi |
 | `wind-in-the-forest` | 25.32 s (suasana/loop) | angin di hutan |
@@ -607,6 +619,7 @@
 | `windy-humming-forest-with-birds` | 125.35 s (suasana/loop) | hutan berangin + burung |
 | `wine-bottles-clinking` | 1.18 s | botol/gelas berdenting, bersulang (pertimbangkan konteks) |
 | `wizard-fire-woosh` | 1.09 s | sihir api, transisi magis |
+| `wolf-howling` | 8.03 s | serigala melolong, malam |
 | `wolves-at-scary-forest` | 9.74 s (suasana/loop) | serigala di hutan seram, horor/ancaman |
 | `woman-coughing-fast` | 1.1 s | cewek batuk cepat |
 | `woman-cry-of-pain` | 1.42 s | jeritan kesakitan cewek |
