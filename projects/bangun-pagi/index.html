@@ -1,0 +1,517 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Bangun Pagi</title>
+<style>html,body{margin:0;background:#111}canvas{height:100vh;display:block;margin:auto}</style></head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// "Alarm bunyi 7 kali, tetep telat": video edukasi TikTok 9:16, 171 detik. Lihat NASKAH.md.
+// renderAt(t) menggambar satu frame. window.CUES = daftar efek suara (dibaca audio.py lewat render.mjs).
+const W = 1080, H = 1920, DUR = 171;
+const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const INK = '#2B2233', CLAY = '#D97757', CLAYDK = '#A84D33', CREAM = '#FFF5E2', ROSE = '#E27A92', OCHRE = '#E8AA38', SKY = '#8EC3E6', YEL = '#FFD84D', TAU = Math.PI * 2;
+const FONT = '"Inter", "DejaVu Sans", sans-serif';
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x)), lerp = (a, b, k) => a + (b - a) * k;
+const ease = x => { x = clamp(x); return x * x * (3 - 2 * x); }, easeIn = x => Math.pow(clamp(x), 3), easeOut = x => 1 - Math.pow(1 - clamp(x), 3);
+const backOut = x => { x = clamp(x); const s = 1.9; return 1 + (s + 1) * Math.pow(x - 1, 3) + s * Math.pow(x - 1, 2); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const hash = n => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+function mixh(a, b, k) { const pa = parseInt(a.slice(1), 16), pb = parseInt(b.slice(1), 16), c = i => Math.round(lerp((pa >> i) & 255, (pb >> i) & 255, clamp(k))); return '#' + ((1 << 24) + (c(16) << 16) + (c(8) << 8) + c(0)).toString(16).slice(1); }
+let BF = 0, KEY = 0;
+const jit = a => (hash(BF * 131.7 + (KEY++) * 7.31) - .5) * 2 * a;
+const CUES = [];   // [time, name, gain]
+const cue = (t, name, gain = 1) => CUES.push([t, name, gain]);
+
+// ---------- drawing primitives (outlines boil 12x a second) ----------
+function poly(pts, fill, stroke = INK, lw = 5, j = 1.8) {
+  ctx.beginPath(); pts.forEach(([x, y], i) => { const p = [x + jit(j), y + jit(j)]; i ? ctx.lineTo(...p) : ctx.moveTo(...p); }); ctx.closePath();
+  if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+  if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.lineJoin = 'round'; ctx.stroke(); }
+}
+function line(pts, lw = 5, col = INK, j = 1.4) {
+  ctx.beginPath(); pts.forEach(([x, y], i) => { const p = [x + jit(j), y + jit(j)]; i ? ctx.lineTo(...p) : ctx.moveTo(...p); });
+  ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke();
+}
+const ell = (cx, cy, rx, ry, n = 22, rot = 0) => Array.from({ length: n }, (_, i) => { const a = i / n * TAU, x = Math.cos(a) * rx, y = Math.sin(a) * ry; return [cx + x * Math.cos(rot) - y * Math.sin(rot), cy + x * Math.sin(rot) + y * Math.cos(rot)]; });
+function rect(x, y, w, h, n = 3) { const P = []; for (let i = 0; i < n; i++) P.push([x + w * i / n, y]); for (let i = 0; i < n; i++) P.push([x + w, y + h * i / n]); for (let i = 0; i < n; i++) P.push([x + w - w * i / n, y + h]); for (let i = 0; i < n; i++) P.push([x, y + h - h * i / n]); return P; }
+function rrect(x, y, w, h, r, n = 5) { const P = []; const c = [[x + w - r, y + r, -Math.PI / 2], [x + w - r, y + h - r, 0], [x + r, y + h - r, Math.PI / 2], [x + r, y + r, Math.PI]];
+  for (const [cx, cy, a0] of c) for (let i = 0; i <= n; i++) { const a = a0 + i / n * Math.PI / 2; P.push([cx + Math.cos(a) * r, cy + Math.sin(a) * r]); } return P; }
+function heart(cx, cy, r) { const P = []; for (let i = 0; i < 24; i++) { const a = i / 24 * TAU, x = 16 * Math.sin(a) ** 3, y = -(13 * Math.cos(a) - 5 * Math.cos(2 * a) - 2 * Math.cos(3 * a) - Math.cos(4 * a)); P.push([cx + x * r / 16, cy + y * r / 16]); } return P; }
+function star(x, y, r, col = YEL) { const P = []; for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * .45 : r; P.push([x + Math.cos(a) * rr, y + Math.sin(a) * rr]); } poly(P, col, INK, r * .14); }
+function glow(x, y, r, rgb, a) { if (a <= 0) return; const g = ctx.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, `rgba(${rgb},${a})`); g.addColorStop(1, `rgba(${rgb},0)`); ctx.fillStyle = g; ctx.fillRect(x - r, y - r, 2 * r, 2 * r); }
+
+// ---------- text: captions are part of the design (TikTok) ----------
+// "*kata*" = highlighted word. size in px. age = seconds since it appeared, life = how long it stays.
+function wrap(words, size, maxW) {
+  ctx.font = `900 ${size}px ${FONT}`;
+  const lines = [[]]; let w = 0; const sp = ctx.measureText(' ').width;
+  for (const wd of words) { const ww = ctx.measureText(wd.t).width; if (w + ww > maxW && lines[lines.length - 1].length) { lines.push([]); w = 0; } lines[lines.length - 1].push({ ...wd, w: ww }); w += ww + sp; }
+  return { lines, sp };
+}
+function text(str, x, y, size, o = {}) {
+  const age = o.age ?? 1, life = o.life ?? 99, k = backOut(seg(age, 0, .22)), out = 1 - seg(age, life - .15, life);
+  if (out <= 0 || k <= 0) return;
+  const words = str.split(' ').map(s => ({ t: s.replace(/\*/g, ''), hi: /^\*.*\*[.,!?:]*$/.test(s) }));
+  const { lines, sp } = wrap(words, size, o.maxW || 900), lh = size * 1.18;
+  ctx.save(); ctx.globalAlpha = out; ctx.translate(x, y); ctx.scale(k, k); ctx.rotate(o.rot || 0);
+  ctx.textBaseline = 'middle'; ctx.lineJoin = 'round';
+  lines.forEach((ln, i) => {
+    const tw = ln.reduce((s, w) => s + w.w, 0) + sp * (ln.length - 1); let cx = -tw / 2; const cy = (i - (lines.length - 1) / 2) * lh;
+    for (const w of ln) {
+      ctx.lineWidth = size * .2; ctx.strokeStyle = o.stroke || INK; ctx.strokeText(w.t, cx, cy);
+      ctx.fillStyle = w.hi ? (o.hi || YEL) : (o.col || '#FFFFFF'); ctx.fillText(w.t, cx, cy);
+      cx += w.w + sp;
+    }
+  });
+  ctx.restore();
+}
+function badge(str, x, y, size, col, o = {}) {   // a label in a rounded box (clock, titles)
+  const age = o.age ?? 1, k = backOut(seg(age, 0, .25)); if (k <= 0) return;
+  ctx.save(); ctx.translate(x + (o.shake || 0) * Math.sin(age * 70), y); ctx.scale(k, k); ctx.rotate(o.rot || 0);
+  ctx.font = `900 ${size}px ${FONT}`; const w = ctx.measureText(str).width + size * .9, h = size * 1.45;
+  poly(rrect(-w / 2, -h / 2, w, h, h * .3), col, INK, 7, 1.5);
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = o.tcol || INK; ctx.fillText(str, 0, size * .05);
+  ctx.restore();
+}
+
+// ---------- Clawd ----------
+const FACES = {
+  neutral:    { eyes: 'normal', arms: [.2, .2] },
+  sleepy:     { eyes: 'closed', mouth: 'o', emote: 'zzz', arms: [-.6, -.6], take: .2 },
+  groggy:     { eyes: 'half', mouth: 'wobble', arms: [-.9, -.85], take: .3 },
+  bored:      { eyes: 'narrow', mouth: 'flat', look: [-.3, .4], arms: [-.8, -.85] },
+  surprised:  { eyes: 'wide', mouth: 'O', emote: '!', arms: [1.1, 1.0], take: 1.3 },
+  scared:     { eyes: 'wide', mouth: 'wobble', emote: 'sweat', arms: [1.2, 1.1], col: '#E8A07E', take: 1.3 },
+  dizzy:      { eyes: 'swirl', mouth: 'wobble', emote: 'stars', arms: [.4, .1] },
+  sad:        { eyes: 'sad', mouth: 'frown', emote: 'cloud', look: [0, .6], arms: [-.8, -.75], col: '#B07A86' },
+  thinking:   { eyes: 'normal', mouth: 'flat', emote: 'dots', look: [.5, -.8], arms: [-.3, .9] },
+  idea:       { eyes: 'wide', mouth: 'grin', emote: 'bulb', arms: [.2, 1.5], take: 1.1 },
+  determined: { eyes: 'determined', mouth: 'flat', look: [.3, 0], arms: [.5, .2], take: .7 },
+  happy:      { eyes: 'happy', mouth: 'smile', blush: .6, arms: [.5, .4], take: .6 },
+  excited:    { eyes: 'wide', mouth: 'grin', emote: 'spark', arms: [1.3, 1.2], take: 1 },
+  proud:      { eyes: 'happy', mouth: 'smile', emote: 'spark', arms: [-.9, -.9], col: '#E68A5C', take: .5 },
+  wave:       { eyes: 'happy', mouth: 'smile', blush: .6, arms: [.3, 1.3], take: .6 },
+};
+function acted(t, keys) {
+  let i = 0; while (i + 1 < keys.length && t >= keys[i + 1][0]) i++;
+  const [t0, name, over] = keys[i], F = { ...FACES[name], ...(over || {}) }, a = t - t0, k = i ? (F.take ?? .7) : 0;
+  const pre = i + 1 < keys.length ? seg(t, keys[i + 1][0] - .1, keys[i + 1][0]) * .1 : 0;
+  return { ...F, name, age: a, sq: -.26 * k * Math.exp(-6 * a) * Math.cos(16 * a) + pre, dy: -1.1 * k * Math.exp(-7 * a) * Math.max(0, Math.cos(9 * a)),
+           squint: i && a < .12 ? 1 - a / .12 : pre * 10 };
+}
+function eye(kind, x, y, u, look, squint) {
+  const [lx, ly] = look || [0, 0], ex = x + lx * .55 * u, ey = y + ly * .6 * u, h = (1 - .85 * (squint || 0)), lw = u * .17;
+  if (kind === 'swirl') { const P = []; for (let i = 0; i < 30; i++) { const a = i * .55 + BF; P.push([x + Math.cos(a) * i * .035 * u, y + Math.sin(a) * i * .035 * u]); } line(P, lw); }
+  else if (kind === 'closed') line([[x - .7 * u, y + .1 * u], [x, y + .35 * u], [x + .7 * u, y + .1 * u]], lw);
+  else if (kind === 'happy') line([[x - .7 * u, y + .3 * u], [x, y - .3 * u], [x + .7 * u, y + .3 * u]], lw);
+  else if (kind === 'half') { poly(ell(ex, ey + .35 * u, .38 * u, .4 * u * h, 14), INK, null); line([[x - .7 * u, y - .1 * u], [x + .7 * u, y - .1 * u]], lw * .8); }
+  else if (kind === 'wide') { poly(ell(ex, ey, .55 * u, 1.05 * u * h, 18), INK, null); poly(ell(ex + .2 * u, ey - .45 * u * h, .16 * u, .2 * u * h, 10), CREAM, null, 0, .3); }
+  else if (kind === 'narrow') poly(rect(ex - .55 * u, ey - .18 * u, 1.1 * u, .36 * u, 2), INK, null);
+  else if (kind === 'sad') { poly(ell(ex, ey + .2 * u, .32 * u, .65 * u * h, 14), INK, null); line([[x - .7 * u, y - 1.1 * u + (x > 0 ? 0 : .35 * u)], [x + .7 * u, y - 1.1 * u + (x > 0 ? .35 * u : 0)]], lw); }
+  else if (kind === 'determined') { poly(ell(ex, ey + .15 * u, .35 * u, .7 * u * h, 14), INK, null); line([[x - .8 * u, y - 1.1 * u + (x < 0 ? -.2 : .3) * u], [x + .8 * u, y - 1.1 * u + (x < 0 ? .3 : -.2) * u]], lw * 1.1); }
+  else poly(ell(ex, ey, .35 * u, .95 * u * h, 14), INK, null);
+}
+// o: face fields + dx, dy, sq, rot, walk, arms [L, R], noShadow, held: function(x, y) drawn at the right arm tip
+function clawd(x, y, u, o) {
+  const sq = o.sq || 0, dy = (o.dy || 0) * u, col = o.col || CLAY, lw = u * .17;
+  x += (o.dx || 0) * u;
+  if (!o.noShadow) { const f = 1 - Math.min(.5, Math.abs(o.dy || 0) * .06); poly(ell(x, y + u * .15, 5.6 * u * f, u * f, 20), 'rgba(43,34,51,.22)', null, 0, .5); }
+  ctx.save(); ctx.translate(x, y + dy); ctx.rotate(o.rot || 0); ctx.scale(1 + sq * .6, 1 - sq);
+  const [aL, aR] = o.arms || [.2, .2];
+  const arm = (side, a) => { ctx.save(); ctx.translate(side * 4.9 * u, -4.5 * u); ctx.rotate(side < 0 ? a : -a); poly(rect(side < 0 ? -2.2 * u : 0, -.5 * u, 2.2 * u, u, 2), col, INK, lw);
+    if (side > 0 && o.held) { ctx.translate(2.5 * u, 0); ctx.rotate(a); o.held(); } ctx.restore(); };
+  arm(-1, aL); arm(1, aR);
+  if (!o.noLegs) [-4, -2, 1, 3].forEach((lx, i) => { const lift = o.walk != null ? Math.max(0, Math.sin((o.walk + (i % 2 ? .5 : 0)) * TAU)) * .7 * u : 0;
+    poly(rect(lx * u, -2.3 * u - lift, u, 2.3 * u, 2), CLAYDK, INK, lw); });
+  poly(rect(-5 * u, -8 * u, 10 * u, 6 * u, 4), col, INK, lw);
+  poly(rect(-5 * u, -3 * u, 10 * u, 1 * u, 4), mixh(col, INK, .18), null, 0, 1);
+  if (o.blush) for (const s of [-1, 1]) poly(ell(s * 3.4 * u, -4.6 * u, .8 * u, .45 * u, 14), `rgba(226,122,146,${.8 * o.blush})`, null, 0, .5);
+  eye(o.eyes || 'normal', -2.5 * u, -6 * u, u, o.look, o.squint); eye(o.eyes || 'normal', 2.5 * u, -6 * u, u, o.look, o.squint);
+  const m = o.mouth, my = -4.2 * u, mlw = u * .16;
+  if (m === 'O') poly(ell(0, my, .45 * u, .6 * u, 14), INK, null);
+  else if (m === 'o') poly(ell(0, my, .25 * u, .3 * u, 12), INK, null);
+  else if (m === 'grin') line([[-1.2 * u, my - .2 * u], [-.4 * u, my + .35 * u], [.4 * u, my + .35 * u], [1.2 * u, my - .2 * u]], mlw);
+  else if (m === 'smile') line([[-.8 * u, my - .1 * u], [0, my + .3 * u], [.8 * u, my - .1 * u]], mlw);
+  else if (m === 'frown') line([[-.8 * u, my + .3 * u], [0, my - .15 * u], [.8 * u, my + .3 * u]], mlw);
+  else if (m === 'wobble') line([[-1 * u, my], [-.5 * u, my - .25 * u], [0, my + .1 * u], [.5 * u, my - .25 * u], [1 * u, my]], mlw);
+  else if (m === 'flat') line([[-.6 * u, my], [.6 * u, my]], mlw);
+  ctx.restore();
+  if (o.emote) emote(o.emote, x + 4.6 * u, y + dy - 9.4 * u * (1 - sq), u, clamp((o.age ?? 1) / .25), o.age ?? 1);
+}
+function emote(kind, x, y, u, k, age) {
+  if (k <= 0) return;
+  ctx.save(); ctx.translate(x, y); const s = k < 1 ? 1.2 * Math.sin(k * Math.PI / 2) : 1; ctx.scale(s, s);
+  if (kind === '!') { poly(rect(-.35 * u, -2.6 * u, .7 * u, 1.9 * u, 2), OCHRE, INK, u * .12); poly(ell(0, .1 * u, .4 * u, .4 * u, 12), OCHRE, INK, u * .12); }
+  if (kind === 'stars') for (let i = 0; i < 3; i++) { const a = age * 4 + i * TAU / 3; star(Math.cos(a) * 3 * u - 4.6 * u, Math.sin(a) * .9 * u + .8 * u, .7 * u); }
+  if (kind === 'spark') for (let i = 0; i < 3; i++) { const p = (age * 1.3 + i / 3) % 1; star(-1 * u + i * 1.2 * u, -p * 2 * u, .5 * u * Math.sin(p * Math.PI), CREAM); }
+  if (kind === 'zzz') for (let i = 0; i < 3; i++) { const p = (age * .5 + i / 3) % 1, s2 = (.5 + p * .6) * u, zx = p * 1.5 * u, zy = -p * 3 * u;
+    line([[zx - s2, zy - s2], [zx + s2, zy - s2], [zx - s2, zy + s2], [zx + s2, zy + s2]], u * .18, `rgba(255,245,226,${1 - p})`); }
+  if (kind === 'sweat') { const p = (age * 1.2) % 1; poly([[0, -1.2 * u + p * 1.5 * u], [.45 * u, -.3 * u + p * 1.5 * u], [0, .1 * u + p * 1.5 * u], [-.45 * u, -.3 * u + p * 1.5 * u]], '#9FD3F0', INK, u * .1); }
+  if (kind === 'dots') for (let i = 0; i < 3; i++) poly(ell(-1 * u + i * u, -.4 * u - (Math.floor(age * 3) % 3 === i ? .4 * u : 0), .3 * u, .3 * u, 10), INK, null);
+  if (kind === 'bulb') { glow(0, -1.4 * u, 3 * u, '255,230,140', .7); poly(ell(0, -1.6 * u, 1 * u, 1.1 * u, 16), YEL, INK, u * .12); poly(rect(-.5 * u, -.6 * u, u, .7 * u, 2), '#B9B2C6', INK, u * .12); }
+  if (kind === 'cloud') { const cx = -4.6 * u, cy = -1.2 * u;
+    for (let i = 0; i < 4; i++) { const p = (age * 1.6 + i / 4) % 1; line([[cx - 1.3 * u + i * .9 * u, cy + .8 * u + p * 2 * u], [cx - 1.4 * u + i * .9 * u, cy + 1.3 * u + p * 2 * u]], u * .12, '#5D7FB8'); }
+    for (const [ox, oy, rx, ry] of [[-1, 0, 1.1, .8], [.9, -.3, 1.2, .9], [0, -.6, 1, .8]]) poly(ell(cx + ox * u, cy + oy * u, rx * u, ry * u, 14), '#A7AEC4', null); }
+  ctx.restore();
+}
+
+// ---------- props & sets ----------
+function phone(x, y, s, ring, t, rot = 0) {
+  ctx.save(); ctx.translate(x, y); ctx.rotate(rot + (ring ? .16 * Math.sin(t * 55) : 0)); ctx.scale(s, s);
+  if (ring) { glow(0, 0, 150, '255,240,180', .45); for (let i = 0; i < 2; i++) { const r = 70 + i * 26 + 8 * Math.sin(t * 20); for (const sd of [-1, 1]) line([[sd * r * .6, -r * .55], [sd * r * .78, 0], [sd * r * .6, r * .55]], 6, INK); } }
+  poly(rrect(-36, -62, 72, 124, 14), '#3B3550', INK, 5, 1);
+  poly(rrect(-28, -50, 56, 96, 6), ring ? '#FFF2B8' : '#6A7BB8', null, 0, .8);
+  if (ring) { poly(ell(0, -8, 14, 14, 12), '#F2994A', INK, 3, .5); line([[-6, 20], [6, 20]], 4); }
+  ctx.restore();
+}
+// Bedroom. o = { light 0..1 (night → morning), curtain 0..1 (closed → open), phone: 'stand'|'shelf'|null, ring, extra (number of extra phones) }
+const BED = { y: 1290, x: 560, u: 38 };
+function bedroom(t, o) {
+  const L = o.light ?? 0;
+  ctx.fillStyle = mixh('#27305E', '#F1DDBE', L); ctx.fillRect(-200, -200, W + 400, H + 400);
+  // window
+  const wx = 560, wy = 560, ww = 560, wh = 480;
+  poly(rect(wx - ww / 2 - 22, wy - wh / 2 - 22, ww + 44, wh + 44, 3), mixh('#5A4A6E', '#C9A27A', L), INK, 6);
+  poly(rect(wx - ww / 2, wy - wh / 2, ww, wh, 3), mixh('#141A3F', '#FFD99A', L), INK, 5);
+  if (L < .5) poly(ell(wx + 120, wy - 110, 46, 46, 18), mixh(CREAM, '#FFD99A', L * 2), null);
+  else { glow(wx - 60, wy + 60, 300, '255,230,150', .8 * (L - .5) * 2); poly(ell(wx - 60, wy + 60, 70, 70, 20), '#FFE7A0', null); }
+  for (let i = 0; i < 5 && L < .5; i++) star(wx - 220 + hash(i) * 440, wy - 200 + hash(i + 5) * 300, 6 + 4 * hash(i + 9), CREAM);
+  line([[wx, wy - wh / 2], [wx, wy + wh / 2]], 8, INK); line([[wx - ww / 2, wy], [wx + ww / 2, wy]], 8, INK);
+  const c = 1 - clamp(o.curtain ?? 0), cw = ww / 2 + 40;
+  for (const sd of [-1, 1]) { const x0 = wx + sd * (ww / 2 + 50), x1 = wx + sd * (ww / 2 + 50 - (cw * (.25 + .75 * c)));
+    poly([[x0, wy - wh / 2 - 60], [x1, wy - wh / 2 - 60], [x1 + sd * 20 * Math.sin(t * 2), wy + wh / 2 + 70], [x0, wy + wh / 2 + 70]], mixh('#5E3B6E', '#E27A6A', L), INK, 5); }
+  line([[wx - ww / 2 - 110, wy - wh / 2 - 60], [wx + ww / 2 + 110, wy - wh / 2 - 60]], 9, INK);
+  if ((o.curtain ?? 0) > .3 && L > .5) { ctx.save(); ctx.globalAlpha = .35 * clamp((o.curtain - .3) / .5) * (L - .5) * 2; ctx.fillStyle = '#FFE9A8';
+    ctx.beginPath(); ctx.moveTo(wx - ww / 2, wy - wh / 2); ctx.lineTo(wx + ww / 2, wy - wh / 2); ctx.lineTo(wx + ww / 2 + 300, 1700); ctx.lineTo(wx - ww / 2 - 300, 1700); ctx.closePath(); ctx.fill(); ctx.restore(); }
+  // shelf on the right wall
+  poly(rect(870, 1010, 190, 26, 2), mixh('#6B4E5E', '#B98A5E', L), INK, 5);
+  // floor
+  poly(rect(-60, 1430, W + 120, 600, 4), mixh('#3A2F4A', '#C99A6B', L), INK, 6);
+  for (let i = 0; i < 6; i++) line([[-40 + i * 220, 1430], [-120 + i * 260, 1960]], 3, 'rgba(43,34,51,.25)', .5);
+  // nightstand
+  poly(rect(40, 1240, 180, 200, 2), mixh('#5B4466', '#A9775A', L), INK, 6); line([[40, 1320], [220, 1320]], 4);
+  poly(ell(130, 1285, 14, 7, 8), OCHRE, INK, 3);
+  if (o.phone === 'stand') phone(130, 1180, 1, o.ring, t);
+  if (o.phone === 'shelf') phone(965, 950, 1, o.ring, t);
+  for (let i = 0; i < (o.extra || 0); i++) phone(260 + i * 120, 1500 + (i % 2) * 120, .8, false, t, (hash(i) - .5) * 1.2);
+  // bed frame and pillow (Clawd sits between this and the blanket)
+  poly(rect(240, 1180, 40, 300, 2), mixh('#4C3A5C', '#8E5F45', L), INK, 6);
+  poly(rect(250, 1300, 640, 140, 3), mixh('#4C3A5C', '#8E5F45', L), INK, 6);
+  poly(rrect(300, 1150, 200, 110, 40), mixh('#C7C9E6', '#FFF5E2', L), INK, 5);
+}
+function blanket(L, lift = 0) {
+  poly([[260, 1235 - lift], [580, 1210 - lift], [890, 1240 - lift], [895, 1330], [255, 1335]], mixh('#4F6FB0', '#7FB0E6', L), INK, 6);
+  for (let i = 0; i < 4; i++) line([[330 + i * 150, 1240 - lift], [350 + i * 150, 1320]], 3, 'rgba(43,34,51,.3)', .6);
+}
+
+// ---------- scenes ----------
+// Each is fn(l, t) with l = time in the scene. CAPTIONS hold [t0, t1, text, {y, size, ...}] in video time.
+const S = [];
+const scene = (t0, t1, fn) => S.push([t0, t1, fn]);
+const CAP = [];
+const cap = (t0, t1, s, o = {}) => CAP.push([t0, t1, s, o]);
+function clockBig(str, x, y, age, col = CREAM, o = {}) { badge(str, x, y, 120, col, { age, ...o }); }
+
+// HOOK 0–7
+scene(0, 7, (l, t) => {
+  const z = 1 + .06 * Math.exp(-((l * 2) % 1) * 4) * (l < 2.5 ? 1 : 0) + .04 * ease(seg(l, 4.3, 7));
+  ctx.save(); ctx.translate(W / 2, H * .62); ctx.scale(z, z); ctx.translate(-W / 2, -H * .62);
+  bedroom(t, { light: .08, phone: 'stand', ring: l < 2.2 });
+  const m = acted(l, [[0, 'sleepy'], [.9, 'groggy'], [2.3, 'sleepy'], [4.3, 'groggy', { look: [.4, -.2] }]]);
+  const slap = Math.exp(-Math.abs(l - 1.9) * 8);
+  clawd(BED.x, BED.y, BED.u, { ...m, dx: -3.2 * slap, rot: -.12 * slap, arms: [lerp(m.arms[0], -.05, slap), m.arms[1]], noShadow: true });
+  blanket(.08);
+  ctx.restore();
+  if (l > 2.4 && l < 4.4) clockBig('07.15', W / 2, 330, l - 2.4, '#FF8C7A', { shake: 6 * Math.exp(-(l - 2.4) * 4) });
+});
+cue(0, 'alarm', 1); cue(1.9, 'slap', 1); cue(2.4, 'sting', .8); cue(4.3, 'drop', 1);
+cap(0, 2.4, 'Alarm bunyi *7* kali...', { y: 1520, size: 96 });
+cap(2.4, 4.3, '...tetep aja *telat.*', { y: 1520, size: 104 });
+cap(4.3, 7, 'Masalahnya *BUKAN* karena kamu malas.', { y: 1520, size: 84 });
+
+// PROBLEM 7–35
+scene(7, 13, (l, t) => {
+  bedroom(t, { light: .1, phone: 'stand' });
+  const m = acted(l, [[0, 'groggy'], [.3, 'wave'], [3.2, 'sleepy']]);
+  clawd(BED.x, BED.y, BED.u, { ...m, arms: l > .3 && l < 3 ? [m.arms[0], 1.1 + .4 * Math.sin(l * 12)] : m.arms, noShadow: true });
+  blanket(.1);
+});
+cap(7.2, 10, 'Kenalin, ini *Clawd.*', { y: 1520, size: 92 });
+cap(10, 13, 'Tiap pagi, dramanya *sama.*', { y: 1520, size: 88 });
+cue(7, 'whoosh', .6); cue(7.3, 'pop', .6);
+scene(13, 24, (l, t) => {
+  // 13 alarm, 15 snooze ("5 menit lagi"), 18 alarm, 19.5 snooze, 21 alarm, 22.5 snooze
+  const rings = [[0, 2], [5, 6.5], [8, 9.5]], ring = rings.some(([a, b]) => l > a && l < b);
+  const slaps = [2, 6.5, 9.5];
+  bedroom(t, { light: .12 + .04 * (l / 11), phone: 'stand', ring });
+  const m = acted(l, [[0, 'sleepy'], [.4, 'groggy'], [2.3, 'sleepy'], [5.3, 'groggy'], [6.8, 'sleepy'], [8.3, 'groggy'], [9.8, 'sleepy']]);
+  const slap = Math.max(...slaps.map(s => Math.exp(-Math.abs(l - s) * 8)));
+  clawd(BED.x, BED.y, BED.u, { ...m, dx: -3.2 * slap, rot: -.12 * slap, arms: [lerp(m.arms[0], -.05, slap), m.arms[1]], noShadow: true });
+  blanket(.12);
+  const clk = l < 5 ? ['05.00', 0] : l < 8 ? ['05.09', 5] : ['05.18', 8];
+  clockBig(clk[0], W / 2, 330, l - clk[1]);
+  if (l > 2.2 && l < 4.8) { const a = l - 2.2; badge('"5 menit lagi deh..."', 600, 860, 54, '#FFFFFF', { age: a, rot: -.04 }); }
+});
+[13, 18, 21].forEach(t => cue(t, 'alarm', .8)); [15, 19.5, 22.5].forEach(t => cue(t, 'slap', .9));
+cap(13.2, 15, 'Alarm bunyi.', { y: 1520, size: 80 });
+cap(18, 20.8, 'Snooze lagi.', { y: 1520, size: 80 });
+cap(21, 24, 'Snooze *lagi.*', { y: 1520, size: 80 });
+scene(24, 27, (l, t) => {   // the clock spins: time flies
+  bedroom(t, { light: .15 + .3 * l / 3, phone: 'stand' });
+  clawd(BED.x, BED.y, BED.u, { ...FACES.sleepy, age: l + 1, noShadow: true }); blanket(.15 + .3 * l / 3);
+  const mins = Math.floor(lerp(18, 105, easeIn(l / 3))), hh = 5 + Math.floor(mins / 60), mm = mins % 60;
+  clockBig(`0${hh}.${String(mm).padStart(2, '0')}`, W / 2, 330, 1, CREAM, { rot: .05 * Math.sin(l * 30) });
+  for (let i = 0; i < 6; i++) { const a = l * 9 + i; line([[W / 2 + Math.cos(a) * 260, 330 + Math.sin(a) * 130], [W / 2 + Math.cos(a + .3) * 300, 330 + Math.sin(a + .3) * 150]], 6, CREAM, 1); }
+});
+cue(24, 'ticks', 1);
+cap(24.2, 27, '...dan *seterusnya.*', { y: 1520, size: 84 });
+scene(27, 35, (l, t) => {
+  const z = 1 + .08 * Math.exp(-l * 5);
+  ctx.save(); ctx.translate(W / 2, 1200); ctx.scale(z, z); ctx.translate(-W / 2, -1200);
+  bedroom(t, { light: .55, phone: 'stand' });
+  const m = acted(l, [[0, 'scared'], [3.8, 'dizzy']]);
+  const out = ease(seg(l, .3, 1.4)), j = Math.sin(seg(l, .3, 1.4) * Math.PI);
+  const x = lerp(BED.x, 600, out), y = lerp(BED.y, 1620, out);
+  if (l < .3) { clawd(BED.x, BED.y, BED.u, { ...m, noShadow: true }); blanket(.55); }
+  else { blanket(.55, 0); clawd(x, y - j * 260, BED.u * 1.1, { ...m, walk: l > 1.4 && l < 3.8 ? l * 3 : undefined, dx: l > 1.4 && l < 3.8 ? 2 * Math.sin(l * 6) : 0, rot: m.name === 'dizzy' ? .12 * Math.sin(t * 5) : 0 }); }
+  ctx.restore();
+  if (l < 4) clockBig('06.45', W / 2, 330, l, '#FF8C7A', { shake: 8 * Math.exp(-l * 3) });
+});
+cue(27, 'sting', 1); cue(27.3, 'boing', .8); cue(28.5, 'patter', .8); cue(31, 'dizzy', .7);
+cap(27.1, 31, '06.45. *PANIK.*', { y: 980, size: 110 });
+cap(31, 35, 'Udah tidur lama, kok malah *pusing & lemes?*', { y: 520, size: 74 });
+
+// WHY 35–56: the sleep graph
+function graph(prog, t, cuts) {
+  ctx.fillStyle = '#FFF5E2'; ctx.fillRect(-100, -100, W + 200, H + 200);
+  for (let i = 0; i < 30; i++) poly(ell(hash(i) * W, hash(i + 40) * H, 4, 4, 6), 'rgba(43,34,51,.08)', null, 0, .3);
+  const gx = 120, gy = 640, gw = 860, gh = 560;
+  poly(rrect(gx - 40, gy - 90, gw + 80, gh + 170, 40), '#FFFFFF', INK, 6);
+  line([[gx, gy], [gx, gy + gh], [gx + gw, gy + gh]], 6);
+  ctx.font = `800 40px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+  ctx.fillText('melek', gx + 14, gy - 40); ctx.fillText('tidur nyenyak', gx + 14, gy + gh + 50);
+  // depth over time: dives after each "fall asleep", is cut back to the top at each alarm
+  const P = [];
+  for (let i = 0; i <= 120 * prog; i++) {
+    const k = i / 120; let d = 0;
+    let since = k; for (const c of cuts) if (k >= c) since = k - c;
+    d = 1 - Math.exp(-since * 9); d *= .92;
+    P.push([gx + k * gw, gy + 40 + d * (gh - 80)]);
+  }
+  if (P.length > 1) line(P, 10, '#5D7FB8', .6);
+  for (const c of cuts) if (prog > c) { const x = gx + c * gw; line([[x, gy + 20], [x, gy + gh - 10]], 4, '#E2574C', .6); phone(x, gy - 20, .55, (prog - c) < .08, t); }
+}
+scene(35, 56, (l, t) => {
+  graph(l < 11 ? .55 * ease(clamp(l / 5)) : .55 + .45 * ease(clamp((l - 11) / 5)), t, [.3, .55, .8]);
+  const m = acted(l, [[0, 'thinking'], [11, 'groggy'], [16, 'dizzy']]);
+  clawd(800, 1640, 26, { ...m, rot: m.name === 'dizzy' ? .1 * Math.sin(t * 5) : 0 });
+});
+cue(35, 'whoosh', .7); cue(40.3, 'alarmShort', .6); cue(46.5, 'alarmShort', .6); cue(48, 'alarmShort', .6); cue(50, 'alarmShort', .6);
+cap(35.2, 40, 'Gini nih yang terjadi di *otakmu:*', { y: 380, size: 76 });
+cap(40, 46, 'Tiap snooze, otak mulai masuk *tidur lagi.*', { y: 380, size: 70 });
+cap(46, 51, '9 menit kemudian, *dipotong paksa* lagi.', { y: 380, size: 70 });
+cap(51, 56, 'Hasilnya: *"mabuk tidur".* Makin snooze, makin teler.', { y: 380, size: 66 });
+
+// TURNING POINT 56–66
+scene(56, 66, (l, t) => {
+  bedroom(t, { light: .05, phone: 'stand', extra: 6 });
+  const m = acted(l, [[0, 'sad'], [4, 'thinking'], [5.2, 'idea'], [8, 'determined']]);
+  clawd(BED.x, BED.y, BED.u, { ...m, noShadow: true }); blanket(.05);
+});
+cue(56, 'whoosh', .6); cue(56.3, 'sad', .9); cue(61.2, 'idea', 1); cue(64, 'pop', .7);
+cap(56.2, 60, 'Clawd udah pasang *10 alarm.* Tetep gagal.', { y: 1520, size: 72 });
+cap(60, 64, 'Terus dia nyoba cara yang agak... *aneh.*', { y: 1520, size: 76 });
+cap(64, 66, 'Dan ternyata *berhasil.*', { y: 1520, size: 84 });
+
+// trick title cards
+function titleCard(l, t, n, title, col, icon) {
+  ctx.fillStyle = col; ctx.fillRect(-100, -100, W + 200, H + 200);
+  for (let i = 0; i < 14; i++) { const a = i / 14 * TAU + l * .4; ctx.save(); ctx.globalAlpha = .12; ctx.fillStyle = '#FFFFFF'; ctx.beginPath(); ctx.moveTo(W / 2, 760); ctx.arc(W / 2, 760, 1500, a, a + .12); ctx.fill(); ctx.restore(); }
+  const k = backOut(seg(l, 0, .35));
+  ctx.save(); ctx.translate(W / 2, 760); ctx.scale(k, k); poly(ell(0, 0, 210, 210, 36), CREAM, INK, 9); ctx.restore();
+  text(`TRIK ${n}`, W / 2, 740, 120, { age: l - .1, col: INK, stroke: CREAM });
+  text(title, W / 2, 1130, 96, { age: l - .35, maxW: 900 });
+  if (icon) icon(l);
+  clawd(W / 2 + 230, 1640, 30, { ...acted(l, [[0, 'excited']]), arms: [.4, 1.2 + .3 * Math.sin(l * 10)] });
+}
+scene(66, 68, (l, t) => titleCard(l, t, 1, 'Musuhin *alarmmu*', '#E8735A', l => phone(330, 1560, 1.1, true, t)));
+cue(66, 'trick', 1);
+
+// TRICK 1 68–88: the alarm goes across the room
+scene(68, 74, (l, t) => {   // night: Clawd carries the phone to the shelf
+  bedroom(t, { light: .08, phone: l > 4.2 ? 'shelf' : null });
+  const x = l < 1 ? 330 : lerp(330, 740, ease(seg(l, 1, 3.4))), walking = l > 1 && l < 3.4;
+  const m = acted(l, [[0, 'determined'], [4.3, 'proud']]);
+  const reach = ease(seg(l, 3.4, 4.1)) * (1 - ease(seg(l, 4.3, 4.9)));
+  clawd(x, 1640, 28, { ...m, walk: walking ? l * 2.6 : undefined, dy: (m.dy || 0) - (walking ? Math.abs(Math.sin(l * 2.6 * Math.PI)) * .4 : 0),
+    arms: [m.arms[0], l < 4.2 ? lerp(.9, 1.45, reach) : lerp(1.45, m.arms[1], ease(seg(l, 4.3, 4.9)))], held: l < 4.2 ? () => phone(0, -10, .55, false, t, -1) : null });
+});
+cue(68.4, 'pop', .5); cue(69, 'patter', .7); cue(72.2, 'place', 1);
+cap(68.2, 74, 'Taruh alarm *JAUH* dari kasur. Di seberang kamar.', { y: 420, size: 74 });
+scene(74, 88, (l, t) => {   // morning: to switch it off, Clawd has to get up and walk
+  const ring = l < 4.6;
+  bedroom(t, { light: .45 + .1 * seg(l, 4, 8), phone: 'shelf', ring });
+  const m = acted(l, [[0, 'groggy'], [1, 'determined'], [4.7, 'surprised', { emote: null }], [5.4, 'happy'], [10, 'proud']]);
+  if (l < 1.4) { clawd(BED.x, BED.y, BED.u, { ...m, noShadow: true }); blanket(.45); }
+  else { blanket(.45);
+    const x = lerp(560, 760, ease(seg(l, 1.4, 4.2))), hop = Math.sin(seg(l, 1.4, 1.9) * Math.PI) * 120;
+    const walking = l > 1.8 && l < 4.2;
+    clawd(x, lerp(1300, 1640, ease(seg(l, 1.4, 1.9))) - hop, 28, { ...m, walk: walking ? l * 3 : undefined, arms: l > 4 && l < 4.8 ? [m.arms[0], 1.45] : m.arms }); }
+});
+cue(74, 'alarm', .9); cue(75.4, 'boing', .5); cue(75.8, 'patter', .8); cue(78.6, 'slap', .8); cue(79.4, 'chime', .7);
+cap(74.2, 80, 'Mau matiin? Harus *bangun & jalan* dulu.', { y: 420, size: 74 });
+cap(80, 85, 'Badan udah gerak = otak ikut *nyala.*', { y: 420, size: 78 });
+cap(85, 88, 'Snooze jadi *males duluan.*', { y: 420, size: 80 });
+
+scene(88, 90, (l, t) => titleCard(l, t, 2, 'Kejar *matahari*', '#E8AA38', l => { glow(330, 1560, 160, '255,240,170', .9); poly(ell(330, 1560, 70, 70, 20), '#FFE7A0', INK, 6); }));
+cue(88, 'trick', 1);
+// TRICK 2 90–110: open the curtains
+scene(90, 110, (l, t) => {
+  const open = ease(seg(l, 2.2, 3.4));
+  bedroom(t, { light: .55 + .45 * open, curtain: open, phone: 'stand' });
+  const x = lerp(300, 560, ease(seg(l, .3, 2))), walking = l > .3 && l < 2;
+  const m = acted(l, [[0, 'groggy'], [3.3, 'surprised', { emote: null }], [4.3, 'happy'], [13, 'excited']]);
+  clawd(x, 1640, 30, { ...m, walk: walking ? l * 3 : undefined, arms: l > 2 && l < 3.4 ? [1.4, 1.4] : m.arms, squint: l > 3.3 && l < 4.3 ? .6 : m.squint });
+  if (l > 6) {   // inset: sun → brain, melatonin meter goes down
+    const a = l - 6, k = backOut(seg(a, 0, .4));
+    ctx.save(); ctx.translate(W / 2, 1010); ctx.scale(k, k);
+    poly(rrect(-440, -150, 880, 300, 50), '#FFFFFF', INK, 6);
+    glow(-300, 0, 120, '255,220,120', .9); poly(ell(-300, 0, 60, 60, 18), '#FFD24A', INK, 5);
+    for (let i = 0; i < 8; i++) { const an = i / 8 * TAU + a; line([[-300 + Math.cos(an) * 75, Math.sin(an) * 75], [-300 + Math.cos(an) * 100, Math.sin(an) * 100]], 6, '#E8AA38'); }
+    const ar = seg(a, .4, 1); line([[-210, 0], [lerp(-210, -60, ar), 0]], 10, INK); if (ar > .9) line([[-85, -22], [-60, 0], [-85, 22]], 10, INK);
+    poly([...ell(30, -10, 90, 70, 20)], '#F4A6B8', INK, 6); line([[-20, -30], [10, 0], [40, -40], [70, -10]], 5, '#C9617D'); line([[0, 30], [40, 10], [80, 30]], 5, '#C9617D');
+    const lv = 1 - .85 * ease(seg(a, 7, 10));
+    poly(rrect(200, -110, 90, 220, 20), '#EDE7F5', INK, 5); poly(rect(212, 100 - 196 * lv, 66, 196 * lv, 2), '#7B5CA8', null);
+    ctx.font = `800 30px ${FONT}`; ctx.textAlign = 'center'; ctx.fillStyle = INK; ctx.fillText('melatonin', 245, 140);
+    if (a > 7) { ctx.font = `900 60px ${FONT}`; ctx.fillStyle = '#E2574C'; ctx.fillText('↓', 350, 10 + 10 * Math.sin(a * 6)); }
+    ctx.restore();
+  }
+});
+cue(90.3, 'patter', .6); cue(92.2, 'curtain', 1); cue(93.3, 'shimmer', 1); cue(96, 'pop', .6); cue(103, 'down', .8);
+cap(90.2, 96, 'Begitu bangun, langsung *buka jendela.*', { y: 380, size: 74 });
+cap(96, 103, 'Cahaya pagi kasih sinyal ke otak: *"udah pagi, stop ngantuk."*', { y: 380, size: 66 });
+cap(103, 108, 'Hormon ngantuknya *(melatonin)* langsung turun.', { y: 380, size: 70 });
+cap(108, 110, 'Mendung? Lampu terang juga *ngaruh.*', { y: 380, size: 70 });
+
+scene(110, 112, (l, t) => titleCard(l, t, 3, 'Hitung *mundur*', '#5E9C7A', l => { ctx.font = `900 150px ${FONT}`; ctx.textAlign = 'center'; ctx.fillStyle = CREAM; ctx.strokeStyle = INK; ctx.lineWidth = 12; ctx.strokeText('5', 330, 1610); ctx.fillText('5', 330, 1610); }));
+cue(110, 'trick', 1);
+// TRICK 3 112–130: count down and launch
+scene(112, 130, (l, t) => {
+  bedroom(t, { light: .5, curtain: .2, phone: 'stand' });
+  const launch = 11.6, m = acted(l, [[0, 'groggy'], [1.5, 'thinking'], [6, 'determined'], [launch, 'excited'], [14, 'proud']]);
+  if (l < launch) {
+    const n = Math.floor((l - 6) / 1.12), crouch = l > 6 ? .05 * (n + 1) : 0;
+    clawd(BED.x, BED.y, BED.u, { ...m, sq: (m.sq || 0) + crouch, noShadow: true }); blanket(.5);
+    if (l > 1.5 && l < 6) {   // thought bubbles: the brain's excuses
+      const ex = ['"dingin..."', '"5 menit aja"', '"nanti aja"'];
+      ex.forEach((s, i) => { const a = l - 1.8 - i * 1.1; if (a > 0) badge(s, [300, 760, 540][i], [900, 830, 700][i], 50, '#FFFFFF', { age: a, rot: (i - 1) * .05 }); });
+    }
+    if (l > 6) { const k = n, a = (l - 6) - k * 1.12, num = 5 - k;
+      if (num >= 1) { ctx.save(); ctx.translate(W / 2, 760); const s = backOut(seg(a, 0, .2)) * (1 + .3 * seg(a, .6, 1.1)); ctx.scale(s, s); ctx.globalAlpha = 1 - seg(a, .8, 1.1);
+        ctx.font = `900 420px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.lineWidth = 26; ctx.strokeStyle = INK; ctx.strokeText(num, 0, 0); ctx.fillStyle = YEL; ctx.fillText(num, 0, 0); ctx.restore(); } }
+  } else {
+    const a = l - launch, k = seg(a, 0, .7), x = lerp(BED.x, 700, k), y = lerp(BED.y, 1640, k) - Math.sin(k * Math.PI) * 420;
+    blanket(.5, -10);
+    clawd(x, y, lerp(BED.u, 30, k), { ...m, sq: (m.sq || 0) + (k < 1 ? -.2 * Math.sin(k * Math.PI) : .25 * Math.exp(-(a - .7) * 6) * Math.cos((a - .7) * 16)) });
+    if (a < 2.5) text('LOMPAT!', W / 2, 760, 170, { age: a, rot: -.06, hi: YEL, col: YEL });
+  }
+});
+[118, 119.12, 120.24, 121.36, 122.48].forEach((t, i) => cue(t, 'beep', .8 + i * .05)); cue(123.6, 'launch', 1); cue(124.3, 'thud', .9); cue(124.4, 'chime', .8);
+cap(113.4, 118, 'Kelamaan mikir, otak keburu *cari alasan.*', { y: 1520, size: 72 });
+cap(126, 130, 'Jangan kasih otak waktu buat *nego.*', { y: 1520, size: 76 });
+
+scene(130, 132, (l, t) => titleCard(l, t, 4, 'Jam tidur yang *sama*', '#7B5CA8', l => { poly(ell(330, 1560, 80, 80, 20), CREAM, INK, 6); line([[330, 1560], [330, 1505]], 8); line([[330, 1560], [370, 1580]], 8); }));
+cue(130, 'trick', 1);
+// TRICK 4 130–150: same time every day
+scene(132, 144, (l, t) => {
+  ctx.fillStyle = '#EDE3F7'; ctx.fillRect(-100, -100, W + 200, H + 200);
+  const days = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'], d = Math.min(6, Math.floor(l / .85)), a = l - d * .85;
+  for (let i = Math.min(6, d + 1); i >= d; i--) {   // the next page sits under the current one
+    const flip = i === d && d < 6 ? ease(seg(a, .6, .85)) : 0;
+    ctx.save(); ctx.translate(W / 2, 560); ctx.rotate(-.04 + flip * .5); ctx.translate(flip * 700, -flip * 200); ctx.globalAlpha = 1 - flip * .8;
+    poly(rrect(-330, -180, 660, 560, 40), '#FFFFFF', INK, 7); poly(rect(-330, -180, 660, 120, 3), '#E2574C', INK, 7);
+    ctx.font = `900 72px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#FFFFFF'; ctx.fillText(days[i], 0, -118);
+    poly(ell(-150, 60, 50, 50, 16), '#5D6BB8', INK, 5); poly(ell(-130, 45, 42, 42, 16), '#FFFFFF', null, 0, .5);
+    poly(ell(-150, 230, 50, 50, 16), '#FFD24A', INK, 5);
+    ctx.fillStyle = INK; ctx.font = `900 76px ${FONT}`; ctx.fillText('22.00', 90, 62); ctx.fillText('05.00', 90, 232);
+    ctx.restore();
+  }
+  if (d >= 5) text('weekend juga!', W / 2, 1000, 70, { age: l - 5 * .85, rot: -.05, col: YEL });
+  const m = acted(l, [[0, 'determined'], [6, 'thinking'], [9, 'happy']]);
+  clawd(W / 2 - 200, 1640, 30, m);
+  if (l > 6) {   // body clock: a clock beside Clawd, hands sweeping steadily
+    const k = backOut(seg(l, 6, 6.4)); ctx.save(); ctx.translate(780, 1440); ctx.scale(k, k);
+    poly(ell(0, 0, 150, 150, 32), CREAM, INK, 8); for (let i = 0; i < 12; i++) { const an = i / 12 * TAU; line([[Math.cos(an) * 120, Math.sin(an) * 120], [Math.cos(an) * 138, Math.sin(an) * 138]], 6); }
+    const h = (l - 6) * 1.2; line([[0, 0], [Math.cos(h - Math.PI / 2) * 70, Math.sin(h - Math.PI / 2) * 70]], 12); line([[0, 0], [Math.cos(h * 12 - Math.PI / 2) * 110, Math.sin(h * 12 - Math.PI / 2) * 110]], 7); poly(ell(0, 0, 14, 14, 10), INK, null);
+    ctx.restore(); }
+});
+for (let i = 0; i < 6; i++) cue(132.6 + i * .85, 'flip', .8); cue(138, 'tick2', .8);
+cap(132.2, 138, 'Tidur & bangun di *jam yang sama.*', { y: 1160, size: 66 });
+cap(138, 144, 'Badanmu punya *jam sendiri.*', { y: 1160, size: 74 });
+scene(144, 150, (l, t) => {
+  bedroom(t, { light: .6, curtain: .3, phone: 'stand', ring: l > 3 && l < 3.6 });
+  const m = acted(l, [[0, 'sleepy'], [1.2, 'happy'], [3.2, 'proud']]);
+  clawd(BED.x, BED.y, BED.u, { ...m, noShadow: true, arms: l > 3 && l < 3.6 ? [-.05, m.arms[1]] : m.arms, dx: l > 3 && l < 3.6 ? -3 : 0 }); blanket(.6);
+  clockBig(l < 3 ? '04.58' : '05.00', W / 2, 330, l < 3 ? l : l - 3);
+});
+cue(145.2, 'pop', .7); cue(147, 'alarmShort', .6); cue(147.1, 'slap', .6);
+cap(144.2, 150, 'Lama-lama kamu bangun *SEBELUM* alarm.', { y: 1520, size: 74 });
+
+// RESULT 150–160
+scene(150, 160, (l, t) => {
+  const open = ease(seg(l, 5.5, 6.5));
+  bedroom(t, { light: .75 + .25 * open, curtain: .3 + .7 * open, phone: 'stand', ring: l > 2.6 && l < 3.1 });
+  const m = acted(l, [[0, 'sleepy'], [2.7, 'happy'], [5, 'excited'], [7, 'proud']]);
+  if (l < 4.2) { clawd(BED.x, BED.y, BED.u, { ...m, noShadow: true, arms: l > 2.8 && l < 3.3 ? [-.05, m.arms[1]] : m.arms, dx: l > 2.8 && l < 3.3 ? -3 : 0 }); blanket(.8); }
+  else { blanket(.8); const k = seg(l, 4.2, 4.9); clawd(lerp(BED.x, 560, k), lerp(BED.y, 1640, k) - Math.sin(k * Math.PI) * 200, lerp(BED.u, 32, k), { ...m, arms: [1.3, 1.3] }); }
+  if (l < 1.8) text('Seminggu kemudian...', W / 2, 960, 90, { age: l, life: 1.8, col: CREAM });
+  if (l > 2.6) clockBig('05.00', W / 2, 330, l - 2.6, '#BDF2B0');
+});
+cue(150, 'whoosh', .6); cue(152.6, 'alarmShort', .6); cue(152.8, 'slap', .6); cue(155.5, 'shimmer', .8); cue(154.2, 'boing', .6);
+cap(152.8, 160, 'Sekali bunyi, *langsung bangun.*', { y: 1160, size: 76 });
+
+// RECAP 160–166 and CTA 166–171
+scene(160, 166, (l, t) => {
+  ctx.fillStyle = '#2B3466'; ctx.fillRect(-100, -100, W + 200, H + 200);
+  text('*4 trik* bangun pagi:', W / 2, 330, 92, { age: l });
+  const items = ['1. Alarm jauh dari kasur', '2. Langsung cari cahaya', '3. Hitung 5-4-3-2-1, lompat', '4. Jam tidur sama tiap hari'];
+  items.forEach((s, i) => { const a = l - .6 - i * .7; if (a > 0) { ctx.save(); ctx.translate(lerp(-600, 0, easeOut(seg(a, 0, .3))), 0); badge(s, W / 2, 620 + i * 240, 62, ['#FF9C7A', '#FFD24A', '#9CE0B0', '#C7B2F0'][i], { age: 1 }); ctx.restore(); } });
+  clawd(W / 2, 1720, 24, acted(l, [[0, 'proud']]));
+});
+[160.6, 161.3, 162, 162.7].forEach(t => cue(t, 'pop', .9));
+scene(166, 171, (l, t) => {
+  bedroom(t, { light: 1, curtain: 1, phone: 'stand' });
+  const m = acted(l, [[0, 'wave']]);
+  clawd(W / 2, 1640, 34, { ...m, arms: [m.arms[0], 1.1 + .45 * Math.sin(l * 11)] });
+  text('Coba *7 hari* ya.', W / 2, 330, 92, { age: l });
+  text('Kamu *tim snooze* atau *tim bangun pagi?*', W / 2, 1000, 76, { age: l - 1.2, maxW: 860 });
+  text('Tulis di komentar!', W / 2, 1180, 70, { age: l - 2.2, col: YEL });
+  if (l > 2.2) { ctx.save(); ctx.translate(W / 2 + 330, 1180 + 14 * Math.sin(l * 6)); poly(rrect(-50, -40, 100, 75, 20), '#FFFFFF', INK, 6); poly([[-20, 34], [0, 60], [10, 34]], '#FFFFFF', INK, 6); ctx.restore(); }
+});
+cue(166, 'whoosh', .6); cue(167.2, 'pop', .8); cue(168.2, 'pop', .8); cue(170.2, 'end', 1);
+
+// quick whip transition at scene seams: a colour band sweeps across
+function seamWipe(t) {
+  for (const [t0] of S) { if (!t0) continue; const p = (t - (t0 - .18)) / .36; if (p <= 0 || p >= 1) continue;
+    ctx.save(); ctx.translate(W / 2, H / 2); ctx.rotate(.2); const x = lerp(-1700, 1700, easeOut(p));
+    poly(rect(x - 450, -1400, 900, 2800, 4), '#FFF5E2', null, 0, 4); poly(rect(x - 300, -1400, 600, 2800, 4), '#E8735A', null, 0, 4); ctx.restore(); }
+}
+CAP.forEach(([t0]) => cue(t0, 'tick', .35));
+
+function renderAt(t) {
+  BF = Math.floor(t * 12); KEY = 0;
+  ctx.setTransform(cv.width / W, 0, 0, cv.height / H, 0, 0);
+  ctx.fillStyle = '#27305E'; ctx.fillRect(0, 0, W, H);
+  let sc = S.find(([a, b]) => t >= a && t < b) || S[S.length - 1];
+  ctx.save(); sc[2](t - sc[0], t); ctx.restore();
+  for (const [a, b, s, o] of CAP) if (t >= a && t < b) text(s, W / 2, o.y || 1600, o.size || 80, { age: t - a, life: b - a, maxW: o.maxW || 860 });
+  seamWipe(t);
+  if (t < .25) { ctx.fillStyle = `rgba(17,17,17,${1 - t / .25})`; ctx.fillRect(0, 0, W, H); }
+  if (t > DUR - .3) { ctx.fillStyle = `rgba(17,17,17,${seg(t, DUR - .3, DUR)})`; ctx.fillRect(0, 0, W, H); }
+  return cv.toDataURL('image/jpeg', .9);
+}
+window.renderAt = renderAt; window.DUR = DUR; window.CUES = CUES;
+if (!location.search.includes('render')) { const t0 = performance.now(); (function loop() { renderAt(((performance.now() - t0) / 1000) % DUR); requestAnimationFrame(loop); })(); }
+</script>
+</body>
+</html>
