@@ -1,1 +1,107 @@
-{"duration": 76.65, "lines": [{"id": "h1", "t0": 0.3, "t1": 5.3, "cap": "Bangun tidur, *lagu nyebelin* udah muter"}, {"id": "h2", "t0": 5.5, "t1": 10.083, "cap": "98 orang diteliti. Obatnya: *permen karet*"}, {"id": "h3", "t0": 10.333, "t1": 12.833, "cap": "Tapi *kenapa?*"}, {"id": "k1", "t0": 13.233, "t1": 17.817, "cap": "Namanya: *earworm* (cacing telinga)"}, {"id": "k2", "t0": 18.067, "t1": 24.317, "cap": "Potongan pendek, *diulang terus*"}, {"id": "k3", "t0": 24.567, "t1": 27.067, "cap": "Dilupain... *malah muter lagi*"}, {"id": "a1", "t0": 27.967, "t1": 31.3, "cap": "Waktu kami di *Adriy.Project* nemu penelitiannya..."}, {"id": "a1b", "t0": 32.2, "t1": 33.867, "cap": "...jawabannya bikin *ngakak.*"}, {"id": "f1", "t0": 34.217, "t1": 40.467, "cap": "Univ. Reading: *98 orang* disetel lagu nyangkut"}, {"id": "f2", "t0": 40.667, "t1": 44.0, "cap": "Sebagian *ngunyah permen karet*"}, {"id": "f3", "t0": 44.3, "t1": 48.883, "cap": "Hasil: lagunya *lebih jarang muncul!*"}, {"id": "x1", "t0": 49.283, "t1": 55.533, "cap": "Ngunyah = *\"mulut dalam hati\" sibuk*"}, {"id": "x2", "t0": 55.783, "t1": 57.45, "cap": "Mulut sibuk, *konser bubar!*"}, {"id": "s1", "t0": 57.95, "t1": 62.95, "cap": "Obatnya: *kunyah permen karet*"}, {"id": "c1", "t0": 63.45, "t1": 68.867, "cap": "Lagu apa yang nyangkut? *Tulis di komentar!*"}, {"id": "c2", "t0": 69.117, "t1": 72.033, "cap": "*Ikuti* biar nggak ketinggalan"}, {"id": "z", "t0": 72.483, "t1": 74.15, "cap": ""}], "perkiraan": true}
+{
+ "duration": 68.759,
+ "lines": [
+  {
+   "id": "h1",
+   "t0": 0.3,
+   "t1": 3.914,
+   "cap": "Bangun tidur, *lagu nyebelin* udah muter"
+  },
+  {
+   "id": "h2",
+   "t0": 4.114,
+   "t1": 8.676,
+   "cap": "98 orang diteliti. Obatnya: *permen karet*"
+  },
+  {
+   "id": "h3",
+   "t0": 8.926,
+   "t1": 11.199,
+   "cap": "Tapi *kenapa?*"
+  },
+  {
+   "id": "k1",
+   "t0": 11.599,
+   "t1": 15.512,
+   "cap": "Namanya: *earworm* (cacing telinga)"
+  },
+  {
+   "id": "k2",
+   "t0": 15.762,
+   "t1": 21.867,
+   "cap": "Potongan pendek, *diulang terus*"
+  },
+  {
+   "id": "k3",
+   "t0": 22.117,
+   "t1": 24.377,
+   "cap": "Dilupain... *malah muter lagi*"
+  },
+  {
+   "id": "a1",
+   "t0": 25.277,
+   "t1": 28.799,
+   "cap": "Waktu kami di *Adriy.Project* nemu penelitiannya..."
+  },
+  {
+   "id": "a1b",
+   "t0": 29.699,
+   "t1": 31.061,
+   "cap": "...jawabannya bikin *ngakak.*"
+  },
+  {
+   "id": "f1",
+   "t0": 31.411,
+   "t1": 36.872,
+   "cap": "Univ. Reading: *98 orang* disetel lagu nyangkut"
+  },
+  {
+   "id": "f2",
+   "t0": 37.072,
+   "t1": 39.623,
+   "cap": "Sebagian *ngunyah permen karet*"
+  },
+  {
+   "id": "f3",
+   "t0": 39.923,
+   "t1": 44.821,
+   "cap": "Hasil: lagunya *lebih jarang muncul!*"
+  },
+  {
+   "id": "x1",
+   "t0": 45.221,
+   "t1": 50.927,
+   "cap": "Ngunyah = *\"mulut dalam hati\" sibuk*"
+  },
+  {
+   "id": "x2",
+   "t0": 51.177,
+   "t1": 53.051,
+   "cap": "Mulut sibuk, *konser bubar!*"
+  },
+  {
+   "id": "s1",
+   "t0": 53.551,
+   "t1": 57.678,
+   "cap": "Obatnya: *kunyah permen karet*"
+  },
+  {
+   "id": "c1",
+   "t0": 58.178,
+   "t1": 62.588,
+   "cap": "Lagu apa yang nyangkut? *Tulis di komentar!*"
+  },
+  {
+   "id": "c2",
+   "t0": 62.838,
+   "t1": 65.341,
+   "cap": "*Ikuti* biar nggak ketinggalan"
+  },
+  {
+   "id": "z",
+   "t0": 65.791,
+   "t1": 67.559,
+   "cap": ""
+  }
+ ]
+}

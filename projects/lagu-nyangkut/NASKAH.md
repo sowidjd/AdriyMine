@@ -36,3 +36,6 @@ Teks hook: **"Bangun tidur, udah ada lagu"** → **"Obatnya? Permen karet"**
 ## Caption TikTok (usulan)
 Lagu nyangkut dari pagi? Coba kunyah permen karet 🎵🍬 #earworm #faktaunik #lagu #fyp
 Sumber: Beaman, Powell & Rapley (2015), Quarterly Journal of Experimental Psychology (University of Reading).
+
+## Versi 2 (rombak dengan /yt-script)
+Hook baru (skor versi Inggris 73 STRONG, rumus The Question): "Kamu bangun tidur, dan lagu yang kamu benci udah muter di kepala. Penelitian ke sembilan puluh delapan orang nemu satu obatnya: permen karet. Tapi kenapa permen karet? Ini jawabannya." Durasi 1:09.

@@ -38,3 +38,6 @@ Teks hook: **"Hewan terbesar di Bumi…"** → **"Jantungnya 2× semenit"**
 ## Caption TikTok (usulan)
 Hewan terbesar di Bumi, jantungnya cuma 2× semenit 🐋💙 #pausbiru #faktaunik #laut #fyp
 Sumber: Goldbogen et al. (2019), PNAS; NOAA Fisheries.
+
+## Versi 2 (rombak dengan /yt-script)
+Hook baru (skor versi Inggris 73 STRONG, rumus The Question): "Jantungmu berdetak sekitar enam puluh kali semenit. Jantung paus biru, bisa turun sampai cuma dua. Dan dia baik-baik aja. Kok bisa?" Dua strip rekam jantung (kamu vs paus) langsung di detik 0–6. Tambahan fakta: rekaman 2019 adalah rekaman detak jantung paus biru yang pertama (Goldbogen dkk., PNAS). Durasi 1:19.

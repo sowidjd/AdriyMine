@@ -33,3 +33,6 @@ Teks hook: **"Ngetik 3 paragraf…"** → **"…yang dikirim wkwk"**
 ## Caption TikTok (usulan)
 Ngetik panjang, dihapus, kirim "wkwk"… ternyata ada namanya 😅 #spotlighteffect #psikologi #chat #fyp
 Sumber: Gilovich, Medvec & Savitsky (2000), Journal of Personality and Social Psychology.
+
+## Versi 2 (rombak dengan /yt-script)
+Hook baru (skor versi Inggris 79 STRONG, rumus The Statistic): "Berhenti ngapus chat tiga paragrafmu. Kamu ngira separuh orang bakal merhatiin. Padahal, cuma sekitar satu dari lima. Kok bisa? Ada penelitiannya." Hasil ditunjukkan di detik 2–7 (10 orang: dikira 5 lihat, aslinya 2). Durasi 1:06.
