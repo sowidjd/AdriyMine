@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-240 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+245 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -126,6 +126,7 @@
 | `male-sleep-breathe` | 5.24 s | napas orang tidur, pulas |
 | `male-sleepy-yawning` | 2.62 s | cowok ngantuk menguap |
 | `male-tired-yawn` | 2.38 s | cowok capek menguap |
+| `male-yawning-while-streching` | 2.3 s | menguap sambil menggeliat, bangun tidur |
 | `man-coughing` | 1.1 s | batuk |
 | `man-coughing-hard` | 2.32 s | batuk keras, tersedak |
 | `man-running-in-the-forest` | 11.24 s | orang berlari di hutan, dikejar, buru-buru |
@@ -133,6 +134,7 @@
 | `man-stretching-in-the-morning` | 2.25 s | menggeliat pagi, siap mulai hari |
 | `man-strong-snore` | 1.49 s | dengkuran keras, tidur pulas, lucu |
 | `man-waking-up-in-the-morning` | 6.29 s | cowok bangun pagi (menggeliat, bergumam) |
+| `man-yawns-quietly` | 3.86 s | menguap pelan, diam-diam ngantuk |
 | `martial-arts-fast-punch` | 1.34 s | pukulan, "dihantam", fakta yang menampar |
 | `mechanical-technology-movements` | 2.5 s | mesin/robot bergerak, mekanisme |
 | `melodical-flute-music-notification` | 7.54 s | notifikasi lembut, alam, ceria |
@@ -154,6 +156,7 @@
 | `people-indoors-ambience` | 51.72 s (suasana/loop) | orang ramai di dalam ruangan (latar) |
 | `person-blows` | 0.42 s | meniup, "fiuh" lega |
 | `person-nasal-laugh` | 2.21 s | tawa tertahan lewat hidung, geli |
+| `person-yawns-deeply` | 3.03 s | menguap panjang & dalam, ngantuk berat |
 | `persons-mouth-blowing` | 1.13 s | meniup dengan mulut, "fiuh" |
 | `persons-nose-blowing` | 1.28 s | buang ingus, flu, lucu |
 | `playground-with-kids-playing` | 20.83 s (suasana/loop) | taman bermain anak (latar) |
@@ -220,6 +223,7 @@
 | `thunderstorm-and-rain-loop` | 52.75 s (suasana/loop) | badai & hujan (latar) |
 | `thunderstorm-in-the-forest` | 32.0 s (suasana/loop) | badai petir di hutan |
 | `tick-tock-clock-timer` | 16.85 s | waktu berjalan, menunggu, deadline |
+| `tired-man-yawns` | 3.38 s | cowok capek menguap |
 | `transition-windy-swoosh` | 3.2 s | transisi berangin, angin kencang |
 | `trumpet-fanfare` | 8.0 s | kemenangan, pengumuman resmi, "ta-da!" |
 | `twilight-jungle` | 13.57 s (suasana/loop) | hutan saat senja (latar) |
@@ -243,6 +247,7 @@
 | `wizard-fire-woosh` | 1.09 s | sihir api, transisi magis |
 | `wolves-at-scary-forest` | 9.74 s (suasana/loop) | serigala di hutan seram, horor/ancaman |
 | `woman-coughing-fast` | 1.1 s | cewek batuk cepat |
+| `yawn-of-adult-man` | 1.26 s | orang dewasa menguap |
 | `young-man-coughing` | 1.19 s | cowok batuk |
 | `young-tired-male-yawns` | 2.98 s | cowok capek menguap, ngantuk |
 | `young-woman-sneeze` | 1.62 s | cewek bersin |

@@ -1440,6 +1440,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-male-yawning-while-streching-2277.wav",
+  "nama": "male-yawning-while-streching",
+  "durasi_s": 2.3,
+  "bunyi_mulai_s": 0.15,
+  "peak_db": -5.0,
+  "suasana_loop": false,
+  "cocok_untuk": "menguap sambil menggeliat, bangun tidur",
+  "normal": "normal/male-yawning-while-streching.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-man-coughing-2224.wav",
   "nama": "man-coughing",
   "durasi_s": 1.1,
@@ -1520,6 +1532,18 @@
   "suasana_loop": false,
   "cocok_untuk": "cowok bangun pagi (menggeliat, bergumam)",
   "normal": "normal/man-waking-up-in-the-morning.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-man-yawns-quietly-2271.wav",
+  "nama": "man-yawns-quietly",
+  "durasi_s": 3.86,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -25.0,
+  "suasana_loop": false,
+  "cocok_untuk": "menguap pelan, diam-diam ngantuk",
+  "normal": "normal/man-yawns-quietly.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1772,6 +1796,18 @@
   "suasana_loop": false,
   "cocok_untuk": "tawa tertahan lewat hidung, geli",
   "normal": "normal/person-nasal-laugh.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-person-yawns-deeply-2275.wav",
+  "nama": "person-yawns-deeply",
+  "durasi_s": 3.03,
+  "bunyi_mulai_s": 1.62,
+  "peak_db": -9.0,
+  "suasana_loop": false,
+  "cocok_untuk": "menguap panjang & dalam, ngantuk berat",
+  "normal": "normal/person-yawns-deeply.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2568,6 +2604,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-tired-man-yawns-2274.wav",
+  "nama": "tired-man-yawns",
+  "durasi_s": 3.38,
+  "bunyi_mulai_s": 1.95,
+  "peak_db": -9.0,
+  "suasana_loop": false,
+  "cocok_untuk": "cowok capek menguap",
+  "normal": "normal/tired-man-yawns.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-transition-windy-swoosh-1474.wav",
   "nama": "transition-windy-swoosh",
   "durasi_s": 3.2,
@@ -2840,6 +2888,18 @@
   "suasana_loop": false,
   "cocok_untuk": "cewek batuk cepat",
   "normal": "normal/woman-coughing-fast.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-yawn-of-adult-man-2267.wav",
+  "nama": "yawn-of-adult-man",
+  "durasi_s": 1.26,
+  "bunyi_mulai_s": 0.16,
+  "peak_db": -5.7,
+  "suasana_loop": false,
+  "cocok_untuk": "orang dewasa menguap",
+  "normal": "normal/yawn-of-adult-man.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

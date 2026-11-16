@@ -14,6 +14,8 @@ SAAT = {'cinematic-whoosh-fast-transition': 'transisi cepat antar adegan', 'cine
  'keyboard-typing': 'mengetik, chat, kerja di laptop', 'intro-transition': 'pembuka bagian/judul baru', 'footsteps-on-tall-grass': 'berjalan di rumput, alam, mengendap', 'flock-of-wild-geese': 'kawanan burung, alam liar, migrasi',
  'female-astonished-gasp': 'kaget/takjub "hah!", reaksi fakta mengejutkan', 'fast-whoosh-transition': 'transisi cepat', 'epic-orchestra-transition': 'transisi megah, pengungkapan besar',
  'crowd-laugh': 'penonton tertawa, momen lucu',
+ 'male-yawning-while-streching': 'menguap sambil menggeliat, bangun tidur', 'tired-man-yawns': 'cowok capek menguap', 'yawn-of-adult-man': 'orang dewasa menguap',
+ 'person-yawns-deeply': 'menguap panjang & dalam, ngantuk berat', 'man-yawns-quietly': 'menguap pelan, diam-diam ngantuk',
  'single-artificial-breathe': 'napas buatan/mesin, robot bernapas', 'sick-male-cough': 'batuk orang sakit', 'vocal-male-yawn': 'cowok menguap',
  'male-tired-yawn': 'cowok capek menguap', 'man-coughing-hard': 'batuk keras, tersedak', 'restaurant-background-ambience': 'suasana restoran/warung ramai (latar)',
  'persons-nose-blowing': 'buang ingus, flu, lucu', 'woman-coughing-fast': 'cewek batuk cepat', 'flirtatious-double-kiss': 'cium genit dua kali, "muach muach"',
