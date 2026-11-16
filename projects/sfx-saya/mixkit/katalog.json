@@ -504,6 +504,42 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-bus-departure-zone-2710.wav",
+  "nama": "bus-departure-zone",
+  "durasi_s": 8.76,
+  "bunyi_mulai_s": 0.33,
+  "peak_db": -14.2,
+  "suasana_loop": true,
+  "cocok_untuk": "area keberangkatan bus (latar)",
+  "normal": "normal/bus-departure-zone.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-bus-passing-by-in-a-city-2706.wav",
+  "nama": "bus-passing-by-in-a-city",
+  "durasi_s": 14.08,
+  "bunyi_mulai_s": 0.13,
+  "peak_db": -5.0,
+  "suasana_loop": false,
+  "cocok_untuk": "bus lewat di kota",
+  "normal": "normal/bus-passing-by-in-a-city.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-bus-station-ambience-2708.wav",
+  "nama": "bus-station-ambience",
+  "durasi_s": 21.95,
+  "bunyi_mulai_s": 0.23,
+  "peak_db": -3.3,
+  "suasana_loop": true,
+  "cocok_untuk": "terminal bus (latar)",
+  "normal": "normal/bus-station-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-bus-station-environment-2711.wav",
   "nama": "bus-station-environment",
   "durasi_s": 22.36,
@@ -2604,6 +2640,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-helicopter-flying-in-the-sky-2700.wav",
+  "nama": "helicopter-flying-in-the-sky",
+  "durasi_s": 19.68,
+  "bunyi_mulai_s": 0.16,
+  "peak_db": -8.8,
+  "suasana_loop": false,
+  "cocok_untuk": "helikopter terbang",
+  "normal": "normal/helicopter-flying-in-the-sky.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-helicopter-propellers-in-the-sky-2704.wav",
+  "nama": "helicopter-propellers-in-the-sky",
+  "durasi_s": 19.11,
+  "bunyi_mulai_s": 1.75,
+  "peak_db": -1.6,
+  "suasana_loop": false,
+  "cocok_untuk": "baling-baling helikopter",
+  "normal": "normal/helicopter-propellers-in-the-sky.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-high-tech-bleep-2521.wav",
   "nama": "high-tech-bleep",
   "durasi_s": 0.69,
@@ -2792,6 +2852,18 @@
   "suasana_loop": false,
   "cocok_untuk": "orang lapar makan lahap",
   "normal": "normal/hungry-man-eating.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-hydraulic-bus-door-2709.wav",
+  "nama": "hydraulic-bus-door",
+  "durasi_s": 1.74,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -3.5,
+  "suasana_loop": false,
+  "cocok_untuk": "pintu bus hidrolik \"pssh\" terbuka/tertutup",
+  "normal": "normal/hydraulic-bus-door.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3588,6 +3660,54 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-motocross-motorcycle-engine-2727.wav",
+  "nama": "motocross-motorcycle-engine",
+  "durasi_s": 19.81,
+  "bunyi_mulai_s": 0.16,
+  "peak_db": -1.6,
+  "suasana_loop": false,
+  "cocok_untuk": "motor trail/motocross",
+  "normal": "normal/motocross-motorcycle-engine.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-motorcycle-changing-gears-2730.wav",
+  "nama": "motorcycle-changing-gears",
+  "durasi_s": 3.51,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -1.6,
+  "suasana_loop": false,
+  "cocok_untuk": "motor ganti gigi",
+  "normal": "normal/motorcycle-changing-gears.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-motorcycle-engine-decelerating-2726.wav",
+  "nama": "motorcycle-engine-decelerating",
+  "durasi_s": 11.17,
+  "bunyi_mulai_s": 0.12,
+  "peak_db": -1.7,
+  "suasana_loop": false,
+  "cocok_untuk": "motor melambat, berhenti",
+  "normal": "normal/motorcycle-engine-decelerating.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-motorcycle-engine-doing-gearshift-2725.wav",
+  "nama": "motorcycle-engine-doing-gearshift",
+  "durasi_s": 14.94,
+  "bunyi_mulai_s": 0.15,
+  "peak_db": -1.6,
+  "suasana_loop": false,
+  "cocok_untuk": "motor oper gigi",
+  "normal": "normal/motorcycle-engine-doing-gearshift.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-motorcycle-engine-working-2721.wav",
   "nama": "motorcycle-engine-working",
   "durasi_s": 2.68,
@@ -3596,6 +3716,30 @@
   "suasana_loop": false,
   "cocok_untuk": "mesin motor menyala, ojek/jalanan",
   "normal": "normal/motorcycle-engine-working.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-motorcycle-hum-passing-by-2732.wav",
+  "nama": "motorcycle-hum-passing-by",
+  "durasi_s": 7.36,
+  "bunyi_mulai_s": 0.95,
+  "peak_db": -1.0,
+  "suasana_loop": false,
+  "cocok_untuk": "motor lewat, jalanan Indonesia",
+  "normal": "normal/motorcycle-hum-passing-by.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-motorcycle-starts-the-ride-2731.wav",
+  "nama": "motorcycle-starts-the-ride",
+  "durasi_s": 6.07,
+  "bunyi_mulai_s": 0.21,
+  "peak_db": -4.2,
+  "suasana_loop": false,
+  "cocok_untuk": "motor mulai jalan, berangkat",
+  "normal": "normal/motorcycle-starts-the-ride.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -4136,6 +4280,42 @@
   "suasana_loop": true,
   "cocok_untuk": "hutan sunyi (latar)",
   "normal": "normal/quiet-forest-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-racing-motorcycle-engine-2722.wav",
+  "nama": "racing-motorcycle-engine",
+  "durasi_s": 7.35,
+  "bunyi_mulai_s": 0.12,
+  "peak_db": -5.1,
+  "suasana_loop": false,
+  "cocok_untuk": "motor balap meraung",
+  "normal": "normal/racing-motorcycle-engine.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-racing-motorcycle-engine-speeding-up-2723.wav",
+  "nama": "racing-motorcycle-engine-speeding-up",
+  "durasi_s": 9.22,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -2.7,
+  "suasana_loop": false,
+  "cocok_untuk": "motor balap ngebut",
+  "normal": "normal/racing-motorcycle-engine-speeding-up.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-racing-motorcycle-speeding-up-2724.wav",
+  "nama": "racing-motorcycle-speeding-up",
+  "durasi_s": 5.55,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -2.4,
+  "suasana_loop": false,
+  "cocok_untuk": "motor balap tancap gas",
+  "normal": "normal/racing-motorcycle-speeding-up.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -4764,6 +4944,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-slow-tram-passing-3019.wav",
+  "nama": "slow-tram-passing",
+  "durasi_s": 12.28,
+  "bunyi_mulai_s": 1.07,
+  "peak_db": -1.3,
+  "suasana_loop": false,
+  "cocok_untuk": "trem/kereta lambat lewat",
+  "normal": "normal/slow-tram-passing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-small-audience-weak-applause-521.wav",
   "nama": "small-audience-weak-applause",
   "durasi_s": 7.55,
@@ -5048,6 +5240,18 @@
   "suasana_loop": false,
   "cocok_untuk": "kerincing berputar",
   "normal": "normal/spinning-rattle-noise.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-sports-bike-engine-2728.wav",
+  "nama": "sports-bike-engine",
+  "durasi_s": 14.2,
+  "bunyi_mulai_s": 0.12,
+  "peak_db": -6.4,
+  "suasana_loop": false,
+  "cocok_untuk": "motor sport menyala",
+  "normal": "normal/sports-bike-engine.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -5348,6 +5552,18 @@
   "suasana_loop": false,
   "cocok_untuk": "sistem rusak/crash, error total",
   "normal": "normal/system-break.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-tank-engine-working-2753.wav",
+  "nama": "tank-engine-working",
+  "durasi_s": 15.43,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -6.9,
+  "suasana_loop": false,
+  "cocok_untuk": "mesin tank, berat & kuat",
+  "normal": "normal/tank-engine-working.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

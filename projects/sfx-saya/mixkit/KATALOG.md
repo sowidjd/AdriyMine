@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-511 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+529 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -48,6 +48,9 @@
 | `body-impact-falling-into-the-sand` | 1.1 s | jatuh ke pasir, gedebuk |
 | `boy-says-volcano` | 1.62 s | anak bilang "volcano!" (bahasa Inggris), sains/gunung api |
 | `breeze-through-the-trees` | 14.33 s (suasana/loop) | angin sepoi di pepohonan |
+| `bus-departure-zone` | 8.76 s (suasana/loop) | area keberangkatan bus (latar) |
+| `bus-passing-by-in-a-city` | 14.08 s | bus lewat di kota |
+| `bus-station-ambience` | 21.95 s (suasana/loop) | terminal bus (latar) |
 | `bus-station-environment` | 22.36 s (suasana/loop) | suasana terminal bus (latar) |
 | `busy-crowd-at-airport-terminal-estation` | 66.15 s (suasana/loop) | bandara/stasiun ramai (latar) |
 | `busy-park-playground-with-kids-playing` | 60.32 s (suasana/loop) | taman bermain ramai anak-anak (latar) |
@@ -223,6 +226,8 @@
 | `heavy-rain-and-thunder-in-background` | 22.27 s (suasana/loop) | hujan deras + petir di kejauhan |
 | `heavy-rain-drops` | 12.17 s (suasana/loop) | tetes hujan deras, dramatis |
 | `heavy-storm-rain-loop` | 18.0 s (suasana/loop) | badai hujan deras (latar) |
+| `helicopter-flying-in-the-sky` | 19.68 s | helikopter terbang |
+| `helicopter-propellers-in-the-sky` | 19.11 s | baling-baling helikopter |
 | `high-tech-bleep` | 0.69 s | bip teknologi singkat |
 | `high-tech-bleep-confirmation` | 0.61 s | bip konfirmasi canggih, "berhasil" |
 | `high-tech-notification-bleep` | 0.55 s | notifikasi canggih |
@@ -239,6 +244,7 @@
 | `human-mouth-fast-blow` | 0.41 s | tiupan cepat |
 | `human-nose-blow` | 1.03 s | buang ingus |
 | `hungry-man-eating` | 1.33 s | orang lapar makan lahap |
+| `hydraulic-bus-door` | 1.74 s | pintu bus hidrolik "pssh" terbuka/tertutup |
 | `in-and-out-zoom-sound` | 1.25 s | zoom masuk lalu keluar |
 | `industrial-hum-loop` | 44.91 s (suasana/loop) | dengung industri (latar) |
 | `industrial-machine-engine-hum-loop` | 7.42 s (suasana/loop) | mesin industri (latar) |
@@ -305,7 +311,13 @@
 | `monster-breath` | 4.31 s | napas monster, seram |
 | `monster-footstep` | 3.0 s | langkah monster, berat & mengancam |
 | `morning-sound-in-a-garden` | 110.44 s (suasana/loop) | pagi di taman/kebun, segar |
+| `motocross-motorcycle-engine` | 19.81 s | motor trail/motocross |
+| `motorcycle-changing-gears` | 3.51 s | motor ganti gigi |
+| `motorcycle-engine-decelerating` | 11.17 s | motor melambat, berhenti |
+| `motorcycle-engine-doing-gearshift` | 14.94 s | motor oper gigi |
 | `motorcycle-engine-working` | 2.68 s | mesin motor menyala, ojek/jalanan |
+| `motorcycle-hum-passing-by` | 7.36 s | motor lewat, jalanan Indonesia |
+| `motorcycle-starts-the-ride` | 6.07 s | motor mulai jalan, berangkat |
 | `mouthwash-in-bathroom` | 3.48 s | kumur-kumur di kamar mandi, rutinitas pagi |
 | `movie-trailer-epic-impact` | 4.87 s | angka/fakta besar muncul, hantaman epik |
 | `mowing-the-lawn-engine-hum` | 58.1 s | mesin potong rumput |
@@ -351,6 +363,9 @@
 | `quick-bomb-drop-explosion` | 10.16 s | bom jatuh lalu meledak, dramatis |
 | `quick-drilling-machine-hum` | 0.48 s (suasana/loop) | bor cepat, renovasi tetangga |
 | `quiet-forest-ambience` | 152.08 s (suasana/loop) | hutan sunyi (latar) |
+| `racing-motorcycle-engine` | 7.35 s | motor balap meraung |
+| `racing-motorcycle-engine-speeding-up` | 9.22 s | motor balap ngebut |
+| `racing-motorcycle-speeding-up` | 5.55 s | motor balap tancap gas |
 | `rain-and-thunder-storm` | 29.0 s (suasana/loop) | badai, hujan petir, suasana muram/dramatis |
 | `rain-and-traffic-with-church-bells-in-the-distance` | 102.08 s (suasana/loop) | hujan + lalu lintas + lonceng gereja di kejauhan (latar) |
 | `rain-in-the-jungle-and-birds` | 30.17 s (suasana/loop) | hujan hutan + burung |
@@ -403,6 +418,7 @@
 | `single-zombie-breath` | 2.09 s | napas zombie, horor |
 | `sleep-breathing` | 17.91 s (suasana/loop) | napas tidur tenang (latar) |
 | `sleeping-mouth-smacking-lips` | 2.81 s | orang tidur berdecap, lucu, ngantuk |
+| `slow-tram-passing` | 12.28 s | trem/kereta lambat lewat |
 | `small-audience-weak-applause` | 7.55 s | tepuk tangan lemah/sepi, canggung, gagal lucu |
 | `small-cricket-screech` | 1.42 s | jangkrik kecil berderik (dekat) |
 | `small-crowd-clapping` | 15.0 s | kerumunan kecil bertepuk tangan |
@@ -427,6 +443,7 @@
 | `sphinx-cat-purr-and-quiet-growl` | 2.78 s | kucing mendengkur lalu menggeram pelan, "jangan ganggu" |
 | `spinning-fire-fx` | 2.51 s | api berputar, efek sihir/transisi |
 | `spinning-rattle-noise` | 3.79 s | kerincing berputar |
+| `sports-bike-engine` | 14.2 s | motor sport menyala |
 | `sports-crowd-ambience-background` | 30.3 s (suasana/loop) | penonton olahraga (latar) |
 | `squeezing-party-trumpet` | 1.96 s | terompet pesta diremas, lucu |
 | `stadium-chaotic-loud-applause-drums-and-chants` | 17.27 s | stadion heboh: tepuk tangan, drum & yel-yel |
@@ -452,6 +469,7 @@
 | `swallowing-a-water-drink-in-the-throat` | 2.26 s (suasana/loop) | menelan air "gluk", gugup/haus |
 | `synthetic-power-bass-transition` | 6.57 s | transisi bass bertenaga |
 | `system-break` | 1.97 s | sistem rusak/crash, error total |
+| `tank-engine-working` | 15.43 s | mesin tank, berat & kuat |
 | `technological-futuristic-hum` | 6.0 s (suasana/loop) | teknologi canggih, futuristik, mesin/AI |
 | `technology-alert-transition` | 5.0 s | transisi peringatan teknologi |
 | `technology-computer-calculations` | 4.0 s | komputer menghitung, data diproses |
