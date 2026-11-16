@@ -5,6 +5,25 @@ Sebelum membuat naskah, baca file ini. Setelah video jadi, cek ulang dengan **Ch
 
 ---
 
+## 0. Tiga Tips Memilih Topik (dari pemilik, wajib diterapkan)
+
+Sebelum menulis atau menerima skrip, periksa topiknya terhadap tiga tips ini. Tujuannya satu: **penonton bertahan sampai habis dan ingin membagikannya.**
+
+1. **Bikin orang merasakan sesuatu.** Topik harus memancing emosi: takjub, kaget, ngakak, gembira, sedih, dan sejenisnya. Emosi seperti itu membuat orang bertahan menonton dan ingin share. Tag emosi di skrip, gaya karakter, dan efek suara harus mengikuti **emosi inti** topiknya.
+2. **Bantah hal yang selama ini dikira benar.** Fakta yang berbeda dari dugaan orang membuat penasaran, dan saat penonton membagikannya mereka merasa pintar. Buka video dengan dugaan umum, lalu patahkan.
+3. **Jawab pertanyaan yang diam-diam sudah ada di kepala mereka.** Contoh: *"kenapa sih kita selalu iri sama hidup orang lain?"* Kalau penonton sampai berpikir "ini gue banget", mereka akan mengirimnya ke teman.
+
+**Cara memakai:**
+- **Saat menerima skrip:** Claude menyebut dalam laporan tips mana (1, 2, 3) yang dipenuhi skrip itu dan emosi intinya, **tanpa mengubah kata skrip** (skrip adalah teks final).
+- **Saat pemilik meminta usulan topik:** setiap usulan harus memenuhi minimal satu tips, ditulis di sebelahnya, dan sebaiknya dua atau tiga.
+- **Fakta yang membantah dugaan umum** tetap berasal dari skrip pemilik atau sumber yang disebut. Claude **tidak mengarang fakta** demi "bantahan".
+
+**Contoh penilaian (video yang sudah dibuat):**
+| Video | Tips terpenuhi | Emosi inti |
+|---|---|---|
+| Alarm bunyi 7 kali, tetep telat | 1, 2 ("bukan karena kamu malas"), 3 ("ini gue banget") | Ngakak → lega |
+| Burung seberat sebungkus beras ini lebih cepat dari Whoosh | 1 (takjub), 2 ("320 itu BUKAN rekornya") | Takjub |
+
 ## 1. Tema harus selang-seling
 
 Penonton bosan kalau tiga video berturut-turut membahas hal yang mirip. Ganti **kategori** setiap video.
@@ -215,6 +234,8 @@ Nama akun **Adriy.Project** disebut di dalam narasi supaya penonton ingat, tapi 
 - ❌ Kalimat yang sama persis di setiap video
 
 ## Checklist sebelum video dianggap selesai
+
+- [ ] Topik memenuhi minimal 1 dari Tiga Tips (§0); tips yang dipenuhi & emosi inti disebut di laporan; tag emosi, gaya karakter & efek suara mengikuti emosi inti
 
 - [ ] Kategori berbeda dari video sebelumnya (lihat Riwayat); ada tema umum dalam 3 video terakhir
 - [ ] Untuk tema umum: semua fakta & angka sudah dicek ke sumber
