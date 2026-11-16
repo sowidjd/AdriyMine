@@ -49,44 +49,58 @@ function caption(t) {   // narration line inside the safe box (y <= 1540)
   for (const l of TL.lines) if (t >= l.t0 - .05 && t < l.t1 + .25 && l.cap) { tag(l.cap, W / 2, 1440, 52, { age: t - l.t0 + .05, life: l.t1 + .3 - l.t0, maxW: 800 }); break; }
 }
 
-// ---------- Clawd (same character in every style; GAYA decides how the strokes look) ----------
+// ---------- ADRIY: tokoh khas Adriy.Project (burung hantu kecil, kacamata bulat besar, syal merah) ----------
+// Sama di semua gaya; GAYA hanya menentukan cara goresannya. Ukuran: u = satuan (tinggi ± 9,5u), (x, y) = titik kaki.
+// Nama fungsi `clawd` dipertahankan supaya adegan lama tetap jalan; pakai `adriy` untuk adegan baru.
+const ADRIY = { body: '#A9714B', wing: '#8A5A3C', belly: '#F1DCC0', glass: '#FFFFFF', beak: '#F2A23B', scarf: '#D9534F' };
 function clawd(x, y, u, o = {}) {
   if (HIDE_CLAWD && !o.end) return;
   const sq = o.sq || 0, id = 4000, F = o.face || 'neutral', S = GAYA.shape, L = GAYA.line, ink = GAYA.ink || C.ink;
-  const br = .012 * Math.sin(T * 2.6 + x * .01), blink = ['neutral', 'curious', 'worried', 'sad', 'surprised'].includes(F) && ((T + x * .003) % 3.4) < .12;
+  const body = o.color || ADRIY.body, wingC = o.dark || ADRIY.wing;
+  const br = .012 * Math.sin(T * 2.6 + x * .01), blink = ['neutral', 'curious', 'worried', 'sad'].includes(F) && ((T + x * .003) % 3.4) < .12;
   ctx.save(); ctx.translate(x, y + (o.dy || 0) * u); ctx.rotate(o.rot || 0); ctx.scale((1 + sq * .6 - br * .5) * (o.flip ? -1 : 1), 1 - sq + br);
-  const [aL, aR] = o.arms || [.2, .2], body = o.color || C.clay, dark = o.dark || C.clayDk;
-  for (const [side, a] of [[-1, aL], [1, aR]]) { ctx.save(); ctx.translate(side * 4.9 * u, -4.5 * u); ctx.rotate(side < 0 ? a : -a); S(side < 0 ? [[-2.2 * u, -.5 * u], [0, -.5 * u], [0, .5 * u], [-2.2 * u, .5 * u]] : [[0, -.5 * u], [2.2 * u, -.5 * u], [2.2 * u, .5 * u], [0, .5 * u]], body, id + side * 3, {}); ctx.restore(); }
   const step = o.walk ? Math.sin(o.walk) : 0;
-  [-4, -2, 1, 3].forEach((lx, i) => { const dy = (i % 2 ? step : -step) * .5 * u; S([[lx * u, -2.3 * u], [(lx + 1) * u, -2.3 * u], [(lx + 1) * u, dy], [lx * u, dy]], dark, id + 10 + i, {}); });
-  S(rr(-5 * u, -8 * u, 10 * u, 6 * u, u * .3), body, id + 20, { body: true });
-  const [lx, ly] = o.look || [0, 0];
-  const dot = (cx, cy, rx, ry) => { ctx.fillStyle = ink; ctx.beginPath(); ctx.ellipse(cx, cy, rx, ry, 0, 0, TAU); ctx.fill(); };
-  for (const s of [-1, 1]) { const ex = s * 2.5 * u + lx * .5 * u, ey = -6 * u + ly * .5 * u;
-    if (blink) L([[ex - .6 * u, ey], [ex + .6 * u, ey]], u * .22, ink, id + 49 + s);
-    else if (F === 'surprised' || F === 'shock') { ctx.fillStyle = C.white; ctx.beginPath(); ctx.ellipse(ex, ey, .75 * u, 1.1 * u, 0, 0, TAU); ctx.fill(); ctx.strokeStyle = ink; ctx.lineWidth = u * .15; ctx.stroke(); dot(ex, ey + .1 * u, .32 * u, .45 * u); }
-    else if (F === 'happy' || F === 'laugh') L([[s * 2.5 * u - .7 * u, -5.8 * u], [s * 2.5 * u, -6.5 * u], [s * 2.5 * u + .7 * u, -5.8 * u]], u * .22, ink, id + 40 + s);
-    else if (F === 'squint') L([[s * 2.5 * u - s * .8 * u, -6.4 * u], [s * 2.5 * u + s * .1 * u, -6 * u], [s * 2.5 * u - s * .8 * u, -5.6 * u]], u * .22, ink, id + 45 + s);
-    else if (F === 'sleepy') L([[s * 2.5 * u - .7 * u, -6 * u], [s * 2.5 * u + .7 * u, -6 * u]], u * .22, ink, id + 47 + s);
-    else if (F === 'star') S(star(s * 2.5 * u, -6 * u, .95 * u, .4 * u), C.yellow, id + 50 + s, { fill: 1 });
-    else if (F === 'sad' || F === 'worried') { dot(ex, ey + .2 * u, .36 * u, .8 * u); L([[s * 2.5 * u - .8 * u, (s < 0 ? -7.3 : -7.9) * u], [s * 2.5 * u + .8 * u, (s < 0 ? -7.9 : -7.3) * u]], u * .18, ink, id + 55 + s); }
-    else dot(ex, ey, .38 * u, .95 * u);
+  for (const d of [-1, 1]) S(ell(d * 1.5 * u, -.25 * u + (d > 0 ? step : -step) * .35 * u, .95 * u, .45 * u, 14), ADRIY.beak, id + 10 + d, {});   // feet
+  const [aL, aR] = o.arms || [.2, .2];
+  for (const [d, a] of [[-1, aL], [1, aR]]) { ctx.save(); ctx.translate(d * 3.7 * u, -6 * u); ctx.rotate(-d * (a - .2) * 1.75); S(ell(0, 2 * u, 1 * u, 2.3 * u, 18), wingC, id + 20 + d, {}); ctx.restore(); }   // wings
+  for (const d of [-1, 1]) S([[d * 1.6 * u, -8.4 * u], [d * 3.3 * u, -10.1 * u], [d * 3.6 * u, -7.6 * u]], wingC, id + 30 + d, {});   // ear tufts
+  S(ell(0, -4.65 * u, 4.2 * u, 4.55 * u, 32), body, id + 40, { body: true });
+  S(ell(0, -2.7 * u, 2.7 * u, 2.2 * u, 24), ADRIY.belly, id + 41, { fill: .95, line: false });
+  for (let i = 0; i < 3; i++) L([[(-1 + i) * u - .35 * u, -2.6 * u + (i % 2) * .5 * u], [(-1 + i) * u, -2.3 * u + (i % 2) * .5 * u], [(-1 + i) * u + .35 * u, -2.6 * u + (i % 2) * .5 * u]], u * .12, wingC, id + 42 + i, .8);   // belly chevrons
+  // scarf (the signature red) with a tail on the right
+  S([[-3.7 * u, -4.3 * u], [-1.5 * u, -3.55 * u], [1.5 * u, -3.55 * u], [3.7 * u, -4.3 * u], [3.5 * u, -3.4 * u], [1.5 * u, -2.75 * u], [-1.5 * u, -2.75 * u], [-3.5 * u, -3.4 * u]], ADRIY.scarf, id + 50, {});
+  S([[1.8 * u, -3.1 * u], [2.9 * u, -3.2 * u], [3.3 * u, -1.2 * u + Math.sin(T * 3) * .15 * u], [2.4 * u, -1.5 * u]], ADRIY.scarf, id + 51, {});
+  if (o.blush) for (const d of [-1, 1]) { ctx.fillStyle = 'rgba(230,90,90,0.35)'; ctx.beginPath(); ctx.ellipse(d * 2.9 * u, -4.5 * u, .8 * u, .4 * u, 0, 0, TAU); ctx.fill(); }
+  if (o.cheeks) for (const d of [-1, 1]) S(ell(d * 2.4 * u, -4.3 * u, 1.2 * u, 1 * u, 16), mixh(body, '#FFFFFF', .2), id + 52 + d, { fill: 1 });
+  // brows for worried / sad (above the glasses)
+  if (F === 'sad' || F === 'worried') for (const d of [-1, 1]) L([[d * 1.6 * u - .9 * u, (d < 0 ? -7.7 : -8.2) * u], [d * 1.6 * u + .9 * u, (d < 0 ? -8.2 : -7.7) * u]], u * .2, ink, id + 55 + d);
+  // the big round glasses + eyes inside
+  const [lx, ly] = o.look || [0, 0], big = (F === 'surprised' || F === 'shock') ? 1.08 : 1;
+  for (const d of [-1, 1]) { const ex = d * 1.6 * u, ey = -6.1 * u, r = 1.55 * u * big;
+    S(ell(ex, ey, r, r, 24), ADRIY.glass, id + 60 + d, { fill: 1, lw: Math.max(3, u * .32) });
+    const dot = (rx, ry) => { ctx.fillStyle = ink; ctx.beginPath(); ctx.ellipse(ex + lx * .55 * u, ey + ly * .55 * u + .1 * u, rx, ry, 0, 0, TAU); ctx.fill(); ctx.fillStyle = '#FFFFFF'; ctx.beginPath(); ctx.arc(ex + lx * .55 * u + rx * .4, ey + ly * .55 * u - ry * .35, rx * .32, 0, TAU); ctx.fill(); };
+    if (blink || F === 'sleepy') L([[ex - .8 * u, ey + .1 * u], [ex + .8 * u, ey + .1 * u]], u * .24, ink, id + 65 + d);
+    else if (F === 'happy' || F === 'laugh') L([[ex - .75 * u, ey + .35 * u], [ex, ey - .4 * u], [ex + .75 * u, ey + .35 * u]], u * .26, ink, id + 66 + d);
+    else if (F === 'squint') L([[ex - d * .75 * u, ey - .5 * u], [ex + d * .4 * u, ey], [ex - d * .75 * u, ey + .5 * u]], u * .26, ink, id + 67 + d);
+    else if (F === 'star') S(star(ex, ey, .95 * u, .4 * u), C.yellow, id + 68 + d, { fill: 1 });
+    else if (F === 'surprised' || F === 'shock') dot(.7 * u, .75 * u);
+    else if (F === 'sad' || F === 'worried') dot(.55 * u, .65 * u);
+    else dot(.6 * u, .62 * u);
   }
-  const my = -4.2 * u, m = o.mouth || { surprised: 'O', shock: 'O', curious: 'o', happy: 'smile', laugh: 'D', squint: 'wobble', star: 'O', sad: 'frown', worried: 'wobble', sleepy: 'o' }[F];
-  if (m === 'O') { ctx.fillStyle = ink; ctx.beginPath(); ctx.ellipse(0, my, .5 * u, .65 * u, 0, 0, TAU); ctx.fill(); }
-  else if (m === 'o') { ctx.fillStyle = ink; ctx.beginPath(); ctx.ellipse(0, my, .28 * u, .32 * u, 0, 0, TAU); ctx.fill(); }
-  else if (m === 'smile') L([[-.9 * u, my - .15 * u], [0, my + .35 * u], [.9 * u, my - .15 * u]], u * .2, ink, id + 72);
-  else if (m === 'D') { ctx.fillStyle = ink; ctx.beginPath(); ctx.moveTo(-1 * u, my - .3 * u); ctx.lineTo(1 * u, my - .3 * u); ctx.quadraticCurveTo(0, my + 1.2 * u, -1 * u, my - .3 * u); ctx.fill(); }
-  else if (m === 'frown') L([[-.9 * u, my + .3 * u], [0, my - .2 * u], [.9 * u, my + .3 * u]], u * .2, ink, id + 73);
-  else if (m === 'wobble') L([[-1 * u, my], [-.5 * u, my - .25 * u], [0, my + .1 * u], [.5 * u, my - .25 * u], [1 * u, my]], u * .2, ink, id + 74);
-  else if (m === 'chew') { const k = .5 + .5 * Math.sin(T * 14); ctx.fillStyle = ink; ctx.beginPath(); ctx.ellipse(0, my, .7 * u, (.12 + .3 * k) * u, 0, 0, TAU); ctx.fill(); }
-  if (o.blush) for (const s of [-1, 1]) { ctx.fillStyle = 'rgba(230,90,90,0.35)'; ctx.beginPath(); ctx.ellipse(s * 3.6 * u, -4.6 * u, .8 * u, .4 * u, 0, 0, TAU); ctx.fill(); }
-  if (o.goggles) { for (const s of [-1, 1]) S(ell(s * 2.5 * u, -6 * u, 1.35 * u, 1.25 * u, 20), '#9CCFE8', id + 80 + s, { fill: .35 }); L([[-1.15 * u, -6 * u], [1.15 * u, -6 * u]], u * .22, ink, id + 83); }
-  if (o.cheeks) for (const s of [-1, 1]) S(ell(s * 3.4 * u, -4.3 * u, 1.1 * u, .9 * u, 16), mixh(body, '#FFFFFF', .25), id + 85 + s, { fill: 1 });
-  if (o.phone) { ctx.save(); ctx.translate(-4.8 * u, -2.6 * u); ctx.rotate(-.25); S(rr(-1.3 * u, -2.2 * u, 2.6 * u, 4.4 * u, .4 * u), '#2C2F36', id + 90, {}); ctx.fillStyle = o.phoneGlow || '#BFE3FF'; ctx.fillRect(-1 * u, -1.8 * u, 2 * u, 3.4 * u); ctx.restore(); }
+  L([[-.15 * u, -6.1 * u], [.15 * u, -6.1 * u]], Math.max(3, u * .3), ink, id + 70);   // glasses bridge
+  if (F === 'sleepy') for (const d of [-1, 1]) { ctx.save(); ctx.beginPath(); ctx.arc(d * 1.6 * u, -6.1 * u, 1.45 * u, Math.PI, TAU); ctx.fillStyle = rgba(body, .9); ctx.fill(); ctx.restore(); }
+  if (o.goggles) { L([[-4.2 * u, -6.4 * u], [4.2 * u, -6.4 * u]], u * .3, '#3E6FA6', id + 71, .9); for (const d of [-1, 1]) S(ell(d * 1.6 * u, -6.1 * u, 1.75 * u, 1.75 * u, 24), '#9CCFE8', id + 72 + d, { fill: .35 }); }
+  // beak: closed triangle, or open for O / D / laugh / chew
+  const m = o.mouth || { surprised: 'O', shock: 'O', curious: 'o', laugh: 'D', star: 'O' }[F];
+  const open = m === 'O' ? .9 : m === 'D' ? 1.1 : m === 'o' ? .4 : m === 'chew' ? .5 + .5 * Math.sin(T * 14) : 0;
+  if (open > 0) { S([[-.75 * u, -4.75 * u], [.75 * u, -4.75 * u], [0, -4.75 * u + (.6 + open) * u]], '#5A2A1E', id + 75, { fill: 1 }); }
+  S([[-.75 * u, -5.05 * u], [.75 * u, -5.05 * u], [0, -3.95 * u - (open > 0 ? .55 * u : 0)]], ADRIY.beak, id + 76, { fill: 1 });
+  if (F === 'sad' && open === 0) L([[-.5 * u, -3.55 * u], [0, -3.75 * u], [.5 * u, -3.55 * u]], u * .15, ink, id + 77, .7);
+  if (o.phone) { ctx.save(); ctx.translate(-4.6 * u, -3.4 * u); ctx.rotate(-.25); S(rr(-1.3 * u, -2.2 * u, 2.6 * u, 4.4 * u, .4 * u), '#2C2F36', id + 90, {}); ctx.fillStyle = o.phoneGlow || '#BFE3FF'; ctx.fillRect(-1 * u, -1.8 * u, 2 * u, 3.4 * u); ctx.restore(); }
   ctx.restore();
-  if (o.mark) mark(o.mark, x + (o.flip ? -1 : 1) * 5.5 * u, y - 9.5 * u + (o.dy || 0) * u, u, o.markAge ?? 1);
+  if (o.mark) mark(o.mark, x + (o.flip ? -1 : 1) * 5.2 * u, y - 10.6 * u + (o.dy || 0) * u, u, o.markAge ?? 1);
 }
+const adriy = clawd;
 // emotion marks (pictures, not words): '!', '?', 'sweat', 'idea', 'heart', 'zzz', 'notes', 'sparkle', 'cloud'
 function mark(kind, x, y, u, age = 1) {
   const k = backOut(seg(age, 0, .3)); if (k <= 0) return; const S = GAYA.shape, ink = GAYA.ink || C.ink;
@@ -113,7 +127,7 @@ function brandStamp(x, y, age, life) {
   GAYA.shape(rr(-330, -95, 660, 190, 34), '#FFE9B8', 9100, { fill: .98, text: true });
   GAYA.line(rr(-312, -77, 624, 154, 26).concat([[-312 + 26, -77]]), 2.4, '#33241C', 9101, .8);
   GAYA.shape(ell(-225, 0, 58, 58, 28), C.cream, 9102, { fill: .98, text: true });
-  GAYA.shape([[-260, 18], [-220, -34], [-196, -38], [-214, -8], [-186, -10], [-232, 30]], C.slate, 9103, { fill: 1 });
+  GAYA.shape(ell(-225, 4, 50, 50, 28), ADRIY.body, 9103, { fill: 1 }); for (const d of [-1, 1]) { GAYA.shape(ell(-225 + d * 19, -6, 17, 17, 18), '#FFFFFF', 9104 + d, { fill: 1, lw: 3 }); ctx.fillStyle = '#33241C'; ctx.beginPath(); ctx.arc(-225 + d * 19, -5, 7, 0, TAU); ctx.fill(); } GAYA.shape([[-233, 14], [-217, 14], [-225, 30]], ADRIY.beak, 9107, { fill: 1, lw: 2 }); GAYA.shape([[-262, 36], [-188, 36], [-196, 48], [-254, 48]], ADRIY.scarf, 9108, { fill: 1, lw: 2 });
   ctx.font = `700 76px ${FONT}`; ctx.fillStyle = '#33241C'; ctx.textBaseline = 'middle'; ctx.fillText('Adriy.Project', -150, 4);
   ctx.restore();
 }

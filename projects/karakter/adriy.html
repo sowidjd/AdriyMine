@@ -1,0 +1,32 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Lembar karakter Adriy</title>
+<style>@font-face { font-family: 'Fredoka'; src: url(../_bersama/fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; } html,body{margin:0;background:#FBF7EE}canvas{height:100vh;display:block;margin:auto}</style></head>
+<body><canvas id="c" width="1080" height="1920"></canvas>
+<script src="../_bersama/dasar.js"></script>
+<script>
+// Lembar karakter resmi ADRIY (tokoh Adriy.Project). Digambar dengan fungsi yang sama dengan video (dasar.js), gaya datar.
+const INK = '#2B2420';
+const GAYA = { ink: INK, hi: '#F2C26B', card: '#FFFFFF',
+  shape(pts, col, id, o = {}) { const p = pathOf(pts); ctx.fillStyle = rgba(col, o.fill ?? 1); ctx.fill(p); if (o.line !== false) { ctx.strokeStyle = INK; ctx.lineWidth = o.lw ?? 4; ctx.lineJoin = 'round'; ctx.stroke(p); } },
+  line(pts, lw, col = INK, id, a = 1) { ctx.strokeStyle = rgba(col, a); ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke(pathOf(pts, false)); },
+  bg() { ctx.fillStyle = '#FBF7EE'; ctx.fillRect(0, 0, W, H); }, trans() {}, post() {} };
+function label(s, x, y, size = 30, col = '#7A6E60', w = 500) { ctx.font = `${w} ${size}px ${FONT}`; ctx.fillStyle = col; ctx.textAlign = 'center'; ctx.fillText(s, x, y); ctx.textAlign = 'left'; }
+function card(x, y, w, h) { ctx.fillStyle = '#FFFFFF'; ctx.strokeStyle = '#E3D9C6'; ctx.lineWidth = 3; ctx.beginPath(); ctx.roundRect(x, y, w, h, 26); ctx.fill(); ctx.stroke(); }
+window.ready.then(() => {
+  T = 1.3; GAYA.bg();
+  label('ADRIY', 540, 110, 96, ADRIY.body, 700); label('tokoh resmi Adriy.Project', 540, 160, 36, INK);
+  card(40, 200, 1000, 560); adriy(290, 700, 40, { face: 'happy', arms: [.3, .3] });
+  label('Burung hantu kecil yang penasaran', 790, 300, 32, INK, 700);
+  ['• kacamata bulat besar (ciri utama)', '• syal merah, ekornya di kanan', '• jambul telinga & perut krem', '• tinggi ± 9,5 satuan (u)', '• nama: Adriy'].forEach((s, i) => { ctx.font = `500 30px ${FONT}`; ctx.fillStyle = INK; ctx.fillText(s, 570, 360 + i * 48); });
+  const pal = [['badan', ADRIY.body], ['sayap', ADRIY.wing], ['perut', ADRIY.belly], ['paruh/kaki', ADRIY.beak], ['syal', ADRIY.scarf]];
+  pal.forEach(([n, c2], i) => { ctx.fillStyle = c2; ctx.strokeStyle = INK; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(600 + i * 95, 650, 30, 0, TAU); ctx.fill(); ctx.stroke(); label(n, 600 + i * 95, 708, 20); label(c2, 600 + i * 95, 732, 16); });
+  card(40, 790, 1000, 560); label('Ekspresi', 540, 840, 40, INK, 700);
+  const faces = [['senang', 'happy'], ['ketawa', 'laugh'], ['penasaran', 'curious'], ['kaget', 'shock'], ['bingung', 'worried'], ['sedih', 'sad'], ['kesal', 'squint'], ['ngantuk', 'sleepy'], ['takjub', 'star'], ['biasa', 'neutral']];
+  faces.forEach(([n, f], i) => { const cx = 130 + (i % 5) * 205, cy = 1060 + Math.floor(i / 5) * 250; adriy(cx, cy, 17, { face: f, mark: f === 'worried' ? '?' : f === 'shock' ? '!' : f === 'sad' ? 'cloud' : null, markAge: 1 }); label(n, cx, cy + 40, 26); });
+  card(40, 1380, 1000, 500); label('Pose', 540, 1430, 40, INK, 700);
+  const poses = [['melambai', { face: 'happy', arms: [.3, 1.5] }], ['menunjuk', { face: 'curious', arms: [.3, 1.45] }], ['pegang HP', { face: 'worried', phone: true, arms: [.9, .2] }], ['menyelam', { face: 'curious', goggles: true, arms: [1.2, 1.2] }], ['mengunyah', { face: 'happy', mouth: 'chew' }]];
+  poses.forEach(([n, o], i) => { const cx = 130 + i * 205; adriy(cx, 1720, 18, o); label(n, cx, 1770, 26); });
+  label('Aturan: warna & bentuk tidak diubah antar video; gaya animasi hanya mengubah cara goresannya.', 540, 1850, 21, '#7A6E60');
+  window.done = true;
+});
+</script></body></html>

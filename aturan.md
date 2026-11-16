@@ -1,6 +1,6 @@
 # Aturan Konten
 
-Aturan ini wajib diikuti untuk setiap video konten (TikTok 9:16, tokoh Clawd, narasi suara pemilik akun).
+Aturan ini wajib diikuti untuk setiap video konten (TikTok 9:16, tokoh Adriy, narasi suara pemilik akun).
 Sebelum membuat naskah, baca file ini. Setelah video jadi, cek ulang dengan **Checklist** di bagian akhir.
 
 ---
@@ -117,10 +117,10 @@ Hook menentukan penonton lanjut atau *scroll*. Buat **minimal 3 versi hook**, la
 
 ## 4. Ekspresi
 
-Clawd harus **berakting**, bukan hanya berdiri.
+Adriy harus **berakting**, bukan hanya berdiri.
 - Setiap adegan punya **emosi yang jelas** dan berubah mengikuti cerita (bosan → kaget → bingung → sedih → semangat → bahagia).
 - **Perubahan emosi selalu dengan "take"** (badan menyusut lalu memantul), tidak boleh berganti wajah secara tiba-tiba.
-- **Sebab dulu, baru reaksi:** penonton harus melihat penyebabnya dulu, baru ekspresi Clawd.
+- **Sebab dulu, baru reaksi:** penonton harus melihat penyebabnya dulu, baru ekspresi Adriy.
 - Pakai tanda emosi bergambar (!, ?, keringat, awan hujan, hati, lampu ide), **bukan tulisan**.
 - **Narasi ikut berekspresi:** setiap kalimat diberi arahan emosi (panik, berbisik ngantuk, semangat, sedih). Tidak boleh datar dari awal sampai akhir.
 - Minimal **5 emosi berbeda** dalam satu video.
@@ -145,7 +145,7 @@ Clawd harus **berakting**, bukan hanya berdiri.
 - **Latar harus menceritakan konteks**: kamar, dapur, kantor, angkot, warung, kasir minimarket. Pilih tempat yang **dekat dengan kehidupan penonton Indonesia**.
 - **Detail kecil yang relatable** membuat penonton merasa "itu kamar gue": charger kusut, gelas kopi sisa, tumpukan baju di kursi, kipas angin, rice cooker, sandal jepit.
 - **Minimal 3 latar/komposisi berbeda** dalam satu video (misalnya kamar → grafik penjelasan → kartu judul trik), supaya tidak monoton.
-- Latar tidak boleh mengalahkan tokoh: Clawd harus selalu kontras dan mudah dilihat.
+- Latar tidak boleh mengalahkan tokoh: Adriy harus selalu kontras dan mudah dilihat.
 - **Area aman (kanvas 1080×1920)**, diambil dari angka terketat `repos/shorts-kit` (diukur dari layar TikTok & Reels) dan `repos/vertical-video-kit`:
   - **Atas:** teks penting mulai dari **y ≥ 212** (status bar & tab "Following / For You").
   - **Kanan:** mulai **y ≥ 803**, teks/objek penting harus di **x < 927** (kolom tombol like/komentar/share).
@@ -229,7 +229,7 @@ Gaya tambahan dari `repos/animate` (berbasis Canvas seperti video kita, punya pe
 | Judul | Metafora inti | Gaya | Alasan 1 kalimat |
 |---|---|---|---|
 | Alarm bunyi 7 kali, tetep telat | Pagi yang berulang & kacau | Flat cartoon + line boil | Kamar & alarm yang sederhana membuat penonton langsung melihat dirinya sendiri |
-| Masuk kamar, lupa mau ngapain | Pintu "menghapus" isi kepala | Whiteboard Explainer | Isi kepala Clawd digambar lalu benar-benar terhapus penghapus saat melewati pintu |
+| Masuk kamar, lupa mau ngapain | Pintu "menghapus" isi kepala | Whiteboard Explainer | Isi kepala Adriy digambar lalu benar-benar terhapus penghapus saat melewati pintu |
 | Belanja 200rb biar gratis ongkir 10rb | Diskon yang menjebak | Pop Art | Tulisan "GRATIS ONGKIR!" berteriak seperti iklan, kontras dengan struk yang membengkak |
 | Ngetik panjang, kirim "wkwk" | Kata-kata yang ditelan | Manga Panels | Panel demi panel ekspresi ragu, gelembung teks yang dihapus satu per satu |
 | Scroll 5 menit jadi jam 2 pagi | Feed = lorong tanpa ujung | Liminal/Backrooms | Lorong yang tak berujung terasa seperti feed yang tidak pernah habis |
@@ -246,7 +246,7 @@ Nama akun **Adriy.Project** disebut di dalam narasi supaya penonton **ingat**, j
 
 **Supaya terasa (wajib ketiganya):**
 1. **Kalimat khusus untuk nama.** Nama tidak boleh terselip di tengah kalimat panjang. Pakai bentuk **"kami di Adriy.Project …"** (suara tim, membangun identitas), lalu kalimat dipotong atau diberi **jeda 0,5–0,9 detik** sesudah nama. Arahan suara: *lebih pelan, hangat, bangga, penekanan jelas pada nama*.
-2. **Stempel visual.** Lencana "Adriy.Project" dengan desain yang sama di setiap video, ukuran teks ≥ 70 px, di tengah-atas kotak aman, muncul seperti dicap (memantul), bertahan **≥ 2 detik**, dengan sorotan cahaya hangat di belakangnya. **Clawd bereaksi** (menunjuk lencana, mengangguk bangga). Lencana tidak menutupi tokoh atau teks penting lain.
+2. **Stempel visual.** Lencana "Adriy.Project" dengan desain yang sama di setiap video, ukuran teks ≥ 70 px, di tengah-atas kotak aman, muncul seperti dicap (memantul), bertahan **≥ 2 detik**, dengan sorotan cahaya hangat di belakangnya. **Adriy bereaksi** (menunjuk lencana, mengangguk bangga). Lencana tidak menutupi tokoh atau teks penting lain.
 3. **Logo suara.** Setiap kali nama disebut, bunyi khas yang **selalu sama**: `repos/sfx-kit/sounds/logo-stings/sting-bright-short.wav`, jatuh di jeda sesudah nama. Musik turun sedikit di saat itu supaya bunyi khasnya terdengar.
 
 **Lain-lain:**
@@ -276,13 +276,13 @@ Setiap skrip **wajib** punya CTA dan **wajib** ditutup dengan kalimat khas **"Ex
 1. **Kesimpulan singkat**: 1–2 kalimat yang mengaitkan isi video ke kehidupan penonton.
 2. **CTA komentar (utama)**: pertanyaan yang **memancing jawaban**, bukan sekadar "komen ya".
    - Bentuk yang dipakai: pilihan ("pilih yang mana: A, B, atau C?"), pengakuan ("kamu pernah juga? tulis 'gue banget'"), atau tebakan ("menurutmu kenapa…?").
-   - Teks di layar menampilkan pilihannya, Clawd menunjuk ke arah kolom komentar (kanan bawah, tetap di kotak aman).
+   - Teks di layar menampilkan pilihannya, Adriy menunjuk ke arah kolom komentar (kanan bawah, tetap di kotak aman).
 3. **CTA kedua (pilih 1, singkat, ≤ 1 kalimat)**: ajak **simpan** ("Simpan biar nggak lupa"), **bagikan** ("Kirim ke teman yang suka begini"), atau **ikuti** ("Ikuti buat fakta kayak gini lagi"). Ganti-ganti tiap video; **tanpa menyebut nama akun** (nama akun hanya di tengah, §10).
 4. **Penutup "Explore More, Know More"**: kalimat **terakhir** video, selalu sama persis.
 
 **Aturan "Explore More, Know More":**
 - **Diucapkan** di narasi sebagai kalimat terakhir, dengan jeda ±0,4 detik sebelumnya. Arahan suara: *hangat, yakin, tersenyum, tempo sedang*. Cara baca: "eksplor mor, nou mor"; lolos cek ucapan (`cek_ucapan.py`) sebelum dipakai.
-- **Ditampilkan** sebagai kartu penutup: teks **"Explore More, Know More"** di tengah kotak aman, ukuran ≥ 80 px, desain & warna sama di setiap video, muncul halus (fade + sedikit membesar), bertahan **≥ 1,5 detik**. Clawd melambai atau memberi hormat kecil di sampingnya.
+- **Ditampilkan** sebagai kartu penutup: teks **"Explore More, Know More"** di tengah kotak aman, ukuran ≥ 80 px, desain & warna sama di setiap video, muncul halus (fade + sedikit membesar), bertahan **≥ 1,5 detik**. Adriy melambai atau memberi hormat kecil di sampingnya.
 - **Bunyi khas penutup** selalu sama (pilih 1 sekali, lalu dipakai terus; berbeda dari bunyi khas nama akun §10). Musik mengecil lalu selesai bersama kartu.
 - Tidak dihitung sebagai penyebutan nama akun; nama "Adriy.Project" tetap **tidak** muncul di akhir.
 - Teks dan cara ucapnya **tidak boleh diubah** (tanpa terjemahan, tanpa tambahan kata).
@@ -338,10 +338,24 @@ Model suara bukan model khusus bahasa Indonesia, jadi beberapa tulisan salah dib
 - Kalimat maksimal **± 12 kata**. Kalimat panjang dipecah dua.
 - Setiap kalimat punya **kata kunci** yang wajib terdengar jelas (dicek otomatis dengan Whisper). Kalau gagal 4 kali, **ganti katanya**, jangan dipaksakan.
 
+## 15. Tokoh: ADRIY (burung hantu Adriy.Project)
+
+Mulai sekarang semua video memakai tokoh sendiri: **Adriy**, burung hantu kecil yang penasaran (dipilih pemilik). Tokoh lama (Clawd) **tidak dipakai lagi**: ia maskot milik perusahaan lain, sedangkan Adriy milik Adriy.Project.
+
+- **Lembar karakter resmi:** `projects/karakter/adriy-lembar-karakter.png` (sumber: `adriy.html`). Fungsi gambar: `adriy()` di `projects/_bersama/dasar.js` (nama lama `clawd()` masih jalan).
+- **Ciri wajib (tidak boleh diubah):** kacamata bulat besar, syal merah dengan ekor di kanan, jambul telinga, perut krem, paruh & kaki oranye.
+- **Warna tetap:** badan `#A9714B`, sayap `#8A5A3C`, perut `#F1DCC0`, paruh/kaki `#F2A23B`, syal `#D9534F`. Gaya animasi hanya mengubah cara goresan (tinta manga, cat air, pensil), bukan bentuk & warna.
+- **Ekspresi lewat mata di balik kacamata** (senang, ketawa, penasaran, kaget, bingung, sedih, kesal, ngantuk, takjub) + tanda bergambar (!, ?, keringat, awan, lampu ide).
+- **Gerak:** sayap = tangan (melambai, menunjuk); berkedip & bernapas otomatis.
+- **Lencana Adriy.Project** memakai wajah Adriy (kacamata + paruh + syal).
+- Tokoh pendamping (teman, orang lain) boleh beda warna, tapi tidak boleh memakai kacamata bulat + syal merah (itu ciri khas Adriy).
+- Nama "Adriy" tidak perlu disebut di narasi; penyebutan nama akun tetap mengikuti §10.
+
 ## Checklist sebelum video dianggap selesai
 
 - [ ] Topik memenuhi minimal 1 dari Tiga Tips (§0); tips yang dipenuhi & emosi inti disebut di laporan; tag emosi, gaya karakter & efek suara mengikuti emosi inti
 
+- [ ] Tokoh = Adriy sesuai lembar karakter (§15), ciri & warna tidak berubah
 - [ ] Topik tidak ada di `projects/SUDAH-DIBUAT.md`
 - [ ] Durasi ≥ 2:43; alur §12 (masalah ± 25% → dugaan → penyebab → solusi baru di ≥ 55% durasi → rangkuman); setiap bagian ada jeda napas
 - [ ] CTA sesuai §13 (jembatan, pertanyaan mudah + contoh jawaban, alasan menjawab, CTA kedua yang spesifik)
@@ -351,14 +365,14 @@ Model suara bukan model khusus bahasa Indonesia, jadi beberapa tulisan salah dib
 - [ ] Judul spesifik, ≤ 10 kata, bukan "Tips/Cara…"
 - [ ] 3 versi hook ditulis, yang terbaik dipilih; detik 0 sudah bergerak & bersuara
 - [ ] Twist/penasaran di detik 2–3
-- [ ] Minimal 5 emosi Clawd, semua perubahan pakai "take"
+- [ ] Minimal 5 emosi Adriy, semua perubahan pakai "take"
 - [ ] Narasi berekspresi (tidak datar), ucapan lolos `cek_ucapan.py`
 - [ ] Suasana berubah: masalah → penjelasan → solusi → penutup
 - [ ] Minimal 3 latar/komposisi, dengan detail kehidupan Indonesia
 - [ ] Minimal 2 pergantian cahaya, momen terpenting paling terang
 - [ ] Gaya animasi dipilih lewat 6 langkah §9: metafora inti + alasan 1 kalimat ditulis, tidak termasuk gaya yang dilarang, beda dari video sebelumnya
 - [ ] Semua teks di kotak aman x 60–927, y 212–1540 (cek dengan garis bantu area aman)
-- [ ] "Adriy.Project" disebut 1 kali (maks. 2 untuk video > 2 menit), di tengah (30–70% durasi), tidak di awal/akhir, dengan kalimat khusus + jeda, stempel visual ≥ 2 detik + reaksi Clawd, dan bunyi khas sting-bright-short
+- [ ] "Adriy.Project" disebut 1 kali (maks. 2 untuk video > 2 menit), di tengah (30–70% durasi), tidak di awal/akhir, dengan kalimat khusus + jeda, stempel visual ≥ 2 detik + reaksi Adriy, dan bunyi khas sting-bright-short
 - [ ] Bagian akhir sesuai §11: kesimpulan → CTA komentar yang memancing jawaban → 1 CTA kedua (simpan/bagikan/ikuti, tanpa nama akun) → "Explore More, Know More" sebagai kalimat terakhir (diucapkan + kartu penutup ≥ 1,5 detik + bunyi khas penutup)
 
 ## Riwayat video
