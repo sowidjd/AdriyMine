@@ -6,10 +6,10 @@ import numpy as np, soundfile as sf, librosa, torch
 torch.set_num_threads(os.cpu_count())
 HERE = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.join(HERE, 'narasi')
 sys.path.insert(0, HERE)
-ns = {}; src = open(os.path.join(HERE, 'narasi.py')).read()
+ns = {'__file__': os.path.join(HERE, 'narasi.py')}; src = open(os.path.join(HERE, 'narasi.py')).read()
 exec(src[: src.index("if sys.argv[1] == 'gen':")].replace('HERE = os.path.dirname(os.path.abspath(__file__))', f'HERE = {HERE!r}'), ns)
 LINES, style = ns['LINES'], ns['style']
-cu = {}; exec(open(os.path.join(HERE, 'cek_ucapan.py')).read().split('asr = pipeline')[0].replace("MODEL = sys.argv[1] if len(sys.argv) > 1 else 'openai/whisper-medium'", "MODEL = ''"), cu)
+cu = {'__file__': os.path.join(HERE, 'cek_ucapan.py')}; exec(open(os.path.join(HERE, 'cek_ucapan.py')).read().split('asr = pipeline')[0].replace("MODEL = sys.argv[1] if len(sys.argv) > 1 else 'openai/whisper-medium'", "MODEL = ''"), cu)
 score = cu['score']
 
 # Ejaan bantu: kata di naskah -> cara tulis yang dicoba supaya model mengucapkannya benar (urutan = prioritas)

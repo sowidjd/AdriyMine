@@ -17,8 +17,13 @@ def norm(s):
     s = re.sub(r'\d+', lambda m: ' ' + NUM.get(m.group(), m.group()) + ' ', s)
     s = re.sub(r'[^a-z ]', ' ', s)
     return ' '.join(SAME.get(w, w) for w in s.split())
+KEY = {'alarm', 'snooze', 'gini', 'cahaya', 'teler', 'tiga', 'dua', 'satu', 'tetep', 'lompat', 'claude', 'melatonin', 'weekend'}
 def score(target, heard):
-    return difflib.SequenceMatcher(None, norm(target).replace(' ', ''), norm(heard).replace(' ', '')).ratio()
+    """Kemiripan huruf 0..1, dikurangi 0.3 untuk tiap kata kunci di naskah yang tidak terdengar persis."""
+    t, h = norm(target), norm(heard)
+    sc = difflib.SequenceMatcher(None, t.replace(' ', ''), h.replace(' ', '')).ratio()
+    missing = [w for w in t.split() if w in KEY and w not in h.split()]
+    return max(0.0, sc - .3 * len(missing))
 
 asr = pipeline('automatic-speech-recognition', model=MODEL, device='cpu')
 res = {}
