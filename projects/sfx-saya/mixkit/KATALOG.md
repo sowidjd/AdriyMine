@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-387 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+401 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -52,6 +52,7 @@
 | `cartoon-falling-eco` | 3.0 s | jatuh kartun bergema, lucu |
 | `cartoon-falling-whistle` | 2.69 s | siulan jatuh kartun "fiuuu~", jatuh lucu |
 | `cartoon-girl-saying-no-no-no` | 1.8 s | "no no no" kartun, menolak lucu |
+| `cartoon-insect-running-fast` | 1.64 s | serangga kartun lari cepat, lucu, kabur |
 | `cartoon-monkey-applause` | 4.28 s | monyet kartun bertepuk tangan, lucu |
 | `cartoon-positive-sound` | 2.94 s | bunyi positif kartun, "yeay" |
 | `cartoon-toy-whistle` | 1.21 s | lucu, konyol, gagal lucu |
@@ -90,6 +91,7 @@
 | `crickets-at-night-in-nature` | 90.13 s (suasana/loop) | jangkrik malam di alam (latar) |
 | `crowd-in-church-applauding` | 18.77 s | tepuk tangan di aula bergema, khidmat |
 | `crowd-laugh` | 4.12 s | penonton tertawa, momen lucu |
+| `crunchy-footsteps-loop` | 9.26 s | langkah kresek-kresek (loop) |
 | `crunchy-road-fast-walking-loop` | 23.21 s | jalan cepat di jalan berkerikil |
 | `cybernetic-technology-affirmation` | 2.12 s | konfirmasi sistem siber, data diterima |
 | `deep-child-breathing-and-exhaling` | 2.41 s | anak menarik napas dalam, tenang |
@@ -139,13 +141,18 @@
 | `flirtatious-double-kiss` | 0.56 s | cium genit dua kali, "muach muach" |
 | `flock-of-wild-geese` | 5.22 s (suasana/loop) | kawanan burung, alam liar, migrasi |
 | `football-team-applause` | 4.68 s | tepuk tangan tim sepak bola, sportif |
+| `footsteps-in-a-muddy-puddle` | 3.75 s | langkah di genangan lumpur, cipratan |
 | `footsteps-in-a-tunnel-loop` | 8.14 s | langkah bergema di terowongan, misterius |
+| `footsteps-in-deep-mud` | 31.6 s | langkah di lumpur dalam, berat |
 | `footsteps-in-the-forest-ground` | 34.2 s | langkah di tanah hutan, mengendap |
 | `footsteps-in-woods-loop` | 24.0 s | langkah di hutan (loop) |
+| `footsteps-on-frozen-ground` | 12.93 s | langkah di tanah beku |
 | `footsteps-on-heels-on-the-pavement` | 5.25 s | langkah sepatu hak di trotoar |
 | `footsteps-on-mattress-loop` | 26.12 s | langkah di atas kasur, lucu |
+| `footsteps-on-stones-loop` | 29.39 s | langkah di batu (loop) |
 | `footsteps-on-tall-grass` | 23.1 s | berjalan di rumput, alam, mengendap |
 | `footsteps-on-the-snow` | 10.12 s | langkah di salju |
+| `footsteps-through-the-wastelands` | 17.94 s | langkah di tanah tandus |
 | `forest-at-night` | 47.04 s (suasana/loop) | hutan malam (latar) |
 | `forest-birds-singing` | 2.22 s (suasana/loop) | kicau burung hutan, pagi damai |
 | `forest-rain-loop` | 24.75 s (suasana/loop) | hujan di hutan (latar) |
@@ -160,13 +167,16 @@
 | `game-show-suspense-waiting` | 41.81 s (suasana/loop) | menunggu jawaban, kuis, tegang lucu |
 | `garbage-pile-falling` | 10.7 s | tumpukan sampah jatuh, berantakan |
 | `ghost-fire-swoosh` | 2.85 s | api hantu, transisi misterius |
+| `giant-monster-footstep` | 3.43 s | langkah monster raksasa "DUM", menggetarkan |
 | `girls-audience-applause` | 6.55 s | penonton cewek bertepuk tangan |
 | `girls-crowd-cheer-scream-and-applause` | 6.08 s | cewek-cewek bersorak & menjerit, heboh |
 | `glass-break-with-hammer-thud` | 1.44 s | kaca pecah dipukul palu, hancur |
+| `grass-step` | 0.58 s | satu langkah di rumput |
 | `gravel-stones-small-avalanche` | 1.4 s | longsor kerikil kecil |
 | `happy-child-laughing` | 2.4 s | tawa anak bahagia |
 | `hawk-call-squawk` | 2.41 s | teriakan elang/burung pemangsa |
 | `heavy-fall-into-mud` | 0.63 s | jatuh berat ke lumpur "plok" |
+| `heavy-grass-step` | 0.66 s | langkah berat di rumput |
 | `heavy-rain` | 7.5 s (suasana/loop) | hujan deras |
 | `heavy-rain-and-thunder-in-background` | 22.27 s (suasana/loop) | hujan deras + petir di kejauhan |
 | `heavy-rain-drops` | 12.17 s (suasana/loop) | tetes hujan deras, dramatis |
@@ -176,6 +186,7 @@
 | `high-tech-notification-bleep` | 0.55 s | notifikasi canggih |
 | `horror-ambience` | 82.14 s (suasana/loop) | suasana horor, mencekam (latar) |
 | `horror-sci-fi-wind-tunnel` | 64.0 s (suasana/loop) | lorong angin horor/sci-fi, mencekam |
+| `hotel-lobby-crowd-ambience-and-footsteps` | 16.5 s | lobi hotel ramai + langkah (latar) |
 | `human-eating-a-potato-chip` | 8.1 s | makan keripik kentang, ngemil |
 | `human-eating-dry-cereal` | 12.4 s | makan sereal kering, sarapan |
 | `human-fighter-pain-scream` | 1.07 s | teriakan kesakitan, dramatis/lucu berlebihan |
@@ -235,6 +246,7 @@
 | `metal-tools-box-browsing` | 1.37 s | mengaduk kotak perkakas, mencari sesuatu |
 | `modern-technology-select` | 0.5 s | pilih/tap modern |
 | `monster-breath` | 4.31 s | napas monster, seram |
+| `monster-footstep` | 3.0 s | langkah monster, berat & mengancam |
 | `morning-sound-in-a-garden` | 110.44 s (suasana/loop) | pagi di taman/kebun, segar |
 | `movie-trailer-epic-impact` | 4.87 s | angka/fakta besar muncul, hantaman epik |
 | `musical-game-over` | 2.67 s | game over bermusik, gagal lucu |
@@ -286,6 +298,7 @@
 | `river-water-flow-and-surroundings` | 60.13 s (suasana/loop) | sungai mengalir + suasana sekitar |
 | `robot-baby-annoy-chirp-collect` | 2.0 s | robot kecil berkicau iseng, dapat item, imut |
 | `robot-positive-item-acquired` | 1.5 s | robot dapat item, "berhasil!" ala game |
+| `rock-golem-walking` | 9.56 s | golem batu berjalan, berat |
 | `running-through-the-forest` | 14.64 s | berlari menembus hutan |
 | `sad-game-over-trombone` | 5.61 s | gagal lucu "wah wah wah", kecewa |
 | `sand-in-the-desert` | 5.53 s (suasana/loop) | pasir tertiup di gurun |
@@ -372,6 +385,7 @@
 | `vocal-kids-playing-and-screaming` | 4.01 s (suasana/loop) | anak-anak main & teriak (latar) |
 | `vocal-male-yawn` | 3.41 s | cowok menguap |
 | `walking-in-the-forest` | 28.15 s | berjalan di hutan |
+| `walking-on-grass` | 14.6 s | berjalan di rumput |
 | `walking-on-stones-loop` | 15.33 s | jalan di atas batu |
 | `walking-through-dry-forest-leaves` | 31.79 s | berjalan di atas daun kering |
 | `wallowing-drink-quickly` | 3.61 s | minum cepat glek-glek, haus |

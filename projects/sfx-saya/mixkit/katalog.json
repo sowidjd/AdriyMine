@@ -552,6 +552,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-cartoon-insect-running-fast-37.wav",
+  "nama": "cartoon-insect-running-fast",
+  "durasi_s": 1.64,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -0.7,
+  "suasana_loop": false,
+  "cocok_untuk": "serangga kartun lari cepat, lucu, kabur",
+  "normal": "normal/cartoon-insect-running-fast.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-cartoon-monkey-applause-103.wav",
   "nama": "cartoon-monkey-applause",
   "durasi_s": 4.28,
@@ -1004,6 +1016,18 @@
   "suasana_loop": false,
   "cocok_untuk": "penonton tertawa, momen lucu",
   "normal": "normal/crowd-laugh.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-crunchy-footsteps-loop-535.wav",
+  "nama": "crunchy-footsteps-loop",
+  "durasi_s": 9.26,
+  "bunyi_mulai_s": 0.09,
+  "peak_db": -1.1,
+  "suasana_loop": false,
+  "cocok_untuk": "langkah kresek-kresek (loop)",
+  "normal": "normal/crunchy-footsteps-loop.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1596,6 +1620,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-footsteps-in-a-muddy-puddle-536.wav",
+  "nama": "footsteps-in-a-muddy-puddle",
+  "durasi_s": 3.75,
+  "bunyi_mulai_s": 0.13,
+  "peak_db": -2.4,
+  "suasana_loop": false,
+  "cocok_untuk": "langkah di genangan lumpur, cipratan",
+  "normal": "normal/footsteps-in-a-muddy-puddle.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-footsteps-in-a-tunnel-loop-543.wav",
   "nama": "footsteps-in-a-tunnel-loop",
   "durasi_s": 8.14,
@@ -1604,6 +1640,18 @@
   "suasana_loop": false,
   "cocok_untuk": "langkah bergema di terowongan, misterius",
   "normal": "normal/footsteps-in-a-tunnel-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-footsteps-in-deep-mud-537.wav",
+  "nama": "footsteps-in-deep-mud",
+  "durasi_s": 31.6,
+  "bunyi_mulai_s": 0.24,
+  "peak_db": -15.2,
+  "suasana_loop": false,
+  "cocok_untuk": "langkah di lumpur dalam, berat",
+  "normal": "normal/footsteps-in-deep-mud.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1632,6 +1680,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-footsteps-on-frozen-ground-538.wav",
+  "nama": "footsteps-on-frozen-ground",
+  "durasi_s": 12.93,
+  "bunyi_mulai_s": 0.23,
+  "peak_db": -1.5,
+  "suasana_loop": false,
+  "cocok_untuk": "langkah di tanah beku",
+  "normal": "normal/footsteps-on-frozen-ground.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-footsteps-on-heels-on-the-pavement-542.wav",
   "nama": "footsteps-on-heels-on-the-pavement",
   "durasi_s": 5.25,
@@ -1656,6 +1716,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-footsteps-on-stones-loop-1270.wav",
+  "nama": "footsteps-on-stones-loop",
+  "durasi_s": 29.39,
+  "bunyi_mulai_s": 0.03,
+  "peak_db": -0.3,
+  "suasana_loop": false,
+  "cocok_untuk": "langkah di batu (loop)",
+  "normal": "normal/footsteps-on-stones-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-footsteps-on-tall-grass-532.wav",
   "nama": "footsteps-on-tall-grass",
   "durasi_s": 23.1,
@@ -1676,6 +1748,18 @@
   "suasana_loop": false,
   "cocok_untuk": "langkah di salju",
   "normal": "normal/footsteps-on-the-snow.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-footsteps-through-the-wastelands-540.wav",
+  "nama": "footsteps-through-the-wastelands",
+  "durasi_s": 17.94,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -11.5,
+  "suasana_loop": false,
+  "cocok_untuk": "langkah di tanah tandus",
+  "normal": "normal/footsteps-through-the-wastelands.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1848,6 +1932,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-giant-monster-footstep-1974.wav",
+  "nama": "giant-monster-footstep",
+  "durasi_s": 3.43,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -0.9,
+  "suasana_loop": false,
+  "cocok_untuk": "langkah monster raksasa \"DUM\", menggetarkan",
+  "normal": "normal/giant-monster-footstep.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-girls-audience-applause-510.wav",
   "nama": "girls-audience-applause",
   "durasi_s": 6.55,
@@ -1880,6 +1976,18 @@
   "suasana_loop": false,
   "cocok_untuk": "kaca pecah dipukul palu, hancur",
   "normal": "normal/glass-break-with-hammer-thud.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-grass-step-1920.wav",
+  "nama": "grass-step",
+  "durasi_s": 0.58,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -16.8,
+  "suasana_loop": false,
+  "cocok_untuk": "satu langkah di rumput",
+  "normal": "normal/grass-step.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1928,6 +2036,18 @@
   "suasana_loop": false,
   "cocok_untuk": "jatuh berat ke lumpur \"plok\"",
   "normal": "normal/heavy-fall-into-mud.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-heavy-grass-step-1922.wav",
+  "nama": "heavy-grass-step",
+  "durasi_s": 0.66,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -21.9,
+  "suasana_loop": false,
+  "cocok_untuk": "langkah berat di rumput",
+  "normal": "normal/heavy-grass-step.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2036,6 +2156,18 @@
   "suasana_loop": true,
   "cocok_untuk": "lorong angin horor/sci-fi, mencekam",
   "normal": "normal/horror-sci-fi-wind-tunnel.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-hotel-lobby-crowd-ambience-and-footsteps-365.wav",
+  "nama": "hotel-lobby-crowd-ambience-and-footsteps",
+  "durasi_s": 16.5,
+  "bunyi_mulai_s": 0.32,
+  "peak_db": -4.4,
+  "suasana_loop": false,
+  "cocok_untuk": "lobi hotel ramai + langkah (latar)",
+  "normal": "normal/hotel-lobby-crowd-ambience-and-footsteps.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2748,6 +2880,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-monster-footstep-1975.wav",
+  "nama": "monster-footstep",
+  "durasi_s": 3.0,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -0.9,
+  "suasana_loop": false,
+  "cocok_untuk": "langkah monster, berat & mengancam",
+  "normal": "normal/monster-footstep.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-morning-sound-in-a-garden-2464.wav",
   "nama": "morning-sound-in-a-garden",
   "durasi_s": 110.44,
@@ -3356,6 +3500,18 @@
   "suasana_loop": false,
   "cocok_untuk": "robot dapat item, \"berhasil!\" ala game",
   "normal": "normal/robot-positive-item-acquired.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-rock-golem-walking-3127.mp3",
+  "nama": "rock-golem-walking",
+  "durasi_s": 9.56,
+  "bunyi_mulai_s": 0.08,
+  "peak_db": -0.8,
+  "suasana_loop": false,
+  "cocok_untuk": "golem batu berjalan, berat",
+  "normal": "normal/rock-golem-walking.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -4388,6 +4544,18 @@
   "suasana_loop": false,
   "cocok_untuk": "berjalan di hutan",
   "normal": "normal/walking-in-the-forest.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-walking-on-grass-1921.wav",
+  "nama": "walking-on-grass",
+  "durasi_s": 14.6,
+  "bunyi_mulai_s": 0.12,
+  "peak_db": -10.0,
+  "suasana_loop": false,
+  "cocok_untuk": "berjalan di rumput",
+  "normal": "normal/walking-on-grass.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
