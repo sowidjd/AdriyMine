@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-338 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+353 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -102,8 +102,13 @@
 | `epic-orchestra-transition` | 7.12 s | transisi megah, pengungkapan besar |
 | `european-forest-ambience` | 161.3 s (suasana/loop) | hutan subtropis (latar) |
 | `fairy-glitter` | 2.3 s | kilau peri, keajaiban, sihir lembut |
+| `falling-bricks` | 2.96 s | batu bata berjatuhan, runtuh |
+| `falling-empty-can` | 1.4 s | kaleng kosong jatuh "klontang", lucu |
 | `falling-hit-on-gravel` | 1.23 s | jatuh menghantam kerikil |
+| `falling-into-mud-surface` | 1.3 s | jatuh ke permukaan lumpur |
 | `falling-male-scream` | 3.83 s | cowok jatuh sambil berteriak "aaaa" |
+| `falling-on-foil` | 0.61 s | jatuh di atas foil, kresek |
+| `falling-on-tree-leaves` | 0.95 s | jatuh ke tumpukan daun |
 | `farm-pig-drinking-water` | 9.84 s (suasana/loop) | babi minum air (pertimbangkan penonton) |
 | `fast-ignition-fire` | 4.93 s | api menyala cepat, "wush!", semangat membara |
 | `fast-rocket-whoosh` | 4.75 s | roket, melesat sangat cepat |
@@ -139,8 +144,10 @@
 | `girls-audience-applause` | 6.55 s | penonton cewek bertepuk tangan |
 | `girls-crowd-cheer-scream-and-applause` | 6.08 s | cewek-cewek bersorak & menjerit, heboh |
 | `glass-break-with-hammer-thud` | 1.44 s | kaca pecah dipukul palu, hancur |
+| `gravel-stones-small-avalanche` | 1.4 s | longsor kerikil kecil |
 | `happy-child-laughing` | 2.4 s | tawa anak bahagia |
 | `hawk-call-squawk` | 2.41 s | teriakan elang/burung pemangsa |
+| `heavy-fall-into-mud` | 0.63 s | jatuh berat ke lumpur "plok" |
 | `heavy-rain` | 7.5 s (suasana/loop) | hujan deras |
 | `heavy-rain-and-thunder-in-background` | 22.27 s (suasana/loop) | hujan deras + petir di kejauhan |
 | `heavy-rain-drops` | 12.17 s (suasana/loop) | tetes hujan deras, dramatis |
@@ -185,6 +192,7 @@
 | `loud-creature-breathing` | 1.9 s | napas makhluk besar, seram |
 | `magic-marimba` | 3.34 s | marimba ajaib, keajaiban kecil, ide muncul |
 | `male-clearing-the-throat` | 1.48 s | berdehem "ehem", canggung, mau bicara serius |
+| `male-falling-scream` | 3.01 s | cowok jatuh berteriak |
 | `male-sleep-breathe` | 5.24 s | napas orang tidur, pulas |
 | `male-sleepy-yawning` | 2.62 s | cowok ngantuk menguap |
 | `male-tired-yawn` | 2.38 s | cowok capek menguap |
@@ -201,6 +209,8 @@
 | `mechanical-technology-movements` | 2.5 s | mesin/robot bergerak, mekanisme |
 | `medium-size-group-applause-and-laugh` | 8.29 s | tawa + tepuk tangan kelompok sedang |
 | `melodical-flute-music-notification` | 7.54 s | notifikasi lembut, alam, ceria |
+| `metal-tool-falling` | 0.75 s | perkakas logam jatuh |
+| `metal-tools-box-browsing` | 1.37 s | mengaduk kotak perkakas, mencari sesuatu |
 | `modern-technology-select` | 0.5 s | pilih/tap modern |
 | `monster-breath` | 4.31 s | napas monster, seram |
 | `morning-sound-in-a-garden` | 110.44 s (suasana/loop) | pagi di taman/kebun, segar |
@@ -232,6 +242,7 @@
 | `plastic-cd-box-closed-hard` | 0.88 s | kotak plastik ditutup keras, "klak" |
 | `plastic-cd-cover-close-hard` | 0.67 s | tutup plastik dibanting, keputusan final |
 | `playground-with-kids-playing` | 20.83 s (suasana/loop) | taman bermain anak (latar) |
+| `pouring-water-to-mug` | 4.6 s (suasana/loop) | menuang air ke gelas/mug, ngopi |
 | `quiet-forest-ambience` | 152.08 s (suasana/loop) | hutan sunyi (latar) |
 | `rain-and-thunder-storm` | 29.0 s (suasana/loop) | badai, hujan petir, suasana muram/dramatis |
 | `rain-in-the-jungle-and-birds` | 30.17 s (suasana/loop) | hujan hutan + burung |
@@ -260,6 +271,7 @@
 | `sea-waves-with-birds-loop` | 38.04 s (suasana/loop) | ombak + burung laut (latar) |
 | `short-fire-whoosh` | 3.19 s | whoosh api singkat |
 | `short-slap-or-clap` | 3.1 s | tamparan/tepukan singkat, "plak" |
+| `short-whistle-fall` | 1.5 s | siulan jatuh pendek |
 | `sick-male-cough` | 1.1 s | batuk orang sakit |
 | `sick-man-coughing` | 1.24 s | batuk orang sakit |
 | `sick-man-sneeze` | 0.86 s | bersin, sakit, kejutan lucu |
@@ -287,6 +299,7 @@
 | `sphinx-cat-purr-and-quiet-growl` | 2.78 s | kucing mendengkur lalu menggeram pelan, "jangan ganggu" |
 | `stadium-crowd-light-applause` | 11.09 s | tepuk tangan stadion, pengakuan besar |
 | `stand-up-club-audience-applause` | 20.16 s | tepuk tangan klub stand-up comedy |
+| `stone-debris-falling` | 7.0 s | reruntuhan batu berjatuhan |
 | `stones-and-rocks-falling` | 4.25 s | batu-batu berjatuhan, longsor |
 | `strange-animal-of-the-desert` | 2.79 s | suara hewan aneh di gurun, misterius |
 | `strong-breathing-of-a-person` | 5.11 s | napas berat, capek, panik |
@@ -329,6 +342,7 @@
 | `walking-through-dry-forest-leaves` | 31.79 s | berjalan di atas daun kering |
 | `wallowing-drink-quickly` | 3.61 s | minum cepat glek-glek, haus |
 | `water-flowing-ambience-loop` | 51.0 s (suasana/loop) | air mengalir, sungai, tenang |
+| `water-pour-light-stream` | 36.5 s (suasana/loop) | tuang air aliran kecil |
 | `wild-animal-hungry-grunting` | 4.18 s | hewan liar lapar menggeram, ancaman |
 | `wind-in-a-desolate-world` | 13.03 s (suasana/loop) | angin di dunia sepi/kosong, hampa |
 | `wind-in-futuristic-city` | 13.41 s (suasana/loop) | angin di kota masa depan, sci-fi sepi |
@@ -339,6 +353,7 @@
 | `wolves-at-scary-forest` | 9.74 s (suasana/loop) | serigala di hutan seram, horor/ancaman |
 | `woman-coughing-fast` | 1.1 s | cewek batuk cepat |
 | `woman-cry-of-pain` | 1.42 s | jeritan kesakitan cewek |
+| `wood-plank-dominoes-fall` | 2.5 s | papan kayu jatuh beruntun seperti domino, efek berantai |
 | `yawn-of-adult-man` | 1.26 s | orang dewasa menguap |
 | `young-man-coughing` | 1.19 s | cowok batuk |
 | `young-tired-male-yawns` | 2.98 s | cowok capek menguap, ngantuk |
