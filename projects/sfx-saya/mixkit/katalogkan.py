@@ -14,6 +14,12 @@ SAAT = {'cinematic-whoosh-fast-transition': 'transisi cepat antar adegan', 'cine
  'keyboard-typing': 'mengetik, chat, kerja di laptop', 'intro-transition': 'pembuka bagian/judul baru', 'footsteps-on-tall-grass': 'berjalan di rumput, alam, mengendap', 'flock-of-wild-geese': 'kawanan burung, alam liar, migrasi',
  'female-astonished-gasp': 'kaget/takjub "hah!", reaksi fakta mengejutkan', 'fast-whoosh-transition': 'transisi cepat', 'epic-orchestra-transition': 'transisi megah, pengungkapan besar',
  'crowd-laugh': 'penonton tertawa, momen lucu',
+ 'mechanical-technology-movements': 'mesin/robot bergerak, mekanisme', 'high-tech-bleep-confirmation': 'bip konfirmasi canggih, "berhasil"',
+ 'futuristic-sci-fi-computer-ambience': 'ruang komputer masa depan (latar)', 'electronics-power-up': 'alat elektronik menyala, power up',
+ 'high-tech-bleep': 'bip teknologi singkat', 'ui-zoom-out': 'zoom out, melihat gambaran besar', 'cybernetic-technology-affirmation': 'konfirmasi sistem siber, data diterima',
+ 'sci-fi-loading-operative-system': 'sistem sedang loading, memproses', 'industrial-machine-hum': 'dengung mesin pabrik (latar)', 'electric-buzz-glitch': 'listrik korslet, glitch, error',
+ 'interface-device-click': 'klik tombol/perangkat', 'technology-transition-slide': 'transisi geser ala teknologi', 'interface-option-select': 'memilih opsi di layar',
+ 'modern-technology-select': 'pilih/tap modern',
  'sphinx-cat-purr-and-quiet-growl': 'kucing mendengkur lalu menggeram pelan, "jangan ganggu"', 'sphinx-cat-purr': 'kucing mendengkur, nyaman, manja',
  'wild-animal-hungry-grunting': 'hewan liar lapar menggeram, ancaman', 'big-wild-lion-growl': 'auman/geraman singa, kekuatan, raja hutan',
  'nature-ambience-with-lightning-strike-and-thunder': 'alam + petir menyambar, cuaca dramatis',
@@ -62,7 +68,7 @@ SAAT = {'cinematic-whoosh-fast-transition': 'transisi cepat antar adegan', 'cine
  'trumpet-fanfare': 'kemenangan, pengumuman resmi, "ta-da!"', 'transition-windy-swoosh': 'transisi berangin, angin kencang',
  'tick-tock-clock-timer': 'waktu berjalan, menunggu, deadline', 'technological-futuristic-hum': 'teknologi canggih, futuristik, mesin/AI',
  'stadium-crowd-light-applause': 'tepuk tangan stadion, pengakuan besar', 'small-crowd-laugh-and-applause': 'tertawa + tepuk tangan, lucu yang berhasil', 'cool-impact-movie-trailer': 'hantaman keren ala trailer, judul muncul', 'clock-countdown-bleeps': 'hitung mundur, waktu hampir habis'}
-AMB = ('ambience', 'rain', 'loop', 'storm', 'birds-singing', 'geese', 'suspense-waiting', 'futuristic-hum', 'forest', 'river', 'flowing', 'breeze', 'thunderstorm', 'leaves-rustling', 'rain-drops', 'wolves', 'thunder', 'storm', 'jungle', 'heavy-rain', 'wind', 'water', 'sea', 'waves', 'beach', 'ambiance', 'desert', 'arctic', 'blizzard', 'cavern', 'winds', 'desolate', 'mountain', 'futuristic-city', 'wind-tunnel', 'fire-burning', 'flame-burning', 'campfire', 'windstorm', 'forest', 'garden', 'jungle', 'owl-in', 'crickets', 'atmosphere', 'scary-woods', 'horror-ambience', 'twilight', 'terror-night', 'subway-interior')
+AMB = ('ambience', 'rain', 'loop', 'storm', 'birds-singing', 'geese', 'suspense-waiting', 'futuristic-hum', 'forest', 'river', 'flowing', 'breeze', 'thunderstorm', 'leaves-rustling', 'rain-drops', 'wolves', 'thunder', 'storm', 'jungle', 'heavy-rain', 'wind', 'water', 'sea', 'waves', 'beach', 'ambiance', 'desert', 'arctic', 'blizzard', 'cavern', 'winds', 'desolate', 'mountain', 'futuristic-city', 'wind-tunnel', 'fire-burning', 'flame-burning', 'campfire', 'windstorm', 'forest', 'garden', 'jungle', 'owl-in', 'crickets', 'atmosphere', 'scary-woods', 'horror-ambience', 'twilight', 'terror-night', 'subway-interior', 'computer-ambience', 'machine-hum')
 out = []
 for f in sorted(os.listdir('audio')):
     base = re.sub(r'^mixkit-|-\d+\.wav$', '', f)

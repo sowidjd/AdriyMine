@@ -408,6 +408,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-cybernetic-technology-affirmation-3116.wav",
+  "nama": "cybernetic-technology-affirmation",
+  "durasi_s": 2.12,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -11.7,
+  "suasana_loop": false,
+  "cocok_untuk": "konfirmasi sistem siber, data diterima",
+  "normal": "normal/cybernetic-technology-affirmation.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-desert-ambience-2495.wav",
   "nama": "desert-ambience",
   "durasi_s": 60.15,
@@ -452,6 +464,30 @@
   "suasana_loop": true,
   "cocok_untuk": "daun kering bergemerisik, langkah di hutan, musim kemarau",
   "normal": "normal/dry-leaves-rustling.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-electric-buzz-glitch-2594.wav",
+  "nama": "electric-buzz-glitch",
+  "durasi_s": 1.02,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -2.7,
+  "suasana_loop": false,
+  "cocok_untuk": "listrik korslet, glitch, error",
+  "normal": "normal/electric-buzz-glitch.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-electronics-power-up-2602.wav",
+  "nama": "electronics-power-up",
+  "durasi_s": 5.02,
+  "bunyi_mulai_s": 0.14,
+  "peak_db": -0.2,
+  "suasana_loop": false,
+  "cocok_untuk": "alat elektronik menyala, power up",
+  "normal": "normal/electronics-power-up.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -708,6 +744,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-futuristic-sci-fi-computer-ambience-2507.wav",
+  "nama": "futuristic-sci-fi-computer-ambience",
+  "durasi_s": 23.5,
+  "bunyi_mulai_s": 0.67,
+  "peak_db": -6.4,
+  "suasana_loop": true,
+  "cocok_untuk": "ruang komputer masa depan (latar)",
+  "normal": "normal/futuristic-sci-fi-computer-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-game-show-suspense-waiting-667.wav",
   "nama": "game-show-suspense-waiting",
   "durasi_s": 41.81,
@@ -792,6 +840,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-high-tech-bleep-2521.wav",
+  "nama": "high-tech-bleep",
+  "durasi_s": 0.69,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -6.2,
+  "suasana_loop": false,
+  "cocok_untuk": "bip teknologi singkat",
+  "normal": "normal/high-tech-bleep.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-high-tech-bleep-confirmation-2520.wav",
+  "nama": "high-tech-bleep-confirmation",
+  "durasi_s": 0.61,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -8.7,
+  "suasana_loop": false,
+  "cocok_untuk": "bip konfirmasi canggih, \"berhasil\"",
+  "normal": "normal/high-tech-bleep-confirmation.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-horror-ambience-2482.wav",
   "nama": "horror-ambience",
   "durasi_s": 82.14,
@@ -816,6 +888,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-industrial-machine-hum-2504.wav",
+  "nama": "industrial-machine-hum",
+  "durasi_s": 50.0,
+  "bunyi_mulai_s": 0.03,
+  "peak_db": -3.6,
+  "suasana_loop": true,
+  "cocok_untuk": "dengung mesin pabrik (latar)",
+  "normal": "normal/industrial-machine-hum.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-intense-long-fire-beam-1341.wav",
   "nama": "intense-long-fire-beam",
   "durasi_s": 9.0,
@@ -824,6 +908,30 @@
   "suasana_loop": false,
   "cocok_untuk": "semburan api panjang, kekuatan besar",
   "normal": "normal/intense-long-fire-beam.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-interface-device-click-2577.wav",
+  "nama": "interface-device-click",
+  "durasi_s": 1.05,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -1.8,
+  "suasana_loop": false,
+  "cocok_untuk": "klik tombol/perangkat",
+  "normal": "normal/interface-device-click.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-interface-option-select-2573.wav",
+  "nama": "interface-option-select",
+  "durasi_s": 1.55,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -0.3,
+  "suasana_loop": false,
+  "cocok_untuk": "memilih opsi di layar",
+  "normal": "normal/interface-option-select.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -948,6 +1056,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-mechanical-technology-movements-3117.wav",
+  "nama": "mechanical-technology-movements",
+  "durasi_s": 2.5,
+  "bunyi_mulai_s": 0.03,
+  "peak_db": -4.2,
+  "suasana_loop": false,
+  "cocok_untuk": "mesin/robot bergerak, mekanisme",
+  "normal": "normal/mechanical-technology-movements.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-melodical-flute-music-notification-2310.wav",
   "nama": "melodical-flute-music-notification",
   "durasi_s": 7.54,
@@ -956,6 +1076,18 @@
   "suasana_loop": false,
   "cocok_untuk": "notifikasi lembut, alam, ceria",
   "normal": "normal/melodical-flute-music-notification.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-modern-technology-select-3124.wav",
+  "nama": "modern-technology-select",
+  "durasi_s": 0.5,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -4.2,
+  "suasana_loop": false,
+  "cocok_untuk": "pilih/tap modern",
+  "normal": "normal/modern-technology-select.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1284,6 +1416,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-sci-fi-loading-operative-system-2529.wav",
+  "nama": "sci-fi-loading-operative-system",
+  "durasi_s": 2.63,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -29.7,
+  "suasana_loop": false,
+  "cocok_untuk": "sistem sedang loading, memproses",
+  "normal": "normal/sci-fi-loading-operative-system.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-sea-waves-with-birds-loop-1185.wav",
   "nama": "sea-waves-with-birds-loop",
   "durasi_s": 38.04,
@@ -1560,6 +1704,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-technology-transition-slide-3120.wav",
+  "nama": "technology-transition-slide",
+  "durasi_s": 1.65,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -10.9,
+  "suasana_loop": false,
+  "cocok_untuk": "transisi geser ala teknologi",
+  "normal": "normal/technology-transition-slide.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-terror-night-ambiance-2481.wav",
   "nama": "terror-night-ambiance",
   "durasi_s": 118.09,
@@ -1688,6 +1844,18 @@
   "suasana_loop": true,
   "cocok_untuk": "hutan saat senja (latar)",
   "normal": "normal/twilight-jungle.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-ui-zoom-out-2619.wav",
+  "nama": "ui-zoom-out",
+  "durasi_s": 1.15,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -12.0,
+  "suasana_loop": false,
+  "cocok_untuk": "zoom out, melihat gambaran besar",
+  "normal": "normal/ui-zoom-out.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

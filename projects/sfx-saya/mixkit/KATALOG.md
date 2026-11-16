@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-154 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+168 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -40,10 +40,13 @@
 | `crickets-and-insects-in-the-wild-ambience` | 26.01 s (suasana/loop) | alam malam, sepi, canggung |
 | `crickets-at-night-in-nature` | 90.13 s (suasana/loop) | jangkrik malam di alam (latar) |
 | `crowd-laugh` | 4.12 s | penonton tertawa, momen lucu |
+| `cybernetic-technology-affirmation` | 2.12 s | konfirmasi sistem siber, data diterima |
 | `desert-ambience` | 60.15 s (suasana/loop) | suasana gurun (latar) |
 | `distant-sea-humming-ambiance` | 44.86 s (suasana/loop) | laut di kejauhan, tenang, luas |
 | `dog-barking-twice` | 1.62 s | anjing menggonggong, kejutan lucu |
 | `dry-leaves-rustling` | 1.3 s (suasana/loop) | daun kering bergemerisik, langkah di hutan, musim kemarau |
+| `electric-buzz-glitch` | 1.02 s | listrik korslet, glitch, error |
+| `electronics-power-up` | 5.02 s | alat elektronik menyala, power up |
 | `epic-orchestra-transition` | 7.12 s | transisi megah, pengungkapan besar |
 | `european-forest-ambience` | 161.3 s (suasana/loop) | hutan subtropis (latar) |
 | `fast-ignition-fire` | 4.93 s | api menyala cepat, "wush!", semangat membara |
@@ -65,6 +68,7 @@
 | `forest-birds-singing` | 2.22 s (suasana/loop) | kicau burung hutan, pagi damai |
 | `forest-rain-loop` | 24.75 s (suasana/loop) | hujan di hutan (latar) |
 | `fuel-explosion` | 2.98 s | ledakan bahan bakar, dahsyat |
+| `futuristic-sci-fi-computer-ambience` | 23.5 s (suasana/loop) | ruang komputer masa depan (latar) |
 | `game-show-suspense-waiting` | 41.81 s (suasana/loop) | menunggu jawaban, kuis, tegang lucu |
 | `ghost-fire-swoosh` | 2.85 s | api hantu, transisi misterius |
 | `hawk-call-squawk` | 2.41 s | teriakan elang/burung pemangsa |
@@ -72,9 +76,14 @@
 | `heavy-rain-and-thunder-in-background` | 22.27 s (suasana/loop) | hujan deras + petir di kejauhan |
 | `heavy-rain-drops` | 12.17 s (suasana/loop) | tetes hujan deras, dramatis |
 | `heavy-storm-rain-loop` | 18.0 s (suasana/loop) | badai hujan deras (latar) |
+| `high-tech-bleep` | 0.69 s | bip teknologi singkat |
+| `high-tech-bleep-confirmation` | 0.61 s | bip konfirmasi canggih, "berhasil" |
 | `horror-ambience` | 82.14 s (suasana/loop) | suasana horor, mencekam (latar) |
 | `horror-sci-fi-wind-tunnel` | 64.0 s (suasana/loop) | lorong angin horor/sci-fi, mencekam |
+| `industrial-machine-hum` | 50.0 s (suasana/loop) | dengung mesin pabrik (latar) |
 | `intense-long-fire-beam` | 9.0 s | semburan api panjang, kekuatan besar |
+| `interface-device-click` | 1.05 s | klik tombol/perangkat |
+| `interface-option-select` | 1.55 s | memilih opsi di layar |
 | `intro-transition` | 7.51 s | pembuka bagian/judul baru |
 | `jungle-rain-and-birds` | 80.0 s (suasana/loop) | hujan di hutan + burung |
 | `keyboard-typing` | 26.31 s | mengetik, chat, kerja di laptop |
@@ -85,7 +94,9 @@
 | `man-running-in-the-forest` | 11.24 s | orang berlari di hutan, dikejar, buru-buru |
 | `man-strong-snore` | 1.49 s | dengkuran keras, tidur pulas, lucu |
 | `martial-arts-fast-punch` | 1.34 s | pukulan, "dihantam", fakta yang menampar |
+| `mechanical-technology-movements` | 2.5 s | mesin/robot bergerak, mekanisme |
 | `melodical-flute-music-notification` | 7.54 s | notifikasi lembut, alam, ceria |
+| `modern-technology-select` | 0.5 s | pilih/tap modern |
 | `morning-sound-in-a-garden` | 110.44 s (suasana/loop) | pagi di taman/kebun, segar |
 | `movie-trailer-epic-impact` | 4.87 s | angka/fakta besar muncul, hantaman epik |
 | `mystwrious-bass-pulse` | 16.56 s | misterius, tegang, sesuatu akan terungkap |
@@ -113,6 +124,7 @@
 | `sad-game-over-trombone` | 5.61 s | gagal lucu "wah wah wah", kecewa |
 | `sand-in-the-desert` | 5.53 s (suasana/loop) | pasir tertiup di gurun |
 | `scary-woods-at-night` | 50.16 s (suasana/loop) | hutan seram malam hari (latar) |
+| `sci-fi-loading-operative-system` | 2.63 s | sistem sedang loading, memproses |
 | `sea-waves-with-birds-loop` | 38.04 s (suasana/loop) | ombak + burung laut (latar) |
 | `short-fire-whoosh` | 3.19 s | whoosh api singkat |
 | `sick-man-sneeze` | 0.86 s | bersin, sakit, kejutan lucu |
@@ -136,6 +148,7 @@
 | `summer-night-crickets-loop` | 42.0 s (suasana/loop) | jangkrik malam (latar) |
 | `summer-night-in-the-forest` | 126.0 s (suasana/loop) | malam musim panas di hutan (latar) |
 | `technological-futuristic-hum` | 6.0 s (suasana/loop) | teknologi canggih, futuristik, mesin/AI |
+| `technology-transition-slide` | 1.65 s | transisi geser ala teknologi |
 | `terror-night-ambiance` | 118.09 s (suasana/loop) | malam mencekam (latar) |
 | `terror-transition` | 12.48 s | transisi horor/mengagetkan |
 | `thunder-rumble-and-light-rain` | 25.75 s (suasana/loop) | gemuruh petir + gerimis, muram |
@@ -147,6 +160,7 @@
 | `transition-windy-swoosh` | 3.2 s | transisi berangin, angin kencang |
 | `trumpet-fanfare` | 8.0 s | kemenangan, pengumuman resmi, "ta-da!" |
 | `twilight-jungle` | 13.57 s (suasana/loop) | hutan saat senja (latar) |
+| `ui-zoom-out` | 1.15 s | zoom out, melihat gambaran besar |
 | `vacuum-swoosh-transition` | 2.26 s | transisi tersedot/menghilang |
 | `vintage-telephone-ringtone` | 7.39 s | telepon jadul berdering, panggilan, zaman dulu |
 | `walking-in-the-forest` | 28.15 s | berjalan di hutan |
