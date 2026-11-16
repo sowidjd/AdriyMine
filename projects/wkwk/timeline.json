@@ -1,1 +1,113 @@
-{"duration": 71.85, "lines": [{"id": "h1", "t0": 0.3, "t1": 2.383, "cap": "Berhenti hapus chat *3 paragraf*"}, {"id": "h2", "t0": 2.533, "t1": 7.533, "cap": "Dikira *separuh*. Aslinya *1 dari 5*."}, {"id": "h3", "t0": 7.683, "t1": 9.35, "cap": "Kok bisa? *Ada penelitiannya.*"}, {"id": "k1", "t0": 9.75, "t1": 13.5, "cap": "Ngetik panjang... *hapus semua*"}, {"id": "k1b", "t0": 13.65, "t1": 15.733, "cap": "Yang dikirim: *wkwk.*"}, {"id": "k2", "t0": 16.083, "t1": 20.667, "cap": "Kayak *disorot lampu panggung*"}, {"id": "e1", "t0": 21.017, "t1": 25.183, "cap": "Namanya: *spotlight effect*"}, {"id": "e2", "t0": 25.483, "t1": 32.15, "cap": "Cornell: pakai *kaos memalukan* ke ruangan ramai"}, {"id": "e3", "t0": 32.35, "t1": 35.267, "cap": "Tebakan mereka: *separuh* ruangan lihat"}, {"id": "a1", "t0": 36.167, "t1": 38.667, "cap": "Waktu kami di *Adriy.Project* baca hasilnya..."}, {"id": "a1b", "t0": 39.567, "t1": 40.817, "cap": "...kami *ketawa sendiri.*"}, {"id": "e4", "t0": 41.167, "t1": 44.917, "cap": "Aslinya: cuma sekitar *1 dari 5* orang"}, {"id": "e5", "t0": 45.267, "t1": 49.433, "cap": "Orang lain *sibuk mikirin dirinya sendiri*"}, {"id": "s1", "t0": 49.883, "t1": 56.133, "cap": "Triknya: *cek sekali*. Aman? *Kirim.*"}, {"id": "s2", "t0": 56.483, "t1": 57.733, "cap": "Paling dibales: *wkwk*"}, {"id": "c1", "t0": 58.233, "t1": 63.65, "cap": "Hari ini hapus chat berapa kali? *Tulis di komentar!*"}, {"id": "c2", "t0": 63.9, "t1": 67.233, "cap": "Kirim ke teman yang suka bales *wkwk*"}, {"id": "z", "t0": 67.683, "t1": 69.35, "cap": ""}], "perkiraan": true}
+{
+ "duration": 66.159,
+ "lines": [
+  {
+   "id": "h1",
+   "t0": 0.3,
+   "t1": 2.679,
+   "cap": "Berhenti hapus chat *3 paragraf*"
+  },
+  {
+   "id": "h2",
+   "t0": 2.829,
+   "t1": 7.736,
+   "cap": "Dikira *separuh*. Aslinya *1 dari 5*."
+  },
+  {
+   "id": "h3",
+   "t0": 7.886,
+   "t1": 9.743,
+   "cap": "Kok bisa? *Ada penelitiannya.*"
+  },
+  {
+   "id": "k1",
+   "t0": 10.143,
+   "t1": 13.809,
+   "cap": "Ngetik panjang... *hapus semua*"
+  },
+  {
+   "id": "k1b",
+   "t0": 13.959,
+   "t1": 15.947,
+   "cap": "Yang dikirim: *wkwk.*"
+  },
+  {
+   "id": "k2",
+   "t0": 16.297,
+   "t1": 20.186,
+   "cap": "Kayak *disorot lampu panggung*"
+  },
+  {
+   "id": "e1",
+   "t0": 20.536,
+   "t1": 24.25,
+   "cap": "Namanya: *spotlight effect*"
+  },
+  {
+   "id": "e2",
+   "t0": 24.55,
+   "t1": 29.73,
+   "cap": "Cornell: pakai *kaos memalukan* ke ruangan ramai"
+  },
+  {
+   "id": "e3",
+   "t0": 29.93,
+   "t1": 34.09,
+   "cap": "Tebakan mereka: *separuh* ruangan lihat"
+  },
+  {
+   "id": "a1",
+   "t0": 34.99,
+   "t1": 37.576,
+   "cap": "Waktu kami di *Adriy.Project* baca hasilnya..."
+  },
+  {
+   "id": "a1b",
+   "t0": 38.476,
+   "t1": 39.55,
+   "cap": "...kami *ketawa sendiri.*"
+  },
+  {
+   "id": "e4",
+   "t0": 39.9,
+   "t1": 42.953,
+   "cap": "Aslinya: cuma sekitar *1 dari 5* orang"
+  },
+  {
+   "id": "e5",
+   "t0": 43.303,
+   "t1": 47.314,
+   "cap": "Orang lain *sibuk mikirin dirinya sendiri*"
+  },
+  {
+   "id": "s1",
+   "t0": 47.764,
+   "t1": 52.766,
+   "cap": "Triknya: *cek sekali*. Aman? *Kirim.*"
+  },
+  {
+   "id": "s2",
+   "t0": 53.116,
+   "t1": 55.28,
+   "cap": "Paling dibales: *wkwk*"
+  },
+  {
+   "id": "c1",
+   "t0": 55.78,
+   "t1": 60.383,
+   "cap": "Hari ini hapus chat berapa kali? *Tulis di komentar!*"
+  },
+  {
+   "id": "c2",
+   "t0": 60.633,
+   "t1": 62.596,
+   "cap": "Kirim ke teman yang suka bales *wkwk*"
+  },
+  {
+   "id": "z",
+   "t0": 63.046,
+   "t1": 64.959,
+   "cap": ""
+  }
+ ]
+}
