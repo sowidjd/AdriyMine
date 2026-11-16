@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-725 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+736 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -174,6 +174,7 @@
 | `cybernetic-technology-affirmation` | 2.12 s | konfirmasi sistem siber, data diterima |
 | `deep-child-breathing-and-exhaling` | 2.41 s | anak menarik napas dalam, tenang |
 | `desert-ambience` | 60.15 s (suasana/loop) | suasana gurun (latar) |
+| `dial-phone-tone` | 15.51 s | nada tekan tombol telepon, memutar nomor |
 | `digital-cartoon-falling` | 1.41 s | jatuh kartun digital |
 | `dirt-debris-falling` | 5.5 s | tanah & puing berjatuhan |
 | `distant-sea-humming-ambiance` | 44.86 s (suasana/loop) | laut di kejauhan, tenang, luas |
@@ -279,6 +280,7 @@
 | `funny-squeaky-toy-hits` | 1.08 s | mainan bunyi "cit-cit" dipukul, lucu |
 | `funny-video-game-slide` | 1.04 s | meluncur lucu ala game |
 | `futuristic-cinematic-sweep` | 1.29 s | sapuan sinematik futuristik, reveal |
+| `futuristic-dial-tone` | 40.39 s | nada sambung telepon futuristik/sci-fi |
 | `futuristic-electronic-engine-fail` | 6.78 s | mesin elektronik mati/gagal, error |
 | `futuristic-metal-transition-sweep` | 0.95 s | transisi logam futuristik |
 | `futuristic-radar-ping` | 2.21 s | ping radar futuristik |
@@ -417,6 +419,8 @@
 | `man-waking-up-in-the-morning` | 6.29 s | cowok bangun pagi (menggeliat, bergumam) |
 | `man-yawning-heavily` | 3.37 s | menguap berat, ngantuk parah |
 | `man-yawns-quietly` | 3.86 s | menguap pelan, diam-diam ngantuk |
+| `marimba-ringtone` | 26.11 s | nada dering HP marimba, ada telepon masuk |
+| `marimba-waiting-ringtone` | 25.49 s | nada tunggu marimba, menunggu dengan sabar |
 | `martial-arts-fast-punch` | 1.34 s | pukulan, "dihantam", fakta yang menampar |
 | `mechanical-technology-movements` | 2.5 s | mesin/robot bergerak, mekanisme |
 | `medium-size-angry-dog-bark` | 2.03 s | anjing menggonggong marah |
@@ -461,8 +465,11 @@
 | `noise-of-spinning-rattle` | 7.28 s | kerincing berputar (variasi) |
 | `noisy-metal-falling` | 1.23 s | logam berisik berjatuhan |
 | `notification-bike-bell` | 1.09 s | bel sepeda sebagai notifikasi |
+| `office-telephone-ring` | 1.07 s | telepon kantor berdering, kerja/sibuk |
 | `old-car-arriving` | 10.7 s | mobil tua datang |
 | `old-subway-train-arrives` | 18.77 s (suasana/loop) | kereta tua datang, stasiun |
+| `old-telephone-ring` | 8.66 s | telepon lama/rumah berdering |
+| `on-hold-ringtone` | 11.78 s | musik tunggu (on hold), bosan menunggu, komedi |
 | `one-clap` | 0.2 s | satu tepukan, "oke!" / ide |
 | `one-man-clapping` | 3.0 s | satu orang bertepuk tangan, sarkas/canggung |
 | `ow-exclamation-of-pain` | 0.49 s | "aw!" kesakitan, lucu |
@@ -594,6 +601,7 @@
 | `small-waves-harbor-rocks` | 77.86 s (suasana/loop) | ombak kecil di batu pelabuhan |
 | `small-wood-plank-pile-drop` | 1.72 s | tumpukan papan kayu jatuh |
 | `small-young-crowd-clapping` | 16.5 s | anak muda bertepuk tangan |
+| `smartphone-typing` | 4.5 s | mengetik di HP, chat, balas pesan |
 | `soft-woosh-fire` | 4.61 s | whoosh api lembut |
 | `software-interface-back` | 1.33 s | kembali/back di layar |
 | `software-interface-remove` | 2.16 s | hapus item di layar |
@@ -647,6 +655,7 @@
 | `technology-computer-calculations` | 4.0 s | komputer menghitung, data diproses |
 | `technology-notification` | 2.08 s | notifikasi teknologi |
 | `technology-transition-slide` | 1.65 s | transisi geser ala teknologi |
+| `telephone-dial-tone` | 15.53 s | nada sambung telepon (tuuut), menelepon seseorang |
 | `terrifying-creature-breath` | 3.43 s | napas makhluk mengerikan |
 | `terror-night-ambiance` | 118.09 s (suasana/loop) | malam mencekam (latar) |
 | `terror-transition` | 12.48 s | transisi horor/mengagetkan |
@@ -662,6 +671,7 @@
 | `tired-man-yawns` | 3.38 s | cowok capek menguap |
 | `tourists-crowd-at-sightseeing-location` | 32.39 s (suasana/loop) | turis ramai di tempat wisata (latar) |
 | `toy-mechanism` | 1.13 s | mekanisme mainan diputar, "krek-krek" |
+| `toy-telephone-ring` | 1.69 s | telepon mainan berdering, lucu/anak-anak |
 | `tractors-working-on-the-field` | 44.26 s (suasana/loop) | traktor di sawah/ladang |
 | `trailer-screaming-people-annihilation` | 10.19 s | orang menjerit panik ala trailer bencana |
 | `train-station-ambience` | 17.01 s (suasana/loop) | stasiun kereta (latar), mirip stasiun KRL |
@@ -692,6 +702,7 @@
 | `vintage-telephone-ringtone` | 7.39 s | telepon jadul berdering, panggilan, zaman dulu |
 | `vocal-kids-playing-and-screaming` | 4.01 s (suasana/loop) | anak-anak main & teriak (latar) |
 | `vocal-male-yawn` | 3.41 s | cowok menguap |
+| `waiting-ringtone` | 11.53 s | nada tunggu panggilan, menunggu diangkat |
 | `walking-big-crowd-indoor` | 28.02 s | keramaian berjalan di dalam gedung (latar) |
 | `walking-crowd-at-subway-station-loop` | 11.64 s | orang lalu-lalang di stasiun (latar) |
 | `walking-in-the-forest` | 28.15 s | berjalan di hutan |

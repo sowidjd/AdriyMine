@@ -2016,6 +2016,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-dial-phone-tone-2862.wav",
+  "nama": "dial-phone-tone",
+  "durasi_s": 15.51,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -13.7,
+  "suasana_loop": false,
+  "cocok_untuk": "nada tekan tombol telepon, memutar nomor",
+  "normal": "normal/dial-phone-tone.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-digital-cartoon-falling-405.wav",
   "nama": "digital-cartoon-falling",
   "durasi_s": 1.41,
@@ -3272,6 +3284,18 @@
   "suasana_loop": false,
   "cocok_untuk": "sapuan sinematik futuristik, reveal",
   "normal": "normal/futuristic-cinematic-sweep.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-futuristic-dial-tone-1353.wav",
+  "nama": "futuristic-dial-tone",
+  "durasi_s": 40.39,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -12.9,
+  "suasana_loop": false,
+  "cocok_untuk": "nada sambung telepon futuristik/sci-fi",
+  "normal": "normal/futuristic-dial-tone.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -4932,6 +4956,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-marimba-ringtone-1359.wav",
+  "nama": "marimba-ringtone",
+  "durasi_s": 26.11,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -6.0,
+  "suasana_loop": false,
+  "cocok_untuk": "nada dering HP marimba, ada telepon masuk",
+  "normal": "normal/marimba-ringtone.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-marimba-waiting-ringtone-1360.wav",
+  "nama": "marimba-waiting-ringtone",
+  "durasi_s": 25.49,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -9.1,
+  "suasana_loop": false,
+  "cocok_untuk": "nada tunggu marimba, menunggu dengan sabar",
+  "normal": "normal/marimba-waiting-ringtone.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-martial-arts-fast-punch-2047.wav",
   "nama": "martial-arts-fast-punch",
   "durasi_s": 1.34,
@@ -5460,6 +5508,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-office-telephone-ring-1350.wav",
+  "nama": "office-telephone-ring",
+  "durasi_s": 1.07,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -9.9,
+  "suasana_loop": false,
+  "cocok_untuk": "telepon kantor berdering, kerja/sibuk",
+  "normal": "normal/office-telephone-ring.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-old-car-arriving-1536.wav",
   "nama": "old-car-arriving",
   "durasi_s": 10.7,
@@ -5480,6 +5540,30 @@
   "suasana_loop": true,
   "cocok_untuk": "kereta tua datang, stasiun",
   "normal": "normal/old-subway-train-arrives.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-old-telephone-ring-1357.wav",
+  "nama": "old-telephone-ring",
+  "durasi_s": 8.66,
+  "bunyi_mulai_s": 0.05,
+  "peak_db": -0.3,
+  "suasana_loop": false,
+  "cocok_untuk": "telepon lama/rumah berdering",
+  "normal": "normal/old-telephone-ring.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-on-hold-ringtone-1361.wav",
+  "nama": "on-hold-ringtone",
+  "durasi_s": 11.78,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -3.0,
+  "suasana_loop": false,
+  "cocok_untuk": "musik tunggu (on hold), bosan menunggu, komedi",
+  "normal": "normal/on-hold-ringtone.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -7056,6 +7140,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-smartphone-typing-1393.wav",
+  "nama": "smartphone-typing",
+  "durasi_s": 4.5,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -2.0,
+  "suasana_loop": false,
+  "cocok_untuk": "mengetik di HP, chat, balas pesan",
+  "normal": "normal/smartphone-typing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-soft-woosh-fire-1346.wav",
   "nama": "soft-woosh-fire",
   "durasi_s": 4.61,
@@ -7692,6 +7788,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-telephone-dial-tone-1352.wav",
+  "nama": "telephone-dial-tone",
+  "durasi_s": 15.53,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -18.8,
+  "suasana_loop": false,
+  "cocok_untuk": "nada sambung telepon (tuuut), menelepon seseorang",
+  "normal": "normal/telephone-dial-tone.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-terrifying-creature-breath-2234.wav",
   "nama": "terrifying-creature-breath",
   "durasi_s": 3.43,
@@ -7868,6 +7976,18 @@
   "suasana_loop": false,
   "cocok_untuk": "mekanisme mainan diputar, \"krek-krek\"",
   "normal": "normal/toy-mechanism.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-toy-telephone-ring-1351.wav",
+  "nama": "toy-telephone-ring",
+  "durasi_s": 1.69,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -7.8,
+  "suasana_loop": false,
+  "cocok_untuk": "telepon mainan berdering, lucu/anak-anak",
+  "normal": "normal/toy-telephone-ring.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -8228,6 +8348,18 @@
   "suasana_loop": false,
   "cocok_untuk": "cowok menguap",
   "normal": "normal/vocal-male-yawn.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-waiting-ringtone-1354.wav",
+  "nama": "waiting-ringtone",
+  "durasi_s": 11.53,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -3.0,
+  "suasana_loop": false,
+  "cocok_untuk": "nada tunggu panggilan, menunggu diangkat",
+  "normal": "normal/waiting-ringtone.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
