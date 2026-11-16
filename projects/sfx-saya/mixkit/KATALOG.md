@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-308 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+317 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -42,6 +42,7 @@
 | `campfire-burning-crackles` | 14.08 s (suasana/loop) | api unggun berderak, hangat, cerita malam |
 | `campfire-night-wind` | 30.75 s (suasana/loop) | api unggun + angin malam (latar) |
 | `cartoon-air-blow` | 1.66 s | tiupan udara ala kartun, lucu |
+| `cartoon-animal-crying-in-pain` | 2.83 s | hewan kartun kesakitan, lucu |
 | `cartoon-girl-saying-no-no-no` | 1.8 s | "no no no" kartun, menolak lucu |
 | `cartoon-monkey-applause` | 4.28 s | monyet kartun bertepuk tangan, lucu |
 | `cartoon-positive-sound` | 2.94 s | bunyi positif kartun, "yeay" |
@@ -65,10 +66,14 @@
 | `classroom-long-applause-and-whistle` | 19.0 s | tepuk tangan kelas + siulan, anak sekolah |
 | `classroom-spontaneous-applause` | 6.54 s | tepuk tangan spontan di kelas |
 | `clock-countdown-bleeps` | 5.0 s | hitung mundur, waktu hampir habis |
+| `cock-cry` | 4.21 s | ayam jantan berkokok, pagi hari, bangun |
 | `concert-hall-stomping-applause` | 16.59 s | tepuk + hentakan kaki di gedung konser, meriah |
 | `conference-audience-clapping-strongly` | 8.6 s | tepuk tangan kuat di konferensi, pengakuan |
 | `cool-impact-movie-trailer` | 6.0 s | hantaman keren ala trailer, judul muncul |
 | `cow-animal-breath` | 3.56 s | napas sapi, dengusan hewan besar |
+| `creature-cry-of-hurt` | 1.43 s | makhluk menjerit terluka |
+| `creature-sad-crying` | 31.53 s | makhluk menangis sedih |
+| `creature-sobbing-in-fear` | 3.35 s | makhluk terisak ketakutan |
 | `creepy-cavern-ambience-loop` | 47.8 s (suasana/loop) | gua seram, gelap, misteri |
 | `creepy-demon-heavy-breathing` | 5.16 s | napas setan berat, horor |
 | `crickets-and-insects-in-the-wild-ambience` | 26.01 s (suasana/loop) | alam malam, sepi, canggung |
@@ -80,6 +85,8 @@
 | `desert-ambience` | 60.15 s (suasana/loop) | suasana gurun (latar) |
 | `distant-sea-humming-ambiance` | 44.86 s (suasana/loop) | laut di kejauhan, tenang, luas |
 | `dog-barking-twice` | 1.62 s | anjing menggonggong, kejutan lucu |
+| `donkey-crying` | 12.27 s | keledai meringkik, lucu/konyol |
+| `donkey-crying-screech` | 14.81 s | keledai menjerit nyaring, kaget lucu |
 | `dry-leaves-rustling` | 1.3 s (suasana/loop) | daun kering bergemerisik, langkah di hutan, musim kemarau |
 | `educational-rattle-toy-shaker` | 2.44 s | mainan kerincingan bayi |
 | `electric-buzz-glitch` | 1.02 s | listrik korslet, glitch, error |
@@ -205,6 +212,7 @@
 | `person-yawns-deeply` | 3.03 s | menguap panjang & dalam, ngantuk berat |
 | `persons-mouth-blowing` | 1.13 s | meniup dengan mulut, "fiuh" |
 | `persons-nose-blowing` | 1.28 s | buang ingus, flu, lucu |
+| `pig-herd-grunt-and-cry` | 43.67 s | kawanan babi mendengus & menjerit, ricuh |
 | `plastic-cd-box-closed-hard` | 0.88 s | kotak plastik ditutup keras, "klak" |
 | `plastic-cd-cover-close-hard` | 0.67 s | tutup plastik dibanting, keputusan final |
 | `playground-with-kids-playing` | 20.83 s (suasana/loop) | taman bermain anak (latar) |
@@ -309,6 +317,7 @@
 | `wizard-fire-woosh` | 1.09 s | sihir api, transisi magis |
 | `wolves-at-scary-forest` | 9.74 s (suasana/loop) | serigala di hutan seram, horor/ancaman |
 | `woman-coughing-fast` | 1.1 s | cewek batuk cepat |
+| `woman-cry-of-pain` | 1.42 s | jeritan kesakitan cewek |
 | `yawn-of-adult-man` | 1.26 s | orang dewasa menguap |
 | `young-man-coughing` | 1.19 s | cowok batuk |
 | `young-tired-male-yawns` | 2.98 s | cowok capek menguap, ngantuk |

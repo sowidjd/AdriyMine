@@ -432,6 +432,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-cartoon-animal-crying-in-pain-2.wav",
+  "nama": "cartoon-animal-crying-in-pain",
+  "durasi_s": 2.83,
+  "bunyi_mulai_s": 0.14,
+  "peak_db": -0.1,
+  "suasana_loop": false,
+  "cocok_untuk": "hewan kartun kesakitan, lucu",
+  "normal": "normal/cartoon-animal-crying-in-pain.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-cartoon-girl-saying-no-no-no-2257.wav",
   "nama": "cartoon-girl-saying-no-no-no",
   "durasi_s": 1.8,
@@ -708,6 +720,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-cock-cry-1761.wav",
+  "nama": "cock-cry",
+  "durasi_s": 4.21,
+  "bunyi_mulai_s": 0.72,
+  "peak_db": -20.4,
+  "suasana_loop": false,
+  "cocok_untuk": "ayam jantan berkokok, pagi hari, bangun",
+  "normal": "normal/cock-cry.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-concert-hall-stomping-applause-507.wav",
   "nama": "concert-hall-stomping-applause",
   "durasi_s": 16.59,
@@ -752,6 +776,42 @@
   "suasana_loop": false,
   "cocok_untuk": "napas sapi, dengusan hewan besar",
   "normal": "normal/cow-animal-breath.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-creature-cry-of-hurt-2208.wav",
+  "nama": "creature-cry-of-hurt",
+  "durasi_s": 1.43,
+  "bunyi_mulai_s": 0.03,
+  "peak_db": -1.0,
+  "suasana_loop": false,
+  "cocok_untuk": "makhluk menjerit terluka",
+  "normal": "normal/creature-cry-of-hurt.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-creature-sad-crying-465.wav",
+  "nama": "creature-sad-crying",
+  "durasi_s": 31.53,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -2.9,
+  "suasana_loop": false,
+  "cocok_untuk": "makhluk menangis sedih",
+  "normal": "normal/creature-sad-crying.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-creature-sobbing-in-fear-464.wav",
+  "nama": "creature-sobbing-in-fear",
+  "durasi_s": 3.35,
+  "bunyi_mulai_s": 0.14,
+  "peak_db": -6.2,
+  "suasana_loop": false,
+  "cocok_untuk": "makhluk terisak ketakutan",
+  "normal": "normal/creature-sobbing-in-fear.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -884,6 +944,30 @@
   "suasana_loop": false,
   "cocok_untuk": "anjing menggonggong, kejutan lucu",
   "normal": "normal/dog-barking-twice.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-donkey-crying-310.wav",
+  "nama": "donkey-crying",
+  "durasi_s": 12.27,
+  "bunyi_mulai_s": 1.08,
+  "peak_db": -4.2,
+  "suasana_loop": false,
+  "cocok_untuk": "keledai meringkik, lucu/konyol",
+  "normal": "normal/donkey-crying.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-donkey-crying-screech-312.wav",
+  "nama": "donkey-crying-screech",
+  "durasi_s": 14.81,
+  "bunyi_mulai_s": 2.47,
+  "peak_db": -1.1,
+  "suasana_loop": false,
+  "cocok_untuk": "keledai menjerit nyaring, kaget lucu",
+  "normal": "normal/donkey-crying-screech.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2388,6 +2472,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-pig-herd-grunt-and-cry-1765.wav",
+  "nama": "pig-herd-grunt-and-cry",
+  "durasi_s": 43.67,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -9.0,
+  "suasana_loop": false,
+  "cocok_untuk": "kawanan babi mendengus & menjerit, ricuh",
+  "normal": "normal/pig-herd-grunt-and-cry.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-plastic-cd-box-closed-hard-483.wav",
   "nama": "plastic-cd-box-closed-hard",
   "durasi_s": 0.88,
@@ -3632,6 +3728,18 @@
   "suasana_loop": false,
   "cocok_untuk": "cewek batuk cepat",
   "normal": "normal/woman-coughing-fast.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-woman-cry-of-pain-2201.wav",
+  "nama": "woman-cry-of-pain",
+  "durasi_s": 1.42,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -8.1,
+  "suasana_loop": false,
+  "cocok_untuk": "jeritan kesakitan cewek",
+  "normal": "normal/woman-cry-of-pain.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
