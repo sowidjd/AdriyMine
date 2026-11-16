@@ -15,7 +15,7 @@ function rr(x, y, w, h, r, n = 4) { const P = [], c = [[x + w - r, y + r, -Math.
 function pathOf(pts, closed = true) { const p = new Path2D(); pts.forEach(([x, y], i) => i ? p.lineTo(x, y) : p.moveTo(x, y)); if (closed) p.closePath(); return p; }
 function bbox(pts) { let a = 1e9, b = 1e9, c = -1e9, d = -1e9; for (const [x, y] of pts) { a = Math.min(a, x); b = Math.min(b, y); c = Math.max(c, x); d = Math.max(d, y); } return [a, b, c, d]; }
 const star = (cx, cy, r1, r2, n = 5, rot = -Math.PI / 2) => Array.from({ length: n * 2 }, (_, i) => { const a = rot + i * Math.PI / n, r = i % 2 ? r2 : r1; return [cx + Math.cos(a) * r, cy + Math.sin(a) * r]; });
-let T = 0, BOIL = 0;
+let T = 0, BOIL = 0, HIDE_CLAWD = false;
 // GAYA must define: shape(pts, col, id, o), line(pts, lw, col, id, alpha), bg(t), post(t); optional: ink, hi, card, trans(k, s, prev, t)
 const C = { clay: '#D97757', clayDk: '#A84D33', ink: '#22201E', white: '#FFFDF7', cream: '#FFF6E2', amber: '#E3A33B', yellow: '#F2C94C', red: '#D2463C', blue: '#4F7FB8', sky: '#9CC8EC', slate: '#56657A' };
 
@@ -51,6 +51,7 @@ function caption(t) {   // narration line inside the safe box (y <= 1540)
 
 // ---------- Clawd (same character in every style; GAYA decides how the strokes look) ----------
 function clawd(x, y, u, o = {}) {
+  if (HIDE_CLAWD && !o.end) return;
   const sq = o.sq || 0, id = 4000, F = o.face || 'neutral', S = GAYA.shape, L = GAYA.line, ink = GAYA.ink || C.ink;
   ctx.save(); ctx.translate(x, y + (o.dy || 0) * u); ctx.rotate(o.rot || 0); ctx.scale((1 + sq * .6) * (o.flip ? -1 : 1), 1 - sq);
   const [aL, aR] = o.arms || [.2, .2], body = o.color || C.clay, dark = o.dark || C.clayDk;
@@ -127,7 +128,7 @@ function endCard(t, start) {   // "Explore More, Know More": last line, same car
   ctx.fillStyle = '#C4572F'; ctx.fillText('Know More', 0, 52);
   ctx.fillStyle = rgba('#E3A33B', .9); ctx.fillRect(-200, 128, 400, 10);
   ctx.textAlign = 'left'; ctx.restore();
-  ctx.save(); ctx.globalAlpha = al; clawd(540, 1330, 24, { face: 'happy', arms: [.3, 1.3 + .35 * Math.sin(a * 9)], dy: -.3 * Math.abs(Math.sin(a * 3)) }); ctx.restore();
+  ctx.save(); ctx.globalAlpha = al; clawd(540, 1330, 24, { end: true, face: 'happy', arms: [.3, 1.3 + .35 * Math.sin(a * 9)], dy: -.3 * Math.abs(Math.sin(a * 3)) }); ctx.restore();
 }
 
 // ---------- scenes ----------
@@ -142,7 +143,7 @@ function buildCues() { CUES = []; if (window.cues) window.cues(); CUES.sort((a, 
 function renderAt(t) {
   T = t; BOIL = Math.floor(t * 12) % 3;
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
-  GAYA.bg(t);
+  HIDE_CLAWD = !!(LN.z && t > t0('z') - .3); GAYA.bg(t);
   const i = Math.max(0, SC.findIndex(s => t >= s.a && t < s.b)), s = SC[i];
   ctx.save(); S[s.name](t); ctx.restore();
   const prev = SC[i - 1], k = seg(t, s.a, s.a + .5);

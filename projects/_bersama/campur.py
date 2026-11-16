@@ -22,7 +22,8 @@ def tt(x, end):
     if x in (None, 'awal'): return 0.0
     if x == 'akhir': return DUR
     return L[x]['t1'] + .8 if end else L[x]['t0'] - .8
-def smooth(x, sec): k = max(1, int(sec * SR)); return np.convolve(x, np.ones(k) / k, 'same')
+def smooth(x, sec):   # moving average via cumulative sum (fast for long windows)
+    k = max(1, int(sec * SR)); c = np.cumsum(np.pad(np.asarray(x, np.float64), (k // 2, k - k // 2))); return ((c[k:] - c[:-k]) / k)[:len(x)].astype(np.float32)
 voice = load(os.path.join(D, 'narasi.wav')); voice = np.pad(voice, ((0, 0), (0, max(0, N - voice.shape[1]))))[:, :N]
 music = np.zeros((2, N), np.float32); cache = os.path.join(ROOT, 'projects', 'musik', 'cache')
 for m in cfg['musik']:
