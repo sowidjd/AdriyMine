@@ -372,6 +372,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-crickets-at-night-in-nature-2475.wav",
+  "nama": "crickets-at-night-in-nature",
+  "durasi_s": 90.13,
+  "bunyi_mulai_s": 0.47,
+  "peak_db": -11.9,
+  "suasana_loop": true,
+  "cocok_untuk": "jangkrik malam di alam (latar)",
+  "normal": "normal/crickets-at-night-in-nature.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-crowd-laugh-424.wav",
   "nama": "crowd-laugh",
   "durasi_s": 4.12,
@@ -756,6 +768,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-horror-ambience-2482.wav",
+  "nama": "horror-ambience",
+  "durasi_s": 82.14,
+  "bunyi_mulai_s": 0.37,
+  "peak_db": -5.2,
+  "suasana_loop": true,
+  "cocok_untuk": "suasana horor, mencekam (latar)",
+  "normal": "normal/horror-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-horror-sci-fi-wind-tunnel-894.wav",
   "nama": "horror-sci-fi-wind-tunnel",
   "durasi_s": 64.0,
@@ -812,6 +836,18 @@
   "suasana_loop": false,
   "cocok_untuk": "mengetik, chat, kerja di laptop",
   "normal": "normal/keyboard-typing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-light-rain-atmosphere-2474.wav",
+  "nama": "light-rain-atmosphere",
+  "durasi_s": 72.9,
+  "bunyi_mulai_s": 0.16,
+  "peak_db": -19.3,
+  "suasana_loop": true,
+  "cocok_untuk": "suasana gerimis (latar)",
+  "normal": "normal/light-rain-atmosphere.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -924,6 +960,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-night-crickets-near-the-swamp-1782.wav",
+  "nama": "night-crickets-near-the-swamp",
+  "durasi_s": 33.74,
+  "bunyi_mulai_s": 0.23,
+  "peak_db": -25.8,
+  "suasana_loop": true,
+  "cocok_untuk": "jangkrik malam dekat rawa (latar)",
+  "normal": "normal/night-crickets-near-the-swamp.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-night-forest-with-insects-2414.wav",
   "nama": "night-forest-with-insects",
   "durasi_s": 84.0,
@@ -944,6 +992,18 @@
   "suasana_loop": true,
   "cocok_untuk": "burung hantu di hutan, malam misterius",
   "normal": "normal/owl-in-a-forest.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-owl-shriek-2479.wav",
+  "nama": "owl-shriek",
+  "durasi_s": 1.18,
+  "bunyi_mulai_s": 0.12,
+  "peak_db": -15.0,
+  "suasana_loop": false,
+  "cocok_untuk": "jeritan burung hantu, kaget/seram",
+  "normal": "normal/owl-shriek.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1140,6 +1200,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-scary-woods-at-night-2483.wav",
+  "nama": "scary-woods-at-night",
+  "durasi_s": 50.16,
+  "bunyi_mulai_s": 0.6,
+  "peak_db": -4.1,
+  "suasana_loop": true,
+  "cocok_untuk": "hutan seram malam hari (latar)",
+  "normal": "normal/scary-woods-at-night.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-sea-waves-with-birds-loop-1185.wav",
   "nama": "sea-waves-with-birds-loop",
   "durasi_s": 38.04,
@@ -1172,6 +1244,30 @@
   "suasana_loop": false,
   "cocok_untuk": "bersin, sakit, kejutan lucu",
   "normal": "normal/sick-man-sneeze.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-single-cricket-screech-1780.wav",
+  "nama": "single-cricket-screech",
+  "durasi_s": 1.78,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -12.4,
+  "suasana_loop": false,
+  "cocok_untuk": "satu jangkrik \"krik\", hening canggung",
+  "normal": "normal/single-cricket-screech.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-small-cricket-screech-1781.wav",
+  "nama": "small-cricket-screech",
+  "durasi_s": 1.42,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -13.7,
+  "suasana_loop": false,
+  "cocok_untuk": "jangkrik kecil berderik (dekat)",
+  "normal": "normal/small-cricket-screech.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1272,6 +1368,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-summer-crickets-loop-1788.wav",
+  "nama": "summer-crickets-loop",
+  "durasi_s": 18.83,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -15.2,
+  "suasana_loop": true,
+  "cocok_untuk": "jangkrik musim panas (latar)",
+  "normal": "normal/summer-crickets-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-summer-night-crickets-loop-1789.wav",
+  "nama": "summer-night-crickets-loop",
+  "durasi_s": 42.0,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -19.8,
+  "suasana_loop": true,
+  "cocok_untuk": "jangkrik malam (latar)",
+  "normal": "normal/summer-night-crickets-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-summer-night-in-the-forest-1227.wav",
   "nama": "summer-night-in-the-forest",
   "durasi_s": 126.0,
@@ -1292,6 +1412,18 @@
   "suasana_loop": true,
   "cocok_untuk": "teknologi canggih, futuristik, mesin/AI",
   "normal": "normal/technological-futuristic-hum.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-terror-transition-2484.wav",
+  "nama": "terror-transition",
+  "durasi_s": 12.48,
+  "bunyi_mulai_s": 0.02,
+  "peak_db": -1.0,
+  "suasana_loop": false,
+  "cocok_untuk": "transisi horor/mengagetkan",
+  "normal": "normal/terror-transition.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

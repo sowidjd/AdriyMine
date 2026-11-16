@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-128 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+139 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -37,6 +37,7 @@
 | `cool-impact-movie-trailer` | 6.0 s | hantaman keren ala trailer, judul muncul |
 | `creepy-cavern-ambience-loop` | 47.8 s (suasana/loop) | gua seram, gelap, misteri |
 | `crickets-and-insects-in-the-wild-ambience` | 26.01 s (suasana/loop) | alam malam, sepi, canggung |
+| `crickets-at-night-in-nature` | 90.13 s (suasana/loop) | jangkrik malam di alam (latar) |
 | `crowd-laugh` | 4.12 s | penonton tertawa, momen lucu |
 | `desert-ambience` | 60.15 s (suasana/loop) | suasana gurun (latar) |
 | `distant-sea-humming-ambiance` | 44.86 s (suasana/loop) | laut di kejauhan, tenang, luas |
@@ -69,11 +70,13 @@
 | `heavy-rain-and-thunder-in-background` | 22.27 s (suasana/loop) | hujan deras + petir di kejauhan |
 | `heavy-rain-drops` | 12.17 s (suasana/loop) | tetes hujan deras, dramatis |
 | `heavy-storm-rain-loop` | 18.0 s (suasana/loop) | badai hujan deras (latar) |
+| `horror-ambience` | 82.14 s (suasana/loop) | suasana horor, mencekam (latar) |
 | `horror-sci-fi-wind-tunnel` | 64.0 s (suasana/loop) | lorong angin horor/sci-fi, mencekam |
 | `intense-long-fire-beam` | 9.0 s | semburan api panjang, kekuatan besar |
 | `intro-transition` | 7.51 s | pembuka bagian/judul baru |
 | `jungle-rain-and-birds` | 80.0 s (suasana/loop) | hujan di hutan + burung |
 | `keyboard-typing` | 26.31 s | mengetik, chat, kerja di laptop |
+| `light-rain-atmosphere` | 72.9 s (suasana/loop) | suasana gerimis (latar) |
 | `light-rain-loop` | 15.0 s (suasana/loop) | hujan ringan, santai, sendu |
 | `liquid-bubble` | 1.05 s | gelembung cairan, ide muncul, lab |
 | `little-birds-singing-in-the-trees` | 8.33 s (suasana/loop) | pagi, taman, alam tenang |
@@ -83,8 +86,10 @@
 | `morning-sound-in-a-garden` | 110.44 s (suasana/loop) | pagi di taman/kebun, segar |
 | `movie-trailer-epic-impact` | 4.87 s | angka/fakta besar muncul, hantaman epik |
 | `mystwrious-bass-pulse` | 16.56 s | misterius, tegang, sesuatu akan terungkap |
+| `night-crickets-near-the-swamp` | 33.74 s (suasana/loop) | jangkrik malam dekat rawa (latar) |
 | `night-forest-with-insects` | 84.0 s (suasana/loop) | hutan malam, serangga, misterius tenang |
 | `owl-in-a-forest` | 90.14 s (suasana/loop) | burung hantu di hutan, malam misterius |
+| `owl-shriek` | 1.18 s | jeritan burung hantu, kaget/seram |
 | `papers-blowing-in-the-windstorm` | 5.2 s (suasana/loop) | kertas beterbangan diterpa angin, berantakan, kacau |
 | `people-bathing-in-the-sea-ambience` | 15.34 s (suasana/loop) | pantai ramai, orang berenang, liburan |
 | `quiet-forest-ambience` | 152.08 s (suasana/loop) | hutan sunyi (latar) |
@@ -101,9 +106,12 @@
 | `running-through-the-forest` | 14.64 s | berlari menembus hutan |
 | `sad-game-over-trombone` | 5.61 s | gagal lucu "wah wah wah", kecewa |
 | `sand-in-the-desert` | 5.53 s (suasana/loop) | pasir tertiup di gurun |
+| `scary-woods-at-night` | 50.16 s (suasana/loop) | hutan seram malam hari (latar) |
 | `sea-waves-with-birds-loop` | 38.04 s (suasana/loop) | ombak + burung laut (latar) |
 | `short-fire-whoosh` | 3.19 s | whoosh api singkat |
 | `sick-man-sneeze` | 0.86 s | bersin, sakit, kejutan lucu |
+| `single-cricket-screech` | 1.78 s | satu jangkrik "krik", hening canggung |
+| `small-cricket-screech` | 1.42 s | jangkrik kecil berderik (dekat) |
 | `small-crowd-laugh-and-applause` | 5.76 s | tertawa + tepuk tangan, lucu yang berhasil |
 | `small-group-cheer-and-applause` | 10.6 s | berhasil, sorakan, perayaan kecil |
 | `small-meteor-falling` | 5.04 s | meteor jatuh, sesuatu meluncur dari langit |
@@ -112,8 +120,11 @@
 | `stadium-crowd-light-applause` | 11.09 s | tepuk tangan stadion, pengakuan besar |
 | `strange-animal-of-the-desert` | 2.79 s | suara hewan aneh di gurun, misterius |
 | `strong-wild-wind-in-a-storm` | 13.65 s (suasana/loop) | angin kencang badai, terhempas |
+| `summer-crickets-loop` | 18.83 s (suasana/loop) | jangkrik musim panas (latar) |
+| `summer-night-crickets-loop` | 42.0 s (suasana/loop) | jangkrik malam (latar) |
 | `summer-night-in-the-forest` | 126.0 s (suasana/loop) | malam musim panas di hutan (latar) |
 | `technological-futuristic-hum` | 6.0 s (suasana/loop) | teknologi canggih, futuristik, mesin/AI |
+| `terror-transition` | 12.48 s | transisi horor/mengagetkan |
 | `thunder-rumble-and-light-rain` | 25.75 s (suasana/loop) | gemuruh petir + gerimis, muram |
 | `thunder-strike-in-storm` | 7.5 s | petir menyambar, kejutan besar, dramatis |
 | `thunderstorm-and-clear-rain` | 44.22 s (suasana/loop) | badai lalu hujan reda |
