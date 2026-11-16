@@ -8,7 +8,7 @@ import json, os, re
 HERE = os.path.dirname(os.path.abspath(__file__))
 HURUF = json.load(open(os.path.join(HERE, 'kamus_huruf.json')))   # A -> "A", B -> "Bé", ... (alfabet versi 2: lolos cek Whisper & dipilih pemilik suara)
 # kata yang terbukti sering salah ucap -> ejaan bantu yang berhasil (lihat projects/bangun-pagi/perbaiki_ucapan.py)
-KATA = {'alarm': 'alarrm', 'Alarm': 'Alarrm', 'snooze': 'snuz', 'Snooze': 'Snuz', 'Cahaya': 'Cahaaya', 'cahaya': 'cahaaya',
+KATA = {'Adriy.Project': 'Adri titik Project', 'alarm': 'alarrm', 'Alarm': 'Alarrm', 'snooze': 'snuz', 'Snooze': 'Snuz', 'Cahaya': 'Cahaaya', 'cahaya': 'cahaaya',
         'weekend': 'wiken', 'Weekend': 'Wiken', 'Clawd': 'Klod'}
 
 def eja(singkatan):
@@ -16,7 +16,7 @@ def eja(singkatan):
     return ' '.join(HURUF.get(c.upper()) or c for c in singkatan if c.isalpha())
 
 def siapkan(teks, baca_huruf=True):
-    for k, v in KATA.items(): teks = re.sub(rf'\b{k}\b', v, teks)
+    for k, v in KATA.items(): teks = re.sub(rf'(?<![\w.]){re.escape(k)}(?![\w])', v, teks)
     if baca_huruf:   # kata kapital 2-5 huruf tanpa vokal di tengah dianggap singkatan (HP, TV, AI, DM)
         teks = re.sub(r'\b[A-Z]{2,5}\b', lambda m: eja(m.group()), teks)
     return teks

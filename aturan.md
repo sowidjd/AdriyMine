@@ -186,6 +186,34 @@ Gaya tambahan dari `repos/animate` (berbasis Canvas seperti video kita, punya pe
 | Scroll 5 menit jadi jam 2 pagi | Feed = lorong tanpa ujung | Liminal/Backrooms | Lorong yang tak berujung terasa seperti feed yang tidak pernah habis |
 | Burung seukuran ayam nukik 320 km/jam | Kecepatan alam yang luar biasa | Watercolor (dokumenter alam) | Terasa seperti buku alam; garis kecepatan cat air menunjukkan tukikan |
 
+## 10. Menyebut nama akun: Adriy.Project
+
+Nama akun **Adriy.Project** disebut di dalam narasi supaya penonton ingat, tapi **menyatu dengan isi cerita**, bukan seperti iklan.
+
+**Aturan:**
+- **Cukup 1 kali per video.** Maksimal 2 kali kalau videonya lebih dari 2 menit, dan jaraknya jauh. Tidak boleh disebut terus-menerus.
+- **Dilarang di awal** (hook, 0–10 detik pertama) dan **dilarang di akhir** (penutup atau ajakan komentar). Awal harus fokus ke hook, akhir harus fokus ke ajakan.
+- **Tempat terbaik: di tengah**, sekitar 30–70% durasi video, tepat di **momen transisi**: sesudah penjelasan "kenapa" dan sebelum trik/solusi, atau saat masuk ke fakta paling mengejutkan.
+- **Harus nyambung dengan kalimat sebelum dan sesudahnya.** Kalimatnya disesuaikan dengan tema video, jangan memakai kalimat yang sama di setiap video.
+- **Gaya bicara santai**, seperti bagian dari cerita, bukan "Jangan lupa follow Adriy.Project ya!".
+- **Di layar:** saat nama disebut, boleh muncul teks kecil "Adriy.Project" sekitar 1,5 detik di kotak aman. Jangan menutupi tokoh atau teks penting.
+- **Cara baca:** "Adri titik Project", sama seperti di rekaman suara pemilik. `projects/suara/ucapan.py` mengubahnya otomatis.
+
+**Contoh kalimat yang benar (disesuaikan tema):**
+| Tema | Kalimat (di tengah video) |
+|---|---|
+| ⏰ Bangun pagi | "Nah, di Adriy.Project kita nyobain cara yang agak aneh, dan ternyata berhasil." |
+| 🧠 Lupa pas masuk ruangan | "Waktu tim Adriy.Project baca penelitiannya, kita kaget: ternyata pintunya yang bikin lupa." |
+| 💸 Gratis ongkir | "Di Adriy.Project kita hitung pakai kalkulator, dan hasilnya bikin nyesek." |
+| 🌍 Peregrine Falcon | "Dan ini yang bikin kita di Adriy.Project melongo: rekornya bukan 320." |
+| 💬 Kirim "wkwk" | "Jujur, di Adriy.Project juga sering gini. Makanya kita cari tahu kenapa." |
+
+**Contoh yang salah:**
+- ❌ "Halo, selamat datang di Adriy.Project!" (di awal)
+- ❌ "Follow Adriy.Project buat konten lainnya!" (di akhir dan seperti iklan)
+- ❌ Disebut 3 kali dalam video 1 menit
+- ❌ Kalimat yang sama persis di setiap video
+
 ## Checklist sebelum video dianggap selesai
 
 - [ ] Kategori berbeda dari video sebelumnya (lihat Riwayat); ada tema umum dalam 3 video terakhir
@@ -200,6 +228,7 @@ Gaya tambahan dari `repos/animate` (berbasis Canvas seperti video kita, punya pe
 - [ ] Minimal 2 pergantian cahaya, momen terpenting paling terang
 - [ ] Gaya animasi dipilih lewat 6 langkah §9: metafora inti + alasan 1 kalimat ditulis, tidak termasuk gaya yang dilarang, beda dari video sebelumnya
 - [ ] Semua teks di kotak aman x 60–927, y 212–1540 (cek dengan garis bantu area aman)
+- [ ] "Adriy.Project" disebut 1 kali (maks. 2 untuk video > 2 menit), di tengah (30–70% durasi), menyatu dengan cerita, tidak di awal/akhir
 - [ ] Ditutup dengan ajakan komentar yang memancing jawaban
 
 ## Riwayat video
