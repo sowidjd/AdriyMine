@@ -36,6 +36,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-ambient-sound-in-the-desert-2488.wav",
+  "nama": "ambient-sound-in-the-desert",
+  "durasi_s": 7.69,
+  "bunyi_mulai_s": 0.47,
+  "peak_db": -4.6,
+  "suasana_loop": true,
+  "cocok_untuk": "suasana gurun",
+  "normal": "normal/ambient-sound-in-the-desert.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-arabian-mystery-harp-notification-2489.wav",
+  "nama": "arabian-mystery-harp-notification",
+  "durasi_s": 3.52,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -0.9,
+  "suasana_loop": false,
+  "cocok_untuk": "notifikasi harpa misterius ala Timur Tengah, fakta unik",
+  "normal": "normal/arabian-mystery-harp-notification.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-arcade-retro-game-over-213.wav",
   "nama": "arcade-retro-game-over",
   "durasi_s": 1.67,
@@ -44,6 +68,18 @@
   "suasana_loop": false,
   "cocok_untuk": "gagal, game over, kalah",
   "normal": "normal/arcade-retro-game-over.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-arctic-winds-1154.wav",
+  "nama": "arctic-winds",
+  "durasi_s": 38.94,
+  "bunyi_mulai_s": 0.86,
+  "peak_db": -2.2,
+  "suasana_loop": true,
+  "cocok_untuk": "angin kutub, dingin",
+  "normal": "normal/arctic-winds.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -104,6 +140,30 @@
   "suasana_loop": true,
   "cocok_untuk": "pagi di sungai, alam damai",
   "normal": "normal/birds-chirping-near-the-river.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-blizzard-cold-winds-1153.wav",
+  "nama": "blizzard-cold-winds",
+  "durasi_s": 130.55,
+  "bunyi_mulai_s": 0.63,
+  "peak_db": -3.0,
+  "suasana_loop": true,
+  "cocok_untuk": "badai salju, dingin ekstrem",
+  "normal": "normal/blizzard-cold-winds.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-body-impact-falling-into-the-sand-2498.wav",
+  "nama": "body-impact-falling-into-the-sand",
+  "durasi_s": 1.1,
+  "bunyi_mulai_s": 0.14,
+  "peak_db": -1.5,
+  "suasana_loop": false,
+  "cocok_untuk": "jatuh ke pasir, gedebuk",
+  "normal": "normal/body-impact-falling-into-the-sand.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -228,6 +288,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-creepy-cavern-ambience-loop-2492.wav",
+  "nama": "creepy-cavern-ambience-loop",
+  "durasi_s": 47.8,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -12.7,
+  "suasana_loop": true,
+  "cocok_untuk": "gua seram, gelap, misteri",
+  "normal": "normal/creepy-cavern-ambience-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-crickets-and-insects-in-the-wild-ambience-39.wav",
   "nama": "crickets-and-insects-in-the-wild-ambience",
   "durasi_s": 26.01,
@@ -248,6 +320,18 @@
   "suasana_loop": false,
   "cocok_untuk": "penonton tertawa, momen lucu",
   "normal": "normal/crowd-laugh.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-desert-ambience-2495.wav",
+  "nama": "desert-ambience",
+  "durasi_s": 60.15,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -22.9,
+  "suasana_loop": true,
+  "cocok_untuk": "suasana gurun (latar)",
+  "normal": "normal/desert-ambience.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -396,6 +480,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-hawk-call-squawk-1277.wav",
+  "nama": "hawk-call-squawk",
+  "durasi_s": 2.41,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -3.2,
+  "suasana_loop": false,
+  "cocok_untuk": "teriakan elang/burung pemangsa",
+  "normal": "normal/hawk-call-squawk.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-heavy-rain-2403.wav",
   "nama": "heavy-rain",
   "durasi_s": 7.5,
@@ -440,6 +536,18 @@
   "suasana_loop": true,
   "cocok_untuk": "badai hujan deras (latar)",
   "normal": "normal/heavy-storm-rain-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-horror-sci-fi-wind-tunnel-894.wav",
+  "nama": "horror-sci-fi-wind-tunnel",
+  "durasi_s": 64.0,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -7.1,
+  "suasana_loop": true,
+  "cocok_untuk": "lorong angin horor/sci-fi, mencekam",
+  "normal": "normal/horror-sci-fi-wind-tunnel.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -624,6 +732,42 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-rattlesnake-in-desert-2493.wav",
+  "nama": "rattlesnake-in-desert",
+  "durasi_s": 4.17,
+  "bunyi_mulai_s": 0.14,
+  "peak_db": -21.5,
+  "suasana_loop": false,
+  "cocok_untuk": "ular derik di gurun",
+  "normal": "normal/rattlesnake-in-desert.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-rattlesnake-moving-the-tail-2497.wav",
+  "nama": "rattlesnake-moving-the-tail",
+  "durasi_s": 1.03,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -10.3,
+  "suasana_loop": false,
+  "cocok_untuk": "ekor ular derik bergetar, peringatan",
+  "normal": "normal/rattlesnake-moving-the-tail.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-rattlesnake-ready-to-hunt-2496.wav",
+  "nama": "rattlesnake-ready-to-hunt",
+  "durasi_s": 1.02,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -10.2,
+  "suasana_loop": false,
+  "cocok_untuk": "ular derik siap menyerang, bahaya",
+  "normal": "normal/rattlesnake-ready-to-hunt.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-retro-game-emergency-alarm-1000.wav",
   "nama": "retro-game-emergency-alarm",
   "durasi_s": 25.43,
@@ -668,6 +812,18 @@
   "suasana_loop": false,
   "cocok_untuk": "gagal lucu \"wah wah wah\", kecewa",
   "normal": "normal/sad-game-over-trombone.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-sand-in-the-desert-2494.wav",
+  "nama": "sand-in-the-desert",
+  "durasi_s": 5.53,
+  "bunyi_mulai_s": 0.13,
+  "peak_db": -24.9,
+  "suasana_loop": true,
+  "cocok_untuk": "pasir tertiup di gurun",
+  "normal": "normal/sand-in-the-desert.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -740,6 +896,18 @@
   "suasana_loop": false,
   "cocok_untuk": "tepuk tangan stadion, pengakuan besar",
   "normal": "normal/stadium-crowd-light-applause.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-strange-animal-of-the-desert-2487.wav",
+  "nama": "strange-animal-of-the-desert",
+  "durasi_s": 2.79,
+  "bunyi_mulai_s": 0.2,
+  "peak_db": -0.9,
+  "suasana_loop": false,
+  "cocok_untuk": "suara hewan aneh di gurun, misterius",
+  "normal": "normal/strange-animal-of-the-desert.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -896,6 +1064,42 @@
   "suasana_loop": true,
   "cocok_untuk": "air mengalir, sungai, tenang",
   "normal": "normal/water-flowing-ambience-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-wind-in-a-desolate-world-2490.wav",
+  "nama": "wind-in-a-desolate-world",
+  "durasi_s": 13.03,
+  "bunyi_mulai_s": 0.31,
+  "peak_db": -3.5,
+  "suasana_loop": true,
+  "cocok_untuk": "angin di dunia sepi/kosong, hampa",
+  "normal": "normal/wind-in-a-desolate-world.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-wind-in-futuristic-city-2491.wav",
+  "nama": "wind-in-futuristic-city",
+  "durasi_s": 13.41,
+  "bunyi_mulai_s": 0.5,
+  "peak_db": -4.7,
+  "suasana_loop": true,
+  "cocok_untuk": "angin di kota masa depan, sci-fi sepi",
+  "normal": "normal/wind-in-futuristic-city.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-wind-in-the-top-of-the-mountain-1267.wav",
+  "nama": "wind-in-the-top-of-the-mountain",
+  "durasi_s": 31.8,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -7.8,
+  "suasana_loop": true,
+  "cocok_untuk": "angin di puncak gunung, ketinggian",
+  "normal": "normal/wind-in-the-top-of-the-mountain.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

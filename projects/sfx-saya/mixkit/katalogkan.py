@@ -14,6 +14,13 @@ SAAT = {'cinematic-whoosh-fast-transition': 'transisi cepat antar adegan', 'cine
  'keyboard-typing': 'mengetik, chat, kerja di laptop', 'intro-transition': 'pembuka bagian/judul baru', 'footsteps-on-tall-grass': 'berjalan di rumput, alam, mengendap', 'flock-of-wild-geese': 'kawanan burung, alam liar, migrasi',
  'female-astonished-gasp': 'kaget/takjub "hah!", reaksi fakta mengejutkan', 'fast-whoosh-transition': 'transisi cepat', 'epic-orchestra-transition': 'transisi megah, pengungkapan besar',
  'crowd-laugh': 'penonton tertawa, momen lucu',
+ 'wind-in-futuristic-city': 'angin di kota masa depan, sci-fi sepi', 'strange-animal-of-the-desert': 'suara hewan aneh di gurun, misterius',
+ 'rattlesnake-ready-to-hunt': 'ular derik siap menyerang, bahaya', 'rattlesnake-in-desert': 'ular derik di gurun', 'rattlesnake-moving-the-tail': 'ekor ular derik bergetar, peringatan',
+ 'wind-in-a-desolate-world': 'angin di dunia sepi/kosong, hampa', 'arctic-winds': 'angin kutub, dingin', 'ambient-sound-in-the-desert': 'suasana gurun',
+ 'creepy-cavern-ambience-loop': 'gua seram, gelap, misteri', 'blizzard-cold-winds': 'badai salju, dingin ekstrem', 'sand-in-the-desert': 'pasir tertiup di gurun',
+ 'hawk-call-squawk': 'teriakan elang/burung pemangsa', 'desert-ambience': 'suasana gurun (latar)', 'body-impact-falling-into-the-sand': 'jatuh ke pasir, gedebuk',
+ 'horror-sci-fi-wind-tunnel': 'lorong angin horor/sci-fi, mencekam', 'arabian-mystery-harp-notification': 'notifikasi harpa misterius ala Timur Tengah, fakta unik',
+ 'wind-in-the-top-of-the-mountain': 'angin di puncak gunung, ketinggian',
  'people-bathing-in-the-sea-ambience': 'pantai ramai, orang berenang, liburan', 'beach-waves-with-children-ambience': 'ombak pantai + anak-anak bermain, ceria',
  'distant-sea-humming-ambiance': 'laut di kejauhan, tenang, luas', 'small-waves-harbor-rocks': 'ombak kecil di batu pelabuhan', 'sea-waves-with-birds-loop': 'ombak + burung laut (latar)',
  'thunder-strike-in-storm': 'petir menyambar, kejutan besar, dramatis', 'thunderstorm-in-the-forest': 'badai petir di hutan',
@@ -31,12 +38,12 @@ SAAT = {'cinematic-whoosh-fast-transition': 'transisi cepat antar adegan', 'cine
  'trumpet-fanfare': 'kemenangan, pengumuman resmi, "ta-da!"', 'transition-windy-swoosh': 'transisi berangin, angin kencang',
  'tick-tock-clock-timer': 'waktu berjalan, menunggu, deadline', 'technological-futuristic-hum': 'teknologi canggih, futuristik, mesin/AI',
  'stadium-crowd-light-applause': 'tepuk tangan stadion, pengakuan besar', 'small-crowd-laugh-and-applause': 'tertawa + tepuk tangan, lucu yang berhasil', 'cool-impact-movie-trailer': 'hantaman keren ala trailer, judul muncul', 'clock-countdown-bleeps': 'hitung mundur, waktu hampir habis'}
-AMB = ('ambience', 'rain', 'loop', 'storm', 'birds-singing', 'geese', 'suspense-waiting', 'futuristic-hum', 'forest', 'river', 'flowing', 'breeze', 'thunderstorm', 'leaves-rustling', 'rain-drops', 'wolves', 'thunder', 'storm', 'jungle', 'heavy-rain', 'wind', 'water', 'sea', 'waves', 'beach', 'ambiance')
+AMB = ('ambience', 'rain', 'loop', 'storm', 'birds-singing', 'geese', 'suspense-waiting', 'futuristic-hum', 'forest', 'river', 'flowing', 'breeze', 'thunderstorm', 'leaves-rustling', 'rain-drops', 'wolves', 'thunder', 'storm', 'jungle', 'heavy-rain', 'wind', 'water', 'sea', 'waves', 'beach', 'ambiance', 'desert', 'arctic', 'blizzard', 'cavern', 'winds', 'desolate', 'mountain', 'futuristic-city', 'wind-tunnel')
 out = []
 for f in sorted(os.listdir('audio')):
     base = re.sub(r'^mixkit-|-\d+\.wav$', '', f)
     y, sr = librosa.load('audio/' + f, sr=None, mono=True); peak = float(np.abs(y).max())
-    nz = np.where(np.abs(y) > peak * .05)[0]; lead = nz[0] / sr if len(nz) else 0; amb = any(k in base for k in AMB) and not any(k in base for k in ('transition', 'strike', 'swoosh', 'fish'))
+    nz = np.where(np.abs(y) > peak * .05)[0]; lead = nz[0] / sr if len(nz) else 0; amb = any(k in base for k in AMB) and not any(k in base for k in ('transition', 'strike', 'swoosh', 'fish', 'rattlesnake', 'hawk', 'impact', 'notification', 'strange-animal'))
     z, _ = librosa.load('audio/' + f, sr=48000, mono=False); z = np.atleast_2d(z)
     if lead > .3: z = z[:, max(0, int((lead - .02) * 48000)):]
     z = z / (np.abs(z).max() + 1e-9) * 10 ** ((-12 if amb else -3) / 20)

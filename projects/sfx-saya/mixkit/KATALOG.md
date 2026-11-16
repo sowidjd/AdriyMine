@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-76 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+93 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -9,12 +9,17 @@
 | `aggressive-beast-roar` | 1.46 s | monster/binatang buas, ancaman, kaget |
 | `air-woosh` | 2.32 s | gerak udara ringan, teks masuk |
 | `air-zoom-vacuum` | 1.27 s | tersedot, zoom masuk, menghilang |
+| `ambient-sound-in-the-desert` | 7.69 s (suasana/loop) | suasana gurun |
+| `arabian-mystery-harp-notification` | 3.52 s | notifikasi harpa misterius ala Timur Tengah, fakta unik |
 | `arcade-retro-game-over` | 1.67 s | gagal, game over, kalah |
+| `arctic-winds` | 38.94 s (suasana/loop) | angin kutub, dingin |
 | `arrow-whoosh` | 1.1 s | sesuatu melesat, panah, gerak cepat |
 | `beach-waves-with-children-ambience` | 52.0 s (suasana/loop) | ombak pantai + anak-anak bermain, ceria |
 | `bird-singing-and-flapping-wings` | 3.67 s | burung berkicau & mengepak sayap (dekat) |
 | `birds-chirping-in-the-jungle` | 6.69 s (suasana/loop) | kicau burung di hutan tropis |
 | `birds-chirping-near-the-river` | 90.13 s (suasana/loop) | pagi di sungai, alam damai |
+| `blizzard-cold-winds` | 130.55 s (suasana/loop) | badai salju, dingin ekstrem |
+| `body-impact-falling-into-the-sand` | 1.1 s | jatuh ke pasir, gedebuk |
 | `breeze-through-the-trees` | 14.33 s (suasana/loop) | angin sepoi di pepohonan |
 | `calm-thunderstorm-in-the-jungle` | 49.0 s (suasana/loop) | badai tenang di hutan tropis |
 | `cartoon-toy-whistle` | 1.21 s | lucu, konyol, gagal lucu |
@@ -25,8 +30,10 @@
 | `classic-alarm` | 5.03 s | jam beker berbunyi, bangun pagi |
 | `clock-countdown-bleeps` | 5.0 s | hitung mundur, waktu hampir habis |
 | `cool-impact-movie-trailer` | 6.0 s | hantaman keren ala trailer, judul muncul |
+| `creepy-cavern-ambience-loop` | 47.8 s (suasana/loop) | gua seram, gelap, misteri |
 | `crickets-and-insects-in-the-wild-ambience` | 26.01 s (suasana/loop) | alam malam, sepi, canggung |
 | `crowd-laugh` | 4.12 s | penonton tertawa, momen lucu |
+| `desert-ambience` | 60.15 s (suasana/loop) | suasana gurun (latar) |
 | `distant-sea-humming-ambiance` | 44.86 s (suasana/loop) | laut di kejauhan, tenang, luas |
 | `dog-barking-twice` | 1.62 s | anjing menggonggong, kejutan lucu |
 | `dry-leaves-rustling` | 1.3 s (suasana/loop) | daun kering bergemerisik, langkah di hutan, musim kemarau |
@@ -39,10 +46,12 @@
 | `flock-of-wild-geese` | 5.22 s (suasana/loop) | kawanan burung, alam liar, migrasi |
 | `footsteps-on-tall-grass` | 23.1 s | berjalan di rumput, alam, mengendap |
 | `game-show-suspense-waiting` | 41.81 s (suasana/loop) | menunggu jawaban, kuis, tegang lucu |
+| `hawk-call-squawk` | 2.41 s | teriakan elang/burung pemangsa |
 | `heavy-rain` | 7.5 s (suasana/loop) | hujan deras |
 | `heavy-rain-and-thunder-in-background` | 22.27 s (suasana/loop) | hujan deras + petir di kejauhan |
 | `heavy-rain-drops` | 12.17 s (suasana/loop) | tetes hujan deras, dramatis |
 | `heavy-storm-rain-loop` | 18.0 s (suasana/loop) | badai hujan deras (latar) |
+| `horror-sci-fi-wind-tunnel` | 64.0 s (suasana/loop) | lorong angin horor/sci-fi, mencekam |
 | `intro-transition` | 7.51 s | pembuka bagian/judul baru |
 | `jungle-rain-and-birds` | 80.0 s (suasana/loop) | hujan di hutan + burung |
 | `keyboard-typing` | 26.31 s | mengetik, chat, kerja di laptop |
@@ -58,16 +67,21 @@
 | `rain-and-thunder-storm` | 29.0 s (suasana/loop) | badai, hujan petir, suasana muram/dramatis |
 | `rain-in-the-jungle-and-birds` | 30.17 s (suasana/loop) | hujan hutan + burung |
 | `rain-long-loop` | 57.07 s (suasana/loop) | hujan panjang (latar) |
+| `rattlesnake-in-desert` | 4.17 s | ular derik di gurun |
+| `rattlesnake-moving-the-tail` | 1.03 s | ekor ular derik bergetar, peringatan |
+| `rattlesnake-ready-to-hunt` | 1.02 s | ular derik siap menyerang, bahaya |
 | `retro-game-emergency-alarm` | 25.43 s | bahaya gaya game, darurat lucu |
 | `retro-game-notification` | 1.47 s | notifikasi gaya game, poin didapat |
 | `river-water-flow-and-surroundings` | 60.13 s (suasana/loop) | sungai mengalir + suasana sekitar |
 | `sad-game-over-trombone` | 5.61 s | gagal lucu "wah wah wah", kecewa |
+| `sand-in-the-desert` | 5.53 s (suasana/loop) | pasir tertiup di gurun |
 | `sea-waves-with-birds-loop` | 38.04 s (suasana/loop) | ombak + burung laut (latar) |
 | `sick-man-sneeze` | 0.86 s | bersin, sakit, kejutan lucu |
 | `small-crowd-laugh-and-applause` | 5.76 s | tertawa + tepuk tangan, lucu yang berhasil |
 | `small-group-cheer-and-applause` | 10.6 s | berhasil, sorakan, perayaan kecil |
 | `small-waves-harbor-rocks` | 77.86 s (suasana/loop) | ombak kecil di batu pelabuhan |
 | `stadium-crowd-light-applause` | 11.09 s | tepuk tangan stadion, pengakuan besar |
+| `strange-animal-of-the-desert` | 2.79 s | suara hewan aneh di gurun, misterius |
 | `strong-wild-wind-in-a-storm` | 13.65 s (suasana/loop) | angin kencang badai, terhempas |
 | `technological-futuristic-hum` | 6.0 s (suasana/loop) | teknologi canggih, futuristik, mesin/AI |
 | `thunder-rumble-and-light-rain` | 25.75 s (suasana/loop) | gemuruh petir + gerimis, muram |
@@ -81,4 +95,7 @@
 | `vacuum-swoosh-transition` | 2.26 s | transisi tersedot/menghilang |
 | `vintage-telephone-ringtone` | 7.39 s | telepon jadul berdering, panggilan, zaman dulu |
 | `water-flowing-ambience-loop` | 51.0 s (suasana/loop) | air mengalir, sungai, tenang |
+| `wind-in-a-desolate-world` | 13.03 s (suasana/loop) | angin di dunia sepi/kosong, hampa |
+| `wind-in-futuristic-city` | 13.41 s (suasana/loop) | angin di kota masa depan, sci-fi sepi |
+| `wind-in-the-top-of-the-mountain` | 31.8 s (suasana/loop) | angin di puncak gunung, ketinggian |
 | `wolves-at-scary-forest` | 9.74 s (suasana/loop) | serigala di hutan seram, horor/ancaman |
