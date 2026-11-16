@@ -1164,6 +1164,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-cinematic-riser-helicopter-engine-2719.wav",
+  "nama": "cinematic-riser-helicopter-engine",
+  "durasi_s": 13.43,
+  "bunyi_mulai_s": 0.26,
+  "peak_db": -1.6,
+  "suasana_loop": false,
+  "cocok_untuk": "riser sinematik + mesin helikopter, menegangkan",
+  "normal": "normal/cinematic-riser-helicopter-engine.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-cinematic-room-tone-loop-3199.wav",
   "nama": "cinematic-room-tone-loop",
   "durasi_s": 12.38,
@@ -2196,6 +2208,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-fast-sweeping-transition-164.wav",
+  "nama": "fast-sweeping-transition",
+  "durasi_s": 1.92,
+  "bunyi_mulai_s": 0.13,
+  "peak_db": -0.9,
+  "suasana_loop": false,
+  "cocok_untuk": "transisi sapuan cepat",
+  "normal": "normal/fast-sweeping-transition.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-fast-whoosh-transition-1490.wav",
   "nama": "fast-whoosh-transition",
   "durasi_s": 1.76,
@@ -2408,6 +2432,30 @@
   "suasana_loop": true,
   "cocok_untuk": "lalat terjebak di jendela, mengganggu, bosan",
   "normal": "normal/fly-buzz-trapped-in-a-window.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-fly-wings-movement-2697.wav",
+  "nama": "fly-wings-movement",
+  "durasi_s": 5.65,
+  "bunyi_mulai_s": 0.13,
+  "peak_db": -17.9,
+  "suasana_loop": false,
+  "cocok_untuk": "kepakan sayap serangga",
+  "normal": "normal/fly-wings-movement.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-flying-fast-swoosh-1469.wav",
+  "nama": "flying-fast-swoosh",
+  "durasi_s": 1.63,
+  "bunyi_mulai_s": 0.29,
+  "peak_db": -2.5,
+  "suasana_loop": false,
+  "cocok_untuk": "terbang cepat whoosh",
+  "normal": "normal/flying-fast-swoosh.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2720,6 +2768,18 @@
   "suasana_loop": true,
   "cocok_untuk": "ruang komputer masa depan (latar)",
   "normal": "normal/futuristic-sci-fi-computer-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-futuristic-sweep-pass-by-169.wav",
+  "nama": "futuristic-sweep-pass-by",
+  "durasi_s": 3.08,
+  "bunyi_mulai_s": 0.19,
+  "peak_db": -6.2,
+  "suasana_loop": false,
+  "cocok_untuk": "sapuan futuristik melintas",
+  "normal": "normal/futuristic-sweep-pass-by.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3588,6 +3648,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-large-fly-buzzing-41.wav",
+  "nama": "large-fly-buzzing",
+  "durasi_s": 1.33,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -2.5,
+  "suasana_loop": false,
+  "cocok_untuk": "lalat besar berdengung, mengganggu",
+  "normal": "normal/large-fly-buzzing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-laughing-children-indoors-427.wav",
   "nama": "laughing-children-indoors",
   "durasi_s": 10.21,
@@ -4100,6 +4172,18 @@
   "suasana_loop": false,
   "cocok_untuk": "mesin/robot bergerak, mekanisme",
   "normal": "normal/mechanical-technology-movements.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-medium-size-bird-flutter-63.wav",
+  "nama": "medium-size-bird-flutter",
+  "durasi_s": 3.26,
+  "bunyi_mulai_s": 0.27,
+  "peak_db": -7.9,
+  "suasana_loop": false,
+  "cocok_untuk": "kepakan sayap burung sedang (falcon/merpati)",
+  "normal": "normal/medium-size-bird-flutter.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -5904,6 +5988,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-spaceship-engines-slow-down-2737.wav",
+  "nama": "spaceship-engines-slow-down",
+  "durasi_s": 6.18,
+  "bunyi_mulai_s": 0.46,
+  "peak_db": -1.6,
+  "suasana_loop": false,
+  "cocok_untuk": "mesin pesawat luar angkasa melambat",
+  "normal": "normal/spaceship-engines-slow-down.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-spaceship-landing-2735.wav",
+  "nama": "spaceship-landing",
+  "durasi_s": 6.88,
+  "bunyi_mulai_s": 0.14,
+  "peak_db": -4.9,
+  "suasana_loop": false,
+  "cocok_untuk": "pesawat luar angkasa mendarat",
+  "normal": "normal/spaceship-landing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-spaceship-large-drone-2742.wav",
   "nama": "spaceship-large-drone",
   "durasi_s": 2.15,
@@ -6584,6 +6692,18 @@
   "suasana_loop": true,
   "cocok_untuk": "stasiun kereta (latar), mirip stasiun KRL",
   "normal": "normal/train-station-ambience.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-transition-flying-swoosh-3161.wav",
+  "nama": "transition-flying-swoosh",
+  "durasi_s": 2.75,
+  "bunyi_mulai_s": 0.21,
+  "peak_db": -13.6,
+  "suasana_loop": false,
+  "cocok_untuk": "transisi terbang whoosh",
+  "normal": "normal/transition-flying-swoosh.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

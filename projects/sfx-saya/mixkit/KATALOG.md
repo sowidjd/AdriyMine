@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-600 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+610 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -103,6 +103,7 @@
 | `church-moderate-applause` | 9.04 s | tepuk tangan di aula (gereja) |
 | `cinematic-laser-gun-thunder` | 4.81 s (suasana/loop) | ledakan sci-fi, kekuatan besar, dramatis |
 | `cinematic-mystery-heartbeat-transition` | 67.27 s | transisi misteri + detak jantung, menuju reveal |
+| `cinematic-riser-helicopter-engine` | 13.43 s | riser sinematik + mesin helikopter, menegangkan |
 | `cinematic-room-tone-loop` | 12.38 s (suasana/loop) | suasana ruangan sunyi sinematik (latar) |
 | `cinematic-transition-brass-hum` | 20.88 s | transisi brass sinematik, megah |
 | `cinematic-transition-swoosh-heartbeat-trailer` | 8.11 s | transisi tegang ala trailer |
@@ -189,6 +190,7 @@
 | `fast-jet-engine-flying-over` | 16.27 s | jet melintas cepat, "ngeeeng" |
 | `fast-rocket-whoosh` | 4.75 s | roket, melesat sangat cepat |
 | `fast-small-sweep-transition` | 0.78 s | transisi kecil, kartu/teks berganti |
+| `fast-sweeping-transition` | 1.92 s | transisi sapuan cepat |
 | `fast-whoosh-transition` | 1.76 s | transisi cepat |
 | `female-astonished-gasp` | 1.09 s | kaget/takjub "hah!", reaksi fakta mengejutkan |
 | `filling-sink-with-water` | 10.83 s (suasana/loop) | mengisi wastafel dengan air, dapur |
@@ -207,6 +209,8 @@
 | `flirtatious-double-kiss` | 0.56 s | cium genit dua kali, "muach muach" |
 | `flock-of-wild-geese` | 5.22 s (suasana/loop) | kawanan burung, alam liar, migrasi |
 | `fly-buzz-trapped-in-a-window` | 8.16 s (suasana/loop) | lalat terjebak di jendela, mengganggu, bosan |
+| `fly-wings-movement` | 5.65 s | kepakan sayap serangga |
+| `flying-fast-swoosh` | 1.63 s | terbang cepat whoosh |
 | `flying-space-bike` | 4.34 s | sepeda terbang sci-fi |
 | `football-team-applause` | 4.68 s | tepuk tangan tim sepak bola, sportif |
 | `footsteps-in-a-muddy-puddle` | 3.75 s | langkah di genangan lumpur, cipratan |
@@ -233,6 +237,7 @@
 | `futuristic-metal-transition-sweep` | 0.95 s | transisi logam futuristik |
 | `futuristic-radar-ping` | 2.21 s | ping radar futuristik |
 | `futuristic-sci-fi-computer-ambience` | 23.5 s (suasana/loop) | ruang komputer masa depan (latar) |
+| `futuristic-sweep-pass-by` | 3.08 s | sapuan futuristik melintas |
 | `futuristic-transition-sweep` | 2.34 s | transisi futuristik |
 | `futuristic-zoom-move` | 2.17 s | gerak zoom futuristik |
 | `game-engine-hum` | 6.17 s (suasana/loop) | dengung mesin game (latar) |
@@ -305,6 +310,7 @@
 | `kids-playing-and-laughing` | 6.99 s | anak bermain & tertawa |
 | `landing-jet-flying-whoosh` | 11.46 s | jet mendarat + whoosh |
 | `large-drone-engine` | 70.51 s (suasana/loop) | mesin drone besar |
+| `large-fly-buzzing` | 1.33 s | lalat besar berdengung, mengganggu |
 | `laughing-children-indoors` | 10.21 s | anak-anak tertawa di dalam ruangan |
 | `light-rain-atmosphere` | 72.9 s (suasana/loop) | suasana gerimis (latar) |
 | `light-rain-loop` | 15.0 s (suasana/loop) | hujan ringan, santai, sendu |
@@ -348,6 +354,7 @@
 | `man-yawns-quietly` | 3.86 s | menguap pelan, diam-diam ngantuk |
 | `martial-arts-fast-punch` | 1.34 s | pukulan, "dihantam", fakta yang menampar |
 | `mechanical-technology-movements` | 2.5 s | mesin/robot bergerak, mekanisme |
+| `medium-size-bird-flutter` | 3.26 s | kepakan sayap burung sedang (falcon/merpati) |
 | `medium-size-group-applause-and-laugh` | 8.29 s | tawa + tepuk tangan kelompok sedang |
 | `melodic-airport-announcement-ding` | 3.51 s (suasana/loop) | bunyi pengumuman bandara "ding-dong" melodis, perhatian! |
 | `melodical-flute-music-notification` | 7.54 s | notifikasi lembut, alam, ceria |
@@ -498,6 +505,8 @@
 | `space-alien-invasion` | 13.32 s | invasi alien, sci-fi, ancaman dari luar angkasa |
 | `space-ship-hum` | 46.0 s (suasana/loop) | dengung pesawat luar angkasa (latar) |
 | `spaceship-drone-moves` | 2.15 s | drone/pesawat bergerak melintas |
+| `spaceship-engines-slow-down` | 6.18 s | mesin pesawat luar angkasa melambat |
+| `spaceship-landing` | 6.88 s | pesawat luar angkasa mendarat |
 | `spaceship-large-drone` | 2.15 s (suasana/loop) | pesawat besar berdengung (latar) |
 | `speeding-swoosh` | 4.03 s | swoosh ngebut, transisi cepat |
 | `sphinx-cat-purr` | 7.3 s | kucing mendengkur, nyaman, manja |
@@ -555,6 +564,7 @@
 | `tractors-working-on-the-field` | 44.26 s (suasana/loop) | traktor di sawah/ladang |
 | `trailer-screaming-people-annihilation` | 10.19 s | orang menjerit panik ala trailer bencana |
 | `train-station-ambience` | 17.01 s (suasana/loop) | stasiun kereta (latar), mirip stasiun KRL |
+| `transition-flying-swoosh` | 2.75 s | transisi terbang whoosh |
 | `transition-windy-swoosh` | 3.2 s | transisi berangin, angin kencang |
 | `transport-airplane-flying-rumble` | 63.52 s | pesawat angkut bergemuruh |
 | `truck-horn` | 0.96 s | klakson truk keras, kaget |
