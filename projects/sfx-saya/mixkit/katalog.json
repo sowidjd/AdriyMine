@@ -432,6 +432,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-birthday-crowd-party-cheer-531.wav",
+  "nama": "birthday-crowd-party-cheer",
+  "durasi_s": 5.38,
+  "bunyi_mulai_s": 0.25,
+  "peak_db": -4.0,
+  "suasana_loop": false,
+  "cocok_untuk": "sorakan pesta ulang tahun",
+  "normal": "normal/birthday-crowd-party-cheer.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-blizzard-cold-winds-1153.wav",
   "nama": "blizzard-cold-winds",
   "durasi_s": 130.55,
@@ -564,6 +576,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-cartoon-clown-fun-nose-sound-528.wav",
+  "nama": "cartoon-clown-fun-nose-sound",
+  "durasi_s": 0.59,
+  "bunyi_mulai_s": 0.15,
+  "peak_db": -1.5,
+  "suasana_loop": false,
+  "cocok_untuk": "hidung badut \"honk\", lucu/konyol",
+  "normal": "normal/cartoon-clown-fun-nose-sound.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-cartoon-falling-eco-407.wav",
   "nama": "cartoon-falling-eco",
   "durasi_s": 3.0,
@@ -632,6 +656,18 @@
   "suasana_loop": false,
   "cocok_untuk": "bunyi positif kartun, \"yeay\"",
   "normal": "normal/cartoon-positive-sound.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-cartoon-sad-party-horn-527.wav",
+  "nama": "cartoon-sad-party-horn",
+  "durasi_s": 1.55,
+  "bunyi_mulai_s": 0.16,
+  "peak_db": -3.1,
+  "suasana_loop": false,
+  "cocok_untuk": "terompet pesta sedih ala kartun, zonk",
+  "normal": "normal/cartoon-sad-party-horn.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1764,6 +1800,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-fireworks-whooshes-and-bangs-524.wav",
+  "nama": "fireworks-whooshes-and-bangs",
+  "durasi_s": 7.58,
+  "bunyi_mulai_s": 0.05,
+  "peak_db": -0.7,
+  "suasana_loop": false,
+  "cocok_untuk": "kembang api meluncur & meledak, perayaan besar",
+  "normal": "normal/fireworks-whooshes-and-bangs.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-fish-moving-in-water-2921.wav",
   "nama": "fish-moving-in-water",
   "durasi_s": 2.29,
@@ -2268,6 +2316,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-happy-birthday-crowd-cheer-974.wav",
+  "nama": "happy-birthday-crowd-cheer",
+  "durasi_s": 5.17,
+  "bunyi_mulai_s": 0.27,
+  "peak_db": -4.0,
+  "suasana_loop": false,
+  "cocok_untuk": "sorakan ulang tahun, perayaan",
+  "normal": "normal/happy-birthday-crowd-cheer.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-happy-child-laughing-2265.wav",
   "nama": "happy-child-laughing",
   "durasi_s": 2.4,
@@ -2276,6 +2336,30 @@
   "suasana_loop": false,
   "cocok_untuk": "tawa anak bahagia",
   "normal": "normal/happy-child-laughing.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-happy-crowd-cheer-975.wav",
+  "nama": "happy-crowd-cheer",
+  "durasi_s": 4.38,
+  "bunyi_mulai_s": 0.36,
+  "peak_db": -2.6,
+  "suasana_loop": false,
+  "cocok_untuk": "sorakan gembira, berhasil!",
+  "normal": "normal/happy-crowd-cheer.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-happy-party-horn-sound-530.wav",
+  "nama": "happy-party-horn-sound",
+  "durasi_s": 2.01,
+  "bunyi_mulai_s": 0.14,
+  "peak_db": -0.9,
+  "suasana_loop": false,
+  "cocok_untuk": "terompet pesta ceria, \"yeay!\"",
+  "normal": "normal/happy-party-horn-sound.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3984,6 +4068,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-sad-party-horn-sound-529.wav",
+  "nama": "sad-party-horn-sound",
+  "durasi_s": 1.5,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -8.2,
+  "suasana_loop": false,
+  "cocok_untuk": "terompet pesta lesu, gagal lucu/zonk",
+  "normal": "normal/sad-party-horn-sound.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-sand-in-the-desert-2494.wav",
   "nama": "sand-in-the-desert",
   "durasi_s": 5.53,
@@ -5084,6 +5180,18 @@
   "suasana_loop": false,
   "cocok_untuk": "transisi tersedot/menghilang",
   "normal": "normal/vacuum-swoosh-transition.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-very-crowded-pub-or-party-loop-360.wav",
+  "nama": "very-crowded-pub-or-party-loop",
+  "durasi_s": 36.0,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -2.1,
+  "suasana_loop": true,
+  "cocok_untuk": "pesta/kafe sangat ramai (latar)",
+  "normal": "normal/very-crowded-pub-or-party-loop.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },

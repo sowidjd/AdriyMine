@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-452 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+461 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -42,6 +42,7 @@
 | `birds-chirping-in-the-jungle` | 6.69 s (suasana/loop) | kicau burung di hutan tropis |
 | `birds-chirping-near-the-river` | 90.13 s (suasana/loop) | pagi di sungai, alam damai |
 | `birds-in-the-jungle` | 60.83 s (suasana/loop) | burung di hutan tropis |
+| `birthday-crowd-party-cheer` | 5.38 s | sorakan pesta ulang tahun |
 | `blizzard-cold-winds` | 130.55 s (suasana/loop) | badai salju, dingin ekstrem |
 | `body-impact-falling-into-the-sand` | 1.1 s | jatuh ke pasir, gedebuk |
 | `boy-says-volcano` | 1.62 s | anak bilang "volcano!" (bahasa Inggris), sains/gunung api |
@@ -53,12 +54,14 @@
 | `campfire-night-wind` | 30.75 s (suasana/loop) | api unggun + angin malam (latar) |
 | `cartoon-air-blow` | 1.66 s | tiupan udara ala kartun, lucu |
 | `cartoon-animal-crying-in-pain` | 2.83 s | hewan kartun kesakitan, lucu |
+| `cartoon-clown-fun-nose-sound` | 0.59 s | hidung badut "honk", lucu/konyol |
 | `cartoon-falling-eco` | 3.0 s | jatuh kartun bergema, lucu |
 | `cartoon-falling-whistle` | 2.69 s | siulan jatuh kartun "fiuuu~", jatuh lucu |
 | `cartoon-girl-saying-no-no-no` | 1.8 s | "no no no" kartun, menolak lucu |
 | `cartoon-insect-running-fast` | 1.64 s | serangga kartun lari cepat, lucu, kabur |
 | `cartoon-monkey-applause` | 4.28 s | monyet kartun bertepuk tangan, lucu |
 | `cartoon-positive-sound` | 2.94 s | bunyi positif kartun, "yeay" |
+| `cartoon-sad-party-horn` | 1.55 s | terompet pesta sedih ala kartun, zonk |
 | `cartoon-toy-whistle` | 1.21 s | lucu, konyol, gagal lucu |
 | `cartoon-vocal-yawn` | 1.75 s | menguap ala kartun, ngantuk lucu |
 | `cheering-crowd-loud-whistle` | 14.76 s | sorakan + siulan keras, kemenangan |
@@ -153,6 +156,7 @@
 | `fire-swoosh-burning` | 3.63 s | whoosh lalu terbakar |
 | `fire-woosh` | 2.14 s | whoosh api, transisi panas |
 | `fireball-spell` | 2.65 s | bola api, serangan, energi |
+| `fireworks-whooshes-and-bangs` | 7.58 s | kembang api meluncur & meledak, perayaan besar |
 | `fish-moving-in-water` | 2.29 s | ikan bergerak di air, kecipak |
 | `flirtatious-double-kiss` | 0.56 s | cium genit dua kali, "muach muach" |
 | `flock-of-wild-geese` | 5.22 s (suasana/loop) | kawanan burung, alam liar, migrasi |
@@ -195,7 +199,10 @@
 | `grass-step` | 0.58 s | satu langkah di rumput |
 | `gravel-stones-small-avalanche` | 1.4 s | longsor kerikil kecil |
 | `hairdryer-hum` | 27.83 s | pengering rambut menyala, pagi buru-buru |
+| `happy-birthday-crowd-cheer` | 5.17 s | sorakan ulang tahun, perayaan |
 | `happy-child-laughing` | 2.4 s | tawa anak bahagia |
+| `happy-crowd-cheer` | 4.38 s | sorakan gembira, berhasil! |
+| `happy-party-horn-sound` | 2.01 s | terompet pesta ceria, "yeay!" |
 | `hard-horror-hit-drum` | 4.14 s | pukulan drum horor keras, jump scare / fakta mengejutkan |
 | `hawk-call-squawk` | 2.41 s | teriakan elang/burung pemangsa |
 | `heavy-fall-into-mud` | 0.63 s | jatuh berat ke lumpur "plok" |
@@ -338,6 +345,7 @@
 | `rock-golem-walking` | 9.56 s | golem batu berjalan, berat |
 | `running-through-the-forest` | 14.64 s | berlari menembus hutan |
 | `sad-game-over-trombone` | 5.61 s | gagal lucu "wah wah wah", kecewa |
+| `sad-party-horn-sound` | 1.5 s | terompet pesta lesu, gagal lucu/zonk |
 | `sand-in-the-desert` | 5.53 s (suasana/loop) | pasir tertiup di gurun |
 | `satisfied-drink-voice` | 1.57 s | "aah" puas setelah minum, segar |
 | `scary-woods-at-night` | 50.16 s (suasana/loop) | hutan seram malam hari (latar) |
@@ -430,6 +438,7 @@
 | `underwater-transmitter-hum` | 13.62 s (suasana/loop) | dengung pemancar bawah air (latar) |
 | `user-interface-zoom-in` | 0.66 s | zoom in, fokus ke detail |
 | `vacuum-swoosh-transition` | 2.26 s | transisi tersedot/menghilang |
+| `very-crowded-pub-or-party-loop` | 36.0 s (suasana/loop) | pesta/kafe sangat ramai (latar) |
 | `vintage-telephone-ringtone` | 7.39 s | telepon jadul berdering, panggilan, zaman dulu |
 | `vocal-kids-playing-and-screaming` | 4.01 s (suasana/loop) | anak-anak main & teriak (latar) |
 | `vocal-male-yawn` | 3.41 s | cowok menguap |
