@@ -53,6 +53,27 @@ LINES = [
     (168.0, 171.0, "Kamu tim snooze atau tim bangun pagi? Tulis di komentar!"),
 ]
 
+# Arahan gaya per kalimat (VoxCPM2 "controllable cloning": deskripsi dalam kurung sebelum teks).
+# Tanpa prompt lanjutan, supaya nada tidak ikut datar seperti rekaman contoh.
+def style(i):
+    if i <= 1: return "dramatic, exasperated, storytelling tone with strong rise and fall"
+    if i == 2: return "playful, reassuring, warm smile in the voice"
+    if i <= 4: return "friendly, cheerful, like introducing a friend"
+    if i == 5: return "sleepy, slow, drowsy"
+    if i == 6: return "very sleepy, mumbling, lazy whisper"
+    if i <= 9: return "comedic, deadpan, a bit faster"
+    if i == 10: return "shocked, panicked, urgent and loud"
+    if i == 11: return "confused, whiny, rising question intonation"
+    if i <= 15: return "curious explainer, lively, expressive emphasis on key words"
+    if i == 16: return "sad, disappointed, slow"
+    if i == 17: return "mysterious, slowing down with suspense"
+    if i == 18: return "surprised and happy, bright"
+    if i in (19, 24, 29, 38): return "energetic announcer, excited, punchy"
+    if i in (31, 32, 33, 34, 35): return "counting down, intense, getting louder"
+    if i == 36: return "shouting with excitement, very energetic"
+    if i <= 44: return "upbeat, confident, conversational, expressive"
+    return "warm, cheerful, inviting, friendly smile in the voice"
+
 if sys.argv[1] == 'gen':
     import soundfile as sf, torch
     torch.set_num_threads(os.cpu_count())
@@ -61,10 +82,12 @@ if sys.argv[1] == 'gen':
     prompt = os.path.join(OUT, '_prompt.wav')
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', ref, '-t', '8.0', prompt], check=True)
     model = VoxCPM.from_pretrained("openbmb/VoxCPM2", load_denoiser=False)
+    only = [int(x) for x in sys.argv[3].split(',')] if len(sys.argv) > 3 else None
     for i, (_, _, s) in enumerate(LINES):
+        if only is not None and i not in only: continue
         f = os.path.join(OUT, f'{i:02d}.wav')
         if os.path.exists(f): continue
-        wav = model.generate(text=s, reference_wav_path=ref, prompt_wav_path=prompt, prompt_text=PROMPT_TEXT, cfg_value=2.0, inference_timesteps=10)
+        wav = model.generate(text=f'({style(i)}){s}', reference_wav_path=ref, cfg_value=2.0, inference_timesteps=10)
         sf.write(f, wav, model.tts_model.sample_rate); print(f'{i:02d} {len(wav) / model.tts_model.sample_rate:.1f}s {s}', flush=True)
 else:
     import numpy as np, soundfile as sf
