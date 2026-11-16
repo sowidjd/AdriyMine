@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-328 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+338 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -46,6 +46,7 @@
 | `campfire-night-wind` | 30.75 s (suasana/loop) | api unggun + angin malam (latar) |
 | `cartoon-air-blow` | 1.66 s | tiupan udara ala kartun, lucu |
 | `cartoon-animal-crying-in-pain` | 2.83 s | hewan kartun kesakitan, lucu |
+| `cartoon-falling-whistle` | 2.69 s | siulan jatuh kartun "fiuuu~", jatuh lucu |
 | `cartoon-girl-saying-no-no-no` | 1.8 s | "no no no" kartun, menolak lucu |
 | `cartoon-monkey-applause` | 4.28 s | monyet kartun bertepuk tangan, lucu |
 | `cartoon-positive-sound` | 2.94 s | bunyi positif kartun, "yeay" |
@@ -100,12 +101,16 @@
 | `ending-show-audience-clapping` | 24.48 s | tepuk tangan penutup acara |
 | `epic-orchestra-transition` | 7.12 s | transisi megah, pengungkapan besar |
 | `european-forest-ambience` | 161.3 s (suasana/loop) | hutan subtropis (latar) |
+| `fairy-glitter` | 2.3 s | kilau peri, keajaiban, sihir lembut |
+| `falling-hit-on-gravel` | 1.23 s | jatuh menghantam kerikil |
+| `falling-male-scream` | 3.83 s | cowok jatuh sambil berteriak "aaaa" |
 | `farm-pig-drinking-water` | 9.84 s (suasana/loop) | babi minum air (pertimbangkan penonton) |
 | `fast-ignition-fire` | 4.93 s | api menyala cepat, "wush!", semangat membara |
 | `fast-rocket-whoosh` | 4.75 s | roket, melesat sangat cepat |
 | `fast-small-sweep-transition` | 0.78 s | transisi kecil, kartu/teks berganti |
 | `fast-whoosh-transition` | 1.76 s | transisi cepat |
 | `female-astonished-gasp` | 1.09 s | kaget/takjub "hah!", reaksi fakta mengejutkan |
+| `filling-sink-with-water` | 10.83 s (suasana/loop) | mengisi wastafel dengan air, dapur |
 | `fire-breathing-dragon` | 4.33 s | naga menyemburkan api, dahsyat |
 | `fire-explosion` | 6.01 s | ledakan api |
 | `fire-match-lighting` | 6.14 s | korek api dinyalakan, ide kecil, awal sesuatu |
@@ -133,6 +138,7 @@
 | `ghost-fire-swoosh` | 2.85 s | api hantu, transisi misterius |
 | `girls-audience-applause` | 6.55 s | penonton cewek bertepuk tangan |
 | `girls-crowd-cheer-scream-and-applause` | 6.08 s | cewek-cewek bersorak & menjerit, heboh |
+| `glass-break-with-hammer-thud` | 1.44 s | kaca pecah dipukul palu, hancur |
 | `happy-child-laughing` | 2.4 s | tawa anak bahagia |
 | `hawk-call-squawk` | 2.41 s | teriakan elang/burung pemangsa |
 | `heavy-rain` | 7.5 s (suasana/loop) | hujan deras |
@@ -203,6 +209,7 @@
 | `mystwrious-bass-pulse` | 16.56 s | misterius, tegang, sesuatu akan terungkap |
 | `nasty-criature-roar` | 1.79 s | raungan makhluk seram |
 | `nature-ambience-with-lightning-strike-and-thunder` | 28.75 s | alam + petir menyambar, cuaca dramatis |
+| `newspaper-falling-to-the-floor` | 0.61 s | koran/kertas jatuh ke lantai |
 | `night-crickets-near-the-swamp` | 33.74 s (suasana/loop) | jangkrik malam dekat rawa (latar) |
 | `night-forest-with-insects` | 84.0 s (suasana/loop) | hutan malam, serangga, misterius tenang |
 | `night-vision-starting` | 1.15 s | kacamata malam/teknologi menyala, mulai memindai |
@@ -272,6 +279,7 @@
 | `small-group-moderate-applause` | 6.62 s | tepuk tangan kelompok kecil, sedang |
 | `small-meteor-falling` | 5.04 s | meteor jatuh, sesuatu meluncur dari langit |
 | `small-waves-harbor-rocks` | 77.86 s (suasana/loop) | ombak kecil di batu pelabuhan |
+| `small-wood-plank-pile-drop` | 1.72 s | tumpukan papan kayu jatuh |
 | `small-young-crowd-clapping` | 16.5 s | anak muda bertepuk tangan |
 | `soft-woosh-fire` | 4.61 s | whoosh api lembut |
 | `space-alien-invasion` | 13.32 s | invasi alien, sci-fi, ancaman dari luar angkasa |
@@ -279,6 +287,7 @@
 | `sphinx-cat-purr-and-quiet-growl` | 2.78 s | kucing mendengkur lalu menggeram pelan, "jangan ganggu" |
 | `stadium-crowd-light-applause` | 11.09 s | tepuk tangan stadion, pengakuan besar |
 | `stand-up-club-audience-applause` | 20.16 s | tepuk tangan klub stand-up comedy |
+| `stones-and-rocks-falling` | 4.25 s | batu-batu berjatuhan, longsor |
 | `strange-animal-of-the-desert` | 2.79 s | suara hewan aneh di gurun, misterius |
 | `strong-breathing-of-a-person` | 5.11 s | napas berat, capek, panik |
 | `strong-wild-wind-in-a-storm` | 13.65 s (suasana/loop) | angin kencang badai, terhempas |
@@ -297,6 +306,7 @@
 | `terror-night-ambiance` | 118.09 s (suasana/loop) | malam mencekam (latar) |
 | `terror-transition` | 12.48 s | transisi horor/mengagetkan |
 | `theatre-audience-light-applause` | 8.52 s | tepuk tangan ringan di teater |
+| `thin-metal-plate-drop` | 1.29 s | pelat logam jatuh "klontang" |
 | `thunder-rumble-and-light-rain` | 25.75 s (suasana/loop) | gemuruh petir + gerimis, muram |
 | `thunder-strike-in-storm` | 7.5 s | petir menyambar, kejutan besar, dramatis |
 | `thunderstorm-and-clear-rain` | 44.22 s (suasana/loop) | badai lalu hujan reda |
