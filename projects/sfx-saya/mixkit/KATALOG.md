@@ -33,7 +33,7 @@
 | `fast-small-sweep-transition` | 0.78 s | transisi kecil, kartu/teks berganti |
 | `fast-whoosh-transition` | 1.76 s | transisi cepat |
 | `female-astonished-gasp` | 1.09 s | kaget/takjub "hah!", reaksi fakta mengejutkan |
-| `fish-moving-in-water` | 2.29 s (suasana/loop) | ikan bergerak di air, kecipak |
+| `fish-moving-in-water` | 2.29 s | ikan bergerak di air, kecipak |
 | `flock-of-wild-geese` | 5.22 s (suasana/loop) | kawanan burung, alam liar, migrasi |
 | `footsteps-on-tall-grass` | 23.1 s | berjalan di rumput, alam, mengendap |
 | `game-show-suspense-waiting` | 41.81 s (suasana/loop) | menunggu jawaban, kuis, tegang lucu |
@@ -66,12 +66,12 @@
 | `strong-wild-wind-in-a-storm` | 13.65 s (suasana/loop) | angin kencang badai, terhempas |
 | `technological-futuristic-hum` | 6.0 s (suasana/loop) | teknologi canggih, futuristik, mesin/AI |
 | `thunder-rumble-and-light-rain` | 25.75 s (suasana/loop) | gemuruh petir + gerimis, muram |
-| `thunder-strike-in-storm` | 7.5 s (suasana/loop) | petir menyambar, kejutan besar, dramatis |
+| `thunder-strike-in-storm` | 7.5 s | petir menyambar, kejutan besar, dramatis |
 | `thunderstorm-and-clear-rain` | 44.22 s (suasana/loop) | badai lalu hujan reda |
 | `thunderstorm-and-rain-loop` | 52.75 s (suasana/loop) | badai & hujan (latar) |
 | `thunderstorm-in-the-forest` | 32.0 s (suasana/loop) | badai petir di hutan |
 | `tick-tock-clock-timer` | 16.85 s | waktu berjalan, menunggu, deadline |
-| `transition-windy-swoosh` | 3.2 s (suasana/loop) | transisi berangin, angin kencang |
+| `transition-windy-swoosh` | 3.2 s | transisi berangin, angin kencang |
 | `trumpet-fanfare` | 8.0 s | kemenangan, pengumuman resmi, "ta-da!" |
 | `vacuum-swoosh-transition` | 2.26 s | transisi tersedot/menghilang |
 | `vintage-telephone-ringtone` | 7.39 s | telepon jadul berdering, panggilan, zaman dulu |

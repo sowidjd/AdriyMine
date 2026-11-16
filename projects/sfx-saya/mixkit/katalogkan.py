@@ -34,7 +34,7 @@ out = []
 for f in sorted(os.listdir('audio')):
     base = re.sub(r'^mixkit-|-\d+\.wav$', '', f)
     y, sr = librosa.load('audio/' + f, sr=None, mono=True); peak = float(np.abs(y).max())
-    nz = np.where(np.abs(y) > peak * .05)[0]; lead = nz[0] / sr if len(nz) else 0; amb = any(k in base for k in AMB)
+    nz = np.where(np.abs(y) > peak * .05)[0]; lead = nz[0] / sr if len(nz) else 0; amb = any(k in base for k in AMB) and not any(k in base for k in ('transition', 'strike', 'swoosh', 'fish'))
     z, _ = librosa.load('audio/' + f, sr=48000, mono=False); z = np.atleast_2d(z)
     if lead > .3: z = z[:, max(0, int((lead - .02) * 48000)):]
     z = z / (np.abs(z).max() + 1e-9) * 10 ** ((-12 if amb else -3) / 20)
