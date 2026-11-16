@@ -68,7 +68,7 @@ Tema disusun dari koleksi efek suara pemilik (`projects/sfx-saya/`, §8). Urutan
 - Boleh **melompat 1 nomor** hanya bila efek suara tema itu masih ⭐ dan belum ditambah, atau pemilik meminta tema lain. Tema yang dilompati dikerjakan berikutnya.
 - Dua video berturut-turut **tidak boleh** sama-sama "Umum" atau sama-sama "Sehari-hari".
 - Gaya animasi tetap dipilih lewat 6 langkah §9; tabel di atas hanya pilihan awal. Gaya tidak boleh sama dengan video sebelumnya.
-- **Video berikutnya: urutan 1 (📱 Kehidupan digital).** Video #2 (burung) = tema 6, tetapi daftar ini baru dibuat, jadi putaran pertama dimulai dari nomor 1. Saat sampai nomor 6, pilih hewan selain falcon.
+- **Video berikutnya: urutan 4 (🫀 Tubuh manusia).** Saat sampai nomor 6, pilih hewan selain falcon.
 
 ## 2. Judul tidak boleh umum, harus menarik perhatian
 
@@ -322,3 +322,6 @@ Setiap skrip **wajib** punya CTA dan **wajib** ditutup dengan kalimat khas **"Ex
 |---|---|---|---|---|---|---|
 | 1 | Alarm bunyi 7 kali, tetep telat | 9. ⏰ Waktu & produktivitas | ⏰ Waktu & produktivitas | Flat cartoon + line boil | Lucu → semangat | Malam → pagi |
 | 2 | Burung seberat sebungkus beras ini lebih cepat dari Whoosh | 6. 🐾 Hewan & alam liar | 🌍 Alam & hewan | Pensil warna (colored-pencil science) | Kagum → tegang → takjub | Subuh → siang → keemasan |
+| 3 | Ngetik 3 paragraf, dihapus, kirim "wkwk" | 1. 📱 Kehidupan digital | 💬 Chat & sosial | Manga Panels | Malu-lucu → lega | Malam (cahaya HP) → panggung gelap → siang → keemasan |
+| 4 | Jantung paus biru cuma berdetak 2 kali semenit | 2. 🌊 Dunia laut | 🌍 Alam & hewan | Cat air (watercolor) | Takjub → tenang | Laut dalam gelap → permukaan terang → gelap → terang |
+| 5 | Lagu nyangkut dari bangun tidur, padahal kamu nggak suka | 3. 🧠 Kebiasaan sehari-hari | 🧠 Otak & kebiasaan | Sketchbook (pensil + 1 aksen oranye) | Kesal-lucu → lega | Pagi muram → terang → hangat |
