@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-363 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+378 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -10,6 +10,7 @@
 | `ah-woman-exclamation-of-pain` | 1.23 s | "ah!" kesakitan |
 | `air-woosh` | 2.32 s | gerak udara ringan, teks masuk |
 | `air-zoom-vacuum` | 1.27 s | tersedot, zoom masuk, menghilang |
+| `airy-metal-board-hit` | 1.74 s | papan logam dipukul, bergaung |
 | `alarm-tone` | 1.08 s | nada alarm, peringatan |
 | `alien-technology-button` | 0.87 s | tombol teknologi alien, aneh |
 | `ambient-sound-in-the-desert` | 7.69 s (suasana/loop) | suasana gurun |
@@ -77,10 +78,12 @@
 | `conference-audience-clapping-strongly` | 8.6 s | tepuk tangan kuat di konferensi, pengakuan |
 | `cool-impact-movie-trailer` | 6.0 s | hantaman keren ala trailer, judul muncul |
 | `cow-animal-breath` | 3.56 s | napas sapi, dengusan hewan besar |
+| `cow-defecating` | 1.9 s | sapi buang kotoran (humor kasar, hati-hati) |
 | `creature-cry-of-hurt` | 1.43 s | makhluk menjerit terluka |
 | `creature-sad-crying` | 31.53 s | makhluk menangis sedih |
 | `creature-sobbing-in-fear` | 3.35 s | makhluk terisak ketakutan |
 | `creepy-cavern-ambience-loop` | 47.8 s (suasana/loop) | gua seram, gelap, misteri |
+| `creepy-clang` | 3.5 s | dentang seram, horor |
 | `creepy-demon-heavy-breathing` | 5.16 s | napas setan berat, horor |
 | `crickets-and-insects-in-the-wild-ambience` | 26.01 s (suasana/loop) | alam malam, sepi, canggung |
 | `crickets-at-night-in-nature` | 90.13 s (suasana/loop) | jangkrik malam di alam (latar) |
@@ -90,11 +93,13 @@
 | `deep-child-breathing-and-exhaling` | 2.41 s | anak menarik napas dalam, tenang |
 | `desert-ambience` | 60.15 s (suasana/loop) | suasana gurun (latar) |
 | `digital-cartoon-falling` | 1.41 s | jatuh kartun digital |
+| `dirt-debris-falling` | 5.5 s | tanah & puing berjatuhan |
 | `distant-sea-humming-ambiance` | 44.86 s (suasana/loop) | laut di kejauhan, tenang, luas |
 | `dog-barking-twice` | 1.62 s | anjing menggonggong, kejutan lucu |
 | `donkey-crying` | 12.27 s | keledai meringkik, lucu/konyol |
 | `donkey-crying-screech` | 14.81 s | keledai menjerit nyaring, kaget lucu |
 | `dry-leaves-rustling` | 1.3 s (suasana/loop) | daun kering bergemerisik, langkah di hutan, musim kemarau |
+| `dusty-debris-short-fall` | 2.12 s | puing berdebu jatuh singkat |
 | `eating-crispy-cookies` | 16.52 s | makan biskuit renyah |
 | `eating-crunchy-food-with-mouth-open` | 12.5 s | mengunyah renyah mulut terbuka, kriuk keras |
 | `educational-rattle-toy-shaker` | 2.44 s | mainan kerincingan bayi |
@@ -107,6 +112,7 @@
 | `fairy-glitter` | 2.3 s | kilau peri, keajaiban, sihir lembut |
 | `falling-bricks` | 2.96 s | batu bata berjatuhan, runtuh |
 | `falling-empty-can` | 1.4 s | kaleng kosong jatuh "klontang", lucu |
+| `falling-empty-metal-can` | 1.09 s | kaleng logam kosong jatuh |
 | `falling-hit-on-gravel` | 1.23 s | jatuh menghantam kerikil |
 | `falling-into-mud-surface` | 1.3 s | jatuh ke permukaan lumpur |
 | `falling-male-scream` | 3.83 s | cowok jatuh sambil berteriak "aaaa" |
@@ -145,6 +151,7 @@
 | `futuristic-transition-sweep` | 2.34 s | transisi futuristik |
 | `futuristic-zoom-move` | 2.17 s | gerak zoom futuristik |
 | `game-show-suspense-waiting` | 41.81 s (suasana/loop) | menunggu jawaban, kuis, tegang lucu |
+| `garbage-pile-falling` | 10.7 s | tumpukan sampah jatuh, berantakan |
 | `ghost-fire-swoosh` | 2.85 s | api hantu, transisi misterius |
 | `girls-audience-applause` | 6.55 s | penonton cewek bertepuk tangan |
 | `girls-crowd-cheer-scream-and-applause` | 6.08 s | cewek-cewek bersorak & menjerit, heboh |
@@ -191,8 +198,10 @@
 | `little-boy-saying-hiya` | 1.15 s | anak kecil bilang "hiya!", semangat lucu |
 | `little-cute-kiss` | 1.08 s | cium kecil, imut, sayang |
 | `little-pug-dog-heavy-breathing` | 5.71 s | anjing pug ngos-ngosan, lucu, capek |
+| `long-giant-water-pour-into-vat` | 27.5 s (suasana/loop) | air tumpah banyak ke bak besar |
 | `long-kiss` | 1.2 s | cium panjang |
 | `long-loving-kiss` | 1.05 s | cium panjang penuh sayang |
+| `lose-life-falling` | 3.52 s | kehilangan nyawa ala game, gagal |
 | `lost-kid-sobbing` | 1.82 s | anak menangis tersedu, sedih/haru |
 | `loud-creature-breathing` | 1.9 s | napas makhluk besar, seram |
 | `magic-marimba` | 3.34 s | marimba ajaib, keajaiban kecil, ide muncul |
@@ -214,6 +223,7 @@
 | `mechanical-technology-movements` | 2.5 s | mesin/robot bergerak, mekanisme |
 | `medium-size-group-applause-and-laugh` | 8.29 s | tawa + tepuk tangan kelompok sedang |
 | `melodical-flute-music-notification` | 7.54 s | notifikasi lembut, alam, ceria |
+| `messy-metal-objects-falling` | 5.45 s | barang logam berantakan jatuh, ricuh |
 | `metal-tool-falling` | 0.75 s | perkakas logam jatuh |
 | `metal-tools-box-browsing` | 1.37 s | mengaduk kotak perkakas, mencari sesuatu |
 | `modern-technology-select` | 0.5 s | pilih/tap modern |
@@ -228,6 +238,7 @@
 | `night-crickets-near-the-swamp` | 33.74 s (suasana/loop) | jangkrik malam dekat rawa (latar) |
 | `night-forest-with-insects` | 84.0 s (suasana/loop) | hutan malam, serangga, misterius tenang |
 | `night-vision-starting` | 1.15 s | kacamata malam/teknologi menyala, mulai memindai |
+| `noisy-metal-falling` | 1.23 s | logam berisik berjatuhan |
 | `old-subway-train-arrives` | 18.77 s (suasana/loop) | kereta tua datang, stasiun |
 | `one-clap` | 0.2 s | satu tepukan, "oke!" / ide |
 | `one-man-clapping` | 3.0 s | satu orang bertepuk tangan, sarkas/canggung |
@@ -243,11 +254,14 @@
 | `person-yawns-deeply` | 3.03 s | menguap panjang & dalam, ngantuk berat |
 | `persons-mouth-blowing` | 1.13 s | meniup dengan mulut, "fiuh" |
 | `persons-nose-blowing` | 1.28 s | buang ingus, flu, lucu |
+| `piano-falling-effect` | 2.19 s | efek piano jatuh, kacau/gagal dramatis |
 | `pig-herd-grunt-and-cry` | 43.67 s | kawanan babi mendengus & menjerit, ricuh |
 | `plastic-cd-box-closed-hard` | 0.88 s | kotak plastik ditutup keras, "klak" |
 | `plastic-cd-cover-close-hard` | 0.67 s | tutup plastik dibanting, keputusan final |
+| `plastic-rubbish-objects-falling` | 2.33 s | sampah plastik berjatuhan |
 | `playground-with-kids-playing` | 20.83 s (suasana/loop) | taman bermain anak (latar) |
 | `pouring-water-to-mug` | 4.6 s (suasana/loop) | menuang air ke gelas/mug, ngopi |
+| `quick-bomb-drop-explosion` | 10.16 s | bom jatuh lalu meledak, dramatis |
 | `quiet-forest-ambience` | 152.08 s (suasana/loop) | hutan sunyi (latar) |
 | `rain-and-thunder-storm` | 29.0 s (suasana/loop) | badai, hujan petir, suasana muram/dramatis |
 | `rain-in-the-jungle-and-birds` | 30.17 s (suasana/loop) | hujan hutan + burung |
@@ -272,6 +286,7 @@
 | `scary-woods-at-night` | 50.16 s (suasana/loop) | hutan seram malam hari (latar) |
 | `sci-fi-battle-laser-shots` | 2.61 s | tembakan laser, pertempuran sci-fi |
 | `sci-fi-computer-technology` | 30.0 s | komputer sci-fi bekerja |
+| `sci-fi-fall` | 0.68 s | jatuh ala sci-fi |
 | `sci-fi-loading-operative-system` | 2.63 s | sistem sedang loading, memproses |
 | `sci-fi-metal-robot-collapse` | 3.61 s | robot logam ambruk |
 | `sea-waves-with-birds-loop` | 38.04 s (suasana/loop) | ombak + burung laut (latar) |

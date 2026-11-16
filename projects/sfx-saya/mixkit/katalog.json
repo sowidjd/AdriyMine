@@ -48,6 +48,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-airy-metal-board-hit-3177.wav",
+  "nama": "airy-metal-board-hit",
+  "durasi_s": 1.74,
+  "bunyi_mulai_s": 0.02,
+  "peak_db": -3.5,
+  "suasana_loop": false,
+  "cocok_untuk": "papan logam dipukul, bergaung",
+  "normal": "normal/airy-metal-board-hit.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-alarm-tone-996.wav",
   "nama": "alarm-tone",
   "durasi_s": 1.08,
@@ -852,6 +864,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-cow-defecating-1745.wav",
+  "nama": "cow-defecating",
+  "durasi_s": 1.9,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -7.0,
+  "suasana_loop": false,
+  "cocok_untuk": "sapi buang kotoran (humor kasar, hati-hati)",
+  "normal": "normal/cow-defecating.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-creature-cry-of-hurt-2208.wav",
   "nama": "creature-cry-of-hurt",
   "durasi_s": 1.43,
@@ -896,6 +920,18 @@
   "suasana_loop": true,
   "cocok_untuk": "gua seram, gelap, misteri",
   "normal": "normal/creepy-cavern-ambience-loop.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-creepy-clang-3134.wav",
+  "nama": "creepy-clang",
+  "durasi_s": 3.5,
+  "bunyi_mulai_s": 0.39,
+  "peak_db": -1.6,
+  "suasana_loop": false,
+  "cocok_untuk": "dentang seram, horor",
+  "normal": "normal/creepy-clang.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1008,6 +1044,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-dirt-debris-falling-402.wav",
+  "nama": "dirt-debris-falling",
+  "durasi_s": 5.5,
+  "bunyi_mulai_s": 0.23,
+  "peak_db": -1.5,
+  "suasana_loop": false,
+  "cocok_untuk": "tanah & puing berjatuhan",
+  "normal": "normal/dirt-debris-falling.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-distant-sea-humming-ambiance-1191.wav",
   "nama": "distant-sea-humming-ambiance",
   "durasi_s": 44.86,
@@ -1064,6 +1112,18 @@
   "suasana_loop": true,
   "cocok_untuk": "daun kering bergemerisik, langkah di hutan, musim kemarau",
   "normal": "normal/dry-leaves-rustling.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-dusty-debris-short-fall-404.wav",
+  "nama": "dusty-debris-short-fall",
+  "durasi_s": 2.12,
+  "bunyi_mulai_s": 0.06,
+  "peak_db": -2.0,
+  "suasana_loop": false,
+  "cocok_untuk": "puing berdebu jatuh singkat",
+  "normal": "normal/dusty-debris-short-fall.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1208,6 +1268,18 @@
   "suasana_loop": false,
   "cocok_untuk": "kaleng kosong jatuh \"klontang\", lucu",
   "normal": "normal/falling-empty-can.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-falling-empty-metal-can-399.wav",
+  "nama": "falling-empty-metal-can",
+  "durasi_s": 1.09,
+  "bunyi_mulai_s": 0.02,
+  "peak_db": -0.7,
+  "suasana_loop": false,
+  "cocok_untuk": "kaleng logam kosong jatuh",
+  "normal": "normal/falling-empty-metal-can.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1664,6 +1736,18 @@
   "suasana_loop": true,
   "cocok_untuk": "menunggu jawaban, kuis, tegang lucu",
   "normal": "normal/game-show-suspense-waiting.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-garbage-pile-falling-398.wav",
+  "nama": "garbage-pile-falling",
+  "durasi_s": 10.7,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -0.7,
+  "suasana_loop": false,
+  "cocok_untuk": "tumpukan sampah jatuh, berantakan",
+  "normal": "normal/garbage-pile-falling.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2220,6 +2304,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-long-giant-water-pour-into-vat-3140.wav",
+  "nama": "long-giant-water-pour-into-vat",
+  "durasi_s": 27.5,
+  "bunyi_mulai_s": 0.44,
+  "peak_db": -0.0,
+  "suasana_loop": true,
+  "cocok_untuk": "air tumpah banyak ke bak besar",
+  "normal": "normal/long-giant-water-pour-into-vat.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-long-kiss-2190.wav",
   "nama": "long-kiss",
   "durasi_s": 1.2,
@@ -2240,6 +2336,18 @@
   "suasana_loop": false,
   "cocok_untuk": "cium panjang penuh sayang",
   "normal": "normal/long-loving-kiss.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-lose-life-falling-2029.wav",
+  "nama": "lose-life-falling",
+  "durasi_s": 3.52,
+  "bunyi_mulai_s": 0.02,
+  "peak_db": -2.8,
+  "suasana_loop": false,
+  "cocok_untuk": "kehilangan nyawa ala game, gagal",
+  "normal": "normal/lose-life-falling.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2496,6 +2604,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-messy-metal-objects-falling-396.wav",
+  "nama": "messy-metal-objects-falling",
+  "durasi_s": 5.45,
+  "bunyi_mulai_s": 0.23,
+  "peak_db": -0.1,
+  "suasana_loop": false,
+  "cocok_untuk": "barang logam berantakan jatuh, ricuh",
+  "normal": "normal/messy-metal-objects-falling.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-metal-tool-falling-820.wav",
   "nama": "metal-tool-falling",
   "durasi_s": 0.75,
@@ -2660,6 +2780,18 @@
   "suasana_loop": false,
   "cocok_untuk": "kacamata malam/teknologi menyala, mulai memindai",
   "normal": "normal/night-vision-starting.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-noisy-metal-falling-393.wav",
+  "nama": "noisy-metal-falling",
+  "durasi_s": 1.23,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -2.3,
+  "suasana_loop": false,
+  "cocok_untuk": "logam berisik berjatuhan",
+  "normal": "normal/noisy-metal-falling.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2844,6 +2976,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-piano-falling-effect-408.wav",
+  "nama": "piano-falling-effect",
+  "durasi_s": 2.19,
+  "bunyi_mulai_s": 0.0,
+  "peak_db": -2.0,
+  "suasana_loop": false,
+  "cocok_untuk": "efek piano jatuh, kacau/gagal dramatis",
+  "normal": "normal/piano-falling-effect.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-pig-herd-grunt-and-cry-1765.wav",
   "nama": "pig-herd-grunt-and-cry",
   "durasi_s": 43.67,
@@ -2880,6 +3024,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-plastic-rubbish-objects-falling-397.wav",
+  "nama": "plastic-rubbish-objects-falling",
+  "durasi_s": 2.33,
+  "bunyi_mulai_s": 0.03,
+  "peak_db": 0.0,
+  "suasana_loop": false,
+  "cocok_untuk": "sampah plastik berjatuhan",
+  "normal": "normal/plastic-rubbish-objects-falling.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-playground-with-kids-playing-2266.wav",
   "nama": "playground-with-kids-playing",
   "durasi_s": 20.83,
@@ -2900,6 +3056,18 @@
   "suasana_loop": true,
   "cocok_untuk": "menuang air ke gelas/mug, ngopi",
   "normal": "normal/pouring-water-to-mug.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-quick-bomb-drop-explosion-1697.wav",
+  "nama": "quick-bomb-drop-explosion",
+  "durasi_s": 10.16,
+  "bunyi_mulai_s": 0.14,
+  "peak_db": -1.0,
+  "suasana_loop": false,
+  "cocok_untuk": "bom jatuh lalu meledak, dramatis",
+  "normal": "normal/quick-bomb-drop-explosion.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3188,6 +3356,18 @@
   "suasana_loop": false,
   "cocok_untuk": "komputer sci-fi bekerja",
   "normal": "normal/sci-fi-computer-technology.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-sci-fi-fall-749.wav",
+  "nama": "sci-fi-fall",
+  "durasi_s": 0.68,
+  "bunyi_mulai_s": 0.01,
+  "peak_db": -0.1,
+  "suasana_loop": false,
+  "cocok_untuk": "jatuh ala sci-fi",
+  "normal": "normal/sci-fi-fall.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
