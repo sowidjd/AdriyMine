@@ -4044,6 +4044,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-short-buzzer-sound-2963.wav",
+  "nama": "short-buzzer-sound",
+  "durasi_s": 1.06,
+  "bunyi_mulai_s": 0.03,
+  "peak_db": -1.8,
+  "suasana_loop": false,
+  "cocok_untuk": "buzzer singkat \"teeet\", salah/waktu habis",
+  "normal": "normal/short-buzzer-sound.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-short-fire-whoosh-1345.wav",
   "nama": "short-fire-whoosh",
   "durasi_s": 3.19,

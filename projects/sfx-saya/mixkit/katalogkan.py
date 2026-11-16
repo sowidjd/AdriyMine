@@ -14,6 +14,7 @@ SAAT = {'cinematic-whoosh-fast-transition': 'transisi cepat antar adegan', 'cine
  'keyboard-typing': 'mengetik, chat, kerja di laptop', 'intro-transition': 'pembuka bagian/judul baru', 'footsteps-on-tall-grass': 'berjalan di rumput, alam, mengendap', 'flock-of-wild-geese': 'kawanan burung, alam liar, migrasi',
  'female-astonished-gasp': 'kaget/takjub "hah!", reaksi fakta mengejutkan', 'fast-whoosh-transition': 'transisi cepat', 'epic-orchestra-transition': 'transisi megah, pengungkapan besar',
  'crowd-laugh': 'penonton tertawa, momen lucu',
+ 'short-buzzer-sound': 'buzzer singkat "teeet", salah/waktu habis',
  'industrial-hum-loop': 'dengung industri (latar)', 'tractors-working-on-the-field': 'traktor di sawah/ladang', 'space-ship-hum': 'dengung pesawat luar angkasa (latar)',
  'explainer-video-foley-projector-film-antique-bell-and-howell-start': 'proyektor film jadul menyala, kilas sejarah, "zaman dulu..."', 'electricity-intense-hum': 'dengung listrik kuat',
  'large-drone-engine': 'mesin drone besar', 'electricity-reactor-buzz': 'dengung reaktor listrik', 'electricity-buzz': 'dengung/korslet listrik',
