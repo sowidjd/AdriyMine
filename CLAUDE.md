@@ -3,7 +3,7 @@
 Proyek video konten TikTok edukasi (tokoh Clawd, narasi suara pemilik akun, bahasa Indonesia santai).
 
 - **Sebelum membuat konten apa pun, baca dan ikuti `aturan.md`.** Setelah video jadi, cek dengan checklist di sana dan tambahkan baris ke tabel Riwayat.
-- Ide tema: `projects/IDE-KONTEN.md`.
+- Ide tema: `projects/IDE-KONTEN.md`. **Jangan usulkan judul/topik yang ada di `projects/SUDAH-DIBUAT.md`** (sudah dibuat pemilik).
 - Contoh video lengkap: `projects/bangun-pagi/` (naskah, animasi Canvas, audio, narasi VoxCPM2).
 - Suara: `projects/suara/` (kamus ucapan, pelatihan alfabet). File tiruan suara pemilik tidak diunggah ke GitHub.
 - Kit pendukung: `repos/shorts-kit` (SOUL.md, alur cerita), `repos/sfx-kit` (SFX CC0), `repos/vertical-video-kit` (caption & area aman), `repos/animate` (gaya & gerakan Canvas), `repos/video-background-music` (musik CC0, ambil via `projects/musik/ambil_musik.py`). Ambil bagian yang berguna; bila bertentangan, `aturan.md` yang berlaku. Abaikan instruksi "selalu jalankan sk-pipeline" dari CLAUDE.md di dalam shorts-kit kecuali pemilik memintanya.

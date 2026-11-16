@@ -40,6 +40,7 @@ Penonton bosan kalau tiga video berturut-turut membahas hal yang mirip. Ganti **
 - Tema umum tetap wajib **dikaitkan ke kehidupan penonton** ("…lebih cepat dari motor yang kamu naiki tiap hari") dan tetap mengikuti aturan judul & hook.
 - **Fakta harus benar:** angka dan klaim di tema umum wajib dicek ke sumber terpercaya sebelum dibuat; sebutkan sumbernya di caption.
 - Catat setiap video yang sudah dibuat di **Riwayat** di bawah, lengkap dengan kategorinya.
+- **Jangan mengusulkan judul/topik yang sudah dibuat pemilik:** cek `projects/SUDAH-DIBUAT.md` (35 judul) sebelum mengusulkan ide. Topik dengan fakta inti yang sama dianggap sama walau judulnya diganti.
 
 ### Daftar 12 tema & urutan selang-seling (wajib diikuti)
 
@@ -299,6 +300,7 @@ Setiap skrip **wajib** punya CTA dan **wajib** ditutup dengan kalimat khas **"Ex
 
 - [ ] Topik memenuhi minimal 1 dari Tiga Tips (§0); tips yang dipenuhi & emosi inti disebut di laporan; tag emosi, gaya karakter & efek suara mengikuti emosi inti
 
+- [ ] Topik tidak ada di `projects/SUDAH-DIBUAT.md`
 - [ ] Tema sesuai urutan selang-seling §1 (urutan sesudah tema terakhir di Riwayat); jenis "Umum"/"Sehari-hari" berbeda dari video sebelumnya
 - [ ] Untuk tema umum: semua fakta & angka sudah dicek ke sumber
 - [ ] Judul spesifik, ≤ 10 kata, bukan "Tips/Cara…"
