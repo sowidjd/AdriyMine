@@ -14,6 +14,10 @@ SAAT = {'cinematic-whoosh-fast-transition': 'transisi cepat antar adegan', 'cine
  'keyboard-typing': 'mengetik, chat, kerja di laptop', 'intro-transition': 'pembuka bagian/judul baru', 'footsteps-on-tall-grass': 'berjalan di rumput, alam, mengendap', 'flock-of-wild-geese': 'kawanan burung, alam liar, migrasi',
  'female-astonished-gasp': 'kaget/takjub "hah!", reaksi fakta mengejutkan', 'fast-whoosh-transition': 'transisi cepat', 'epic-orchestra-transition': 'transisi megah, pengungkapan besar',
  'crowd-laugh': 'penonton tertawa, momen lucu',
+ 'single-artificial-breathe': 'napas buatan/mesin, robot bernapas', 'sick-male-cough': 'batuk orang sakit', 'vocal-male-yawn': 'cowok menguap',
+ 'male-tired-yawn': 'cowok capek menguap', 'man-coughing-hard': 'batuk keras, tersedak', 'restaurant-background-ambience': 'suasana restoran/warung ramai (latar)',
+ 'persons-nose-blowing': 'buang ingus, flu, lucu', 'woman-coughing-fast': 'cewek batuk cepat', 'flirtatious-double-kiss': 'cium genit dua kali, "muach muach"',
+ 'man-stretching-in-the-morning': 'menggeliat pagi, siap mulai hari', 'human-nose-blow': 'buang ingus',
  'man-coughing': 'batuk', 'long-kiss': 'cium panjang', 'frightening-zombie-roar': 'raungan zombie menakutkan, horor',
  'man-stretches-and-yawns': 'menggeliat + menguap, bangun tidur', 'child-deep-breath': 'anak tarik napas dalam', 'satisfied-drink-voice': '"aah" puas setelah minum, segar',
  'little-boy-saying-hiya': 'anak kecil bilang "hiya!", semangat lucu', 'young-woman-sneeze': 'cewek bersin', 'vocal-kids-playing-and-screaming': 'anak-anak main & teriak (latar)',
@@ -89,7 +93,7 @@ SAAT = {'cinematic-whoosh-fast-transition': 'transisi cepat antar adegan', 'cine
  'trumpet-fanfare': 'kemenangan, pengumuman resmi, "ta-da!"', 'transition-windy-swoosh': 'transisi berangin, angin kencang',
  'tick-tock-clock-timer': 'waktu berjalan, menunggu, deadline', 'technological-futuristic-hum': 'teknologi canggih, futuristik, mesin/AI',
  'stadium-crowd-light-applause': 'tepuk tangan stadion, pengakuan besar', 'small-crowd-laugh-and-applause': 'tertawa + tepuk tangan, lucu yang berhasil', 'cool-impact-movie-trailer': 'hantaman keren ala trailer, judul muncul', 'clock-countdown-bleeps': 'hitung mundur, waktu hampir habis'}
-AMB = ('ambience', 'rain', 'loop', 'storm', 'birds-singing', 'geese', 'suspense-waiting', 'futuristic-hum', 'forest', 'river', 'flowing', 'breeze', 'thunderstorm', 'leaves-rustling', 'rain-drops', 'wolves', 'thunder', 'storm', 'jungle', 'heavy-rain', 'wind', 'water', 'sea', 'waves', 'beach', 'ambiance', 'desert', 'arctic', 'blizzard', 'cavern', 'winds', 'desolate', 'mountain', 'futuristic-city', 'wind-tunnel', 'fire-burning', 'flame-burning', 'campfire', 'windstorm', 'forest', 'garden', 'jungle', 'owl-in', 'crickets', 'atmosphere', 'scary-woods', 'horror-ambience', 'twilight', 'terror-night', 'subway-interior', 'computer-ambience', 'machine-hum', 'transmitter-hum', 'people-indoors', 'playground', 'kids-playing-and-screaming')
+AMB = ('ambience', 'rain', 'loop', 'storm', 'birds-singing', 'geese', 'suspense-waiting', 'futuristic-hum', 'forest', 'river', 'flowing', 'breeze', 'thunderstorm', 'leaves-rustling', 'rain-drops', 'wolves', 'thunder', 'storm', 'jungle', 'heavy-rain', 'wind', 'water', 'sea', 'waves', 'beach', 'ambiance', 'desert', 'arctic', 'blizzard', 'cavern', 'winds', 'desolate', 'mountain', 'futuristic-city', 'wind-tunnel', 'fire-burning', 'flame-burning', 'campfire', 'windstorm', 'forest', 'garden', 'jungle', 'owl-in', 'crickets', 'atmosphere', 'scary-woods', 'horror-ambience', 'twilight', 'terror-night', 'subway-interior', 'computer-ambience', 'machine-hum', 'transmitter-hum', 'people-indoors', 'playground', 'kids-playing-and-screaming', 'restaurant')
 out = []
 for f in sorted(os.listdir('audio')):
     base = re.sub(r'^mixkit-|-\d+\.wav$', '', f)

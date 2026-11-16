@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-229 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+240 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -72,6 +72,7 @@
 | `fire-woosh` | 2.14 s | whoosh api, transisi panas |
 | `fireball-spell` | 2.65 s | bola api, serangan, energi |
 | `fish-moving-in-water` | 2.29 s | ikan bergerak di air, kecipak |
+| `flirtatious-double-kiss` | 0.56 s | cium genit dua kali, "muach muach" |
 | `flock-of-wild-geese` | 5.22 s (suasana/loop) | kawanan burung, alam liar, migrasi |
 | `footsteps-in-the-forest-ground` | 34.2 s | langkah di tanah hutan, mengendap |
 | `footsteps-on-tall-grass` | 23.1 s | berjalan di rumput, alam, mengendap |
@@ -100,6 +101,7 @@
 | `horror-sci-fi-wind-tunnel` | 64.0 s (suasana/loop) | lorong angin horor/sci-fi, mencekam |
 | `human-fighter-pain-scream` | 1.07 s | teriakan kesakitan, dramatis/lucu berlebihan |
 | `human-mouth-fast-blow` | 0.41 s | tiupan cepat |
+| `human-nose-blow` | 1.03 s | buang ingus |
 | `hungry-man-eating` | 1.33 s | orang lapar makan lahap |
 | `in-and-out-zoom-sound` | 1.25 s | zoom masuk lalu keluar |
 | `industrial-machine-hum` | 50.0 s (suasana/loop) | dengung mesin pabrik (latar) |
@@ -123,9 +125,12 @@
 | `male-clearing-the-throat` | 1.48 s | berdehem "ehem", canggung, mau bicara serius |
 | `male-sleep-breathe` | 5.24 s | napas orang tidur, pulas |
 | `male-sleepy-yawning` | 2.62 s | cowok ngantuk menguap |
+| `male-tired-yawn` | 2.38 s | cowok capek menguap |
 | `man-coughing` | 1.1 s | batuk |
+| `man-coughing-hard` | 2.32 s | batuk keras, tersedak |
 | `man-running-in-the-forest` | 11.24 s | orang berlari di hutan, dikejar, buru-buru |
 | `man-stretches-and-yawns` | 4.8 s | menggeliat + menguap, bangun tidur |
+| `man-stretching-in-the-morning` | 2.25 s | menggeliat pagi, siap mulai hari |
 | `man-strong-snore` | 1.49 s | dengkuran keras, tidur pulas, lucu |
 | `man-waking-up-in-the-morning` | 6.29 s | cowok bangun pagi (menggeliat, bergumam) |
 | `martial-arts-fast-punch` | 1.34 s | pukulan, "dihantam", fakta yang menampar |
@@ -150,6 +155,7 @@
 | `person-blows` | 0.42 s | meniup, "fiuh" lega |
 | `person-nasal-laugh` | 2.21 s | tawa tertahan lewat hidung, geli |
 | `persons-mouth-blowing` | 1.13 s | meniup dengan mulut, "fiuh" |
+| `persons-nose-blowing` | 1.28 s | buang ingus, flu, lucu |
 | `playground-with-kids-playing` | 20.83 s (suasana/loop) | taman bermain anak (latar) |
 | `quiet-forest-ambience` | 152.08 s (suasana/loop) | hutan sunyi (latar) |
 | `rain-and-thunder-storm` | 29.0 s (suasana/loop) | badai, hujan petir, suasana muram/dramatis |
@@ -158,6 +164,7 @@
 | `rattlesnake-in-desert` | 4.17 s | ular derik di gurun |
 | `rattlesnake-moving-the-tail` | 1.03 s | ekor ular derik bergetar, peringatan |
 | `rattlesnake-ready-to-hunt` | 1.02 s | ular derik siap menyerang, bahaya |
+| `restaurant-background-ambience` | 57.78 s (suasana/loop) | suasana restoran/warung ramai (latar) |
 | `retro-confirmation-tone` | 1.84 s | nada konfirmasi jadul |
 | `retro-game-emergency-alarm` | 25.43 s | bahaya gaya game, darurat lucu |
 | `retro-game-notification` | 1.47 s | notifikasi gaya game, poin didapat |
@@ -174,9 +181,11 @@
 | `sci-fi-loading-operative-system` | 2.63 s | sistem sedang loading, memproses |
 | `sea-waves-with-birds-loop` | 38.04 s (suasana/loop) | ombak + burung laut (latar) |
 | `short-fire-whoosh` | 3.19 s | whoosh api singkat |
+| `sick-male-cough` | 1.1 s | batuk orang sakit |
 | `sick-man-coughing` | 1.24 s | batuk orang sakit |
 | `sick-man-sneeze` | 0.86 s | bersin, sakit, kejutan lucu |
 | `sick-woman-coughing` | 1.73 s | batuk, sakit |
+| `single-artificial-breathe` | 1.15 s | napas buatan/mesin, robot bernapas |
 | `single-cricket-screech` | 1.78 s | satu jangkrik "krik", hening canggung |
 | `single-zombie-breath` | 2.09 s | napas zombie, horor |
 | `sleeping-mouth-smacking-lips` | 2.81 s | orang tidur berdecap, lucu, ngantuk |
@@ -221,6 +230,7 @@
 | `vacuum-swoosh-transition` | 2.26 s | transisi tersedot/menghilang |
 | `vintage-telephone-ringtone` | 7.39 s | telepon jadul berdering, panggilan, zaman dulu |
 | `vocal-kids-playing-and-screaming` | 4.01 s (suasana/loop) | anak-anak main & teriak (latar) |
+| `vocal-male-yawn` | 3.41 s | cowok menguap |
 | `walking-in-the-forest` | 28.15 s | berjalan di hutan |
 | `walking-through-dry-forest-leaves` | 31.79 s | berjalan di atas daun kering |
 | `water-flowing-ambience-loop` | 51.0 s (suasana/loop) | air mengalir, sungai, tenang |
@@ -232,6 +242,7 @@
 | `windy-humming-forest-with-birds` | 125.35 s (suasana/loop) | hutan berangin + burung |
 | `wizard-fire-woosh` | 1.09 s | sihir api, transisi magis |
 | `wolves-at-scary-forest` | 9.74 s (suasana/loop) | serigala di hutan seram, horor/ancaman |
+| `woman-coughing-fast` | 1.1 s | cewek batuk cepat |
 | `young-man-coughing` | 1.19 s | cowok batuk |
 | `young-tired-male-yawns` | 2.98 s | cowok capek menguap, ngantuk |
 | `young-woman-sneeze` | 1.62 s | cewek bersin |
