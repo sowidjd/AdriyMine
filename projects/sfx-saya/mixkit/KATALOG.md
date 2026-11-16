@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-633 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+649 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -22,6 +22,7 @@
 | `alien-technology-hum` | 6.0 s (suasana/loop) | dengung teknologi alien (latar) |
 | `ambient-sound-in-the-desert` | 7.69 s (suasana/loop) | suasana gurun |
 | `an-artificial-respirator` | 23.75 s | alat bantu napas, rumah sakit |
+| `angry-cartoon-kitty-meow` | 0.55 s | kucing kartun marah |
 | `angry-dragon-growl` | 5.13 s | naga menggeram marah |
 | `animal-eating-flesh` | 20.75 s | hewan buas makan daging, alam liar |
 | `animal-eating-herb` | 1.44 s | hewan mengunyah rumput |
@@ -33,6 +34,7 @@
 | `arcade-retro-game-over` | 1.67 s | gagal, game over, kalah |
 | `arctic-winds` | 38.94 s (suasana/loop) | angin kutub, dingin |
 | `arrow-whoosh` | 1.1 s | sesuatu melesat, panah, gerak cepat |
+| `atmosphere-of-a-river-at-sunrise` | 60.17 s (suasana/loop) | sungai saat matahari terbit (latar) |
 | `atv-engine-motor-hum` | 34.4 s | mesin ATV/motor menyala |
 | `audience-light-applause` | 5.71 s | tepuk tangan ringan, apresiasi kecil |
 | `auditorium-moderate-applause-and-cheering` | 17.84 s | tepuk tangan + sorakan di auditorium |
@@ -48,6 +50,8 @@
 | `big-fire-burning` | 3.51 s (suasana/loop) | api besar berkobar (latar) |
 | `big-fire-flame-burning` | 8.27 s (suasana/loop) | nyala api besar (latar) |
 | `big-loving-kiss` | 1.15 s | cium besar penuh sayang |
+| `big-tired-dog-panting` | 3.52 s | anjing besar ngos-ngosan capek |
+| `big-wild-cat-long-purr` | 3.61 s | kucing besar mendengkur panjang |
 | `big-wild-lion-growl` | 2.66 s | auman/geraman singa, kekuatan, raja hutan |
 | `bike-bell-ring` | 2.84 s | bel sepeda berdering |
 | `bike-magical-bell` | 2.15 s | bel sepeda ajaib, ide/keajaiban kecil |
@@ -99,6 +103,7 @@
 | `cartoon-vocal-yawn` | 1.75 s | menguap ala kartun, ngantuk lucu |
 | `cheering-crowd-loud-whistle` | 14.76 s | sorakan + siulan keras, kemenangan |
 | `chewing-something-crunchy` | 0.94 s | mengunyah renyah, ngemil, kerupuk |
+| `chickens-and-pigeons` | 5.11 s (suasana/loop) | ayam & merpati, halaman rumah desa (latar) |
 | `child-deep-breath` | 1.7 s | anak tarik napas dalam |
 | `child-laughing-happily` | 0.76 s | anak tertawa gembira |
 | `children-audience-talking-loop` | 84.18 s (suasana/loop) | anak-anak mengobrol menunggu acara (latar) |
@@ -157,6 +162,8 @@
 | `domestic-cat-hungry-meow` | 0.87 s | kucing lapar mengeong minta makan |
 | `donkey-crying` | 12.27 s | keledai meringkik, lucu/konyol |
 | `donkey-crying-screech` | 14.81 s | keledai menjerit nyaring, kaget lucu |
+| `donkey-scream` | 9.34 s | keledai menjerit, lucu |
+| `double-little-bird-chirp` | 0.59 s | cicit burung kecil dua kali, imut |
 | `double-party-trumpet` | 1.86 s | terompet pesta dua kali |
 | `drone-spaceship-sound` | 2.15 s | pesawat drone sci-fi |
 | `dry-leaves-rustling` | 1.3 s (suasana/loop) | daun kering bergemerisik, langkah di hutan, musim kemarau |
@@ -190,6 +197,7 @@
 | `falling-on-tree-leaves` | 0.95 s | jatuh ke tumpukan daun |
 | `falling-on-undergrowth` | 0.52 s | jatuh ke semak |
 | `farm-animals-in-the-morning` | 44.36 s (suasana/loop) | hewan ternak di pagi hari, suasana desa (latar) |
+| `farm-goat-baa` | 1.17 s | kambing mengembik "mbeee" |
 | `farm-pig-drinking-water` | 9.84 s (suasana/loop) | babi minum air (pertimbangkan penonton) |
 | `fast-bike-passing-by` | 1.76 s | sepeda melintas cepat |
 | `fast-bike-wheel-spin` | 3.36 s | roda sepeda berputar cepat |
@@ -234,6 +242,7 @@
 | `footsteps-on-tall-grass` | 23.1 s | berjalan di rumput, alam, mengendap |
 | `footsteps-on-the-snow` | 10.12 s | langkah di salju |
 | `footsteps-through-the-wastelands` | 17.94 s | langkah di tanah tandus |
+| `forest-ambience-with-croaking-frogs` | 113.81 s (suasana/loop) | hutan + katak bersahutan, malam setelah hujan (latar) |
 | `forest-at-night` | 47.04 s (suasana/loop) | hutan malam (latar) |
 | `forest-birds-singing` | 2.22 s (suasana/loop) | kicau burung hutan, pagi damai |
 | `forest-rain-loop` | 24.75 s (suasana/loop) | hujan di hutan (latar) |
@@ -265,6 +274,7 @@
 | `happy-child-laughing` | 2.4 s | tawa anak bahagia |
 | `happy-crowd-cheer` | 4.38 s | sorakan gembira, berhasil! |
 | `happy-party-horn-sound` | 2.01 s | terompet pesta ceria, "yeay!" |
+| `hard-big-horse-snort` | 1.48 s | kuda mendengus keras |
 | `hard-horror-hit-drum` | 4.14 s | pukulan drum horor keras, jump scare / fakta mengejutkan |
 | `hawk-call-squawk` | 2.41 s | teriakan elang/burung pemangsa |
 | `heavy-fall-into-mud` | 0.63 s | jatuh berat ke lumpur "plok" |
@@ -287,6 +297,7 @@
 | `horror-sci-fi-wind-tunnel` | 64.0 s (suasana/loop) | lorong angin horor/sci-fi, mencekam |
 | `horse-fast-gallop-in-the-dirt` | 13.17 s | kuda berlari kencang di tanah |
 | `horse-fast-gallop-on-a-concrete-surface` | 12.97 s | kuda berlari di jalan keras |
+| `horse-fast-walking-on-dirt-ground` | 13.2 s | kuda berjalan cepat di tanah |
 | `hotel-conversation-and-laughter-with-dining-noise` | 24.04 s (suasana/loop) | restoran ramai mengobrol + tawa + alat makan (latar) |
 | `hotel-lobby-crowd-ambience-and-footsteps` | 16.5 s | lobi hotel ramai + langkah (latar) |
 | `human-bites-a-juicy-sausage` | 1.19 s | menggigit sosis berair |
@@ -333,6 +344,7 @@
 | `little-birds-singing-in-the-trees` | 8.33 s (suasana/loop) | pagi, taman, alam tenang |
 | `little-boy-gibberish-talk` | 2.53 s | anak kecil ngoceh tak jelas, lucu |
 | `little-boy-saying-hiya` | 1.15 s | anak kecil bilang "hiya!", semangat lucu |
+| `little-cat-attention-meow` | 0.74 s | anak kucing mengeong cari perhatian |
 | `little-cat-pain-meow` | 1.38 s | anak kucing mengeong kesakitan |
 | `little-cute-kiss` | 1.08 s | cium kecil, imut, sayang |
 | `little-pug-dog-heavy-breathing` | 5.71 s | anjing pug ngos-ngosan, lucu, capek |
@@ -372,6 +384,7 @@
 | `medium-size-bird-flutter` | 3.26 s | kepakan sayap burung sedang (falcon/merpati) |
 | `medium-size-group-applause-and-laugh` | 8.29 s | tawa + tepuk tangan kelompok sedang |
 | `melodic-airport-announcement-ding` | 3.51 s (suasana/loop) | bunyi pengumuman bandara "ding-dong" melodis, perhatian! |
+| `melodic-songbird-chirp` | 1.83 s | kicau burung merdu |
 | `melodical-flute-music-notification` | 7.54 s | notifikasi lembut, alam, ceria |
 | `messy-metal-objects-falling` | 5.45 s | barang logam berantakan jatuh, ricuh |
 | `metal-tank-door-closing` | 1.81 s | pintu logam tank ditutup, berat |
@@ -430,6 +443,7 @@
 | `persons-mouth-blowing` | 1.13 s | meniup dengan mulut, "fiuh" |
 | `persons-nose-blowing` | 1.28 s | buang ingus, flu, lucu |
 | `piano-falling-effect` | 2.19 s | efek piano jatuh, kacau/gagal dramatis |
+| `pig-grunting` | 11.77 s | babi mendengus (pertimbangkan penonton) |
 | `pig-herd-grunt-and-cry` | 43.67 s | kawanan babi mendengus & menjerit, ricuh |
 | `plastic-cd-box-closed-hard` | 0.88 s | kotak plastik ditutup keras, "klak" |
 | `plastic-cd-cover-close-hard` | 0.67 s | tutup plastik dibanting, keputusan final |
@@ -538,6 +552,7 @@
 | `stadium-chaotic-loud-applause-drums-and-chants` | 17.27 s | stadion heboh: tepuk tangan, drum & yel-yel |
 | `stadium-crowd-light-applause` | 11.09 s | tepuk tangan stadion, pengakuan besar |
 | `stadium-joy-shouting-crowd` | 15.77 s | stadion bersorak gembira, gol! |
+| `stallion-horse-neigh` | 2.99 s | kuda jantan meringkik |
 | `stand-up-club-audience-applause` | 20.16 s | tepuk tangan klub stand-up comedy |
 | `stone-debris-falling` | 7.0 s | reruntuhan batu berjatuhan |
 | `stones-and-rocks-falling` | 4.25 s | batu-batu berjatuhan, longsor |
@@ -621,6 +636,7 @@
 | `whoosh-resonating-metallic-hit` | 3.33 s | whoosh + hantaman logam bergaung, judul muncul |
 | `wild-animal-hungry-grunting` | 4.18 s | hewan liar lapar menggeram, ancaman |
 | `wild-lion-animal-roar` | 1.28 s | auman singa liar |
+| `wild-raven-bird-calling` | 1.74 s | gagak berkoak, firasat/seram |
 | `wind-in-a-desolate-world` | 13.03 s (suasana/loop) | angin di dunia sepi/kosong, hampa |
 | `wind-in-futuristic-city` | 13.41 s (suasana/loop) | angin di kota masa depan, sci-fi sepi |
 | `wind-in-the-forest` | 25.32 s (suasana/loop) | angin di hutan |

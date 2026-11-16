@@ -192,6 +192,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-angry-cartoon-kitty-meow-94.wav",
+  "nama": "angry-cartoon-kitty-meow",
+  "durasi_s": 0.55,
+  "bunyi_mulai_s": 0.02,
+  "peak_db": -0.1,
+  "suasana_loop": false,
+  "cocok_untuk": "kucing kartun marah",
+  "normal": "normal/angry-cartoon-kitty-meow.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-angry-dragon-growl-309.wav",
   "nama": "angry-dragon-growl",
   "durasi_s": 5.13,
@@ -320,6 +332,18 @@
   "suasana_loop": false,
   "cocok_untuk": "sesuatu melesat, panah, gerak cepat",
   "normal": "normal/arrow-whoosh.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-atmosphere-of-a-river-at-sunrise-2458.wav",
+  "nama": "atmosphere-of-a-river-at-sunrise",
+  "durasi_s": 60.17,
+  "bunyi_mulai_s": 0.58,
+  "peak_db": -11.9,
+  "suasana_loop": true,
+  "cocok_untuk": "sungai saat matahari terbit (latar)",
+  "normal": "normal/atmosphere-of-a-river-at-sunrise.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -500,6 +524,30 @@
   "suasana_loop": false,
   "cocok_untuk": "cium besar penuh sayang",
   "normal": "normal/big-loving-kiss.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-big-tired-dog-panting-52.wav",
+  "nama": "big-tired-dog-panting",
+  "durasi_s": 3.52,
+  "bunyi_mulai_s": 0.16,
+  "peak_db": -20.0,
+  "suasana_loop": false,
+  "cocok_untuk": "anjing besar ngos-ngosan capek",
+  "normal": "normal/big-tired-dog-panting.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-big-wild-cat-long-purr-96.wav",
+  "nama": "big-wild-cat-long-purr",
+  "durasi_s": 3.61,
+  "bunyi_mulai_s": 0.1,
+  "peak_db": -8.8,
+  "suasana_loop": false,
+  "cocok_untuk": "kucing besar mendengkur panjang",
+  "normal": "normal/big-wild-cat-long-purr.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1112,6 +1160,18 @@
   "suasana_loop": false,
   "cocok_untuk": "mengunyah renyah, ngemil, kerupuk",
   "normal": "normal/chewing-something-crunchy.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-chickens-and-pigeons-1769.wav",
+  "nama": "chickens-and-pigeons",
+  "durasi_s": 5.11,
+  "bunyi_mulai_s": 0.11,
+  "peak_db": -14.2,
+  "suasana_loop": true,
+  "cocok_untuk": "ayam & merpati, halaman rumah desa (latar)",
+  "normal": "normal/chickens-and-pigeons.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -1812,6 +1872,30 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-donkey-scream-1770.wav",
+  "nama": "donkey-scream",
+  "durasi_s": 9.34,
+  "bunyi_mulai_s": 0.23,
+  "peak_db": -0.6,
+  "suasana_loop": false,
+  "cocok_untuk": "keledai menjerit, lucu",
+  "normal": "normal/donkey-scream.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-double-little-bird-chirp-21.wav",
+  "nama": "double-little-bird-chirp",
+  "durasi_s": 0.59,
+  "bunyi_mulai_s": 0.03,
+  "peak_db": -1.0,
+  "suasana_loop": false,
+  "cocok_untuk": "cicit burung kecil dua kali, imut",
+  "normal": "normal/double-little-bird-chirp.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-double-party-trumpet-980.wav",
   "nama": "double-party-trumpet",
   "durasi_s": 1.86,
@@ -2204,6 +2288,18 @@
   "suasana_loop": true,
   "cocok_untuk": "hewan ternak di pagi hari, suasana desa (latar)",
   "normal": "normal/farm-animals-in-the-morning.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-farm-goat-baa-1763.wav",
+  "nama": "farm-goat-baa",
+  "durasi_s": 1.17,
+  "bunyi_mulai_s": 0.24,
+  "peak_db": -5.6,
+  "suasana_loop": false,
+  "cocok_untuk": "kambing mengembik \"mbeee\"",
+  "normal": "normal/farm-goat-baa.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -2736,6 +2832,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-forest-ambience-with-croaking-frogs-1241.wav",
+  "nama": "forest-ambience-with-croaking-frogs",
+  "durasi_s": 113.81,
+  "bunyi_mulai_s": 0.04,
+  "peak_db": -14.4,
+  "suasana_loop": true,
+  "cocok_untuk": "hutan + katak bersahutan, malam setelah hujan (latar)",
+  "normal": "normal/forest-ambience-with-croaking-frogs.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-forest-at-night-1224.wav",
   "nama": "forest-at-night",
   "durasi_s": 47.04,
@@ -3108,6 +3216,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-hard-big-horse-snort-80.wav",
+  "nama": "hard-big-horse-snort",
+  "durasi_s": 1.48,
+  "bunyi_mulai_s": 0.27,
+  "peak_db": -1.6,
+  "suasana_loop": false,
+  "cocok_untuk": "kuda mendengus keras",
+  "normal": "normal/hard-big-horse-snort.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-hard-horror-hit-drum-565.wav",
   "nama": "hard-horror-hit-drum",
   "durasi_s": 4.14,
@@ -3368,6 +3488,18 @@
   "suasana_loop": false,
   "cocok_untuk": "kuda berlari di jalan keras",
   "normal": "normal/horse-fast-gallop-on-a-concrete-surface.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-horse-fast-walking-on-dirt-ground-78.wav",
+  "nama": "horse-fast-walking-on-dirt-ground",
+  "durasi_s": 13.2,
+  "bunyi_mulai_s": 0.26,
+  "peak_db": -4.0,
+  "suasana_loop": false,
+  "cocok_untuk": "kuda berjalan cepat di tanah",
+  "normal": "normal/horse-fast-walking-on-dirt-ground.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -3924,6 +4056,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-little-cat-attention-meow-86.wav",
+  "nama": "little-cat-attention-meow",
+  "durasi_s": 0.74,
+  "bunyi_mulai_s": 0.09,
+  "peak_db": -4.5,
+  "suasana_loop": false,
+  "cocok_untuk": "anak kucing mengeong cari perhatian",
+  "normal": "normal/little-cat-attention-meow.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-little-cat-pain-meow-87.wav",
   "nama": "little-cat-pain-meow",
   "durasi_s": 1.38,
@@ -4388,6 +4532,18 @@
   "suasana_loop": true,
   "cocok_untuk": "bunyi pengumuman bandara \"ding-dong\" melodis, perhatian!",
   "normal": "normal/melodic-airport-announcement-ding.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-melodic-songbird-chirp-67.wav",
+  "nama": "melodic-songbird-chirp",
+  "durasi_s": 1.83,
+  "bunyi_mulai_s": 0.12,
+  "peak_db": -11.2,
+  "suasana_loop": false,
+  "cocok_untuk": "kicau burung merdu",
+  "normal": "normal/melodic-songbird-chirp.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -5084,6 +5240,18 @@
   "suasana_loop": false,
   "cocok_untuk": "efek piano jatuh, kacau/gagal dramatis",
   "normal": "normal/piano-falling-effect.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-pig-grunting-3.wav",
+  "nama": "pig-grunting",
+  "durasi_s": 11.77,
+  "bunyi_mulai_s": 0.28,
+  "peak_db": -0.1,
+  "suasana_loop": false,
+  "cocok_untuk": "babi mendengus (pertimbangkan penonton)",
+  "normal": "normal/pig-grunting.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
@@ -6384,6 +6552,18 @@
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
  {
+  "file": "mixkit-stallion-horse-neigh-1762.wav",
+  "nama": "stallion-horse-neigh",
+  "durasi_s": 2.99,
+  "bunyi_mulai_s": 0.15,
+  "peak_db": -2.4,
+  "suasana_loop": false,
+  "cocok_untuk": "kuda jantan meringkik",
+  "normal": "normal/stallion-horse-neigh.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
   "file": "mixkit-stand-up-club-audience-applause-508.wav",
   "nama": "stand-up-club-audience-applause",
   "durasi_s": 20.16,
@@ -7376,6 +7556,18 @@
   "suasana_loop": false,
   "cocok_untuk": "auman singa liar",
   "normal": "normal/wild-lion-animal-roar.wav",
+  "sumber": "Mixkit (mixkit.co)",
+  "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
+ },
+ {
+  "file": "mixkit-wild-raven-bird-calling-62.wav",
+  "nama": "wild-raven-bird-calling",
+  "durasi_s": 1.74,
+  "bunyi_mulai_s": 0.12,
+  "peak_db": -1.4,
+  "suasana_loop": false,
+  "cocok_untuk": "gagak berkoak, firasat/seram",
+  "normal": "normal/wild-raven-bird-calling.wav",
   "sumber": "Mixkit (mixkit.co)",
   "lisensi": "Mixkit Sound Effects Free License: boleh komersial tanpa kredit, TIDAK boleh disebarkan ulang file mentahnya"
  },
