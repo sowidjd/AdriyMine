@@ -1,0 +1,784 @@
+{
+ "items": [
+  {
+   "file": "makanan_popcorn_meletup.mp3",
+   "prompt_en": "Popcorn kernels popping in a pan, starting slowly then popping faster and faster, close microphone, no music",
+   "tags": [
+    "popcorn",
+    "makanan",
+    "meletup"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Durasi diatur otomatis oleh ElevenLabs; permintaan durasi di prompt diabaikan."
+  },
+  {
+   "file": "teknologi_radar_ping.mp3",
+   "prompt_en": "Radar sonar ping, a single clean electronic beep with a soft echo tail, no music",
+   "tags": [
+    "radar",
+    "ping",
+    "teknologi"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Durasi diatur otomatis oleh ElevenLabs; permintaan durasi di prompt diabaikan."
+  },
+  {
+   "file": "alat_microwave_dengung.mp3",
+   "prompt_en": "Microwave oven running, steady low electrical hum with a faint buzzing vibration, no beeps, no music",
+   "tags": [
+    "microwave",
+    "dengung",
+    "mesin",
+    "loop"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Durasi diatur otomatis oleh ElevenLabs; permintaan durasi di prompt diabaikan."
+  },
+  {
+   "file": "alat_microwave_ding.mp3",
+   "prompt_en": "Microwave oven finished bell, one clear bright ding, short, no music",
+   "tags": [
+    "microwave",
+    "ding",
+    "bel"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 2.038,
+   "created": "2026-11-04",
+   "catatan": "Durasi diatur otomatis oleh ElevenLabs; permintaan durasi di prompt diabaikan."
+  },
+  {
+   "file": "makanan_cokelat_meleleh.mp3",
+   "prompt_en": "Soft gooey chocolate melting and squishing, slow wet sticky texture, gentle, no music",
+   "tags": [
+    "cokelat",
+    "meleleh",
+    "makanan"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 2.038,
+   "created": "2026-11-04",
+   "catatan": "Durasi diatur otomatis oleh ElevenLabs; permintaan durasi di prompt diabaikan."
+  },
+  {
+   "file": "mesin_benda_berat_gedebuk.mp3",
+   "prompt_en": "Heavy industrial metal machine thud and clunk, deep impact with short metallic resonance, no music",
+   "tags": [
+    "berat",
+    "mesin",
+    "gedebuk",
+    "logam"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Durasi diatur otomatis oleh ElevenLabs; permintaan durasi di prompt diabaikan."
+  },
+  {
+   "file": "ui_ide_lonceng.mp3",
+   "prompt_en": "Bright magical idea chime, a short sparkling bell glissando going up, cheerful, no music",
+   "tags": [
+    "ide",
+    "lonceng",
+    "penemuan"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Durasi diatur otomatis oleh ElevenLabs; permintaan durasi di prompt diabaikan."
+  },
+  {
+   "file": "transisi_whoosh.mp3",
+   "prompt_en": "Quick smooth whoosh transition swoosh, airy and soft, no music",
+   "tags": [
+    "whoosh",
+    "transisi"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Durasi diatur otomatis oleh ElevenLabs; permintaan durasi di prompt diabaikan."
+  },
+  {
+   "file": "ui_tanya_pop.mp3",
+   "prompt_en": "Playful curious question blip, short rising two-note cartoon pop sound, no music",
+   "tags": [
+    "tanya",
+    "penasaran",
+    "pop"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Durasi diatur otomatis oleh ElevenLabs; permintaan durasi di prompt diabaikan."
+  },
+  {
+   "file": "sinematik_hantaman_dramatis.mp3",
+   "prompt_en": "Short cinematic dramatic hit, a deep low boom with a quick rising swell, no music melody",
+   "tags": [
+    "dramatis",
+    "hantaman",
+    "sinematik"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Durasi diatur otomatis oleh ElevenLabs; permintaan durasi di prompt diabaikan."
+  },
+  {
+   "file": "tubuh_sendi_jari_krek.mp3",
+   "prompt_en": "A single knuckle cracking, sharp dry pop of a finger joint, close microphone, no music",
+   "tags": [
+    "sendi",
+    "jari",
+    "krek",
+    "tulang"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 2.038,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video mitos bunyi jari. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "tubuh_gelembung_pop.mp3",
+   "prompt_en": "A small wet bubble popping in liquid, soft gooey pop, short, no music",
+   "tags": [
+    "gelembung",
+    "pop",
+    "cairan"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 2.038,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video mitos bunyi jari. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "alat_jam_tik_tok.mp3",
+   "prompt_en": "Analog wall clock ticking steadily, tick tock, quiet room, no music",
+   "tags": [
+    "jam",
+    "waktu",
+    "tik tok",
+    "loop"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video mitos bunyi jari. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "alat_stempel_hantaman.mp3",
+   "prompt_en": "A heavy rubber stamp slamming down on paper, hard thump with a short snap, no music",
+   "tags": [
+    "stempel",
+    "hantaman",
+    "mitos"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 3.03,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video mitos bunyi jari. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "ui_peringatan_bel.mp3",
+   "prompt_en": "Warning alert notification, two quick descending electronic beeps, attention, no music",
+   "tags": [
+    "peringatan",
+    "alert",
+    "bel"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video mitos bunyi jari. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "ui_salah_buzzer.mp3",
+   "prompt_en": "Wrong answer game show buzzer, short low harsh buzz, no music",
+   "tags": [
+    "salah",
+    "buzzer"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video mitos bunyi jari. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "sinematik_drumroll_tegang.mp3",
+   "prompt_en": "Short snare drumroll building tension, quick crescendo, no music melody",
+   "tags": [
+    "drumroll",
+    "tegang",
+    "sinematik"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video mitos bunyi jari. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "tubuh_langkah_kaki_malam.mp3",
+   "prompt_en": "Footsteps of one person walking slowly on a quiet pavement at night, steady pace, no music",
+   "tags": [
+    "langkah",
+    "jalan",
+    "malam"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 0.522,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video merasa diperhatikan. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "tubuh_langkah_cepat.mp3",
+   "prompt_en": "Fast hurried footsteps on pavement, quick nervous walking steps speeding up, no music",
+   "tags": [
+    "langkah",
+    "cepat",
+    "terburu"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 2.038,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video merasa diperhatikan. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "tubuh_detak_jantung.mp3",
+   "prompt_en": "Human heartbeat, tense thump-thump, close and deep, no music",
+   "tags": [
+    "jantung",
+    "detak",
+    "tegang"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video merasa diperhatikan. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "suasana_malam_sepi.mp3",
+   "prompt_en": "Quiet eerie night ambience, soft wind and distant crickets, lonely empty place, no music",
+   "tags": [
+    "malam",
+    "sepi",
+    "angin",
+    "loop"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video merasa diperhatikan. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "sinematik_kejutan_tajam.mp3",
+   "prompt_en": "Sudden jump scare sting, sharp short violin screech with a low hit, no music melody",
+   "tags": [
+    "kejutan",
+    "sting",
+    "seram"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video merasa diperhatikan. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "suasana_bisikan_samar.mp3",
+   "prompt_en": "A very faint creepy whisper and soft rustle close behind the listener, no clear words, no music",
+   "tags": [
+    "bisikan",
+    "samar",
+    "seram"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 3.03,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video merasa diperhatikan. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "suasana_semak_gemerisik.mp3",
+   "prompt_en": "Leaves rustling in a bush, a sudden short rustle then quiet, no music",
+   "tags": [
+    "semak",
+    "gemerisik",
+    "gerakan"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video merasa diperhatikan. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "suasana_ruang_angkasa.mp3",
+   "prompt_en": "Deep calm outer space ambience, soft low drone with a faint shimmering airy tone, no music",
+   "tags": [
+    "angkasa",
+    "dengung",
+    "loop"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video siang dan malam Bumi. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "suasana_matahari_terbit.mp3",
+   "prompt_en": "Warm bright sunrise swell, gentle rising shimmer with soft chimes, uplifting, no music melody",
+   "tags": [
+    "matahari",
+    "terbit",
+    "siang"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 2.038,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video siang dan malam Bumi. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "suasana_burung_pagi.mp3",
+   "prompt_en": "Cheerful morning birds chirping in a quiet outdoor park, no music",
+   "tags": [
+    "burung",
+    "pagi",
+    "siang",
+    "loop"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video siang dan malam Bumi. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "suasana_kota_malam_jauh.mp3",
+   "prompt_en": "Distant city night ambience, faint traffic hum and occasional far-off horn, no music",
+   "tags": [
+    "kota",
+    "malam",
+    "lalu lintas",
+    "loop"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video siang dan malam Bumi. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "sinematik_putaran_bumi.mp3",
+   "prompt_en": "A slow smooth spinning sweep, soft rotating whoosh like a giant globe turning, no music",
+   "tags": [
+    "putaran",
+    "rotasi",
+    "sapuan"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video siang dan malam Bumi. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "alat_alarm_pagi.mp3",
+   "prompt_en": "A bright morning alarm clock ringing, cheerful bell beeping, short, no music",
+   "tags": [
+    "alarm",
+    "pagi",
+    "bangun"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video siang dan malam Bumi. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "tubuh_menguap_ngorok.mp3",
+   "prompt_en": "A person yawning sleepily then a soft gentle snore, cozy bedroom, no music",
+   "tags": [
+    "menguap",
+    "ngorok",
+    "tidur"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video siang dan malam Bumi. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "musik_gelombang_orkestra.mp3",
+   "prompt_en": "Epic orchestral swell, strings and brass slowly rising into a grand emotional crescendo, no vocals",
+   "tags": [
+    "musik",
+    "orkestra",
+    "megah"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video frisson musik. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "tubuh_merinding_berkilau.mp3",
+   "prompt_en": "Magical shiver sparkle, quick tingling chime shimmer running up like goosebumps, no music melody",
+   "tags": [
+    "merinding",
+    "berkilau",
+    "frisson"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 2.038,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video frisson musik. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "ui_hadiah_naik_level.mp3",
+   "prompt_en": "Video game reward sound, bright rising level-up chime with sparkles, satisfying, no music",
+   "tags": [
+    "hadiah",
+    "dopamin",
+    "level"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 2.038,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video frisson musik. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "alat_kaset_putar_balik.mp3",
+   "prompt_en": "Cassette tape rewinding quickly, fast whirring squeal then a click, no music",
+   "tags": [
+    "kaset",
+    "putar balik",
+    "ulang"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 16.039,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video frisson musik. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "musik_piano_arpeggio_lembut.mp3",
+   "prompt_en": "Gentle soft piano arpeggio, a few warm notes rising, calm and emotional, no vocals",
+   "tags": [
+    "musik",
+    "piano",
+    "lembut"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video frisson musik. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "musik_nada_tinggi_penyanyi.mp3",
+   "prompt_en": "A single powerful sustained high note sung by a female voice, an ooh vowel without words, emotional",
+   "tags": [
+    "musik",
+    "nada tinggi",
+    "penyanyi"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 2.038,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video frisson musik. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "sinematik_penanjak_tegang.mp3",
+   "prompt_en": "Short tension riser building anticipation, rising airy whoosh that ends with a soft hit, no music melody",
+   "tags": [
+    "tegang",
+    "antisipasi",
+    "riser"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 2.038,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video frisson musik. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "musik_piringan_tergores.mp3",
+   "prompt_en": "Vinyl record scratch, a quick DJ scratch stop, short, no music",
+   "tags": [
+    "piringan",
+    "gores",
+    "tak terduga"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 2.038,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video frisson musik. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "alat_hp_getar.mp3",
+   "prompt_en": "Smartphone vibrating buzz on a wooden table, short double buzz, no music",
+   "tags": [
+    "hp",
+    "getar",
+    "notifikasi"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 2.038,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video kebiasaan cek HP. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "ui_notifikasi_ping.mp3",
+   "prompt_en": "Cheerful smartphone message notification ping, a short bright two-note chime, no music",
+   "tags": [
+    "notifikasi",
+    "ping",
+    "pesan"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 8.046,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video kebiasaan cek HP. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "alat_hp_buka_layar.mp3",
+   "prompt_en": "Smartphone screen unlock, a soft quick tap and a short click, no music",
+   "tags": [
+    "hp",
+    "buka layar",
+    "ketuk"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 2.038,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video kebiasaan cek HP. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "alat_kulkas_dibuka.mp3",
+   "prompt_en": "Refrigerator door opening with a soft rubber seal pop and a faint hum, kitchen, no music",
+   "tags": [
+    "kulkas",
+    "pintu",
+    "dapur"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video kebiasaan cek HP. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "ui_gulir_layar.mp3",
+   "prompt_en": "Quick finger swipe flick on a touchscreen, light soft whoosh, repeated twice, no music",
+   "tags": [
+    "gulir",
+    "swipe",
+    "layar"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video kebiasaan cek HP. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "alat_mesin_slot_putar.mp3",
+   "prompt_en": "Slot machine reels spinning then stopping with a click, casino, short, no music",
+   "tags": [
+    "slot",
+    "kasino",
+    "ketidakpastian"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 2.038,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video kebiasaan cek HP. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "suasana_jangkrik_sepi.mp3",
+   "prompt_en": "Awkward silence with a few crickets chirping, comedic empty moment, no music",
+   "tags": [
+    "jangkrik",
+    "sepi",
+    "kosong",
+    "lucu"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 2.038,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video kebiasaan cek HP. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "laut_bawah_air_dalam.mp3",
+   "prompt_en": "Deep underwater ocean ambience, muffled water rumble with faint bubbles and gentle currents, calm, no music",
+   "tags": [
+    "laut",
+    "bawah air",
+    "suasana",
+    "loop"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video gurita. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "laut_gelembung_naik.mp3",
+   "prompt_en": "Many small bubbles rising and popping underwater, bubbly gurgle, no music",
+   "tags": [
+    "laut",
+    "gelembung",
+    "air"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video gurita. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "laut_semburan_air.mp3",
+   "prompt_en": "Powerful underwater water jet burst, a fast swoosh of water shooting out, short, no music",
+   "tags": [
+    "laut",
+    "semburan",
+    "jet",
+    "berenang"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video gurita. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "laut_pengisap_basah.mp3",
+   "prompt_en": "Wet rubbery suction cups sticking and releasing, squelchy slimy slurp sounds, no music",
+   "tags": [
+    "laut",
+    "gurita",
+    "pengisap",
+    "becek"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video gurita. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "laut_ombak_pantai.mp3",
+   "prompt_en": "Gentle ocean waves rolling onto a shore, calm sea wash, no music",
+   "tags": [
+    "laut",
+    "ombak",
+    "pantai"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 2.038,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video gurita. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "laut_nyanyian_paus.mp3",
+   "prompt_en": "Distant whale song echoing in deep ocean, long mysterious low call, no music",
+   "tags": [
+    "laut",
+    "paus",
+    "misterius"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video gurita. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "laut_detak_jantung_air.mp3",
+   "prompt_en": "Deep muffled heartbeat sounding underwater, slow thump-thump with watery resonance, no music",
+   "tags": [
+    "laut",
+    "jantung",
+    "detak"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video gurita. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "tubuh_jantung_berhenti_panjang.mp3",
+   "prompt_en": "Heart monitor flatline long beep, a single continuous tone, medical, no music",
+   "tags": [
+    "jantung",
+    "berhenti",
+    "flatline"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-04",
+   "catatan": "Dibuat untuk video gurita. Durasi ditentukan otomatis oleh ElevenLabs."
+  },
+  {
+   "file": "sains_tabung_katode_dengung.mp3",
+   "prompt_en": "Old laboratory cathode ray tube powering up: steady low electrical hum with faint crackling sparks and a rising high-frequency whine, vintage scientific equipment, no music",
+   "tags": [
+    "sains",
+    "tabung",
+    "katode",
+    "listrik"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-07",
+   "catatan": "Durasi diatur otomatis oleh ElevenLabs; permintaan durasi di prompt diabaikan."
+  },
+  {
+   "file": "sains_sinar_x_pindai.mp3",
+   "prompt_en": "X-ray scanner sweep: short electric zap building into a bright digital shimmer sweep with a clear sharp peak at the end, scientific sci-fi, no music",
+   "tags": [
+    "sains",
+    "sinar-x",
+    "pindai"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 0.522,
+   "created": "2026-11-07",
+   "catatan": "Durasi diatur otomatis oleh ElevenLabs; permintaan durasi di prompt diabaikan."
+  },
+  {
+   "file": "alat_kamera_rana_blitz.mp3",
+   "prompt_en": "Vintage camera shutter click with a short flash bulb pop, single sharp mechanical click, close microphone, no music",
+   "tags": [
+    "alat",
+    "kamera",
+    "rana",
+    "blitz"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 3.03,
+   "created": "2026-11-07",
+   "catatan": "Durasi diatur otomatis oleh ElevenLabs; permintaan durasi di prompt diabaikan."
+  },
+  {
+   "file": "hewan_angin_menukik_deras.mp3",
+   "prompt_en": "Strong rushing wind of a bird diving at extreme speed: rising whoosh with intense air rush building to a sharp peak then fading, close air turbulence, no music",
+   "tags": [
+    "hewan",
+    "angin",
+    "menukik",
+    "whoosh"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-11",
+   "catatan": "Durasi diatur otomatis oleh ElevenLabs; permintaan durasi di prompt diabaikan."
+  },
+  {
+   "file": "hewan_jeritan_alap_alap.mp3",
+   "prompt_en": "Peregrine falcon cry: sharp piercing raptor screech, two quick kak-kak-kak calls in open sky with slight echo, no music",
+   "tags": [
+    "hewan",
+    "burung",
+    "alap-alap",
+    "jeritan"
+   ],
+   "model": "eleven_text_to_sound_v2",
+   "duration_s": 1.045,
+   "created": "2026-11-11",
+   "catatan": "Durasi diatur otomatis oleh ElevenLabs; permintaan durasi di prompt diabaikan."
+  }
+ ]
+}
