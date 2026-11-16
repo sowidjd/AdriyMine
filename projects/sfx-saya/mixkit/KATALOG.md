@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-56 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+71 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -11,11 +11,13 @@
 | `air-zoom-vacuum` | 1.27 s | tersedot, zoom masuk, menghilang |
 | `arcade-retro-game-over` | 1.67 s | gagal, game over, kalah |
 | `arrow-whoosh` | 1.1 s | sesuatu melesat, panah, gerak cepat |
+| `bird-singing-and-flapping-wings` | 3.67 s | burung berkicau & mengepak sayap (dekat) |
+| `birds-chirping-in-the-jungle` | 6.69 s (suasana/loop) | kicau burung di hutan tropis |
 | `birds-chirping-near-the-river` | 90.13 s (suasana/loop) | pagi di sungai, alam damai |
 | `breeze-through-the-trees` | 14.33 s (suasana/loop) | angin sepoi di pepohonan |
 | `calm-thunderstorm-in-the-jungle` | 49.0 s (suasana/loop) | badai tenang di hutan tropis |
 | `cartoon-toy-whistle` | 1.21 s | lucu, konyol, gagal lucu |
-| `cinematic-laser-gun-thunder` | 4.81 s | ledakan sci-fi, kekuatan besar, dramatis |
+| `cinematic-laser-gun-thunder` | 4.81 s (suasana/loop) | ledakan sci-fi, kekuatan besar, dramatis |
 | `cinematic-transition-swoosh-heartbeat-trailer` | 8.11 s | transisi tegang ala trailer |
 | `cinematic-tunnel-reverb-woosh` | 6.75 s | masuk ke dunia lain, flashback, transisi dalam |
 | `cinematic-whoosh-fast-transition` | 1.33 s | transisi cepat antar adegan |
@@ -31,11 +33,16 @@
 | `fast-small-sweep-transition` | 0.78 s | transisi kecil, kartu/teks berganti |
 | `fast-whoosh-transition` | 1.76 s | transisi cepat |
 | `female-astonished-gasp` | 1.09 s | kaget/takjub "hah!", reaksi fakta mengejutkan |
+| `fish-moving-in-water` | 2.29 s (suasana/loop) | ikan bergerak di air, kecipak |
 | `flock-of-wild-geese` | 5.22 s (suasana/loop) | kawanan burung, alam liar, migrasi |
 | `footsteps-on-tall-grass` | 23.1 s | berjalan di rumput, alam, mengendap |
 | `game-show-suspense-waiting` | 41.81 s (suasana/loop) | menunggu jawaban, kuis, tegang lucu |
+| `heavy-rain` | 7.5 s (suasana/loop) | hujan deras |
+| `heavy-rain-and-thunder-in-background` | 22.27 s (suasana/loop) | hujan deras + petir di kejauhan |
 | `heavy-rain-drops` | 12.17 s (suasana/loop) | tetes hujan deras, dramatis |
+| `heavy-storm-rain-loop` | 18.0 s (suasana/loop) | badai hujan deras (latar) |
 | `intro-transition` | 7.51 s | pembuka bagian/judul baru |
+| `jungle-rain-and-birds` | 80.0 s (suasana/loop) | hujan di hutan + burung |
 | `keyboard-typing` | 26.31 s | mengetik, chat, kerja di laptop |
 | `light-rain-loop` | 15.0 s (suasana/loop) | hujan ringan, santai, sendu |
 | `liquid-bubble` | 1.05 s | gelembung cairan, ide muncul, lab |
@@ -46,17 +53,25 @@
 | `mystwrious-bass-pulse` | 16.56 s | misterius, tegang, sesuatu akan terungkap |
 | `night-forest-with-insects` | 84.0 s (suasana/loop) | hutan malam, serangga, misterius tenang |
 | `rain-and-thunder-storm` | 29.0 s (suasana/loop) | badai, hujan petir, suasana muram/dramatis |
+| `rain-in-the-jungle-and-birds` | 30.17 s (suasana/loop) | hujan hutan + burung |
 | `rain-long-loop` | 57.07 s (suasana/loop) | hujan panjang (latar) |
 | `retro-game-emergency-alarm` | 25.43 s | bahaya gaya game, darurat lucu |
 | `retro-game-notification` | 1.47 s | notifikasi gaya game, poin didapat |
+| `river-water-flow-and-surroundings` | 60.13 s (suasana/loop) | sungai mengalir + suasana sekitar |
 | `sad-game-over-trombone` | 5.61 s | gagal lucu "wah wah wah", kecewa |
 | `sick-man-sneeze` | 0.86 s | bersin, sakit, kejutan lucu |
 | `small-crowd-laugh-and-applause` | 5.76 s | tertawa + tepuk tangan, lucu yang berhasil |
 | `small-group-cheer-and-applause` | 10.6 s | berhasil, sorakan, perayaan kecil |
 | `stadium-crowd-light-applause` | 11.09 s | tepuk tangan stadion, pengakuan besar |
+| `strong-wild-wind-in-a-storm` | 13.65 s (suasana/loop) | angin kencang badai, terhempas |
 | `technological-futuristic-hum` | 6.0 s (suasana/loop) | teknologi canggih, futuristik, mesin/AI |
+| `thunder-rumble-and-light-rain` | 25.75 s (suasana/loop) | gemuruh petir + gerimis, muram |
+| `thunder-strike-in-storm` | 7.5 s (suasana/loop) | petir menyambar, kejutan besar, dramatis |
+| `thunderstorm-and-clear-rain` | 44.22 s (suasana/loop) | badai lalu hujan reda |
+| `thunderstorm-and-rain-loop` | 52.75 s (suasana/loop) | badai & hujan (latar) |
+| `thunderstorm-in-the-forest` | 32.0 s (suasana/loop) | badai petir di hutan |
 | `tick-tock-clock-timer` | 16.85 s | waktu berjalan, menunggu, deadline |
-| `transition-windy-swoosh` | 3.2 s | transisi berangin, angin kencang |
+| `transition-windy-swoosh` | 3.2 s (suasana/loop) | transisi berangin, angin kencang |
 | `trumpet-fanfare` | 8.0 s | kemenangan, pengumuman resmi, "ta-da!" |
 | `vacuum-swoosh-transition` | 2.26 s | transisi tersedot/menghilang |
 | `vintage-telephone-ringtone` | 7.39 s | telepon jadul berdering, panggilan, zaman dulu |

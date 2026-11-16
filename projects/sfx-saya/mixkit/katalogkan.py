@@ -14,6 +14,12 @@ SAAT = {'cinematic-whoosh-fast-transition': 'transisi cepat antar adegan', 'cine
  'keyboard-typing': 'mengetik, chat, kerja di laptop', 'intro-transition': 'pembuka bagian/judul baru', 'footsteps-on-tall-grass': 'berjalan di rumput, alam, mengendap', 'flock-of-wild-geese': 'kawanan burung, alam liar, migrasi',
  'female-astonished-gasp': 'kaget/takjub "hah!", reaksi fakta mengejutkan', 'fast-whoosh-transition': 'transisi cepat', 'epic-orchestra-transition': 'transisi megah, pengungkapan besar',
  'crowd-laugh': 'penonton tertawa, momen lucu',
+ 'thunder-strike-in-storm': 'petir menyambar, kejutan besar, dramatis', 'thunderstorm-in-the-forest': 'badai petir di hutan',
+ 'fish-moving-in-water': 'ikan bergerak di air, kecipak', 'heavy-rain': 'hujan deras', 'birds-chirping-in-the-jungle': 'kicau burung di hutan tropis',
+ 'jungle-rain-and-birds': 'hujan di hutan + burung', 'heavy-storm-rain-loop': 'badai hujan deras (latar)', 'heavy-rain-and-thunder-in-background': 'hujan deras + petir di kejauhan',
+ 'strong-wild-wind-in-a-storm': 'angin kencang badai, terhempas', 'bird-singing-and-flapping-wings': 'burung berkicau & mengepak sayap (dekat)',
+ 'river-water-flow-and-surroundings': 'sungai mengalir + suasana sekitar', 'thunder-rumble-and-light-rain': 'gemuruh petir + gerimis, muram',
+ 'rain-in-the-jungle-and-birds': 'hujan hutan + burung', 'thunderstorm-and-rain-loop': 'badai & hujan (latar)', 'thunderstorm-and-clear-rain': 'badai lalu hujan reda',
  'birds-chirping-near-the-river': 'pagi di sungai, alam damai', 'night-forest-with-insects': 'hutan malam, serangga, misterius tenang',
  'rain-long-loop': 'hujan panjang (latar)', 'dry-leaves-rustling': 'daun kering bergemerisik, langkah di hutan, musim kemarau',
  'calm-thunderstorm-in-the-jungle': 'badai tenang di hutan tropis', 'water-flowing-ambience-loop': 'air mengalir, sungai, tenang',
@@ -23,7 +29,7 @@ SAAT = {'cinematic-whoosh-fast-transition': 'transisi cepat antar adegan', 'cine
  'trumpet-fanfare': 'kemenangan, pengumuman resmi, "ta-da!"', 'transition-windy-swoosh': 'transisi berangin, angin kencang',
  'tick-tock-clock-timer': 'waktu berjalan, menunggu, deadline', 'technological-futuristic-hum': 'teknologi canggih, futuristik, mesin/AI',
  'stadium-crowd-light-applause': 'tepuk tangan stadion, pengakuan besar', 'small-crowd-laugh-and-applause': 'tertawa + tepuk tangan, lucu yang berhasil', 'cool-impact-movie-trailer': 'hantaman keren ala trailer, judul muncul', 'clock-countdown-bleeps': 'hitung mundur, waktu hampir habis'}
-AMB = ('ambience', 'rain', 'loop', 'storm', 'birds-singing', 'geese', 'suspense-waiting', 'futuristic-hum', 'forest', 'river', 'flowing', 'breeze', 'thunderstorm', 'leaves-rustling', 'rain-drops', 'wolves')
+AMB = ('ambience', 'rain', 'loop', 'storm', 'birds-singing', 'geese', 'suspense-waiting', 'futuristic-hum', 'forest', 'river', 'flowing', 'breeze', 'thunderstorm', 'leaves-rustling', 'rain-drops', 'wolves', 'thunder', 'storm', 'jungle', 'heavy-rain', 'wind', 'water')
 out = []
 for f in sorted(os.listdir('audio')):
     base = re.sub(r'^mixkit-|-\d+\.wav$', '', f)
