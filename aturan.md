@@ -267,9 +267,9 @@ Nama akun **Adriy.Project** disebut di dalam narasi supaya penonton **ingat**, j
 - ❌ "Follow Adriy.Project buat konten lainnya!" (di akhir dan seperti iklan)
 - ❌ Disebut 3 kali dalam video 1 menit, atau tanpa stempel dan bunyi khas
 
-## 11. CTA (ajakan) di skrip & penutup "Explore Know More"
+## 11. CTA (ajakan) di skrip & penutup "Explore More, Know More"
 
-Setiap skrip **wajib** punya CTA dan **wajib** ditutup dengan kalimat khas **"Explore Know More"**.
+Setiap skrip **wajib** punya CTA dan **wajib** ditutup dengan kalimat khas **"Explore More, Know More"**.
 
 **Urutan bagian akhir video (wajib):**
 1. **Kesimpulan singkat**: 1–2 kalimat yang mengaitkan isi video ke kehidupan penonton.
@@ -277,23 +277,23 @@ Setiap skrip **wajib** punya CTA dan **wajib** ditutup dengan kalimat khas **"Ex
    - Bentuk yang dipakai: pilihan ("pilih yang mana: A, B, atau C?"), pengakuan ("kamu pernah juga? tulis 'gue banget'"), atau tebakan ("menurutmu kenapa…?").
    - Teks di layar menampilkan pilihannya, Clawd menunjuk ke arah kolom komentar (kanan bawah, tetap di kotak aman).
 3. **CTA kedua (pilih 1, singkat, ≤ 1 kalimat)**: ajak **simpan** ("Simpan biar nggak lupa"), **bagikan** ("Kirim ke teman yang suka begini"), atau **ikuti** ("Ikuti buat fakta kayak gini lagi"). Ganti-ganti tiap video; **tanpa menyebut nama akun** (nama akun hanya di tengah, §10).
-4. **Penutup "Explore Know More"**: kalimat **terakhir** video, selalu sama persis.
+4. **Penutup "Explore More, Know More"**: kalimat **terakhir** video, selalu sama persis.
 
-**Aturan "Explore Know More":**
-- **Diucapkan** di narasi sebagai kalimat terakhir, dengan jeda ±0,4 detik sebelumnya. Arahan suara: *hangat, yakin, tersenyum, tempo sedang*. Cara baca: "eksplor, nou mor"; lolos cek ucapan (`cek_ucapan.py`) sebelum dipakai.
-- **Ditampilkan** sebagai kartu penutup: teks **"Explore Know More"** di tengah kotak aman, ukuran ≥ 80 px, desain & warna sama di setiap video, muncul halus (fade + sedikit membesar), bertahan **≥ 1,5 detik**. Clawd melambai atau memberi hormat kecil di sampingnya.
+**Aturan "Explore More, Know More":**
+- **Diucapkan** di narasi sebagai kalimat terakhir, dengan jeda ±0,4 detik sebelumnya. Arahan suara: *hangat, yakin, tersenyum, tempo sedang*. Cara baca: "eksplor mor, nou mor"; lolos cek ucapan (`cek_ucapan.py`) sebelum dipakai.
+- **Ditampilkan** sebagai kartu penutup: teks **"Explore More, Know More"** di tengah kotak aman, ukuran ≥ 80 px, desain & warna sama di setiap video, muncul halus (fade + sedikit membesar), bertahan **≥ 1,5 detik**. Clawd melambai atau memberi hormat kecil di sampingnya.
 - **Bunyi khas penutup** selalu sama (pilih 1 sekali, lalu dipakai terus; berbeda dari bunyi khas nama akun §10). Musik mengecil lalu selesai bersama kartu.
 - Tidak dihitung sebagai penyebutan nama akun; nama "Adriy.Project" tetap **tidak** muncul di akhir.
 - Teks dan cara ucapnya **tidak boleh diubah** (tanpa terjemahan, tanpa tambahan kata).
 
 **Contoh bagian akhir yang benar:**
-> "Jadi kalau lain kali kamu lihat burung kecil di atas gedung, jangan diremehin." → "Kalau kamu bisa punya satu kemampuan falcon: badan peluru, hidung jet, atau kacamata bawaan, pilih yang mana? Tulis di komentar!" → "Simpan biar kamu bisa pamer fakta ini ke teman." → *(jeda)* "Explore Know More."
+> "Jadi kalau lain kali kamu lihat burung kecil di atas gedung, jangan diremehin." → "Kalau kamu bisa punya satu kemampuan falcon: badan peluru, hidung jet, atau kacamata bawaan, pilih yang mana? Tulis di komentar!" → "Simpan biar kamu bisa pamer fakta ini ke teman." → *(jeda)* "Explore More, Know More."
 
 **Contoh yang salah:**
 - ❌ "Jangan lupa like, comment, share, dan follow ya!" (CTA umum, tidak memancing jawaban, terlalu banyak permintaan)
 - ❌ Lebih dari 2 CTA, atau CTA di tengah video yang memotong cerita
-- ❌ "Explore Know More" diucapkan lalu masih ada kalimat lain sesudahnya
-- ❌ "Explore Know More bersama Adriy.Project!" (menambah kata & menyebut nama di akhir)
+- ❌ "Explore More, Know More" diucapkan lalu masih ada kalimat lain sesudahnya
+- ❌ "Explore More, Know More bersama Adriy.Project!" (menambah kata & menyebut nama di akhir)
 
 ## Checklist sebelum video dianggap selesai
 
@@ -312,7 +312,7 @@ Setiap skrip **wajib** punya CTA dan **wajib** ditutup dengan kalimat khas **"Ex
 - [ ] Gaya animasi dipilih lewat 6 langkah §9: metafora inti + alasan 1 kalimat ditulis, tidak termasuk gaya yang dilarang, beda dari video sebelumnya
 - [ ] Semua teks di kotak aman x 60–927, y 212–1540 (cek dengan garis bantu area aman)
 - [ ] "Adriy.Project" disebut 1 kali (maks. 2 untuk video > 2 menit), di tengah (30–70% durasi), tidak di awal/akhir, dengan kalimat khusus + jeda, stempel visual ≥ 2 detik + reaksi Clawd, dan bunyi khas sting-bright-short
-- [ ] Bagian akhir sesuai §11: kesimpulan → CTA komentar yang memancing jawaban → 1 CTA kedua (simpan/bagikan/ikuti, tanpa nama akun) → "Explore Know More" sebagai kalimat terakhir (diucapkan + kartu penutup ≥ 1,5 detik + bunyi khas penutup)
+- [ ] Bagian akhir sesuai §11: kesimpulan → CTA komentar yang memancing jawaban → 1 CTA kedua (simpan/bagikan/ikuti, tanpa nama akun) → "Explore More, Know More" sebagai kalimat terakhir (diucapkan + kartu penutup ≥ 1,5 detik + bunyi khas penutup)
 
 ## Riwayat video
 
