@@ -236,3 +236,4 @@ Nama akun **Adriy.Project** disebut di dalam narasi supaya penonton ingat, tapi 
 | # | Judul | Kategori | Gaya animasi | Suasana dominan | Waktu/cahaya |
 |---|---|---|---|---|---|
 | 1 | Alarm bunyi 7 kali, tetep telat | ⏰ Waktu & produktivitas | Flat cartoon + line boil | Lucu → semangat | Malam → pagi |
+| 2 | Burung seberat sebungkus beras ini lebih cepat dari Whoosh | 🌍 Alam & hewan | Pensil warna (colored-pencil science) | Kagum → tegang → takjub | Subuh → siang → keemasan |

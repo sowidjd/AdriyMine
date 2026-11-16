@@ -289,7 +289,7 @@ S.kenal = (t, l) => {
   falcon(470, 900, 230, { perch: true, rot: -1.25 + .25 * look, id: 7300 });
   ctx.restore();
   // Clawd on a lower roof with binoculars, peeking up
-  clawd(170, 1640, 22, { face: t > t0('k3') ? 'surprised' : 'curious', binoculars: t > t0('k2') + .5, arms: t > t0('k2') + .5 ? [1.2, 1.2] : [.2, .2], dy: -.2 * Math.abs(Math.sin(t * 3)) });
+  clawd(170, 1730, 22, { face: t > t0('k3') ? 'surprised' : 'curious', binoculars: t > t0('k2') + .5, arms: t > t0('k2') + .5 ? [1.2, 1.2] : [.2, .2], dy: -.2 * Math.abs(Math.sin(t * 3)) });
   if (t > t0('k1') && t < t0('k2') + 1) tag('ALAP-ALAP KAWAH', 300, 330, 54, { age: t - t0('k1') - .3, rot: -.04 });
   if (t > t0('k1') + .9 && t < t0('k2') + 1) tag('Falco peregrinus', 340, 420, 40, { age: t - t0('k1') - 1, bare: true, col: '#6B5A4C' });
   // prey: a pigeon flapping far below during k3
