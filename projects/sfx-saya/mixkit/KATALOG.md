@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-168 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+186 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -9,6 +9,8 @@
 | `aggressive-beast-roar` | 1.46 s | monster/binatang buas, ancaman, kaget |
 | `air-woosh` | 2.32 s | gerak udara ringan, teks masuk |
 | `air-zoom-vacuum` | 1.27 s | tersedot, zoom masuk, menghilang |
+| `alarm-tone` | 1.08 s | nada alarm, peringatan |
+| `alien-technology-button` | 0.87 s | tombol teknologi alien, aneh |
 | `ambient-sound-in-the-desert` | 7.69 s (suasana/loop) | suasana gurun |
 | `arabian-mystery-harp-notification` | 3.52 s | notifikasi harpa misterius ala Timur Tengah, fakta unik |
 | `arcade-retro-game-over` | 1.67 s | gagal, game over, kalah |
@@ -68,7 +70,11 @@
 | `forest-birds-singing` | 2.22 s (suasana/loop) | kicau burung hutan, pagi damai |
 | `forest-rain-loop` | 24.75 s (suasana/loop) | hujan di hutan (latar) |
 | `fuel-explosion` | 2.98 s | ledakan bahan bakar, dahsyat |
+| `futuristic-cinematic-sweep` | 1.29 s | sapuan sinematik futuristik, reveal |
+| `futuristic-metal-transition-sweep` | 0.95 s | transisi logam futuristik |
 | `futuristic-sci-fi-computer-ambience` | 23.5 s (suasana/loop) | ruang komputer masa depan (latar) |
+| `futuristic-transition-sweep` | 2.34 s | transisi futuristik |
+| `futuristic-zoom-move` | 2.17 s | gerak zoom futuristik |
 | `game-show-suspense-waiting` | 41.81 s (suasana/loop) | menunggu jawaban, kuis, tegang lucu |
 | `ghost-fire-swoosh` | 2.85 s | api hantu, transisi misterius |
 | `hawk-call-squawk` | 2.41 s | teriakan elang/burung pemangsa |
@@ -78,8 +84,10 @@
 | `heavy-storm-rain-loop` | 18.0 s (suasana/loop) | badai hujan deras (latar) |
 | `high-tech-bleep` | 0.69 s | bip teknologi singkat |
 | `high-tech-bleep-confirmation` | 0.61 s | bip konfirmasi canggih, "berhasil" |
+| `high-tech-notification-bleep` | 0.55 s | notifikasi canggih |
 | `horror-ambience` | 82.14 s (suasana/loop) | suasana horor, mencekam (latar) |
 | `horror-sci-fi-wind-tunnel` | 64.0 s (suasana/loop) | lorong angin horor/sci-fi, mencekam |
+| `in-and-out-zoom-sound` | 1.25 s | zoom masuk lalu keluar |
 | `industrial-machine-hum` | 50.0 s (suasana/loop) | dengung mesin pabrik (latar) |
 | `intense-long-fire-beam` | 9.0 s | semburan api panjang, kekuatan besar |
 | `interface-device-click` | 1.05 s | klik tombol/perangkat |
@@ -116,14 +124,18 @@
 | `rattlesnake-in-desert` | 4.17 s | ular derik di gurun |
 | `rattlesnake-moving-the-tail` | 1.03 s | ekor ular derik bergetar, peringatan |
 | `rattlesnake-ready-to-hunt` | 1.02 s | ular derik siap menyerang, bahaya |
+| `retro-confirmation-tone` | 1.84 s | nada konfirmasi jadul |
 | `retro-game-emergency-alarm` | 25.43 s | bahaya gaya game, darurat lucu |
 | `retro-game-notification` | 1.47 s | notifikasi gaya game, poin didapat |
 | `river-in-the-forest-with-birds` | 95.0 s (suasana/loop) | sungai di hutan + burung |
 | `river-water-flow-and-surroundings` | 60.13 s (suasana/loop) | sungai mengalir + suasana sekitar |
+| `robot-positive-item-acquired` | 1.5 s | robot dapat item, "berhasil!" ala game |
 | `running-through-the-forest` | 14.64 s | berlari menembus hutan |
 | `sad-game-over-trombone` | 5.61 s | gagal lucu "wah wah wah", kecewa |
 | `sand-in-the-desert` | 5.53 s (suasana/loop) | pasir tertiup di gurun |
 | `scary-woods-at-night` | 50.16 s (suasana/loop) | hutan seram malam hari (latar) |
+| `sci-fi-battle-laser-shots` | 2.61 s | tembakan laser, pertempuran sci-fi |
+| `sci-fi-computer-technology` | 30.0 s | komputer sci-fi bekerja |
 | `sci-fi-loading-operative-system` | 2.63 s | sistem sedang loading, memproses |
 | `sea-waves-with-birds-loop` | 38.04 s (suasana/loop) | ombak + burung laut (latar) |
 | `short-fire-whoosh` | 3.19 s | whoosh api singkat |
@@ -148,6 +160,9 @@
 | `summer-night-crickets-loop` | 42.0 s (suasana/loop) | jangkrik malam (latar) |
 | `summer-night-in-the-forest` | 126.0 s (suasana/loop) | malam musim panas di hutan (latar) |
 | `technological-futuristic-hum` | 6.0 s (suasana/loop) | teknologi canggih, futuristik, mesin/AI |
+| `technology-alert-transition` | 5.0 s | transisi peringatan teknologi |
+| `technology-computer-calculations` | 4.0 s | komputer menghitung, data diproses |
+| `technology-notification` | 2.08 s | notifikasi teknologi |
 | `technology-transition-slide` | 1.65 s | transisi geser ala teknologi |
 | `terror-night-ambiance` | 118.09 s (suasana/loop) | malam mencekam (latar) |
 | `terror-transition` | 12.48 s | transisi horor/mengagetkan |
@@ -160,7 +175,10 @@
 | `transition-windy-swoosh` | 3.2 s | transisi berangin, angin kencang |
 | `trumpet-fanfare` | 8.0 s | kemenangan, pengumuman resmi, "ta-da!" |
 | `twilight-jungle` | 13.57 s (suasana/loop) | hutan saat senja (latar) |
+| `ui-zoom-in-long-sound` | 1.15 s | zoom in panjang, mendekat perlahan |
 | `ui-zoom-out` | 1.15 s | zoom out, melihat gambaran besar |
+| `underwater-transmitter-hum` | 13.62 s (suasana/loop) | dengung pemancar bawah air (latar) |
+| `user-interface-zoom-in` | 0.66 s | zoom in, fokus ke detail |
 | `vacuum-swoosh-transition` | 2.26 s | transisi tersedot/menghilang |
 | `vintage-telephone-ringtone` | 7.39 s | telepon jadul berdering, panggilan, zaman dulu |
 | `walking-in-the-forest` | 28.15 s | berjalan di hutan |
