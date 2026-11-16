@@ -1,6 +1,6 @@
 # Efek suara Mixkit (dari pemilik)
 
-649 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
+659 efek suara dari **Mixkit** (mixkit.co). Asli di `audio/`, versi rapi (WAV 48 kHz, jeda awal > 0,3 s dipangkas, puncak -3 dBFS, suasana/loop -12 dBFS) di `normal/`. Buat ulang dengan `python3 katalogkan.py`.
 
 **Lisensi: Mixkit Sound Effects Free License.** Boleh dipakai di video komersial (TikTok yang dimonetisasi) **tanpa mencantumkan kredit**. Tapi **file mentahnya tidak boleh disebarkan ulang**, jadi file audionya **tidak diunggah** ke repo GitHub yang publik ini. Simpan cadangannya sendiri (HP/Google Drive), atau jadikan repo privat lalu file ini boleh diunggah.
 
@@ -52,6 +52,7 @@
 | `big-loving-kiss` | 1.15 s | cium besar penuh sayang |
 | `big-tired-dog-panting` | 3.52 s | anjing besar ngos-ngosan capek |
 | `big-wild-cat-long-purr` | 3.61 s | kucing besar mendengkur panjang |
+| `big-wild-eagle-calling` | 0.87 s | teriakan elang besar, burung pemangsa (cocok video falcon) |
 | `big-wild-lion-growl` | 2.66 s | auman/geraman singa, kekuatan, raja hutan |
 | `bike-bell-ring` | 2.84 s | bel sepeda berdering |
 | `bike-magical-bell` | 2.15 s | bel sepeda ajaib, ide/keajaiban kecil |
@@ -104,6 +105,7 @@
 | `cheering-crowd-loud-whistle` | 14.76 s | sorakan + siulan keras, kemenangan |
 | `chewing-something-crunchy` | 0.94 s | mengunyah renyah, ngemil, kerupuk |
 | `chickens-and-pigeons` | 5.11 s (suasana/loop) | ayam & merpati, halaman rumah desa (latar) |
+| `chickens-clucking-short` | 2.6 s | ayam berkotek singkat |
 | `child-deep-breath` | 1.7 s | anak tarik napas dalam |
 | `child-laughing-happily` | 0.76 s | anak tertawa gembira |
 | `children-audience-talking-loop` | 84.18 s (suasana/loop) | anak-anak mengobrol menunggu acara (latar) |
@@ -159,6 +161,7 @@
 | `dirt-debris-falling` | 5.5 s | tanah & puing berjatuhan |
 | `distant-sea-humming-ambiance` | 44.86 s (suasana/loop) | laut di kejauhan, tenang, luas |
 | `dog-barking-twice` | 1.62 s | anjing menggonggong, kejutan lucu |
+| `dog-sniffing-the-ground` | 4.86 s | anjing mengendus tanah, mencari sesuatu |
 | `domestic-cat-hungry-meow` | 0.87 s | kucing lapar mengeong minta makan |
 | `donkey-crying` | 12.27 s | keledai meringkik, lucu/konyol |
 | `donkey-crying-screech` | 14.81 s | keledai menjerit nyaring, kaget lucu |
@@ -267,6 +270,7 @@
 | `girls-audience-applause` | 6.55 s | penonton cewek bertepuk tangan |
 | `girls-crowd-cheer-scream-and-applause` | 6.08 s | cewek-cewek bersorak & menjerit, heboh |
 | `glass-break-with-hammer-thud` | 1.44 s | kaca pecah dipukul palu, hancur |
+| `goat-baa-stutter` | 0.85 s | kambing mengembik terputus-putus, lucu |
 | `grass-step` | 0.58 s | satu langkah di rumput |
 | `gravel-stones-small-avalanche` | 1.4 s | longsor kerikil kecil |
 | `hairdryer-hum` | 27.83 s | pengering rambut menyala, pagi buru-buru |
@@ -310,6 +314,7 @@
 | `human-nose-blow` | 1.03 s | buang ingus |
 | `hungry-man-eating` | 1.33 s | orang lapar makan lahap |
 | `hydraulic-bus-door` | 1.74 s | pintu bus hidrolik "pssh" terbuka/tertutup |
+| `hyena-cartoon-laugh` | 2.09 s | tawa hyena kartun, mengejek jahat-lucu |
 | `in-and-out-zoom-sound` | 1.25 s | zoom masuk lalu keluar |
 | `industrial-hum-loop` | 44.91 s (suasana/loop) | dengung industri (latar) |
 | `industrial-machine-engine-hum-loop` | 7.42 s (suasana/loop) | mesin industri (latar) |
@@ -392,6 +397,7 @@
 | `metal-tool-falling` | 0.75 s | perkakas logam jatuh |
 | `metal-tools-box-browsing` | 1.37 s | mengaduk kotak perkakas, mencari sesuatu |
 | `modern-technology-select` | 0.5 s | pilih/tap modern |
+| `monkey-excited-screech` | 1.91 s | monyet menjerit girang |
 | `monster-breath` | 4.31 s | napas monster, seram |
 | `monster-footstep` | 3.0 s | langkah monster, berat & mengancam |
 | `morning-sound-in-a-garden` | 110.44 s (suasana/loop) | pagi di taman/kebun, segar |
@@ -405,6 +411,7 @@
 | `mouthwash-in-bathroom` | 3.48 s | kumur-kumur di kamar mandi, rutinitas pagi |
 | `movie-trailer-epic-impact` | 4.87 s | angka/fakta besar muncul, hantaman epik |
 | `mowing-the-lawn-engine-hum` | 58.1 s | mesin potong rumput |
+| `multiple-moo-in-the-barn` | 3.75 s | banyak sapi melenguh di kandang |
 | `musical-game-over` | 2.67 s | game over bermusik, gagal lucu |
 | `mystwrious-bass-pulse` | 16.56 s | misterius, tegang, sesuatu akan terungkap |
 | `nasty-criature-roar` | 1.79 s | raungan makhluk seram |
@@ -644,12 +651,15 @@
 | `windy-humming-forest-with-birds` | 125.35 s (suasana/loop) | hutan berangin + burung |
 | `wine-bottles-clinking` | 1.18 s | botol/gelas berdenting, bersulang (pertimbangkan konteks) |
 | `wizard-fire-woosh` | 1.09 s | sihir api, transisi magis |
+| `wolf-attack` | 1.52 s | serigala menyerang |
+| `wolf-creature-howling-roar` | 5.02 s | lolongan + raungan makhluk serigala |
 | `wolf-howling` | 8.03 s | serigala melolong, malam |
 | `wolves-at-scary-forest` | 9.74 s (suasana/loop) | serigala di hutan seram, horor/ancaman |
 | `wolves-pack-howling` | 6.5 s (suasana/loop) | kawanan serigala melolong |
 | `woman-coughing-fast` | 1.1 s | cewek batuk cepat |
 | `woman-cry-of-pain` | 1.42 s | jeritan kesakitan cewek |
 | `wood-plank-dominoes-fall` | 2.5 s | papan kayu jatuh beruntun seperti domino, efek berantai |
+| `wounded-lion-growling` | 5.34 s | singa terluka menggeram |
 | `yawn-of-adult-man` | 1.26 s | orang dewasa menguap |
 | `young-man-coughing` | 1.19 s | cowok batuk |
 | `young-tired-male-yawns` | 2.98 s | cowok capek menguap, ngantuk |
