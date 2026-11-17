@@ -25,7 +25,7 @@
   },
   {
    "id": "h3",
-   "gap": 0.9,
+   "gap": 1.3,
    "style": "sly, mysterious",
    "text": "Ada penelitian yang nemu obatnya. Dan obatnya aneh banget.",
    "cap": "Obatnya ada. Dan *aneh banget.*",
@@ -100,7 +100,7 @@
   },
   {
    "id": "m7",
-   "gap": 0.9,
+   "gap": 1.3,
    "style": "frustrated",
    "text": "Lagi ngobrol, jadi nggak fokus.",
    "cap": "Lagi ngobrol, *nggak fokus*",
@@ -142,7 +142,7 @@
   },
   {
    "id": "m11",
-   "gap": 0.9,
+   "gap": 1.3,
    "style": "clear explainer, friendly",
    "text": "Ilmuwan menyebutnya earworm. Artinya, cacing telinga.",
    "cap": "Namanya: *earworm* (cacing telinga)",
@@ -182,7 +182,7 @@
   },
   {
    "id": "d4",
-   "gap": 0.9,
+   "gap": 1.3,
    "style": "deflated, comedic",
    "text": "Hasilnya? Sering kali, lagunya balik lagi.",
    "cap": "Hasilnya? *Balik lagi.*",
@@ -256,7 +256,7 @@
   },
   {
    "id": "p7",
-   "gap": 0.9,
+   "gap": 1.3,
    "style": "lively, listing",
    "text": "Dan biasanya, lagu itu sering diputar di radio.",
    "cap": "4. Sering diputar di *radio*",
@@ -266,7 +266,7 @@
   },
   {
    "id": "a1",
-   "gap": 0.9,
+   "gap": 1.3,
    "style": "warm, proud, slower, clear emphasis on the channel name",
    "text": "Waktu kami di Adriy.Project baca soal ini...",
    "cap": "Waktu kami di *Adriy.Project* baca soal ini...",
@@ -306,7 +306,7 @@
   },
   {
    "id": "p10",
-   "gap": 0.9,
+   "gap": 1.3,
    "style": "clear explainer, playful",
    "text": "Ada suara kecil di kepala, yang ikut bernyanyi.",
    "cap": "Ada *suara kecil* yang ikut nyanyi",
@@ -426,7 +426,7 @@
   },
   {
    "id": "s11",
-   "gap": 0.9,
+   "gap": 1.3,
    "style": "clear, confident",
    "text": "Kedua, kalau masih muter, main teka-teki kata yang ringan.",
    "cap": "2. Teka-teki kata *yang ringan*",

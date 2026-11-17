@@ -1,1 +1,287 @@
-{"duration": 161.25, "lines": [{"id": "h1", "t0": 0.3, "t1": 5.1, "cap": "Bangun tidur, *lagu nyebelin* udah muter"}, {"id": "h2", "t0": 5.3, "t1": 6.9, "cap": "Seharian *nggak mau pergi*"}, {"id": "h3", "t0": 7.1, "t1": 10.7, "cap": "Obatnya ada. Dan *aneh banget.*"}, {"id": "m1", "t0": 11.6, "t1": 12.6, "cap": "Coba ingat-ingat..."}, {"id": "m2", "t0": 12.8, "t1": 16.0, "cap": "Lagu iklan di *warung*"}, {"id": "m3", "t0": 16.2, "t1": 20.2, "cap": "Mandi, kerja, mau tidur: *muter terus*"}, {"id": "m4", "t0": 20.4, "t1": 23.2, "cap": "Bukan *lagu utuh*"}, {"id": "m5", "t0": 23.4, "t1": 27.4, "cap": "Potongan pendek, *kayak kaset rusak*"}, {"id": "m6", "t0": 27.7, "t1": 30.1, "cap": "Lagi ujian, *malah nyanyi*"}, {"id": "m7", "t0": 30.3, "t1": 32.3, "cap": "Lagi ngobrol, *nggak fokus*"}, {"id": "m8", "t0": 33.2, "t1": 34.8, "cap": "Kamu *nggak sendirian*"}, {"id": "m9", "t0": 35.0, "t1": 39.4, "cap": "Hampir *9 dari 10* orang mengalaminya"}, {"id": "m10", "t0": 39.6, "t1": 41.2, "cap": "Minimal *seminggu sekali*"}, {"id": "m11", "t0": 41.4, "t1": 43.8, "cap": "Namanya: *earworm* (cacing telinga)"}, {"id": "d1", "t0": 44.7, "t1": 46.3, "cap": "Kita coba *melawan*"}, {"id": "d2", "t0": 46.5, "t1": 49.7, "cap": "Paksa diri *nggak mikirin*"}, {"id": "d3", "t0": 49.9, "t1": 52.7, "cap": "Setel lagu lain *biar ketimpa*"}, {"id": "d4", "t0": 52.9, "t1": 55.3, "cap": "Hasilnya? *Balik lagi.*"}, {"id": "p1", "t0": 56.2, "t1": 58.6, "cap": "Kenapa *gampang nyangkut?*"}, {"id": "p2", "t0": 58.8, "t1": 65.6, "cap": "2016: *3.000 orang* ditanya"}, {"id": "p3", "t0": 65.8, "t1": 68.6, "cap": "Lagu nyangkut punya *ciri mirip*"}, {"id": "p4", "t0": 68.8, "t1": 70.0, "cap": "1. Tempo *lebih cepat*"}, {"id": "p5", "t0": 70.2, "t1": 73.0, "cap": "2. Pola nada *gampang ditebak*"}, {"id": "p6", "t0": 73.2, "t1": 76.0, "cap": "3. Ada *lompatan nada*"}, {"id": "p7", "t0": 76.2, "t1": 79.4, "cap": "4. Sering diputar di *radio*"}, {"id": "a1", "t0": 80.3, "t1": 83.1, "cap": "Waktu kami di *Adriy.Project* baca soal ini..."}, {"id": "a1b", "t0": 84.0, "t1": 86.0, "cap": "...langsung kepikiran *lagu iklan*"}, {"id": "p8", "t0": 86.4, "t1": 88.0, "cap": "Kenapa *susah diusir?*"}, {"id": "p9", "t0": 88.2, "t1": 91.4, "cap": "Mirip *bicara dalam hati*"}, {"id": "p10", "t0": 91.6, "t1": 94.8, "cap": "Ada *suara kecil* yang ikut nyanyi"}, {"id": "s1", "t0": 95.7, "t1": 97.3, "cap": "Ini *obat anehnya*"}, {"id": "s2", "t0": 97.6, "t1": 103.6, "cap": "Univ. Reading: *98 orang*"}, {"id": "s3", "t0": 103.8, "t1": 106.6, "cap": "Sebagian *mengunyah permen karet*"}, {"id": "s4", "t0": 106.8, "t1": 111.2, "cap": "Lagunya *lebih jarang muncul!*"}, {"id": "s5", "t0": 111.5, "t1": 114.7, "cap": "Mengunyah = *suara dalam hati sibuk*"}, {"id": "s6", "t0": 114.9, "t1": 116.5, "cap": "Mulut sibuk, *konser bubar!*"}, {"id": "s7", "t0": 117.0, "t1": 118.6, "cap": "Obat kedua: *teka-teki kata*"}, {"id": "s8", "t0": 118.8, "t1": 123.6, "cap": "Susun ulang huruf = *usir lagu*"}, {"id": "s9", "t0": 123.8, "t1": 129.4, "cap": "Jangan *terlalu susah!*"}, {"id": "s10", "t0": 129.7, "t1": 132.1, "cap": "1. Kunyah *permen karet*"}, {"id": "s11", "t0": 132.3, "t1": 135.9, "cap": "2. Teka-teki kata *yang ringan*"}, {"id": "r1", "t0": 136.8, "t1": 142.4, "cap": "Bikin suara di kepala *sedikit sibuk*"}, {"id": "c1", "t0": 142.9, "t1": 144.5, "cap": "Sekarang *giliran kamu*"}, {"id": "c2", "t0": 144.7, "t1": 147.9, "cap": "Lagu apa yang *nyangkut di kepalamu?*"}, {"id": "c3", "t0": 148.1, "t1": 152.5, "cap": "Tulis judulnya di komentar! *(bisa nular)*"}, {"id": "c4", "t0": 152.7, "t1": 156.7, "cap": "*Ikuti*: minggu depan fakta aneh lagi"}, {"id": "z", "t0": 157.15, "t1": 158.75, "cap": ""}], "perkiraan": true}
+{
+ "duration": 164.318,
+ "lines": [
+  {
+   "id": "h1",
+   "t0": 0.3,
+   "t1": 3.514,
+   "cap": "Bangun tidur, *lagu nyebelin* udah muter"
+  },
+  {
+   "id": "h2",
+   "t0": 3.714,
+   "t1": 5.116,
+   "cap": "Seharian *nggak mau pergi*"
+  },
+  {
+   "id": "h3",
+   "t0": 5.316,
+   "t1": 9.13,
+   "cap": "Obatnya ada. Dan *aneh banget.*"
+  },
+  {
+   "id": "m1",
+   "t0": 10.43,
+   "t1": 11.702,
+   "cap": "Coba ingat-ingat..."
+  },
+  {
+   "id": "m2",
+   "t0": 11.902,
+   "t1": 14.433,
+   "cap": "Lagu iklan di *warung*"
+  },
+  {
+   "id": "m3",
+   "t0": 14.633,
+   "t1": 19.053,
+   "cap": "Mandi, kerja, mau tidur: *muter terus*"
+  },
+  {
+   "id": "m4",
+   "t0": 19.253,
+   "t1": 21.266,
+   "cap": "Bukan *lagu utuh*"
+  },
+  {
+   "id": "m5",
+   "t0": 21.466,
+   "t1": 25.887,
+   "cap": "Potongan pendek, *kayak kaset rusak*"
+  },
+  {
+   "id": "m6",
+   "t0": 26.187,
+   "t1": 29.07,
+   "cap": "Lagi ujian, *malah nyanyi*"
+  },
+  {
+   "id": "m7",
+   "t0": 29.27,
+   "t1": 31.781,
+   "cap": "Lagi ngobrol, *nggak fokus*"
+  },
+  {
+   "id": "m8",
+   "t0": 33.081,
+   "t1": 34.334,
+   "cap": "Kamu *nggak sendirian*"
+  },
+  {
+   "id": "m9",
+   "t0": 34.534,
+   "t1": 38.939,
+   "cap": "Hampir *9 dari 10* orang mengalaminya"
+  },
+  {
+   "id": "m10",
+   "t0": 39.139,
+   "t1": 40.449,
+   "cap": "Minimal *seminggu sekali*"
+  },
+  {
+   "id": "m11",
+   "t0": 40.649,
+   "t1": 45.392,
+   "cap": "Namanya: *earworm* (cacing telinga)"
+  },
+  {
+   "id": "d1",
+   "t0": 46.692,
+   "t1": 48.207,
+   "cap": "Kita coba *melawan*"
+  },
+  {
+   "id": "d2",
+   "t0": 48.407,
+   "t1": 51.004,
+   "cap": "Paksa diri *nggak mikirin*"
+  },
+  {
+   "id": "d3",
+   "t0": 51.204,
+   "t1": 53.49,
+   "cap": "Setel lagu lain *biar ketimpa*"
+  },
+  {
+   "id": "d4",
+   "t0": 53.69,
+   "t1": 57.379,
+   "cap": "Hasilnya? *Balik lagi.*"
+  },
+  {
+   "id": "p1",
+   "t0": 58.679,
+   "t1": 61.417,
+   "cap": "Kenapa *gampang nyangkut?*"
+  },
+  {
+   "id": "p2",
+   "t0": 61.617,
+   "t1": 67.371,
+   "cap": "2016: *3.000 orang* ditanya"
+  },
+  {
+   "id": "p3",
+   "t0": 67.571,
+   "t1": 70.063,
+   "cap": "Lagu nyangkut punya *ciri mirip*"
+  },
+  {
+   "id": "p4",
+   "t0": 70.263,
+   "t1": 71.463,
+   "cap": "1. Tempo *lebih cepat*"
+  },
+  {
+   "id": "p5",
+   "t0": 71.663,
+   "t1": 75.281,
+   "cap": "2. Pola nada *gampang ditebak*"
+  },
+  {
+   "id": "p6",
+   "t0": 75.481,
+   "t1": 77.687,
+   "cap": "3. Ada *lompatan nada*"
+  },
+  {
+   "id": "p7",
+   "t0": 77.887,
+   "t1": 80.882,
+   "cap": "4. Sering diputar di *radio*"
+  },
+  {
+   "id": "a1",
+   "t0": 82.182,
+   "t1": 84.982,
+   "cap": "Waktu kami di *Adriy.Project* baca soal ini..."
+  },
+  {
+   "id": "a1b",
+   "t0": 86.282,
+   "t1": 88.199,
+   "cap": "...langsung kepikiran *lagu iklan*"
+  },
+  {
+   "id": "p8",
+   "t0": 88.599,
+   "t1": 90.471,
+   "cap": "Kenapa *susah diusir?*"
+  },
+  {
+   "id": "p9",
+   "t0": 90.671,
+   "t1": 93.399,
+   "cap": "Mirip *bicara dalam hati*"
+  },
+  {
+   "id": "p10",
+   "t0": 93.599,
+   "t1": 96.295,
+   "cap": "Ada *suara kecil* yang ikut nyanyi"
+  },
+  {
+   "id": "s1",
+   "t0": 97.595,
+   "t1": 99.58,
+   "cap": "Ini *obat anehnya*"
+  },
+  {
+   "id": "s2",
+   "t0": 99.88,
+   "t1": 105.341,
+   "cap": "Univ. Reading: *98 orang*"
+  },
+  {
+   "id": "s3",
+   "t0": 105.541,
+   "t1": 109.348,
+   "cap": "Sebagian *mengunyah permen karet*"
+  },
+  {
+   "id": "s4",
+   "t0": 109.548,
+   "t1": 113.823,
+   "cap": "Lagunya *lebih jarang muncul!*"
+  },
+  {
+   "id": "s5",
+   "t0": 114.123,
+   "t1": 117.066,
+   "cap": "Mengunyah = *suara dalam hati sibuk*"
+  },
+  {
+   "id": "s6",
+   "t0": 117.266,
+   "t1": 119.337,
+   "cap": "Mulut sibuk, *konser bubar!*"
+  },
+  {
+   "id": "s7",
+   "t0": 119.837,
+   "t1": 121.977,
+   "cap": "Obat kedua: *teka-teki kata*"
+  },
+  {
+   "id": "s8",
+   "t0": 122.177,
+   "t1": 126.838,
+   "cap": "Susun ulang huruf = *usir lagu*"
+  },
+  {
+   "id": "s9",
+   "t0": 127.038,
+   "t1": 132.115,
+   "cap": "Jangan *terlalu susah!*"
+  },
+  {
+   "id": "s10",
+   "t0": 132.415,
+   "t1": 135.47,
+   "cap": "1. Kunyah *permen karet*"
+  },
+  {
+   "id": "s11",
+   "t0": 135.67,
+   "t1": 139.332,
+   "cap": "2. Teka-teki kata *yang ringan*"
+  },
+  {
+   "id": "r1",
+   "t0": 140.632,
+   "t1": 147.503,
+   "cap": "Bikin suara di kepala *sedikit sibuk*"
+  },
+  {
+   "id": "c1",
+   "t0": 148.003,
+   "t1": 149.974,
+   "cap": "Sekarang *giliran kamu*"
+  },
+  {
+   "id": "c2",
+   "t0": 150.174,
+   "t1": 152.159,
+   "cap": "Lagu apa yang *nyangkut di kepalamu?*"
+  },
+  {
+   "id": "c3",
+   "t0": 152.359,
+   "t1": 156.732,
+   "cap": "Tulis judulnya di komentar! *(bisa nular)*"
+  },
+  {
+   "id": "c4",
+   "t0": 156.932,
+   "t1": 160.76,
+   "cap": "*Ikuti*: minggu depan fakta aneh lagi"
+  },
+  {
+   "id": "z",
+   "t0": 161.21,
+   "t1": 163.118,
+   "cap": ""
+  }
+ ]
+}
