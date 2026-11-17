@@ -67,6 +67,34 @@ fun SettingsScreen(vm: MainViewModel) {
             }
         }
 
+        Section("Suara VoxCPM2 (opsional)") {
+            val voxStatus by vm.voxStatus.collectAsState()
+            var url by remember(s.voxUrl) { mutableStateOf(s.voxUrl) }
+            var token by remember(s.voxToken) { mutableStateOf(s.voxToken) }
+            Text(
+                "VoxCPM2 adalah model suara 2 miliar parameter. Model ini terlalu besar untuk HP, jadi dijalankan " +
+                    "di komputer kamu (sebaiknya dengan kartu grafis NVIDIA) memakai program server AdriyTTS. " +
+                    "Isi alamatnya di sini, lalu pilih suara \"VoxCPM2\" di layar Buat. " +
+                    "Bila server mati, aplikasi otomatis memakai Gadis/Ardi agar audio tetap jadi.",
+                style = MaterialTheme.typography.bodySmall
+            )
+            OutlinedTextField(value = url, onValueChange = { url = it.trim() }, singleLine = true,
+                label = { Text("Alamat server, mis. http://192.168.1.10:8808") }, modifier = Modifier.fillMaxWidth())
+            OutlinedTextField(value = token, onValueChange = { token = it.trim() }, singleLine = true,
+                label = { Text("Kata sandi (token), bila ada") }, modifier = Modifier.fillMaxWidth())
+            Row {
+                TextButton(onClick = {
+                    vm.updateSettings { it.copy(voxUrl = url, voxToken = token) }
+                    vm.testVox()
+                }) { Text("Simpan & tes koneksi") }
+                if (s.voxUrl.isNotBlank()) TextButton(onClick = {
+                    url = ""; token = ""
+                    vm.updateSettings { it.copy(voxUrl = "", voxToken = "", voiceId = if (it.voiceId.startsWith("vox-")) "gadis-natural" else it.voiceId) }
+                }) { Text("Matikan") }
+            }
+            voxStatus?.let { Text(it, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold) }
+        }
+
         Section("Bila ada masalah") {
             Text(
                 "• Proses terhenti karena internet putus? Tidak apa-apa: aplikasi mencoba lagi sendiri, dan bagian yang sudah jadi tidak hilang.\n" +

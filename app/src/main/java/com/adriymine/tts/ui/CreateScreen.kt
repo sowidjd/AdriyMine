@@ -135,7 +135,7 @@ fun CreateScreen(vm: MainViewModel, openVoices: () -> Unit, openLibrary: () -> U
             modifier = Modifier.padding(top = 6.dp, bottom = 8.dp)
         )
         // Pilihan gaya bicara (suara asli Indonesia); semua pengaturan lain otomatis.
-        StylePicker(vm, settings.voiceId)
+        StylePicker(vm, settings.voiceId, showVox = settings.voxUrl.isNotBlank())
         Spacer(Modifier.height(10.dp))
         JobPanel(job, vm, openLibrary)
         Spacer(Modifier.height(10.dp))
@@ -153,14 +153,16 @@ fun CreateScreen(vm: MainViewModel, openVoices: () -> Unit, openLibrary: () -> U
 }
 
 @Composable
-private fun StylePicker(vm: MainViewModel, selectedId: String) {
+private fun StylePicker(vm: MainViewModel, selectedId: String, showVox: Boolean) {
+    val styles = com.adriymine.tts.tts.VoiceCatalog.curated +
+        (if (showVox) com.adriymine.tts.tts.VoiceCatalog.voxStyles else emptyList())
     val previewing by vm.previewing.collectAsState()
     Column {
         Text("Pilih suara", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(6.dp))
         androidx.compose.foundation.lazy.LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            items(com.adriymine.tts.tts.VoiceCatalog.curated.size) { idx ->
-                val v = com.adriymine.tts.tts.VoiceCatalog.curated[idx]
+            items(styles.size) { idx ->
+                val v = styles[idx]
                 val selected = v.id == selectedId
                 Card(
                     onClick = { vm.selectVoice(v.id) },

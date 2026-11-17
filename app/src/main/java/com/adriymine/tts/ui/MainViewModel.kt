@@ -230,6 +230,19 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
+    private val _voxStatus = MutableStateFlow<String?>(null)
+    val voxStatus = _voxStatus.asStateFlow()
+
+    /** Uji koneksi ke server VoxCPM2 milik pengguna. */
+    fun testVox() {
+        _voxStatus.value = "Menghubungi server…"
+        viewModelScope.launch {
+            val h = a.engine.voxHealth()
+            _voxStatus.value = (if (h.ok) "✓ " else "✗ ") + h.message
+            if (h.ok) selectVoice("vox-wanita")
+        }
+    }
+
     /** Teks pratinjau yang bisa diubah pengguna di layar Suara. */
     val previewText = MutableStateFlow(DEFAULT_PREVIEW)
 

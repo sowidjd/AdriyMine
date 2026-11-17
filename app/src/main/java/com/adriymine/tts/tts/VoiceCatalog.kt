@@ -4,6 +4,7 @@ enum class Gender { FEMALE, MALE }
 
 enum class VoiceGroup(val title: String, val subtitle: String) {
     INDONESIA("Suara bahasa Indonesia", "Logat Indonesia asli. Ucapan huruf & kata tepat."),
+    VOX("VoxCPM2 (server sendiri)", "Model OpenBMB VoxCPM2 di komputer Anda."),
     OTHER("Lainnya", ""),
 }
 
@@ -38,6 +39,8 @@ data class Voice(
     val sample: String = "",
 ) {
     val isMultilingual: Boolean get() = serverId.contains("Multilingual")
+    val isVox: Boolean get() = serverId.startsWith("voxcpm:")
+    val voxVoice: String get() = serverId.removePrefix("voxcpm:")
     val baseName: String get() = name.substringBefore(' ')
     val styleName: String get() = name.substringAfter("· ", "Natural")
 }
@@ -77,11 +80,21 @@ object VoiceCatalog {
             sample = "Hidup ini seperti perjalanan panjang. Kadang kita perlu berhenti sejenak, lalu melangkah lagi."),
     )
 
+    /** Muncul di pilihan suara hanya bila alamat server VoxCPM2 diisi di Atur. */
+    val voxStyles: List<Voice> = listOf(
+        Voice("vox-wanita", "VoxCPM2 · Wanita", Gender.FEMALE, "id-ID",
+            "Model VoxCPM2 di server Anda. Audio studio, lebih lambat.", VoiceGroup.VOX, false, 3.26,
+            serverId = "voxcpm:wanita", sample = "Halo, saya suara VoxCPM2. Saya membacakan tulisanmu dari komputermu sendiri."),
+        Voice("vox-pria", "VoxCPM2 · Pria", Gender.MALE, "id-ID",
+            "Model VoxCPM2 di server Anda. Audio studio, lebih lambat.", VoiceGroup.VOX, false, 0.0,
+            serverId = "voxcpm:pria", sample = "Halo, saya suara VoxCPM2. Saya membacakan tulisanmu dari komputermu sendiri."),
+    )
+
     const val DEFAULT_VOICE = "gadis-natural"
 
     /** Kunci lama (nama suara server / suara yang dihapus) dipetakan ke gaya yang setara. */
     private fun migrate(id: String): String = when {
-        curated.any { it.id == id } -> id
+        curated.any { it.id == id } || voxStyles.any { it.id == id } -> id
         id == ARDI -> "ardi-natural"
         listOf("Andrew", "Brian", "Remy", "Giuseppe", "William", "Hyunsu", "Osman", "Dimas", "Jajang", "Florian")
             .any { id.contains(it) } -> "ardi-natural"
@@ -91,7 +104,7 @@ object VoiceCatalog {
     val ranked: List<Voice> get() = curated
 
     fun find(id: String, @Suppress("UNUSED_PARAMETER") extra: List<Voice> = emptyList()): Voice =
-        curated.first { it.id == migrate(id) }
+        migrate(id).let { m -> curated.firstOrNull { it.id == m } ?: voxStyles.first { it.id == m } }
 
     fun displayName(shortName: String): String = shortName
 

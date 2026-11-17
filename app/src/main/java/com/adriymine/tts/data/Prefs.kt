@@ -25,6 +25,9 @@ data class Settings(
     val autoSaveToDownloads: Boolean = true,
     val concurrency: Int = 4,
     val chromiumVersion: String = EdgeConfig.DEFAULT_CHROMIUM_FULL_VERSION,
+    /** Alamat server VoxCPM2 milik pengguna (kosong = tidak dipakai). */
+    val voxUrl: String = "",
+    val voxToken: String = "",
 )
 
 /** Prosodi akhir = setelan pengguna + setelan optimal suara (bila aktif). */
@@ -63,6 +66,8 @@ class Prefs(context: Context) {
                 autoSaveToDownloads = sp.getBoolean("autosave", d.autoSaveToDownloads),
                 concurrency = sp.getInt("conc2", d.concurrency).coerceIn(1, 6),
                 chromiumVersion = sp.getString("chromium", d.chromiumVersion)?.takeIf { it.isNotBlank() } ?: d.chromiumVersion,
+                voxUrl = sp.getString("voxUrl", "") ?: "",
+                voxToken = sp.getString("voxToken", "") ?: "",
             )
         }.getOrDefault(d)
     }
@@ -86,6 +91,8 @@ class Prefs(context: Context) {
             .putBoolean("autosave", s.autoSaveToDownloads)
             .putInt("conc2", s.concurrency)
             .putString("chromium", s.chromiumVersion)
+            .putString("voxUrl", s.voxUrl)
+            .putString("voxToken", s.voxToken)
             .apply()
     }
 }

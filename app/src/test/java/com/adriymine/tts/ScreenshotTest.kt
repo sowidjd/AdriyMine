@@ -36,6 +36,7 @@ class ScreenshotTest {
             rule.activity.let { a ->
                 val vm = androidx.lifecycle.ViewModelProvider(a)[com.adriymine.tts.ui.MainViewModel::class.java]
                 vm.setTitle("Cerita Pagi di Desa")
+                vm.updateSettings { it.copy(voxUrl = "http://192.168.1.10:8808") }
                 vm.setText(File(System.getenv("SHOTS_TEXT")!!).readText())
             }
             val lib = app.library
@@ -54,5 +55,8 @@ class ScreenshotTest {
         rule.onRoot().captureRoboImage("$out/2_pustaka.png")
         rule.onAllNodesWithText("Atur")[0].performClick(); rule.waitForIdle()
         rule.onRoot().captureRoboImage("$out/3_pengaturan.png")
+        rule.onAllNodes(androidx.compose.ui.test.hasScrollAction())[0].performScrollToNode(hasText("Simpan & tes koneksi"))
+        rule.waitForIdle()
+        rule.onRoot().captureRoboImage("$out/4_voxcpm.png")
     }
 }

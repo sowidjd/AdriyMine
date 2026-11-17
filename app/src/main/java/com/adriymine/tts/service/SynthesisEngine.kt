@@ -66,6 +66,20 @@ class SynthesisEngine(
     private val _state = MutableStateFlow(JobState())
     val state: StateFlow<JobState> = _state.asStateFlow()
     private var job: Job? = null
+    private val vox = com.adriymine.tts.tts.VoxClient()
+    /** Alamat & token server VoxCPM2 (diisi App dari Pengaturan). */
+    var voxConfig: () -> Pair<String, String> = { "" to "" }
+
+    /** Satu bagian teks -> audio, lewat Microsoft (Gadis/Ardi) atau server VoxCPM2 pengguna. */
+    private suspend fun synth(voice: com.adriymine.tts.tts.Voice, text: String, prosody: Prosody, attempts: Int): com.adriymine.tts.tts.SynthResult {
+        if (voice.isVox) {
+            val (url, token) = voxConfig()
+            return com.adriymine.tts.tts.SynthResult(vox.synthesize(url, token, text, voice.voxVoice, attempts), emptyList())
+        }
+        return client.synthesize(text, voice.serverId, prosody, attempts = attempts)
+    }
+
+    suspend fun voxHealth() = voxConfig().let { (u, t) -> vox.health(u, t) }
     private val jobsRoot = File(context.cacheDir, "jobs").apply { mkdirs() }
 
     private data class Spec(
@@ -81,6 +95,7 @@ class SynthesisEngine(
 
     /** Cek cepat apakah server sedang melayani suara ini (hasil di-cache 10 menit). */
     suspend fun isVoiceHealthy(voiceId: String, force: Boolean = false): Boolean {
+        if (VoiceCatalog.find(voiceId).isVox) return voxHealth().ok
         val cached = health[voiceId]
         if (!force && cached != null && System.currentTimeMillis() - cached.second < 10 * 60_000) return cached.first
         val ok = try {
@@ -121,7 +136,15 @@ class SynthesisEngine(
                 jobsRoot.listFiles()?.forEach { it.deleteRecursively() }
                 var voice = VoiceCatalog.find(s.voiceId)
                 var notice: String? = null
-                if (!isVoiceHealthy(voice.id, force = true)) {
+                if (voice.isVox) {
+                    val h = voxHealth()
+                    if (!h.ok) {
+                        val alt = VoiceCatalog.find(if (voice.gender == com.adriymine.tts.tts.Gender.MALE) "ardi-natural" else "gadis-natural")
+                        notice = "Server VoxCPM2 tidak terhubung (${h.message}). Otomatis memakai ${alt.name} agar tetap jadi."
+                        voice = alt
+                        _state.update { it.copy(voiceName = alt.name, message = notice) }
+                    }
+                } else if (!isVoiceHealthy(voice.id, force = true)) {
                     val alt = fallbackFor(voice)
                     if (alt != null) {
                         notice = "Suara ${voice.name} sedang tidak tersedia di server Microsoft, otomatis memakai ${alt.name}."
@@ -142,7 +165,8 @@ class SynthesisEngine(
                 // Suara multibahasa dihasilkan server lebih lambat dari waktu putarnya (uji: 900 karakter
                 // butuh ±128 dtk untuk 79 dtk audio). Potongan dibuat kecil & bertahap agar audio cepat
                 // mulai (±10 dtk) dan pemutaran tidak tersendat; suara asli Indonesia jauh lebih cepat.
-                val chunks = if (voice.isMultilingual) TextProcessor.chunk(prepared, maxChars = 480, mergeLimit = 480, ramp = listOf(170, 240, 360))
+                val chunks = if (voice.isVox) TextProcessor.chunk(prepared, maxChars = 320, mergeLimit = 320, ramp = listOf(140, 220, 320))
+                else if (voice.isMultilingual) TextProcessor.chunk(prepared, maxChars = 480, mergeLimit = 480, ramp = listOf(170, 240, 360))
                 else TextProcessor.chunk(prepared, maxChars = 1500, mergeLimit = 900, ramp = listOf(260, 500, 900))
                 if (chunks.isEmpty()) {
                     _state.update { it.copy(status = JobStatus.ERROR, message = "Teks kosong atau tidak berisi kata.") }
@@ -155,7 +179,7 @@ class SynthesisEngine(
                     words = TextProcessor.countWords(rawText),
                     preview = rawText.trim().take(160), chunks = chunks,
                     // Uji beban: 8 proses paralel 1,75x lebih cepat dari 4, tanpa kegagalan.
-                    concurrency = 8,
+                    concurrency = if (voice.isVox) 2 else 8,
                     autoSave = s.autoSaveToDownloads,
                 )
                 current = spec
@@ -218,7 +242,7 @@ class SynthesisEngine(
         publish(notice)
         val sem = Semaphore(spec.concurrency.coerceIn(1, 8))
         val failures = ArrayList<String>()
-        val serverId = VoiceCatalog.find(spec.voiceId).serverId
+        val styleVoice = VoiceCatalog.find(spec.voiceId)
         // Coba ulang otomatis bertahap (±12 menit total) sebelum menyerah: gangguan internet
         // sesaat tidak membuat proses gagal; bagian yang sudah jadi tidak diulang.
         for (round in 0 until 12) {
@@ -235,7 +259,7 @@ class SynthesisEngine(
                     sem.withPermit {
                         val chunk = spec.chunks[i]
                         try {
-                            val res = client.synthesize(chunk.text, serverId, spec.prosody, attempts = 4) { _, _ -> }
+                            val res = synth(styleVoice, chunk.text, spec.prosody, attempts = 4)
                             val polished = runCatching {
                                 Mp3.polish(
                                     res.audio, res.words, chunk.text,
@@ -347,7 +371,7 @@ class SynthesisEngine(
         ))
         val joined = TextProcessor.chunk(prepared, maxChars = 2500, mergeLimit = 2500, firstLimit = 2500)
             .joinToString("\n") { it.text }.ifBlank { prepared }
-        val res = client.synthesize(joined, voice.serverId, prosody, attempts = 5)
+        val res = synth(voice, joined, prosody, attempts = 3)
         val bytes = runCatching {
             Mp3.polish(res.audio, res.words, joined,
                 Mp3.PauseSpec((650 * voice.pauseScale).toInt(), (450 * voice.pauseScale).toInt(), 1.0 + prosody.ratePercent / 100.0),

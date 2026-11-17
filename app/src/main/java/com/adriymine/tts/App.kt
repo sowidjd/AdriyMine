@@ -26,6 +26,7 @@ class App : Application() {
         prefs = Prefs(this)
         library = Library(this)
         engine = SynthesisEngine(this, library)
+        engine.voxConfig = { prefs.state.value.let { it.voxUrl to it.voxToken } }
         if (Build.VERSION.SDK_INT >= 26) {
             val nm = getSystemService(NotificationManager::class.java)
             nm?.createNotificationChannel(
