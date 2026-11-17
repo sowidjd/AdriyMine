@@ -164,6 +164,7 @@ Cahaya adalah alat bercerita, bukan hiasan.
 
 ## 8. Teknis yang sudah terbukti
 
+- **Contoh suara utama (sejak 17 Nov 2026):** `projects/suara/ref5.wav` = 19 detik paling stabil dari rekaman pemilik (detik 48–67), dipilih pemilik karena nadanya tidak naik-turun dan ucapannya lebih jelas. File ini **tidak diunggah** ke GitHub. Mode "lanjutan" (prompt teks + audio) tidak dipakai: potongan rekaman ikut terbawa ke suara.
 - **Ucapan narasi:** pakai `projects/suara/ucapan.py` (kamus ejaan bantu: alarm, snooze, singkatan HP/TV/AI, dan lain-lain), lalu cek dengan `cek_ucapan.py` dan perbaiki dengan `perbaiki_ucapan.py`.
 - **Huruf/angka yang diucapkan sendirian:** gunakan gaya "tegas dan jelas", jangan "teriak".
 - **Gerakan & gaya:** `repos/animate` punya aturan tempo, potongan yang jatuh di ketukan musik, dan pemeriksaan storyboard; pakai sebagai rujukan kualitas gerakan.
