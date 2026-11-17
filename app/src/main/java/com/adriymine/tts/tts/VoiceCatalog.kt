@@ -3,12 +3,17 @@ package com.adriymine.tts.tts
 enum class Gender { FEMALE, MALE }
 
 enum class VoiceGroup(val title: String, val subtitle: String) {
-    INDONESIA("Bahasa Indonesia asli — paling akurat", "Uji fonem 100% tepat (c, a, e, ng, ny). Proses 3× lebih cepat & paling jarang gagal. Disarankan."),
-    MULTI("Ekspresif (multibahasa)", "Lebih berekspresi, tapi bisa salah ucap pada kalimat pendek (mis. c → k, a → e) dan lebih lambat diproses. Cocok untuk paragraf panjang."),
-    REGIONAL("Melayu & bahasa daerah", "Untuk teks bahasa Melayu, Jawa, atau Sunda"),
-    OTHER("Bahasa lain", "Semua suara dari server"),
+    INDONESIA("Suara bahasa Indonesia", "Logat Indonesia asli. Ucapan huruf & kata tepat."),
+    OTHER("Lainnya", ""),
 }
 
+/**
+ * Satu "gaya bicara": suara asli Indonesia (Gadis/Ardi) + intonasi, nada, irama, dan jeda
+ * yang sudah diatur otomatis. Pengguna cukup memilih gaya; semua angka diatur aplikasi.
+ *
+ * Hanya suara id-ID yang dipakai: uji fonem membuktikan suara multibahasa (aksen Inggris/
+ * Jerman) bisa membaca c → k, a → e, Q → "kyu". Gadis & Ardi 100% tepat.
+ */
 data class Voice(
     val id: String,
     val name: String,
@@ -17,87 +22,80 @@ data class Voice(
     val description: String,
     val group: VoiceGroup,
     val recommended: Boolean = false,
-    /** Skor kealamian hasil uji UTMOS (1–5) pada teks bahasa Indonesia; 0 = belum diuji. */
+    /** Skor kealamian hasil uji UTMOS (1–5). */
     val score: Double = 0.0,
-    /** Setelan optimal hasil uji (ditambahkan ke setelan pengguna bila "setelan optimal" aktif). */
+    /** Kecepatan (%) & nada (Hz) gaya ini, terhadap suara dasar. */
     val tuneRate: Int = 0,
     val tunePitch: Int = 0,
-    /** Penyamaan volume ke ±-19 LUFS (langkah 1,5 dB), hasil ukur EBU R128. */
-    val gainSteps: Int = 1,
-    /** Ketepatan ucapan bahasa Indonesia (% huruf c dibaca /tʃ/ dalam uji fonem wav2vec2-IPA); -1 = belum diuji. */
-    val accuracy: Int = -1,
+    /** Penyamaan volume ke ±-19 LUFS (langkah 1,5 dB). */
+    val gainSteps: Int = 0,
+    val accuracy: Int = 100,
+    /** Nama suara di server. */
+    val serverId: String = id,
+    /** Pengali panjang jeda (1.0 = normal). */
+    val pauseScale: Double = 1.0,
+    /** Contoh kalimat yang cocok untuk gaya ini. */
+    val sample: String = "",
 ) {
-    /** Suara multibahasa butuh ejaan huruf/akronim ala Indonesia agar tidak dieja bahasa Inggris. */
-    val isMultilingual: Boolean get() = id.contains("Multilingual")
+    val isMultilingual: Boolean get() = serverId.contains("Multilingual")
+    val baseName: String get() = name.substringBefore(' ')
+    val styleName: String get() = name.substringAfter("· ", "Natural")
 }
 
 object VoiceCatalog {
+    private const val GADIS = "id-ID-GadisNeural"
+    private const val ARDI = "id-ID-ArdiNeural"
+
     val curated: List<Voice> = listOf(
-        Voice("id-ID-GadisNeural", "Gadis", Gender.FEMALE, "id-ID",
-            "Wanita Indonesia, jernih & ramah. Terbaik untuk ejaan huruf, angka, singkatan.", VoiceGroup.INDONESIA, recommended = true, score = 3.7, tuneRate = -5, tunePitch = -3, accuracy = 100),
-        Voice("id-ID-ArdiNeural", "Ardi", Gender.MALE, "id-ID",
-            "Pria Indonesia, tegas & bersahabat. Cocok untuk narasi, berita, materi belajar.", VoiceGroup.INDONESIA, recommended = true, score = 3.64, tuneRate = -8, tunePitch = -4, gainSteps = -1, accuracy = 100),
-
-        Voice("en-US-AvaMultilingualNeural", "Ava", Gender.FEMALE, "multi",
-            "Sangat ekspresif, hangat, penuh emosi. Cocok untuk cerita & novel.", VoiceGroup.MULTI, recommended = true, score = 4.19, tuneRate = -5, tunePitch = 2, accuracy = 90),
-        Voice("en-US-AndrewMultilingualNeural", "Andrew", Gender.MALE, "multi",
-            "Hangat, percaya diri, natural seperti orang bicara. Cocok untuk narasi & podcast.", VoiceGroup.MULTI, recommended = true, score = 4.23, tuneRate = 0, tunePitch = 0, accuracy = 90),
-        Voice("en-US-EmmaMultilingualNeural", "Emma", Gender.FEMALE, "multi",
-            "Ceria, jelas, gaya percakapan. Cocok untuk konten santai & edukasi.", VoiceGroup.MULTI, recommended = true, score = 4.17, tuneRate = 0, tunePitch = 0, gainSteps = 0, accuracy = 80),
-        Voice("en-US-BrianMultilingualNeural", "Brian", Gender.MALE, "multi",
-            "Santai, tulus, mudah didengar. Cocok untuk vlog & cerita sehari-hari.", VoiceGroup.MULTI, score = 3.91, tuneRate = 0, tunePitch = 0, accuracy = 90),
-        Voice("fr-FR-VivienneMultilingualNeural", "Vivienne", Gender.FEMALE, "multi",
-            "Anggun & halus. Cocok untuk puisi dan cerita romantis.", VoiceGroup.MULTI, score = 3.7, tuneRate = 0, tunePitch = 0, accuracy = 90),
-        Voice("fr-FR-RemyMultilingualNeural", "Remy", Gender.MALE, "multi",
-            "Ramah & ringan. Cocok untuk konten santai.", VoiceGroup.MULTI, recommended = true, score = 4.08, tuneRate = 0, tunePitch = 0, accuracy = 90),
-        Voice("it-IT-GiuseppeMultilingualNeural", "Giuseppe", Gender.MALE, "multi",
-            "Bersemangat & hangat. Cocok untuk iklan dan promosi.", VoiceGroup.MULTI, score = 4.06, tuneRate = 0, tunePitch = 0, accuracy = 90),
-        Voice("en-AU-WilliamMultilingualNeural", "William", Gender.MALE, "multi",
-            "Jelas & stabil. Cocok untuk tutorial dan materi pelajaran.", VoiceGroup.MULTI, score = 3.87, tuneRate = 0, tunePitch = 0, accuracy = 90),
-        Voice("pt-BR-ThalitaMultilingualNeural", "Thalita", Gender.FEMALE, "multi",
-            "Muda, cerah, bersemangat. Cocok untuk konten media sosial.", VoiceGroup.MULTI, score = 3.72, tuneRate = 0, tunePitch = 0, gainSteps = 2, accuracy = 90),
-        Voice("ko-KR-HyunsuMultilingualNeural", "Hyunsu", Gender.MALE, "multi",
-            "Muda & lembut. Cocok untuk cerita ringan.", VoiceGroup.MULTI, score = 4.04, tuneRate = 0, tunePitch = 0, accuracy = 90),
-
-        Voice("ms-MY-YasminNeural", "Yasmin (Melayu)", Gender.FEMALE, "ms-MY",
-            "Wanita Malaysia. Logat Melayu.", VoiceGroup.REGIONAL, score = 3.57, tuneRate = 0, tunePitch = 0, gainSteps = 0, accuracy = 100),
-        Voice("ms-MY-OsmanNeural", "Osman (Melayu)", Gender.MALE, "ms-MY",
-            "Pria Malaysia. Logat Melayu.", VoiceGroup.REGIONAL, score = 4.06, tuneRate = 0, tunePitch = 0, gainSteps = 0, accuracy = 100),
-        Voice("jv-ID-SitiNeural", "Siti (Jawa)", Gender.FEMALE, "jv-ID",
-            "Untuk teks berbahasa Jawa.", VoiceGroup.REGIONAL),
-        Voice("jv-ID-DimasNeural", "Dimas (Jawa)", Gender.MALE, "jv-ID",
-            "Untuk teks berbahasa Jawa.", VoiceGroup.REGIONAL),
-        Voice("su-ID-TutiNeural", "Tuti (Sunda)", Gender.FEMALE, "su-ID",
-            "Untuk teks berbahasa Sunda.", VoiceGroup.REGIONAL),
-        Voice("su-ID-JajangNeural", "Jajang (Sunda)", Gender.MALE, "su-ID",
-            "Untuk teks berbahasa Sunda.", VoiceGroup.REGIONAL),
+        Voice("gadis-natural", "Gadis · Natural", Gender.FEMALE, "id-ID",
+            "Wanita, jernih & ramah. Cocok untuk apa saja.", VoiceGroup.INDONESIA, true, 3.59,
+            tuneRate = -5, tunePitch = -3, gainSteps = 1, serverId = GADIS,
+            sample = "Halo, saya Gadis. Saya akan membacakan tulisanmu dengan suara yang jelas dan enak didengar."),
+        Voice("gadis-cerita", "Gadis · Bercerita", Gender.FEMALE, "id-ID",
+            "Hangat & ekspresif. Untuk cerpen, novel, dongeng.", VoiceGroup.INDONESIA, false, 3.39,
+            tuneRate = -6, tunePitch = 2, gainSteps = 1, serverId = GADIS, pauseScale = 1.1,
+            sample = "Pada suatu malam yang sunyi, seekor kucing kecil duduk di jendela. Ia menatap bulan, lalu tersenyum."),
+        Voice("gadis-ceria", "Gadis · Ceria", Gender.FEMALE, "id-ID",
+            "Semangat & riang. Untuk promosi, konten media sosial.", VoiceGroup.INDONESIA, false, 3.48,
+            tuneRate = 4, tunePitch = 6, gainSteps = 1, serverId = GADIS, pauseScale = 0.9,
+            sample = "Hai semuanya! Ada kabar gembira hari ini. Yuk, simak sampai habis, ya!"),
+        Voice("gadis-lembut", "Gadis · Lembut", Gender.FEMALE, "id-ID",
+            "Tenang & pelan. Untuk renungan, puisi, pengantar tidur.", VoiceGroup.INDONESIA, false, 3.59,
+            tuneRate = -12, tunePitch = -2, gainSteps = 1, serverId = GADIS, pauseScale = 1.25,
+            sample = "Tarik napas perlahan. Rasakan tenangnya malam, dan biarkan semua lelah pergi."),
+        Voice("ardi-natural", "Ardi · Natural", Gender.MALE, "id-ID",
+            "Pria, tegas & bersahabat. Cocok untuk apa saja.", VoiceGroup.INDONESIA, true, 3.62,
+            tuneRate = -8, tunePitch = -4, gainSteps = -1, serverId = ARDI,
+            sample = "Halo, saya Ardi. Saya siap membacakan tulisanmu dengan jelas dan tepat."),
+        Voice("ardi-berita", "Ardi · Berita", Gender.MALE, "id-ID",
+            "Lugas & berwibawa. Untuk berita, pengumuman, materi.", VoiceGroup.INDONESIA, false, 3.63,
+            tuneRate = 0, tunePitch = -2, gainSteps = -1, serverId = ARDI, pauseScale = 0.9,
+            sample = "Jakarta, hari ini. Pemerintah mengumumkan program beasiswa baru untuk dua puluh lima ribu mahasiswa."),
+        Voice("ardi-hangat", "Ardi · Hangat", Gender.MALE, "id-ID",
+            "Dalam & santai. Untuk buku audio, podcast, kisah inspirasi.", VoiceGroup.INDONESIA, false, 3.64,
+            tuneRate = -12, tunePitch = -6, gainSteps = -1, serverId = ARDI, pauseScale = 1.15,
+            sample = "Hidup ini seperti perjalanan panjang. Kadang kita perlu berhenti sejenak, lalu melangkah lagi."),
     )
 
-    const val DEFAULT_VOICE = "id-ID-GadisNeural"
+    const val DEFAULT_VOICE = "gadis-natural"
 
-    /** Suara yang dihapus karena salah ucap bahasa Indonesia (uji fonem: c dibaca k, 0% benar). */
-    val removed = setOf("de-DE-SeraphinaMultilingualNeural", "de-DE-FlorianMultilingualNeural")
-
-    /** Urutan tampil: kelompok, lalu skor kealamian tertinggi. */
-    val ranked: List<Voice> get() = curated.sortedWith(compareBy<Voice>({ it.group.ordinal }, { -it.score }))
-
-    fun find(id0: String, extra: List<Voice> = emptyList()): Voice = (if (id0 in removed) DEFAULT_VOICE else id0).let { id ->
-        curated.firstOrNull { it.id == id } ?: extra.firstOrNull { it.id == id }
-        ?: Voice(id, displayName(id), Gender.FEMALE, id.take(5), "", VoiceGroup.OTHER, gainSteps = 0)
+    /** Kunci lama (nama suara server / suara yang dihapus) dipetakan ke gaya yang setara. */
+    private fun migrate(id: String): String = when {
+        curated.any { it.id == id } -> id
+        id == ARDI -> "ardi-natural"
+        listOf("Andrew", "Brian", "Remy", "Giuseppe", "William", "Hyunsu", "Osman", "Dimas", "Jajang", "Florian")
+            .any { id.contains(it) } -> "ardi-natural"
+        else -> DEFAULT_VOICE
     }
 
-    fun displayName(shortName: String): String {
-        val parts = shortName.split('-')
-        val n = parts.lastOrNull()?.removeSuffix("Neural")?.removeSuffix("Multilingual") ?: shortName
-        val loc = parts.take(2).joinToString("-")
-        return "$n ($loc)"
-    }
+    val ranked: List<Voice> get() = curated
 
-    fun sampleText(v: Voice): String = when (v.locale) {
-        "jv-ID" -> "Sugeng enjang, kula badhe maosaken seratan panjenengan kanthi swanten ingkang alus."
-        "su-ID" -> "Wilujeng enjing, abdi bade maoskeun tulisan anjeun kalayan sora anu lemes."
-        "ms-MY" -> "Selamat pagi, saya akan membacakan tulisan anda dengan suara yang jelas."
-        "id-ID", "multi" -> "Halo, apa kabar? Saya ${v.name.substringBefore(' ')}. Saya siap membacakan tulisanmu dengan suara yang jelas, natural, dan penuh perasaan."
-        else -> "Hello! This is a sample of my voice."
+    fun find(id: String, @Suppress("UNUSED_PARAMETER") extra: List<Voice> = emptyList()): Voice =
+        curated.first { it.id == migrate(id) }
+
+    fun displayName(shortName: String): String = shortName
+
+    fun sampleText(v: Voice): String = v.sample.ifBlank {
+        "Halo, apa kabar? Saya siap membacakan tulisanmu dengan suara yang jelas dan natural."
     }
 }

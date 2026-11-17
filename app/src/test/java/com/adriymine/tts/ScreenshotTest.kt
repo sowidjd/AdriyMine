@@ -50,13 +50,9 @@ class ScreenshotTest {
         }
         rule.waitForIdle()
         rule.onRoot().captureRoboImage("$out/1_buat.png")
-        rule.onAllNodesWithText("Suara")[0].performClick(); rule.waitForIdle()
-        rule.onRoot().captureRoboImage("$out/2_studio_pratinjau.png")
-        rule.onAllNodes(hasScrollAction())[0].performScrollToNode(hasText("Andrew")); rule.waitForIdle()
-        rule.onRoot().captureRoboImage("$out/3_daftar_suara.png")
         rule.onAllNodesWithText("Pustaka")[0].performClick(); rule.waitForIdle()
-        rule.onRoot().captureRoboImage("$out/4_pustaka.png")
+        rule.onRoot().captureRoboImage("$out/2_pustaka.png")
         rule.onAllNodesWithText("Atur")[0].performClick(); rule.waitForIdle()
-        rule.onRoot().captureRoboImage("$out/5_pengaturan.png")
+        rule.onRoot().captureRoboImage("$out/3_pengaturan.png")
     }
 }

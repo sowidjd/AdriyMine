@@ -24,19 +24,16 @@ class UiSmokeTest {
     fun allTabsRenderWithoutCrash() {
         rule.onNodeWithText("Buat Audio").assertIsDisplayed()
         rule.onNodeWithText("Buat Audio").performClick() // teks kosong -> hanya toast
-        rule.onNodeWithText("Pratinjau").performClick()
-        rule.onAllNodesWithText("Suara")[0].performClick()
-        rule.onNodeWithText("Pilih Suara").assertIsDisplayed()
-        rule.onNodeWithText("Studio Pratinjau").assertIsDisplayed()
-        rule.onAllNodes(hasScrollAction())[0].performScrollToNode(hasText("Andrew"))
-        rule.onNodeWithText("Andrew").performClick()
-        rule.onAllNodes(hasScrollAction())[0].performScrollToNode(hasText("Tampilkan semua bahasa"))
+        rule.onNodeWithText("Coba dengar").performClick()
+        rule.onNodeWithText("Pilih suara").assertIsDisplayed()
+        rule.onAllNodes(hasScrollAction())[0].performScrollToNode(hasText("Berita"))
+        rule.onNodeWithText("Berita").performClick()
         rule.onAllNodesWithText("Pustaka")[0].performClick()
         rule.onNodeWithText("Belum ada audio").assertIsDisplayed()
         rule.onAllNodesWithText("Atur")[0].performClick()
-        rule.onNodeWithText("Pengaturan").assertIsDisplayed()
-        rule.onNodeWithText("Ubah angka jadi kata").performClick()
+        rule.onNodeWithText("Semua sudah otomatis").assertIsDisplayed()
+        rule.onNodeWithText("Pengaturan lanjutan").performClick()
         rule.onAllNodesWithText("Buat")[0].performClick()
-        rule.onNodeWithText("Suara: Andrew").assertIsDisplayed()
+        rule.onNodeWithText("Buat Audio").assertIsDisplayed()
     }
 }

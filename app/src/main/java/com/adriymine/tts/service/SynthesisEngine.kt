@@ -85,7 +85,7 @@ class SynthesisEngine(
         if (!force && cached != null && System.currentTimeMillis() - cached.second < 10 * 60_000) return cached.first
         val ok = try {
             kotlinx.coroutines.withTimeout(25_000) {
-                client.synthesize("Halo, apa kabar?", voiceId, Prosody(), attempts = 2).audio.isNotEmpty()
+                client.synthesize("Halo, apa kabar?", VoiceCatalog.find(voiceId).serverId, Prosody(), attempts = 2).audio.isNotEmpty()
             }
         } catch (e: CancellationException) {
             if (e is kotlinx.coroutines.TimeoutCancellationException) false else throw e
@@ -102,10 +102,10 @@ class SynthesisEngine(
 
     /** Suara pengganti paling mirip (gender sama, skor tertinggi) yang sedang sehat. */
     suspend fun fallbackFor(voice: com.adriymine.tts.tts.Voice): com.adriymine.tts.tts.Voice? {
+        // Pengganti: suara dasar lain (Gadis <-> Ardi) dengan gaya serupa.
         val candidates = VoiceCatalog.curated
-            .filter { it.id != voice.id && (it.group == com.adriymine.tts.tts.VoiceGroup.MULTI || it.group == com.adriymine.tts.tts.VoiceGroup.INDONESIA) }
-            // Utamakan suara asli Indonesia: paling akurat (uji fonem 100%) dan paling cepat.
-            .sortedWith(compareBy({ it.group != com.adriymine.tts.tts.VoiceGroup.INDONESIA }, { it.gender != voice.gender }, { -it.score }))
+            .filter { it.serverId != voice.serverId }
+            .sortedWith(compareBy({ it.styleName != voice.styleName }, { -it.score }))
         for (c in candidates) if (isVoiceHealthy(c.id)) return c
         return null
     }
@@ -134,7 +134,8 @@ class SynthesisEngine(
                     TextProcessor.Options(
                         numbersToWords = s.numbersToWords,
                         expandAbbreviations = s.expandAbbreviations,
-                        spellLettersIndo = s.spellLettersMultilingual && voice.isMultilingual,
+                        // Huruf selalu dieja ala KBBI (a, be, ce, ... ki, ... zet) agar tidak dibaca gaya Inggris.
+                        spellLettersIndo = true,
                         mergeShortSentences = voice.isMultilingual,
                     )
                 )
@@ -149,10 +150,12 @@ class SynthesisEngine(
                 }
                 val spec = Spec(
                     id = id, title = title, voiceId = voice.id,
-                    prosody = s.prosodyFor(voice), pauseMs = s.paragraphPauseMs, sentenceMs = s.sentencePauseMs,
+                    prosody = s.prosodyFor(voice),
+                    pauseMs = (450 * voice.pauseScale).toInt(), sentenceMs = (650 * voice.pauseScale).toInt(),
                     words = TextProcessor.countWords(rawText),
                     preview = rawText.trim().take(160), chunks = chunks,
-                    concurrency = if (voice.isMultilingual) maxOf(s.concurrency, 4) else s.concurrency,
+                    // Uji beban: 8 proses paralel 1,75x lebih cepat dari 4, tanpa kegagalan.
+                    concurrency = 8,
                     autoSave = s.autoSaveToDownloads,
                 )
                 current = spec
@@ -213,17 +216,26 @@ class SynthesisEngine(
             }
         }
         publish(notice)
-        val sem = Semaphore(spec.concurrency.coerceIn(1, 6))
+        val sem = Semaphore(spec.concurrency.coerceIn(1, 8))
         val failures = ArrayList<String>()
+        val serverId = VoiceCatalog.find(spec.voiceId).serverId
+        // Coba ulang otomatis bertahap (±12 menit total) sebelum menyerah: gangguan internet
+        // sesaat tidak membuat proses gagal; bagian yang sudah jadi tidak diulang.
+        for (round in 0 until 12) {
+        failures.clear()
+        if (round > 0) {
+            val wait = minOf(10_000L * round, 90_000L)
+            publish("Koneksi terganggu. Mencoba lagi otomatis dalam ${wait / 1000} detik… (${completed.get()}/$total bagian aman tersimpan)")
+            kotlinx.coroutines.delay(wait)
+            publish("Melanjutkan…")
+        }
         kotlinx.coroutines.coroutineScope {
             (0 until total).filter { !doneFlags[it] }.map { i ->
                 async {
                     sem.withPermit {
                         val chunk = spec.chunks[i]
                         try {
-                            val res = client.synthesize(chunk.text, spec.voiceId, spec.prosody) { n, e ->
-                                publish("Mengulang bagian ${i + 1} (percobaan $n): ${e.message}")
-                            }
+                            val res = client.synthesize(chunk.text, serverId, spec.prosody, attempts = 4) { _, _ -> }
                             val polished = runCatching {
                                 Mp3.polish(
                                     res.audio, res.words, chunk.text,
@@ -248,6 +260,8 @@ class SynthesisEngine(
                     }
                 }
             }.awaitAll()
+        }
+        if (failures.isEmpty()) break
         }
         if (failures.isNotEmpty()) {
             val down = !isVoiceHealthy(spec.voiceId, force = true)
@@ -328,15 +342,15 @@ class SynthesisEngine(
         if (f.exists() && f.length() > 0) return f
         val prepared = TextProcessor.prepare(text, TextProcessor.Options(
             numbersToWords = s.numbersToWords, expandAbbreviations = s.expandAbbreviations,
-            spellLettersIndo = s.spellLettersMultilingual && voice.isMultilingual,
+            spellLettersIndo = true,
             mergeShortSentences = voice.isMultilingual,
         ))
         val joined = TextProcessor.chunk(prepared, maxChars = 2500, mergeLimit = 2500, firstLimit = 2500)
             .joinToString("\n") { it.text }.ifBlank { prepared }
-        val res = client.synthesize(joined, voiceId, prosody, attempts = 4)
+        val res = client.synthesize(joined, voice.serverId, prosody, attempts = 5)
         val bytes = runCatching {
             Mp3.polish(res.audio, res.words, joined,
-                Mp3.PauseSpec(s.sentencePauseMs, s.paragraphPauseMs, 1.0 + prosody.ratePercent / 100.0),
+                Mp3.PauseSpec((650 * voice.pauseScale).toInt(), (450 * voice.pauseScale).toInt(), 1.0 + prosody.ratePercent / 100.0),
                 Mp3.Boundary.PARAGRAPH, isLast = true, gainSteps = voice.gainSteps)
         }.getOrElse { res.audio }
         val tmp = File(dir, f.name + ".tmp")

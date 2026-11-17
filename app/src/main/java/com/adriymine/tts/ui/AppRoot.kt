@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.EditNote
 import androidx.compose.material.icons.outlined.LibraryMusic
-import androidx.compose.material.icons.outlined.RecordVoiceOver
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -28,7 +27,6 @@ private data class Tab(val label: String, val icon: ImageVector)
 
 private val tabs = listOf(
     Tab("Buat", Icons.Outlined.EditNote),
-    Tab("Suara", Icons.Outlined.RecordVoiceOver),
     Tab("Pustaka", Icons.Outlined.LibraryMusic),
     Tab("Atur", Icons.Outlined.Settings),
 )
@@ -58,9 +56,8 @@ fun AppRoot(vm: MainViewModel) {
     ) { pad ->
         Box(Modifier.fillMaxSize().padding(pad)) {
             when (tab) {
-                0 -> CreateScreen(vm, openVoices = { tab = 1 }, openLibrary = { tab = 2 })
-                1 -> VoicesScreen(vm)
-                2 -> LibraryScreen(vm)
+                0 -> CreateScreen(vm, openVoices = {}, openLibrary = { tab = 1 })
+                1 -> LibraryScreen(vm)
                 else -> SettingsScreen(vm)
             }
         }

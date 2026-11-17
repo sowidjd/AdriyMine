@@ -309,8 +309,8 @@ object TextProcessor {
         "BAPPENAS", "TOEFL", "COVID", "AIDS", "ABRI", "SIM", "PIN", "SARS", "RAM", "ROM", "LAN"
     )
 
-    private val englishAcronyms = mapOf("VIP" to "vi ai pi", "CEO" to "si i o", "CTO" to "si ti o", "CFO" to "si ef o",
-        "COO" to "si o o", "FAQ" to "ef e kyu", "WIFI" to "wai fai", "OK" to "oke")
+    // Semua singkatan dieja dengan abjad Indonesia; tidak ada pelafalan gaya Inggris.
+    private val englishAcronyms = mapOf("OK" to "oke")
 
     private val reCapsWord = Regex("""(?<![\p{L}\d])([A-Z]{1,6})(?![\p{L}\d])""")
     private val reListMarker = Regex("""(?m)^([a-zA-Z])[.)]\s""")

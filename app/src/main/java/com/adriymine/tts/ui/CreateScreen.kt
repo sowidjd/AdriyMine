@@ -83,11 +83,11 @@ fun CreateScreen(vm: MainViewModel, openVoices: () -> Unit, openLibrary: () -> U
     }
 
     val words = remember(text) { TextProcessor.countWords(text) }
-    val minutes = remember(words, settings.rate) {
-        val wpm = 150.0 * (1 + settings.rate / 100.0)
+    val voice = vm.voiceOf(settings.voiceId)
+    val minutes = remember(words, voice.id) {
+        val wpm = 150.0 * (1 + voice.tuneRate / 100.0)
         if (words == 0) 0 else maxOf(1, (words / wpm).toInt())
     }
-    val voice = vm.voiceOf(settings.voiceId)
 
     Column(Modifier.fillMaxSize().padding(horizontal = 16.dp)) {
         Spacer(Modifier.height(12.dp))
@@ -99,7 +99,7 @@ fun CreateScreen(vm: MainViewModel, openVoices: () -> Unit, openLibrary: () -> U
             Spacer(Modifier.width(10.dp))
             Column {
                 Text("AdriyTTS", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
-                Text("Teks jadi suara natural • gratis tanpa batas", style = MaterialTheme.typography.bodySmall,
+                Text("Suara bahasa Indonesia • gratis • semua otomatis", style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
         }
@@ -134,27 +134,8 @@ fun CreateScreen(vm: MainViewModel, openVoices: () -> Unit, openLibrary: () -> U
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.padding(top = 6.dp, bottom = 8.dp)
         )
-        // Pilihan suara
-        Card(
-            onClick = openVoices,
-            shape = RoundedCornerShape(16.dp),
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
-                Avatar(voice.name, voice.gender)
-                Spacer(Modifier.width(12.dp))
-                Column(Modifier.weight(1f)) {
-                    Text("Suara: ${voice.name}", fontWeight = FontWeight.SemiBold, maxLines = 1, overflow = TextOverflow.Ellipsis)
-                    Text(
-                        "Kecepatan ${signed(settings.rate)}% • Nada ${signed(settings.pitch)} • ${voice.group.title}",
-                        style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        maxLines = 1, overflow = TextOverflow.Ellipsis
-                    )
-                }
-                Icon(Icons.Filled.ChevronRight, "Ganti suara")
-            }
-        }
+        // Pilihan gaya bicara (suara asli Indonesia); semua pengaturan lain otomatis.
+        StylePicker(vm, settings.voiceId)
         Spacer(Modifier.height(10.dp))
         JobPanel(job, vm, openLibrary)
         Spacer(Modifier.height(10.dp))
@@ -171,7 +152,54 @@ fun CreateScreen(vm: MainViewModel, openVoices: () -> Unit, openLibrary: () -> U
     }
 }
 
-private fun signed(v: Int) = if (v > 0) "+$v" else "$v"
+@Composable
+private fun StylePicker(vm: MainViewModel, selectedId: String) {
+    val previewing by vm.previewing.collectAsState()
+    Column {
+        Text("Pilih suara", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
+        Spacer(Modifier.height(6.dp))
+        androidx.compose.foundation.lazy.LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            items(com.adriymine.tts.tts.VoiceCatalog.curated.size) { idx ->
+                val v = com.adriymine.tts.tts.VoiceCatalog.curated[idx]
+                val selected = v.id == selectedId
+                Card(
+                    onClick = { vm.selectVoice(v.id) },
+                    shape = RoundedCornerShape(14.dp),
+                    border = if (selected) androidx.compose.foundation.BorderStroke(2.dp, MaterialTheme.colorScheme.primary) else null,
+                    colors = CardDefaults.cardColors(
+                        containerColor = if (selected) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surfaceContainer
+                    ),
+                    modifier = Modifier.width(172.dp)
+                ) {
+                    Column(Modifier.padding(10.dp)) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Avatar(v.baseName, v.gender, selected)
+                            Spacer(Modifier.width(8.dp))
+                            Column(Modifier.weight(1f)) {
+                                Text(v.baseName, fontWeight = FontWeight.Bold, maxLines = 1)
+                                Text(v.styleName, style = MaterialTheme.typography.labelMedium,
+                                    color = MaterialTheme.colorScheme.primary, maxLines = 1)
+                            }
+                        }
+                        Spacer(Modifier.height(6.dp))
+                        Text(v.description, style = MaterialTheme.typography.labelSmall, maxLines = 2,
+                            minLines = 2, overflow = TextOverflow.Ellipsis, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        TextButton(
+                            onClick = { vm.previewVoice(v, com.adriymine.tts.tts.VoiceCatalog.sampleText(v)) },
+                            enabled = previewing == null,
+                            contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 4.dp, vertical = 0.dp),
+                            modifier = Modifier.height(32.dp)
+                        ) {
+                            if (previewing == v.id) androidx.compose.material3.CircularProgressIndicator(Modifier.size(14.dp), strokeWidth = 2.dp)
+                            else Icon(Icons.Filled.PlayArrow, null, modifier = Modifier.size(18.dp))
+                            Spacer(Modifier.width(4.dp)); Text("Dengar contoh", style = MaterialTheme.typography.labelMedium)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 @Composable
 private fun JobPanel(job: JobState, vm: MainViewModel, openLibrary: () -> Unit) {
@@ -184,7 +212,7 @@ private fun JobPanel(job: JobState, vm: MainViewModel, openLibrary: () -> Unit) 
             ) {
                 if (previewing != null) androidx.compose.material3.CircularProgressIndicator(Modifier.size(18.dp), strokeWidth = 2.dp)
                 else Icon(Icons.Filled.PlayArrow, null)
-                Spacer(Modifier.width(6.dp)); Text("Pratinjau")
+                Spacer(Modifier.width(6.dp)); Text("Coba dengar")
             }
             Box(Modifier.weight(1f)) { GenerateButton { vm.generate() } }
         }

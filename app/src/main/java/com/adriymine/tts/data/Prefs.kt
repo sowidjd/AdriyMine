@@ -28,10 +28,12 @@ data class Settings(
 )
 
 /** Prosodi akhir = setelan pengguna + setelan optimal suara (bila aktif). */
+/** Prosodi sepenuhnya otomatis dari gaya bicara yang dipilih (tanpa pengaturan manual). */
+@Suppress("UnusedReceiverParameter")
 fun Settings.prosodyFor(v: com.adriymine.tts.tts.Voice) = com.adriymine.tts.tts.Prosody(
-    ratePercent = (rate + if (autoTune) v.tuneRate else 0).coerceIn(-60, 150),
-    pitchHz = (pitch + if (autoTune) v.tunePitch else 0).coerceIn(-40, 40),
-    volumePercent = volume,
+    ratePercent = v.tuneRate,
+    pitchHz = v.tunePitch,
+    volumePercent = 0,
 )
 
 class Prefs(context: Context) {
@@ -47,7 +49,7 @@ class Prefs(context: Context) {
         val d = Settings()
         return runCatching {
             Settings(
-                voiceId = sp.getString("voiceId3", d.voiceId) ?: d.voiceId,
+                voiceId = sp.getString("voiceId4", d.voiceId) ?: d.voiceId,
                 rate = sp.getInt("rate", d.rate),
                 pitch = sp.getInt("pitch", d.pitch),
                 volume = sp.getInt("volume", d.volume),
@@ -70,7 +72,7 @@ class Prefs(context: Context) {
         _state.value = s
         EdgeConfig.chromiumFullVersion = s.chromiumVersion
         sp.edit()
-            .putString("voiceId3", s.voiceId)
+            .putString("voiceId4", s.voiceId)
             .putInt("rate", s.rate)
             .putInt("pitch", s.pitch)
             .putInt("volume", s.volume)
