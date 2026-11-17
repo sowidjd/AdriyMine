@@ -7,3 +7,7 @@ alfabet-versi*.wav
 alfabet-versi*.m4a
 alfabet-final.m4a
 __pycache__/
+ref*.wav
+prompt*.wav
+*.mp3
+rekaman*
