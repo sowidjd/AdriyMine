@@ -39,3 +39,14 @@ Sumber: Beaman, Powell & Rapley (2015), Quarterly Journal of Experimental Psycho
 
 ## Versi 2 (rombak dengan /yt-script)
 Hook baru (skor versi Inggris 73 STRONG, rumus The Question): "Kamu bangun tidur, dan lagu yang kamu benci udah muter di kepala. Penelitian ke sembilan puluh delapan orang nemu satu obatnya: permen karet. Tapi kenapa permen karet? Ini jawabannya." Durasi 1:09.
+
+## Judul & caption TikTok (versi final, suara baru, tokoh Adriy)
+**Judul:** Bangun tidur langsung ada lagu nyebelin di kepala? Obatnya aneh banget 🎵
+
+```
+Lagu apa yang paling sering nyangkut di kepalamu? Tulis judulnya di komentar (awas nular) 👇
+
+Sumber: Beaman dkk. (2015), University of Reading; Jakubowski dkk. (2016); Hyman dkk. (2013).
+
+#earworm #lagunyangkut #faktaotak #psikologi #faktaunik #musik #edukasi #belajardiTikTok #relate #AdriyProject #ExploreMoreKnowMore #fyp #fypシ
+```

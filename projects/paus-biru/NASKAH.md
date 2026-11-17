@@ -41,3 +41,14 @@ Sumber: Goldbogen et al. (2019), PNAS; NOAA Fisheries.
 
 ## Versi 2 (rombak dengan /yt-script)
 Hook baru (skor versi Inggris 73 STRONG, rumus The Question): "Jantungmu berdetak sekitar enam puluh kali semenit. Jantung paus biru, bisa turun sampai cuma dua. Dan dia baik-baik aja. Kok bisa?" Dua strip rekam jantung (kamu vs paus) langsung di detik 0–6. Tambahan fakta: rekaman 2019 adalah rekaman detak jantung paus biru yang pertama (Goldbogen dkk., PNAS). Durasi 1:19.
+
+## Judul & caption TikTok (versi final, suara baru, tokoh Adriy)
+**Judul:** Jantung hewan terbesar di Bumi cuma berdetak 2 kali semenit 🐋
+
+```
+Coba tahan napas 10 detik. Jantungmu melambat atau makin kencang? Tulis di komentar 👇
+
+Sumber: Goldbogen dkk. (2019), PNAS (Stanford); NOAA Fisheries.
+
+#pausbiru #bluewhale #faktaunik #faktahewan #laut #sains #jantung #edukasi #belajardiTikTok #AdriyProject #ExploreMoreKnowMore #fyp #fypシ
+```

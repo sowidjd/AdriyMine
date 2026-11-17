@@ -36,3 +36,14 @@ Sumber: Gilovich, Medvec & Savitsky (2000), Journal of Personality and Social Ps
 
 ## Versi 2 (rombak dengan /yt-script)
 Hook baru (skor versi Inggris 79 STRONG, rumus The Statistic): "Berhenti ngapus chat tiga paragrafmu. Kamu ngira separuh orang bakal merhatiin. Padahal, cuma sekitar satu dari lima. Kok bisa? Ada penelitiannya." Hasil ditunjukkan di detik 2–7 (10 orang: dikira 5 lihat, aslinya 2). Durasi 1:06.
+
+## Judul & caption TikTok (versi final, suara baru, tokoh Adriy)
+**Judul:** Ngetik 3 paragraf, dihapus, kirim "wkwk" 😭 Ternyata ini ada penjelasan ilmiahnya
+
+```
+Kamu tim hapus atau tim kirim? Tulis di komentar 👇
+
+Sumber: Gilovich, Medvec & Savitsky (2000), Journal of Personality and Social Psychology; Savitsky & Gilovich (2003).
+
+#spotlighteffect #psikologi #faktapsikologi #overthinking #chat #gebetan #relate #edukasi #faktaunik #belajardiTikTok #AdriyProject #ExploreMoreKnowMore #fyp #fypシ
+```
