@@ -1,0 +1,497 @@
+{
+ "judul": "Burung gagak bisa ingat wajahmu, dan dendamnya diwariskan",
+ "lead": 0.3,
+ "lines": [
+  {
+   "id": "h1",
+   "gap": 0.25,
+   "style": "serious, warning, slow",
+   "text": "Jangan bikin burung gagak marah.",
+   "cap": "Jangan bikin *gagak* marah",
+   "kunci": [
+    "gagak",
+    "marah"
+   ]
+  },
+  {
+   "id": "h2",
+   "gap": 0.2,
+   "style": "mysterious",
+   "text": "Dia bisa ingat wajahmu, bertahun-tahun.",
+   "cap": "Dia ingat wajahmu *bertahun-tahun*",
+   "kunci": [
+    "wajahmu",
+    "bertahun"
+   ]
+  },
+  {
+   "id": "h3",
+   "gap": 0.2,
+   "style": "dramatic",
+   "text": "Dan teman-temannya ikut memusuhimu.",
+   "cap": "Temannya *ikut memusuhi*",
+   "kunci": [
+    "teman",
+    "memusuhimu"
+   ]
+  },
+  {
+   "id": "h4",
+   "gap": 0.9,
+   "style": "confident, intriguing",
+   "text": "Kedengarannya kayak dongeng. Tapi ini hasil penelitian.",
+   "cap": "Bukan dongeng: *penelitian*",
+   "kunci": [
+    "dongeng",
+    "penelitian"
+   ]
+  },
+  {
+   "id": "m1",
+   "gap": 0.2,
+   "style": "friendly storytelling",
+   "text": "Coba bayangin.",
+   "cap": "Coba bayangin...",
+   "kunci": [
+    "bayangin"
+   ]
+  },
+  {
+   "id": "m2",
+   "gap": 0.2,
+   "style": "storytelling, calm",
+   "text": "Kamu lewat di taman, seperti biasa.",
+   "cap": "Lewat di *taman*",
+   "kunci": [
+    "taman"
+   ]
+  },
+  {
+   "id": "m3",
+   "gap": 0.2,
+   "style": "tense, building",
+   "text": "Tiba-tiba, sekelompok burung hitam berkoak-koak di atas kepalamu.",
+   "cap": "Burung hitam *berkoak-koak*",
+   "kunci": [
+    "burung hitam"
+   ]
+  },
+  {
+   "id": "m4",
+   "gap": 0.2,
+   "style": "tense",
+   "text": "Mereka terbang rendah, seperti mengusirmu.",
+   "cap": "Terbang rendah, *mengusir*",
+   "kunci": [
+    "terbang rendah"
+   ]
+  },
+  {
+   "id": "m5",
+   "gap": 0.2,
+   "style": "puzzled",
+   "text": "Orang lain lewat dengan tenang. Cuma kamu yang diteriaki.",
+   "cap": "Cuma *kamu* yang diteriaki",
+   "kunci": [
+    "orang lain",
+    "diteriaki"
+   ]
+  },
+  {
+   "id": "m5b",
+   "gap": 0.2,
+   "style": "puzzled, tense",
+   "text": "Besoknya, kejadian lagi. Burung yang sama, di tempat yang sama.",
+   "cap": "Besoknya *kejadian lagi*",
+   "kunci": [
+    "besoknya"
+   ]
+  },
+  {
+   "id": "m6",
+   "gap": 0.2,
+   "style": "confused, comedic",
+   "text": "Kamu bingung. Memangnya salahmu apa?",
+   "cap": "Salahku *apa?*",
+   "kunci": [
+    "bingung",
+    "salahmu"
+   ]
+  },
+  {
+   "id": "m7",
+   "gap": 0.2,
+   "style": "mysterious, slower",
+   "text": "Mungkin, beberapa tahun lalu, kamu pernah mengganggu salah satu dari mereka.",
+   "cap": "Mungkin kamu *pernah mengganggu*",
+   "kunci": [
+    "tahun lalu",
+    "mengganggu"
+   ]
+  },
+  {
+   "id": "m8",
+   "gap": 0.9,
+   "style": "ominous, whispering",
+   "text": "Dan mereka belum lupa.",
+   "cap": "...dan mereka *belum lupa*",
+   "kunci": [
+    "belum lupa"
+   ]
+  },
+  {
+   "id": "d1",
+   "gap": 0.2,
+   "style": "thoughtful",
+   "text": "Kita sering meremehkan burung.",
+   "cap": "Kita *meremehkan* burung",
+   "kunci": [
+    "meremehkan"
+   ]
+  },
+  {
+   "id": "d2",
+   "gap": 0.2,
+   "style": "light, comedic",
+   "text": "Bahkan ada sebutan otak burung, buat orang yang pelupa.",
+   "cap": "\"Otak *burung*\" = pelupa",
+   "kunci": [
+    "otak burung",
+    "pelupa"
+   ]
+  },
+  {
+   "id": "d3",
+   "gap": 0.2,
+   "style": "thoughtful",
+   "text": "Kita kira, bagi burung, semua manusia kelihatan sama.",
+   "cap": "Dikira: manusia *kelihatan sama*",
+   "kunci": [
+    "manusia",
+    "sama"
+   ]
+  },
+  {
+   "id": "d4",
+   "gap": 0.9,
+   "style": "firm, reveal",
+   "text": "Ternyata, gagak tidak begitu.",
+   "cap": "Gagak *tidak begitu*",
+   "kunci": [
+    "gagak"
+   ]
+  },
+  {
+   "id": "d4b",
+   "gap": 0.9,
+   "style": "firm, intriguing",
+   "text": "Gagak justru jago banget mengingat wajah manusia.",
+   "cap": "Gagak *jago mengingat wajah*",
+   "kunci": [
+    "mengingat wajah"
+   ]
+  },
+  {
+   "id": "p1",
+   "gap": 0.2,
+   "style": "documentary storytelling",
+   "text": "Di Universitas Washington, Amerika, peneliti melakukan percobaan unik.",
+   "cap": "Percobaan di *Univ. Washington*",
+   "kunci": [
+    "washington",
+    "percobaan"
+   ]
+  },
+  {
+   "id": "p2",
+   "gap": 0.2,
+   "style": "storytelling, ominous",
+   "text": "Mereka memakai topeng manusia purba yang seram, lalu menangkap beberapa gagak.",
+   "cap": "Topeng *seram*, menangkap gagak",
+   "kunci": [
+    "topeng",
+    "menangkap"
+   ]
+  },
+  {
+   "id": "p3",
+   "gap": 0.2,
+   "style": "storytelling",
+   "text": "Gagaknya diberi cincin penanda di kaki, lalu dilepas lagi.",
+   "cap": "Diberi *cincin penanda*, dilepas",
+   "kunci": [
+    "cincin",
+    "dilepas"
+   ]
+  },
+  {
+   "id": "p4",
+   "gap": 0.2,
+   "style": "storytelling",
+   "text": "Peneliti lain memakai topeng biasa, dan tidak mengganggu gagak sama sekali.",
+   "cap": "Topeng *biasa*: tidak mengganggu",
+   "kunci": [
+    "topeng biasa"
+   ]
+  },
+  {
+   "id": "p5",
+   "gap": 0.2,
+   "style": "dramatic",
+   "text": "Setelah itu, setiap topeng seram muncul, gagak langsung berkoak dan menyerbu.",
+   "cap": "Topeng seram muncul: *diserbu!*",
+   "kunci": [
+    "menyerbu"
+   ]
+  },
+  {
+   "id": "p6",
+   "gap": 0.2,
+   "style": "comedic",
+   "text": "Topeng biasa? Dicuekin.",
+   "cap": "Topeng biasa? *Dicuekin*",
+   "kunci": [
+    "dicuekin"
+   ]
+  },
+  {
+   "id": "p7",
+   "gap": 0.9,
+   "style": "amazed",
+   "text": "Bahkan saat topeng seram dipakai terbalik, atau ditutup topi, gagak tetap mengenalinya.",
+   "cap": "Terbalik, pakai topi: *tetap dikenali*",
+   "kunci": [
+    "terbalik",
+    "mengenalinya"
+   ]
+  },
+  {
+   "id": "p7b",
+   "gap": 0.9,
+   "style": "clear, amazed",
+   "text": "Mereka tidak mengenali bajunya. Mereka mengenali wajahnya.",
+   "cap": "Bukan bajunya: *wajahnya*",
+   "kunci": [
+    "wajahnya"
+   ]
+  },
+  {
+   "id": "a1",
+   "gap": 0.9,
+   "style": "warm, proud, slower, clear emphasis on the channel name",
+   "text": "Waktu kami di Adriy.Project baca kelanjutannya...",
+   "cap": "Waktu kami di *Adriy.Project* baca kelanjutannya...",
+   "kunci": [
+    "titik"
+   ]
+  },
+  {
+   "id": "a1b",
+   "gap": 0.4,
+   "style": "awed, shivering",
+   "text": "kami merinding.",
+   "cap": "...kami *merinding*",
+   "kunci": [
+    "merinding"
+   ]
+  },
+  {
+   "id": "p8",
+   "gap": 0.2,
+   "style": "documentary, ominous",
+   "text": "Bertahun-tahun kemudian, gagak masih memusuhi topeng itu.",
+   "cap": "*Bertahun-tahun* masih memusuhi",
+   "kunci": [
+    "bertahun",
+    "memusuhi"
+   ]
+  },
+  {
+   "id": "p9",
+   "gap": 0.2,
+   "style": "documentary, building",
+   "text": "Dan gagak yang ikut menyerbu, malah makin banyak.",
+   "cap": "Yang menyerbu *makin banyak*",
+   "kunci": [
+    "makin banyak"
+   ]
+  },
+  {
+   "id": "p10",
+   "gap": 0.2,
+   "style": "amazed",
+   "text": "Termasuk gagak muda, yang belum pernah melihat kejadian penangkapannya.",
+   "cap": "Termasuk *gagak muda*",
+   "kunci": [
+    "gagak muda"
+   ]
+  },
+  {
+   "id": "p11",
+   "gap": 0.2,
+   "style": "clear explainer, awed",
+   "text": "Artinya, gagak mengajari teman dan anaknya: awas, wajah ini berbahaya.",
+   "cap": "Gagak *mengajari* teman & anaknya",
+   "kunci": [
+    "mengajari",
+    "berbahaya"
+   ]
+  },
+  {
+   "id": "p12",
+   "gap": 0.9,
+   "style": "thoughtful",
+   "text": "Peneliti menduga, kemampuan ini membantu gagak bertahan di dunia yang penuh manusia.",
+   "cap": "Membantu *bertahan* di dunia manusia",
+   "kunci": [
+    "menduga",
+    "bertahan"
+   ]
+  },
+  {
+   "id": "p12b",
+   "gap": 0.9,
+   "style": "awed, slower",
+   "text": "Bayangkan: rasa waspada yang diwariskan, dari orang tua ke anak, dan dari teman ke teman.",
+   "cap": "Diwariskan: *orang tua ke anak*",
+   "kunci": [
+    "diwariskan",
+    "anak"
+   ]
+  },
+  {
+   "id": "s1",
+   "gap": 0.25,
+   "style": "curious, upbeat",
+   "text": "Terus, apa artinya buat kita?",
+   "cap": "Apa artinya *buat kita?*",
+   "kunci": [
+    "artinya"
+   ]
+  },
+  {
+   "id": "s2",
+   "gap": 0.2,
+   "style": "clear, confident",
+   "text": "Pertama, jangan ganggu burung liar. Mereka mungkin ingat.",
+   "cap": "1. Jangan *ganggu burung liar*",
+   "kunci": [
+    "pertama",
+    "ganggu"
+   ]
+  },
+  {
+   "id": "s3",
+   "gap": 0.2,
+   "style": "clear, warm",
+   "text": "Kedua, hewan di sekitar kita jauh lebih pintar dari dugaan.",
+   "cap": "2. Hewan *lebih pintar* dari dugaan",
+   "kunci": [
+    "kedua",
+    "pintar"
+   ]
+  },
+  {
+   "id": "s4",
+   "gap": 0.2,
+   "style": "clear explainer",
+   "text": "Gagak bahkan bisa membedakan wajah di tengah keramaian.",
+   "cap": "Bedakan wajah *di keramaian*",
+   "kunci": [
+    "keramaian"
+   ]
+  },
+  {
+   "id": "s4b",
+   "gap": 0.2,
+   "style": "clear explainer",
+   "text": "Mereka bisa tahu, wajah mana yang pernah jahat, dan mana yang tidak.",
+   "cap": "Tahu wajah *jahat* & *tidak*",
+   "kunci": [
+    "jahat"
+   ]
+  },
+  {
+   "id": "s5",
+   "gap": 0.2,
+   "style": "playful",
+   "text": "Ketiga, sebutan otak burung, sebaiknya kita pensiunkan.",
+   "cap": "3. Pensiunkan *\"otak burung\"*",
+   "kunci": [
+    "ketiga",
+    "pensiunkan"
+   ]
+  },
+  {
+   "id": "s6",
+   "gap": 0.9,
+   "style": "playful, teasing",
+   "text": "Gagak bisa ingat wajah bertahun-tahun. Kita? Kadang lupa nama orang, dua detik setelah kenalan.",
+   "cap": "Kita? Lupa nama *2 detik* setelah kenalan",
+   "kunci": [
+    "lupa nama"
+   ]
+  },
+  {
+   "id": "r1",
+   "gap": 0.5,
+   "style": "warm, reflective, slower",
+   "text": "Jadi, gagak bukan cuma burung hitam yang berisik. Dia pengingat yang sangat teliti.",
+   "cap": "Gagak: *pengingat yang teliti*",
+   "kunci": [
+    "berisik",
+    "teliti"
+   ]
+  },
+  {
+   "id": "c1",
+   "gap": 0.2,
+   "style": "warm, inviting, friendly",
+   "text": "Nah, sekarang giliran kamu.",
+   "cap": "Sekarang *giliran kamu*",
+   "kunci": [
+    "giliran"
+   ]
+  },
+  {
+   "id": "c2",
+   "gap": 0.2,
+   "style": "playful, curious",
+   "text": "Kalau ada hewan yang ingat wajahmu, kamu mau diingat sebagai teman, atau musuh?",
+   "cap": "Diingat sebagai *teman* atau *musuh?*",
+   "kunci": [
+    "teman",
+    "musuh"
+   ]
+  },
+  {
+   "id": "c3",
+   "gap": 0.2,
+   "style": "cheerful, inviting",
+   "text": "Tulis teman atau musuh di komentar. Aku penasaran jawabanmu.",
+   "cap": "Tulis *\"teman\"* atau *\"musuh\"*!",
+   "kunci": [
+    "komentar"
+   ]
+  },
+  {
+   "id": "c4",
+   "gap": 0.45,
+   "style": "friendly, upbeat",
+   "text": "Ikuti, karena masih banyak hewan yang ternyata jauh lebih pintar dari kita kira.",
+   "cap": "*Ikuti*: hewan pintar lainnya",
+   "kunci": [
+    "ikuti",
+    "hewan"
+   ]
+  },
+  {
+   "id": "z",
+   "gap": 0.0,
+   "style": "warm, confident, gentle smile in the voice, medium tempo",
+   "text": "Explore More, Know More.",
+   "cap": "",
+   "kunci": []
+  }
+ ]
+}
