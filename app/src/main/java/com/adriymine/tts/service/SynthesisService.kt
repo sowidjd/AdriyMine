@@ -38,6 +38,35 @@ class SynthesisService : LifecycleService() {
     }
 
     private var started = false
+    private var wakeLock: android.os.PowerManager.WakeLock? = null
+    private var wifiLock: android.net.wifi.WifiManager.WifiLock? = null
+
+    /** Jaga CPU & Wi-Fi tetap aktif saat layar mati, agar proses tidak terputus (penyebab gagal). */
+    private fun acquireLocks() {
+        runCatching {
+            val pm = getSystemService(POWER_SERVICE) as android.os.PowerManager
+            wakeLock = pm.newWakeLock(android.os.PowerManager.PARTIAL_WAKE_LOCK, "AdriyTTS:synthesis").apply {
+                setReferenceCounted(false); acquire(3 * 60 * 60_000L)
+            }
+        }
+        runCatching {
+            @Suppress("DEPRECATION")
+            val mode = if (Build.VERSION.SDK_INT >= 29) android.net.wifi.WifiManager.WIFI_MODE_FULL_HIGH_PERF
+                else android.net.wifi.WifiManager.WIFI_MODE_FULL
+            val wm = applicationContext.getSystemService(WIFI_SERVICE) as android.net.wifi.WifiManager
+            wifiLock = wm.createWifiLock(mode, "AdriyTTS:synthesis").apply { setReferenceCounted(false); acquire() }
+        }
+    }
+
+    private fun releaseLocks() {
+        runCatching { if (wakeLock?.isHeld == true) wakeLock?.release() }
+        runCatching { if (wifiLock?.isHeld == true) wifiLock?.release() }
+    }
+
+    override fun onDestroy() {
+        releaseLocks()
+        super.onDestroy()
+    }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
@@ -51,6 +80,7 @@ class SynthesisService : LifecycleService() {
                 ServiceCompat.startForeground(this, ID, build("Menyiapkan…", 0, 0), type)
             }.isSuccess
             if (!ok) { stopSelf(); return START_NOT_STICKY }
+            acquireLocks()
             lifecycleScope.launch {
                 App.get(this@SynthesisService).engine.state.collectLatest { s ->
                     if (s.active) {
@@ -72,6 +102,7 @@ class SynthesisService : LifecycleService() {
             JobStatus.ERROR -> "Terhenti: ${s.message ?: "gagal"}"
             else -> null
         }
+        releaseLocks()
         ServiceCompat.stopForeground(this, ServiceCompat.STOP_FOREGROUND_REMOVE)
         if (msg != null) runCatching {
             nm.notify(DONE_ID, NotificationCompat.Builder(this, CHANNEL)

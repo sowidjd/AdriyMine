@@ -47,7 +47,7 @@ class Prefs(context: Context) {
         val d = Settings()
         return runCatching {
             Settings(
-                voiceId = sp.getString("voiceId2", d.voiceId) ?: d.voiceId,
+                voiceId = sp.getString("voiceId3", d.voiceId) ?: d.voiceId,
                 rate = sp.getInt("rate", d.rate),
                 pitch = sp.getInt("pitch", d.pitch),
                 volume = sp.getInt("volume", d.volume),
@@ -70,7 +70,7 @@ class Prefs(context: Context) {
         _state.value = s
         EdgeConfig.chromiumFullVersion = s.chromiumVersion
         sp.edit()
-            .putString("voiceId2", s.voiceId)
+            .putString("voiceId3", s.voiceId)
             .putInt("rate", s.rate)
             .putInt("pitch", s.pitch)
             .putInt("volume", s.volume)

@@ -157,6 +157,7 @@ private fun VoiceRow(v: Voice, selected: Boolean, loading: Boolean, onSelect: ()
                 if (v.description.isNotBlank()) Text(v.description, style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant)
                 if (v.score > 0) ScoreBar(v.score)
+                if (v.accuracy >= 0) AccuracyBar(v.accuracy)
                 if (available == false) Text("⚠ Sedang tidak tersedia di server (sementara). Aplikasi otomatis memakai suara pengganti yang mirip.",
                     style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.error, modifier = Modifier.padding(top = 2.dp))
             }
@@ -170,10 +171,30 @@ private fun VoiceRow(v: Voice, selected: Boolean, loading: Boolean, onSelect: ()
 }
 
 @Composable
+private fun AccuracyBar(acc: Int) {
+    val color = when {
+        acc >= 100 -> androidx.compose.ui.graphics.Color(0xFF10B981)
+        acc >= 90 -> androidx.compose.ui.graphics.Color(0xFFF59E0B)
+        else -> MaterialTheme.colorScheme.error
+    }
+    Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(top = 2.dp)) {
+        Text("Ketepatan", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        Spacer(Modifier.width(6.dp))
+        androidx.compose.material3.LinearProgressIndicator(
+            progress = { acc / 100f }, modifier = Modifier.width(80.dp).height(6.dp), color = color,
+        )
+        Spacer(Modifier.width(6.dp))
+        Text("$acc%", style = MaterialTheme.typography.labelSmall, fontWeight = FontWeight.SemiBold, color = color)
+    }
+    Text(if (acc >= 100) "Ucapan bahasa Indonesia tepat" else "Bisa salah ucap di kalimat pendek",
+        style = MaterialTheme.typography.labelSmall, color = color)
+}
+
+@Composable
 private fun ScoreBar(score: Double) {
     val frac = ((score - 3.0) / 1.5).coerceIn(0.08, 1.0).toFloat()
     Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(top = 4.dp)) {
-        Text("Kealamian", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        Text("Kealamian ", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
         Spacer(Modifier.width(6.dp))
         androidx.compose.material3.LinearProgressIndicator(
             progress = { frac }, modifier = Modifier.width(80.dp).height(6.dp),
@@ -188,6 +209,7 @@ private val previewSamples = listOf(
     "Cerita" to "Malam itu, angin berembus pelan dari arah laut. Rina duduk sendirian di beranda, memandangi bintang. \"Aku pasti bisa,\" bisiknya sambil tersenyum.",
     "Berita" to "Jakarta, 13 November 2026. Pemerintah mengumumkan program beasiswa baru untuk 25.000 mahasiswa di seluruh Indonesia.",
     "Dialog" to "\"Kamu sudah makan?\" tanya Ibu. \"Belum, Bu. Nanti saja,\" jawab Budi. \"Ayo makan dulu, nanti keburu dingin!\"",
+    "Huruf C" to "Cici mencari cabai dan kacang di pasar. Cuaca cerah, cocok untuk bercanda di pantai.",
     "Huruf & angka" to "Vokal: A, I, U, E, O. Abjad: A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z. Harganya Rp 150.000.",
 )
 
@@ -223,7 +245,7 @@ private fun PreviewStudio(vm: MainViewModel, text: String, previewing: String?, 
                 color = MaterialTheme.colorScheme.onSecondaryContainer)
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 OutlinedButton(
-                    onClick = { vm.compareVoices(VoiceCatalog.ranked.filter { it.recommended }.sortedByDescending { it.score }.take(4), text) },
+                    onClick = { vm.compareVoices(listOf("id-ID-GadisNeural", "id-ID-ArdiNeural", "en-US-AvaMultilingualNeural", "en-US-AndrewMultilingualNeural").map { VoiceCatalog.find(it) }, text) },
                     enabled = previewing == null, modifier = Modifier.weight(1f)
                 ) { Text("4 Terbaik", maxLines = 1) }
                 OutlinedButton(

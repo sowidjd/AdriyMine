@@ -48,7 +48,7 @@ data class PlayerUi(
     val error: String? = null,
 )
 
-const val DEFAULT_PREVIEW = "Halo! Selamat datang. Hari ini cuaca cerah sekali, dan aku ingin bercerita sedikit tentang perjalananku ke Yogyakarta. Rasanya menyenangkan, ya?"
+const val DEFAULT_PREVIEW = "Halo! Selamat datang. Hari ini cuaca cerah sekali, dan aku ingin bercerita tentang perjalananku mencari kuliner di Yogyakarta. Rasanya menyenangkan, ya?"
 
 class MainViewModel(app: Application) : AndroidViewModel(app) {
     private val ctx = app

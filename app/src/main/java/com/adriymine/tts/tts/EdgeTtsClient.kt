@@ -4,6 +4,7 @@ import kotlinx.coroutines.CancellableContinuation
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withTimeout
+import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
@@ -57,6 +58,9 @@ class EdgeTtsClient(private val http: OkHttpClient = defaultHttp) {
                 .build()
         }
 
+        /** Server dianggap macet bila tidak mengirim apa pun selama ini. */
+        const val IDLE_MS = 35_000L
+
         fun escapeXml(s: String): String {
             val sb = StringBuilder(s.length + 16)
             for (c in s) when (c) {
@@ -97,18 +101,41 @@ class EdgeTtsClient(private val http: OkHttpClient = defaultHttp) {
 
     /** Satu kali sintesis (tanpa retry). */
     suspend fun synthesizeOnce(text: String, voice: String, prosody: Prosody): SynthResult {
-        val timeoutMs = 45_000L + text.length * 60L
-        return withTimeout(timeoutMs) {
-            suspendCancellableCoroutine { cont -> startSocket(cont, text, voice, prosody) }
+        // Batas waktu berbasis "tidak ada aktivitas", bukan total: suara multibahasa bisa butuh
+        // >80 dtk untuk 480 karakter (terukur) walau server terus mengirim audio. Yang dianggap
+        // macet hanya bila server diam lebih dari IDLE_MS.
+        val last = java.util.concurrent.atomic.AtomicLong(System.currentTimeMillis())
+        return withTimeout(8 * 60_000L) {
+            kotlinx.coroutines.coroutineScope {
+                var socket: WebSocket? = null
+                val watchdog = launch {
+                    while (true) {
+                        delay(2_000)
+                        if (System.currentTimeMillis() - last.get() > IDLE_MS) {
+                            runCatching { socket?.cancel() }
+                            break
+                        }
+                    }
+                }
+                try {
+                    suspendCancellableCoroutine { cont -> socket = startSocket(cont, text, voice, prosody, last) }
+                } finally {
+                    watchdog.cancel()
+                }
+            }
         }
     }
 
-    private fun startSocket(cont: CancellableContinuation<SynthResult>, text: String, voice: String, prosody: Prosody) {
+    private fun startSocket(
+        cont: CancellableContinuation<SynthResult>, text: String, voice: String, prosody: Prosody,
+        last: java.util.concurrent.atomic.AtomicLong,
+    ): WebSocket {
         val audio = ByteArrayOutputStream()
         val words = ArrayList<WordMark>()
         var done = false
         val listener = object : WebSocketListener() {
             override fun onOpen(webSocket: WebSocket, response: Response) {
+                last.set(System.currentTimeMillis())
                 val cfg = "X-Timestamp:${jsDate()}\r\n" +
                     "Content-Type:application/json; charset=utf-8\r\n" +
                     "Path:speech.config\r\n\r\n" +
@@ -125,6 +152,7 @@ class EdgeTtsClient(private val http: OkHttpClient = defaultHttp) {
             }
 
             override fun onMessage(webSocket: WebSocket, text: String) {
+                last.set(System.currentTimeMillis())
                 if (text.contains("Path:audio.metadata")) {
                     runCatching {
                         val body = text.substring(text.indexOf("\r\n\r\n") + 4)
@@ -150,6 +178,7 @@ class EdgeTtsClient(private val http: OkHttpClient = defaultHttp) {
             }
 
             override fun onMessage(webSocket: WebSocket, bytes: ByteString) {
+                last.set(System.currentTimeMillis())
                 if (bytes.size < 2) return
                 val headerLen = ((bytes[0].toInt() and 0xFF) shl 8) or (bytes[1].toInt() and 0xFF)
                 if (headerLen + 2 > bytes.size) return
@@ -193,6 +222,7 @@ class EdgeTtsClient(private val http: OkHttpClient = defaultHttp) {
                     response != null -> "Server menolak (${response.code})"
                     t is java.net.UnknownHostException -> "Tidak ada koneksi internet"
                     t is java.net.SocketTimeoutException -> "Koneksi terlalu lambat (timeout)"
+                    t is java.io.IOException && t.message?.contains("Canceled", true) == true -> "Server berhenti merespons"
                     else -> "Gangguan jaringan: ${t.message ?: t.javaClass.simpleName}"
                 }
                 if (cont.isActive) cont.resumeWithException(TtsException(msg, cause = t))
@@ -200,6 +230,7 @@ class EdgeTtsClient(private val http: OkHttpClient = defaultHttp) {
         }
         val ws = http.newWebSocket(request(EdgeConfig.wssUrl(uuid())), listener)
         cont.invokeOnCancellation { runCatching { ws.cancel() } }
+        return ws
     }
 
     /**

@@ -104,7 +104,8 @@ class SynthesisEngine(
     suspend fun fallbackFor(voice: com.adriymine.tts.tts.Voice): com.adriymine.tts.tts.Voice? {
         val candidates = VoiceCatalog.curated
             .filter { it.id != voice.id && (it.group == com.adriymine.tts.tts.VoiceGroup.MULTI || it.group == com.adriymine.tts.tts.VoiceGroup.INDONESIA) }
-            .sortedWith(compareBy({ it.gender != voice.gender }, { it.group != voice.group }, { -it.score }))
+            // Utamakan suara asli Indonesia: paling akurat (uji fonem 100%) dan paling cepat.
+            .sortedWith(compareBy({ it.group != com.adriymine.tts.tts.VoiceGroup.INDONESIA }, { it.gender != voice.gender }, { -it.score }))
         for (c in candidates) if (isVoiceHealthy(c.id)) return c
         return null
     }
