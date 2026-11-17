@@ -47,3 +47,13 @@ memakai Gadis/Ardi agar audio tetap jadi.
 - Suara acuan di folder `voices/` dipilih dari beberapa kandidat lewat pengukuran, agar suara tetap sama
   dari awal sampai akhir. Rancangan suara VoxCPM2 sangat acak (skor kandidat 1,5 sampai 3,3).
 - Volume otomatis disamakan ke −19 LUFS seperti suara utama.
+
+## Suara kloning "Adriy" (dan suara kloning lain)
+Server otomatis memuat setiap pasangan `voices/<nama>.wav` + `voices/<nama>.txt` (transkrip persis rekaman)
+sebagai suara kloning. Suara **Adriy** sudah disertakan (`voices/adriy.wav`, potongan 15,7 detik dari rekaman asli).
+
+Hasil uji suara Adriy: kemiripan suara 0,85–0,88 terhadap bagian rekaman asli yang tidak dipakai untuk kloning
+(suara lain hanya 0,15–0,29), dan pengucapan 100% tepat pada kalimat uji.
+
+Untuk menambah suara sendiri: rekam 10–20 detik di ruangan sunyi, simpan sebagai `voices/namaku.wav`,
+tulis kalimat yang diucapkan persis di `voices/namaku.txt`, lalu jalankan ulang server.

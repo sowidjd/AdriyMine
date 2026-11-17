@@ -57,6 +57,18 @@ def to_mp3(wav: np.ndarray, sr: int) -> bytes:
     return p.stdout
 
 
+def load_custom_voices(folder: str):
+    """Suara kloning tambahan: setiap pasangan voices/<nama>.wav + voices/<nama>.txt (transkrip persis)."""
+    out = {}
+    if os.path.isdir(folder):
+        for f in sorted(os.listdir(folder)):
+            name, ext = os.path.splitext(f)
+            txt = os.path.join(folder, name + ".txt")
+            if ext == ".wav" and name not in VOICES and os.path.exists(txt):
+                out[name] = (os.path.join(folder, f), open(txt, encoding="utf-8").read().strip())
+    return out
+
+
 class Engine:
     def __init__(self, model_id: str, ref_dir: str, steps: int):
         from voxcpm import VoxCPM
@@ -77,6 +89,12 @@ class Engine:
                 wav = self.model.generate(text=desc + REF_TEXT[name], cfg_value=2.0, inference_timesteps=steps)
                 sf.write(path, wav, self.sr)
             self.refs[name] = path
+        # Suara kloning (mis. "adriy"): rekaman asli pengguna + transkripnya.
+        self.texts = dict(REF_TEXT)
+        for name, (path, text) in load_custom_voices(bundled).items():
+            self.refs[name] = path
+            self.texts[name] = text
+            print(f"[server] suara kloning '{name}' dimuat", flush=True)
         print("[server] siap.", flush=True)
 
     def tts(self, text: str, voice: str) -> bytes:
@@ -84,7 +102,7 @@ class Engine:
         with self.lock:  # satu GPU: proses satu per satu
             wav = self.model.generate(
                 text=text,
-                prompt_wav_path=ref, prompt_text=REF_TEXT.get(voice, REF_TEXT["wanita"]),
+                prompt_wav_path=ref, prompt_text=self.texts.get(voice, REF_TEXT["wanita"]),
                 reference_wav_path=ref,
                 cfg_value=2.0, inference_timesteps=self.steps,
             )
@@ -114,7 +132,7 @@ def make_handler(engine: Engine, token: str | None):
             if not self._auth():
                 return
             import torch
-            info = {"ok": True, "model": "VoxCPM2", "voices": list(VOICES),
+            info = {"ok": True, "model": "VoxCPM2", "voices": list(engine.refs),
                     "device": "cuda" if torch.cuda.is_available() else "cpu"}
             self._send(200, json.dumps(info).encode(), "application/json")
 

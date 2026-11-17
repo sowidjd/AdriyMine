@@ -25,7 +25,7 @@ class VoxLiveTest {
             println("health: ${h.ok} ${h.message}")
             assertTrue(h.ok)
             assertTrue(!client.health(url, "salah").ok)
-            for (id in listOf("vox-wanita", "vox-pria")) {
+            for (id in (System.getenv("VOX_VOICES") ?: "vox-wanita,vox-pria").split(",")) {
                 val v = VoiceCatalog.find(id)
                 val prepared = TextProcessor.prepare(raw, TextProcessor.Options(spellLettersIndo = true))
                 val chunks = TextProcessor.chunk(prepared, maxChars = 320, mergeLimit = 320, ramp = listOf(140, 220, 320))

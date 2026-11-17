@@ -239,7 +239,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         viewModelScope.launch {
             val h = a.engine.voxHealth()
             _voxStatus.value = (if (h.ok) "✓ " else "✗ ") + h.message
-            if (h.ok) selectVoice("vox-wanita")
+            if (h.ok) selectVoice("vox-adriy")
         }
     }
 
