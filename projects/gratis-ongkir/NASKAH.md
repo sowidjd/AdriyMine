@@ -90,3 +90,10 @@
 
 **PENUTUP**
 - Explore More, Know More.  _(warm, confident, gentle smile in the voice, medium tempo)_
+
+## Judul & tagar TikTok (tanpa deskripsi)
+```
+Belanja 200 ribu demi gratis ongkir 10 ribu? Dompetmu dikerjain 💸
+
+#gratisongkir #belanjaonline #checkout #keuangan #faktapsikologi #relate #edukasi #belajardiTikTok #AdriyProject #ExploreMoreKnowMore #fyp #fypシ
+```

@@ -95,3 +95,10 @@
 
 **PENUTUP**
 - Explore More, Know More.  _(warm, confident, gentle smile in the voice, medium tempo)_
+
+## Judul & tagar TikTok (tanpa deskripsi)
+```
+Perut bunyi pas kelas hening? Ternyata bukan tanda lapar 😳
+
+#perutbunyi #faktatubuh #kesehatan #pencernaan #faktaunik #relate #edukasi #belajardiTikTok #AdriyProject #ExploreMoreKnowMore #fyp #fypシ
+```

@@ -91,3 +91,10 @@
 
 **PENUTUP**
 - Explore More, Know More.  _(warm, confident, gentle smile in the voice, medium tempo)_
+
+## Judul & tagar TikTok (tanpa deskripsi)
+```
+Burung gagak bisa ingat wajahmu bertahun-tahun, dan temannya ikut dendam 🐦‍⬛
+
+#gagak #faktahewan #faktaunik #hewancerdas #sains #edukasi #belajardiTikTok #AdriyProject #ExploreMoreKnowMore #fyp #fypシ
+```
