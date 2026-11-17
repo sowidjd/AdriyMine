@@ -82,6 +82,10 @@ object VoiceCatalog {
 
     /** Muncul di pilihan suara hanya bila alamat server VoxCPM2 diisi di Atur. */
     val voxStyles: List<Voice> = listOf(
+        Voice("vox-amy", "Amy · Clone", Gender.FEMALE, "id-ID",
+            "Suara Amy, dikloning dari rekaman asli. Butuh server VoxCPM2.", VoiceGroup.VOX, true, 3.18,
+            serverId = "voxcpm:amy",
+            sample = "Halo, nama saya Amy. Malam ini, mari kita menatap bulan dan mendengar kisahnya bersama-sama."),
         Voice("vox-adriy", "Adriy · Clone", Gender.MALE, "id-ID",
             "Suara Adriy, dikloning dari rekaman asli. Butuh server VoxCPM2.", VoiceGroup.VOX, true, 2.7,
             serverId = "voxcpm:adriy",

@@ -55,5 +55,8 @@ sebagai suara kloning. Suara **Adriy** sudah disertakan (`voices/adriy.wav`, pot
 Hasil uji suara Adriy: kemiripan suara 0,85–0,88 terhadap bagian rekaman asli yang tidak dipakai untuk kloning
 (suara lain hanya 0,15–0,29), dan pengucapan 100% tepat pada kalimat uji.
 
+Suara **Amy** juga disertakan (`voices/amy.wav`, potongan 15,6 detik): kemiripan 0,80–0,81 terhadap bagian
+rekaman yang tidak dipakai, kealamian 3,0–3,35, pengucapan 100% tepat.
+
 Untuk menambah suara sendiri: rekam 10–20 detik di ruangan sunyi, simpan sebagai `voices/namaku.wav`,
 tulis kalimat yang diucapkan persis di `voices/namaku.txt`, lalu jalankan ulang server.
