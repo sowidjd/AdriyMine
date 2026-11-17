@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Perut bunyi</title>
+<style>
+@font-face { font-family: 'Fredoka'; src: url(../_bersama/fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; }
+html,body{margin:0;background:#222}canvas{height:100vh;display:block;margin:auto}
+</style></head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script src="../_bersama/dasar.js"></script>
+<script>
+// "Perut bunyi pas kelas hening? Itu bukan tanda lapar" — gaya LINE-ART CUTAWAY: garis teknik bersih seragam, isian pastel datar,
+// garis bantu putus-putus seperti buku anatomi. Metafora: perut "dibelah" dan di dalam usus ada petugas kebersihan yang menyapu tiap ± 2 jam.
+const INK = '#28323C', PAPER = '#F6F4EE', GRID = 'rgba(70,110,150,0.10)';
+const P = { pink: '#F4B7A8', pinkDk: '#E08A7A', mint: '#BFE3D0', sky: '#BFDDF2', sun: '#F7D98B', lilac: '#D7CCEB', red: '#E0605A', blue: '#5B8FC7', green: '#6DBE8A' };
+const GAYA = {
+  ink: INK, hi: '#F7D98B', card: '#FFFFFF',
+  shape(pts, col, id, o = {}) { const p = pathOf(pts); ctx.fillStyle = rgba(col, o.fill ?? 1); ctx.fill(p); if (o.line !== false) { ctx.strokeStyle = INK; ctx.lineWidth = o.lw ?? 3.5; ctx.lineJoin = 'round'; ctx.stroke(p); } },
+  line(pts, lw, col = INK, id, a = 1) { ctx.strokeStyle = rgba(col, a); ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke(pathOf(pts, false)); },
+  bg() { ctx.fillStyle = PAPER; ctx.fillRect(0, 0, W, H); ctx.strokeStyle = GRID; ctx.lineWidth = 2; for (let x = 0; x < W; x += 60) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); } for (let y = 0; y < H; y += 60) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); } },
+  trans(k, drawPrev) {   // a technical "section cut": the old drawing slides away along a dashed cut line
+    const y = lerp(-100, H + 100, easeOut(k)); ctx.save(); ctx.beginPath(); ctx.rect(0, y, W, H); ctx.clip(); drawPrev(); ctx.restore();
+    ctx.save(); ctx.setLineDash([22, 14]); GAYA.line([[0, y], [W, y]], 5, P.blue, 1, .9); ctx.restore();
+  },
+  post() {},
+};
+const age = id => T - t0(id);
+function dash(pts, col = P.blue, lw = 3) { ctx.save(); ctx.setLineDash([14, 10]); GAYA.line(pts, lw, col, 1, .8); ctx.restore(); }
+function label(s, x, y, size = 40, col = INK, ax = 'center') { ctx.font = `700 ${size}px ${FONT}`; ctx.fillStyle = col; ctx.textAlign = ax; ctx.textBaseline = 'middle'; ctx.fillText(s, x, y); ctx.textAlign = 'left'; }
+function callout(s, x, y, tx, ty, a = 1) { if (a <= 0) return; ctx.save(); ctx.globalAlpha *= clamp(a); GAYA.line([[tx, ty], [x, y]], 3, INK, 2); ctx.fillStyle = INK; ctx.beginPath(); ctx.arc(tx, ty, 7, 0, TAU); ctx.fill(); tag(s, x, y, 40, { bg: '#FFFFFF' }); ctx.restore(); }
+function bigWord(s, x, y, size, col, t, a) { if (a <= 0) return; const k = backOut(seg(a, 0, .25)), sh = Math.sin(t * 60) * 8 * Math.exp(-a * 2); ctx.save(); ctx.translate(x + sh, y); ctx.rotate(-.05); ctx.scale(k, k); ctx.font = `700 ${size}px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.lineJoin = 'round'; ctx.lineWidth = size * .14; ctx.strokeStyle = INK; ctx.strokeText(s, 0, 0); ctx.fillStyle = col; ctx.fillText(s, 0, 0); ctx.textAlign = 'left'; ctx.restore(); }
+function rings(x, y, a, n = 3, col = P.red) { for (let i = 0; i < n; i++) { const p = (a * 1.4 + i / n) % 1; ctx.strokeStyle = rgba(col, .7 * (1 - p)); ctx.lineWidth = 6; ctx.beginPath(); ctx.arc(x, y, 30 + p * 220, -.9, .9); ctx.stroke(); ctx.beginPath(); ctx.arc(x, y, 30 + p * 220, Math.PI - .9, Math.PI + .9); ctx.stroke(); } }
+function student(x, y, s, o = {}) { GAYA.shape(rr(x - 45 * s, y - 10 * s, 90 * s, 90 * s, 26 * s), o.shirt || '#D8DEE6', 300, {}); GAYA.shape(ell(x, y - 42 * s, 34 * s, 36 * s, 20), '#F2D2B6', 301, {}); GAYA.shape([[x - 34 * s, y - 52 * s], [x + 34 * s, y - 52 * s], [x + 30 * s, y - 78 * s], [x - 30 * s, y - 78 * s]], o.hair || '#4A3B32', 302, {});
+  if (o.turn) { ctx.fillStyle = INK; for (const d of [-1, 1]) { ctx.beginPath(); ctx.arc(x + d * 11 * s + o.turn * 6 * s, y - 40 * s, 4 * s, 0, TAU); ctx.fill(); } } }
+function desk(x, y, w = 220) { GAYA.shape(rr(x - w / 2, y, w, 26, 6), '#D9B98E', 310, {}); GAYA.line([[x - w / 2 + 20, y + 26], [x - w / 2 + 20, y + 120]], 5, INK, 311); GAYA.line([[x + w / 2 - 20, y + 26], [x + w / 2 - 20, y + 120]], 5, INK, 312); GAYA.shape(rr(x - 50, y - 8, 100, 10, 2), '#FFFFFF', 313, { lw: 2 }); }
+// a cutaway torso: stomach (J-shape) + small intestine (coiled tube). `inner` draws on top inside a clip
+function torso(cx, cy, s, o = {}) {
+  const B = [[-170, -330], [170, -330], [210, -150], [200, 200], [150, 330], [-150, 330], [-200, 200], [-210, -150]].map(([x, y]) => [cx + x * s, cy + y * s]);
+  GAYA.shape(B, '#F7E6DA', 400, { lw: 4 }); dash([[cx, cy - 330 * s], [cx, cy + 330 * s]], 'rgba(91,143,199,0.5)', 2);
+  const st = [[-30, -250], [60, -260], [120, -210], [110, -120], [40, -60], [-60, -70], [-90, -120], [-40, -150], [20, -170], [10, -220]].map(([x, y]) => [cx + x * s, cy + y * s]);
+  GAYA.shape(st, P.pink, 401, { lw: 4 });
+  const path = intestinePath(cx, cy, s); ctx.strokeStyle = INK; ctx.lineWidth = 44 * s + 7; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke(pathOf(path, false)); ctx.strokeStyle = P.pinkDk; ctx.lineWidth = 44 * s; ctx.stroke(pathOf(path, false));
+  ctx.strokeStyle = 'rgba(255,255,255,0.35)'; ctx.lineWidth = 10 * s; ctx.stroke(pathOf(path.map(([x, y]) => [x - 6 * s, y - 6 * s]), false));
+  if (o.inner) o.inner(path);
+  return { st, path };
+}
+function intestinePath(cx, cy, s) { const P2 = []; for (let i = 0; i <= 160; i++) { const u = i / 160, row = Math.floor(u * 4), f = u * 4 - row, dir = row % 2 ? -1 : 1, x = (dir > 0 ? lerp(-130, 130, f) : lerp(130, -130, f)), y = 10 + row * 70 + Math.sin(f * Math.PI * 3) * 16; P2.push([cx + x * s, cy + y * s]); } return [[cx + 60 * s, cy - 70 * s], [cx - 60 * s, cy - 20 * s], ...P2]; }
+const along = (path, u) => { const i = clamp(u) * (path.length - 1), a = Math.floor(i), b = Math.min(path.length - 1, a + 1), k = i - a; return [lerp(path[a][0], path[b][0], k), lerp(path[a][1], path[b][1], k)]; };
+function sweeper(x, y, s, t) { GAYA.shape(rr(x - 22 * s, y - 40 * s, 44 * s, 50 * s, 12 * s), P.blue, 450, {}); GAYA.shape(ell(x, y - 56 * s, 18 * s, 18 * s, 16), '#F2D2B6', 451, {}); GAYA.shape(rr(x - 20 * s, y - 80 * s, 40 * s, 14 * s, 6 * s), P.sun, 452, {}); const sw = Math.sin(t * 8) * .4; GAYA.line([[x + 18 * s, y - 20 * s], [x + 50 * s + sw * 20 * s, y + 20 * s]], 5 * s, '#8A6A45', 453); GAYA.shape([[x + 40 * s + sw * 20 * s, y + 14 * s], [x + 70 * s + sw * 20 * s, y + 18 * s], [x + 62 * s + sw * 20 * s, y + 34 * s], [x + 34 * s + sw * 20 * s, y + 30 * s]], P.sun, 454, {}); ctx.fillStyle = INK; ctx.beginPath(); ctx.arc(x - 5 * s, y - 58 * s, 2.5 * s, 0, TAU); ctx.arc(x + 6 * s, y - 58 * s, 2.5 * s, 0, TAU); ctx.fill(); }
+function card(x, y, w, h, title, icon, a, col = '#FFFFFF') { const k = backOut(seg(a, 0, .3)); if (k <= 0) return; ctx.save(); ctx.translate(x, y); ctx.scale(k, k); GAYA.shape(rr(-w / 2, -h / 2, w, h, 24), col, 500, { lw: 4 }); ctx.save(); ctx.translate(0, -h * .12); icon(); ctx.restore(); label(title, 0, h / 2 - 50, 40); ctx.restore(); }
+// ---------- scenes ----------
+GROUPS = [['hook', ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']], ['tempat', ['m1', 'm2', 'm3', 'm4']], ['aneh', ['m5', 'm6', 'm7']], ['medis', ['p1', 'p2', 'p3', 'p4']], ['usus', ['p5', 'p6']],
+  ['bersih', ['p7', 'p8', 'p9', 'p10', 'p11', 'p12']], ['siklus', ['p13', 'p14', 'p15']], ['normal', ['p16', 'p17']], ['tips1', ['s1', 's2', 's3']], ['tips2', ['s4', 's5', 's6']], ['air', ['s7', 's8']],
+  ['dokter', ['s9', 's10']], ['rangkum', ['r1', 'r2', 'r3']], ['cta', ['c1', 'c2', 'c3', 'c4', 'c5', 'c6']], ['akhir', ['z']]];
+const KRUK1 = () => t1('h2') + .25, KRUK2 = () => t1('p14') + .25;
+// HOOK: a silent exam room seen from the back; the growl; everyone turns; Adriy fakes a cough, scoots the chair, presses its belly
+S.hook = (t) => {
+  ctx.fillStyle = 'rgba(255,255,255,0.6)'; ctx.fillRect(0, 0, W, H);
+  GAYA.shape(rr(160, 230, 760, 300, 12), '#3E5C55', 320, { lw: 5 }); label('UJIAN', 540, 330, 70, '#FFFFFF'); label('harap tenang', 540, 420, 40, '#CFE5DE');
+  GAYA.shape(ell(900, 610, 60, 60, 30), '#FFFFFF', 321, {}); const an = t * .8; GAYA.line([[900, 610], [900 + Math.cos(an) * 45, 610 + Math.sin(an) * 45]], 4, INK, 322);   // wall clock ticking
+  const kr = t - KRUK1(), turned = kr > .6;
+  for (let r = 0; r < 2; r++) for (let q = 0; q < 4; q++) { if (r === 1 && (q === 1 || q === 2)) continue; const x = 180 + q * 240, y = 820 + r * 260; desk(x, y + 30, 200); student(x, y, 1.1, { turn: turned ? (x < 540 ? 1 : -1) : 0, shirt: ['#D8DEE6', '#E7D9C9', '#D3E4D5', '#E3D3E6'][q] }); }
+  desk(540, 1110, 260);
+  const cough = t > t0('h4') && t < t0('h5'), press = t > t0('h4') + 2.4;
+  clawd(540 + (t > t0('h4') + 1.4 ? 30 : 0), 1120, 20, { face: kr < 0 ? 'curious' : kr < 1.2 ? 'shock' : t > t0('h6') ? 'curious' : 'worried', arms: cough ? [.3, 1.5] : press ? [1.0, 1.0] : [.3, .3], blush: kr > 0 && t < t0('h6'), mark: kr > 0 && t < t0('h6') ? 'sweat' : t > t0('h6') ? '?' : null, markAge: t > t0('h6') ? age('h6') : kr });
+  if (kr > 0 && kr < 2) { rings(540, 1060, kr); bigWord('KRRRUUUKKK!', 540, 720, 120, P.red, t, kr); }
+  if (cough) label('*uhuk uhuk*', 760, 980, 40, P.blue);
+  if (t > t0('h6')) tag('Belum tentu *lapar?*', 540, 330, 80, { age: age('h6') });
+};
+// TEMPAT: meeting, prayer, cinema: silent places where the growl is loudest
+S.tempat = (t) => {
+  const pl = [['rapat', (w, h) => { GAYA.shape(rr(40, h - 120, w - 80, 40, 10), '#D9B98E', 520, {}); for (let i = 0; i < 3; i++) student(80 + i * 110, h - 130, .7, {}); }],
+    ['ibadah', (w, h) => { GAYA.shape([[w / 2 - 110, h - 60], [w / 2 - 110, 110], [w / 2, 40], [w / 2 + 110, 110], [w / 2 + 110, h - 60]], P.mint, 521, {}); for (let i = 0; i < 3; i++) GAYA.shape(rr(40 + i * 110, h - 50, 90, 30, 6), [P.red, P.blue, P.green][i], 522 + i, {}); }],
+    ['bioskop', (w, h) => { ctx.fillStyle = '#28323C'; ctx.fillRect(0, 0, w, h); GAYA.shape(rr(40, 30, w - 80, 120, 8), '#F7F3E8', 525, {}); for (let i = 0; i < 4; i++) GAYA.shape(rr(30 + i * 85, h - 90, 70, 70, 14), P.red, 526 + i, {}); }]];
+  pl.forEach(([n, draw], i) => { const a = age('m2') - i * .6, y = 300 + i * 330; if (a < 0) return; const k = backOut(seg(a, 0, .3)); ctx.save(); ctx.translate(140, y); ctx.scale(k, 1);
+    ctx.save(); ctx.beginPath(); ctx.rect(0, 0, 420, 280); ctx.clip(); ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, 420, 280); draw(420, 280); ctx.restore(); ctx.strokeStyle = INK; ctx.lineWidth = 4; ctx.strokeRect(0, 0, 420, 280); ctx.restore(); label(n, 760, y + 140, 56); });
+  const loud = age('m4');
+  clawd(820, 1330, 16, { face: loud > 0 ? 'shock' : t > t0('m3') ? 'sleepy' : 'curious', mark: loud > 0 ? '!' : null, markAge: loud });
+  if (loud > 0) { rings(820, 1260, loud, 3); label('🔊'.replace('🔊', 'KRUUK!'), 820, 1150, 56, P.red); }
+  if (t > t0('m3') && loud < 0) label('. . . hening . . .', 760, 1190, 44, '#8A96A3');
+};
+// ANEH: just ate (full plate), not hungry at all (meter low), so who is making noise? (magnifier over the belly)
+S.aneh = (t) => {
+  if (t < t0('m7')) {
+    GAYA.shape(ell(330, 760, 200, 70, 40), '#FFFFFF', 600, { lw: 4 }); GAYA.shape(ell(330, 740, 150, 40, 30), '#F7D98B', 601, {}); label('baru makan ✓'.replace(' ✓', ''), 330, 880, 44);
+    GAYA.shape(rr(640, 600, 300, 60, 30), '#FFFFFF', 602, { lw: 4 }); const v = .9 - .75 * ease(seg(age('m6'), .2, 1.2)); GAYA.shape(rr(646, 606, 288 * (t > t0('m6') ? 1 - v + .1 : .9), 48, 24), P.green, 603, { lw: 0, line: false });
+    label('kenyang', 790, 720, 40); clawd(540, 1300, 26, { face: t > t0('m6') ? 'surprised' : 'happy', mark: t > t0('m6') ? '?' : null, markAge: age('m6') });
+    tag(t < t0('m6') ? 'Padahal *baru makan*' : '*Nggak lapar* sama sekali', 540, 330, 70, { age: t < t0('m6') ? age('m5') : age('m6') }); return; }
+  const a = age('m7'); clawd(540, 1300, 34, { face: 'curious' }); const r = 170, gx = 540 + Math.sin(t * 1.2) * 40, gy = 1080;
+  ctx.save(); ctx.beginPath(); ctx.arc(gx, gy, r, 0, TAU); ctx.clip(); ctx.fillStyle = '#F7E6DA'; ctx.fillRect(gx - r, gy - r, 2 * r, 2 * r); for (let i = 0; i < 5; i++) { const p = (t * .8 + i / 5) % 1; ctx.fillStyle = 'rgba(91,143,199,0.6)'; ctx.beginPath(); ctx.arc(gx - 100 + p * 200, gy + Math.sin(p * 9 + i) * 40, 14, 0, TAU); ctx.fill(); } ctx.restore();
+  GAYA.line(ell(gx, gy, r, r, 48).concat([[gx + r, gy]]), 10, INK, 610); GAYA.line([[gx + r * .7, gy + r * .7], [gx + r * 1.3, gy + r * 1.3]], 24, INK, 611);
+  tag('Siapa yang *bikin ribut?*', 540, 330, 76, { age: a });
+};
+// MEDIS: the cutaway: stomach + small intestine; "borborigmi"; muscles squeeze (a traveling bulge); contents: food, liquid, gas; sound waves leave the body
+S.medis = (t) => {
+  const s = .95, cx = 540, cy = 880, a2 = age('p2'), a3 = age('p3'), a4 = age('p4');
+  torso(cx, cy, s, { inner: (path) => {
+    if (a2 > 0) { const u = (a2 * .18) % 1, [x, y] = along(path, u); ctx.strokeStyle = P.red; ctx.lineWidth = 7; ctx.beginPath(); ctx.arc(x, y, 34, 0, TAU); ctx.stroke(); }
+    if (a3 > 0) for (let i = 0; i < 18; i++) { const u = (i / 18 + T * .05) % 1, [x, y] = along(path, u), k = i % 3; if (a3 < (k * .5)) continue;
+      if (k === 0) GAYA.shape(ell(x, y, 10, 9, 12), '#C9A35B', 630 + i, { lw: 2 }); else if (k === 1) GAYA.shape([[x, y - 12], [x + 8, y + 2], [x, y + 9], [x - 8, y + 2]], P.blue, 640 + i, { lw: 2 }); else { ctx.strokeStyle = INK; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(x, y, 9, 0, TAU); ctx.stroke(); } }
+  } });
+  if (t < t0('p2')) callout('borborigmi', 800, 520, 650, 700, seg(age('p1'), .8, 1.1));
+  if (a3 > 0 && t < t0('p4')) { [['makanan', '#C9A35B'], ['cairan', P.blue], ['gas', '#FFFFFF']].forEach(([n, c2], i) => { if (a3 > i * .5) tag(n, 230 + i * 310, 1290, 44, { age: a3 - i * .5, bg: c2 }); }); }
+  if (a4 > 0) { rings(540, 1000, a4, 4, P.red); }
+  tag(t < t0('p2') ? 'Namanya: *borborigmi*' : t < t0('p3') ? 'Otot *mendorong* isinya' : t < t0('p4') ? 'Isinya: *makanan, cairan, gas*' : 'Terdengar *dari luar tubuh!*', 540, 300, 64, { age: t < t0('p2') ? age('p1') : t < t0('p3') ? a2 : t < t0('p4') ? a3 : a4 });
+  clawd(900, 1350, 11, { face: a4 > 0 ? 'surprised' : 'curious' });
+};
+// USUS: not only the stomach: the small intestine lights up too
+S.usus = (t) => {
+  const s = .95, a6 = age('p6'); torso(540, 880, s, { inner: (path) => { if (a6 > 0) { ctx.save(); ctx.globalAlpha = .5 + .3 * Math.sin(t * 6); ctx.strokeStyle = P.sun; ctx.lineWidth = 26; ctx.lineCap = 'round'; ctx.stroke(pathOf(path, false)); ctx.restore(); } } });
+  callout('lambung', 830, 560, 600, 700, seg(age('p5'), .3, .6)); if (a6 > 0) callout('usus halus', 840, 1260, 640, 1080, seg(a6, 0, .3));
+  tag(t < t0('p6') ? 'Bukan cuma dari *lambung*' : '*Usus halus* juga!', 540, 300, 70, { age: t < t0('p6') ? age('p5') : a6 });
+};
+// BERSIH: a natural cleaning system: the migrating motor complex = a little janitor sweeping crumbs through the tube after the "restaurant" closes
+S.bersih = (t) => {
+  if (t < t0('p9')) { const a = age('p7'); GAYA.shape(ell(540, 860, 260, 260, 40), '#FFFFFF', 700, { lw: 5 }); sweeper(520, 930, 3, t); for (let i = 0; i < 6; i++) mark('sparkle', 540 + Math.cos(i + t) * 240, 860 + Math.sin(i * 1.7 + t) * 220, 18, age('p8') - i * .1);
+    tag(t < t0('p8') ? 'Bagian *menariknya...*' : 'Sistem *pembersihan alami!*', 540, 330, 72, { age: t < t0('p8') ? a : age('p8') }); return; }
+  if (t < t0('p10')) { torso(540, 880, .95, { inner: (path) => { const u = (age('p9') * .12) % 1, [x, y] = along(path, u); ctx.strokeStyle = rgba(P.sun, .8); ctx.lineWidth = 50; ctx.lineCap = 'round'; const seg2 = path.slice(Math.max(0, Math.floor(u * path.length) - 10), Math.floor(u * path.length) + 1); if (seg2.length > 1) ctx.stroke(pathOf(seg2, false)); } });
+    tag('migrating motor complex', 540, 300, 56, { age: age('p9') - .5 }); return; }
+  const a = age('p10');   // the restaurant analogy, then the sweeper in the tube
+  if (t < t0('p11')) { GAYA.shape(rr(170, 520, 740, 520, 16), '#FFFFFF', 710, { lw: 5 }); GAYA.shape([[150, 520], [930, 520], [880, 420], [200, 420]], P.red, 711, {}); label('RESTORAN', 540, 470, 56, '#FFFFFF'); GAYA.shape(rr(400, 640, 280, 110, 12), P.sun, 712, {}); label('TUTUP', 540, 695, 64);
+    for (let i = 0; i < 8; i++) GAYA.shape(ell(250 + hash(i) * 580, 960 + hash(i + 3) * 50, 12, 9, 10), '#C9A35B', 713 + i, { lw: 2 }); sweeper(lerp(260, 820, seg(a, .5, 4)), 980, 2.4, t);
+    tag('Seperti *petugas kebersihan*', 540, 300, 66, { age: a }); return; }
+  torso(540, 880, .95, { inner: (path) => { const u = clamp(age('p11') * .12), [x, y] = along(path, u); for (let i = 0; i < 10; i++) { const [cx2, cy2] = along(path, Math.min(1, u + .02 + i * .006)); GAYA.shape(ell(cx2, cy2, 8, 7, 10), '#C9A35B', 720 + i, { lw: 2 }); } sweeper(x, y + 10, 1.2, t); } });
+  tag('Dorong sisa ke *bagian berikutnya*', 540, 300, 60, { age: age('p11') });
+};
+// SIKLUS: a 90–120 minute cycle on a timeline between meals; the wave pushes gas: KRUUUKKK!
+S.siklus = (t) => {
+  const a = age('p13'); GAYA.line([[120, 900], [960, 900]], 5, INK, 800); for (let i = 0; i <= 6; i++) { GAYA.line([[120 + i * 140, 890], [120 + i * 140, 910]], 4, INK, 801 + i); label(`${i}j`, 120 + i * 140, 950, 34, '#6A7782'); }
+  GAYA.shape(rr(70, 820, 100, 70, 14), P.sun, 810, {}); label('makan', 120, 790, 32); GAYA.shape(rr(890, 820, 100, 70, 14), P.sun, 811, {}); label('makan', 940, 790, 32);
+  const prog = seg(a, .3, 4); for (let i = 0; i < 3; i++) { const x0 = 260 + i * 230; if (prog * 3 < i) continue; const P2 = []; for (let k = 0; k <= 30; k++) { const u = k / 30; P2.push([x0 + u * 180, 880 - Math.sin(u * Math.PI) * 140 * Math.min(1, prog * 3 - i)]); } GAYA.line(P2, 6, P.red, 820 + i); }
+  if (a > 2) label('± 90–120 menit', 540, 660, 56, P.blue);
+  const kr = t - KRUK2(); clawd(540, 1330, 22, { face: kr > 0 && kr < 1.5 ? 'shock' : t > t0('p15') ? 'happy' : 'curious', mark: t > t0('p15') ? 'idea' : null, markAge: age('p15') });
+  if (kr > 0 && kr < 2) { rings(540, 1260, kr); bigWord('KRUUUKKK!', 540, 1100, 110, P.red, t, kr); }
+  tag(t < t0('p14') ? 'Berulang tiap *± 90–120 menit*' : t < t0('p15') ? 'Mendorong *cairan & gas...*' : 'Bunyi meski *nggak lapar!*', 540, 330, 64, { age: t < t0('p14') ? a : t < t0('p15') ? age('p14') : age('p15') });
+};
+// NORMAL: not every growl is the cleaning wave: normal digestion after meals too
+S.normal = (t) => {
+  GAYA.shape(ell(330, 800, 190, 66, 40), '#FFFFFF', 900, { lw: 4 }); GAYA.shape(ell(330, 780, 140, 36, 30), P.sun, 901, {}); label('setelah makan', 330, 900, 40);
+  if (t > t0('p17')) { rings(760, 800, age('p17'), 3, P.blue); label('juga bisa bunyi', 760, 1000, 44, P.blue); }
+  clawd(540, 1330, 22, { face: 'curious', mark: '?', markAge: age('p16') });
+  tag(t < t0('p17') ? 'Tidak *semua* dari pembersihan' : 'Pencernaan normal *juga bisa*', 540, 330, 64, { age: t < t0('p17') ? age('p16') : age('p17') });
+};
+// TIPS 1: eat regularly (clock + plate)
+S.tips1 = (t) => {
+  if (t < t0('s2')) { clawd(540, 1250, 32, { face: 'curious', mark: '?', markAge: age('s1') }); tag('Biar nggak bunyi *di tempat penting?*', 540, 330, 64, { age: age('s1') }); return; }
+  card(540, 820, 620, 560, '1. makan teratur', () => { GAYA.shape(ell(-110, 0, 110, 110, 32), '#FFFFFF', 910, { lw: 4 }); const an = T; GAYA.line([[-110, 0], [-110 + Math.cos(an) * 80, Math.sin(an) * 80]], 6, INK, 911); GAYA.line([[-110, 0], [-110, -60]], 6, INK, 912); GAYA.shape(ell(130, 30, 120, 44, 30), '#FFFFFF', 913, { lw: 4 }); GAYA.shape(ell(130, 18, 90, 24, 24), P.sun, 914, {}); }, age('s2'));
+  if (t > t0('s3')) tag('Jangan *terlalu lama* tanpa makan', 540, 1250, 52, { age: age('s3') });
+};
+// TIPS 2: eat slowly (fewer air bubbles swallowed); cut soda & gum
+S.tips2 = (t) => {
+  if (t < t0('s6')) { card(540, 780, 620, 520, '2. makan perlahan', () => { clawd(-60, 120, 12, { face: 'happy', mouth: 'chew' }); for (let i = 0; i < (t > t0('s5') ? 6 : 1); i++) { const p = (T * .5 + i / 6) % 1; ctx.strokeStyle = INK; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(80 + i * 22, -20 - p * 90, 10, 0, TAU); ctx.stroke(); } }, age('s4'));
+    if (t > t0('s5')) tag('Cepat = *udara ikut tertelan*', 540, 1250, 52, { age: age('s5') }); return; }
+  card(540, 800, 620, 560, '3. kurangi soda & permen karet', () => { GAYA.shape(rr(-170, -110, 110, 200, 20), P.red, 920, {}); for (let i = 0; i < 4; i++) { ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(-115, 40 - ((T * 60 + i * 30) % 120), 7, 0, TAU); ctx.stroke(); } GAYA.shape(rr(40, -60, 160, 90, 14), P.pink, 921, {}); GAYA.line([[-200, -140], [220, 140]], 12, P.red, 922, .9); }, age('s6'));
+};
+// AIR: water helps hydration, but it's not a magic switch
+S.air = (t) => {
+  GAYA.shape([[440, 560], [640, 560], [620, 1000], [460, 1000]], '#FFFFFF', 950, { lw: 5 }); ctx.save(); ctx.beginPath(); ctx.moveTo(445, 680); ctx.lineTo(635, 680); ctx.lineTo(620, 995); ctx.lineTo(460, 995); ctx.closePath(); ctx.fillStyle = rgba(P.sky, .9); ctx.fill(); ctx.restore();
+  if (t > t0('s8')) { GAYA.shape(rr(300, 1080, 480, 100, 20), '#FFFFFF', 951, { lw: 4 }); label('bukan tombol "mute"', 540, 1130, 44, P.red); }
+  clawd(820, 1330, 16, { face: t > t0('s8') ? 'worried' : 'happy' });
+  tag(t < t0('s8') ? 'Air putih: *jaga cairan tubuh*' : 'Tapi *bukan obat ajaib*', 540, 330, 64, { age: t < t0('s8') ? age('s7') : age('s8') });
+};
+// DOKTER: usually normal ✓; red flags → see a health worker
+S.dokter = (t) => {
+  if (t < t0('s10')) { GAYA.shape(ell(540, 820, 200, 200, 40), P.green, 960, {}); GAYA.line([[450, 830], [520, 900], [640, 740]], 26, '#FFFFFF', 961, 1); tag('Biasanya *normal*', 540, 330, 80, { age: age('s9') }); clawd(540, 1330, 20, { face: 'happy' }); return; }
+  const a = age('s10'); ['nyeri hebat', 'muntah', 'diare lama', 'tidak biasa'].forEach((s2, i) => { if (a < i * .7) return; tag(s2, 300 + (i % 2) * 480, 560 + Math.floor(i / 2) * 170, 52, { age: a - i * .7, bg: '#FBDCD6' }); });
+  if (a > 3) { GAYA.shape(rr(330, 960, 420, 240, 30), '#FFFFFF', 970, { lw: 5 }); GAYA.shape(rr(510, 1000, 60, 160, 10), P.red, 971, {}); GAYA.shape(rr(460, 1050, 160, 60, 10), P.red, 972, {}); }
+  tag('Periksa ke *tenaga medis*', 540, 330, 72, { age: a - 3 });
+};
+// RANGKUM: relaxed Adriy, a tiny janitor waving inside a dashed belly window
+S.rangkum = (t) => {
+  ctx.fillStyle = 'rgba(247,217,139,0.25)'; ctx.fillRect(0, 0, W, H);
+  clawd(540, 1300, 40, { face: t > t0('r3') ? 'happy' : 'curious' }); ctx.save(); ctx.beginPath(); ctx.arc(540, 1150, 70, 0, TAU); ctx.clip(); ctx.fillStyle = '#F7E6DA'; ctx.fillRect(470, 1080, 140, 140); sweeper(540, 1190, .9, t); ctx.restore(); ctx.save(); ctx.setLineDash([10, 8]); GAYA.line(ell(540, 1150, 70, 70, 32).concat([[610, 1150]]), 4, P.blue, 980); ctx.restore();
+  tag(t < t0('r2') ? 'Sekarang *kamu tahu*' : t < t0('r3') ? 'Bunyi ≠ *minta makan*' : 'Ususmu *lagi bertugas!*', 540, 330, 72, { age: t < t0('r2') ? age('r1') : t < t0('r3') ? age('r2') : age('r3') });
+};
+// CTA: where was the most embarrassing growl? three cards; comment arrow; share
+S.cta = (t) => {
+  if (t < t0('c6')) { const opts = [['UJIAN', P.sky], ['RAPAT', P.mint], ['HENING', P.lilac]]; opts.forEach(([s2, c2], i) => { const a = age('c3') - i * .5; if (a < 0) return; const k = backOut(seg(a, 0, .3)); ctx.save(); ctx.translate(200 + i * 340, 760); ctx.scale(k, k); GAYA.shape(rr(-150, -100, 300, 200, 26), c2, 990 + i, { lw: 4 }); label(s2, 0, 6, 60); ctx.restore(); });
+    tag(t < t0('c2') ? 'Aku *penasaran...*' : 'Tempat *paling memalukan?*', 540, 330, 72, { age: t < t0('c2') ? age('c1') : age('c2') });
+    if (t > t0('c4')) { tag('Tulis di *komentar!*', 540, 1030, 70, { age: age('c4') }); const k = .5 + .5 * Math.sin(t * 6); GAYA.shape([[800 + k * 20, 1100], [900 + k * 20, 1170], [820 + k * 20, 1210]], P.sun, 995, {}); }
+    clawd(480, 1340, 20, { face: 'happy', arms: [.3, t > t0('c4') ? 1.45 : .3] }); return; }
+  const a = age('c6'), s2 = seg(a, .3, 1.8); clawd(300, 1200, 22, { face: 'happy', arms: [.3, 1.4] }); student(820, 1150, 1.4, {}); rings(820, 1170, a, 2, P.red);
+  ctx.save(); ctx.translate(lerp(420, 740, s2), lerp(1050, 1000, s2) - 120 * Math.sin(s2 * Math.PI)); ctx.rotate(-.4); GAYA.shape([[-60, 0], [60, -40], [10, 40]], '#FFFFFF', 996, {}); ctx.restore();
+  tag('Bagikan ke teman yang *perutnya paling berisik*', 540, 330, 56, { age: a });
+};
+S.akhir = (t) => {};
+// ---------- sound ----------
+window.cues = () => {
+  c(0, 'time/' + 'clock-tick', .0); c(.2, 'mk:people-indoors-ambience', .25);
+  c(KRUK1(), 'own:perut-kruk-panjang', 1); c(KRUK1() + 1.1, 'mk:male-astonished-gasp', .35); c(t0('h4') + .2, 'mk:cartoon-character-sneeze', .0); c(t0('h4') + 1.4, 'foley/' + 'chair-scrape', .0);
+  c(t0('h6'), 'tones/tone-step-3', .5);
+  c(t0('m2'), 'pops/pop-medium-in', .5); c(t0('m2') + .6, 'pops/pop-medium-in', .5); c(t0('m2') + 1.2, 'pops/pop-medium-in', .5); c(t0('m4'), 'own:perut-kruk-pendek', .9);
+  c(t0('m6'), 'mk:wrong-answer-fail-notification', .35); c(t0('m7'), 'whooshes/whoosh-medium-soft', .4);
+  c(t0('p1') + .8, 'pops/pop-small-in', .5); c(t0('p2'), 'own:perut-gemuruh-pelan', .5); c(t0('p3'), 'mk:liquid-bubble', .5); c(t0('p4'), 'own:perut-kruk-pendek', .7);
+  c(t0('p6'), 'shimmers/shimmer-short-bright', .4); c(t0('p8'), 'shimmers/shimmer-medium-sparkle', .6); c(t0('p9'), 'own:perut-gemuruh-pelan', .4); c(t0('p10') + .5, 'foley/' + 'broom', .0);
+  c(t0('p13') + .3, 'data/data-progress-long', .4); c(KRUK2(), 'own:perut-kruk-panjang', 1); c(t0('p15'), 'mk:correct-answer-tone', .5);
+  c(t0('p17'), 'own:perut-kruk-pendek', .6); c(t0('s2'), 'pops/pop-large-in', .5); c(t0('s4'), 'pops/pop-large-in', .5); c(t0('s5'), 'mk:chewing-something-crunchy', .4); c(t0('s6'), 'pops/pop-large-in', .5);
+  c(t0('s7'), 'mk:pouring-water-to-mug', .5); c(t0('s8'), 'mk:wrong-answer-fail-notification', .3); c(t0('s9'), 'mk:correct-answer-tone', .5); c(t0('s10'), 'mk:retro-game-emergency-alarm', .2);
+  c(t0('r3'), 'shimmers/shimmer-long-soft', .5); c(t0('c3'), 'pops/pop-medium-in', .5); c(t0('c3') + .5, 'pops/pop-medium-in', .5); c(t0('c3') + 1, 'pops/pop-medium-in', .5); c(t0('c4'), 'tones/tone-ding-mid', .6); c(t0('c6') + .3, 'whooshes/whoosh-medium-soft', .6);
+  c(t0('z') - .3, 'logo-stings/sting-warm-long', 1);
+  for (const s of SC.slice(1)) if (s.name !== 'akhir') c(s.a, 'whooshes/whoosh-fast-soft', .3);
+  CUES = CUES.filter(x => x[2] > 0);
+};
+const _bs = buildScenes; buildScenes = function () { CAM_PUNCH = [[KRUK1(), .09], [t0('m4'), .06], [t0('p8'), .05], [KRUK2(), .08], [t0('s9'), .04]]; _bs(); };
+</script>
+</body>
+</html>

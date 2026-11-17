@@ -4,525 +4,544 @@
  "lines": [
   {
    "id": "h1",
-   "gap": 0.2,
+   "gap": 0.3,
    "style": "tense, whispering, slow",
-   "text": "Kelas lagi hening. Semua lagi ujian.",
-   "cap": "Kelas *hening*. Lagi ujian...",
+   "text": "Kelas sedang hening. Semua orang fokus mengerjakan ujian.",
+   "cap": "Kelas sedang hening. Semua orang fokus *mengerjakan* ujian.",
    "kunci": [
-    "hening",
-    "ujian"
+    "mengerjakan",
+    "hening"
    ]
   },
   {
    "id": "h2",
-   "gap": 0.3,
-   "style": "comedic panic, sudden",
-   "text": "Tiba-tiba, perutmu bunyi keras banget.",
-   "cap": "Tiba-tiba: *perut bunyi!*",
+   "gap": 1.9,
+   "style": "suspenseful, slow",
+   "text": "Tiba-tiba...",
+   "cap": "*Tiba-tiba*...",
    "kunci": [
-    "perutmu",
-    "bunyi"
+    "tiba-tiba"
    ]
   },
   {
    "id": "h3",
-   "gap": 0.2,
-   "style": "firm, teasing",
-   "text": "Tenang. Itu belum tentu tanda kamu lapar.",
-   "cap": "*Belum tentu* lapar",
+   "gap": 0.3,
+   "style": "comedic panic, loud",
+   "text": "Perutmu berbunyi keras banget!",
+   "cap": "Perutmu *berbunyi* keras banget!",
    "kunci": [
-    "lapar"
+    "berbunyi",
+    "perutmu"
    ]
   },
   {
    "id": "h4",
-   "gap": 0.9,
-   "style": "curious, mysterious",
-   "text": "Ada alasan lain, dan jarang yang tahu.",
-   "cap": "Ada alasan *lain*",
+   "gap": 0.2,
+   "style": "comedic, fast, flustered",
+   "text": "Kamu langsung pura-pura batuk, menggeser kursi, bahkan menekan perut sendiri.",
+   "cap": "Kamu langsung *pura-pura* batuk, menggeser kursi, bahkan menekan perut sendiri.",
    "kunci": [
-    "alasan"
+    "pura-pura",
+    "menggeser"
+   ]
+  },
+  {
+   "id": "h5",
+   "gap": 0.5,
+   "style": "desperate, comedic",
+   "text": "Berharap suaranya berhenti!",
+   "cap": "Berharap *suaranya* berhenti!",
+   "kunci": [
+    "suaranya",
+    "berharap"
+   ]
+  },
+  {
+   "id": "h6",
+   "gap": 0.9,
+   "style": "teasing, intriguing",
+   "text": "Tapi tunggu dulu... bagaimana kalau aku bilang, suara itu belum tentu berarti kamu lapar?",
+   "cap": "Tapi tunggu dulu... *bagaimana* kalau aku bilang, suara itu belum tentu berarti kamu lapar?",
+   "kunci": [
+    "bagaimana",
+    "berarti"
    ]
   },
   {
    "id": "m1",
    "gap": 0.2,
-   "style": "friendly storytelling",
+   "style": "clear storyteller, friendly",
    "text": "Coba ingat-ingat.",
-   "cap": "Coba ingat-ingat...",
+   "cap": "Coba *ingat-ingat*.",
    "kunci": [
-    "ingat"
+    "ingat-ingat"
    ]
   },
   {
    "id": "m2",
-   "gap": 0.2,
-   "style": "storytelling, light",
-   "text": "Lagi rapat, lagi ibadah, atau lagi nonton bioskop yang sepi.",
-   "cap": "Rapat, ibadah, *bioskop sepi*",
+   "gap": 0.3,
+   "style": "clear storyteller, friendly",
+   "text": "Pernah mengalami hal yang sama saat rapat, sedang ibadah, atau menonton film di bioskop?",
+   "cap": "Pernah *mengalami* hal yang sama saat rapat, sedang ibadah, atau menonton film di bioskop?",
    "kunci": [
-    "rapat",
-    "bioskop"
+    "mengalami",
+    "menonton"
    ]
   },
   {
    "id": "m3",
    "gap": 0.2,
-   "style": "storytelling, dramatic",
-   "text": "Perutmu bunyi, panjang, dan nyaring.",
-   "cap": "Panjang & *nyaring*",
+   "style": "quiet, tense",
+   "text": "Tempatnya hening... semua orang diam...",
+   "cap": "*Tempatnya* hening... semua orang diam...",
    "kunci": [
-    "panjang",
-    "nyaring"
+    "tempatnya",
+    "hening"
    ]
   },
   {
    "id": "m4",
-   "gap": 0.2,
-   "style": "embarrassed",
-   "text": "Orang di sebelah langsung melirik.",
-   "cap": "Orang sebelah *melirik*",
+   "gap": 0.4,
+   "style": "comedic, dramatic",
+   "text": "lalu perutmu justru mengeluarkan suara paling keras!",
+   "cap": "lalu perutmu justru *mengeluarkan* suara paling keras!",
    "kunci": [
-    "melirik"
+    "mengeluarkan",
+    "perutmu"
    ]
   },
   {
    "id": "m5",
    "gap": 0.2,
-   "style": "comedic, sheepish",
-   "text": "Kamu pura-pura batuk, biar suaranya ketutupan.",
-   "cap": "Pura-pura *batuk*",
+   "style": "puzzled",
+   "text": "Yang lebih aneh, terkadang kamu baru saja makan.",
+   "cap": "Yang lebih aneh, *terkadang* kamu baru saja makan.",
    "kunci": [
-    "batuk"
+    "terkadang"
    ]
   },
   {
    "id": "m6",
-   "gap": 0.3,
-   "style": "comedic, desperate",
-   "text": "Atau kamu tekan perut, sambil berharap bunyinya berhenti.",
-   "cap": "Tekan perut, *berharap berhenti*",
+   "gap": 0.4,
+   "style": "puzzled, emphatic",
+   "text": "Bahkan, kamu sama sekali tidak merasa lapar!",
+   "cap": "Bahkan, kamu sama sekali tidak *merasa* lapar!",
    "kunci": [
-    "tekan",
-    "berhenti"
-   ]
-  },
-  {
-   "id": "m6b",
-   "gap": 0.2,
-   "style": "comedic, anxious",
-   "text": "Makin kamu tegang, rasanya bunyinya makin lama.",
-   "cap": "Makin tegang, *makin lama*",
-   "kunci": [
-    "tegang"
+    "merasa",
+    "sekali"
    ]
   },
   {
    "id": "m7",
-   "gap": 0.2,
-   "style": "puzzled",
-   "text": "Yang bikin heran, kadang kamu baru saja makan.",
-   "cap": "Padahal *baru makan*",
-   "kunci": [
-    "heran",
-    "makan"
-   ]
-  },
-  {
-   "id": "m8",
-   "gap": 0.2,
-   "style": "puzzled",
-   "text": "Kadang juga, kamu sama sekali nggak merasa lapar.",
-   "cap": "Dan *nggak lapar*",
-   "kunci": [
-    "lapar"
-   ]
-  },
-  {
-   "id": "m9",
    "gap": 0.9,
-   "style": "curious, slower",
-   "text": "Terus, suara itu sebenarnya dari mana?",
-   "cap": "Suaranya *dari mana?*",
+   "style": "curious, mysterious",
+   "text": "Jadi, sebenarnya siapa yang sedang membuat keributan di dalam perutmu?",
+   "cap": "Jadi, *sebenarnya* siapa yang sedang membuat keributan di dalam perutmu?",
    "kunci": [
-    "suara",
-    "dari mana"
-   ]
-  },
-  {
-   "id": "d1",
-   "gap": 0.2,
-   "style": "thoughtful",
-   "text": "Kebanyakan orang mengira, perut bunyi artinya perut kosong minta diisi.",
-   "cap": "Dikira: *minta diisi*",
-   "kunci": [
-    "mengira",
-    "kosong"
-   ]
-  },
-  {
-   "id": "d2",
-   "gap": 0.2,
-   "style": "light, comedic",
-   "text": "Jadi kita buru-buru jajan.",
-   "cap": "Buru-buru *jajan*",
-   "kunci": [
-    "jajan"
-   ]
-  },
-  {
-   "id": "d3",
-   "gap": 0.2,
-   "style": "clear explainer",
-   "text": "Padahal, rasa lapar dan suara perut itu dua hal yang berbeda.",
-   "cap": "Lapar ≠ *suara perut*",
-   "kunci": [
-    "berbeda"
-   ]
-  },
-  {
-   "id": "d4",
-   "gap": 0.2,
-   "style": "clear explainer",
-   "text": "Rasa lapar diatur oleh hormon dan otak.",
-   "cap": "Lapar: diatur *hormon & otak*",
-   "kunci": [
-    "hormon",
-    "otak"
-   ]
-  },
-  {
-   "id": "d5",
-   "gap": 0.9,
-   "style": "mysterious, slower",
-   "text": "Suara perut, lain cerita.",
-   "cap": "Suara perut? *Lain cerita.*",
-   "kunci": [
-    "cerita"
+    "sebenarnya",
+    "keributan"
    ]
   },
   {
    "id": "p1",
-   "gap": 0.2,
-   "style": "clear explainer, intrigued",
-   "text": "Dokter menyebut suara ini borborigmi.",
-   "cap": "Namanya: *borborigmi*",
+   "gap": 0.3,
+   "style": "clear explainer, curious",
+   "text": "Dalam dunia medis, suara gemuruh dari saluran pencernaan ini disebut borborigmi.",
+   "cap": "Dalam dunia medis, suara gemuruh dari saluran pencernaan ini disebut *borborigmi*.",
    "kunci": [
-    "dokter"
+    "borborigmi",
+    "pencernaan"
    ]
   },
   {
    "id": "p2",
    "gap": 0.2,
-   "style": "surprised, explaining",
-   "text": "Dan suaranya lebih sering datang dari usus halus, bukan cuma dari lambung.",
-   "cap": "Sering dari *usus halus*",
+   "style": "clear explainer, curious",
+   "text": "Suara tersebut muncul ketika otot-otot saluran pencernaan bergerak mendorong isinya.",
+   "cap": "Suara tersebut muncul ketika otot-otot saluran *pencernaan* bergerak mendorong isinya.",
    "kunci": [
-    "usus halus",
-    "lambung"
-   ]
-  },
-  {
-   "id": "p3",
-   "gap": 0.2,
-   "style": "clear explainer",
-   "text": "Usus kita selalu bergerak, meremas, dan mendorong isinya.",
-   "cap": "Usus *meremas & mendorong*",
-   "kunci": [
-    "usus",
+    "pencernaan",
     "mendorong"
    ]
   },
   {
-   "id": "p4",
-   "gap": 0.2,
-   "style": "clear explainer",
-   "text": "Isinya bukan cuma makanan. Ada cairan, dan ada udara.",
-   "cap": "Isinya: *cairan & udara*",
+   "id": "p3",
+   "gap": 0.3,
+   "style": "clear explainer, curious",
+   "text": "Di dalamnya terdapat makanan, cairan, dan gas.",
+   "cap": "Di *dalamnya* terdapat makanan, cairan, dan gas.",
    "kunci": [
-    "cairan",
-    "udara"
+    "dalamnya",
+    "terdapat"
+   ]
+  },
+  {
+   "id": "p4",
+   "gap": 0.3,
+   "style": "lively explainer",
+   "text": "Ketika semua itu bergerak dan bercampur, muncullah suara gemuruh yang bisa kamu dengar dari luar tubuh!",
+   "cap": "Ketika semua itu bergerak dan bercampur, *muncullah* suara gemuruh yang bisa kamu dengar dari luar tubuh!",
+   "kunci": [
+    "muncullah",
+    "bercampur"
    ]
   },
   {
    "id": "p5",
-   "gap": 0.9,
-   "style": "clear explainer, playful",
-   "text": "Saat udara dan cairan terdorong, muncullah suara gemuruh.",
-   "cap": "Terdorong = *gemuruh*",
+   "gap": 0.2,
+   "style": "clear explainer, curious",
+   "text": "Dan ternyata, suara tersebut tidak hanya berasal dari lambung.",
+   "cap": "Dan ternyata, suara *tersebut* tidak hanya berasal dari lambung.",
    "kunci": [
-    "gemuruh"
-   ]
-  },
-  {
-   "id": "p5b",
-   "gap": 0.9,
-   "style": "clear explainer, calm",
-   "text": "Sebenarnya, usus bergemuruh hampir sepanjang waktu. Biasanya saja, suaranya teredam makanan.",
-   "cap": "Usus bergemuruh *hampir terus*",
-   "kunci": [
-    "sepanjang waktu",
-    "teredam"
-   ]
-  },
-  {
-   "id": "a1",
-   "gap": 0.9,
-   "style": "warm, proud, slower, clear emphasis on the channel name",
-   "text": "Waktu kami di Adriy.Project mempelajari soal ini...",
-   "cap": "Waktu kami di *Adriy.Project* mempelajari ini...",
-   "kunci": [
-    "titik"
-   ]
-  },
-  {
-   "id": "a1b",
-   "gap": 0.4,
-   "style": "amused, surprised",
-   "text": "ternyata, usus punya jadwal bersih-bersih.",
-   "cap": "...usus punya *jadwal bersih-bersih*",
-   "kunci": [
-    "bersih"
+    "tersebut",
+    "ternyata"
    ]
   },
   {
    "id": "p6",
-   "gap": 0.2,
-   "style": "clear explainer",
-   "text": "Sekitar dua jam setelah lambung kosong, usus mulai gerakan khusus.",
-   "cap": "± *2 jam* setelah kosong",
+   "gap": 0.9,
+   "style": "clear explainer, curious",
+   "text": "Usus halus juga bisa menjadi sumbernya.",
+   "cap": "Usus halus juga bisa menjadi *sumbernya*.",
    "kunci": [
-    "dua jam",
-    "kosong"
+    "sumbernya",
+    "menjadi"
    ]
   },
   {
    "id": "p7",
-   "gap": 0.2,
-   "style": "playful explainer",
-   "text": "Gerakan ini seperti petugas kebersihan, yang menyapu sisa makanan.",
-   "cap": "Seperti *petugas kebersihan*",
+   "gap": 0.3,
+   "style": "excited, leaning in",
+   "text": "Nah, sekarang bagian menariknya...",
+   "cap": "Nah, sekarang bagian *menariknya*...",
    "kunci": [
-    "petugas",
-    "menyapu"
+    "menariknya",
+    "sekarang"
    ]
   },
   {
    "id": "p8",
-   "gap": 0.2,
-   "style": "clear explainer",
-   "text": "Gelombangnya datang lagi, kira-kira setiap satu setengah sampai dua jam.",
-   "cap": "Datang lagi tiap *1,5–2 jam*",
+   "gap": 0.3,
+   "style": "excited, amazed",
+   "text": "Tubuh kita ternyata punya semacam sistem pembersihan alami!",
+   "cap": "Tubuh kita ternyata punya semacam sistem *pembersihan* alami!",
    "kunci": [
-    "setiap",
-    "dua jam"
+    "pembersihan",
+    "ternyata"
    ]
   },
   {
    "id": "p9",
-   "gap": 0.2,
-   "style": "clear explainer",
-   "text": "Dan karena perutnya kosong, nggak ada makanan yang meredam suaranya.",
-   "cap": "Perut kosong = *tak ada peredam*",
+   "gap": 0.4,
+   "style": "clear explainer, curious",
+   "text": "Ketika kita tidak sedang makan, saluran pencernaan dapat menjalankan pola gerakan khusus yang disebut migrating motor complex.",
+   "cap": "Ketika kita tidak sedang makan, saluran pencernaan dapat *menjalankan* pola gerakan khusus yang disebut migrating motor complex.",
    "kunci": [
-    "meredam"
+    "menjalankan",
+    "pencernaan"
    ]
   },
   {
    "id": "p10",
    "gap": 0.2,
-   "style": "clear, light",
-   "text": "Makanya, bunyinya terdengar lebih keras.",
-   "cap": "Makanya *lebih keras*",
+   "style": "playful explainer",
+   "text": "Bayangkan seperti petugas kebersihan yang berkeliling setelah restoran tutup.",
+   "cap": "Bayangkan seperti petugas kebersihan yang *berkeliling* setelah restoran tutup.",
    "kunci": [
-    "lebih keras"
+    "berkeliling",
+    "kebersihan"
    ]
   },
   {
    "id": "p11",
-   "gap": 0.9,
-   "style": "warm, clear payoff",
-   "text": "Jadi, bunyi itu bukan alarm lapar. Itu tanda ususmu lagi bersih-bersih.",
-   "cap": "Bukan alarm lapar: *usus bersih-bersih*",
+   "gap": 0.1,
+   "style": "clear explainer, curious",
+   "text": "Gerakan ini membantu mendorong sisa makanan dan material yang belum tercerna,",
+   "cap": "Gerakan ini membantu *mendorong* sisa makanan dan material yang belum tercerna,",
    "kunci": [
-    "alarm",
-    "bersih"
+    "mendorong",
+    "material"
+   ]
+  },
+  {
+   "id": "p12",
+   "gap": 0.3,
+   "style": "clear explainer, curious",
+   "text": "dari lambung serta usus halus menuju bagian berikutnya.",
+   "cap": "dari lambung serta usus halus menuju bagian *berikutnya*.",
+   "kunci": [
+    "berikutnya",
+    "lambung"
+   ]
+  },
+  {
+   "id": "p13",
+   "gap": 0.4,
+   "style": "clear explainer, curious",
+   "text": "Pola gerakan ini biasanya berulang dalam siklus sekitar sembilan puluh sampai seratus dua puluh menit, selama periode antara waktu makan.",
+   "cap": "Pola gerakan ini *biasanya* berulang dalam siklus sekitar sembilan puluh sampai seratus dua puluh menit, selama periode antara waktu makan.",
+   "kunci": [
+    "biasanya",
+    "sembilan"
+   ]
+  },
+  {
+   "id": "p14",
+   "gap": 1.9,
+   "style": "building suspense",
+   "text": "Dan ketika gerakan tersebut mendorong cairan serta gas di dalam saluran pencernaan...",
+   "cap": "Dan ketika gerakan tersebut mendorong cairan serta gas di dalam saluran *pencernaan*...",
+   "kunci": [
+    "pencernaan",
+    "mendorong"
+   ]
+  },
+  {
+   "id": "p15",
+   "gap": 0.3,
+   "style": "triumphant, clear",
+   "text": "Nah, itulah salah satu alasan kenapa perutmu bisa berbunyi meskipun tidak sedang lapar!",
+   "cap": "Nah, itulah salah satu alasan kenapa perutmu bisa *berbunyi* meskipun tidak sedang lapar!",
+   "kunci": [
+    "berbunyi",
+    "meskipun"
+   ]
+  },
+  {
+   "id": "p16",
+   "gap": 0.2,
+   "style": "careful, clear",
+   "text": "Tapi ingat, tidak semua suara perut berasal dari proses pembersihan ini.",
+   "cap": "Tapi ingat, tidak semua suara perut berasal dari proses *pembersihan* ini.",
+   "kunci": [
+    "pembersihan",
+    "berasal"
+   ]
+  },
+  {
+   "id": "p17",
+   "gap": 0.9,
+   "style": "careful, clear",
+   "text": "Gerakan pencernaan normal setelah makan juga bisa menghasilkan suara yang sama.",
+   "cap": "Gerakan pencernaan normal setelah makan juga bisa *menghasilkan* suara yang sama.",
+   "kunci": [
+    "menghasilkan",
+    "pencernaan"
    ]
   },
   {
    "id": "s1",
-   "gap": 0.25,
-   "style": "energetic, upbeat",
-   "text": "Terus, gimana biar nggak bunyi di saat penting?",
-   "cap": "Terus, *gimana?*",
+   "gap": 0.4,
+   "style": "thoughtful, calm",
+   "text": "Lalu, bagaimana supaya suara perut tidak terlalu mengganggu saat berada di tempat penting?",
+   "cap": "Lalu, bagaimana supaya suara perut tidak terlalu *mengganggu* saat berada di tempat penting?",
    "kunci": [
-    "gimana",
-    "penting"
+    "mengganggu",
+    "bagaimana"
    ]
   },
   {
    "id": "s2",
    "gap": 0.2,
    "style": "clear, confident",
-   "text": "Langkah pertama: minum air putih.",
-   "cap": "1. Minum *air putih*",
+   "text": "Pertama, usahakan makan secara teratur.",
+   "cap": "Pertama, *usahakan* makan secara teratur.",
    "kunci": [
-    "pertama",
-    "air putih"
+    "usahakan",
+    "teratur"
    ]
   },
   {
    "id": "s3",
-   "gap": 0.2,
-   "style": "clear explainer",
-   "text": "Kalau belum bisa makan, air bisa membantu menenangkan perut.",
-   "cap": "Air bisa *menenangkan perut*",
+   "gap": 0.4,
+   "style": "clear, caring",
+   "text": "Jangan sengaja membiarkan diri terlalu lama tanpa makan, jika tubuhmu sudah membutuhkan makanan.",
+   "cap": "Jangan sengaja membiarkan diri terlalu lama tanpa makan, jika tubuhmu sudah *membutuhkan* makanan.",
    "kunci": [
-    "menenangkan"
+    "membutuhkan",
+    "membiarkan"
    ]
   },
   {
    "id": "s4",
    "gap": 0.2,
    "style": "clear, confident",
-   "text": "Langkah kedua: makan sedikit, tapi teratur.",
-   "cap": "2. Makan *sedikit tapi teratur*",
+   "text": "Kedua, makanlah secara perlahan.",
+   "cap": "Kedua, *makanlah* secara perlahan.",
    "kunci": [
-    "kedua",
-    "teratur"
+    "makanlah",
+    "perlahan"
    ]
   },
   {
    "id": "s5",
-   "gap": 0.2,
-   "style": "clear explainer",
-   "text": "Perut yang ada isinya, suaranya lebih teredam.",
-   "cap": "Ada isi = *lebih teredam*",
+   "gap": 0.4,
+   "style": "clear explainer, curious",
+   "text": "Mengunyah terlalu cepat bisa membuat lebih banyak udara ikut tertelan.",
+   "cap": "*Mengunyah* terlalu cepat bisa membuat lebih banyak udara ikut tertelan.",
    "kunci": [
-    "teredam"
-   ]
-  },
-  {
-   "id": "s6",
-   "gap": 0.2,
-   "style": "clear, confident",
-   "text": "Langkah ketiga: makan pelan-pelan, dan kurangi minuman bersoda.",
-   "cap": "3. Makan *pelan*, kurangi *soda*",
-   "kunci": [
-    "ketiga",
-    "bersoda"
-   ]
-  },
-  {
-   "id": "s7",
-   "gap": 0.3,
-   "style": "clear explainer",
-   "text": "Supaya udara yang ikut tertelan nggak terlalu banyak.",
-   "cap": "Biar udara tertelan *sedikit*",
-   "kunci": [
-    "udara",
+    "mengunyah",
     "tertelan"
    ]
   },
   {
-   "id": "s7b",
-   "gap": 0.3,
-   "style": "clear explainer",
-   "text": "Permen karet dan minuman bersoda, bikin kita menelan lebih banyak udara.",
-   "cap": "Permen karet & soda = *udara tertelan*",
+   "id": "s6",
+   "gap": 0.4,
+   "style": "clear, confident",
+   "text": "Ketiga, kurangi minuman bersoda dan kebiasaan mengunyah permen karet, jika kamu sering mengalami perut bergas.",
+   "cap": "Ketiga, kurangi minuman bersoda dan kebiasaan mengunyah permen karet, jika kamu sering *mengalami* perut bergas.",
    "kunci": [
-    "permen karet",
-    "udara"
+    "mengalami",
+    "kebiasaan"
+   ]
+  },
+  {
+   "id": "s7",
+   "gap": 0.1,
+   "style": "clear explainer, curious",
+   "text": "Minum air putih juga membantu menjaga kebutuhan cairan tubuh,",
+   "cap": "Minum air putih juga membantu menjaga *kebutuhan* cairan tubuh,",
+   "kunci": [
+    "kebutuhan",
+    "membantu"
    ]
   },
   {
    "id": "s8",
-   "gap": 0.2,
-   "style": "warm, reassuring",
-   "text": "Dan ingat, perut bunyi itu normal.",
-   "cap": "Perut bunyi itu *normal*",
+   "gap": 0.5,
+   "style": "careful, honest",
+   "text": "tetapi bukan berarti air bisa langsung menghentikan semua suara perut.",
+   "cap": "tetapi bukan berarti air bisa langsung *menghentikan* semua suara perut.",
    "kunci": [
-    "normal"
+    "menghentikan",
+    "langsung"
    ]
   },
   {
    "id": "s9",
+   "gap": 0.2,
+   "style": "warm, reassuring",
+   "text": "Dan satu hal penting... suara perut biasanya normal.",
+   "cap": "Dan satu hal penting... suara perut *biasanya* normal.",
+   "kunci": [
+    "biasanya",
+    "penting"
+   ]
+  },
+  {
+   "id": "s10",
    "gap": 0.9,
    "style": "caring, serious",
-   "text": "Kalau disertai sakit perut atau diare, baru periksa ke dokter.",
-   "cap": "Sakit perut/diare? *Ke dokter*",
+   "text": "Namun, jika disertai nyeri hebat, muntah, diare berkepanjangan, atau keluhan yang tidak biasa, sebaiknya periksakan diri ke tenaga medis.",
+   "cap": "Namun, jika disertai nyeri hebat, muntah, diare *berkepanjangan*, atau keluhan yang tidak biasa, sebaiknya periksakan diri ke tenaga medis.",
    "kunci": [
-    "diare",
-    "dokter"
+    "berkepanjangan",
+    "periksakan"
    ]
   },
   {
    "id": "r1",
-   "gap": 0.5,
-   "style": "warm, reflective, slower",
-   "text": "Jadi, perut bunyi bukan berarti lapar. Bisa jadi ususmu cuma lagi bersih-bersih.",
-   "cap": "Perut bunyi = *usus bersih-bersih*",
+   "gap": 0.2,
+   "style": "warm, reflective",
+   "text": "Jadi, sekarang kamu tahu.",
+   "cap": "Jadi, *sekarang* kamu tahu.",
    "kunci": [
-    "bukan berarti",
-    "bersih"
+    "sekarang"
+   ]
+  },
+  {
+   "id": "r2",
+   "gap": 0.2,
+   "style": "warm, reflective",
+   "text": "Perut yang berbunyi tidak selalu sedang meminta makanan.",
+   "cap": "Perut yang *berbunyi* tidak selalu sedang meminta makanan.",
+   "kunci": [
+    "berbunyi",
+    "meminta"
+   ]
+  },
+  {
+   "id": "r3",
+   "gap": 0.6,
+   "style": "warm, smiling",
+   "text": "Bisa jadi, saluran pencernaanmu hanya sedang menjalankan tugasnya!",
+   "cap": "Bisa jadi, saluran *pencernaanmu* hanya sedang menjalankan tugasnya!",
+   "kunci": [
+    "pencernaanmu",
+    "menjalankan"
    ]
   },
   {
    "id": "c1",
    "gap": 0.2,
-   "style": "warm, inviting, friendly",
-   "text": "Nah, sekarang giliran kamu.",
-   "cap": "Sekarang *giliran kamu*",
+   "style": "curious, playful",
+   "text": "Nah, sekarang aku penasaran...",
+   "cap": "Nah, sekarang aku *penasaran*...",
    "kunci": [
-    "giliran"
+    "penasaran",
+    "sekarang"
    ]
   },
   {
    "id": "c2",
    "gap": 0.2,
    "style": "playful, curious",
-   "text": "Di mana tempat paling memalukan, perutmu pernah bunyi?",
-   "cap": "Tempat *paling memalukan?*",
+   "text": "Di mana tempat paling memalukan saat perutmu pernah berbunyi?",
+   "cap": "Di mana tempat paling *memalukan* saat perutmu pernah berbunyi?",
    "kunci": [
-    "memalukan"
+    "memalukan",
+    "berbunyi"
    ]
   },
   {
    "id": "c3",
-   "gap": 0.2,
-   "style": "cheerful, teasing",
-   "text": "Kelas, masjid, atau bioskop? Tulis di komentar. Aku penasaran siapa yang paling parah.",
-   "cap": "Kelas, masjid, bioskop? *Tulis di komentar!*",
+   "gap": 0.3,
+   "style": "playful, teasing",
+   "text": "Saat ujian? Di tengah rapat? Atau justru ketika semua orang sedang diam?",
+   "cap": "Saat ujian? Di *tengah* rapat? Atau justru ketika semua orang sedang diam?",
    "kunci": [
-    "komentar",
-    "parah"
-   ]
-  },
-  {
-   "id": "c3b",
-   "gap": 0.2,
-   "style": "playful, warm",
-   "text": "Contohnya aku: pas ujian matematika, di barisan paling depan.",
-   "cap": "Contoh: *ujian matematika*",
-   "kunci": [
-    "ujian"
+    "tengah",
+    "ketika"
    ]
   },
   {
    "id": "c4",
-   "gap": 0.45,
-   "style": "friendly, playful",
-   "text": "Kirim video ini ke teman yang perutnya paling sering bunyi.",
-   "cap": "Kirim ke teman yang perutnya *sering bunyi*",
+   "gap": 0.1,
+   "style": "cheerful, inviting",
+   "text": "Tulis ceritamu di komentar!",
+   "cap": "Tulis *ceritamu* di komentar!",
    "kunci": [
-    "teman"
+    "ceritamu",
+    "komentar"
+   ]
+  },
+  {
+   "id": "c5",
+   "gap": 0.3,
+   "style": "cheerful, teasing",
+   "text": "Siapa tahu pengalamanmu lebih parah daripada yang lain!",
+   "cap": "Siapa tahu *pengalamanmu* lebih parah daripada yang lain!",
+   "kunci": [
+    "pengalamanmu",
+    "daripada"
+   ]
+  },
+  {
+   "id": "c6",
+   "gap": 0.5,
+   "style": "friendly, playful",
+   "text": "Dan jangan lupa bagikan video ini kepada teman yang perutnya paling sering membuat keributan!",
+   "cap": "Dan jangan lupa bagikan video ini kepada teman yang perutnya paling sering membuat *keributan*!",
+   "kunci": [
+    "keributan",
+    "perutnya"
    ]
   },
   {
    "id": "z",
-   "gap": 0.0,
+   "gap": 0,
    "style": "warm, confident, gentle smile in the voice, medium tempo",
-   "text": "Explore More, Know More.",
+   "text": "Adriy.Project. Explore More. Know More!",
    "cap": "",
    "kunci": []
   }

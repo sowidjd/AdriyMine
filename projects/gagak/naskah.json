@@ -4,492 +4,631 @@
  "lines": [
   {
    "id": "h1",
-   "gap": 0.25,
+   "gap": 0.3,
    "style": "serious, warning, slow",
-   "text": "Jangan bikin burung gagak marah.",
-   "cap": "Jangan bikin *gagak* marah",
+   "text": "Jangan pernah meremehkan burung gagak.",
+   "cap": "Jangan pernah *meremehkan* burung gagak.",
    "kunci": [
-    "gagak",
-    "marah"
+    "meremehkan",
+    "jangan"
    ]
   },
   {
    "id": "h2",
    "gap": 0.2,
    "style": "mysterious",
-   "text": "Dia bisa ingat wajahmu, bertahun-tahun.",
-   "cap": "Dia ingat wajahmu *bertahun-tahun*",
+   "text": "Dia bisa mengingat wajah manusia yang pernah mengganggunya, bahkan bertahun-tahun kemudian.",
+   "cap": "Dia bisa mengingat wajah manusia yang pernah mengganggunya, bahkan *bertahun-tahun* kemudian.",
    "kunci": [
-    "wajahmu",
-    "bertahun"
+    "bertahun-tahun",
+    "mengganggunya"
    ]
   },
   {
    "id": "h3",
    "gap": 0.2,
    "style": "dramatic",
-   "text": "Dan teman-temannya ikut memusuhimu.",
-   "cap": "Temannya *ikut memusuhi*",
+   "text": "Dan yang lebih mengejutkan, gagak lain bisa ikut mengenali wajah tersebut.",
+   "cap": "Dan yang lebih *mengejutkan*, gagak lain bisa ikut mengenali wajah tersebut.",
    "kunci": [
-    "teman",
-    "memusuhimu"
+    "mengejutkan",
+    "mengenali"
    ]
   },
   {
    "id": "h4",
-   "gap": 0.9,
-   "style": "confident, intriguing",
-   "text": "Kedengarannya kayak dongeng. Tapi ini hasil penelitian.",
-   "cap": "Bukan dongeng: *penelitian*",
+   "gap": 0.2,
+   "style": "playful, intriguing",
+   "text": "Kedengarannya seperti cerita balas dendam dalam film, kan?",
+   "cap": "*Kedengarannya* seperti cerita balas dendam dalam film, kan?",
    "kunci": [
-    "dongeng",
-    "penelitian"
+    "kedengarannya",
+    "cerita"
+   ]
+  },
+  {
+   "id": "h5",
+   "gap": 0.9,
+   "style": "confident, firm",
+   "text": "Tapi ini benar-benar pernah diteliti oleh para ilmuwan.",
+   "cap": "Tapi ini *benar-benar* pernah diteliti oleh para ilmuwan.",
+   "kunci": [
+    "benar-benar",
+    "diteliti"
    ]
   },
   {
    "id": "m1",
    "gap": 0.2,
-   "style": "friendly storytelling",
-   "text": "Coba bayangin.",
-   "cap": "Coba bayangin...",
+   "style": "clear storyteller, friendly",
+   "text": "Coba bayangkan.",
+   "cap": "Coba *bayangkan*.",
    "kunci": [
-    "bayangin"
+    "bayangkan"
    ]
   },
   {
    "id": "m2",
    "gap": 0.2,
-   "style": "storytelling, calm",
-   "text": "Kamu lewat di taman, seperti biasa.",
-   "cap": "Lewat di *taman*",
+   "style": "calm storyteller",
+   "text": "Kamu sedang berjalan santai melewati sebuah taman.",
+   "cap": "Kamu sedang *berjalan* santai melewati sebuah taman.",
    "kunci": [
-    "taman"
+    "berjalan",
+    "melewati"
    ]
   },
   {
    "id": "m3",
    "gap": 0.2,
    "style": "tense, building",
-   "text": "Tiba-tiba, sekelompok burung hitam berkoak-koak di atas kepalamu.",
-   "cap": "Burung hitam *berkoak-koak*",
+   "text": "Tiba-tiba, beberapa burung gagak mulai berkoak keras di atas kepalamu.",
+   "cap": "*Tiba-tiba*, beberapa burung gagak mulai berkoak keras di atas kepalamu.",
    "kunci": [
-    "burung hitam"
+    "tiba-tiba",
+    "beberapa"
    ]
   },
   {
    "id": "m4",
    "gap": 0.2,
    "style": "tense",
-   "text": "Mereka terbang rendah, seperti mengusirmu.",
-   "cap": "Terbang rendah, *mengusir*",
+   "text": "Mereka terbang mendekat, bahkan ada yang menukik seolah sedang mengusirmu.",
+   "cap": "Mereka terbang mendekat, bahkan ada yang menukik seolah sedang *mengusirmu*.",
    "kunci": [
-    "terbang rendah"
+    "mengusirmu",
+    "mendekat"
    ]
   },
   {
    "id": "m5",
    "gap": 0.2,
    "style": "puzzled",
-   "text": "Orang lain lewat dengan tenang. Cuma kamu yang diteriaki.",
-   "cap": "Cuma *kamu* yang diteriaki",
+   "text": "Anehnya, orang lain yang lewat tidak diganggu sama sekali.",
+   "cap": "Anehnya, orang lain yang lewat tidak *diganggu* sama sekali.",
    "kunci": [
-    "orang lain",
-    "diteriaki"
-   ]
-  },
-  {
-   "id": "m5b",
-   "gap": 0.2,
-   "style": "puzzled, tense",
-   "text": "Besoknya, kejadian lagi. Burung yang sama, di tempat yang sama.",
-   "cap": "Besoknya *kejadian lagi*",
-   "kunci": [
-    "besoknya"
+    "diganggu",
+    "anehnya"
    ]
   },
   {
    "id": "m6",
    "gap": 0.2,
-   "style": "confused, comedic",
-   "text": "Kamu bingung. Memangnya salahmu apa?",
-   "cap": "Salahku *apa?*",
+   "style": "puzzled, tense",
+   "text": "Besoknya, kejadian yang sama terulang.",
+   "cap": "*Besoknya*, kejadian yang sama terulang.",
    "kunci": [
-    "bingung",
-    "salahmu"
+    "besoknya",
+    "terulang"
    ]
   },
   {
    "id": "m7",
    "gap": 0.2,
-   "style": "mysterious, slower",
-   "text": "Mungkin, beberapa tahun lalu, kamu pernah mengganggu salah satu dari mereka.",
-   "cap": "Mungkin kamu *pernah mengganggu*",
+   "style": "confused, comedic",
+   "text": "Kamu mulai bertanya-tanya, sebenarnya apa salahmu?",
+   "cap": "Kamu mulai *bertanya-tanya*, sebenarnya apa salahmu?",
    "kunci": [
-    "tahun lalu",
-    "mengganggu"
+    "bertanya-tanya",
+    "sebenarnya"
    ]
   },
   {
    "id": "m8",
    "gap": 0.9,
-   "style": "ominous, whispering",
-   "text": "Dan mereka belum lupa.",
-   "cap": "...dan mereka *belum lupa*",
+   "style": "mysterious, slower",
+   "text": "Bisa jadi, burung-burung itu mengenali wajahmu dari kejadian yang sudah lama berlalu.",
+   "cap": "Bisa jadi, *burung-burung* itu mengenali wajahmu dari kejadian yang sudah lama berlalu.",
    "kunci": [
-    "belum lupa"
+    "burung-burung",
+    "mengenali"
    ]
   },
   {
    "id": "d1",
-   "gap": 0.2,
+   "gap": 0.1,
    "style": "thoughtful",
-   "text": "Kita sering meremehkan burung.",
-   "cap": "Kita *meremehkan* burung",
+   "text": "Selama ini, kita sering menganggap burung hanya mengandalkan insting,",
+   "cap": "Selama ini, kita sering menganggap burung hanya *mengandalkan* insting,",
    "kunci": [
-    "meremehkan"
+    "mengandalkan",
+    "menganggap"
    ]
   },
   {
    "id": "d2",
    "gap": 0.2,
-   "style": "light, comedic",
-   "text": "Bahkan ada sebutan otak burung, buat orang yang pelupa.",
-   "cap": "\"Otak *burung*\" = pelupa",
+   "style": "thoughtful",
+   "text": "dan tidak punya kemampuan mengingat yang rumit.",
+   "cap": "dan tidak punya kemampuan *mengingat* yang rumit.",
    "kunci": [
-    "otak burung",
-    "pelupa"
+    "mengingat",
+    "kemampuan"
    ]
   },
   {
    "id": "d3",
    "gap": 0.2,
-   "style": "thoughtful",
-   "text": "Kita kira, bagi burung, semua manusia kelihatan sama.",
-   "cap": "Dikira: manusia *kelihatan sama*",
+   "style": "light, comedic",
+   "text": "Bahkan, ada istilah otak burung, untuk menggambarkan seseorang yang dianggap bodoh atau pelupa.",
+   "cap": "Bahkan, ada istilah otak burung, untuk *menggambarkan* seseorang yang dianggap bodoh atau pelupa.",
    "kunci": [
-    "manusia",
-    "sama"
+    "menggambarkan",
+    "seseorang"
    ]
   },
   {
    "id": "d4",
    "gap": 0.9,
-   "style": "firm, reveal",
-   "text": "Ternyata, gagak tidak begitu.",
-   "cap": "Gagak *tidak begitu*",
-   "kunci": [
-    "gagak"
-   ]
-  },
-  {
-   "id": "d4b",
-   "gap": 0.9,
    "style": "firm, intriguing",
-   "text": "Gagak justru jago banget mengingat wajah manusia.",
-   "cap": "Gagak *jago mengingat wajah*",
+   "text": "Tapi gagak justru bisa membuat kita berpikir ulang.",
+   "cap": "Tapi gagak justru bisa membuat kita *berpikir* ulang.",
    "kunci": [
-    "mengingat wajah"
+    "berpikir",
+    "membuat"
    ]
   },
   {
    "id": "p1",
    "gap": 0.2,
    "style": "documentary storytelling",
-   "text": "Di Universitas Washington, Amerika, peneliti melakukan percobaan unik.",
-   "cap": "Percobaan di *Univ. Washington*",
+   "text": "Di Universitas Washington, Amerika Serikat, para peneliti melakukan eksperimen yang cukup unik.",
+   "cap": "Di *Universitas* Washington, Amerika Serikat, para peneliti melakukan eksperimen yang cukup unik.",
    "kunci": [
-    "washington",
-    "percobaan"
+    "universitas",
+    "eksperimen"
    ]
   },
   {
    "id": "p2",
-   "gap": 0.2,
-   "style": "storytelling, ominous",
-   "text": "Mereka memakai topeng manusia purba yang seram, lalu menangkap beberapa gagak.",
-   "cap": "Topeng *seram*, menangkap gagak",
+   "gap": 0.1,
+   "style": "documentary storytelling",
+   "text": "Mereka menggunakan topeng wajah manusia purba untuk menyamarkan identitas,",
+   "cap": "Mereka *menggunakan* topeng wajah manusia purba untuk menyamarkan identitas,",
    "kunci": [
-    "topeng",
-    "menangkap"
+    "menggunakan",
+    "menyamarkan"
    ]
   },
   {
    "id": "p3",
    "gap": 0.2,
-   "style": "storytelling",
-   "text": "Gagaknya diberi cincin penanda di kaki, lalu dilepas lagi.",
-   "cap": "Diberi *cincin penanda*, dilepas",
+   "style": "documentary storytelling",
+   "text": "saat menangkap dan memberi tanda pada beberapa gagak liar.",
+   "cap": "saat *menangkap* dan memberi tanda pada beberapa gagak liar.",
    "kunci": [
-    "cincin",
-    "dilepas"
+    "menangkap",
+    "beberapa"
    ]
   },
   {
    "id": "p4",
    "gap": 0.2,
-   "style": "storytelling",
-   "text": "Peneliti lain memakai topeng biasa, dan tidak mengganggu gagak sama sekali.",
-   "cap": "Topeng *biasa*: tidak mengganggu",
+   "style": "documentary storytelling",
+   "text": "Setelah burung-burung itu dilepaskan, para peneliti kembali ke lokasi dengan menggunakan dua jenis topeng.",
+   "cap": "Setelah *burung-burung* itu dilepaskan, para peneliti kembali ke lokasi dengan menggunakan dua jenis topeng.",
    "kunci": [
-    "topeng biasa"
+    "burung-burung",
+    "menggunakan"
    ]
   },
   {
    "id": "p5",
    "gap": 0.2,
-   "style": "dramatic",
-   "text": "Setelah itu, setiap topeng seram muncul, gagak langsung berkoak dan menyerbu.",
-   "cap": "Topeng seram muncul: *diserbu!*",
+   "style": "clear explainer, curious",
+   "text": "Topeng pertama adalah wajah yang digunakan saat menangkap gagak.",
+   "cap": "Topeng pertama adalah wajah yang *digunakan* saat menangkap gagak.",
    "kunci": [
-    "menyerbu"
+    "digunakan",
+    "menangkap"
    ]
   },
   {
    "id": "p6",
-   "gap": 0.2,
-   "style": "comedic",
-   "text": "Topeng biasa? Dicuekin.",
-   "cap": "Topeng biasa? *Dicuekin*",
+   "gap": 0.3,
+   "style": "clear explainer, curious",
+   "text": "Topeng kedua adalah wajah yang belum pernah dikaitkan dengan pengalaman buruk.",
+   "cap": "Topeng kedua adalah wajah yang belum pernah dikaitkan dengan *pengalaman* buruk.",
    "kunci": [
-    "dicuekin"
+    "pengalaman",
+    "dikaitkan"
    ]
   },
   {
    "id": "p7",
-   "gap": 0.9,
-   "style": "amazed",
-   "text": "Bahkan saat topeng seram dipakai terbalik, atau ditutup topi, gagak tetap mengenalinya.",
-   "cap": "Terbalik, pakai topi: *tetap dikenali*",
+   "gap": 0.3,
+   "style": "intriguing",
+   "text": "Hasilnya menarik.",
+   "cap": "*Hasilnya* menarik.",
    "kunci": [
-    "terbalik",
-    "mengenalinya"
+    "hasilnya",
+    "menarik"
    ]
   },
   {
-   "id": "p7b",
-   "gap": 0.9,
-   "style": "clear, amazed",
-   "text": "Mereka tidak mengenali bajunya. Mereka mengenali wajahnya.",
-   "cap": "Bukan bajunya: *wajahnya*",
+   "id": "p8",
+   "gap": 0.1,
+   "style": "dramatic",
+   "text": "Ketika seseorang memakai topeng yang dikenal sebagai wajah berbahaya,",
+   "cap": "Ketika *seseorang* memakai topeng yang dikenal sebagai wajah berbahaya,",
    "kunci": [
-    "wajahnya"
+    "seseorang",
+    "berbahaya"
+   ]
+  },
+  {
+   "id": "p9",
+   "gap": 0.2,
+   "style": "dramatic, intense",
+   "text": "gagak mulai berkoak keras dan menunjukkan perilaku agresif.",
+   "cap": "gagak mulai berkoak keras dan *menunjukkan* perilaku agresif.",
+   "kunci": [
+    "menunjukkan",
+    "perilaku"
+   ]
+  },
+  {
+   "id": "p10",
+   "gap": 0.4,
+   "style": "calm, contrasting",
+   "text": "Sementara itu, ketika topeng yang tidak dikenal muncul, reaksi mereka jauh lebih tenang.",
+   "cap": "*Sementara* itu, ketika topeng yang tidak dikenal muncul, reaksi mereka jauh lebih tenang.",
+   "kunci": [
+    "sementara",
+    "dikenal"
+   ]
+  },
+  {
+   "id": "p11",
+   "gap": 0.3,
+   "style": "suspenseful, leaning in",
+   "text": "Tapi tunggu dulu...",
+   "cap": "Tapi *tunggu* dulu...",
+   "kunci": [
+    "tunggu"
+   ]
+  },
+  {
+   "id": "p12",
+   "gap": 0.2,
+   "style": "suspenseful",
+   "text": "Penelitian ini tidak berhenti di situ.",
+   "cap": "*Penelitian* ini tidak berhenti di situ.",
+   "kunci": [
+    "penelitian",
+    "berhenti"
+   ]
+  },
+  {
+   "id": "p13",
+   "gap": 0.2,
+   "style": "documentary, ominous",
+   "text": "Beberapa tahun kemudian, para peneliti masih menemukan gagak yang bereaksi terhadap topeng tersebut.",
+   "cap": "Beberapa tahun kemudian, para peneliti masih *menemukan* gagak yang bereaksi terhadap topeng tersebut.",
+   "kunci": [
+    "menemukan",
+    "beberapa"
+   ]
+  },
+  {
+   "id": "p14",
+   "gap": 0.3,
+   "style": "amazed, emphatic",
+   "text": "Bahkan, jumlah gagak yang ikut menunjukkan perilaku mengancam semakin bertambah!",
+   "cap": "Bahkan, jumlah gagak yang ikut *menunjukkan* perilaku mengancam semakin bertambah!",
+   "kunci": [
+    "menunjukkan",
+    "bertambah"
+   ]
+  },
+  {
+   "id": "p15",
+   "gap": 0.1,
+   "style": "amazed",
+   "text": "Yang lebih menarik, beberapa di antaranya merupakan gagak muda,",
+   "cap": "Yang lebih menarik, beberapa di antaranya *merupakan* gagak muda,",
+   "kunci": [
+    "merupakan",
+    "antaranya"
+   ]
+  },
+  {
+   "id": "p16",
+   "gap": 0.3,
+   "style": "amazed",
+   "text": "yang kemungkinan belum pernah mengalami penangkapan awal.",
+   "cap": "yang kemungkinan belum pernah mengalami *penangkapan* awal.",
+   "kunci": [
+    "penangkapan",
+    "kemungkinan"
+   ]
+  },
+  {
+   "id": "p17",
+   "gap": 0.3,
+   "style": "clear explainer, curious",
+   "text": "Artinya, informasi tentang manusia yang dianggap berbahaya bisa menyebar di antara kelompok gagak.",
+   "cap": "Artinya, *informasi* tentang manusia yang dianggap berbahaya bisa menyebar di antara kelompok gagak.",
+   "kunci": [
+    "informasi",
+    "berbahaya"
+   ]
+  },
+  {
+   "id": "p18",
+   "gap": 0.3,
+   "style": "clear explainer, curious",
+   "text": "Para peneliti menduga, gagak dapat belajar mengenali ancaman dari gagak lain, termasuk melalui perilaku sosial.",
+   "cap": "Para peneliti menduga, gagak dapat belajar *mengenali* ancaman dari gagak lain, termasuk melalui perilaku sosial.",
+   "kunci": [
+    "mengenali",
+    "termasuk"
+   ]
+  },
+  {
+   "id": "p19",
+   "gap": 0.1,
+   "style": "awed, slower",
+   "text": "Bayangkan, seekor gagak bisa mempelajari bahwa wajah tertentu berbahaya,",
+   "cap": "Bayangkan, seekor gagak bisa *mempelajari* bahwa wajah tertentu berbahaya,",
+   "kunci": [
+    "mempelajari",
+    "bayangkan"
+   ]
+  },
+  {
+   "id": "p20",
+   "gap": 0.9,
+   "style": "awed, slower",
+   "text": "hanya dengan melihat bagaimana teman-temannya bereaksi.",
+   "cap": "hanya dengan melihat bagaimana *teman-temannya* bereaksi.",
+   "kunci": [
+    "teman-temannya",
+    "bagaimana"
    ]
   },
   {
    "id": "a1",
    "gap": 0.9,
    "style": "warm, proud, slower, clear emphasis on the channel name",
-   "text": "Waktu kami di Adriy.Project baca kelanjutannya...",
-   "cap": "Waktu kami di *Adriy.Project* baca kelanjutannya...",
+   "text": "Waktu kami di Adriy.Project mempelajari penelitian ini,",
+   "cap": "Waktu kami di *Adriy.Project* mempelajari penelitian ini,",
    "kunci": [
     "titik"
    ]
   },
   {
    "id": "a1b",
-   "gap": 0.4,
-   "style": "awed, shivering",
-   "text": "kami merinding.",
-   "cap": "...kami *merinding*",
+   "gap": 0.3,
+   "style": "warm, intrigued",
+   "text": "ada satu hal yang langsung menarik perhatian.",
+   "cap": "ada satu hal yang langsung menarik *perhatian*.",
    "kunci": [
-    "merinding"
+    "perhatian",
+    "langsung"
    ]
   },
   {
-   "id": "p8",
+   "id": "p21",
    "gap": 0.2,
-   "style": "documentary, ominous",
-   "text": "Bertahun-tahun kemudian, gagak masih memusuhi topeng itu.",
-   "cap": "*Bertahun-tahun* masih memusuhi",
+   "style": "warm, amazed",
+   "text": "Ternyata, kemampuan mengingat wajah bukan hanya milik manusia.",
+   "cap": "Ternyata, kemampuan *mengingat* wajah bukan hanya milik manusia.",
    "kunci": [
-    "bertahun",
-    "memusuhi"
+    "mengingat",
+    "kemampuan"
    ]
   },
   {
-   "id": "p9",
-   "gap": 0.2,
-   "style": "documentary, building",
-   "text": "Dan gagak yang ikut menyerbu, malah makin banyak.",
-   "cap": "Yang menyerbu *makin banyak*",
-   "kunci": [
-    "makin banyak"
-   ]
-  },
-  {
-   "id": "p10",
-   "gap": 0.2,
-   "style": "amazed",
-   "text": "Termasuk gagak muda, yang belum pernah melihat kejadian penangkapannya.",
-   "cap": "Termasuk *gagak muda*",
-   "kunci": [
-    "gagak muda"
-   ]
-  },
-  {
-   "id": "p11",
-   "gap": 0.2,
-   "style": "clear explainer, awed",
-   "text": "Artinya, gagak mengajari teman dan anaknya: awas, wajah ini berbahaya.",
-   "cap": "Gagak *mengajari* teman & anaknya",
-   "kunci": [
-    "mengajari",
-    "berbahaya"
-   ]
-  },
-  {
-   "id": "p12",
+   "id": "p22",
    "gap": 0.9,
-   "style": "thoughtful",
-   "text": "Peneliti menduga, kemampuan ini membantu gagak bertahan di dunia yang penuh manusia.",
-   "cap": "Membantu *bertahan* di dunia manusia",
+   "style": "clear explainer, curious",
+   "text": "Gagak menggunakan kemampuan tersebut untuk membantu melindungi dirinya dari ancaman di lingkungan sekitar.",
+   "cap": "Gagak *menggunakan* kemampuan tersebut untuk membantu melindungi dirinya dari ancaman di lingkungan sekitar.",
    "kunci": [
-    "menduga",
-    "bertahan"
-   ]
-  },
-  {
-   "id": "p12b",
-   "gap": 0.9,
-   "style": "awed, slower",
-   "text": "Bayangkan: rasa waspada yang diwariskan, dari orang tua ke anak, dan dari teman ke teman.",
-   "cap": "Diwariskan: *orang tua ke anak*",
-   "kunci": [
-    "diwariskan",
-    "anak"
+    "menggunakan",
+    "melindungi"
    ]
   },
   {
    "id": "s1",
-   "gap": 0.25,
+   "gap": 0.3,
    "style": "curious, upbeat",
-   "text": "Terus, apa artinya buat kita?",
-   "cap": "Apa artinya *buat kita?*",
+   "text": "Lalu, apa pelajaran yang bisa kita ambil?",
+   "cap": "Lalu, apa *pelajaran* yang bisa kita ambil?",
    "kunci": [
-    "artinya"
+    "pelajaran"
    ]
   },
   {
    "id": "s2",
    "gap": 0.2,
    "style": "clear, confident",
-   "text": "Pertama, jangan ganggu burung liar. Mereka mungkin ingat.",
-   "cap": "1. Jangan *ganggu burung liar*",
+   "text": "Pertama, jangan sembarangan mengganggu atau menyakiti burung liar.",
+   "cap": "Pertama, jangan *sembarangan* mengganggu atau menyakiti burung liar.",
    "kunci": [
-    "pertama",
-    "ganggu"
+    "sembarangan",
+    "mengganggu"
    ]
   },
   {
    "id": "s3",
-   "gap": 0.2,
-   "style": "clear, warm",
-   "text": "Kedua, hewan di sekitar kita jauh lebih pintar dari dugaan.",
-   "cap": "2. Hewan *lebih pintar* dari dugaan",
+   "gap": 0.3,
+   "style": "clear, caring",
+   "text": "Selain bisa membahayakan hewan, kamu juga bisa memicu perilaku defensif dari mereka.",
+   "cap": "Selain bisa *membahayakan* hewan, kamu juga bisa memicu perilaku defensif dari mereka.",
    "kunci": [
-    "kedua",
-    "pintar"
+    "membahayakan",
+    "defensif"
    ]
   },
   {
    "id": "s4",
    "gap": 0.2,
-   "style": "clear explainer",
-   "text": "Gagak bahkan bisa membedakan wajah di tengah keramaian.",
-   "cap": "Bedakan wajah *di keramaian*",
+   "style": "clear, confident",
+   "text": "Kedua, jangan meremehkan kecerdasan hewan.",
+   "cap": "Kedua, jangan meremehkan *kecerdasan* hewan.",
    "kunci": [
-    "keramaian"
-   ]
-  },
-  {
-   "id": "s4b",
-   "gap": 0.2,
-   "style": "clear explainer",
-   "text": "Mereka bisa tahu, wajah mana yang pernah jahat, dan mana yang tidak.",
-   "cap": "Tahu wajah *jahat* & *tidak*",
-   "kunci": [
-    "jahat"
+    "kecerdasan",
+    "meremehkan"
    ]
   },
   {
    "id": "s5",
-   "gap": 0.2,
-   "style": "playful",
-   "text": "Ketiga, sebutan otak burung, sebaiknya kita pensiunkan.",
-   "cap": "3. Pensiunkan *\"otak burung\"*",
+   "gap": 0.1,
+   "style": "clear explainer, curious",
+   "text": "Banyak spesies memiliki kemampuan mengingat, belajar, dan mengenali lingkungan,",
+   "cap": "Banyak spesies memiliki kemampuan mengingat, belajar, dan mengenali *lingkungan*,",
    "kunci": [
-    "ketiga",
-    "pensiunkan"
+    "lingkungan",
+    "mengingat"
    ]
   },
   {
    "id": "s6",
+   "gap": 0.3,
+   "style": "clear explainer, curious",
+   "text": "dengan cara yang jauh lebih kompleks daripada dugaan kita.",
+   "cap": "dengan cara yang jauh lebih *kompleks* daripada dugaan kita.",
+   "kunci": [
+    "kompleks",
+    "daripada"
+   ]
+  },
+  {
+   "id": "s7",
+   "gap": 0.2,
+   "style": "playful, clear",
+   "text": "Dan ketiga, mungkin istilah otak burung memang perlu dipikirkan ulang.",
+   "cap": "Dan ketiga, mungkin istilah otak burung memang perlu *dipikirkan* ulang.",
+   "kunci": [
+    "dipikirkan",
+    "mungkin"
+   ]
+  },
+  {
+   "id": "s8",
+   "gap": 0.2,
+   "style": "clear",
+   "text": "Gagak bisa mengingat wajah selama bertahun-tahun.",
+   "cap": "Gagak bisa mengingat wajah selama *bertahun-tahun*.",
+   "kunci": [
+    "bertahun-tahun",
+    "mengingat"
+   ]
+  },
+  {
+   "id": "s9",
    "gap": 0.9,
    "style": "playful, teasing",
-   "text": "Gagak bisa ingat wajah bertahun-tahun. Kita? Kadang lupa nama orang, dua detik setelah kenalan.",
-   "cap": "Kita? Lupa nama *2 detik* setelah kenalan",
+   "text": "Sementara kita? Kadang baru berkenalan, dua detik kemudian sudah lupa namanya!",
+   "cap": "Sementara kita? Kadang baru *berkenalan*, dua detik kemudian sudah lupa namanya!",
    "kunci": [
-    "lupa nama"
+    "berkenalan",
+    "sementara"
    ]
   },
   {
    "id": "r1",
-   "gap": 0.5,
-   "style": "warm, reflective, slower",
-   "text": "Jadi, gagak bukan cuma burung hitam yang berisik. Dia pengingat yang sangat teliti.",
-   "cap": "Gagak: *pengingat yang teliti*",
+   "gap": 0.2,
+   "style": "warm, reflective",
+   "text": "Jadi, gagak bukan sekadar burung hitam yang berisik.",
+   "cap": "Jadi, gagak bukan *sekadar* burung hitam yang berisik.",
    "kunci": [
-    "berisik",
-    "teliti"
+    "sekadar",
+    "berisik"
+   ]
+  },
+  {
+   "id": "r2",
+   "gap": 0.6,
+   "style": "warm, admiring",
+   "text": "Mereka adalah hewan cerdas dengan kemampuan sosial dan ingatan yang luar biasa.",
+   "cap": "Mereka adalah hewan cerdas dengan *kemampuan* sosial dan ingatan yang luar biasa.",
+   "kunci": [
+    "kemampuan",
+    "ingatan"
    ]
   },
   {
    "id": "c1",
    "gap": 0.2,
-   "style": "warm, inviting, friendly",
-   "text": "Nah, sekarang giliran kamu.",
-   "cap": "Sekarang *giliran kamu*",
+   "style": "curious, playful",
+   "text": "Nah, sekarang aku penasaran.",
+   "cap": "Nah, sekarang aku *penasaran*.",
    "kunci": [
-    "giliran"
+    "penasaran",
+    "sekarang"
    ]
   },
   {
    "id": "c2",
    "gap": 0.2,
    "style": "playful, curious",
-   "text": "Kalau ada hewan yang ingat wajahmu, kamu mau diingat sebagai teman, atau musuh?",
-   "cap": "Diingat sebagai *teman* atau *musuh?*",
+   "text": "Kalau seekor gagak bisa mengingat wajahmu, kamu ingin dikenang sebagai teman, atau justru sebagai musuh?",
+   "cap": "Kalau seekor gagak bisa *mengingat* wajahmu, kamu ingin dikenang sebagai teman, atau justru sebagai musuh?",
    "kunci": [
-    "teman",
-    "musuh"
+    "mengingat",
+    "dikenang"
    ]
   },
   {
    "id": "c3",
-   "gap": 0.2,
+   "gap": 0.3,
    "style": "cheerful, inviting",
-   "text": "Tulis teman atau musuh di komentar. Aku penasaran jawabanmu.",
-   "cap": "Tulis *\"teman\"* atau *\"musuh\"*!",
+   "text": "Tulis jawabanmu di komentar!",
+   "cap": "Tulis *jawabanmu* di komentar!",
    "kunci": [
+    "jawabanmu",
     "komentar"
    ]
   },
   {
    "id": "c4",
-   "gap": 0.45,
+   "gap": 0.1,
    "style": "friendly, upbeat",
-   "text": "Ikuti, karena masih banyak hewan yang ternyata jauh lebih pintar dari kita kira.",
-   "cap": "*Ikuti*: hewan pintar lainnya",
+   "text": "Dan ikuti terus Adriy.Project,",
+   "cap": "Dan ikuti terus *Adriy.Project*,",
    "kunci": [
-    "ikuti",
-    "hewan"
+    "titik"
+   ]
+  },
+  {
+   "id": "c5",
+   "gap": 0.5,
+   "style": "friendly, upbeat",
+   "text": "karena masih banyak kemampuan hewan yang ternyata jauh lebih menakjubkan daripada yang kita bayangkan.",
+   "cap": "karena masih banyak kemampuan hewan yang ternyata jauh lebih *menakjubkan* daripada yang kita bayangkan.",
+   "kunci": [
+    "menakjubkan",
+    "kemampuan"
    ]
   },
   {
    "id": "z",
-   "gap": 0.0,
+   "gap": 0,
    "style": "warm, confident, gentle smile in the voice, medium tempo",
-   "text": "Explore More, Know More.",
+   "text": "Explore More. Know More.",
    "cap": "",
    "kunci": []
   }

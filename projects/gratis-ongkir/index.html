@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Gratis ongkir</title>
+<style>
+@font-face { font-family: 'Fredoka'; src: url(../_bersama/fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; }
+html,body{margin:0;background:#222}canvas{height:100vh;display:block;margin:auto}
+</style></head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script src="../_bersama/dasar.js"></script>
+<script>
+// "Belanja 200 ribu biar dapet gratis ongkir 10 ribu" — gaya MICROGAME FRENZY: dunia belanja = game. Saldo = bar nyawa (HUD di atas),
+// tulisan GRATIS = power-up yang berkilau tapi menguras nyawa. Warna jenuh, garis hitam tebal, bayangan keras, garis scan CRT tipis.
+const INK = '#16121F', BG1 = '#2A1F4A', BG2 = '#3B2C6B';
+const G = { yel: '#FFD23F', pink: '#FF5DA2', cyan: '#3EE6E0', green: '#6EE06A', red: '#FF4B4B', white: '#FFFFFF', orange: '#FF9F2E', brown: '#7A4A2A', violet: '#9B7BFF' };
+let SCAN = null;
+const GAYA = {
+  ink: INK, hi: G.yel, card: '#FFFFFF',
+  init() { SCAN = document.createElement('canvas'); SCAN.width = 4; SCAN.height = 6; const q = SCAN.getContext('2d'); q.fillStyle = 'rgba(0,0,0,0.12)'; q.fillRect(0, 0, 4, 2); },
+  shape(pts, col, id, o = {}) { const p = pathOf(pts); if (!o.text && o.shadow !== false) { ctx.save(); ctx.translate(8, 8); ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.fill(p); ctx.restore(); } ctx.fillStyle = rgba(col, o.fill ?? 1); ctx.fill(p); if (o.line !== false) { ctx.strokeStyle = INK; ctx.lineWidth = o.lw ?? 6; ctx.lineJoin = 'miter'; ctx.stroke(p); } },
+  line(pts, lw, col = INK, id, a = 1) { ctx.strokeStyle = rgba(col, a); ctx.lineWidth = lw; ctx.lineCap = 'square'; ctx.lineJoin = 'miter'; ctx.stroke(pathOf(pts, false)); },
+  bg(t) { const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, BG1); g.addColorStop(1, BG2); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    ctx.strokeStyle = 'rgba(155,123,255,0.18)'; ctx.lineWidth = 2; const off = (T * 40) % 80; for (let x = -80 + off; x < W; x += 80) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); } for (let y = 0; y < H; y += 80) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); } },
+  trans(k, drawPrev) {   // pixel dissolve: the old scene breaks into blocks that vanish
+    const n = 18, bw = W / n, bh = H / (n * 1.78); ctx.save(); ctx.beginPath(); for (let i = 0; i < n; i++) for (let j = 0; j < n * 1.78; j++) if (hash(i * 97 + j * 13) > k) ctx.rect(i * bw, j * bh, bw + 1, bh + 1); ctx.clip(); drawPrev(); ctx.restore(); },
+  post() { ctx.fillStyle = ctx.createPattern(SCAN, 'repeat'); ctx.fillRect(0, 0, W, H); },
+};
+const age = id => T - t0(id);
+function px(s, x, y, size, col = G.white, ax = 'center') { ctx.font = `700 ${size}px ${FONT}`; ctx.textAlign = ax; ctx.textBaseline = 'middle'; ctx.lineJoin = 'round'; ctx.lineWidth = size * .16; ctx.strokeStyle = INK; ctx.strokeText(s, x, y); ctx.fillStyle = col; ctx.fillText(s, x, y); ctx.textAlign = 'left'; }
+// HUD: the "SALDO" life bar at the top of every game scene (value 0..1)
+function hud(v, o = {}) { const x = 90, y = 220; GAYA.shape(rr(x, y, 900, 70, 6), '#1A1430', 100, { shadow: false, lw: 5 }); const w = 880 * clamp(v), col = v > .5 ? G.green : v > .25 ? G.yel : G.red;
+  if (w > 4) GAYA.shape(rr(x + 10, y + 10, w - 20 > 0 ? w - 20 : 4, 50, 4), col, 101, { shadow: false, lw: 0, line: false }); px('SALDO', x + 20, y + 35, 34, G.white, 'left'); px(o.label || `Rp ${Math.round(v * 500)}rb`, x + 880, y + 35, 34, G.white, 'right'); }
+function coin(x, y, r, t) { const sx = Math.abs(Math.cos(t * 4)) * .8 + .2; ctx.save(); ctx.translate(x, y); ctx.scale(sx, 1); GAYA.shape(ell(0, 0, r, r, 20), G.yel, 110, { lw: 4 }); px('Rp', 0, 2, r * .7, G.orange); ctx.restore(); }
+function powerup(x, y, s, t, label = 'GRATIS') { const k = 1 + .08 * Math.sin(t * 8); ctx.save(); ctx.translate(x, y); ctx.scale(s * k, s * k); ctx.rotate(Math.sin(t * 3) * .08); GAYA.shape(star(0, 0, 120, 60, 5), G.yel, 120, {}); px(label, 0, 6, 46, G.pink); ctx.restore(); for (let i = 0; i < 6; i++) { const a = t * 2 + i; ctx.fillStyle = rgba(G.white, .8); ctx.fillRect(x + Math.cos(a) * 170 * s, y + Math.sin(a) * 170 * s, 10, 10); } }
+function cart(x, y, s, items = 0) { ctx.save(); ctx.translate(x, y); ctx.scale(s, s); GAYA.shape([[-120, -80], [120, -80], [100, 20], [-100, 20]], G.cyan, 130, {}); GAYA.line([[-150, -110], [-120, -80]], 8, INK, 131); for (const d of [-1, 1]) GAYA.shape(ell(d * 70, 50, 22, 22, 14), INK, 132 + d, { shadow: false }); for (let i = 0; i < items; i++) GAYA.shape(rr(-90 + (i % 4) * 46, -120 - Math.floor(i / 4) * 40, 40, 40, 4), [G.pink, G.yel, G.green, G.violet, G.orange][i % 5], 140 + i, { lw: 4 }); ctx.restore(); }
+function phoneUI(x, y, draw) { ctx.save(); ctx.translate(x, y); GAYA.shape(rr(-260, -420, 520, 840, 40), '#111018', 150, {}); ctx.save(); ctx.beginPath(); ctx.rect(-230, -380, 460, 760); ctx.clip(); ctx.fillStyle = '#F4F1FA'; ctx.fillRect(-230, -380, 460, 760); draw(); ctx.restore(); ctx.restore(); }
+function choco(x, y, s, kind, price, o = {}) { ctx.save(); ctx.translate(x, y); ctx.scale(s, s);
+  if (kind === 'H') { GAYA.shape([[-60, 50], [60, 50], [30, -20], [0, -70], [-30, -20]], '#B9BCC4', 160, {}); GAYA.line([[0, -70], [10, -110]], 5, INK, 161); px("Hershey's", 0, 110, 40, G.white); }
+  else { GAYA.shape(ell(0, 0, 70, 70, 24), G.red, 162, {}); GAYA.shape([[-70, 0], [-110, -30], [-110, 30]], G.red, 163, {}); GAYA.shape([[70, 0], [110, -30], [110, 30]], G.red, 164, {}); px('Lindt', 0, 110, 40, G.white); }
+  if (price != null) { GAYA.shape(rr(-80, -170, 160, 70, 10), price === 0 ? G.green : G.white, 165, { lw: 5 }); px(price === 0 ? 'GRATIS' : `${price}¢`, 0, -134, price === 0 ? 34 : 44, price === 0 ? INK : INK); }
+  ctx.restore(); }
+function bars(x, y, h1, h2, labels) { GAYA.line([[x - 220, y], [x + 220, y]], 6, G.white, 170); [[h1, G.red, -110], [h2, '#B9BCC4', 110]].forEach(([h, c2, dx], i) => { if (h > 2) GAYA.shape(rr(x + dx - 70, y - h, 140, h, 4), c2, 171 + i, {}); px(labels[i], x + dx, y + 46, 34, G.white); }); }
+// ---------- scenes ----------
+GROUPS = [['hook', ['h1', 'h2', 'h3', 'h4', 'h5']], ['checkout', ['m1', 'm2', 'm3', 'm4', 'm5', 'm6']], ['belanja', ['m7', 'm8', 'm9', 'm10']], ['laci', ['m11', 'm12', 'm13', 'm14']],
+  ['dugaan', ['d1', 'd2', 'd3', 'd4']], ['riset', ['p1', 'p2']], ['cokelat', ['p3', 'p4', 'p5', 'p6', 'p7']], ['hasil', ['p8', 'p9', 'p10', 'p11', 'p12']], ['tarik', ['p13', 'p14']],
+  ['brand', ['a1', 'a1b']], ['mirip', ['p15', 'p16', 'p17']], ['langkah1', ['s1', 's2', 's3', 's4', 's5']], ['langkah2', ['s6', 's7', 's8']], ['langkah3', ['s9', 's10']],
+  ['rangkum', ['r1', 'r2', 'r3']], ['cta', ['c1', 'c2', 'c3', 'c4', 'c5']], ['akhir', ['z']]];
+// HOOK: a game screen: a glowing GRATIS ONGKIR power-up; grabbing it drains the SALDO bar; one word: GRATIS; research badge
+S.hook = (t) => {
+  const grab = seg(t, t0('h3') - .3, t0('h3') + .3), drain = ease(seg(t, t0('h3'), t1('h4')));
+  hud(lerp(.9, .35, drain));
+  if (t < t0('h3')) { powerup(540, 760, 1.4, t, 'GRATIS'); px('ONGKIR', 540, 1000, 90, G.cyan); for (let i = 0; i < 5; i++) coin(260 + i * 140, 1180, 32, t + i); }
+  clawd(lerp(200, 540, grab), 1330, 24, { face: t < t0('h3') ? 'star' : 'shock', arms: t < t0('h3') ? [1.4, 1.4] : [.3, .3], mark: t > t0('h3') ? '!' : null, markAge: age('h3') });
+  if (t > t0('h3')) { for (let i = 0; i < 8; i++) { const p = seg(t, t0('h3') + i * .1, t0('h3') + 1 + i * .1); if (p > 0 && p < 1) coin(540 + (i - 4) * 50, 260 + p * 900, 26, t); } }
+  if (t > t0('h4')) px('GRATIS', 540, 760, 200 + 10 * Math.sin(t * 20) * Math.exp(-age('h4') * 2), G.pink);
+  if (t > t0('h5')) { GAYA.shape(rr(330, 940, 420, 110, 14), G.white, 180, {}); px('PENELITIAN 🔬'.replace(' 🔬', ''), 540, 995, 56, INK); }
+  if (t < t0('h2')) tag('Belanja *200rb* demi ongkir *10rb*', 540, 420, 64, { age: t + .3 });
+  else if (t < t0('h3')) tag('Rasanya *menang besar*?', 540, 420, 72, { age: age('h2') });
+};
+// CHECKOUT: the phone checkout screen; the banner "add up to 200k for free shipping"; shipping is only 10k; "sayang juga..."
+S.checkout = (t) => {
+  hud(.9);
+  phoneUI(540, 860, () => { px('KERANJANG', 0, -320, 46, INK); GAYA.shape(rr(-200, -260, 400, 140, 14), G.white, 200, { lw: 4 }); GAYA.shape(rr(-180, -240, 100, 100, 10), G.violet, 201, { lw: 4 }); px('barang', 40, -220, 34, INK); px('Rp 120.000', 40, -170, 40, INK);
+    if (t > t0('m3')) { const k = backOut(seg(age('m3'), 0, .3)); ctx.save(); ctx.translate(0, -20); ctx.scale(k, k); GAYA.shape(rr(-210, -70, 420, 140, 14), G.yel, 202, { lw: 5 }); px('+Rp 80rb =', 0, -28, 38, INK); px('GRATIS ONGKIR!', 0, 28, 44, G.pink); ctx.restore(); }
+    if (t > t0('m5')) { px('ongkir: Rp 10.000', 0, 160, 40, INK); }
+    GAYA.shape(rr(-200, 260, 400, 90, 20), G.green, 203, { lw: 5 }); px('BAYAR', 0, 305, 48, INK); });
+  clawd(880, 1340, 16, { face: t > t0('m6') ? 'worried' : 'curious', mark: t > t0('m6') ? '?' : null, markAge: age('m6') });
+  if (t > t0('m6')) { GAYA.shape(rr(120, 1130, 420, 110, 30), G.white, 210, {}); px('sayang juga...', 330, 1185, 44, INK); }
+};
+// BELANJA: a side-scroller run through store shelves grabbing cables, stickers, gadgets; the cart fills; progress to 200k; LEVEL UP
+S.belanja = (t) => {
+  const a = age('m7'), run = t * 300, prog = clamp(seg(t, t0('m7'), t1('m10')));
+  hud(lerp(.9, .5, prog), { label: `Rp ${Math.round(lerp(120, 200, prog))}rb / 200rb` });
+  for (let i = 0; i < 6; i++) { const x = ((i * 320 - run) % 1920 + 1920) % 1920 - 300; GAYA.shape(rr(x, 520, 260, 560, 10), '#5B4A9E', 300 + i, { lw: 5 }); for (let r = 0; r < 3; r++) { GAYA.line([[x, 700 + r * 160], [x + 260, 700 + r * 160]], 6, INK, 310 + r); for (let q = 0; q < 3; q++) GAYA.shape(rr(x + 20 + q * 80, 630 + r * 160, 60, 70, 6), [G.pink, G.yel, G.cyan, G.green, G.orange][(i + r + q) % 5], 320 + q, { lw: 4 }); } }
+  GAYA.line([[0, 1240], [W, 1240]], 8, INK, 330);
+  cart(700, 1180, .9, Math.floor(prog * 8)); clawd(430, 1240, 18, { face: 'star', walk: t * 14, arms: [1.2, 1.2] });
+  const items = [['kabel', 'm8', 0], ['stiker', 'm8', .7], ['aksesori', 'm8', 1.4]]; items.forEach(([s2, id, d]) => { const k = age(id) - d; if (k > 0 && k < 1.2) px(`+ ${s2}`, 700, 940 - k * 100, 50, G.yel); });
+  if (t > t0('m9') && t < t0('m10')) px('nggak direncanakan...', 540, 900, 48, G.pink);
+  if (t > t0('m10')) { px('LEVEL UP!', 540, 760, 110 + 6 * Math.sin(t * 12), G.yel); px('Rp 200rb ✓'.replace(' ✓', ''), 540, 900, 70, G.green); }
+};
+// LACI: the parcel arrives (happy), days later the extras sit unused in a drawer; who actually won? (the shop's coin counter)
+S.laci = (t) => {
+  hud(.45);
+  if (t < t0('m12')) { GAYA.shape(rr(380, 700, 320, 260, 10), G.orange, 400, {}); GAYA.line([[380, 760], [700, 760]], 6, INK, 401); GAYA.shape(rr(500, 700, 80, 260, 4), G.yel, 402, { lw: 4 }); clawd(540, 1330, 26, { face: 'happy', arms: [1.4, 1.4], dy: -.4 * Math.abs(Math.sin(t * 6)) }); px('PAKET DATANG!', 540, 560, 70, G.yel); return; }
+  if (t < t0('m14')) { GAYA.shape(rr(200, 640, 680, 420, 10), '#8A5A3C', 410, {}); GAYA.shape(rr(240, 760, 600, 260, 8), '#5A3A26', 411, {}); for (let i = 0; i < 4; i++) GAYA.shape(rr(280 + i * 140, 860, 110, 90, 6), [G.pink, G.yel, G.cyan, G.violet][i], 412 + i, { lw: 4 }); for (let i = 0; i < 20; i++) { ctx.fillStyle = 'rgba(255,255,255,0.35)'; ctx.fillRect(280 + hash(i) * 520, 800 + hash(i + 5) * 200 + Math.sin(T + i) * 6, 6, 6); }
+    px(t < t0('m13') ? 'nganggur di laci...' : 'BELUM DIPAKAI', 540, 560, 64, t < t0('m13') ? G.white : G.red); clawd(540, 1340, 18, { face: 'sad', mark: 'cloud', markAge: age('m12') }); return; }
+  GAYA.shape(rr(300, 560, 480, 400, 12), G.green, 420, {}); px('TOKO', 540, 620, 60, INK); for (let i = 0; i < 10; i++) coin(380 + (i % 5) * 80, 760 + Math.floor(i / 5) * 90, 28, t + i);
+  clawd(540, 1330, 22, { face: 'worried', mark: '?', markAge: age('m14') }); px('SIAPA YANG UNTUNG?', 540, 1080, 60, G.yel);
+};
+// DUGAAN: labels BOROS? / KURANG HITUNG? crossed out; the real culprit: a brain pulled by a GRATIS magnet
+S.dugaan = (t) => {
+  hud(.45);
+  if (t < t0('d2')) { [['BOROS?', 0], ['KURANG PANDAI ATUR UANG?', .8]].forEach(([s2, d], i) => { if (age('d1') > d) { GAYA.shape(rr(160, 560 + i * 220, 760, 150, 14), G.white, 500 + i, {}); px(s2, 540, 635 + i * 220, s2.length > 10 ? 44 : 70, INK); } }); clawd(540, 1330, 20, { face: 'worried' }); return; }
+  const a = age('d3'); [['BOROS?', 0], ['KURANG PANDAI ATUR UANG?', 1]].forEach(([s2], i) => { GAYA.shape(rr(160, 360 + i * 170, 760, 120, 14), '#CCC6DD', 510 + i, {}); px(s2, 540, 420 + i * 170, s2.length > 10 ? 40 : 60, '#6B6385'); GAYA.line([[180, 420 + i * 170], [900, 420 + i * 170]], 10, G.red, 512 + i); });
+  if (t > t0('d3')) { GAYA.shape(ell(420, 980, 170, 130, 30), G.pink, 520, {}); for (let i = 0; i < 4; i++) GAYA.line([[300 + i * 60, 920], [330 + i * 60, 1040]], 5, INK, 521 + i, .5); px('otak', 420, 1180, 44, G.white);
+    const pull = Math.sin(t * 6) * 10; GAYA.shape([[700, 860], [880, 860], [880, 1100], [820, 1100], [820, 920], [760, 920], [760, 1100], [700, 1100]], G.red, 530, {}); px('GRATIS', 790, 820, 50, G.yel); for (let i = 0; i < 3; i++) GAYA.line([[600 + pull, 920 + i * 60], [680 + pull, 920 + i * 60]], 6, G.cyan, 531 + i); }
+  clawd(170, 1360, 14, { face: 'curious', mark: 'idea', markAge: a });
+};
+// RISET: a research card 2007 (three names) and the term ZERO PRICE EFFECT = efek harga nol
+S.riset = (t) => {
+  GAYA.shape(rr(110, 420, 860, 560, 20), G.white, 600, {}); px('2007', 540, 500, 90, G.pink); ['Kristina Shampanier', 'Nina Mazar', 'Dan Ariely'].forEach((n, i) => { if (age('p1') > .6 + i * .6) px(n, 540, 610 + i * 80, 50, INK); });
+  if (t > t0('p2')) { GAYA.shape(rr(130, 1040, 820, 200, 20), G.yel, 601, {}); px('ZERO PRICE EFFECT', 540, 1110, 64, INK); px('= efek harga nol', 540, 1190, 46, INK); }
+  clawd(900, 1380, 12, { face: 'curious' });
+};
+// COKELAT: two chocolates and their prices: 1¢ vs 15¢, then free vs 14¢; the gap stays 14¢
+S.cokelat = (t) => {
+  const drop = t > t0('p6') + 1.2;
+  choco(320, 860, 1.6, 'H', t > t0('p5') ? (drop ? 0 : 1) : null); choco(760, 860, 1.6, 'L', t > t0('p5') ? (drop ? 14 : 15) : null);
+  if (t < t0('p5')) { px('murah', 320, 1150, 48, G.cyan); px('mahal', 760, 1150, 48, G.yel); }
+  if (t > t0('p6') && t < t0('p6') + 1.2) px('−1¢   −1¢', 540, 560, 70, G.red);
+  if (t > t0('p7')) { GAYA.shape(rr(240, 1140, 600, 120, 16), G.white, 700, {}); px('selisih tetap 14¢', 540, 1200, 52, INK); }
+  if (t < t0('p4')) px('dua cokelat', 540, 520, 70, G.white);
+};
+// HASIL: bar chart of choices: before (Lindt wins) → after (free wins); no exact numbers, just "more"
+S.hasil = (t) => {
+  const after = t > t0('p10'), k = ease(seg(t, after ? t0('p10') : t0('p9'), (after ? t0('p10') : t0('p9')) + 1));
+  px(after ? 'SAAT HERSHEY\'S GRATIS' : 'SAAT HERSHEY\'S 1¢', 540, 480, 52, G.yel);
+  bars(540, 1080, after ? 260 * k : 380 * k, after ? 420 * k : 160 * k, ['Lindt', "Hershey's"]);
+  if (after && t > t0('p11')) px('lebih banyak pilih GRATIS', 540, 1240, 46, G.green);
+  if (t > t0('p12')) { GAYA.shape(rr(300, 560, 480, 110, 16), G.red, 710, {}); px('cuma turun 1¢!', 540, 615, 56, G.white); }
+  if (t < t0('p9')) px('HASILNYA...', 540, 780, 110 + 6 * Math.sin(t * 10), G.pink);
+};
+// TARIK: the emotional pull of "free" beats an ordinary discount: a magnet pulls hearts, a small "−5%" tag is ignored
+S.tarik = (t) => {
+  const pull = Math.sin(t * 5) * 12; GAYA.shape([[380, 620], [700, 620], [700, 980], [610, 980], [610, 720], [470, 720], [470, 980], [380, 980]], G.red, 800, {}); px('GRATIS', 540, 570, 70, G.yel);
+  for (let i = 0; i < 5; i++) { const p = (t * .6 + i / 5) % 1; mark('heart', lerp(160 + i * 180, 540, p), lerp(1250, 1040, p), 12, 1); }
+  if (t > t0('p14')) { GAYA.shape(rr(760, 1120, 220, 100, 14), '#CCC6DD', 801, {}); px('−5%', 870, 1170, 50, '#6B6385'); px('zzz', 870, 1080, 34, '#6B6385'); }
+};
+// BRAND: Adriy.Project stamp, then a shopping-app icon pops (belanja daring)
+S.brand = (t) => {
+  const st = t1('a1') - .15, bAge = t - st; clawd(540, 1300, 30, { face: t < st ? 'curious' : t < t0('a1b') ? 'happy' : 'laugh', arms: bAge > 0 && t < t0('a1b') + .3 ? [.6, 1.45] : [1.2, 1.2] });
+  if (bAge > -.1) brandStamp(540, 560, bAge, TL.duration);
+  if (t > t0('a1b')) { const k = backOut(seg(age('a1b'), .2, .5)); ctx.save(); ctx.translate(820, 920); ctx.scale(k, k); GAYA.shape(rr(-90, -90, 180, 180, 40), G.orange, 810, {}); cart(0, 10, .45, 3); ctx.restore(); }
+};
+// MIRIP: shipping fee vanishes (−10rb) while the cart total climbs (+80rb)
+S.mirip = (t) => {
+  hud(lerp(.6, .4, seg(t, t0('p16'), t1('p17'))));
+  GAYA.shape(rr(120, 520, 380, 220, 16), G.white, 820, {}); px('ongkir', 310, 590, 46, INK); const gone = seg(t, t0('p16'), t0('p16') + .6); ctx.save(); ctx.globalAlpha = 1 - gone; px('Rp 10rb', 310, 670, 60, INK); ctx.restore(); if (gone > .5) px('−10rb', 310, 670, 60, G.green);
+  GAYA.shape(rr(580, 520, 380, 220, 16), G.white, 821, {}); px('belanjaan', 770, 590, 46, INK); px(t > t0('p17') ? '+Rp 80rb' : 'Rp 120rb', 770, 670, 60, t > t0('p17') ? G.red : INK);
+  cart(540, 1050, 1, t > t0('p17') ? 8 : 3); clawd(170, 1360, 14, { face: t > t0('p17') ? 'shock' : 'curious' });
+  if (t > t0('p17')) px('fokus ke yang hilang, lupa yang keluar', 540, 1250, 40, G.yel);
+};
+// LANGKAH 1: count the difference: 80k − 10k = 70k extra
+S.langkah1 = (t) => {
+  if (t < t0('s2')) { clawd(540, 1250, 32, { face: 'curious', mark: '?', markAge: age('s1') }); px('BAGAIMANA?', 540, 700, 110, G.yel); return; }
+  GAYA.shape(rr(240, 440, 600, 860, 40), '#2B2B38', 900, {}); GAYA.shape(rr(280, 480, 520, 200, 14), '#B9F5C8', 901, { lw: 4 });
+  const v = t > t0('s5') ? '70.000' : t > t0('s3') ? '80.000 − 10.000' : '0'; px(v, 540, 580, v.length > 8 ? 52 : 80, INK);
+  for (let r = 0; r < 4; r++) for (let q = 0; q < 3; q++) GAYA.shape(rr(300 + q * 165, 720 + r * 140, 140, 110, 16), q === 2 ? G.orange : '#4A4A5E', 902 + r * 3 + q, { lw: 4 });
+  px('1. HITUNG SELISIH', 540, 380, 56, G.yel); if (t > t0('s5')) px('nombok Rp 70rb!', 540, 1370, 56, G.red);
+};
+// LANGKAH 2: the honest question; the item gets deleted from the cart
+S.langkah2 = (t) => {
+  px('2. TANYA DIRI SENDIRI', 540, 380, 56, G.yel);
+  if (t > t0('s7')) { GAYA.shape(rr(110, 470, 860, 300, 40), G.white, 950, {}); px('Tetap kubeli kalau', 540, 560, 50, INK); px('nggak ada gratis ongkir?', 540, 650, 50, INK); }
+  const del = seg(t, t0('s8') + .4, t0('s8') + 1.2); cart(540, 1080, 1.1, 6 - Math.round(del * 3)); if (del > 0 && del < 1) px('HAPUS!', 760, 900, 70, G.red);
+  clawd(190, 1360, 16, { face: t > t0('s8') ? 'happy' : 'curious', mark: t > t0('s7') && t < t0('s8') ? '?' : null, markAge: age('s7') });
+};
+// LANGKAH 3: only when items were already planned; or merge orders with a friend
+S.langkah3 = (t) => {
+  px('3. PROMO HANYA KALAU PERLU', 540, 380, 50, G.yel);
+  if (t < t0('s10')) { GAYA.shape(rr(240, 480, 600, 640, 20), G.white, 960, {}); px('rencana belanja', 540, 560, 46, INK); ['sabun', 'pulpen', 'charger'].forEach((s2, i) => { GAYA.shape(rr(300, 640 + i * 140, 60, 60, 10), G.green, 961 + i, { lw: 4 }); px(s2, 400, 670 + i * 140, 48, INK, 'left'); }); clawd(900, 1360, 14, { face: 'happy' }); return; }
+  const m = ease(seg(age('s10'), .5, 2)); cart(lerp(260, 470, m), 1000, .8, 3); cart(lerp(820, 610, m), 1000, .8, 3); clawd(260, 1360, 16, { face: 'happy' }); clawd(820, 1360, 16, { face: 'happy', flip: true, color: '#7FA6C9', dark: '#56789B' });
+  if (m > .95) px('gabung pesanan = hemat', 540, 760, 56, G.green);
+};
+// RANGKUM: GRATIS ≠ UNTUNG; the power-up turns out to be a trap
+S.rangkum = (t) => {
+  hud(.3); px('GRATIS', 540, 640, 120, G.pink); px('≠', 540, 780, 110, G.white); px('UNTUNG', 540, 920, 120, G.green);
+  if (t > t0('r3')) { powerup(840, 1150, .6, t, 'JEBAKAN'); }
+  clawd(170, 1370, 14, { face: t > t0('r2') ? 'happy' : 'curious', mark: t > t0('r2') ? 'idea' : null, markAge: age('r2') });
+};
+// CTA: the cat sticker; comment arrow; save (bookmark)
+S.cta = (t) => {
+  if (t < t0('c4')) { px(t < t0('c2') ? 'GILIRAN KAMU!' : 'BARANG PALING NGGAK BERGUNA?', 540, 420, t < t0('c2') ? 100 : 50, G.yel);
+    if (t > t0('c3')) { const k = backOut(seg(age('c3'), .4, .7)); ctx.save(); ctx.translate(540, 820); ctx.scale(k, k); GAYA.shape(rr(-170, -170, 340, 340, 40), G.white, 1000, {}); GAYA.shape(ell(0, 20, 110, 95, 30), G.orange, 1001, {}); for (const d of [-1, 1]) GAYA.shape([[d * 40, -55], [d * 90, -120], [d * 100, -40]], G.orange, 1002 + d, {}); for (const d of [-1, 1]) { ctx.fillStyle = INK; ctx.beginPath(); ctx.arc(d * 38, 10, 10, 0, TAU); ctx.fill(); } ctx.restore(); px('stiker kucing', 540, 1060, 48, G.white); }
+    clawd(540, 1360, 18, { face: 'happy' }); return; }
+  if (t < t0('c5')) { px('Tulis di komentar!', 540, 760, 80, G.yel); const k = .5 + .5 * Math.sin(t * 6); GAYA.shape([[800 + k * 20, 920], [900 + k * 20, 990], [820 + k * 20, 1030]], G.yel, 1010, {}); clawd(480, 1340, 22, { face: 'happy', arms: [.3, 1.45] }); return; }
+  const k = backOut(seg(age('c5'), 0, .3)); ctx.save(); ctx.translate(540, 800); ctx.scale(k * 2, k * 2); GAYA.shape([[-60, -80], [60, -80], [60, 80], [0, 40], [-60, 80]], G.yel, 1020, {}); ctx.restore(); px('SIMPAN sebelum bayar', 540, 1060, 60, G.white); clawd(540, 1360, 18, { face: 'happy', arms: [1.3, 1.3] });
+};
+S.akhir = (t) => {};
+// ---------- sound ----------
+window.cues = () => {
+  c(0, 'mk:electronics-power-up', .5); c(.3, 'money/money-coin-spin', .4); c(t0('h3'), 'mk:lose-life-falling', .7); c(t0('h3') + .1, 'money/money-coins-pour', .6); c(t0('h4'), 'impacts/impact-heavy-hard', .7); c(t0('h5'), 'tones/tone-step-3', .5);
+  c(t0('m3'), 'mk:retro-game-notification', .6); c(t0('m5'), 'money/money-card-tap', .5); c(t0('m6'), 'pops/pop-medium-in', .4);
+  c(t0('m7'), 'mk:funny-video-game-slide', .5); [0, .7, 1.4].forEach(d => c(t0('m8') + d, 'money/money-coin-drop', .5)); c(t0('m10'), 'mk:electronics-power-up', .6);
+  c(t0('m11'), 'celebration/celebration-popper', .5); c(t0('m12'), 'mk:sad-game-over-trombone', .4); c(t0('m14'), 'money/money-register', .6);
+  c(t0('d1'), 'pops/pop-medium-in', .5); c(t0('d1') + .8, 'pops/pop-medium-in', .5); c(t0('d3'), 'mk:wrong-answer-fail-notification', .4);
+  c(t0('p1') + .6, 'pops/pop-small-in', .5); c(t0('p1') + 1.2, 'pops/pop-small-in', .5); c(t0('p1') + 1.8, 'pops/pop-small-in', .5); c(t0('p2'), 'mk:retro-game-notification', .5);
+  c(t0('p5'), 'money/money-coin-drop', .5); c(t0('p6'), 'data/data-decrease-short', .5); c(t0('p6') + 1.2, 'mk:electronics-power-up', .5); c(t0('p8'), 'sinematik/drum', 0);
+  c(t0('p9'), 'data/data-bar-grow', .5); c(t0('p10'), 'data/data-bar-grow', .6); c(t0('p12'), 'impacts/impact-medium-hard', .5);
+  c(t1('a1') - .15, 'logo-stings/sting-bright-short', 1); c(t0('a1b') + .2, 'pops/pop-large-in', .5);
+  c(t0('p16'), 'money/money-coin-spin', .4); c(t0('p17'), 'mk:lose-life-falling', .5);
+  c(t0('s3'), 'keyboard/keyboard-typing-short', 0); c(t0('s5'), 'mk:wrong-answer-fail-notification', .5); c(t0('s8') + .4, 'mk:hard-pop-click', .6); c(t0('s10') + 2, 'mk:correct-answer-tone', .5);
+  c(t0('r3'), 'mk:arcade-retro-game-over', .4); c(t0('c3') + .4, 'pops/pop-large-in', .5); c(t0('c4'), 'tones/tone-ding-mid', .6); c(t0('c5'), 'pops/pop-large-in', .5);
+  c(t0('z') - .3, 'logo-stings/sting-warm-long', 1);
+  for (const s of SC.slice(1)) if (s.name !== 'akhir') c(s.a, 'digital/digital-power-down', .25);
+  CUES = CUES.filter(x => x[2] > 0);
+};
+const _bs = buildScenes; buildScenes = function () { CAM_PUNCH = [[t0('h3'), .07], [t0('h4'), .08], [t0('m10'), .05], [t0('p6') + 1.2, .06], [t0('p10'), .06], [t0('s5'), .05]]; _bs(); };
+</script>
+</body>
+</html>

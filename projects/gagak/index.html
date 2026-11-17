@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Gagak ingat wajah</title>
+<style>
+@font-face { font-family: 'Fredoka'; src: url(../_bersama/fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; }
+html,body{margin:0;background:#222}canvas{height:100vh;display:block;margin:auto}
+</style></head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script src="../_bersama/dasar.js"></script>
+<script>
+// "Burung gagak bisa ingat wajahmu, dan dendamnya diwariskan" — gaya CUKIL KAYU (woodcut): tinta hitam pekat di kertas krem,
+// garis cukilan putih di bidang gelap, satu warna aksen merah. Metafora: kisah "dendam" turun-temurun seperti dongeng lama yang ternyata nyata.
+const INK = '#1A1714', PAPER = '#EFE6D2', RED = '#B5322B', WOOD = '#8C6A48';
+let GRAIN = null;
+const GAYA = {
+  ink: INK, hi: '#E8B9A0', card: '#F7F0E0',
+  init() { GRAIN = document.createElement('canvas'); GRAIN.width = GRAIN.height = 256; const q = GRAIN.getContext('2d'); q.strokeStyle = 'rgba(80,60,40,0.07)'; for (let i = 0; i < 260; i++) { q.lineWidth = 1 + hash(i) * 2; q.beginPath(); const y = hash(i * 3) * 256; q.moveTo(0, y); q.bezierCurveTo(80, y + 8 * Math.sin(i), 170, y - 8 * Math.cos(i), 256, y); q.stroke(); } },
+  shape(pts, col, id, o = {}) {   // a carved block: flat ink colour, white gouge strokes on dark areas, ink hatch on light areas, thick edge
+    const p = pathOf(pts), b = bbox(pts); ctx.fillStyle = rgba(col, o.fill ?? 1); ctx.fill(p);
+    const lum = (() => { const v = parseInt(col.slice(1), 16); return ((v >> 16) * .3 + ((v >> 8) & 255) * .59 + (v & 255) * .11) / 255; })();
+    if (!o.text && o.carve !== false && (b[2] - b[0]) > 30) { ctx.save(); ctx.clip(p); ctx.strokeStyle = lum < .35 ? 'rgba(239,230,210,0.55)' : 'rgba(26,23,20,0.28)'; ctx.lineWidth = lum < .35 ? 2.5 : 2; ctx.beginPath();
+      const gap = lum < .35 ? 14 : 18; for (let y = b[1] + (hash(id) * gap); y < b[3]; y += gap) { const x0 = b[0] + (b[2] - b[0]) * (.1 + .3 * hash(id + y)), x1 = b[2] - (b[2] - b[0]) * (.1 + .3 * hash(id * 3 + y)); ctx.moveTo(x0, y); ctx.quadraticCurveTo((x0 + x1) / 2, y + 4 * Math.sin(y + id), x1, y + 2); } ctx.stroke(); ctx.restore(); }
+    if (o.line !== false) { ctx.strokeStyle = INK; ctx.lineWidth = o.lw ?? 5; ctx.lineJoin = 'round'; ctx.stroke(p); } },
+  line(pts, lw, col = INK, id, a = 1) { ctx.strokeStyle = rgba(col, a); ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke(pathOf(pts, false)); },
+  bg() { ctx.fillStyle = PAPER; ctx.fillRect(0, 0, W, H); },
+  trans(k, drawPrev) {   // an ink roller sweeps down: the old print is rolled away
+    const y = easeIn(k) * (H + 200); ctx.save(); ctx.beginPath(); ctx.rect(0, y, W, H); ctx.clip(); drawPrev(); ctx.restore(); ctx.fillStyle = INK; ctx.fillRect(0, y - 30, W, 30); },
+  post() { ctx.fillStyle = ctx.createPattern(GRAIN, 'repeat'); ctx.fillRect(0, 0, W, H); ctx.strokeStyle = INK; ctx.lineWidth = 14; ctx.strokeRect(30, 30, W - 60, H - 60); },
+};
+const age = id => T - t0(id);
+function title(s, x, y, size, col = INK) { ctx.font = `700 ${size}px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = col; ctx.fillText(s, x, y); ctx.textAlign = 'left'; }
+// a crow, side view facing left (flip for right). o.caw: beak open; o.fly: wings spread & flapping; o.young: smaller, fluffier
+function crow(x, y, s, o = {}) {
+  ctx.save(); ctx.translate(x, y); ctx.scale(s * (o.flip ? -1 : 1), s); ctx.rotate(o.rot || 0);
+  const f = o.fly ? Math.sin(T * 14 + (o.ph || 0)) : 0;
+  if (o.fly) { GAYA.shape([[10, -20], [70 - 10, -120 - 60 * f], [140, -60 - 30 * f], [60, -10]], INK, 1001, {}); }
+  GAYA.shape([[-60, -10], [-30, -50], [40, -45], [110, -10], [170, 20], [120, 30], [40, 40], [-30, 30]], INK, 1002, {});   // body + tail
+  GAYA.shape(ell(-70, -40, 42, 38, 20), INK, 1003, {});   // head
+  const open = o.caw ? .5 + .5 * Math.abs(Math.sin(T * 10)) : 0;
+  GAYA.shape([[-105, -50], [-160, -38 - 6 * open], [-105, -34]], '#3A3530', 1004, { lw: 4 }); if (open > 0) GAYA.shape([[-105, -32], [-150, -18 + 10 * open], [-105, -26]], '#3A3530', 1005, { lw: 4 });
+  ctx.fillStyle = PAPER; ctx.beginPath(); ctx.arc(-82, -48, 9, 0, TAU); ctx.fill(); ctx.fillStyle = o.angry ? RED : INK; ctx.beginPath(); ctx.arc(-84, -48, 5, 0, TAU); ctx.fill();
+  if (o.angry) GAYA.line([[-100, -66], [-66, -58]], 6, INK, 1006);
+  if (!o.fly) { GAYA.shape([[-10, -20], [60, -30], [120, 0], [40, 20]], '#2A2622', 1007, {}); GAYA.line([[0, 38], [-6, 80]], 5, INK, 1008); GAYA.line([[30, 38], [26, 80]], 5, INK, 1009); }
+  if (o.band) GAYA.shape(rr(-12, 58, 16, 12, 3), RED, 1010, { lw: 2, carve: false });
+  if (o.caw) for (let i = 0; i < 3; i++) GAYA.line([[-175 - i * 18, -60 + i * 8], [-195 - i * 18, -70 + i * 10]], 4, INK, 1011 + i);
+  ctx.restore();
+}
+function mask(x, y, s, kind) { ctx.save(); ctx.translate(x, y); ctx.scale(s, s);
+  if (kind === 'seram') { GAYA.shape([[-90, -110], [90, -110], [110, 20], [70, 120], [-70, 120], [-110, 20]], WOOD, 1100, {}); GAYA.shape([[-100, -120], [100, -120], [80, -70], [-80, -70]], INK, 1101, {}); for (const d of [-1, 1]) { GAYA.shape(ell(d * 40, -20, 24, 16, 14), INK, 1102 + d, { carve: false }); } GAYA.line([[-60, -50], [-20, -38]], 8, INK, 1105); GAYA.line([[60, -50], [20, -38]], 8, INK, 1106); GAYA.shape(rr(-40, 50, 80, 26, 8), INK, 1107, { carve: false }); for (let i = 0; i < 4; i++) GAYA.line([[-30 + i * 20, 52], [-30 + i * 20, 74]], 3, PAPER, 1108 + i); }
+  else { GAYA.shape(ell(0, 0, 100, 125, 30), '#E8D7BE', 1120, {}); for (const d of [-1, 1]) { ctx.fillStyle = INK; ctx.beginPath(); ctx.arc(d * 36, -20, 10, 0, TAU); ctx.fill(); } GAYA.line([[-30, 50], [0, 60], [30, 50]], 5, INK, 1121); }
+  ctx.restore(); }
+function tree(x, y, s) { GAYA.shape([[x - 20 * s, y], [x + 20 * s, y], [x + 14 * s, y - 220 * s], [x - 14 * s, y - 220 * s]], WOOD, 1200, {}); GAYA.shape(ell(x, y - 300 * s, 150 * s, 130 * s, 24), '#2E3B2A', 1201, {}); }
+function person(x, y, s, o = {}) { GAYA.shape(rr(x - 40 * s, y - 120 * s, 80 * s, 120 * s, 26 * s), o.col || '#6E625A', 1300, {}); GAYA.shape(ell(x, y - 150 * s, 30 * s, 32 * s, 18), '#E2C9A8', 1301, {}); if (o.mask) mask(x, y - 150 * s, .32 * s, o.mask); }
+function counter(n, x, y) { for (let i = 0; i < n; i++) crow(x + (i % 6) * 120 - 300, y + Math.floor(i / 6) * 110, .45, { caw: true, angry: true, flip: true, ph: i }); }
+// ---------- scenes ----------
+GROUPS = [['hook', ['h1', 'h2', 'h3', 'h4', 'h5']], ['taman', ['m1', 'm2', 'm3', 'm4', 'm5']], ['besok', ['m6', 'm7', 'm8']], ['otak', ['d1', 'd2', 'd3', 'd4']], ['riset', ['p1', 'p2', 'p3']],
+  ['topeng', ['p4', 'p5', 'p6']], ['reaksi', ['p7', 'p8', 'p9', 'p10']], ['tahun', ['p11', 'p12', 'p13', 'p14']], ['muda', ['p15', 'p16', 'p17']], ['belajar', ['p18', 'p19', 'p20']],
+  ['brand', ['a1', 'a1b']], ['lindung', ['p21', 'p22']], ['pelajaran', ['s1', 's2', 's3']], ['cerdas', ['s4', 's5', 's6']], ['otakburung', ['s7', 's8', 's9']], ['rangkum', ['r1', 'r2']], ['cta', ['c1', 'c2', 'c3', 'c4', 'c5']], ['akhir', ['z']]];
+// HOOK: a huge crow on a branch, red eye; your face reflected in its eye; more crows appear; "a revenge movie?"; a research notebook
+S.hook = (t) => {
+  GAYA.shape([[0, 980], [W, 940], [W, 990], [0, 1030]], WOOD, 2000, {});
+  const many = t > t0('h3');
+  crow(560, 920, 3.2, { angry: t > t0('h2'), caw: t > t0('h1') + .3 && t < t0('h1') + 1.4 });
+  if (t > t0('h2') && t < t0('h3')) { ctx.save(); ctx.beginPath(); ctx.arc(560 - 84 * 3.2, 920 - 48 * 3.2, 26, 0, TAU); ctx.clip(); GAYA.shape(ell(560 - 84 * 3.2, 920 - 48 * 3.2, 26, 26, 16), PAPER, 2001, { carve: false, lw: 0 }); person(560 - 84 * 3.2, 920 - 48 * 3.2 + 30, .25, {}); ctx.restore(); }
+  if (many) for (let i = 0; i < 6; i++) { const a = age('h3') - i * .15; if (a > 0) crow(140 + i * 160, 600 + (i % 2) * 70, .7, { flip: i % 2 === 0, angry: true, caw: true, ph: i }); }
+  if (t > t0('h4') && t < t0('h5')) { GAYA.shape(rr(360, 1100, 360, 200, 10), INK, 2010, {}); for (let i = 0; i < 6; i++) GAYA.shape(rr(370 + i * 58, 1110, 40, 40, 4), PAPER, 2011 + i, { carve: false, lw: 0 }); title('BALAS DENDAM', 540, 1240, 44, PAPER); }
+  if (t > t0('h5')) { GAYA.shape(rr(380, 1090, 320, 230, 8), '#F7F0E0', 2020, { text: true }); for (let i = 0; i < 4; i++) GAYA.line([[410, 1150 + i * 40], [670, 1150 + i * 40]], 3, INK, 2021 + i, .5); title('PENELITIAN', 540, 1120, 40, RED); }
+  title(t < t0('h2') ? 'Jangan remehkan GAGAK' : t < t0('h3') ? 'Dia ingat WAJAHMU' : 'Temannya IKUT MUSUHI', 540, 330, 72, t < t0('h2') ? INK : RED);
+};
+// TAMAN: a walk through the park; crows caw overhead, swoop; others pass calmly
+S.taman = (t) => {
+  tree(180, 1250, 1.2); tree(900, 1250, 1); GAYA.shape([[0, 1250], [W, 1250], [W, 1320], [0, 1320]], WOOD, 2100, {});
+  const walk = seg(t, t0('m2'), t1('m5')); clawd(lerp(200, 600, walk), 1250, 18, { walk: t * 10, face: t > t0('m3') ? 'shock' : 'happy', mark: t > t0('m3') ? '!' : null, markAge: age('m3') });
+  if (t > t0('m3')) for (let i = 0; i < 4; i++) { const sw = t > t0('m4') ? Math.sin((t - t0('m4')) * 2 + i) : 0; crow(lerp(200, 600, walk) + (i - 1.5) * 150, 760 + 120 * Math.max(0, sw), .6, { fly: true, caw: true, angry: true, flip: i % 2 === 0, ph: i }); }
+  if (t > t0('m5')) { person(900 - (t - t0('m5')) * 40, 1250, 1, { col: '#7A8A6A' }); title('...tenang', 900, 980, 40); }
+  title(t < t0('m3') ? 'Jalan santai di taman...' : t < t0('m5') ? 'Gagak MENUKIK!' : 'Cuma KAMU yang diserbu', 540, 330, 64, t < t0('m3') ? INK : RED);
+};
+// BESOK: day 2 (sun/calendar), it happens again; Adriy confused; a sepia memory frame: long ago
+S.besok = (t) => {
+  if (t < t0('m8')) { GAYA.shape(rr(380, 440, 320, 300, 10), '#F7F0E0', 2200, { text: true }); GAYA.shape(rr(380, 440, 320, 80, 10), RED, 2201, { carve: false }); title('BESOKNYA', 540, 480, 44, PAPER); title('2', 540, 640, 140);
+    crow(800, 900, .9, { caw: true, angry: true }); clawd(400, 1280, 24, { face: t > t0('m7') ? 'worried' : 'shock', mark: '?', markAge: age('m7') }); title(t < t0('m7') ? 'Terulang lagi!' : 'Salahku apa?', 540, 330, 70); return; }
+  const a = age('m8'); GAYA.shape(rr(170, 480, 740, 600, 6), '#D9C7A6', 2210, {}); ctx.save(); ctx.globalAlpha = .9; clawd(400, 960, 16, { face: 'happy' }); crow(700, 900, .8, { flip: false }); GAYA.line([[480, 860], [620, 870]], 6, RED, 2211); ctx.restore();
+  title('dulu sekali...', 540, 1140, 52, WOOD); title('Mereka mengenali wajahmu', 540, 330, 60, RED);
+};
+// OTAK: "otak burung" — a crow with a tiny brain label; then struck through: think again
+S.otak = (t) => {
+  crow(540, 900, 2.4, {}); const a3 = age('d3'); GAYA.shape(ell(380, 640, 60, 40, 18), '#E8B9A0', 2300, { carve: false }); GAYA.line([[400, 660], [430, 760]], 4, INK, 2301);
+  title(t < t0('d3') ? 'cuma insting?' : 'otak burung = pelupa?', 540, 330, 66);
+  if (a3 > 0 && t < t0('d4')) { for (let i = 0; i < 6; i++) person(140 + i * 160, 1350, .6, {}); title('semua manusia = sama?', 540, 1130, 44, WOOD); }
+  if (t > t0('d4')) { const s = seg(age('d4'), 0, .4); GAYA.line([[160, 330], [lerp(160, 920, s), 330]], 14, RED, 2302); title('PIKIR ULANG', 540, 1180, 80, RED); }
+};
+// RISET: a university gate "Univ. Washington, AS"; a researcher in a caveman mask with a net; a crow gets a leg band
+S.riset = (t) => {
+  GAYA.shape(rr(170, 420, 740, 140, 6), INK, 2400, {}); title('UNIV. WASHINGTON, AS', 540, 492, 50, PAPER);
+  if (t > t0('p2')) { person(380, 1260, 2.2, { mask: 'seram' }); const k = seg(age('p2'), .5, 1.5); GAYA.line([[460, 1000], [lerp(460, 700, k), lerp(1000, 900, k)]], 8, WOOD, 2401); if (k > .9) { ctx.save(); ctx.globalAlpha = .6; GAYA.shape(ell(740, 900, 120, 90, 20), PAPER, 2402, { carve: false }); ctx.restore(); } }
+  crow(760, 980, 1.1, { band: t > t0('p3') + .8, angry: t > t0('p2') });
+  title(t < t0('p2') ? 'Eksperimen unik' : t < t0('p3') ? 'Topeng manusia purba' : 'Diberi tanda, lalu dilepas', 540, 330, 60);
+};
+// TOPENG: the two masks side by side: the "dangerous" one (from the capture) and a neutral one
+S.topeng = (t) => {
+  if (t < t0('p5')) { crow(540, 900, 1.4, { fly: true, ph: 1 }); title('Kembali dengan DUA topeng', 540, 330, 62); return; }
+  mask(310, 860, 1.6, 'seram'); if (t > t0('p6')) mask(770, 860, 1.6, 'biasa');
+  GAYA.shape(rr(170, 1110, 280, 90, 8), RED, 2500, { carve: false }); title('saat menangkap', 310, 1155, 36, PAPER);
+  if (t > t0('p6')) { GAYA.shape(rr(630, 1110, 280, 90, 8), '#B9AE98', 2501, { carve: false }); title('belum pernah jahat', 770, 1155, 34); }
+  title('Topeng 1 vs topeng 2', 540, 330, 66);
+};
+// REAKSI: the dangerous mask walks by: crows mob and caw; the neutral mask: calm
+S.reaksi = (t) => {
+  const bad = t < t0('p10'); title(t < t0('p8') ? 'Hasilnya...' : bad ? 'Wajah berbahaya: DISERBU!' : 'Topeng lain: tenang', 540, 330, 62, bad && t > t0('p8') ? RED : INK);
+  if (t < t0('p8')) { title('?', 540, 860, 300, RED); return; }
+  person(540, 1300, 2, { mask: bad ? 'seram' : 'biasa' });
+  for (let i = 0; i < (bad ? 7 : 3); i++) { const a = i / 7 * TAU + t * (bad ? 1.5 : .3); crow(540 + Math.cos(a) * 320, 760 + Math.sin(a) * 200, .55, { fly: bad, caw: bad, angry: bad, flip: Math.cos(a) < 0, ph: i }); }
+};
+// TAHUN: calendar pages flip by the years; the angry crowd grows
+S.tahun = (t) => {
+  if (t < t0('p13')) { title(t < t0('p12') ? 'Tunggu dulu...' : 'Belum berhenti di situ', 540, 760, 76, RED); crow(540, 1150, 1.2, { angry: true }); return; }
+  const yrs = Math.min(5, Math.floor(age('p13') * 1.5)); GAYA.shape(rr(390, 420, 300, 230, 8), '#F7F0E0', 2600, { text: true }); GAYA.shape(rr(390, 420, 300, 70, 8), RED, 2601, { carve: false }); title('TAHUN KE', 540, 456, 36, PAPER); title(`+${yrs}`, 540, 580, 110);
+  const n = t > t0('p14') ? Math.min(18, 4 + Math.floor(age('p14') * 5)) : 4; counter(n, 540, 820);
+  title(t < t0('p14') ? 'Masih ingat topengnya' : 'Yang menyerbu MAKIN BANYAK', 540, 330, 58, RED);
+};
+// MUDA: young crows (never saw the capture) join in; knowledge spreads through the flock as red lines
+S.muda = (t) => {
+  crow(320, 820, 1, { angry: true }); crow(760, 820, 1, { angry: true, flip: true });
+  if (t > t0('p15')) { crow(540, 1080, .6, { young: true, angry: t > t0('p16'), flip: true }); title('gagak muda', 540, 1220, 44); }
+  if (t > t0('p17')) { const pts = [[320, 780], [760, 780], [540, 1050], [220, 1150], [860, 1150]]; for (let i = 1; i < pts.length; i++) { const p = seg(age('p17'), i * .3, i * .3 + .5); if (p > 0) GAYA.line([pts[0], [lerp(pts[0][0], pts[i][0], p), lerp(pts[0][1], pts[i][1], p)]], 5, RED, 2700 + i); } crow(220, 1180, .45, { flip: true }); crow(860, 1180, .45, {}); }
+  title(t < t0('p17') ? 'Belum pernah ditangkap, tapi ikut' : 'Informasi MENYEBAR', 540, 330, 56, t > t0('p17') ? RED : INK);
+};
+// BELAJAR: a crow watches its friends react to a face: social learning
+S.belajar = (t) => {
+  person(220, 1250, 1.6, { mask: 'seram' }); for (let i = 0; i < 3; i++) crow(560 + i * 70, 760 + i * 40, .7, { caw: true, angry: true, flip: true, ph: i });
+  crow(860, 1100, .8, { flip: true }); if (t > t0('p19')) { GAYA.line([[780, 1080], [600, 820]], 4, RED, 2800, .7); mark('idea', 900, 980, 20, age('p19')); }
+  title(t < t0('p19') ? 'Belajar dari GAGAK LAIN' : 'Cukup lihat temannya bereaksi', 540, 330, 58);
+};
+// BRAND: warm stamp, Adriy proud
+S.brand = (t) => { const st = t1('a1') - .15, bAge = t - st; clawd(540, 1300, 30, { face: t < st ? 'curious' : 'happy', arms: bAge > 0 && t < t0('a1b') + .3 ? [.6, 1.45] : [.4, .4], mark: t > t0('a1b') ? 'idea' : null, markAge: age('a1b') }); if (bAge > -.1) brandStamp(540, 560, bAge, TL.duration); };
+// LINDUNG: face memory isn't only human: a crow and a human face, both with a memory spark; a shield for the crow
+S.lindung = (t) => {
+  mask(330, 820, 1.2, 'biasa'); crow(760, 860, 1.2, { flip: true }); mark('sparkle', 330, 640, 24, age('p21')); mark('sparkle', 760, 640, 24, age('p21') - .3);
+  if (t > t0('p22')) { GAYA.shape([[640, 1030], [880, 1030], [880, 1150], [760, 1250], [640, 1150]], RED, 2900, {}); title('pelindung', 760, 1300, 40); }
+  title(t < t0('p22') ? 'Bukan cuma MANUSIA' : 'Melindungi diri dari ancaman', 540, 330, 60);
+};
+// PELAJARAN 1: don't disturb wild birds: a hand with a stone, crossed out
+S.pelajaran = (t) => {
+  if (t < t0('s2')) { clawd(540, 1250, 30, { face: 'curious', mark: '?', markAge: age('s1') }); title('Pelajarannya?', 540, 700, 90); return; }
+  GAYA.shape(ell(420, 860, 70, 55, 18), '#8E8478', 3000, {}); GAYA.shape(rr(300, 900, 200, 120, 40), '#E2C9A8', 3001, {}); crow(760, 900, 1, { angry: t > t0('s3') });
+  const s = seg(age('s2'), .5, 1); GAYA.line([[220, 700], [lerp(220, 600, s), lerp(700, 1080, s)]], 16, RED, 3002); GAYA.line([[600, 700], [lerp(600, 220, s), lerp(700, 1080, s)]], 16, RED, 3003);
+  title(t < t0('s3') ? '1. Jangan ganggu burung liar' : 'Bisa memicu PERTAHANAN', 540, 330, 58, t < t0('s3') ? INK : RED);
+};
+// CERDAS: animals are smarter than we think: a crow with a lit brain, remembering, learning, recognising
+S.cerdas = (t) => {
+  crow(540, 980, 2, {}); GAYA.shape(ell(350, 650, 70, 48, 18), '#E8B9A0', 3100, { carve: false }); mark('sparkle', 350, 560, 22, age('s4'));
+  if (t > t0('s5')) ['mengingat', 'belajar', 'mengenali'].forEach((s2, i) => { if (age('s5') > i * .5) tag(s2, 220 + i * 320, 1250, 44, { age: age('s5') - i * .5, bg: '#F7F0E0' }); });
+  title('2. Jangan remehkan HEWAN', 540, 330, 62);
+};
+// OTAK BURUNG: the phrase gets a "pikir ulang" stamp; years of face memory vs us forgetting a name 2 seconds later
+S.otakburung = (t) => {
+  if (t < t0('s8')) { GAYA.shape(rr(170, 640, 740, 200, 10), '#F7F0E0', 3200, { text: true }); title('"otak burung"', 540, 740, 80); const k = backOut(seg(age('s7'), .6, .9)); ctx.save(); ctx.translate(560, 900); ctx.rotate(-.12); ctx.scale(k, k); GAYA.shape(rr(-240, -60, 480, 120, 10), RED, 3201, { carve: false }); title('PIKIR ULANG', 0, 4, 64, PAPER); ctx.restore(); title('3. Istilah yang perlu dipikir ulang', 540, 330, 50); return; }
+  if (t < t0('s9')) { crow(540, 900, 1.6, {}); title('ingat wajah BERTAHUN-TAHUN', 540, 1180, 56, RED); return; }
+  clawd(340, 1250, 24, { face: 'worried', mark: '?', markAge: age('s9') }); person(760, 1260, 1.6, {}); GAYA.shape(rr(520, 680, 460, 150, 30), '#F7F0E0', 3210, { text: true }); title('Halo, namaku...', 750, 755, 46);
+  title('2 detik kemudian: LUPA', 540, 330, 62, RED);
+};
+// RANGKUM: a proud crow portrait in a carved frame
+S.rangkum = (t) => { GAYA.shape(rr(150, 440, 780, 820, 10), WOOD, 3300, {}); GAYA.shape(rr(190, 480, 700, 740, 6), PAPER, 3301, { carve: false }); crow(560, 940, 2, {}); title(t < t0('r2') ? 'Bukan sekadar burung berisik' : 'Cerdas & ingatannya luar biasa', 540, 330, 58, RED); };
+// CTA: TEMAN or MUSUH? comment; follow Adriy.Project
+S.cta = (t) => {
+  if (t < t0('c4')) { title(t < t0('c2') ? 'Aku penasaran...' : 'Dikenang sebagai...', 540, 330, 70);
+    if (t > t0('c2')) [['TEMAN', '#6E8A5A', 300], ['MUSUH', RED, 780]].forEach(([s2, c2, x], i) => { const k = backOut(seg(age('c2'), 1 + i * .5, 1.3 + i * .5)); if (k <= 0) return; ctx.save(); ctx.translate(x, 780); ctx.scale(k, k); GAYA.shape(rr(-190, -110, 380, 220, 14), c2, 3400 + i, {}); title(s2, 0, 6, 76, PAPER); ctx.restore(); });
+    if (t > t0('c3')) { tag('Tulis di *komentar!*', 540, 1060, 66, { age: age('c3'), bg: '#F7F0E0' }); const k = .5 + .5 * Math.sin(t * 6); GAYA.shape([[800 + k * 20, 1130], [900 + k * 20, 1200], [820 + k * 20, 1240]], RED, 3410, {}); }
+    crow(820, 1330, .7, { flip: true }); clawd(400, 1350, 18, { face: 'happy', arms: [.3, t > t0('c3') ? 1.45 : .3] }); return; }
+  const k = backOut(seg(age('c4'), 0, .3)); ctx.save(); ctx.translate(540, 820); ctx.scale(k, k); GAYA.shape(ell(0, 0, 140, 140, 30), RED, 3420, {}); title('+', 0, 8, 200, PAPER); ctx.restore();
+  title('Ikuti Adriy.Project', 540, 330, 66); if (t > t0('c5')) for (let i = 0; i < 5; i++) crow(180 + i * 180, 1200, .45, { flip: i % 2 === 0 });
+};
+S.akhir = (t) => {};
+// ---------- sound ----------
+window.cues = () => {
+  c(.3, 'mk:wild-raven-bird-calling', .8); c(t0('h2'), 'cinematic-hits/cinematic-drum-big', .0); c(t0('h2') + .1, 'booms-and-bass/boom-hit-soft', .4); c(t0('h3'), 'mk:bird-singing-and-flapping-wings', .5); c(t0('h3') + .4, 'mk:wild-raven-bird-calling', .6);
+  c(t0('h5'), 'writing-and-drawing/writing-pencil-write', .4);
+  c(t0('m2'), 'mk:natural-ambience-with-flowing-water-and-birds', .25); c(t0('m3'), 'mk:wild-raven-bird-calling', .9); c(t0('m4'), 'whooshes/whoosh-fast-hard', .6); c(t0('m4') + .3, 'mk:medium-size-bird-flutter', .5);
+  c(t0('m6'), 'mk:wild-raven-bird-calling', .6); c(t0('m7'), 'pops/pop-small-in', .4); c(t0('m8'), 'risers-and-fallers/faller-2s-soft', .4);
+  c(t0('d4'), 'impacts/impact-medium-hard', .5); c(t0('p1'), 'mk:hard-pop-click', .4); c(t0('p2') + .5, 'whooshes/whoosh-medium-medium', .5); c(t0('p3') + .8, 'mk:hard-pop-click', .5);
+  c(t0('p4'), 'mk:medium-size-bird-flutter', .5); c(t0('p5'), 'pops/pop-large-in', .5); c(t0('p6'), 'pops/pop-large-in', .5);
+  c(t0('p8'), 'mk:wild-raven-bird-calling', 1); c(t0('p9'), 'mk:bird-singing-and-flapping-wings', .6); c(t0('p10'), 'shimmers/shimmer-short-soft', .4);
+  c(t0('p11'), 'risers-and-fallers/riser-2s-soft', .4); c(t0('p13'), 'data/data-countup-medium', .4); c(t0('p14'), 'mk:wild-raven-bird-calling', .8);
+  c(t0('p17'), 'data/data-progress-long', .4); c(t0('p19'), 'tones/tone-step-3', .4);
+  c(t1('a1') - .15, 'logo-stings/sting-bright-short', 1); c(t0('p22'), 'impacts/impact-medium-soft', .4);
+  c(t0('s2') + .5, 'mk:wrong-answer-fail-notification', .4); c(t0('s3'), 'mk:wild-raven-bird-calling', .5); c(t0('s4'), 'shimmers/shimmer-medium-sparkle', .5);
+  c(t0('s7') + .6, 'impacts/impact-heavy-firm', .5); c(t0('s9'), 'mk:cartoon-failure-piano', .4); c(t0('r1'), 'shimmers/shimmer-long-soft', .4);
+  c(t0('c2') + 1, 'pops/pop-large-in', .5); c(t0('c2') + 1.5, 'pops/pop-large-in', .5); c(t0('c3'), 'tones/tone-ding-mid', .6); c(t0('c4'), 'pops/pop-large-in', .5);
+  c(t0('z') - .3, 'logo-stings/sting-warm-long', 1);
+  for (const s of SC.slice(1)) if (s.name !== 'akhir') c(s.a, 'whooshes/whoosh-slow-soft', .3);
+  CUES = CUES.filter(x => x[2] > 0);
+};
+const _bs = buildScenes; buildScenes = function () { CAM_PUNCH = [[.3, .06], [t0('m4'), .07], [t0('p8'), .07], [t0('p14'), .05], [t0('s7') + .6, .05]]; _bs(); };
+</script>
+</body>
+</html>

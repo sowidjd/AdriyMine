@@ -10,7 +10,7 @@ HURUF = json.load(open(os.path.join(HERE, 'kamus_huruf.json')))   # A -> "A", B 
 # kata yang terbukti sering salah ucap -> ejaan bantu yang berhasil (lihat projects/bangun-pagi/perbaiki_ucapan.py)
 KATA = {'Adriy.Project': 'Adri titik Project', 'Whoosh': 'Wush', 'WHOOSH': 'Wush', 'alarm': 'alarrm', 'Alarm': 'Alarrm', 'snooze': 'snuz', 'Snooze': 'Snuz', 'Cahaya': 'Cahaaya', 'cahaya': 'cahaaya',
         'weekend': 'wiken', 'Weekend': 'Wiken', 'Clawd': 'Klod',
-        'Explore More, Know More': 'Eksplor mor, nou mor', 'wkwk': 'wakakak', 'spotlight effect': 'spotlait efek', 'earworm': 'irworm', 'Reading': 'Reding', 'Cornell': 'Kornel'}
+        'Explore More, Know More': 'Eksplor mor, nou mor', 'wkwk': 'wakakak', 'spotlight effect': 'spotlait efek', 'earworm': 'irworm', 'Reading': 'Reding', 'Cornell': 'Kornel', 'Explore More. Know More': 'Eksplor mor. Nou mor', "Hershey's": 'Hersis', 'Lindt': 'Lint', 'Shampanier': 'Syampanie', 'Ariely': 'Arieli', 'zero price effect': 'ziro prais efek', 'migrating motor complex': 'maigreting motor kompleks', 'Washington': 'Wosyington'}
 
 ASING = {'Project', 'Cornell', 'effect', 'Explore'}
 

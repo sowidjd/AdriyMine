@@ -6,463 +6,608 @@
    "id": "h1",
    "gap": 0.2,
    "style": "teasing, lively",
-   "text": "Kamu belanja dua ratus ribu, demi gratis ongkir sepuluh ribu.",
-   "cap": "Belanja *200 ribu* demi gratis ongkir *10 ribu*",
+   "text": "Kamu belanja dua ratus ribu rupiah, cuma demi mendapatkan gratis ongkir sepuluh ribu.",
+   "cap": "Kamu belanja dua ratus ribu rupiah, cuma demi *mendapatkan* gratis ongkir sepuluh ribu.",
    "kunci": [
-    "dua ratus ribu",
-    "ongkir"
+    "mendapatkan",
+    "sepuluh"
    ]
   },
   {
    "id": "h2",
    "gap": 0.2,
    "style": "playful, mocking",
-   "text": "Rasanya untung banget, kan?",
-   "cap": "Rasanya *untung*, kan?",
+   "text": "Rasanya seperti menang besar, kan?",
+   "cap": "*Rasanya* seperti menang besar, kan?",
    "kunci": [
-    "untung"
+    "rasanya",
+    "menang"
    ]
   },
   {
    "id": "h3",
-   "gap": 0.2,
-   "style": "firm, dramatic",
-   "text": "Padahal, dompetmu baru saja dikerjain.",
-   "cap": "Padahal dompetmu *dikerjain*",
+   "gap": 0.1,
+   "style": "dramatic, slower",
+   "text": "Padahal... bisa jadi kamu baru saja mengeluarkan uang jauh lebih banyak,",
+   "cap": "Padahal... bisa jadi kamu baru saja *mengeluarkan* uang jauh lebih banyak,",
    "kunci": [
-    "dompetmu"
+    "mengeluarkan",
+    "padahal"
    ]
   },
   {
    "id": "h4",
-   "gap": 0.9,
-   "style": "mysterious, confident",
-   "text": "Dan peneliti tahu, kenapa kita gampang tertipu.",
-   "cap": "Peneliti tahu *kenapa*",
+   "gap": 0.3,
+   "style": "dramatic, emphatic",
+   "text": "hanya karena satu kata: GRATIS.",
+   "cap": "hanya karena satu kata: *GRATIS*.",
    "kunci": [
-    "peneliti",
-    "tertipu"
+    "gratis"
+   ]
+  },
+  {
+   "id": "h5",
+   "gap": 0.9,
+   "style": "intriguing, confident",
+   "text": "Dan ternyata, ada penelitian yang menjelaskan kenapa kita begitu mudah tergoda.",
+   "cap": "Dan ternyata, ada penelitian yang *menjelaskan* kenapa kita begitu mudah tergoda.",
+   "kunci": [
+    "menjelaskan",
+    "penelitian"
    ]
   },
   {
    "id": "m1",
    "gap": 0.2,
-   "style": "friendly storytelling",
+   "style": "clear storyteller, friendly",
    "text": "Coba ingat-ingat.",
-   "cap": "Coba ingat-ingat...",
+   "cap": "Coba *ingat-ingat*.",
    "kunci": [
-    "ingat"
+    "ingat-ingat"
    ]
   },
   {
    "id": "m2",
    "gap": 0.2,
-   "style": "storytelling",
-   "text": "Kamu mau beli satu barang. Harganya seratus dua puluh ribu.",
-   "cap": "Mau beli 1 barang: *120 ribu*",
+   "style": "clear storyteller, friendly",
+   "text": "Kamu awalnya cuma ingin membeli satu barang seharga seratus dua puluh ribu rupiah.",
+   "cap": "Kamu awalnya cuma ingin *membeli* satu barang seharga seratus dua puluh ribu rupiah.",
    "kunci": [
-    "seratus dua puluh"
+    "membeli",
+    "awalnya"
    ]
   },
   {
    "id": "m3",
-   "gap": 0.2,
-   "style": "excited, salesy",
-   "text": "Pas mau bayar, muncul tulisan: belanja dua ratus ribu, gratis ongkir!",
-   "cap": "\"Belanja 200 ribu, *gratis ongkir!*\"",
+   "gap": 0.1,
+   "style": "clear storyteller, friendly",
+   "text": "Saat mau membayar, muncul tulisan:",
+   "cap": "Saat mau *membayar*, muncul tulisan:",
    "kunci": [
-    "gratis ongkir"
+    "membayar",
+    "tulisan"
    ]
   },
   {
    "id": "m4",
-   "gap": 0.2,
-   "style": "light",
-   "text": "Ongkirnya cuma sepuluh ribu.",
-   "cap": "Ongkirnya cuma *10 ribu*",
+   "gap": 0.3,
+   "style": "excited, salesy announcer",
+   "text": "Tambahkan belanjaan hingga dua ratus ribu rupiah untuk mendapatkan gratis ongkir!",
+   "cap": "Tambahkan belanjaan hingga dua ratus ribu rupiah untuk *mendapatkan* gratis ongkir!",
    "kunci": [
-    "sepuluh ribu"
+    "mendapatkan",
+    "belanjaan"
    ]
   },
   {
    "id": "m5",
    "gap": 0.2,
-   "style": "storytelling, comedic",
-   "text": "Tapi kamu malah keliling toko, cari barang tambahan.",
-   "cap": "Malah *keliling toko*",
+   "style": "light",
+   "text": "Ongkirnya sendiri cuma sepuluh ribu.",
+   "cap": "*Ongkirnya* sendiri cuma sepuluh ribu.",
    "kunci": [
-    "keliling",
-    "tambahan"
+    "ongkirnya",
+    "sepuluh"
    ]
   },
   {
    "id": "m6",
    "gap": 0.2,
-   "style": "comedic, listing",
-   "text": "Kabel cadangan. Stiker lucu. Barang yang sebenarnya nggak perlu.",
-   "cap": "Kabel, stiker... *nggak perlu*",
+   "style": "thinking, tempted",
+   "text": "Tapi kamu mulai berpikir, sayang juga kalau harus bayar ongkir.",
+   "cap": "Tapi kamu mulai *berpikir*, sayang juga kalau harus bayar ongkir.",
    "kunci": [
-    "kabel",
-    "stiker"
+    "berpikir",
+    "ongkir"
    ]
   },
   {
    "id": "m7",
    "gap": 0.2,
-   "style": "storytelling",
-   "text": "Akhirnya, totalnya jadi dua ratus ribu lebih.",
-   "cap": "Total: *200 ribu lebih*",
+   "style": "clear storyteller, friendly",
+   "text": "Akhirnya, kamu keliling toko mencari barang tambahan.",
+   "cap": "Akhirnya, kamu keliling toko mencari barang *tambahan*.",
    "kunci": [
-    "totalnya"
+    "tambahan",
+    "keliling"
    ]
   },
   {
    "id": "m8",
-   "gap": 0.2,
-   "style": "happy, light",
-   "text": "Paketnya datang, kamu senang.",
-   "cap": "Paket datang, *senang*",
+   "gap": 0.1,
+   "style": "comedic, listing",
+   "text": "Kabel cadangan, stiker lucu, aksesori kecil,",
+   "cap": "Kabel *cadangan*, stiker lucu, aksesori kecil,",
    "kunci": [
-    "paketnya",
-    "senang"
+    "cadangan",
+    "aksesori"
    ]
   },
   {
    "id": "m9",
-   "gap": 0.9,
-   "style": "deflated, comedic",
-   "text": "Tapi akhir bulan, saldo kok tipis banget?",
-   "cap": "Akhir bulan: *saldo tipis*",
+   "gap": 0.2,
+   "style": "comedic",
+   "text": "bahkan barang yang sebenarnya tidak pernah kamu rencanakan untuk dibeli.",
+   "cap": "bahkan barang yang sebenarnya tidak pernah kamu *rencanakan* untuk dibeli.",
    "kunci": [
-    "akhir bulan",
-    "saldo"
+    "rencanakan",
+    "sebenarnya"
    ]
   },
   {
-   "id": "m9b",
-   "gap": 0.9,
-   "style": "deflated, comedic",
-   "text": "Dan barang tambahannya, masih nganggur di laci.",
-   "cap": "Barang tambahan *nganggur di laci*",
+   "id": "m10",
+   "gap": 1.2,
+   "style": "clear storyteller, friendly",
+   "text": "Sampai akhirnya, keranjang belanjamu mencapai dua ratus ribu rupiah.",
+   "cap": "Sampai akhirnya, *keranjang* belanjamu mencapai dua ratus ribu rupiah.",
    "kunci": [
-    "nganggur",
-    "laci"
+    "keranjang",
+    "belanjamu"
+   ]
+  },
+  {
+   "id": "m11",
+   "gap": 0.3,
+   "style": "happy, light",
+   "text": "Paket datang, kamu senang.",
+   "cap": "Paket datang, kamu *senang*.",
+   "kunci": [
+    "senang",
+    "datang"
+   ]
+  },
+  {
+   "id": "m12",
+   "gap": 0.2,
+   "style": "deflated",
+   "text": "Tapi beberapa hari kemudian, kamu melihat barang tambahan itu masih tergeletak di dalam laci.",
+   "cap": "Tapi beberapa hari kemudian, kamu melihat barang tambahan itu masih *tergeletak* di dalam laci.",
+   "kunci": [
+    "tergeletak",
+    "beberapa"
+   ]
+  },
+  {
+   "id": "m13",
+   "gap": 0.3,
+   "style": "comedic, sighing",
+   "text": "Bahkan mungkin belum pernah digunakan!",
+   "cap": "Bahkan mungkin belum pernah *digunakan*!",
+   "kunci": [
+    "digunakan",
+    "mungkin"
+   ]
+  },
+  {
+   "id": "m14",
+   "gap": 0.9,
+   "style": "curious, pointed",
+   "text": "Lalu muncul pertanyaan... sebenarnya, siapa yang untung dari transaksi tadi?",
+   "cap": "Lalu muncul *pertanyaan*... sebenarnya, siapa yang untung dari transaksi tadi?",
+   "kunci": [
+    "pertanyaan",
+    "sebenarnya"
    ]
   },
   {
    "id": "d1",
    "gap": 0.2,
    "style": "thoughtful",
-   "text": "Biasanya kita mikir, ini karena kita boros.",
-   "cap": "Dikira: *boros*",
+   "text": "Kebanyakan orang menganggap ini hanya masalah boros atau kurang pandai mengatur uang.",
+   "cap": "Kebanyakan orang *menganggap* ini hanya masalah boros atau kurang pandai mengatur uang.",
    "kunci": [
-    "boros"
+    "menganggap",
+    "kebanyakan"
    ]
   },
   {
    "id": "d2",
    "gap": 0.2,
-   "style": "thoughtful",
-   "text": "Atau karena kurang pintar berhitung.",
-   "cap": "Atau *kurang berhitung*",
+   "style": "intriguing",
+   "text": "Padahal, ada sesuatu yang lebih menarik.",
+   "cap": "Padahal, ada *sesuatu* yang lebih menarik.",
    "kunci": [
-    "berhitung"
+    "sesuatu",
+    "padahal"
    ]
   },
   {
    "id": "d3",
-   "gap": 0.2,
-   "style": "thoughtful, honest",
-   "text": "Padahal kita tahu itu nggak masuk akal, tapi tetap saja tergoda.",
-   "cap": "Tahu nggak masuk akal, *tetap tergoda*",
+   "gap": 0.1,
+   "style": "clear explainer, curious",
+   "text": "Masalahnya bukan sekadar kemampuan berhitung,",
+   "cap": "*Masalahnya* bukan sekadar kemampuan berhitung,",
    "kunci": [
-    "masuk akal",
-    "tergoda"
+    "masalahnya",
+    "kemampuan"
    ]
   },
   {
    "id": "d4",
    "gap": 0.9,
-   "style": "firm, mysterious",
-   "text": "Masalahnya bukan di kalkulator. Masalahnya ada di satu kata: gratis.",
-   "cap": "Masalahnya: kata *GRATIS*",
+   "style": "clear explainer, curious",
+   "text": "tetapi cara otak kita merespons sesuatu yang ditawarkan secara gratis.",
+   "cap": "tetapi cara otak kita merespons sesuatu yang *ditawarkan* secara gratis.",
    "kunci": [
-    "kalkulator",
-    "gratis"
+    "ditawarkan",
+    "merespons"
    ]
   },
   {
    "id": "p1",
-   "gap": 0.2,
-   "style": "storytelling, curious",
-   "text": "Tahun dua ribu tujuh, peneliti dari MIT bikin percobaan sederhana pakai cokelat.",
-   "cap": "2007: percobaan *cokelat* (MIT)",
+   "gap": 0.1,
+   "style": "documentary storytelling",
+   "text": "Pada tahun dua ribu tujuh, tiga peneliti bernama Kristina Shampanier, Nina Mazar, dan Dan Ariely,",
+   "cap": "Pada tahun dua ribu tujuh, tiga peneliti bernama Kristina *Shampanier*, Nina Mazar, dan Dan Ariely,",
    "kunci": [
-    "tahun dua ribu tujuh",
-    "cokelat"
+    "shampanier",
+    "kristina"
    ]
   },
   {
    "id": "p2",
-   "gap": 0.2,
-   "style": "storytelling, clear",
-   "text": "Mereka jual dua cokelat: satu cokelat mahal yang enak, satu cokelat biasa yang murah.",
-   "cap": "Cokelat *mahal* vs cokelat *murah*",
+   "gap": 0.3,
+   "style": "documentary storytelling",
+   "text": "menerbitkan penelitian tentang fenomena yang disebut zero price effect, atau efek harga nol.",
+   "cap": "*menerbitkan* penelitian tentang fenomena yang disebut zero price effect, atau efek harga nol.",
    "kunci": [
-    "mahal",
-    "murah"
+    "menerbitkan",
+    "penelitian"
    ]
   },
   {
    "id": "p3",
-   "gap": 0.2,
-   "style": "storytelling",
-   "text": "Kebanyakan orang memilih cokelat mahal yang enak.",
-   "cap": "Kebanyakan pilih *yang mahal*",
+   "gap": 0.1,
+   "style": "clear storyteller, friendly",
+   "text": "Mereka melakukan eksperimen menggunakan dua jenis cokelat:",
+   "cap": "Mereka melakukan eksperimen *menggunakan* dua jenis cokelat:",
    "kunci": [
-    "kebanyakan"
+    "menggunakan",
+    "eksperimen"
    ]
   },
   {
    "id": "p4",
-   "gap": 0.2,
-   "style": "storytelling, building",
-   "text": "Lalu, harga keduanya diturunkan, sama-sama sedikit.",
-   "cap": "Harga *sama-sama turun*",
+   "gap": 0.3,
+   "style": "clear storyteller, friendly",
+   "text": "Hershey's yang lebih murah, dan Lindt yang lebih mahal.",
+   "cap": "*Hershey's* yang lebih murah, dan Lindt yang lebih mahal.",
    "kunci": [
-    "diturunkan"
+    "hershey's"
    ]
   },
   {
    "id": "p5",
-   "gap": 0.2,
-   "style": "suspenseful",
-   "text": "Cokelat yang murah jadi gratis.",
-   "cap": "Yang murah jadi *GRATIS*",
+   "gap": 0.3,
+   "style": "clear explainer, curious",
+   "text": "Dalam salah satu percobaan, Hershey's dijual satu sen, sedangkan Lindt dijual lima belas sen.",
+   "cap": "Dalam salah satu percobaan, *Hershey's* dijual satu sen, sedangkan Lindt dijual lima belas sen.",
    "kunci": [
-    "gratis"
+    "hershey's",
+    "percobaan"
    ]
   },
   {
    "id": "p6",
-   "gap": 0.2,
-   "style": "suspenseful, slower",
-   "text": "Selisih harganya tetap sama persis.",
-   "cap": "Selisihnya *tetap sama*",
+   "gap": 0.3,
+   "style": "clear explainer, curious",
+   "text": "Ketika harga keduanya diturunkan satu sen, Hershey's menjadi gratis dan Lindt menjadi empat belas sen.",
+   "cap": "Ketika harga keduanya *diturunkan* satu sen, Hershey's menjadi gratis dan Lindt menjadi empat belas sen.",
    "kunci": [
-    "selisih",
-    "sama"
+    "diturunkan",
+    "hershey's"
    ]
   },
   {
    "id": "p7",
-   "gap": 0.9,
-   "style": "surprised reveal",
-   "text": "Tapi tiba-tiba, kebanyakan orang pindah ke cokelat yang gratis.",
-   "cap": "Tiba-tiba pindah ke *yang gratis!*",
+   "gap": 0.3,
+   "style": "emphatic, slow",
+   "text": "Selisih harganya tetap sama.",
+   "cap": "Selisih *harganya* tetap sama.",
    "kunci": [
-    "pindah",
-    "gratis"
+    "harganya",
+    "selisih"
+   ]
+  },
+  {
+   "id": "p8",
+   "gap": 0.3,
+   "style": "suspenseful reveal",
+   "text": "Namun, hasilnya mengejutkan!",
+   "cap": "Namun, hasilnya *mengejutkan*!",
+   "kunci": [
+    "mengejutkan",
+    "hasilnya"
+   ]
+  },
+  {
+   "id": "p9",
+   "gap": 0.2,
+   "style": "clear explainer, curious",
+   "text": "Ketika Hershey's masih berharga satu sen, banyak peserta lebih memilih Lindt.",
+   "cap": "Ketika *Hershey's* masih berharga satu sen, banyak peserta lebih memilih Lindt.",
+   "kunci": [
+    "hershey's",
+    "berharga"
+   ]
+  },
+  {
+   "id": "p10",
+   "gap": 0.2,
+   "style": "excited reveal",
+   "text": "Tetapi ketika Hershey's menjadi gratis, pilihan peserta berubah drastis.",
+   "cap": "Tetapi ketika *Hershey's* menjadi gratis, pilihan peserta berubah drastis.",
+   "kunci": [
+    "hershey's",
+    "berubah"
+   ]
+  },
+  {
+   "id": "p11",
+   "gap": 0.2,
+   "style": "excited reveal",
+   "text": "Lebih banyak orang justru memilih cokelat gratis tersebut.",
+   "cap": "Lebih banyak orang justru memilih cokelat gratis *tersebut*.",
+   "kunci": [
+    "tersebut",
+    "cokelat"
+   ]
+  },
+  {
+   "id": "p12",
+   "gap": 0.4,
+   "style": "amazed, emphatic",
+   "text": "Padahal, penurunan harganya hanya satu sen!",
+   "cap": "Padahal, *penurunan* harganya hanya satu sen!",
+   "kunci": [
+    "penurunan",
+    "harganya"
+   ]
+  },
+  {
+   "id": "p13",
+   "gap": 0.1,
+   "style": "clear explainer, curious",
+   "text": "Penelitian ini menunjukkan bahwa kata gratis bisa memberikan daya tarik emosional,",
+   "cap": "Penelitian ini *menunjukkan* bahwa kata gratis bisa memberikan daya tarik emosional,",
+   "kunci": [
+    "menunjukkan",
+    "memberikan"
+   ]
+  },
+  {
+   "id": "p14",
+   "gap": 0.9,
+   "style": "clear explainer, curious",
+   "text": "yang jauh lebih besar daripada sekadar potongan harga biasa.",
+   "cap": "yang jauh lebih besar *daripada* sekadar potongan harga biasa.",
+   "kunci": [
+    "daripada",
+    "potongan"
    ]
   },
   {
    "id": "a1",
    "gap": 0.9,
    "style": "warm, proud, slower, clear emphasis on the channel name",
-   "text": "Waktu kami di Adriy.Project baca percobaan ini...",
-   "cap": "Waktu kami di *Adriy.Project* baca percobaan ini...",
+   "text": "Nah, waktu kami di Adriy.Project mempelajari penelitian ini,",
+   "cap": "Nah, waktu kami di *Adriy.Project* mempelajari penelitian ini,",
    "kunci": [
     "titik"
    ]
   },
   {
    "id": "a1b",
-   "gap": 0.4,
+   "gap": 0.3,
    "style": "amused, sheepish",
-   "text": "kami langsung ingat keranjang belanja kami.",
-   "cap": "...langsung ingat *keranjang belanja*",
+   "text": "kami langsung teringat pada kebiasaan belanja daring.",
+   "cap": "kami langsung teringat pada *kebiasaan* belanja daring.",
    "kunci": [
-    "keranjang"
+    "kebiasaan",
+    "teringat"
    ]
   },
   {
-   "id": "p8",
+   "id": "p15",
    "gap": 0.2,
-   "style": "clear explainer",
-   "text": "Peneliti menyebutnya efek harga nol.",
-   "cap": "Namanya: *efek harga nol*",
+   "style": "clear explainer, curious",
+   "text": "Karena gratis ongkir bekerja dengan daya tarik yang mirip.",
+   "cap": "Karena gratis ongkir *bekerja* dengan daya tarik yang mirip.",
    "kunci": [
-    "harga nol"
+    "bekerja",
+    "gratis"
    ]
   },
   {
-   "id": "p9",
-   "gap": 0.2,
-   "style": "clear explainer",
-   "text": "Kata gratis bikin otak merasa untung besar.",
-   "cap": "Gratis = otak merasa *untung besar*",
+   "id": "p16",
+   "gap": 0.1,
+   "style": "clear explainer, curious",
+   "text": "Kita terlalu fokus pada biaya yang berhasil dihilangkan,",
+   "cap": "Kita terlalu fokus pada biaya yang berhasil *dihilangkan*,",
    "kunci": [
-    "otak",
-    "untung"
+    "dihilangkan",
+    "berhasil"
    ]
   },
   {
-   "id": "p10",
-   "gap": 0.2,
-   "style": "clear explainer",
-   "text": "Kita jadi lupa menghitung, apa yang sebenarnya kita bayar.",
-   "cap": "Lupa hitung *yang dibayar*",
-   "kunci": [
-    "menghitung"
-   ]
-  },
-  {
-   "id": "p11",
+   "id": "p17",
    "gap": 0.9,
-   "style": "clear payoff",
-   "text": "Gratis ongkir bekerja dengan cara yang mirip. Ongkirnya hilang, tapi belanjaanmu bertambah.",
-   "cap": "Ongkir hilang, *belanjaan bertambah*",
+   "style": "clear explainer, curious",
+   "text": "sampai lupa memperhatikan uang tambahan yang harus dikeluarkan.",
+   "cap": "sampai lupa *memperhatikan* uang tambahan yang harus dikeluarkan.",
    "kunci": [
-    "mirip",
-    "bertambah"
-   ]
-  },
-  {
-   "id": "p11b",
-   "gap": 0.9,
-   "style": "clear explainer",
-   "text": "Makanya, tulisan gratis terasa begitu menggoda, walaupun akhirnya kita yang bayar lebih.",
-   "cap": "Gratis menggoda, tapi *kita bayar lebih*",
-   "kunci": [
-    "menggoda",
-    "bayar lebih"
+    "memperhatikan",
+    "dikeluarkan"
    ]
   },
   {
    "id": "s1",
-   "gap": 0.25,
+   "gap": 0.3,
    "style": "energetic, upbeat",
-   "text": "Terus, gimana biar nggak tertipu?",
-   "cap": "Terus, *gimana?*",
+   "text": "Lalu, bagaimana cara menghindarinya?",
+   "cap": "Lalu, bagaimana cara *menghindarinya*?",
    "kunci": [
-    "gimana",
-    "tertipu"
+    "menghindarinya",
+    "bagaimana"
    ]
   },
   {
    "id": "s2",
    "gap": 0.2,
    "style": "clear, confident",
-   "text": "Langkah pertama: hitung selisihnya.",
-   "cap": "1. Hitung *selisihnya*",
+   "text": "Pertama, hitung selisihnya.",
+   "cap": "Pertama, hitung *selisihnya*.",
    "kunci": [
-    "pertama",
-    "selisihnya"
+    "selisihnya",
+    "pertama"
    ]
   },
   {
    "id": "s3",
    "gap": 0.2,
-   "style": "clear explainer",
-   "text": "Kalau tambahan belanjamu lebih mahal dari ongkir, bayar saja ongkirnya.",
-   "cap": "Tambahan > ongkir? *Bayar ongkirnya*",
+   "style": "clear explainer, curious",
+   "text": "Misalnya, kamu harus menambah belanjaan delapan puluh ribu rupiah, hanya untuk menghemat ongkir sepuluh ribu.",
+   "cap": "Misalnya, kamu harus menambah belanjaan delapan puluh ribu rupiah, hanya untuk *menghemat* ongkir sepuluh ribu.",
    "kunci": [
-    "bayar saja"
+    "menghemat",
+    "belanjaan"
    ]
   },
   {
    "id": "s4",
-   "gap": 0.3,
-   "style": "clear, emphatic",
-   "text": "Tambah delapan puluh ribu demi hemat sepuluh ribu, artinya rugi tujuh puluh ribu.",
-   "cap": "+80 ribu demi hemat 10 ribu = *rugi 70 ribu*",
+   "gap": 0.1,
+   "style": "clear explainer, curious",
+   "text": "Artinya, dibandingkan membeli barang awal dan membayar ongkir,",
+   "cap": "Artinya, *dibandingkan* membeli barang awal dan membayar ongkir,",
    "kunci": [
-    "delapan puluh",
-    "tujuh puluh"
-   ]
-  },
-  {
-   "id": "s4b",
-   "gap": 0.3,
-   "style": "clear, gentle",
-   "text": "Hitungannya sederhana, tapi sering kita lewati karena terburu-buru.",
-   "cap": "Sederhana, tapi *sering dilewati*",
-   "kunci": [
-    "sederhana",
-    "terburu"
+    "dibandingkan",
+    "membayar"
    ]
   },
   {
    "id": "s5",
-   "gap": 0.2,
-   "style": "clear, confident",
-   "text": "Langkah kedua: tanya ke diri sendiri.",
-   "cap": "2. Tanya *diri sendiri*",
+   "gap": 0.4,
+   "style": "emphatic, clear",
+   "text": "kamu justru mengeluarkan tambahan tujuh puluh ribu rupiah.",
+   "cap": "kamu justru *mengeluarkan* tambahan tujuh puluh ribu rupiah.",
    "kunci": [
-    "kedua"
+    "mengeluarkan",
+    "tambahan"
    ]
   },
   {
    "id": "s6",
    "gap": 0.2,
-   "style": "curious, gentle",
-   "text": "Barang ini bakal kubeli, kalau ongkirnya nggak gratis?",
-   "cap": "\"Tetap kubeli kalau *nggak gratis?*\"",
+   "style": "clear, confident",
+   "text": "Kedua, tanyakan satu hal kepada diri sendiri.",
+   "cap": "Kedua, *tanyakan* satu hal kepada diri sendiri.",
    "kunci": [
-    "kubeli"
+    "tanyakan",
+    "sendiri"
    ]
   },
   {
    "id": "s7",
-   "gap": 0.2,
-   "style": "decisive",
-   "text": "Kalau jawabannya nggak, hapus dari keranjang.",
-   "cap": "Nggak? *Hapus dari keranjang*",
+   "gap": 0.3,
+   "style": "curious, gentle, inner voice",
+   "text": "Apakah aku tetap akan membeli barang tambahan ini, kalau tidak ada promo gratis ongkir?",
+   "cap": "Apakah aku tetap akan membeli barang *tambahan* ini, kalau tidak ada promo gratis ongkir?",
    "kunci": [
-    "hapus",
-    "keranjang"
+    "tambahan",
+    "membeli"
    ]
   },
   {
    "id": "s8",
-   "gap": 0.2,
-   "style": "clear, confident",
-   "text": "Langkah ketiga: gabung belanja dengan teman.",
-   "cap": "3. *Gabung belanja* dengan teman",
+   "gap": 0.3,
+   "style": "clear explainer, curious",
+   "text": "Kalau jawabannya tidak, kemungkinan besar barang itu memang tidak kamu butuhkan.",
+   "cap": "Kalau jawabannya tidak, *kemungkinan* besar barang itu memang tidak kamu butuhkan.",
    "kunci": [
-    "ketiga",
-    "gabung"
+    "kemungkinan",
+    "jawabannya"
    ]
   },
   {
    "id": "s9",
+   "gap": 0.2,
+   "style": "clear, confident",
+   "text": "Ketiga, manfaatkan promo hanya ketika memang ada barang lain yang sudah kamu rencanakan untuk dibeli.",
+   "cap": "Ketiga, manfaatkan promo hanya ketika memang ada barang lain yang sudah kamu *rencanakan* untuk dibeli.",
+   "kunci": [
+    "rencanakan",
+    "manfaatkan"
+   ]
+  },
+  {
+   "id": "s10",
    "gap": 0.9,
    "style": "warm, clear",
-   "text": "Atau tunggu sampai memang ada barang lain yang kamu butuhkan.",
-   "cap": "Atau tunggu *barang yang dibutuhkan*",
+   "text": "Kamu juga bisa menggabungkan pesanan dengan teman, jika memang lebih hemat.",
+   "cap": "Kamu juga bisa *menggabungkan* pesanan dengan teman, jika memang lebih hemat.",
    "kunci": [
-    "tunggu",
-    "butuhkan"
+    "menggabungkan",
+    "pesanan"
    ]
   },
   {
    "id": "r1",
-   "gap": 0.5,
-   "style": "warm, reflective, slower",
-   "text": "Ingat ya: gratis itu belum tentu untung. Kadang, justru yang paling mahal.",
-   "cap": "Gratis *belum tentu untung*",
+   "gap": 0.2,
+   "style": "warm, reflective",
+   "text": "Jadi, ingat satu hal.",
+   "cap": "Jadi, ingat satu hal.",
+   "kunci": []
+  },
+  {
+   "id": "r2",
+   "gap": 0.2,
+   "style": "warm, emphatic",
+   "text": "Gratis belum tentu berarti untung.",
+   "cap": "Gratis belum tentu *berarti* untung.",
    "kunci": [
-    "belum tentu",
-    "mahal"
+    "berarti",
+    "gratis"
+   ]
+  },
+  {
+   "id": "r3",
+   "gap": 0.6,
+   "style": "warm, reflective",
+   "text": "Terkadang, sesuatu yang terlihat gratis justru membuat kita mengeluarkan uang lebih banyak.",
+   "cap": "Terkadang, sesuatu yang terlihat gratis justru membuat kita *mengeluarkan* uang lebih banyak.",
+   "kunci": [
+    "mengeluarkan",
+    "terkadang"
    ]
   },
   {
    "id": "c1",
    "gap": 0.2,
    "style": "warm, inviting, friendly",
-   "text": "Nah, sekarang giliran kamu.",
-   "cap": "Sekarang *giliran kamu*",
+   "text": "Nah, sekarang giliran kamu!",
+   "cap": "Nah, *sekarang* giliran kamu!",
    "kunci": [
+    "sekarang",
     "giliran"
    ]
   },
@@ -470,49 +615,51 @@
    "id": "c2",
    "gap": 0.2,
    "style": "playful, curious",
-   "text": "Barang paling nggak berguna yang pernah kamu beli demi gratis ongkir, apa?",
-   "cap": "Barang *paling nggak berguna?*",
+   "text": "Apa barang paling tidak berguna yang pernah kamu beli, hanya demi mendapatkan gratis ongkir?",
+   "cap": "Apa barang paling tidak berguna yang pernah kamu beli, hanya demi *mendapatkan* gratis ongkir?",
    "kunci": [
+    "mendapatkan",
     "berguna"
    ]
   },
   {
-   "id": "c2b",
-   "gap": 0.2,
-   "style": "playful",
-   "text": "Contohnya: stiker kucing yang sampai sekarang belum dipakai.",
-   "cap": "Contoh: *stiker kucing* yang belum dipakai",
-   "kunci": [
-    "stiker"
-   ]
-  },
-  {
    "id": "c3",
-   "gap": 0.2,
-   "style": "cheerful, teasing",
-   "text": "Tulis di komentar. Aku penasaran, siapa yang paling parah.",
-   "cap": "*Tulis di komentar!*",
+   "gap": 0.3,
+   "style": "playful, self-mocking",
+   "text": "Kalau aku, bayangkan membeli stiker kucing, hanya supaya keranjang belanja memenuhi batas minimum!",
+   "cap": "Kalau aku, *bayangkan* membeli stiker kucing, hanya supaya keranjang belanja memenuhi batas minimum!",
    "kunci": [
-    "komentar",
-    "parah"
+    "bayangkan",
+    "keranjang"
    ]
   },
   {
    "id": "c4",
-   "gap": 0.45,
-   "style": "friendly, warm",
-   "text": "Simpan video ini. Buka lagi sebelum kamu tekan tombol bayar.",
-   "cap": "*Simpan*, buka sebelum bayar",
+   "gap": 0.3,
+   "style": "cheerful, inviting",
+   "text": "Tulis pengalamanmu di komentar. Aku penasaran, siapa yang pernah mengalami kejadian paling konyol.",
+   "cap": "Tulis *pengalamanmu* di komentar. Aku penasaran, siapa yang pernah mengalami kejadian paling konyol.",
    "kunci": [
-    "simpan",
-    "bayar"
+    "pengalamanmu",
+    "mengalami"
+   ]
+  },
+  {
+   "id": "c5",
+   "gap": 0.5,
+   "style": "friendly, warm",
+   "text": "Dan simpan video ini. Siapa tahu, lain kali kamu membukanya sebelum menekan tombol bayar.",
+   "cap": "Dan simpan video ini. Siapa tahu, lain kali kamu *membukanya* sebelum menekan tombol bayar.",
+   "kunci": [
+    "membukanya",
+    "sebelum"
    ]
   },
   {
    "id": "z",
-   "gap": 0.0,
+   "gap": 0,
    "style": "warm, confident, gentle smile in the voice, medium tempo",
-   "text": "Explore More, Know More.",
+   "text": "Adriy.Project. Explore More. Know More.",
    "cap": "",
    "kunci": []
   }

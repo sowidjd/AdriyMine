@@ -49,7 +49,7 @@ if 'z' in L:    # closing card: music fades out together with the warm sting
 fade = np.ones(N); fade[:int(.3 * SR)] = np.linspace(0, 1, int(.3 * SR)); fade[-int(.6 * SR):] = np.linspace(1, 0, int(.6 * SR)); music *= fade
 sfx = np.zeros((2, N), np.float32); miss = []
 for t, f, g in json.load(open(os.path.join(D, 'cues.json'))):
-    p = os.path.join(ROOT, 'projects', 'sfx-saya', 'mixkit', 'normal', f[3:] + '.wav') if f.startswith('mk:') else os.path.join(ROOT, 'repos', 'sfx-kit', 'sounds', f + '.wav')
+    p = os.path.join(ROOT, 'projects', 'sfx-saya', 'mixkit', 'normal', f[3:] + '.wav') if f.startswith('mk:') else os.path.join(ROOT, 'projects', '_bersama', 'sfx', f[4:] + '.wav') if f.startswith('own:') else os.path.join(ROOT, 'repos', 'sfx-kit', 'sounds', f + '.wav')
     if not os.path.exists(p): miss.append(f); continue
     s = load(p)
     if f.startswith('mk:') and s.shape[1] > 6 * SR: s = s[:, :int(6 * SR)] * np.r_[np.ones(int(5 * SR)), np.linspace(1, 0, int(1 * SR))]   # long ambiences: 6 s max
