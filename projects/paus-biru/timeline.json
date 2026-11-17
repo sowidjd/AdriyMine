@@ -1,298 +1,298 @@
 {
- "duration": 175.074,
+ "duration": 166.657,
  "lines": [
   {
    "id": "h1",
    "t0": 0.3,
-   "t1": 3.521,
+   "t1": 3.266,
    "cap": "Jantungmu: *± 60×* semenit"
   },
   {
    "id": "h2",
-   "t0": 3.671,
-   "t1": 7.143,
+   "t0": 3.416,
+   "t1": 6.879,
    "cap": "Paus biru: *cuma 2×*"
   },
   {
    "id": "h3",
-   "t0": 7.393,
-   "t1": 8.58,
+   "t0": 7.129,
+   "t1": 8.433,
    "cap": "Dan dia *baik-baik saja*"
   },
   {
    "id": "h4",
-   "t0": 8.78,
-   "t1": 11.243,
+   "t0": 8.633,
+   "t1": 10.74,
    "cap": "Gimana bisa? *Kita bahas.*"
   },
   {
    "id": "m1",
-   "t0": 12.143,
-   "t1": 14.008,
+   "t0": 11.64,
+   "t1": 13.743,
    "cap": "Bayangin kamu *menyelam*"
   },
   {
    "id": "m2",
-   "t0": 14.208,
-   "t1": 16.97,
+   "t0": 13.943,
+   "t1": 16.957,
    "cap": "Dada mulai *sesak*"
   },
   {
    "id": "m3",
-   "t0": 17.17,
-   "t1": 19.341,
+   "t0": 17.157,
+   "t1": 19.57,
    "cap": "Buru-buru *ambil napas*"
   },
   {
    "id": "m4",
-   "t0": 19.641,
-   "t1": 22.425,
+   "t0": 19.87,
+   "t1": 22.98,
    "cap": "Tubuh butuh *oksigen terus*"
   },
   {
    "id": "m5",
-   "t0": 22.625,
-   "t1": 24.357,
+   "t0": 23.18,
+   "t1": 25.523,
    "cap": "Otak & otot *minta oksigen*"
   },
   {
    "id": "m6",
-   "t0": 24.557,
-   "t1": 28.252,
+   "t0": 25.723,
+   "t1": 29.061,
    "cap": "Darah dipompa *jantung*"
   },
   {
    "id": "m7",
-   "t0": 29.152,
-   "t1": 33.281,
+   "t0": 29.961,
+   "t1": 33.441,
    "cap": "Sekarang jadi *paus biru*"
   },
   {
    "id": "m8",
-   "t0": 33.481,
-   "t1": 34.956,
+   "t0": 33.641,
+   "t1": 35.487,
    "cap": "Hewan *terbesar* yang pernah hidup"
   },
   {
    "id": "m9",
-   "t0": 35.156,
-   "t1": 37.145,
+   "t0": 35.687,
+   "t1": 37.958,
    "cap": "Panjang *> 30 meter*"
   },
   {
    "id": "m10",
-   "t0": 37.345,
-   "t1": 40.16,
+   "t0": 38.158,
+   "t1": 40.6,
    "cap": "≈ *2,5 bus kota*"
   },
   {
    "id": "m11",
-   "t0": 40.46,
-   "t1": 44.247,
+   "t0": 40.9,
+   "t1": 44.046,
    "cap": "Napas pakai *paru-paru*"
   },
   {
    "id": "m12",
-   "t0": 44.447,
-   "t1": 46.387,
+   "t0": 44.246,
+   "t1": 46.341,
    "cap": "Makanan di *bawah laut*"
   },
   {
    "id": "m13",
-   "t0": 46.587,
-   "t1": 50.471,
+   "t0": 46.541,
+   "t1": 49.996,
    "cap": "Tahan napas, *menyelam dalam*"
   },
   {
    "id": "m14",
-   "t0": 50.671,
-   "t1": 52.949,
+   "t0": 50.196,
+   "t1": 52.876,
    "cap": "Oksigennya *dari mana?*"
   },
   {
    "id": "d1",
-   "t0": 53.849,
-   "t1": 58.499,
+   "t0": 53.776,
+   "t1": 57.687,
    "cap": "Dikira: memompa *super kencang*"
   },
   {
    "id": "d2",
-   "t0": 58.699,
-   "t1": 60.58,
+   "t0": 57.887,
+   "t1": 59.903,
    "cap": "Biar sampai *ujung ekor*"
   },
   {
    "id": "d3",
-   "t0": 60.78,
-   "t1": 62.22,
+   "t0": 60.103,
+   "t1": 61.393,
    "cap": "Masuk akal..."
   },
   {
    "id": "d4",
-   "t0": 62.42,
-   "t1": 65.441,
+   "t0": 61.593,
+   "t1": 63.457,
    "cap": "Ternyata *kebalikannya*"
   },
   {
    "id": "a1",
-   "t0": 66.341,
-   "t1": 70.851,
+   "t0": 64.357,
+   "t1": 68.161,
    "cap": "Waktu kami di *Adriy.Project* baca catatannya..."
   },
   {
    "id": "a1b",
-   "t0": 71.751,
-   "t1": 73.304,
+   "t0": 69.061,
+   "t1": 70.69,
    "cap": "...kami sampai *menghitung ulang*"
   },
   {
    "id": "p1",
-   "t0": 73.704,
-   "t1": 79.815,
+   "t0": 71.09,
+   "t1": 75.635,
    "cap": "2019: alat perekam dari *Stanford*"
   },
   {
    "id": "p2",
-   "t0": 80.015,
-   "t1": 82.649,
+   "t0": 75.835,
+   "t1": 78.535,
    "cap": "Rekaman detak jantung paus biru *pertama*"
   },
   {
    "id": "p3",
-   "t0": 82.849,
-   "t1": 87.479,
+   "t0": 78.735,
+   "t1": 83.085,
    "cap": "Saat menyelam: *4–8×* semenit"
   },
   {
    "id": "p4",
-   "t0": 87.679,
-   "t1": 89.549,
+   "t0": 83.285,
+   "t1": 84.881,
    "cap": "Paling lambat: *2×!*"
   },
   {
    "id": "p5",
-   "t0": 89.849,
-   "t1": 93.212,
+   "t0": 85.181,
+   "t1": 88.352,
    "cap": "Jeda antar detak: *± 30 detik*"
   },
   {
    "id": "p6",
-   "t0": 93.512,
-   "t1": 96.336,
+   "t0": 88.652,
+   "t1": 91.312,
    "cap": "Lambat = *oksigen hemat*"
   },
   {
    "id": "p7",
-   "t0": 96.536,
-   "t1": 98.284,
+   "t0": 91.512,
+   "t1": 92.966,
    "cap": "Kuat menyelam *lebih lama*"
   },
   {
    "id": "p8",
-   "t0": 98.484,
-   "t1": 103.54,
+   "t0": 93.166,
+   "t1": 97.189,
    "cap": "Saat menerjang makanan: naik *± 2,5×*"
   },
   {
    "id": "p9",
-   "t0": 103.74,
-   "t1": 108.293,
+   "t0": 97.389,
+   "t1": 103.112,
    "cap": "Pembuluh besar yang *lentur* ikut mendorong"
   },
   {
    "id": "s1",
-   "t0": 109.193,
-   "t1": 112.156,
+   "t0": 104.012,
+   "t1": 106.888,
    "cap": "Saat naik untuk *bernapas?*"
   },
   {
    "id": "s2",
-   "t0": 112.356,
-   "t1": 116.31,
+   "t0": 107.088,
+   "t1": 110.631,
    "cap": "Ngebut sampai *± 37×*"
   },
   {
    "id": "s3",
-   "t0": 116.51,
-   "t1": 118.921,
+   "t0": 110.831,
+   "t1": 113.93,
    "cap": "Oksigen baru *cepat tersebar*"
   },
   {
    "id": "s4",
-   "t0": 119.221,
-   "t1": 123.834,
+   "t0": 114.23,
+   "t1": 119.148,
    "cap": "Jawabannya: jago *ngerem* & jago *ngegas*"
   },
   {
    "id": "s5",
-   "t0": 124.234,
-   "t1": 129.236,
+   "t0": 119.548,
+   "t1": 123.496,
    "cap": "Jantungnya hampir di *batas maksimal*"
   },
   {
    "id": "s6",
-   "t0": 129.436,
-   "t1": 133.493,
+   "t0": 123.696,
+   "t1": 128.92,
    "cap": "Mungkin itu sebab tak ada yang *lebih besar*"
   },
   {
    "id": "s7",
-   "t0": 134.393,
-   "t1": 137.14,
+   "t0": 129.82,
+   "t1": 131.891,
    "cap": "Kita juga punya *rem kecil*"
   },
   {
    "id": "s8",
-   "t0": 137.34,
-   "t1": 142.069,
+   "t0": 132.091,
+   "t1": 137.112,
    "cap": "Wajah di air dingin = *detak melambat*"
   },
   {
    "id": "s9",
-   "t0": 142.269,
-   "t1": 144.219,
+   "t0": 137.312,
+   "t1": 139.198,
    "cap": "...tapi *jauh lebih kecil*"
   },
   {
    "id": "r1",
-   "t0": 145.119,
-   "t1": 150.162,
+   "t0": 140.098,
+   "t1": 145.362,
    "cap": "Pelan justru *kunci bertahan*"
   },
   {
    "id": "c1",
-   "t0": 150.662,
-   "t1": 152.258,
+   "t0": 145.862,
+   "t1": 147.741,
    "cap": "Sekarang *giliran kamu*"
   },
   {
    "id": "c2",
-   "t0": 152.458,
-   "t1": 155.873,
+   "t0": 147.941,
+   "t1": 151.108,
    "cap": "Tahan napas *10 detik*..."
   },
   {
    "id": "c3",
-   "t0": 156.073,
-   "t1": 160.518,
+   "t0": 151.308,
+   "t1": 155.241,
    "cap": "Tulis *\"lambat\"* atau *\"kencang\"* di komentar!"
   },
   {
    "id": "c4",
-   "t0": 160.718,
-   "t1": 164.242,
+   "t0": 155.441,
+   "t1": 158.631,
    "cap": "Siapa yang paling *mirip paus?*"
   },
   {
    "id": "c5",
-   "t0": 164.442,
-   "t1": 170.91,
+   "t0": 158.831,
+   "t1": 163.688,
    "cap": "*Simpan* buat pamer ke teman"
   },
   {
    "id": "z",
-   "t0": 171.36,
-   "t1": 173.874,
+   "t0": 164.138,
+   "t1": 165.457,
    "cap": ""
   }
  ]
