@@ -1,0 +1,140 @@
+{
+ "duration": 97.62,
+ "lines": [
+  {
+   "id": "n0",
+   "t0": 0.0,
+   "t1": 5.92,
+   "cap": "Pernah sedang berkendara, lalu tiba-tiba kaca mobil bagian depan berubah buram seperti tertutup kabut,"
+  },
+  {
+   "id": "n1",
+   "t0": 5.92,
+   "t1": 10.2,
+   "cap": "padahal tidak hujan, dan kamu masih bisa melihat jalan sebelumnya dengan jelas."
+  },
+  {
+   "id": "n2",
+   "t0": 11.04,
+   "t1": 14.52,
+   "cap": "Banyak orang langsung mengelap kaca menggunakan tangan atau kain,"
+  },
+  {
+   "id": "n3",
+   "t0": 14.66,
+   "t1": 17.68,
+   "cap": "tapi beberapa detik kemudian, kabutnya muncul lagi."
+  },
+  {
+   "id": "n4",
+   "t0": 17.86,
+   "t1": 19.62,
+   "cap": "Kenapa bisa begitu?"
+  },
+  {
+   "id": "n5",
+   "t0": 19.88,
+   "t1": 28.98,
+   "cap": "Sebenarnya, kabut itu terbentuk dari uap air di udara yang berubah menjadi titik-titik air kecil ketika menyentuh permukaan kaca yang lebih dingin."
+  },
+  {
+   "id": "n6",
+   "t0": 29.1,
+   "t1": 33.28,
+   "cap": "Hal ini sering terjadi ketika suhu di dalam mobil berbeda dengan suhu kaca."
+  },
+  {
+   "id": "n7",
+   "t0": 33.42,
+   "t1": 37.3,
+   "cap": "Apalagi jika udara di dalam kabin lembab karena napas penumpang,"
+  },
+  {
+   "id": "n8",
+   "t0": 37.32,
+   "t1": 40.16,
+   "cap": "sementara kaca terkena udara dingin dari luar."
+  },
+  {
+   "id": "n9",
+   "t0": 40.9,
+   "t1": 47.5,
+   "cap": "Nah, cara paling efektif bukan sekadar mengelapnya, tetapi menghilangkan penyebab terbentuknya kabut."
+  },
+  {
+   "id": "n10",
+   "t0": 47.62,
+   "t1": 53.56,
+   "cap": "Nyalakan AC, arahkan aliran udara ke kaca depan, dan gunakan udara dari luar jika memungkinkan."
+  },
+  {
+   "id": "n11",
+   "t0": 53.64,
+   "t1": 61.3,
+   "cap": "AC membantu mengurangi kelembapan udara di dalam kabin, sementara aliran udara membantu menghilangkan kabut dari permukaan kaca."
+  },
+  {
+   "id": "n12",
+   "t0": 61.44,
+   "t1": 68.82,
+   "cap": "Jika diperlukan, gunakan suhu udara yang sedikit lebih hangat untuk membantu menaikkan suhu permukaan kaca sehingga kondensasi berkurang."
+  },
+  {
+   "id": "n13",
+   "t0": 69.72,
+   "t1": 74.5,
+   "cap": "Tapi ingat, jangan sibuk mengutak-atik pengaturan saat sedang berkendara."
+  },
+  {
+   "id": "n14",
+   "t0": 74.62,
+   "t1": 79.4,
+   "cap": "Jika pandangan terlalu terganggu, berhenti terlebih dahulu di tempat yang aman."
+  },
+  {
+   "id": "n15",
+   "t0": 79.98,
+   "t1": 83.46,
+   "cap": "Hal sederhana ini bisa membuat perjalanan jauh lebih aman."
+  },
+  {
+   "id": "n16",
+   "t0": 83.86,
+   "t1": 88.98,
+   "cap": "Karena terkadang, masalah yang terlihat sepele ternyata bisa mengganggu sesuatu yang sangat penting,"
+  },
+  {
+   "id": "n17",
+   "t0": 89.06,
+   "t1": 91.1,
+   "cap": "kemampuan kita melihat jalan."
+  },
+  {
+   "id": "a1",
+   "t0": 91.38,
+   "t1": 93.54,
+   "cap": "Inilah Adriy.Project."
+  },
+  {
+   "id": "z",
+   "t0": 93.54,
+   "t1": 95.82,
+   "cap": ""
+  }
+ ],
+ "tanda": {
+  "buram": 4.08,
+  "kain": 13.92,
+  "muncul": 16.72,
+  "dingin": 27.8,
+  "napas": 36.06,
+  "luar": 39.58,
+  "ac": 48.2,
+  "arahkan": 48.98,
+  "luar2": 52.38,
+  "hangat": 64.54,
+  "jangan": 70.94,
+  "berhenti": 76.76,
+  "melihat": 89.7
+ }
+}

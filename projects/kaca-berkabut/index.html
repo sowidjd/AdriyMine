@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Kaca mobil berkabut</title>
+<style>
+@font-face { font-family: 'Fredoka'; src: url(../_bersama/fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; }
+html,body{margin:0;background:#222}canvas{height:100vh;display:block;margin:auto}
+</style></head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script src="../_bersama/dasar.js"></script>
+<script>
+// "Kaca mobil berkabut" (narasi dari pemilik) — gaya FLAT VECTOR MALAM dari kursi pengemudi: bidang warna datar, bayangan lembut,
+// lampu jalan & dasbor yang menyala. Kabut = lapisan putih yang benar-benar menutup jalan; dilap = lubang yang menutup lagi; AC = kabut menguap.
+const SKY1 = '#141B33', SKY2 = '#2B3561', ROAD = '#2A2D38', DASH = '#1C1E26', INK = '#11131A', AMB = '#FFB547', BLUE = '#5EC8FF', WARM = '#FF8A5B', MINT = '#7CE0B4', WHITE = '#F3F6FA';
+let FOGTEX = null, FOGC = null;
+const GAYA = {
+  ink: '#1A1A22', hi: AMB, card: '#FFFFFF',
+  init() { FOGTEX = document.createElement('canvas'); FOGTEX.width = 1080; FOGTEX.height = 900; const q = FOGTEX.getContext('2d'); q.fillStyle = 'rgba(225,232,240,0.86)'; q.fillRect(0, 0, 1080, 900);
+    for (let i = 0; i < 500; i++) { const g = q.createRadialGradient(0, 0, 0, 0, 0, 60); const x = hash(i) * 1080, y = hash(i + 9) * 900, r = 20 + 80 * hash(i + 3); g.addColorStop(0, `rgba(255,255,255,${.25 * hash(i + 5)})`); g.addColorStop(1, 'rgba(255,255,255,0)'); q.save(); q.translate(x, y); q.scale(r / 60, r / 60); q.fillStyle = g; q.fillRect(-60, -60, 120, 120); q.restore(); }
+    FOGC = document.createElement('canvas'); FOGC.width = 1080; FOGC.height = 900; },
+  shape(pts, col, id, o = {}) { const p = pathOf(pts); if (!o.text && o.shadow !== false) { ctx.save(); ctx.translate(0, 8); ctx.fillStyle = 'rgba(0,0,0,0.25)'; ctx.fill(p); ctx.restore(); } ctx.fillStyle = rgba(col, o.fill ?? 1); ctx.fill(p); if (o.line) { ctx.strokeStyle = INK; ctx.lineWidth = o.lw ?? 3; ctx.stroke(p); } if (o.text) { ctx.strokeStyle = 'rgba(0,0,0,0.15)'; ctx.lineWidth = 2; ctx.stroke(p); } },
+  line(pts, lw, col = INK, id, a = 1) { ctx.strokeStyle = rgba(col, a); ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke(pathOf(pts, false)); },
+  bg() { ctx.fillStyle = '#0F1424'; ctx.fillRect(0, 0, W, H); },
+  trans(k, drawPrev) { ctx.save(); ctx.globalAlpha = 1 - ease(k); drawPrev(); ctx.restore(); },   // a soft cross-fade, like a camera refocus
+  post() {},
+};
+const age = id => T - t0(id), TD = k => TL.tanda[k];
+const WS = [[90, 400], [990, 400], [1040, 1150], [40, 1150]];   // the windshield
+function road(t, speed = 1) {   // night road seen through the windshield
+  const g = ctx.createLinearGradient(0, 400, 0, 760); g.addColorStop(0, SKY1); g.addColorStop(1, SKY2); ctx.fillStyle = g; ctx.fillRect(0, 380, W, 400);
+  for (let i = 0; i < 30; i++) { ctx.fillStyle = 'rgba(255,255,255,0.6)'; ctx.fillRect(hash(i) * W, 420 + hash(i + 3) * 200, 2, 2); }
+  for (let i = 0; i < 5; i++) GAYA.shape([[i * 240 - 40, 760], [i * 240 + 40, 640 - 60 * hash(i)], [i * 240 + 160, 700 - 40 * hash(i + 2)], [i * 240 + 220, 760]], '#1E2546', 10 + i, { shadow: false });
+  GAYA.shape([[0, 760], [W, 760], [W, 1160], [0, 1160]], '#20232C', 20, { shadow: false }); GAYA.shape([[470, 760], [610, 760], [1080, 1160], [0, 1160]], ROAD, 21, { shadow: false });
+  for (let i = 0; i < 6; i++) { const p = ((t * .6 * speed + i / 6) % 1), y = lerp(770, 1160, p * p), w = lerp(4, 40, p * p), l = lerp(8, 90, p * p); ctx.fillStyle = '#E8E2C8'; ctx.fillRect(540 - w / 2, y, w, l); }
+  for (let s = -1; s <= 1; s += 2) for (let i = 0; i < 3; i++) { const p = ((t * .35 * speed + i / 3) % 1), x = 540 + s * lerp(90, 640, p * p), y = lerp(760, 380, p * p * .9), h = lerp(30, 420, p * p);
+    GAYA.line([[x, y + h], [x, y]], lerp(2, 12, p), '#4A4F63', 30 + i, 1); const gl = ctx.createRadialGradient(x, y, 0, x, y, lerp(10, 120, p)); gl.addColorStop(0, 'rgba(255,200,120,0.9)'); gl.addColorStop(1, 'rgba(255,200,120,0)'); ctx.fillStyle = gl; ctx.beginPath(); ctx.arc(x, y, lerp(10, 120, p), 0, TAU); ctx.fill(); }
+  ctx.fillStyle = '#FF3B3B'; for (const d of [-1, 1]) { ctx.beginPath(); ctx.arc(540 + d * 22 + 30 * Math.sin(t * .4), 800, 6, 0, TAU); ctx.fill(); }
+}
+function fogLayer(level, holes = [], drops = 0) {   // level 0..1; holes: [x, y, r] wiped circles (in canvas coords)
+  if (level <= 0) return; const q = FOGC.getContext('2d'); q.globalCompositeOperation = 'source-over'; q.clearRect(0, 0, 1080, 900); q.globalAlpha = 1; q.drawImage(FOGTEX, 0, 0);
+  q.globalCompositeOperation = 'destination-out'; for (const [x, y, r, a = 1] of holes) { const g = q.createRadialGradient(x, y - 380, r * .6, x, y - 380, r); g.addColorStop(0, `rgba(0,0,0,${a})`); g.addColorStop(1, 'rgba(0,0,0,0)'); q.fillStyle = g; q.fillRect(x - r, y - 380 - r, 2 * r, 2 * r); }
+  ctx.save(); ctx.clip(pathOf(WS)); ctx.globalAlpha = clamp(level); ctx.drawImage(FOGC, 0, 380); ctx.restore();
+  ctx.save(); ctx.clip(pathOf(WS)); for (let i = 0; i < 70 * drops; i++) { const x = 90 + hash(i * 3) * 900, y = 420 + hash(i * 7) * 700, r = 3 + 6 * hash(i); ctx.fillStyle = 'rgba(200,215,230,0.7)'; ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill(); ctx.fillStyle = 'rgba(255,255,255,0.9)'; ctx.beginPath(); ctx.arc(x - r * .3, y - r * .3, r * .3, 0, TAU); ctx.fill(); } ctx.restore();
+}
+function cabin(t, o = {}) {   // pillars, dashboard, steering wheel, mirror
+  GAYA.shape([[0, 300], [90, 400], [40, 1150], [0, 1150]], DASH, 40, { shadow: false }); GAYA.shape([[W, 300], [990, 400], [1040, 1150], [W, 1150]], DASH, 41, { shadow: false }); GAYA.shape([[0, 300], [W, 300], [990, 400], [90, 400]], DASH, 42, { shadow: false });
+  GAYA.shape(rr(460, 400, 160, 60, 14), '#2C2F3A', 43, {}); GAYA.shape([[0, 1130], [W, 1130], [W, 1920], [0, 1920]], DASH, 44, { shadow: false }); GAYA.shape(rr(60, 1160, 960, 70, 30), '#262935', 45, { shadow: false });
+  ctx.strokeStyle = '#30333F'; ctx.lineWidth = 46; ctx.beginPath(); ctx.arc(540, 1640, 330, Math.PI * 1.08, Math.PI * 1.92); ctx.stroke(); GAYA.shape(ell(540, 1640, 110, 80, 24), '#2C2F3A', 46, {});
+  if (o.vents) for (const x of [180, 900]) { GAYA.shape(rr(x - 70, 1250, 140, 70, 16), '#30333F', 47, {}); for (let i = 0; i < 3; i++) GAYA.line([[x - 50, 1268 + i * 18], [x + 50, 1268 + i * 18]], 4, '#4A4E5C', 48 + i); }
+}
+function dashUI(x, y, s, on, label, icon) { ctx.save(); ctx.translate(x, y); ctx.scale(s, s); GAYA.shape(rr(-80, -80, 160, 160, 34), on ? '#203A4A' : '#2C2F3A', 60, {}); if (on) { ctx.save(); ctx.shadowColor = BLUE; ctx.shadowBlur = 30; } icon(on ? BLUE : '#8A8FA0'); if (on) ctx.restore(); ctx.font = `700 30px ${FONT}`; ctx.fillStyle = on ? BLUE : '#8A8FA0'; ctx.textAlign = 'center'; ctx.fillText(label, 0, 120); ctx.textAlign = 'left'; ctx.restore(); }
+function arrow(x0, y0, x1, y1, col, a = 1, w = 14) { GAYA.line([[x0, y0], [x1, y1]], w, col, 70, a); const an = Math.atan2(y1 - y0, x1 - x0); ctx.fillStyle = rgba(col, a); ctx.beginPath(); ctx.moveTo(x1 + Math.cos(an) * 20, y1 + Math.sin(an) * 20); ctx.lineTo(x1 + Math.cos(an + 2.5) * 30, y1 + Math.sin(an + 2.5) * 30); ctx.lineTo(x1 + Math.cos(an - 2.5) * 30, y1 + Math.sin(an - 2.5) * 30); ctx.fill(); }
+function hand(x, y, s, cloth) { ctx.save(); ctx.translate(x, y); ctx.scale(s, s); if (cloth) GAYA.shape([[-90, -40], [70, -70], [100, 50], [-70, 70]], '#E4574C', 80, {}); GAYA.shape(rr(-40, 30, 80, 200, 30), '#E8B48F', 81, {}); ctx.restore(); }
+function molecule(x, y, s, col = BLUE) { GAYA.shape(ell(x, y, 16 * s, 16 * s, 16), col, 90, { shadow: false }); for (const d of [-1, 1]) GAYA.shape(ell(x + d * 18 * s, y + 12 * s, 9 * s, 9 * s, 12), WHITE, 91, { shadow: false }); }
+function thermo(x, y, v, col, label) { GAYA.shape(rr(x - 26, y - 220, 52, 240, 26), '#2C2F3A', 95, {}); GAYA.shape(rr(x - 14, y - 20 - 190 * v, 28, 190 * v + 10, 14), col, 96, { shadow: false }); GAYA.shape(ell(x, y + 20, 40, 40, 20), col, 97, {}); ctx.font = `700 36px ${FONT}`; ctx.fillStyle = WHITE; ctx.textAlign = 'center'; ctx.fillText(label, x, y + 100); ctx.textAlign = 'left'; }
+function title(s, a, y = 250, size = 66, col = WHITE) { if (a < 0) return; ctx.save(); ctx.globalAlpha = seg(a, 0, .35); ctx.font = `700 ${size}px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = col; ctx.fillText(s, 540, y); ctx.textAlign = 'left'; ctx.restore(); }
+// ---------- scenes ----------
+GROUPS = [['hook', ['n0', 'n1']], ['lap', ['n2', 'n3']], ['kenapa', ['n4']], ['sains', ['n5']], ['suhu', ['n6', 'n7', 'n8']], ['cara', ['n9']], ['ac', ['n10', 'n11']], ['hangat', ['n12']], ['aman', ['n13', 'n14']], ['akhir2', ['n15', 'n16', 'n17']], ['brand', ['a1']], ['akhir', ['z']]];
+// HOOK: driving at night, clear view; then the windshield slowly fogs over; "no rain" — a dry sky icon
+S.hook = (t) => { road(t); fogLayer(ease(seg(t, TD('buram') - 1.5, TD('buram') + 1.2)), [], 0); cabin(t);
+  if (t > t0('n1') + 1.5) { GAYA.shape(rr(380, 1300, 320, 160, 30), '#2C2F3A', 100, {}); ctx.font = `700 40px ${FONT}`; ctx.fillStyle = WHITE; ctx.textAlign = 'center'; ctx.fillText('tidak hujan', 540, 1395); ctx.textAlign = 'left'; GAYA.line([[420, 1340], [660, 1420]], 8, '#FF5A5A', 101); }
+  title(t < TD('buram') ? 'Lagi nyetir malam...' : 'Kaca tiba-tiba BURAM', t < TD('buram') ? t + .2 : t - TD('buram'), 220, 64); };
+// LAP: a hand with a cloth wipes a clear arc... and the fog creeps back
+S.lap = (t) => { road(t); const w = seg(t, TD('kain') - .3, TD('kain') + 1.8), back = seg(t, TD('muncul') - .5, TD('muncul') + 1.5);
+  const holes = []; for (let i = 0; i < 12; i++) { const u = i / 11; if (u <= w) holes.push([300 + u * 480, 760 + Math.sin(u * Math.PI) * -120, 150, 1 - back]); } fogLayer(1, holes, back * .8); cabin(t);
+  if (w > 0 && w < 1) hand(300 + w * 480, 760 - Math.sin(w * Math.PI) * 120, 1.2, true); title(t < t0('n3') ? 'Dilap pakai tangan/kain...' : '...kabutnya MUNCUL LAGI', t < t0('n3') ? age('n2') : age('n3'), 220, 60, t < t0('n3') ? WHITE : AMB);
+  clawd(900, 1560, 14, { face: back > 0 ? 'worried' : 'curious', mark: back > .5 ? 'sweat' : null, markAge: back }); };
+// KENAPA: a finger draws a big "?" in the fog
+S.kenapa = (t) => { road(t); const a = age('n4'), p = seg(a, .1, 1.4), pts = []; for (let i = 0; i <= 40; i++) { const u = i / 40 * p; if (u < .75) { const an = -Math.PI * .9 + u / .75 * Math.PI * 1.5; pts.push([540 + Math.cos(an) * 120, 680 + Math.sin(an) * 120]); } else pts.push([540, 800 + (u - .75) / .25 * 80]); }
+  const holes = pts.map(([x, y]) => [x, y, 34, 1]); if (p >= 1) holes.push([540, 1000, 30, 1]); fogLayer(1, holes, .5); cabin(t); title('Kenapa bisa begitu?', a, 220, 70, AMB); };
+// SAINS: zoom: water vapour molecules in warm air hit the cold glass and turn into tiny droplets
+S.sains = (t) => { const a = age('n5'); ctx.fillStyle = '#1B2338'; ctx.fillRect(0, 0, W, H); GAYA.shape([[620, 380], [700, 380], [700, 1300], [620, 1300]], '#9FD4F2', 110, {}); ctx.font = `700 40px ${FONT}`; ctx.fillStyle = '#9FD4F2'; ctx.fillText('kaca', 720, 420); ctx.fillText('(dingin)', 720, 470);
+  ctx.fillStyle = WARM; ctx.fillText('udara', 120, 420);
+  for (let i = 0; i < 16; i++) { const p = ((a * .25 + i / 16) % 1), x = lerp(120, 600, p), y = 480 + hash(i) * 780 + 30 * Math.sin(T * 3 + i); if (p < .95) molecule(x, y, 1.1); }
+  const nd = Math.floor(seg(a, 2, 8) * 26); for (let i = 0; i < nd; i++) { const y = 460 + hash(i + 40) * 800, r = 8 + 10 * hash(i + 41); GAYA.shape(ell(612, y, r * .7, r, 14), '#CFEAFB', 112 + i, { shadow: false }); }
+  title(a < 4 ? 'Uap air di udara...' : 'kena kaca dingin = TITIK AIR', a < 4 ? a : a - 4, 220, 62, a < 4 ? WHITE : '#9FD4F2'); };
+// SUHU: warm, humid cabin (breath of passengers) vs. glass cooled by the outside air
+S.suhu = (t) => { ctx.fillStyle = '#1B2338'; ctx.fillRect(0, 0, W, H); const a6 = age('n6');
+  thermo(300, 900, .75, WARM, 'dalam mobil'); thermo(780, 900, .25, BLUE, 'kaca');
+  if (t > TD('napas')) { for (let i = 0; i < 6; i++) { const p = ((T * .5 + i / 6) % 1); ctx.fillStyle = `rgba(255,255,255,${.5 * (1 - p)})`; ctx.beginPath(); ctx.arc(200 + p * 220, 1250 - p * 120 + Math.sin(i) * 20, 18 + p * 30, 0, TAU); ctx.fill(); } clawd(170, 1420, 14, { face: 'happy', cheeks: Math.sin(T * 3) > 0 }); title('napas = uap air', Math.min(1, t - TD('napas')), 1180, 44, WHITE); }
+  if (t > TD('luar')) { for (let i = 0; i < 4; i++) arrow(1060, 600 + i * 80, 870, 600 + i * 80, BLUE, .8, 8); title('udara dingin luar', Math.min(1, t - TD('luar')), 520, 40, BLUE); }
+  title('BEDA SUHU = kabut', a6, 220, 70, AMB); };
+// CARA: not just wiping: remove the cause
+S.cara = (t) => { const a = age('n9'); road(t); fogLayer(1, [], .6); cabin(t); hand(360, 820, 1.2, true); const s = seg(a, .6, 1); GAYA.line([[240, 680], [lerp(240, 500, s), lerp(680, 980, s)]], 22, '#FF5A5A', 120); GAYA.line([[500, 680], [lerp(500, 240, s), lerp(680, 980, s)]], 22, '#FF5A5A', 121);
+  if (a > 2.5) { GAYA.shape(rr(560, 700, 440, 200, 30), '#203A4A', 122, {}); ctx.font = `700 46px ${FONT}`; ctx.fillStyle = MINT; ctx.textAlign = 'center'; ctx.fillText('hilangkan', 780, 785); ctx.fillText('PENYEBABNYA', 780, 845); ctx.textAlign = 'left'; }
+  title('Bukan sekadar MENGELAP', a, 220, 64, AMB); };
+// AC: the AC turns on; airflow to the windshield; outside-air mode; the fog clears; humidity drops
+S.ac = (t) => { const on = t > TD('ac'), flow = t > TD('arahkan'), fresh = t > TD('luar2'), clear = ease(seg(t, TD('arahkan') + .5, t1('n11')));
+  road(t); fogLayer(1 - clear, [], .6 * (1 - clear)); cabin(t, { vents: true });
+  if (flow) for (let i = 0; i < 5; i++) { const p = ((T * 1.2 + i / 5) % 1); ctx.save(); ctx.globalAlpha = .7 * (1 - p); arrow(200 + i * 170, 1240 - p * 60, 200 + i * 170, 1100 - p * 260, BLUE, 1, 8); ctx.restore(); }
+  ctx.fillStyle = 'rgba(0,0,0,0.45)'; ctx.fillRect(0, 1150, W, 150);
+  dashUI(280, 1215, .6, on, 'A/C', c2 => { ctx.font = `700 64px ${FONT}`; ctx.fillStyle = c2; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('A/C', 0, 4); });
+  dashUI(540, 1215, .6, flow, 'ke kaca', c2 => { GAYA.line([[-50, 30], [-30, -30], [30, -30], [50, 30]], 6, c2, 61); for (let i = 0; i < 3; i++) GAYA.line([[-20 + i * 20, 40], [-20 + i * 20, 10]], 5, c2, 62 + i); });
+  dashUI(800, 1215, .6, fresh, 'udara luar', c2 => { GAYA.line([[-50, 20], [-50, -30], [50, -30]], 6, c2, 65); arrow(-30, 10, 40, 10, c2, 1, 6); });
+  if (t > t0('n11')) { GAYA.shape(rr(380, 1000, 320, 110, 24), '#203A4A', 130, {}); const h = Math.round(lerp(85, 45, clear)); ctx.font = `700 46px ${FONT}`; ctx.fillStyle = MINT; ctx.textAlign = 'center'; ctx.fillText(`lembap ${h}%`, 540, 1070); ctx.textAlign = 'left'; }
+  title(t < t0('n11') ? 'Nyalakan AC → arahkan ke kaca' : 'Kelembapan TURUN, kabut HILANG', t < t0('n11') ? age('n10') : age('n11'), 220, 54, MINT); };
+// HANGAT: a slightly warmer setting raises the glass temperature; condensation shrinks
+S.hangat = (t) => { const a = age('n12'), w = ease(seg(t, TD('hangat'), TD('hangat') + 2)); road(t); fogLayer(.25 * (1 - w), [], .4 * (1 - w)); cabin(t, { vents: true });
+  ctx.fillStyle = 'rgba(0,0,0,0.45)'; ctx.fillRect(0, 1150, W, 150); GAYA.shape(ell(540, 1225, 60, 60, 40), '#2C2F3A', 140, {}); const an = lerp(-2.3, .2, w); GAYA.line([[540, 1225], [540 + Math.cos(an) * 46, 1225 + Math.sin(an) * 46]], 10, w > .5 ? WARM : BLUE, 141);
+  const g = ctx.createLinearGradient(380, 0, 700, 0); g.addColorStop(0, BLUE); g.addColorStop(1, WARM); ctx.strokeStyle = g; ctx.lineWidth = 12; ctx.beginPath(); ctx.arc(540, 1225, 78, Math.PI * .8, Math.PI * 2.2); ctx.stroke();
+  for (let i = 0; i < 4 && w > .2; i++) { const p = ((T * .7 + i / 4) % 1); ctx.save(); ctx.globalAlpha = .6 * (1 - p); arrow(300 + i * 160, 1230 - p * 40, 300 + i * 160, 1100 - p * 220, WARM, 1, 8); ctx.restore(); }
+  title('Udara sedikit LEBIH HANGAT', a, 220, 62, WARM); };
+// AMAN: don't fiddle while driving (warning); if vision is bad, pull over safely (hazards blink, P sign)
+S.aman = (t) => { road(t, t < t0('n14') ? 1 : lerp(1, 0, seg(t, TD('berhenti'), TD('berhenti') + 2))); cabin(t);
+  if (t < t0('n14')) { GAYA.shape(star(540, 820, 150, 130, 3, -Math.PI / 2), AMB, 150, {}); ctx.font = `700 150px ${FONT}`; ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('!', 540, 850); ctx.textAlign = 'left'; title('Jangan sibuk OTAK-ATIK saat nyetir', age('n13'), 220, 52, AMB); }
+  else { const blink = Math.sin(T * 9) > 0; for (const x of [160, 920]) { ctx.fillStyle = blink ? AMB : '#5A4A2A'; ctx.beginPath(); ctx.moveTo(x, 1290); ctx.lineTo(x + (x < 540 ? -40 : 40), 1320); ctx.lineTo(x, 1350); ctx.fill(); }
+    if (t > TD('berhenti')) { const k = backOut(seg(t, TD('berhenti'), TD('berhenti') + .4)); ctx.save(); ctx.translate(540, 760); ctx.scale(k, k); GAYA.shape(rr(-110, -110, 220, 220, 30), '#2F6BD6', 151, {}); ctx.font = `700 170px ${FONT}`; ctx.fillStyle = WHITE; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('P', 0, 8); ctx.textAlign = 'left'; ctx.restore(); }
+    title('Berhenti dulu di tempat AMAN', age('n14'), 220, 60, MINT); } };
+// AKHIR2: a clear road again, safe trip; then an eye: "kemampuan kita melihat jalan"
+S.akhir2 = (t) => { road(t); cabin(t);
+  if (t > t0('n17')) { const k = backOut(seg(age('n17'), 0, .4)); ctx.save(); ctx.translate(540, 760); ctx.scale(k, k); GAYA.shape([[-200, 0], [-100, -90], [100, -90], [200, 0], [100, 90], [-100, 90]], WHITE, 160, {}); GAYA.shape(ell(0, 0, 70, 70, 30), '#2F6BD6', 161, { shadow: false }); GAYA.shape(ell(0, 0, 30, 30, 20), INK, 162, { shadow: false }); ctx.restore(); }
+  clawd(900, 1560, 14, { face: 'happy' });
+  title(t < t0('n16') ? 'Perjalanan lebih AMAN' : t < t0('n17') ? 'Masalah sepele...' : '...kemampuan MELIHAT JALAN', t < t0('n16') ? age('n15') : t < t0('n17') ? age('n16') : age('n17'), 220, 60, t < t0('n17') ? WHITE : AMB); };
+// BRAND: "Inilah Adriy.Project": the stamp
+S.brand = (t) => { road(t * .3); cabin(t); const b = age('a1') + .2; clawd(540, 1500, 24, { face: 'happy', arms: [.6, 1.45] }); brandStamp(540, 760, b, TL.duration); };
+S.akhir = (t) => { road(t * .3); cabin(t); };
+// ---------- sound ----------
+window.cues = () => {
+  c(0, 'mk:urban-city-sounds-and-light-car-traffic', .35); c(0, 'mk:atv-engine-motor-hum', .15); c(TD('buram') - 1.2, 'risers-and-fallers/riser-2s-soft', .45); c(TD('buram'), 'mk:transition-windy-swoosh', .4);
+  c(t0('n1') + 1.5, 'pops/pop-medium-in', .45);
+  c(TD('kain') - .2, 'foley/foley-fabric-slide', .9); c(TD('kain') + .6, 'foley/foley-glass-slide', .8); c(TD('kain') + 1.2, 'foley/foley-fabric-slide', .7); c(TD('muncul') - .4, 'risers-and-fallers/riser-1s-soft', .5); c(TD('muncul') + .6, 'mk:wrong-answer-fail-notification', .35);
+  c(t0('n4') + .1, 'foley/foley-glass-slide', .8); c(t0('n4') + 1.4, 'pops/pop-large-in', .45);
+  c(t0('n5'), 'whooshes/whoosh-slow-soft', .4); for (let i = 0; i < 6; i++) c(t0('n5') + 2 + i * .9, 'everyday-props/props-drip', .45);
+  c(t0('n6') + .2, 'data/data-tick', .45); c(TD('napas'), 'mk:deep-child-breathing-and-exhaling', .35); c(TD('luar'), 'mk:arctic-winds', .4);
+  c(t0('n9') + .6, 'mk:wrong-answer-fail-notification', .4); c(t0('n9') + 2.5, 'mk:correct-answer-tone', .45);
+  c(TD('ac'), 'interface/click-toggle-on-firm', .9); c(TD('arahkan'), 'interface/click-rocker-medium', .8); c(TD('arahkan') + .2, 'mk:air-woosh', .6); c(TD('luar2'), 'interface/click-button-firm', .8);
+  c(t0('n11'), 'data/data-decrease-long', .4); c(t1('n11') - .5, 'shimmers/shimmer-medium-bright', .5);
+  c(TD('hangat'), 'mechanical/mechanical-ratchet-light', .8); c(TD('hangat') + .8, 'mk:air-woosh', .4); c(TD('hangat') + 2, 'shimmers/shimmer-short-soft', .4);
+  c(TD('jangan'), 'mk:car-double-horn', .5); c(t0('n14'), 'time/time-clock', .5); c(TD('berhenti') + .3, 'mechanical/mechanical-ratchet-heavy', .7);
+  c(t0('n15'), 'shimmers/shimmer-long-soft', .4); c(TD('melihat'), 'pops/pop-large-in', .45);
+  c(t0('a1') + .2, 'logo-stings/sting-bright-short', 1); c(t0('z') - .3, 'logo-stings/sting-warm-long', 1);
+  for (const s of SC.slice(1)) if (s.name !== 'akhir') c(s.a, 'whooshes/whoosh-medium-soft', .25);
+};
+const _bs = buildScenes; buildScenes = function () { CAM_PUNCH = [[TD('buram'), .05], [TD('muncul') + .6, .05], [TD('ac'), .05], [TD('jangan'), .06]]; _bs(); };
+</script>
+</body>
+</html>
