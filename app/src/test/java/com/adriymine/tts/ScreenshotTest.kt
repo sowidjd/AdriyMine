@@ -5,11 +5,13 @@ import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onRoot
+import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollToNode
 import androidx.test.core.app.ApplicationProvider
 import com.adriymine.tts.data.LibraryItem
 import com.github.takahirom.roborazzi.captureRoboImage
+import com.github.takahirom.roborazzi.captureScreenRoboImage
 import org.junit.Assume.assumeTrue
 import org.junit.Rule
 import org.junit.Test
@@ -36,7 +38,7 @@ class ScreenshotTest {
             rule.activity.let { a ->
                 val vm = androidx.lifecycle.ViewModelProvider(a)[com.adriymine.tts.ui.MainViewModel::class.java]
                 vm.setTitle("Cerita Pagi di Desa")
-                vm.updateSettings { it.copy(voxUrl = "http://192.168.1.10:8808") }
+
                 vm.setText(File(System.getenv("SHOTS_TEXT")!!).readText())
             }
             val lib = app.library
@@ -51,6 +53,11 @@ class ScreenshotTest {
         }
         rule.waitForIdle()
         rule.onRoot().captureRoboImage("$out/1_buat.png")
+        rule.onNodeWithText("Ganti suara", substring = true).performClick(); rule.waitForIdle()
+        captureScreenRoboImage("$out/1b_pilih_suara.png")
+        rule.onAllNodes(hasScrollAction())[0].performScrollToNode(hasText("Amy · Clone")); rule.waitForIdle()
+        captureScreenRoboImage("$out/1c_pilih_suara_klon.png")
+        androidx.test.espresso.Espresso.pressBack(); rule.waitForIdle()
         rule.onAllNodesWithText("Pustaka")[0].performClick(); rule.waitForIdle()
         rule.onRoot().captureRoboImage("$out/2_pustaka.png")
         rule.onAllNodesWithText("Atur")[0].performClick(); rule.waitForIdle()

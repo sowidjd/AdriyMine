@@ -44,6 +44,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -135,7 +136,7 @@ fun CreateScreen(vm: MainViewModel, openVoices: () -> Unit, openLibrary: () -> U
             modifier = Modifier.padding(top = 6.dp, bottom = 8.dp)
         )
         // Pilihan gaya bicara (suara asli Indonesia); semua pengaturan lain otomatis.
-        StylePicker(vm, settings.voiceId, showVox = settings.voxUrl.isNotBlank())
+        StylePicker(vm, settings.voiceId, serverReady = settings.voxUrl.isNotBlank(), openSettings = openVoices)
         Spacer(Modifier.height(10.dp))
         JobPanel(job, vm, openLibrary)
         Spacer(Modifier.height(10.dp))
@@ -152,52 +153,119 @@ fun CreateScreen(vm: MainViewModel, openVoices: () -> Unit, openLibrary: () -> U
     }
 }
 
+/** Pilihan suara: suara terpilih terlihat jelas, semua pilihan dibuka dalam satu daftar lengkap. */
+@OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 @Composable
-private fun StylePicker(vm: MainViewModel, selectedId: String, showVox: Boolean) {
-    val styles = com.adriymine.tts.tts.VoiceCatalog.curated +
-        (if (showVox) com.adriymine.tts.tts.VoiceCatalog.voxStyles else emptyList())
+private fun StylePicker(vm: MainViewModel, selectedId: String, serverReady: Boolean, openSettings: () -> Unit) {
+    val all = com.adriymine.tts.tts.VoiceCatalog.curated + com.adriymine.tts.tts.VoiceCatalog.voxStyles
+    val v = vm.voiceOf(selectedId)
     val previewing by vm.previewing.collectAsState()
-    Column {
-        Text("Pilih suara", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
-        Spacer(Modifier.height(6.dp))
-        androidx.compose.foundation.lazy.LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            items(styles.size) { idx ->
-                val v = styles[idx]
-                val selected = v.id == selectedId
-                Card(
-                    onClick = { vm.selectVoice(v.id) },
-                    shape = RoundedCornerShape(14.dp),
-                    border = if (selected) androidx.compose.foundation.BorderStroke(2.dp, MaterialTheme.colorScheme.primary) else null,
-                    colors = CardDefaults.cardColors(
-                        containerColor = if (selected) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surfaceContainer
-                    ),
-                    modifier = Modifier.width(172.dp)
-                ) {
-                    Column(Modifier.padding(10.dp)) {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Avatar(v.baseName, v.gender, selected)
-                            Spacer(Modifier.width(8.dp))
-                            Column(Modifier.weight(1f)) {
-                                Text(v.baseName, fontWeight = FontWeight.Bold, maxLines = 1)
-                                Text(v.styleName, style = MaterialTheme.typography.labelMedium,
-                                    color = MaterialTheme.colorScheme.primary, maxLines = 1)
-                            }
-                        }
-                        Spacer(Modifier.height(6.dp))
-                        Text(v.description, style = MaterialTheme.typography.labelSmall, maxLines = 2,
-                            minLines = 2, overflow = TextOverflow.Ellipsis, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                        TextButton(
-                            onClick = { vm.previewVoice(v, com.adriymine.tts.tts.VoiceCatalog.sampleText(v)) },
-                            enabled = previewing == null,
-                            contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 4.dp, vertical = 0.dp),
-                            modifier = Modifier.height(32.dp)
-                        ) {
-                            if (previewing == v.id) androidx.compose.material3.CircularProgressIndicator(Modifier.size(14.dp), strokeWidth = 2.dp)
-                            else Icon(Icons.Filled.PlayArrow, null, modifier = Modifier.size(18.dp))
-                            Spacer(Modifier.width(4.dp)); Text("Dengar contoh", style = MaterialTheme.typography.labelMedium)
-                        }
+    var open by remember { mutableStateOf(false) }
+
+    Card(
+        onClick = { open = true },
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Column(Modifier.padding(12.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Avatar(v.baseName, v.gender, true)
+                Spacer(Modifier.width(10.dp))
+                Column(Modifier.weight(1f)) {
+                    Text("Suara: ${v.baseName} · ${v.styleName}", fontWeight = FontWeight.Bold, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                    Text(v.description, style = MaterialTheme.typography.bodySmall, maxLines = 1, overflow = TextOverflow.Ellipsis,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant)
+                }
+                IconButton(onClick = { vm.previewVoice(v, com.adriymine.tts.tts.VoiceCatalog.sampleText(v)) }, enabled = previewing == null) {
+                    if (previewing == v.id) androidx.compose.material3.CircularProgressIndicator(Modifier.size(20.dp), strokeWidth = 2.dp)
+                    else Icon(Icons.Filled.PlayArrow, "Dengar contoh", tint = MaterialTheme.colorScheme.primary)
+                }
+            }
+            Spacer(Modifier.height(6.dp))
+            OutlinedButton(onClick = { open = true }, modifier = Modifier.fillMaxWidth().height(40.dp), shape = RoundedCornerShape(12.dp)) {
+                Text("Ganti suara  ·  ${all.size} pilihan")
+            }
+            if (v.isVox && !serverReady) {
+                Text("Suara kloning ini butuh server VoxCPM2 di komputer. Tanpa server, audio dibuat dengan " +
+                    (if (v.gender == com.adriymine.tts.tts.Gender.MALE) "Ardi" else "Gadis") + ".",
+                    style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.error,
+                    modifier = Modifier.padding(top = 6.dp))
+            }
+        }
+    }
+
+    if (open) {
+        androidx.compose.material3.ModalBottomSheet(
+            onDismissRequest = { open = false },
+            sheetState = androidx.compose.material3.rememberModalBottomSheetState(skipPartiallyExpanded = true),
+        ) {
+            androidx.compose.foundation.lazy.LazyColumn(
+                contentPadding = androidx.compose.foundation.layout.PaddingValues(start = 16.dp, end = 16.dp, bottom = 32.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                item { Text("Pilih suara", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold) }
+                item { SheetHeader("Suara bahasa Indonesia", "Langsung bisa dipakai di HP. Ucapan huruf & kata tepat.") }
+                items(com.adriymine.tts.tts.VoiceCatalog.curated.size) { i ->
+                    val x = com.adriymine.tts.tts.VoiceCatalog.curated[i]
+                    VoiceRow(x, x.id == selectedId, previewing, needsServer = false,
+                        onSelect = { vm.selectVoice(x.id); open = false },
+                        onPreview = { vm.previewVoice(x, com.adriymine.tts.tts.VoiceCatalog.sampleText(x)) })
+                }
+                item {
+                    SheetHeader("Suara kloning & VoxCPM2",
+                        if (serverReady) "Server VoxCPM2 terhubung." else "Butuh server VoxCPM2 di komputer (Atur → Suara VoxCPM2).")
+                }
+                items(com.adriymine.tts.tts.VoiceCatalog.voxStyles.size) { i ->
+                    val x = com.adriymine.tts.tts.VoiceCatalog.voxStyles[i]
+                    VoiceRow(x, x.id == selectedId, previewing, needsServer = !serverReady,
+                        onSelect = { vm.selectVoice(x.id); open = false },
+                        onPreview = { vm.previewVoice(x, com.adriymine.tts.tts.VoiceCatalog.sampleText(x)) })
+                }
+                if (!serverReady) item {
+                    OutlinedButton(onClick = { open = false; openSettings() }, modifier = Modifier.fillMaxWidth()) {
+                        Text("Hubungkan server VoxCPM2")
                     }
                 }
+            }
+        }
+    }
+}
+
+@Composable
+private fun SheetHeader(title: String, sub: String) {
+    Column(Modifier.padding(top = 10.dp)) {
+        Text(title, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary)
+        Text(sub, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+    }
+}
+
+@Composable
+private fun VoiceRow(
+    v: com.adriymine.tts.tts.Voice, selected: Boolean, previewing: String?, needsServer: Boolean,
+    onSelect: () -> Unit, onPreview: () -> Unit,
+) {
+    Card(
+        onClick = onSelect,
+        shape = RoundedCornerShape(14.dp),
+        border = if (selected) androidx.compose.foundation.BorderStroke(2.dp, MaterialTheme.colorScheme.primary) else null,
+        colors = CardDefaults.cardColors(
+            containerColor = if (selected) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surfaceContainer
+        ),
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Row(Modifier.padding(start = 10.dp, top = 8.dp, bottom = 8.dp, end = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+            Avatar(v.baseName, v.gender, selected)
+            Spacer(Modifier.width(10.dp))
+            Column(Modifier.weight(1f)) {
+                Text("${v.baseName} · ${v.styleName}", fontWeight = FontWeight.SemiBold)
+                Text(v.description, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                if (needsServer) Text("Perlu server komputer", style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.error)
+            }
+            IconButton(onClick = onPreview, enabled = previewing == null && !needsServer) {
+                if (previewing == v.id) androidx.compose.material3.CircularProgressIndicator(Modifier.size(20.dp), strokeWidth = 2.dp)
+                else Icon(Icons.Filled.PlayArrow, "Dengar contoh")
             }
         }
     }

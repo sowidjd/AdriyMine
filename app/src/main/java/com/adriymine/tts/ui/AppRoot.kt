@@ -56,7 +56,7 @@ fun AppRoot(vm: MainViewModel) {
     ) { pad ->
         Box(Modifier.fillMaxSize().padding(pad)) {
             when (tab) {
-                0 -> CreateScreen(vm, openVoices = {}, openLibrary = { tab = 1 })
+                0 -> CreateScreen(vm, openVoices = { tab = 2 }, openLibrary = { tab = 1 })
                 1 -> LibraryScreen(vm)
                 else -> SettingsScreen(vm)
             }
