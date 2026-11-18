@@ -175,6 +175,16 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
 
     // ---------- Konversi ----------
 
+    /** Suara kloning dipilih, tetapi server VoxCPM2 belum diatur: perlu konfirmasi pengguna. */
+    fun needsServerForCurrentVoice(): Boolean =
+        voiceOf(settings.value.voiceId).isVox && settings.value.voxUrl.isBlank()
+
+    /** Pakai suara asli pengganti (Ardi untuk suara pria, Gadis untuk suara wanita). */
+    fun useFallbackVoice() {
+        val v = voiceOf(settings.value.voiceId)
+        selectVoice(if (v.gender == com.adriymine.tts.tts.Gender.MALE) "ardi-natural" else "gadis-natural")
+    }
+
     fun generate(): Boolean {
         val t = text.value
         if (TextProcessor.countWords(t) == 0) { toast("Tulis atau tempel teks terlebih dahulu"); return false }
@@ -249,6 +259,10 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     /** Status pratinjau: id suara yang sedang diproses, atau "compare"/"mytext". */
     fun previewVoice(v: Voice, text: String = previewText.value) {
         if (_previewing.value != null) return
+        if (v.isVox && settings.value.voxUrl.isBlank()) {
+            toast("Suara ${v.baseName} butuh server VoxCPM2. Hubungkan dulu di Atur → Suara VoxCPM2.")
+            return
+        }
         _previewing.value = v.id
         viewModelScope.launch {
             runCatching { a.engine.preview(v.id, text.ifBlank { VoiceCatalog.sampleText(v) }, settings.value) }

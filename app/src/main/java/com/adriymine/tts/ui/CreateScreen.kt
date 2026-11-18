@@ -138,7 +138,7 @@ fun CreateScreen(vm: MainViewModel, openVoices: () -> Unit, openLibrary: () -> U
         // Pilihan gaya bicara (suara asli Indonesia); semua pengaturan lain otomatis.
         StylePicker(vm, settings.voiceId, serverReady = settings.voxUrl.isNotBlank(), openSettings = openVoices)
         Spacer(Modifier.height(10.dp))
-        JobPanel(job, vm, openLibrary)
+        JobPanel(job, vm, openLibrary, openVoices)
         Spacer(Modifier.height(10.dp))
     }
 
@@ -272,19 +272,38 @@ private fun VoiceRow(
 }
 
 @Composable
-private fun JobPanel(job: JobState, vm: MainViewModel, openLibrary: () -> Unit) {
+private fun JobPanel(job: JobState, vm: MainViewModel, openLibrary: () -> Unit, openSettings: () -> Unit) {
+    var askServer by remember { mutableStateOf<(() -> Unit)?>(null) }
+    askServer?.let { action ->
+        val v = vm.voiceOf(vm.settings.collectAsState().value.voiceId)
+        val alt = if (v.gender == com.adriymine.tts.tts.Gender.MALE) "Ardi" else "Gadis"
+        AlertDialog(
+            onDismissRequest = { askServer = null },
+            title = { Text("Suara ${v.baseName} belum aktif") },
+            text = {
+                Text("Suara ${v.baseName} adalah suara kloning. Agar terdengar seperti suara aslinya, aplikasi harus " +
+                    "tersambung ke server VoxCPM2 (di komputer atau server gratis di internet). " +
+                    "Server belum disambungkan, jadi suara ${v.baseName} belum bisa dipakai.")
+            },
+            confirmButton = { TextButton(onClick = { askServer = null; openSettings() }) { Text("Sambungkan server") } },
+            dismissButton = {
+                TextButton(onClick = { askServer = null; vm.useFallbackVoice(); action() }) { Text("Pakai $alt dulu") }
+            },
+        )
+    }
+    fun guarded(action: () -> Unit) { if (vm.needsServerForCurrentVoice()) askServer = action else action() }
     when (job.status) {
         JobStatus.IDLE, JobStatus.CANCELLED -> Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
             val previewing by vm.previewing.collectAsState()
             OutlinedButton(
-                onClick = { vm.previewMyText() }, enabled = previewing == null,
+                onClick = { guarded { vm.previewMyText() } }, enabled = previewing == null,
                 modifier = Modifier.height(56.dp), shape = RoundedCornerShape(16.dp)
             ) {
                 if (previewing != null) androidx.compose.material3.CircularProgressIndicator(Modifier.size(18.dp), strokeWidth = 2.dp)
                 else Icon(Icons.Filled.PlayArrow, null)
                 Spacer(Modifier.width(6.dp)); Text("Coba dengar")
             }
-            Box(Modifier.weight(1f)) { GenerateButton { vm.generate() } }
+            Box(Modifier.weight(1f)) { GenerateButton { guarded { vm.generate() } } }
         }
         JobStatus.PREPARING, JobStatus.RUNNING -> Card(
             shape = RoundedCornerShape(16.dp),
@@ -346,7 +365,7 @@ private fun JobPanel(job: JobState, vm: MainViewModel, openLibrary: () -> Unit) 
                     Column(Modifier.weight(1f)) {
                         Text("Audio selesai!", fontWeight = FontWeight.SemiBold, color = MaterialTheme.colorScheme.onSecondaryContainer)
                         Text(
-                            job.exportedTo?.let { "Tersimpan di $it" } ?: "Tersimpan di Pustaka",
+                            "Suara: ${job.voiceName} • " + (job.exportedTo?.let { "tersimpan di $it" } ?: "tersimpan di Pustaka"),
                             style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSecondaryContainer
                         )
                     }
