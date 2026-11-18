@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Kalender kosmik</title>
+<style>
+@font-face { font-family: 'Fredoka'; src: url(../_bersama/fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; }
+html,body{margin:0;background:#222}canvas{height:100vh;display:block;margin:auto}
+</style></head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script src="../_bersama/dasar.js"></script>
+<script>
+// "Kalender Kosmik" (narasi dari pemilik) — gaya PETA BINTANG ANTIK (celestial atlas): langit biru tua, garis & huruf emas,
+// titik-titik rasi bintang, lingkaran derajat seperti astrolab. Metafora: seluruh sejarah alam semesta dicetak sebagai kalender di langit.
+const NAVY = '#0E1630', NAVY2 = '#1B2A55', GOLD = '#E8C36A', CREAM = '#F4EBD3', RED = '#E06A4F', TEAL = '#5FB7B0';
+let STARS = null;
+const GAYA = {
+  ink: '#1A1430', hi: GOLD, card: '#F4EBD3',
+  init() { STARS = []; for (let i = 0; i < 260; i++) STARS.push([hash(i) * W, hash(i + 7) * H, .6 + 2.2 * Math.pow(hash(i + 3), 3), hash(i + 11)]); },
+  shape(pts, col, id, o = {}) { const p = pathOf(pts); ctx.fillStyle = rgba(col, o.fill ?? 1); ctx.fill(p); if (o.line !== false) { ctx.strokeStyle = o.text ? '#3A2E1A' : GOLD; ctx.lineWidth = o.lw ?? (o.text ? 3 : 3.5); ctx.lineJoin = 'round'; ctx.stroke(p); } },
+  line(pts, lw, col = GOLD, id, a = 1) { ctx.strokeStyle = rgba(col, a); ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke(pathOf(pts, false)); },
+  bg(t) { const g = ctx.createRadialGradient(540, 760, 100, 540, 900, 1400); g.addColorStop(0, NAVY2); g.addColorStop(1, NAVY); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    for (const [x, y, r, ph] of STARS) { ctx.fillStyle = `rgba(244,235,211,${.35 + .45 * (0.5 + 0.5 * Math.sin(T * 2 + ph * 20))})`; ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill(); }
+    ctx.strokeStyle = 'rgba(232,195,106,0.10)'; ctx.lineWidth = 2; for (let r = 300; r < 1300; r += 260) { ctx.beginPath(); ctx.arc(540, 900, r, 0, TAU); ctx.stroke(); } },
+  trans(k, drawPrev) {   // an astrolabe sweep: the new sky is revealed by a rotating sector
+    const a = -Math.PI / 2 + easeOut(k) * TAU; ctx.save(); ctx.beginPath(); ctx.moveTo(540, 900); ctx.arc(540, 900, 2000, a, -Math.PI / 2 + TAU); ctx.closePath(); ctx.clip(); drawPrev(); ctx.restore();
+    GAYA.line([[540, 900], [540 + Math.cos(a) * 1400, 900 + Math.sin(a) * 1400]], 4, GOLD, 1, .8); },
+  post() {},
+};
+const age = id => T - t0(id), TD = k => TL.tanda[k];
+const MON = ['JAN', 'FEB', 'MAR', 'APR', 'MEI', 'JUN', 'JUL', 'AGU', 'SEP', 'OKT', 'NOV', 'DES'];
+function gtxt(s, x, y, size, col = GOLD, ax = 'center', w = 700) { ctx.font = `${w} ${size}px ${FONT}`; ctx.textAlign = ax; ctx.textBaseline = 'middle'; ctx.fillStyle = col; ctx.fillText(s, x, y); ctx.textAlign = 'left'; }
+function headline(s, a, y = 300, size = 72, col = GOLD) { if (a < 0) return; ctx.save(); ctx.globalAlpha = seg(a, 0, .4); gtxt(s, 540, y, size, col); ctx.restore(); }
+// the 12-month cosmic calendar grid; hl(i) -> 0..1 highlight; dim(i) -> grey out
+function calendar(x, y, cw, ch, o = {}) { for (let i = 0; i < 12; i++) { const cx = x + (i % 3) * (cw + 20), cy = y + Math.floor(i / 3) * (ch + 20), h = o.hl ? o.hl(i) : 0, d = o.dim ? o.dim(i) : 0, vis = o.show ? o.show(i) : 1; if (vis <= 0) continue;
+  ctx.save(); ctx.globalAlpha = vis * (1 - .6 * d); GAYA.shape(rr(cx, cy, cw, ch, 14), h > 0 ? mixh('#22305E', '#8C6A2A', h) : '#22305E', 100 + i, { lw: 3 }); gtxt(MON[i], cx + cw / 2, cy + ch * .38, ch * .3, h > .5 ? CREAM : GOLD);
+  for (let k = 0; k < 7; k++) { ctx.fillStyle = 'rgba(232,195,106,0.35)'; ctx.fillRect(cx + 16 + k * (cw - 32) / 7, cy + ch * .66, (cw - 32) / 7 - 6, 6); } ctx.restore(); } }
+function constellation(pts, a, col = GOLD) { const n = Math.floor(clamp(a) * pts.length); for (let i = 0; i < pts.length; i++) { ctx.fillStyle = CREAM; ctx.beginPath(); ctx.arc(pts[i][0], pts[i][1], 6, 0, TAU); ctx.fill(); } if (n > 1) GAYA.line(pts.slice(0, n), 3, col, 50, .8); }
+function galaxy(x, y, r, t, rot = 0, col = '#9FB7FF') { for (let arm = 0; arm < 2; arm++) for (let i = 0; i < 70; i++) { const u = i / 70, a = rot + t * .3 + arm * Math.PI + u * 5, rr2 = u * r; ctx.fillStyle = rgba(col, .9 - .7 * u); ctx.beginPath(); ctx.arc(x + Math.cos(a) * rr2, y + Math.sin(a) * rr2 * .55, 2 + 4 * (1 - u), 0, TAU); ctx.fill(); }
+  const g = ctx.createRadialGradient(x, y, 0, x, y, r * .3); g.addColorStop(0, 'rgba(255,240,200,0.9)'); g.addColorStop(1, 'rgba(255,240,200,0)'); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r * .3, 0, TAU); ctx.fill(); }
+function planet(x, y, r, col, o = {}) { GAYA.shape(ell(x, y, r, r, 40), col, 200, { lw: 3 }); if (o.land) { ctx.save(); ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.clip(); for (let i = 0; i < 6; i++) { ctx.fillStyle = 'rgba(110,170,90,0.9)'; ctx.beginPath(); ctx.ellipse(x + (hash(i) - .5) * r * 1.4, y + (hash(i + 4) - .5) * r * 1.2, r * (.15 + .2 * hash(i + 2)), r * (.1 + .15 * hash(i + 5)), hash(i) * 3, 0, TAU); ctx.fill(); } ctx.restore(); } if (o.glow) { const g = ctx.createRadialGradient(x, y, r * .8, x, y, r * 2.2); g.addColorStop(0, rgba(col, .45)); g.addColorStop(1, rgba(col, 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r * 2.2, 0, TAU); ctx.fill(); } }
+function clockFace(x, y, r, h, m, s, o = {}) { GAYA.shape(ell(x, y, r, r, 60), '#1B2A55', 300, { lw: 6 }); for (let i = 0; i < 12; i++) { const a = i / 12 * TAU - Math.PI / 2; GAYA.line([[x + Math.cos(a) * r * .82, y + Math.sin(a) * r * .82], [x + Math.cos(a) * r * .94, y + Math.sin(a) * r * .94]], 6, GOLD, 301 + i); }
+  const ah = ((h % 12) + m / 60) / 12 * TAU - Math.PI / 2, am = (m + s / 60) / 60 * TAU - Math.PI / 2, as = s / 60 * TAU - Math.PI / 2;
+  GAYA.line([[x, y], [x + Math.cos(ah) * r * .5, y + Math.sin(ah) * r * .5]], 14, CREAM, 320); GAYA.line([[x, y], [x + Math.cos(am) * r * .78, y + Math.sin(am) * r * .78]], 9, GOLD, 321); if (o.sec) GAYA.line([[x, y], [x + Math.cos(as) * r * .85, y + Math.sin(as) * r * .85]], 4, RED, 322); GAYA.shape(ell(x, y, 14, 14, 16), GOLD, 323, {}); }
+function human(x, y, s) { GAYA.shape(ell(x, y - 150 * s, 26 * s, 28 * s, 18), CREAM, 400, { lw: 2.5 }); GAYA.shape([[x - 34 * s, y - 118 * s], [x + 34 * s, y - 118 * s], [x + 26 * s, y - 40 * s], [x - 26 * s, y - 40 * s]], CREAM, 401, { lw: 2.5 }); GAYA.line([[x - 14 * s, y - 40 * s], [x - 18 * s, y]], 10 * s, CREAM, 402); GAYA.line([[x + 14 * s, y - 40 * s], [x + 18 * s, y]], 10 * s, CREAM, 403); }
+function dino(x, y, s) { GAYA.shape([[x - 160 * s, y], [x - 120 * s, y - 80 * s], [x - 40 * s, y - 110 * s], [x + 40 * s, y - 100 * s], [x + 90 * s, y - 180 * s], [x + 150 * s, y - 190 * s], [x + 160 * s, y - 160 * s], [x + 110 * s, y - 140 * s], [x + 80 * s, y - 60 * s], [x + 60 * s, y], [x + 30 * s, y], [x + 20 * s, y - 40 * s], [x - 40 * s, y - 40 * s], [x - 50 * s, y], [x - 80 * s, y], [x - 80 * s, y - 40 * s], [x - 120 * s, y - 30 * s]], TEAL, 500, { lw: 3 }); ctx.fillStyle = NAVY; ctx.beginPath(); ctx.arc(x + 135 * s, y - 172 * s, 5 * s, 0, TAU); ctx.fill(); }
+// ---------- scenes ----------
+GROUPS = [['hook', ['h1', 'h2', 'h3', 'h4']], ['bigbang', ['k1', 'k2']], ['galaksi', ['g1']], ['bumi', ['b1', 'b2', 'b3']], ['hidup', ['l1', 'l2']], ['dino', ['d1']], ['punah', ['d2', 'd2b']],
+  ['manusia', ['m1', 'm2', 'm3', 'm4']], ['detik', ['t1', 't1b', 't2', 't3']], ['brand', ['a1']], ['renung', ['r1', 'r2']], ['capai', ['r3', 'r3b', 'r4']], ['akhir2', ['r5', 'r5b']], ['akhir', ['z']]];
+// HOOK: a starry sky; the 12 months light up as they are named; the question; Adriy tiny under the vast sky
+S.hook = (t) => {
+  const lit = i => i === 0 ? seg(t, TD('jan'), TD('jan') + .3) : i === 1 ? seg(t, TD('feb'), TD('feb') + .3) : i === 2 ? seg(t, TD('mar'), TD('mar') + .3) : seg(t, TD('mar') + .2 + (i - 3) * .09, TD('mar') + .5 + (i - 3) * .09);
+  if (t < t0('h2')) { constellation([[200, 620], [360, 540], [520, 600], [700, 520], [880, 600], [760, 760], [540, 820], [320, 760]], seg(t, 0, t1('h1'))); headline('SELURUH SEJARAH ALAM SEMESTA', t, 330, 56); }
+  else calendar(150, 470, 240, 150, { show: i => seg(t, t0('h2') + i * .08, t0('h2') + .3 + i * .08), hl: lit });
+  if (t > t0('h3')) { ctx.save(); ctx.globalAlpha = .9; gtxt('?', 540, 1180, 220, RED); ctx.restore(); headline('Manusia muncul di BULAN APA?', age('h3'), 330, 60, CREAM); }
+  else if (t > t0('h2')) headline('= SATU TAHUN KALENDER', age('h2'), 330, 64);
+  clawd(840, 1360, t > t0('h4') ? 9 : 14, { face: t > t0('h4') ? 'surprised' : 'curious', look: [-.5, -1] });
+};
+// BIG BANG: 13.8 billion years = 1 year; Jan 1, 00:00: a flash
+S.bigbang = (t) => {
+  if (t < t0('k2')) { GAYA.shape(rr(140, 520, 800, 340, 30), CREAM, 600, { text: true }); gtxt('13,8 miliar tahun', 540, 620, 76, '#3A2E1A'); gtxt('=', 540, 700, 60, '#3A2E1A'); gtxt('1 tahun', 540, 780, 76, RED); return; }
+  const b = t - TD('bigbang'); GAYA.shape(rr(330, 300, 420, 240, 20), CREAM, 610, { text: true }); gtxt('1 JANUARI', 540, 380, 60, '#3A2E1A'); gtxt('00.00', 540, 470, 64, RED);
+  if (b > 0) { const r = easeOut(seg(b, 0, 1.5)) * 900; const g = ctx.createRadialGradient(540, 1000, 0, 540, 1000, r); g.addColorStop(0, 'rgba(255,250,230,1)'); g.addColorStop(.3, 'rgba(255,200,120,0.8)'); g.addColorStop(1, 'rgba(255,120,80,0)'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    for (let i = 0; i < 40; i++) { const a = i / 40 * TAU, d = easeOut(seg(b, 0, 2)) * (300 + 500 * hash(i)); ctx.fillStyle = CREAM; ctx.beginPath(); ctx.arc(540 + Math.cos(a) * d, 1000 + Math.sin(a) * d, 4, 0, TAU); ctx.fill(); }
+    if (b > .3) gtxt('BIG BANG', 540, 1000, 120 * (1 + .1 * Math.exp(-b * 3)), '#3A2E1A'); }
+};
+// GALAKSI: spiral galaxies swirl into being; months Jan..Aug tick by
+S.galaksi = (t) => { const a = age('g1'); galaxy(330, 760, 260 * seg(a, 0, 1.5), t, 0); galaxy(780, 1080, 200 * seg(a, .5, 2), t, 1.5, '#FFC9A0'); galaxy(700, 560, 130 * seg(a, 1, 2.5), t, 3);
+  headline('Galaksi terbentuk...', a, 300, 70); for (let i = 0; i < 8; i++) { const on = a > .2 + i * .3; gtxt(MON[i], 140 + i * 115, 1300, 38, on ? GOLD : 'rgba(232,195,106,0.25)'); } };
+// BUMI: Sun and Earth appear in September; Jan–Aug greyed: Earth didn't exist yet
+S.bumi = (t) => {
+  calendar(150, 420, 240, 150, { hl: i => i === 8 ? seg(t, TD('sept'), TD('sept') + .4) : 0, dim: i => (t > t0('b2') && i < 8) ? seg(t, t0('b2'), t0('b2') + .6) : 0 });
+  const s = seg(t, t0('b1'), t0('b1') + 1.2); if (s > 0) { planet(330, 1180, 110 * s, '#F2B54A', { glow: true }); planet(760, 1180, 70 * seg(t, TD('sept') - .5, TD('sept') + .5), '#4E8FD0', { land: true }); }
+  if (t > t0('b3')) { GAYA.shape(rr(170, 640, 740, 120, 16), RED, 620, {}); gtxt('BUMI BELUM ADA', 540, 700, 64, CREAM); }
+  headline(t < t0('b2') ? 'Matahari & Bumi: SEPTEMBER' : 'Januari–Agustus...', t < t0('b2') ? age('b1') : age('b2'), 300, 62);
+};
+// HIDUP: cells drift on the young Earth, then complex life (fish, plants)
+S.hidup = (t) => { planet(540, 1500, 700, '#4E8FD0', { land: true }); const a = age('l1');
+  for (let i = 0; i < 14; i++) { const x = 160 + hash(i) * 760, y = 600 + hash(i + 3) * 400 + 20 * Math.sin(t + i); GAYA.shape(ell(x, y, 22, 18, 16), 'rgba(0,0,0,0)'.length ? TEAL : TEAL, 700 + i, { lw: 2, fill: .5 }); }
+  if (t > t0('l2')) { const k = seg(age('l2'), 1.5, 2.5); if (k > 0) { ctx.save(); ctx.globalAlpha = k; for (let i = 0; i < 3; i++) { const x = 250 + i * 280, y = 900 + 30 * Math.sin(t * 2 + i); GAYA.shape([[x - 60, y], [x, y - 30], [x + 60, y], [x, y + 30]], '#F2B54A', 720 + i, {}); GAYA.shape([[x - 60, y], [x - 100, y - 30], [x - 100, y + 30]], '#F2B54A', 730 + i, {}); } ctx.restore(); } }
+  headline(t < t0('l2') ? 'Kehidupan berkembang' : 'Sederhana → kompleks', t < t0('l2') ? a : age('l2'), 300, 70); };
+// DINO: December zoom; dinosaurs from Dec 25
+S.dino = (t) => { const a = age('d1'); GAYA.shape(rr(120, 400, 840, 560, 24), '#22305E', 800, { lw: 4 }); gtxt('DESEMBER', 540, 460, 54);
+  for (let d = 0; d < 31; d++) { const x = 160 + (d % 7) * 112, y = 530 + Math.floor(d / 7) * 84, on = d + 1 === 25 && t > TD('dino25'); GAYA.shape(rr(x, y, 96, 70, 10), on ? RED : '#1B2A55', 810 + d, { lw: 2 }); gtxt(String(d + 1), x + 48, y + 36, 32, on ? CREAM : GOLD); }
+  if (t > TD('dino25')) dino(540, 1340, 1.6 * backOut(seg(t, TD('dino25'), TD('dino25') + .5))); headline('Dinosaurus: 25 DESEMBER', t - TD('dino25'), 300, 64); };
+// PUNAH: Dec 30: an asteroid streaks in; flash; dinosaurs gone
+S.punah = (t) => { const hit = TD('asteroid') + .3, p = seg(t, hit - 2.2, hit), boom = t - hit;
+  if (boom < .2) dino(540, 1340, 1.6); planet(540, 1600, 520, '#4E8FD0', { land: true });
+  if (p > 0 && p < 1) { const x = lerp(1000, 560, p), y = lerp(200, 1150, p); GAYA.line([[x, y], [x + 220 * (1 - p) + 60, y - 380 * (1 - p) - 60]], 18, '#FFB070', 900, .8); GAYA.shape(ell(x, y, 30, 30, 16), '#8A6A48', 901, {}); }
+  if (boom > 0) { const g = ctx.createRadialGradient(560, 1150, 0, 560, 1150, 900 * seg(boom, 0, .8)); g.addColorStop(0, `rgba(255,220,160,${1 - seg(boom, .5, 2)})`); g.addColorStop(1, 'rgba(255,120,80,0)'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); }
+  headline(t < TD('tgl30') + 1 ? '30 DESEMBER' : 'Kepunahan massal', t - TD('tgl30'), 300, 72, t > hit ? RED : GOLD); };
+// MANUSIA: Dec 31: a clock; the hands run to 23:48; a human appears; nearly a full year has passed
+S.manusia = (t) => { const a = age('m1'), run = ease(seg(t, t0('m2'), TD('jam2348') + .5)), mins = lerp(0, 23 * 60 + 48, run);
+  clockFace(540, 820, 330, Math.floor(mins / 60), mins % 60, 0); GAYA.shape(rr(330, 1190, 420, 110, 16), CREAM, 1000, { text: true }); gtxt(`${String(Math.floor(mins / 60)).padStart(2, '0')}.${String(Math.floor(mins % 60)).padStart(2, '0')}`, 540, 1246, 70, '#3A2E1A');
+  if (t > TD('jam2348')) human(880, 1330, .9 * backOut(seg(t, TD('jam2348'), TD('jam2348') + .5)));
+  if (t > t0('m3')) { const f = seg(t, t0('m3'), t0('m3') + 2); GAYA.shape(rr(140, 1340, 600, 40, 20), '#1B2A55', 1001, {}); GAYA.shape(rr(146, 1346, 588 * (.2 + .797 * f), 28, 14), GOLD, 1002, { line: false }); }
+  headline(t < t0('m2') ? 'Kapan MANUSIA muncul?' : t < t0('m3') ? '31 DES · 23.48' : 'Menjelang TENGAH MALAM', t < t0('m2') ? a : t < t0('m3') ? age('m2') : age('m3'), 300, 66, t < t0('m2') ? CREAM : GOLD); };
+// DETIK: the last minute: 23:59:33 farming; writing, kingdoms, war, technology flash by in the last seconds
+S.detik = (t) => { const secs = t < TD('jam235933') ? lerp(0, 33, seg(t, t0('t1'), TD('jam235933'))) : lerp(33, 59.9, seg(t, TD('jam235933'), t1('t3')));
+  GAYA.shape(rr(140, 520, 800, 220, 24), '#1B2A55', 1100, { lw: 5 }); gtxt(`23.59.${String(Math.floor(secs)).padStart(2, '0')}`, 540, 630, 140, CREAM);
+  if (t > TD('pertanian')) { for (let i = 0; i < 5; i++) { const x = 300 + i * 120; GAYA.line([[x, 1060], [x, 900]], 6, '#E8C36A', 1110 + i); for (let k = 0; k < 4; k++) GAYA.shape(ell(x + (k % 2 ? 14 : -14), 920 + k * 26, 12, 20, 10, k % 2 ? .4 : -.4), GOLD, 1120 + i * 4 + k, { lw: 2 }); } }
+  const ic = [['tulisan', 'TULISAN'], ['kerajaan', 'KERAJAAN'], ['perang', 'PERANG'], ['teknologi', 'TEKNOLOGI']];
+  ic.forEach(([k, s2], i) => { const a = t - TD(k); if (a > 0) { const kk = backOut(seg(a, 0, .3)); ctx.save(); ctx.translate(290 + (i % 2) * 500, 1140 + Math.floor(i / 2) * 130); ctx.scale(kk, kk); GAYA.shape(rr(-210, -50, 420, 100, 14), CREAM, 1140 + i, { text: true }); gtxt(s2, 0, 2, 50, '#3A2E1A'); ctx.restore(); } });
+  headline(t < t0('t2') ? 'Pertanian: 23.59.33' : 'Semua di DETIK TERAKHIR', t < t0('t2') ? age('t1') : age('t2'), 300, 64); };
+// BRAND: the stamp on the sky
+S.brand = (t) => { const bAge = t - (t0('a1') + 1.1); clawd(540, 1300, 30, { face: 'happy', look: [0, -1], arms: bAge > 0 ? [.6, 1.45] : [.3, .3] }); if (bAge > -.1) brandStamp(540, 560, bAge, TL.duration); };
+// RENUNG: humanity isn't the center of time: Earth a pale dot in the vast sky; newcomers (footprints)
+S.renung = (t) => { const a = age('r1'), z = ease(seg(a, 0, 3)); planet(540, 900, lerp(260, 8, z), '#4E8FD0', { land: z < .5 });
+  if (z > .9) { ctx.strokeStyle = GOLD; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(540, 900, 40, 0, TAU); ctx.stroke(); gtxt('kita', 540, 980, 40); }
+  if (t > t0('r2')) for (let i = 0; i < 5; i++) { if (age('r2') > i * .3) GAYA.shape(ell(380 + i * 80, 1250 - (i % 2) * 40, 18, 30, 12), CREAM, 1200 + i, { lw: 2 }); }
+  headline(t < t0('r2') ? 'Bukan PUSAT dari waktu' : 'PENDATANG yang sangat baru', t < t0('r2') ? a : age('r2'), 300, 64); };
+// CAPAI: yet we study stars born billions of years ago (telescope), Earth's history, and reached the Moon
+S.capai = (t) => {
+  if (t < t0('r3b')) { gtxt('detik terakhir...', 540, 900, 90, CREAM); headline('Baru muncul di detik terakhir', age('r3'), 300, 60); return; }
+  GAYA.shape([[260, 1160], [520, 900], [560, 940], [300, 1200]], '#3A4A7A', 1300, {}); GAYA.line([[400, 1060], [360, 1300]], 8, GOLD, 1301); GAYA.line([[400, 1060], [460, 1300]], 8, GOLD, 1302); for (let i = 0; i < 6; i++) { ctx.fillStyle = CREAM; ctx.beginPath(); ctx.arc(640 + i * 60, 560 + Math.sin(i) * 60, 6, 0, TAU); ctx.fill(); }
+  if (t > TD('bumi2')) planet(820, 1050, 80, '#4E8FD0', { land: true });
+  if (t > TD('bulan2')) { planet(850, 600, 70, '#D9D2C2'); const r = seg(t, TD('bulan2'), TD('bulan2') + 1.5); GAYA.shape([[lerp(200, 800, r) - 20, lerp(1250, 640, r)], [lerp(200, 800, r) + 20, lerp(1250, 640, r)], [lerp(200, 800, r), lerp(1250, 640, r) - 60]], CREAM, 1310, {}); }
+  headline(t < TD('bumi2') ? 'Mempelajari BINTANG' : t < TD('bulan2') ? 'Memahami sejarah BUMI' : 'Sampai ke BULAN', t < TD('bumi2') ? age('r3b') : t < TD('bulan2') ? t - TD('bumi2') : t - TD('bulan2'), 300, 66); };
+// AKHIR2: Adriy small under the huge sky, but glowing: small, yet able to understand
+S.akhir2 = (t) => { const a = age('r5'); constellation([[180, 520], [340, 440], [520, 500], [700, 420], [880, 520], [760, 680], [540, 720], [300, 660]], seg(a, 0, 4)); const glow = seg(t, t0('r5b'), t0('r5b') + 1.5);
+  if (glow > 0) { const g = ctx.createRadialGradient(540, 1250, 0, 540, 1250, 300 * glow); g.addColorStop(0, 'rgba(232,195,106,0.6)'); g.addColorStop(1, 'rgba(232,195,106,0)'); ctx.fillStyle = g; ctx.fillRect(0, 900, W, 700); }
+  clawd(540, 1330, 16, { face: glow > 0 ? 'star' : 'curious', look: [0, -1] }); headline(t < t0('r5b') ? 'Kecil di alam semesta...' : '...tapi bisa MEMAHAMI-nya', t < t0('r5b') ? a : age('r5b'), 300, 64); };
+S.akhir = (t) => {};
+// ---------- sound ----------
+window.cues = () => {
+  c(0, 'mk:spaceship-large-drone', .25); c(.2, 'shimmers/shimmer-long-soft', .5); ['jan', 'feb', 'mar'].forEach(k => c(TD(k), 'tones/tone-step-1', .35)); c(TD('des'), 'tones/tone-step-5', .4);
+  c(t0('h3'), 'pops/pop-large-in', .5); c(t0('h4'), 'risers-and-fallers/faller-2s-soft', .4);
+  c(t0('k1') + .3, 'pops/pop-medium-in', .4); c(TD('bigbang') - 1.5, 'risers-and-fallers/riser-2s-strong', .6); c(TD('bigbang'), 'cinematic-hits/cinematic-thunder-massive', .8); c(TD('bigbang'), 'booms-and-bass/boom-hit-strong', .6);
+  c(t0('g1'), 'shimmers/shimmer-long-sparkle', .5); c(t0('g1') + .4, 'mk:space-ship-hum', .2);
+  c(t0('b1') + .2, 'booms-and-bass/bass-rumble-medium', .4); c(TD('sept'), 'tones/tone-ding-mid', .5); c(t0('b3'), 'impacts/impact-medium-hard', .5);
+  c(t0('l1'), 'mk:liquid-bubble', .5); c(t0('l2') + 1.5, 'shimmers/shimmer-medium-bright', .4);
+  c(TD('dino25'), 'mk:aggressive-beast-roar', .45); c(TD('dino25'), 'pops/pop-large-in', .4);
+  c(TD('asteroid') - 1.9, 'mk:small-meteor-falling', .7); c(TD('asteroid') + .3, 'mk:sea-mine-deep-explosion', .8); c(TD('asteroid') + .3, 'cinematic-hits/cinematic-slam-massive', .5);
+  c(t0('m1'), 'mk:tick-tock-clock-timer', .5); c(t0('m2'), 'time/time-clock-fast', .4); c(TD('jam2348'), 'tones/tone-ding-high', .5); c(TD('tengahmalam'), 'shimmers/shimmer-short-soft', .4);
+  c(t0('t1'), 'time/time-countdown', .4); c(TD('jam235933'), 'tones/tone-ding-mid', .5); ['tulisan', 'kerajaan', 'perang', 'teknologi'].forEach(k => c(TD(k), 'pops/pop-medium-in', .55)); c(t0('t3') + 1, 'mk:clock-countdown-bleeps', .4);
+  c(t0('a1') + 1.1, 'logo-stings/sting-bright-short', 1);
+  c(t0('r1') + .3, 'whooshes/whoosh-slow-soft', .5); c(t0('r2'), 'foley/' + 'x', 0);
+  c(TD('bintang'), 'shimmers/shimmer-medium-sparkle', .45); c(TD('bulan2'), 'mk:fast-rocket-whoosh', .5);
+  c(t0('r5b'), 'shimmers/shimmer-long-bright', .5);
+  c(t0('z') - .3, 'logo-stings/sting-warm-long', 1);
+  for (const s of SC.slice(1)) if (s.name !== 'akhir') c(s.a, 'whooshes/whoosh-slow-soft', .25);
+  CUES = CUES.filter(x => x[2] > 0);
+};
+const _bs = buildScenes; buildScenes = function () { CAM_PUNCH = [[TD('bigbang'), .09], [TD('asteroid') + .3, .08], [TD('jam2348'), .05], [t0('t3'), .05]]; _bs(); };
+</script>
+</body>
+</html>
