@@ -6,11 +6,15 @@ app_port: 7860
 # Server VoxCPM2 gratis di Hugging Face (tanpa komputer sendiri)
 
 1. Buat akun gratis di huggingface.co.
-2. Klik **New Space** → beri nama (mis. `adriytts`) → SDK **Docker** → hardware **CPU basic (free)** → Private.
+2. Klik **New Space** → beri nama (mis. `adriytts`) → SDK **Docker** → hardware **CPU basic (free)** → **Public**.
+   (Pilih Public: Space Private butuh token Hugging Face yang tidak bisa dikirim aplikasi. Server tetap aman karena dikunci kata sandi `TOKEN` di langkah 4.)
 3. Unggah file: `Dockerfile` dan `README.md` dari folder ini, `voxcpm_server.py` dan folder `voices/` dari folder `server/`.
 4. Buka **Settings → Variables and secrets** → tambah secret `TOKEN` berisi kata sandi pilihan Anda.
 5. Tunggu status **Running** (build pertama ±10–15 menit, termasuk mengunduh model 5 GB).
-6. Di aplikasi: **Atur → Suara VoxCPM2** → alamat `https://<nama-akun>-adriytts.hf.space` dan kata sandi tadi → **Simpan & tes koneksi**.
+6. Di aplikasi: **Atur → Suara VoxCPM2** → isi alamat dan kata sandi tadi → **Simpan & tes koneksi**.
+   Alamat = `https://<nama-akun>-<nama-space>.hf.space`, huruf kecil semua, titik/garis bawah diganti tanda minus.
+   Contoh: akun `Adriy_ID`, Space `adriytts` → `https://adriy-id-adriytts.hf.space`.
+   Alamat pasti juga bisa dilihat di halaman Space: menu ⋮ → **Embed this Space** → bagian "Direct URL".
 
 Catatan jujur:
 - Hardware gratis hanya CPU 2 inti: **1 menit audio butuh ±8–10 menit**. Cocok untuk teks pendek–sedang.
