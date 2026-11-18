@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Post-it penemuan gagal</title>
+<style>
+@font-face { font-family: 'Fredoka'; src: url(../_bersama/fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; }
+html,body{margin:0;background:#222}canvas{height:100vh;display:block;margin:auto}
+</style></head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script src="../_bersama/dasar.js"></script>
+<script>
+// "Post-it: penemuan yang awalnya dianggap gagal" (narasi dari pemilik) — gaya PAPER CRAFT DI PAPAN GABUS:
+// semua benda = potongan kertas berwarna dengan bayangan lembut & sedikit miring, ditahan selotip/paku payung. Kertas tempel kuning = bintang utamanya.
+const CORK = '#C99A69', CORK2 = '#B7875A', INK = '#2B2420', YEL = '#FFE36E', YEL2 = '#F2CE4A', PINK = '#FF9EBB', BLUE = '#8FCFF5', GREEN = '#A6E3A0', RED = '#E5533D', WHITE = '#FFFCF4', SKIN = '#F2C29B', WOOD = '#8A5A3C';
+let CORKTEX = null;
+const GAYA = {
+  ink: INK, hi: YEL, card: WHITE,
+  init() { CORKTEX = document.createElement('canvas'); CORKTEX.width = 1080; CORKTEX.height = 1920; const q = CORKTEX.getContext('2d'); q.fillStyle = CORK; q.fillRect(0, 0, 1080, 1920);
+    for (let i = 0; i < 9000; i++) { const x = hash(i) * 1080, y = hash(i + .5) * 1920, r = 1 + 3 * hash(i + .2); q.fillStyle = hash(i + .7) > .5 ? 'rgba(120,80,40,0.35)' : 'rgba(240,200,150,0.3)'; q.beginPath(); q.ellipse(x, y, r, r * .7, hash(i + .9) * 3, 0, TAU); q.fill(); }
+    const g = q.createRadialGradient(540, 900, 300, 540, 900, 1200); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(40,20,0,0.45)'); q.fillStyle = g; q.fillRect(0, 0, 1080, 1920); },
+  shape(pts, col, id, o = {}) { const p = pathOf(pts); if (!o.text && o.shadow !== false) { ctx.save(); ctx.translate(4, 9); ctx.fillStyle = 'rgba(40,20,0,0.28)'; ctx.fill(p); ctx.restore(); } ctx.fillStyle = rgba(col, o.fill ?? 1); ctx.fill(p); if (o.line) { ctx.strokeStyle = INK; ctx.lineWidth = o.lw ?? 3; ctx.stroke(p); } if (o.text) { ctx.strokeStyle = 'rgba(0,0,0,0.12)'; ctx.lineWidth = 2; ctx.stroke(p); } },
+  line(pts, lw, col = INK, id, a = 1) { ctx.strokeStyle = rgba(col, a); ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke(pathOf(pts, false)); },
+  bg() { ctx.drawImage(CORKTEX, 0, 0); },
+  trans(k, drawPrev) { ctx.save(); const e = ease(k); ctx.translate(-W * e, 0); ctx.rotate(-.04 * e); drawPrev(); ctx.restore(); },   // the old sheet slides off the board
+  post() {},
+};
+const age = id => T - t0(id), TD = k => TL.tanda[k];
+// ---------- paper props ----------
+function txt(s, x, y, size, col = INK, al = 'center', w = 700) { ctx.font = `${w} ${size}px ${FONT}`; ctx.fillStyle = col; ctx.textAlign = al; ctx.textBaseline = 'middle'; ctx.fillText(s, x, y); ctx.textAlign = 'left'; }
+function pin(x, y, col = RED) { GAYA.shape(ell(x, y, 13, 13, 14), col, 1, {}); ctx.fillStyle = 'rgba(255,255,255,0.6)'; ctx.beginPath(); ctx.arc(x - 4, y - 4, 4, 0, TAU); ctx.fill(); }
+function tape(x, y, rot = 0, w = 120) { ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.fillStyle = 'rgba(250,245,225,0.75)'; ctx.fillRect(-w / 2, -18, w, 36); ctx.restore(); }
+// a sticky note; lift 0..1 peels it from the top edge (bottom lifts first), off >0 flies away
+function note(x, y, s, rot, col = YEL, label = '', o = {}) {
+  ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(s, s); const L = o.lift || 0, h = 220, w = 220;
+  ctx.fillStyle = 'rgba(40,20,0,0.25)'; ctx.fillRect(-w / 2 + 6 + 20 * L, -h / 2 + 10 + 30 * L, w, h);
+  ctx.fillStyle = mixh(col, '#000000', .1); ctx.fillRect(-w / 2, -h / 2, w, 36);   // the sticky strip
+  const bend = 60 * L; ctx.fillStyle = col; ctx.beginPath(); ctx.moveTo(-w / 2, -h / 2); ctx.lineTo(w / 2, -h / 2); ctx.lineTo(w / 2, h / 2 - bend); ctx.quadraticCurveTo(w / 2 - bend * .3, h / 2 + bend * .2, w / 2 - bend * 1.4, h / 2 - bend * .2); ctx.lineTo(-w / 2, h / 2); ctx.closePath(); ctx.fill();
+  if (L > 0) { ctx.fillStyle = mixh(col, '#FFFFFF', .35); ctx.beginPath(); ctx.moveTo(w / 2, h / 2 - bend); ctx.quadraticCurveTo(w / 2 - bend * .2, h / 2 - bend * .9, w / 2 - bend * 1.4, h / 2 - bend * .2); ctx.closePath(); ctx.fill(); }
+  if (label) { const ls = label.split('\n'); ls.forEach((ln, i) => txt(ln, 0, 10 + (i - (ls.length - 1) / 2) * (o.size || 44) * 1.15, o.size || 44, o.ink || INK)); }
+  ctx.restore();
+}
+function sheet(x, y, w, h, rot = 0, col = WHITE) { ctx.save(); ctx.translate(x, y); ctx.rotate(rot); GAYA.shape(rr(-w / 2, -h / 2, w, h, 6), col, 2, {}); ctx.restore(); }
+function title(s, a, y = 230, size = 62, col = INK, bg = WHITE) { if (a < 0) return; const k = backOut(seg(a, 0, .35)); ctx.save(); ctx.translate(540, y); ctx.rotate(-.015); ctx.scale(k, k); ctx.font = `700 ${size}px ${FONT}`; const w = Math.min(980, ctx.measureText(s).width + 70);
+  GAYA.shape(rr(-w / 2, -size * .78, w, size * 1.56, 10), bg, 3, {}); tape(-w / 2 + 20, -size * .7, -.5, 90); tape(w / 2 - 20, -size * .7, .5, 90); txt(s, 0, 4, size, col); ctx.restore(); }
+function stamp(s, x, y, a, col = RED, size = 90, rot = -.18) { if (a < 0) return; const k = a < .15 ? lerp(2, 1, a / .15) : 1; ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(k, k); ctx.globalAlpha = clamp(a / .1) * .9; ctx.font = `700 ${size}px ${FONT}`; const w = ctx.measureText(s).width + 60;
+  ctx.strokeStyle = col; ctx.lineWidth = 10; ctx.strokeRect(-w / 2, -size * .7, w, size * 1.4); txt(s, 0, 4, size, col); ctx.restore(); }
+// a paper-cut person: o = {coat, hair, shirt, arm (0 down .. 1 up), mouth, hold(fn)}
+function person(x, y, s, o = {}) { ctx.save(); ctx.translate(x, y); ctx.scale(s * (o.flip ? -1 : 1), s); const S = GAYA.shape;
+  S(rr(-70, -10, 50, 170, 20), '#3D4A66', 10, {}); S(rr(20, -10, 50, 170, 20), '#3D4A66', 11, {});
+  S(rr(-95, -230, 190, 240, 60), o.coat ? WHITE : (o.shirt || BLUE), 12, {}); if (o.coat) { S([[-25, -230], [0, -150], [25, -230]], o.shirt || BLUE, 13, { shadow: false }); GAYA.line([[0, -150], [0, 0]], 3, '#C9C2B2', 14); }
+  const ar = o.arm || 0; ctx.save(); ctx.translate(80, -200); ctx.rotate(-ar * 2.2); S(rr(-22, 0, 44, 150, 22), o.coat ? WHITE : (o.shirt || BLUE), 15, {}); S(ell(0, 160, 26, 26, 14), SKIN, 16, {}); if (o.hold) { ctx.translate(0, 175); o.hold(); } ctx.restore();
+  ctx.save(); ctx.translate(-80, -200); ctx.rotate(.15); S(rr(-22, 0, 44, 150, 22), o.coat ? WHITE : (o.shirt || BLUE), 17, {}); S(ell(0, 160, 26, 26, 14), SKIN, 18, {}); ctx.restore();
+  S(rr(-22, -270, 44, 50, 10), SKIN, 19, { shadow: false }); S(ell(0, -340, 78, 88, 28), SKIN, 20, {});
+  S(o.hairPts || [[-80, -350], [-60, -425], [0, -440], [60, -425], [82, -350], [60, -385], [-40, -395]], o.hair || '#5A4032', 21, { shadow: false });
+  for (const d of [-1, 1]) { ctx.fillStyle = INK; ctx.beginPath(); ctx.arc(d * 28, -340, 8, 0, TAU); ctx.fill(); }
+  if (o.glasses) for (const d of [-1, 1]) { ctx.strokeStyle = INK; ctx.lineWidth = 5; ctx.beginPath(); ctx.arc(d * 28, -340, 22, 0, TAU); ctx.stroke(); }
+  if (o.name) { GAYA.shape(rr(-88, -205, 176, 52, 8), WHITE, 22, { shadow: false }); txt(o.name, 0, -178, o.name.length > 10 ? 25 : 30); }
+  const m = o.mouth || 'smile'; ctx.strokeStyle = INK; ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.beginPath(); if (m === 'smile') ctx.arc(0, -305, 22, .2, Math.PI - .2); else if (m === 'sad') ctx.arc(0, -280, 22, Math.PI + .3, -.3); else if (m === 'O') { ctx.arc(0, -295, 12, 0, TAU); } else { ctx.moveTo(-18, -295); ctx.lineTo(18, -295); } ctx.stroke();
+  ctx.restore(); }
+function jar(x, y, s, label = 'LEM', lvl = .7, col = '#F7E7A6') { ctx.save(); ctx.translate(x, y); ctx.scale(s, s); GAYA.shape(rr(-60, -130, 120, 140, 20), '#D9EEF5', 30, { fill: .9 }); GAYA.shape(rr(-50, -120 + 110 * (1 - lvl), 100, 110 * lvl, 14), col, 31, { shadow: false }); GAYA.shape(rr(-66, -160, 132, 36, 10), RED, 32, {}); GAYA.shape(rr(-44, -80, 88, 44, 6), WHITE, 33, { shadow: false }); txt(label, 0, -57, 26); ctx.restore(); }
+function bulb(x, y, s, on) { ctx.save(); ctx.translate(x, y); ctx.scale(s, s); if (on) { const g = ctx.createRadialGradient(0, 0, 0, 0, 0, 200); g.addColorStop(0, 'rgba(255,240,150,0.8)'); g.addColorStop(1, 'rgba(255,240,150,0)'); ctx.fillStyle = g; ctx.fillRect(-200, -200, 400, 400); }
+  GAYA.shape(ell(0, -20, 70, 76, 24), on ? YEL : '#E8E2D0', 40, {}); GAYA.shape(rr(-34, 48, 68, 50, 10), '#9AA3AD', 41, {}); if (on) for (let i = 0; i < 8; i++) { const a = -Math.PI + i * Math.PI / 7; GAYA.line([[Math.cos(a) * 100, -20 + Math.sin(a) * 100], [Math.cos(a) * 135, -20 + Math.sin(a) * 135]], 10, YEL2, 42 + i); } ctx.restore(); }
+function check(x, y, a, s = 1, col = '#2E9E5B') { if (a < 0) return; const p = seg(a, 0, .3); GAYA.line([[x - 24 * s, y], [x - 6 * s, y + 20 * s], [x + 30 * s, y - 24 * s]].slice(0, p < .5 ? 2 : 3).map((q, i, arr) => i === arr.length - 1 && p < 1 ? [lerp(arr[i - 1][0], q[0], p < .5 ? p * 2 : p * 2 - 1), lerp(arr[i - 1][1], q[1], p < .5 ? p * 2 : p * 2 - 1)] : q), 12 * s, col, 50); }
+function cross(x, y, a, s = 1) { if (a < 0) return; const p = seg(a, 0, .25); GAYA.line([[x - 40 * s, y - 40 * s], [lerp(x - 40 * s, x + 40 * s, p), lerp(y - 40 * s, y + 40 * s, p)]], 16 * s, RED, 51); if (a > .2) { const q = seg(a, .2, .45); GAYA.line([[x + 40 * s, y - 40 * s], [lerp(x + 40 * s, x - 40 * s, q), lerp(y - 40 * s, y + 40 * s, q)]], 16 * s, RED, 52); } }
+function book(x, y, s, o = {}) { ctx.save(); ctx.translate(x, y); ctx.scale(s, s); GAYA.shape(rr(-330, -200, 660, 420, 20), '#7A3B2E', 60, {}); for (const d of [-1, 1]) GAYA.shape([[0, -185], [d * 310, -200], [d * 310, 200], [0, 210]], WHITE, 61 + d, { shadow: false });
+  for (const d of [-1, 1]) for (let i = 0; i < 7; i++) { const yy = -140 + i * 45; GAYA.line([[d * 40, yy], [d * 280, yy]], 3, '#BBB3A3', 63); for (let j = 0; j < 4; j++) { ctx.fillStyle = INK; ctx.beginPath(); ctx.ellipse(d * (70 + j * 55 + i * 7 % 30), yy - 6, 9, 7, -.4, 0, TAU); ctx.fill(); } }
+  GAYA.line([[0, -190], [0, 210]], 4, '#9B9283', 64); if (o.torn) { ctx.fillStyle = '#E9E0CC'; const P = [[120, -60]]; for (let i = 0; i <= 8; i++) P.push([120 + i * 20, -60 + (i % 2 ? 18 : -8)]); P.push([280, 40], [120, 40]); GAYA.shape(P, '#E2D6BE', 65, { shadow: false }); for (let i = 0; i < 8; i++) GAYA.line([[125 + i * 20, -50 + (i % 2) * 16], [140 + i * 20, -40 + (i % 2) * 8]], 3, '#A89B82', 66); }
+  ctx.restore(); }
+function arrow(x0, y0, x1, y1, col = INK, w = 14, p = 1) { const xe = lerp(x0, x1, p), ye = lerp(y0, y1, p); GAYA.line([[x0, y0], [xe, ye]], w, col, 70); if (p < .9) return; const an = Math.atan2(y1 - y0, x1 - x0); ctx.fillStyle = col; ctx.beginPath(); ctx.moveTo(x1 + Math.cos(an) * 24, y1 + Math.sin(an) * 24); ctx.lineTo(x1 + Math.cos(an + 2.5) * 34, y1 + Math.sin(an + 2.5) * 34); ctx.lineTo(x1 + Math.cos(an - 2.5) * 34, y1 + Math.sin(an - 2.5) * 34); ctx.fill(); }
+function meter(x, y, v, label) { GAYA.shape(rr(x - 200, y - 40, 400, 80, 40), WHITE, 80, {}); GAYA.shape(rr(x - 185, y - 25, 370 * clamp(v), 50, 25), v > .6 ? '#2E9E5B' : v > .3 ? '#F2A23B' : RED, 81, { shadow: false }); txt(label, x, y - 75, 36, INK); }
+// ---------- scenes ----------
+GROUPS = [['hook', ['n0', 'n1', 'n2']], ['lab', ['n3', 'n4']], ['hasil', ['n5']], ['gagal', ['n6', 'n7']], ['simpan', ['n8']], ['fry', ['n9', 'n10', 'n11']], ['ingat', ['n12']], ['coba', ['n13', 'n14']], ['lahir', ['n15']], ['pelajaran', ['n16', 'n17', 'n18']], ['brand', ['a1']], ['akhir', ['z']]];
+// HOOK: a hand sticks a yellow note to the board, peels it off clean, sticks it again; then the "GAGAL?" stamp
+S.hook = (t) => { const inn = backOut(seg(t, .2, .7)), lift = seg(t, TD('lepas'), TD('lepas') + .6), back = seg(t, TD('sederhana') - .2, TD('sederhana') + .3);
+  sheet(300, 560, 300, 380, .05, BLUE); pin(300, 390); sheet(820, 620, 280, 320, -.06, PINK); pin(820, 470);
+  const up = lift * (1 - back); note(540, 800 - 260 * up, inn, -.04 + .2 * up, YEL, 'jangan\nlupa!', { lift: Math.min(1, lift * 2) * (1 - back), size: 48 });
+  if (up > .05) { ctx.save(); ctx.globalAlpha = up; txt('tanpa bekas', 540, 950, 40, INK); check(720, 948, t - TD('lepas') - .4, .9); ctx.restore(); }
+  if (t > t0('n2')) { const a = age('n2'); for (let i = 0; i < 3; i++) { const k = backOut(seg(a, .4 + i * .2, .8 + i * .2)); note(250 + i * 290, 1150, .6 * k, (i - 1) * .1, [YEL, PINK, GREEN][i]); } stamp('GAGAL?', 540, 650, t - TD('gagal'), RED, 120); }
+  clawd(930, 1230, 12, { face: t > TD('gagal') ? 'surprised' : 'curious', mark: t > t0('n2') ? '?' : null, markAge: age('n2') });
+  title(t < t0('n1') ? 'Kertas kecil penyelamat ingatan' : t < t0('n2') ? 'Kelihatannya SEDERHANA' : 'Lahir dari penemuan GAGAL?', t < t0('n1') ? t : t < t0('n2') ? age('n1') : age('n2'), 230, 56); };
+// LAB 1968: calendar flips to 1968, a scientist in a lab coat; company sign; goal: SUPER strong glue
+S.lab = (t) => { const fl = seg(t, TD('th') - .4, TD('th') + .3); sheet(240, 520, 280, 300, -.04, WHITE); GAYA.shape(rr(100, 380, 280, 70, 6), RED, 90, { shadow: false }); txt('KALENDER', 240, 415, 30, WHITE);
+  txt(fl < 1 ? String(Math.round(lerp(2026, 1968, ease(fl)))) : '1968', 240, 560, 96, INK); pin(240, 370);
+  if (t > TD('tm') - .2) { const k = backOut(seg(t, TD('tm') - .2, TD('tm') + .2)); ctx.save(); ctx.translate(820, 470); ctx.scale(k, k); GAYA.shape(rr(-150, -70, 300, 140, 16), WHITE, 91, {}); txt('3M', 0, -8, 80, RED); txt('perusahaan', 0, 48, 26); ctx.restore(); }
+  person(430, 1260, 1.1, { name: 'Spencer Silver', coat: true, glasses: true, hair: '#7A6A5A', arm: t > t0('n4') ? .45 : .15, hold: t > t0('n4') ? () => jar(0, 30, .6, 'LEM', .6) : null });
+  if (t > t0('n4')) { const a = age('n4'); ctx.save(); ctx.globalAlpha = seg(a, 0, .3); GAYA.shape(rr(640, 760, 360, 300, 14), YEL, 92, {}); tape(820, 765, .1); txt('TARGET:', 820, 830, 40); txt('lem', 820, 900, 46); txt('SUPER KUAT', 820, 970, 52, RED); ctx.restore(); meter(820, 1200, ease(seg(t, TD('kuat') - .5, TD('kuat') + .6)), 'kekuatan'); }
+  title(t < t0('n4') ? 'Tahun 1968, sebuah laboratorium' : 'Misi: lem yang SANGAT KUAT', t < t0('n4') ? age('n3') : age('n4'), 230, 56); };
+// HASIL: the result sticks... but peels right off, leaving no mark; the strength meter falls
+S.hasil = (t) => { const a = age('n5'); sheet(540, 640, 600, 520, .02, WHITE); for (let i = 0; i < 7; i++) GAYA.line([[290, 460 + i * 60], [790, 460 + i * 60]], 3, '#C7D7E6', 100);
+  const st = seg(t, TD('menempel') - .3, TD('menempel')), pe = seg(t, TD('dilepas'), TD('dilepas') + .8);
+  const y = lerp(320, 640, ease(st)) - 300 * ease(pe); sheet(540, y, 260, 160, -.05 + .2 * pe, PINK); ctx.save(); ctx.globalAlpha = .9; txt('kertas', 540, y, 40); ctx.restore();
+  meter(540, 1040, lerp(.9, .2, ease(seg(a, .6, 2.5))), 'kekuatan lem');
+  [['menempel', TD('menempel')], ['mudah dilepas', TD('dilepas')], ['tak banyak bekas', TD('bekas')]].forEach(([s, tt], i) => { if (t > tt) { ctx.save(); ctx.globalAlpha = seg(t, tt, tt + .3); GAYA.shape(rr(140 + i * 270, 1130, 250, 80, 12), WHITE, 101 + i, {}); txt(s, 265 + i * 270, 1170, 30); ctx.restore(); } });
+  clawd(950, 960, 9, { face: pe > 0 ? 'surprised' : 'curious' });
+  title('Hasilnya... lem yang MUDAH LEPAS', a, 230, 56); };
+// GAGAL: thumbs down; "TIDAK BERGUNA?"; a frame glued with the weak glue slides off the wall
+S.gagal = (t) => { if (t < t0('n7')) { for (let i = 0; i < 3; i++) person(250 + i * 290, 1250, .75, { shirt: [BLUE, GREEN, PINK][i], hair: ['#3A2A20', '#C48A3A', '#222'][i], mouth: 'sad', arm: .5, hold: () => { GAYA.shape(rr(-26, -10, 52, 60, 14), SKIN, 110, {}); GAYA.shape(rr(-12, 40, 24, 50, 10), SKIN, 111, {}); } });
+    stamp('TIDAK BERGUNA?', 540, 620, t - TD('berguna'), RED, 80, -.1); title('Bagi sebagian orang...', age('n6'), 230, 58); }
+  else { const a = age('n7'), f = easeIn(seg(t, TD('permanen') - .4, TD('permanen') + .6)); sheet(540, 560, 520, 380, 0, WHITE); txt('dinding', 540, 410, 30, '#8A7A6A', 'center', 500);
+    ctx.save(); ctx.translate(540, 560 + 600 * f); ctx.rotate(.5 * f); GAYA.shape(rr(-150, -110, 300, 220, 8), WOOD, 112, {}); GAYA.shape(rr(-120, -80, 240, 160, 4), BLUE, 113, { shadow: false }); GAYA.shape([[-120, 80], [-40, 0], [20, 50], [70, 10], [120, 80]], GREEN, 114, { shadow: false }); ctx.restore();
+    if (f > .9) stamp('TIDAK PERMANEN', 540, 1100, t - TD('permanen') - .2, RED, 64, .08); meter(540, 1000, .2, 'kekuatan lem');
+    clawd(900, 1230, 11, { face: f > .5 ? 'worried' : 'curious', mark: f > .5 ? 'sweat' : null, markAge: f });
+    title('Lem... yang TIDAK KUAT?', a, 230, 58); } };
+// SIMPAN: Silver does NOT throw it away (trash crossed out); he keeps searching (magnifier, question marks)
+S.simpan = (t) => { const a = age('n8'); person(380, 1250, 1.05, { name: 'Silver', coat: true, glasses: true, hair: '#7A6A5A', arm: .5, hold: () => jar(0, 30, .6, 'LEM', .6) });
+  GAYA.shape([[700, 900], [900, 900], [880, 1180], [720, 1180]], '#7E8A96', 120, {}); GAYA.shape(rr(680, 860, 240, 40, 10), '#5E6A76', 121, {}); for (let i = 0; i < 3; i++) GAYA.line([[750 + i * 50, 930], [755 + i * 45, 1150]], 6, '#5E6A76', 122);
+  cross(800, 1020, t - TD('membuang'), 1.6);
+  if (t > TD('mencari')) { const p = t - TD('mencari'); ctx.save(); ctx.translate(560 + 60 * Math.sin(p * 2), 560 + 30 * Math.cos(p * 2.4)); ctx.lineWidth = 22; ctx.strokeStyle = WOOD; ctx.beginPath(); ctx.arc(0, 0, 90, 0, TAU); ctx.stroke(); ctx.fillStyle = 'rgba(200,235,255,0.5)'; ctx.fill(); GAYA.line([[64, 64], [150, 150]], 26, WOOD, 123); ctx.restore();
+    for (let i = 0; i < 3; i++) mark('?', 240 + i * 300, 470 + 40 * Math.sin(T * 2 + i), 14, p - i * .3); }
+  title(t < TD('mencari') - .3 ? 'Tidak dibuang!' : 'Terus MENCARI kegunaannya', t < TD('mencari') - .3 ? a : t - TD('mencari') + .3, 230, 58); };
+// FRY: years later, a colleague; church choir; the paper bookmark keeps falling out; normal glue tears the page
+S.fry = (t) => { if (t < t0('n10')) { const a = age('n9'); sheet(250, 520, 260, 260, -.05, WHITE); txt('beberapa', 250, 490, 34); txt('tahun kemudian', 250, 540, 34); pin(250, 400);
+    person(620, 1250, 1.05, { name: 'Art Fry', shirt: GREEN, hair: '#4A3A2A', arm: t > TD('ide') ? .9 : .2 });
+    if (t > TD('ide')) bulb(620, 640, .9 * backOut(seg(t, TD('ide'), TD('ide') + .3)), true); title('Ide yang TIDAK TERDUGA', a, 230, 58); return; }
+  // church window + choir row
+  ctx.fillStyle = '#5B3A6E'; ctx.beginPath(); ctx.moveTo(380, 820); ctx.lineTo(380, 500); ctx.arc(540, 500, 160, Math.PI, 0); ctx.lineTo(700, 820); ctx.closePath(); ctx.fill();
+  [[BLUE, 420, 520], [PINK, 540, 420], [YEL, 660, 520], [GREEN, 470, 700], [RED, 610, 700]].forEach(([c2, x, y], i) => { GAYA.shape(ell(x, y, 58, 70, 18), c2, 130 + i, { shadow: false, fill: .85 }); });
+  for (let i = 0; i < 2; i++) person(200 + i * 680, 1280, .7, { shirt: '#7A3B6E', hair: ['#3A2A20', '#222'][i], mouth: 'O' });
+  const inSong = t < t0('n11'); if (inSong) { mark('notes', 300, 760, 14, age('n10')); mark('notes', 940, 760, 14, age('n10') - .3); }
+  const by = 1080; book(540, by, .78);
+  if (inSong) { const f = easeIn(seg(t, TD('kehilangan') - .2, TD('kehilangan') + .8)); ctx.save(); ctx.translate(540 + 120 * f, by - 220 + 520 * f); ctx.rotate(2.4 * f); GAYA.shape(rr(-30, -110, 60, 220, 4), YEL, 135, {}); ctx.restore(); title('Paduan suara gereja', age('n10'), 230, 58); }
+  else { const fall = easeIn(seg(t, TD('jatuh') - .5, TD('jatuh') + .4)); ctx.save(); ctx.translate(320, by - 220 + 520 * fall); ctx.rotate(1.8 * fall); GAYA.shape(rr(-30, -110, 60, 220, 4), YEL, 136, {}); ctx.restore();
+    if (t > TD('merusak')) { book(540, by, .78, { torn: true }); stamp('RUSAK', 740, by - 220, t - TD('merusak') - .3, RED, 60, .15); }
+    if (t > TD('jatuh')) cross(320, by - 260, t - TD('jatuh') - .2, .7);
+    title(t < TD('merusak') - .3 ? 'Kertas biasa: mudah JATUH' : 'Lem biasa: RUSAK halaman', t < TD('merusak') - .3 ? age('n11') : t - TD('merusak') + .3, 230, 56); } };
+// INGAT: Fry remembers Silver's glue: thought bubble with the jar, idea bulb lights
+S.ingat = (t) => { const a = age('n12'); person(360, 1260, 1.05, { name: 'Art Fry', shirt: GREEN, hair: '#4A3A2A', arm: .2, mouth: 'O' });
+  for (let i = 0; i < 3; i++) GAYA.shape(ell(460 + i * 50, 800 - i * 60, 14 + i * 8, 14 + i * 8, 14), WHITE, 140 + i, {});
+  const k = backOut(seg(t, TD('teringat') - .2, TD('teringat') + .3)); if (k > 0) { ctx.save(); ctx.translate(720, 560); ctx.scale(k, k); GAYA.shape(ell(0, 0, 280, 200, 32), WHITE, 145, {}); jar(-60, 100, .8, 'LEM', .6); person(110, 150, .35, { coat: true, glasses: true, hair: '#7A6A5A' }); ctx.restore(); }
+  if (a > 1.6) bulb(360, 760, .7 * backOut(seg(a, 1.6, 1.9)), true);
+  title('Teringat lem buatan Silver!', a, 230, 58); };
+// COBA: scissors cut little strips; the strip on the hymn book: stick, peel, stick again, page safe
+S.coba = (t) => { const by = 880; book(540, by, 1);
+  if (t < t0('n14')) { const a = age('n13'); const cut = seg(t, TD('potongan') - .3, TD('potongan') + 1.2); GAYA.shape(rr(160, 360, 760, 160, 6), YEL, 150, {}); for (let i = 1; i < 4; i++) { const x = 160 + i * 190; GAYA.line([[x, 360], [x, lerp(360, 520, seg(cut, (i - 1) / 3, i / 3))]], 4, '#B89B2A', 151); }
+    if (cut > 0 && cut < 1) { const x = 160 + 570 * cut; ctx.save(); ctx.translate(x, 440); ctx.rotate(Math.PI / 2); GAYA.line([[-60, -12], [40, 10 * Math.sin(T * 30)]], 10, '#7E8A96', 152); GAYA.line([[-60, 12], [40, -10 * Math.sin(T * 30)]], 10, '#7E8A96', 153); for (const d of [-1, 1]) { ctx.strokeStyle = RED; ctx.lineWidth = 10; ctx.beginPath(); ctx.arc(-80, d * 20, 22, 0, TAU); ctx.stroke(); } ctx.restore(); }
+    title('Dicoba di potongan kertas kecil', a, 230, 56); return; }
+  const a = age('n14'), d1 = TD('ditempel'), d2 = TD('dilepas2'), d3 = TD('kembali') - .45;
+  const onPage = t < d2 ? ease(seg(t, d1 - .5, d1)) : t < d3 ? 1 - ease(seg(t, d2, d2 + .4)) : ease(seg(t, d3, d3 + .4));
+  ctx.save(); ctx.translate(lerp(820, 640, onPage), lerp(560, by - 180, onPage)); ctx.rotate(lerp(.4, .05, onPage)); ctx.fillStyle = 'rgba(40,20,0,0.25)'; ctx.fillRect(-36 + 10 * (1 - onPage), -100 + 20 * (1 - onPage), 72, 200); GAYA.shape(rr(-36, -110, 72, 200, 3), YEL, 155, { shadow: false }); ctx.restore();
+  [['ditempel', d1], ['dilepas', d2], ['ditempel lagi', d3 + .4]].forEach(([s, tt], i) => { if (t > tt) { ctx.save(); ctx.globalAlpha = seg(t, tt, tt + .25); GAYA.shape(rr(110 + i * 290, 1150, 270, 80, 12), [YEL, PINK, GREEN][i], 156 + i, {}); txt(s, 245 + i * 290, 1190, 34); ctx.restore(); } });
+  if (t > d3 + 1) { ctx.save(); ctx.globalAlpha = seg(t, d3 + 1, d3 + 1.3); GAYA.shape(rr(300, 380, 480, 100, 14), WHITE, 159, {}); txt('halaman aman', 510, 430, 44, '#2E9E5B'); ctx.restore(); check(720, 430, t - d3 - 1, 1.1); }
+  title('Tempel, lepas, tempel lagi!', a, 230, 58); };
+// LAHIR: Post-it Notes is born: one note pops, then notes on an office monitor, a school book, a home fridge, and everywhere
+S.lahir = (t) => { const a = age('n15'), k = backOut(seg(t, TD('postit') - .3, TD('postit') + .2));
+  if (k > 0) note(540, 560, 1.4 * k, -.04, YEL, 'Post-it\nNotes', { size: 46 });
+  const spots = [['kantor', 220, 'kantor'], ['sekolah', 540, 'sekolah'], ['rumah', 860, 'rumah']];
+  spots.forEach(([key, x, lab], i) => { const tk = TD(key) - .2; if (t < tk) return; const s = backOut(seg(t, tk, tk + .3)); ctx.save(); ctx.translate(x, 960); ctx.scale(s, s);
+    if (i === 0) { GAYA.shape(rr(-120, -110, 240, 160, 12), '#3D4A66', 160, {}); GAYA.shape(rr(-105, -95, 210, 130, 6), BLUE, 161, { shadow: false }); GAYA.shape(rr(-20, 50, 40, 50, 4), '#3D4A66', 162, {}); }
+    else if (i === 1) { GAYA.shape(rr(-110, -100, 220, 170, 10), '#2F6BD6', 163, {}); GAYA.shape(rr(-95, -85, 190, 140, 6), WHITE, 164, { shadow: false }); txt('ABC', 0, -15, 44, '#2F6BD6'); }
+    else { GAYA.shape(rr(-90, -150, 180, 260, 18), '#E8EEF2', 165, {}); GAYA.line([[-90, -50], [90, -50]], 4, '#B8C2CA', 166); GAYA.line([[60, -120], [60, -80]], 8, '#9AA3AD', 167); GAYA.line([[60, -20], [60, 30]], 8, '#9AA3AD', 168); }
+    note(70, -90, .32, .15, [YEL, PINK, GREEN][i]); ctx.restore(); txt(lab, x, 1110, 36, WHITE); });
+  if (t > TD('tempat') - .5) for (let i = 0; i < 14; i++) { const s = backOut(seg(t, TD('tempat') - .5 + i * .08, TD('tempat') - .2 + i * .08)); if (s > 0) note(80 + hash(i) * 920, 380 + hash(i + 3) * 900, .3 * s, (hash(i + 5) - .5) * .6, [YEL, PINK, GREEN, BLUE][i % 4]); }
+  clawd(950, 820, 9, { face: 'star' });
+  title(t < TD('kantor') - .5 ? 'Lahirlah Post-it Notes!' : 'Dipakai di MANA-MANA', t < TD('kantor') - .5 ? t - TD('postit') + .3 : t - TD('kantor') + .5, 230, 58); };
+// PELAJARAN: plan vs. new use; then a crumpled "failure" paper unfolds into a note and finds its place
+S.pelajaran = (t) => { if (t < t0('n17')) { clawd(540, 1180, 22, { face: 'happy', mark: 'idea', markAge: age('n16') - .3, arms: [.2, 1.1] }); title('Pelajarannya menarik', age('n16'), 230, 60); return; }
+  if (t < t0('n18')) { const a = age('n17'); GAYA.shape(rr(110, 520, 380, 280, 14), WHITE, 170, {}); tape(300, 525, -.1); txt('RENCANA', 300, 590, 40); txt('lem super kuat', 300, 670, 40); cross(300, 700, t - TD('direncanakan') - .3, 1.2);
+    arrow(500, 660, 580, 660, INK, 14, seg(t, TD('kegunaan') - 1.2, TD('kegunaan') - .5)); if (t > TD('kegunaan') - .6) { const k = backOut(seg(t, TD('kegunaan') - .6, TD('kegunaan') - .2)); note(800, 660, 1.3 * k, .04, YEL, 'kegunaan\nBARU', { size: 44 }); }
+    clawd(540, 1150, 14, { face: t > TD('kegunaan') ? 'star' : 'curious' }); title('Inovasi = menemukan kegunaan BARU', a, 230, 50); return; }
+  const a = age('n18'), un = ease(seg(t, TD('kegagalan') + .5, TD('kegagalan') + 1.6)), mv = ease(seg(t, TD('tepat') - .6, TD('tepat')));
+  sheet(540, 620, 520, 420, -.02, WHITE); txt('tempat yang tepat', 540, 450, 36, '#8A7A6A'); GAYA.line(rr(380, 520, 320, 220, 10).concat([[390, 520]]), 4, '#C9BBA6', 175);
+  const x = lerp(540, 540, mv), y = lerp(1050, 630, mv);
+  if (un < 1) { ctx.save(); ctx.translate(x, y); ctx.rotate(T * .5); const P = []; for (let i = 0; i < 18; i++) { const r = lerp(90, 120, un) * (.75 + .25 * hash(i)); const an = i / 18 * TAU; P.push([Math.cos(an) * r, Math.sin(an) * r]); } GAYA.shape(P, '#EDE6D3', 176, {}); for (let i = 0; i < 6; i++) GAYA.line([[Math.cos(i) * 60, Math.sin(i) * 60], [Math.cos(i + 2) * 30, Math.sin(i + 2.5) * 40]], 3, '#B6AA90', 177); ctx.restore(); txt('kegagalan', 540, 1200, 40, WHITE); }
+  else note(x, y, 1.2, .03 * (1 - mv), YEL, mv > .9 ? 'berguna!' : '', { size: 48 });
+  if (mv >= 1) mark('sparkle', 700, 480, 16, t - TD('tepat'));
+  title('Bukan gagal, hanya belum di TEMPATNYA', a, 230, 48); };
+// BRAND + END
+S.brand = (t) => { for (let i = 0; i < 10; i++) note(80 + hash(i + 20) * 920, 380 + hash(i + 23) * 900, .3, (hash(i + 25) - .5) * .6, [YEL, PINK, GREEN, BLUE][i % 4]); clawd(540, 1380, 24, { face: 'happy', arms: [.6, 1.45] }); brandStamp(540, 760, age('a1') + .2, TL.duration); };
+S.akhir = (t) => { for (let i = 0; i < 10; i++) note(80 + hash(i + 20) * 920, 380 + hash(i + 23) * 900, .3, (hash(i + 25) - .5) * .6, [YEL, PINK, GREEN, BLUE][i % 4]); };
+// ---------- sound ----------
+window.cues = () => {
+  c(.2, 'own:kertas-lepas', .5); c(.6, 'foley/foley-paper-touch', .9); c(TD('lepas'), 'own:kertas-lepas', 1); c(TD('lepas') + .8, 'tones/tone-ding-high', .4); c(TD('sederhana') - .2, 'foley/foley-paper-touch', .9);
+  for (let i = 0; i < 3; i++) c(t0('n2') + .4 + i * .2, 'pops/pop-small-in', .5); c(TD('gagal'), 'impacts/impact-medium-firm', .8); c(TD('gagal') + .05, 'mk:cartoon-failure-piano', .35);
+  c(TD('th') - .4, 'everyday-props/props-page-turn', .8); c(TD('th') - .2, 'everyday-props/props-page-turn', .6); c(TD('th') + .3, 'tones/tone-ding-mid', .4); c(TD('tm') - .2, 'pops/pop-medium-in', .6);
+  c(t0('n4') + .1, 'mk:liquid-bubble', .5); c(t0('n4') + .3, 'foley/foley-paper-slide', .6); c(TD('kuat') - .5, 'risers-and-fallers/riser-1s-soft', .5); c(TD('kuat') + .1, 'notifications/notification-success-chime', .5);
+  c(TD('menempel') - .05, 'foley/foley-paper-touch', 1); c(TD('dilepas'), 'own:kertas-lepas', 1); c(TD('dilepas') + .2, 'whooshes/whoosh-slow-soft', .4); c(t0('n5') + .6, 'data/data-decrease-long', .4); c(TD('bekas'), 'pops/pop-small-in', .5);
+  c(TD('berguna'), 'impacts/impact-medium-firm', .8); c(TD('berguna') + .1, 'mk:sad-game-over-trombone', .3); c(TD('permanen') - .3, 'own:kertas-lepas', .8); c(TD('permanen') + .2, 'mk:cartoon-falling-whistle', .4); c(TD('permanen') + .5, 'impacts/impact-light-hard', .8);
+  c(TD('membuang') + .1, 'notifications/notification-error-soft', .5); c(TD('mencari'), 'whooshes/whoosh-medium-soft', .4); for (let i = 0; i < 3; i++) c(TD('mencari') + i * .3, 'pops/pop-small-bubble', .5);
+  c(t0('n9') + .1, 'everyday-props/props-page-turn', .7); c(TD('ide'), 'mk:magic-marimba', .45); c(TD('ide') + .05, 'shimmers/shimmer-short-bright', .5);
+  c(t0('n10') - .2, 'mk:people-coming-into-church', .25); c(t0('n10') + .3, 'mk:sanctuary-or-cathedral-big-bells', .2); c(TD('kehilangan') + .3, 'foley/foley-paper-slide', .8); c(TD('kehilangan') + .7, 'notifications/notification-failure-fall', .4);
+  c(TD('jatuh'), 'foley/foley-paper-slide', .8); c(TD('jatuh') + .4, 'notifications/notification-failure-pluck', .4); c(TD('merusak'), 'own:kertas-sobek', 1); c(TD('merusak') + .3, 'impacts/impact-light-firm', .6);
+  c(TD('teringat') - .2, 'appear-and-vanish/appear-materialise', .5); c(t0('n12') + 1.6, 'mk:magic-marimba', .4);
+  c(TD('potongan') - .3, 'everyday-props/props-scissors', 1); c(TD('potongan') + .4, 'everyday-props/props-scissors', .9);
+  c(TD('ditempel') - .05, 'foley/foley-paper-touch', 1); c(TD('dilepas2'), 'own:kertas-lepas', 1); c(TD('kembali') - .05, 'foley/foley-paper-touch', 1); c(TD('kembali') + .6, 'notifications/notification-success-ding-ding', .5);
+  c(TD('postit') - .3, 'pops/pop-large-in', .7); c(TD('postit'), 'celebration/celebration-confetti', .6); c(TD('kantor') - .2, 'pops/pop-medium-in', .5); c(TD('sekolah') - .2, 'pops/pop-medium-in', .5); c(TD('rumah') - .2, 'pops/pop-medium-in', .5);
+  for (let i = 0; i < 6; i++) c(TD('tempat') - .5 + i * .16, 'pops/pop-small-in', .4);
+  c(t0('n16') + .3, 'shimmers/shimmer-short-soft', .4); c(TD('direncanakan'), 'notifications/notification-failure-minor', .4); c(TD('kegunaan') - .6, 'pops/pop-large-in', .6); c(TD('kegunaan'), 'notifications/notification-success-sparkle', .5);
+  c(TD('kegagalan') - .2, 'own:kertas-remas', .9); c(TD('kegagalan') + .5, 'foley/foley-paper-slide', .8); c(TD('tepat') - .05, 'foley/foley-paper-touch', 1); c(TD('tepat') + .1, 'shimmers/shimmer-medium-sparkle', .6);
+  c(t0('a1') + .2, 'logo-stings/sting-bright-short', 1); c(t0('z') - .3, 'logo-stings/sting-warm-long', 1);
+  for (const s of SC.slice(1)) if (s.name !== 'akhir') c(s.a, 'foley/foley-paper-slide', .35);
+};
+const _bs = buildScenes; buildScenes = function () { CAM_PUNCH = [[TD('gagal'), .06], [TD('berguna'), .05], [TD('ide'), .05], [TD('merusak'), .05], [TD('postit'), .06]]; _bs(); };
+</script>
+</body>
+</html>

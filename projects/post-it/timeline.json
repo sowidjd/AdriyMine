@@ -1,0 +1,167 @@
+{
+ "duration": 116.0,
+ "lines": [
+  {
+   "id": "n0",
+   "t0": 0.0,
+   "t1": 5.48,
+   "cap": "Pernah menempelkan kertas kecil untuk mengingat sesuatu, lalu melepasnya tanpa merusak permukaan."
+  },
+  {
+   "id": "n1",
+   "t0": 5.48,
+   "t1": 6.86,
+   "cap": "Kelihatannya sederhana."
+  },
+  {
+   "id": "n2",
+   "t0": 6.94,
+   "t1": 12.26,
+   "cap": "Tapi tahukah kamu, benda kecil ini lahir dari sebuah penemuan yang awalnya dianggap *gagal?*"
+  },
+  {
+   "id": "n3",
+   "t0": 12.38,
+   "t1": 19.38,
+   "cap": "Pada tahun 1968, seorang ilmuwan bernama *Spencer Silver* bekerja di perusahaan 3M."
+  },
+  {
+   "id": "n4",
+   "t0": 19.38,
+   "t1": 22.5,
+   "cap": "Ia sedang mencoba menciptakan lem yang sangat kuat."
+  },
+  {
+   "id": "n5",
+   "t0": 22.56,
+   "t1": 30.18,
+   "cap": "Namun, hasil eksperimennya justru menghasilkan lem yang bisa menempel, tetapi *mudah dilepas* dan tidak meninggalkan banyak bekas."
+  },
+  {
+   "id": "n6",
+   "t0": 30.9,
+   "t1": 34.82,
+   "cap": "Bagi sebagian orang, penemuan itu terlihat *tidak berguna.*"
+  },
+  {
+   "id": "n7",
+   "t0": 34.88,
+   "t1": 41.16,
+   "cap": "Bayangkan membuat lem, tetapi lemnya tidak cukup kuat untuk merekatkan sesuatu secara permanen."
+  },
+  {
+   "id": "n8",
+   "t0": 41.36,
+   "t1": 46.48,
+   "cap": "Silver tidak membuang temuannya, ia justru terus mencari kemungkinan penggunaan lem tersebut."
+  },
+  {
+   "id": "n9",
+   "t0": 47.46,
+   "t1": 52.84,
+   "cap": "Beberapa tahun kemudian, seorang rekannya bernama *Art Fry* mendapatkan ide yang tidak terduga."
+  },
+  {
+   "id": "n10",
+   "t0": 53.04,
+   "t1": 58.32,
+   "cap": "Saat bernyanyi di paduan suara gereja, ia sering kehilangan penanda halaman pada buku nyanyiannya."
+  },
+  {
+   "id": "n11",
+   "t0": 58.6,
+   "t1": 63.84,
+   "cap": "Kertas yang digunakan mudah jatuh, sementara lem biasa bisa merusak halaman."
+  },
+  {
+   "id": "n12",
+   "t0": 63.96,
+   "t1": 68.04,
+   "cap": "Ia kemudian teringat pada lem buatan Spencer Silver."
+  },
+  {
+   "id": "n13",
+   "t0": 68.18,
+   "t1": 71.9,
+   "cap": "Art Fry mencoba menggunakan lem tersebut pada potongan kertas kecil."
+  },
+  {
+   "id": "n14",
+   "t0": 71.9,
+   "t1": 78.5,
+   "cap": "Hasilnya, kertas itu bisa ditempel, dilepas, lalu ditempel kembali tanpa merusak halaman."
+  },
+  {
+   "id": "n15",
+   "t0": 78.78,
+   "t1": 89.56,
+   "cap": "Dari ide sederhana itu, lahirlah *Post-it Notes,* kertas catatan kecil yang sekarang digunakan di kantor, sekolah, rumah, bahkan untuk menempelkan pengingat di berbagai tempat."
+  },
+  {
+   "id": "n16",
+   "t0": 90.3,
+   "t1": 93.02,
+   "cap": "Penemuan ini mengajarkan sesuatu yang menarik."
+  },
+  {
+   "id": "n17",
+   "t0": 93.18,
+   "t1": 104.0,
+   "cap": "Kadang, sebuah inovasi tidak lahir karena seseorang berhasil menciptakan apa yang direncanakan, tetapi karena ia menemukan kegunaan baru dari sesuatu yang awalnya dianggap tidak berhasil."
+  },
+  {
+   "id": "n18",
+   "t0": 104.64,
+   "t1": 109.78,
+   "cap": "Sesuatu yang terlihat seperti kegagalan ternyata hanya belum menemukan *tempat yang tepat.*"
+  },
+  {
+   "id": "a1",
+   "t0": 110.2,
+   "t1": 112.04,
+   "cap": "Inilah *Adriy.Project.*"
+  },
+  {
+   "id": "z",
+   "t0": 112.2,
+   "t1": 114.1,
+   "cap": ""
+  }
+ ],
+ "tanda": {
+  "lepas": 3.28,
+  "sederhana": 5.96,
+  "gagal": 11.24,
+  "th": 13.0,
+  "tm": 18.62,
+  "kuat": 21.74,
+  "menempel": 25.8,
+  "dilepas": 27.42,
+  "bekas": 29.34,
+  "berguna": 33.86,
+  "permanen": 39.7,
+  "membuang": 42.04,
+  "mencari": 44.2,
+  "fry": 49.98,
+  "ide": 51.3,
+  "gereja": 54.52,
+  "kehilangan": 55.72,
+  "jatuh": 59.96,
+  "merusak": 62.3,
+  "teringat": 64.72,
+  "potongan": 70.5,
+  "ditempel": 73.6,
+  "dilepas2": 74.7,
+  "kembali": 76.1,
+  "postit": 80.9,
+  "kantor": 84.26,
+  "sekolah": 85.0,
+  "rumah": 85.9,
+  "tempat": 88.96,
+  "kadang": 93.18,
+  "direncanakan": 98.06,
+  "kegunaan": 100.4,
+  "kegagalan": 106.04,
+  "tepat": 108.98
+ }
+}

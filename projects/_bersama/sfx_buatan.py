@@ -1,7 +1,10 @@
 """Efek suara buatan kode sendiri (milik Adriy.Project, bebas dipakai): python3 sfx_buatan.py -> _bersama/sfx/*.wav
 - perut-kruk-panjang: perut keroncongan panjang (gemuruh rendah + gelembung yang naik-turun nadanya)
 - perut-kruk-pendek: versi pendek
-- perut-gemuruh-pelan: gemuruh pelan untuk latar adegan usus"""
+- perut-gemuruh-pelan: gemuruh pelan untuk latar adegan usus
+- kertas-lepas: kertas tempel dicabut (kresek lengket pendek)
+- kertas-sobek: halaman kertas sobek
+- kertas-remas: kertas diremas jadi bola"""
 import numpy as np, soundfile as sf, os
 SR = 48000; OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'sfx'); rng = np.random.default_rng(7)
 def lowpass(x, f):   # one-pole low-pass, applied twice
@@ -28,4 +31,16 @@ os.makedirs(OUT, exist_ok=True)
 sf.write(f'{OUT}/perut-kruk-panjang.wav', growl(2.0, 90, (1.0, 1.7, 1.2, .7), 8, 3), SR)
 sf.write(f'{OUT}/perut-kruk-pendek.wav', growl(.9, 110, (1.2, .8), 3, 5), SR)
 g = growl(4.0, 70, (1, 1.2, .9, 1.1), 10, 9); sf.write(f'{OUT}/perut-gemuruh-pelan.wav', g * .5, SR)
+def crackle(dur, rate, hp=True, seed=1, shape=None):   # bursts of filtered noise clicks (paper sounds)
+    r = np.random.default_rng(seed); n = int(dur * SR); t = np.arange(n) / SR; x = np.zeros(n)
+    dens = rate * (shape(t / dur) if shape else np.ones(n))
+    hits = r.random(n) < dens / SR
+    for i in np.nonzero(hits)[0]:
+        m = int(SR * r.uniform(.002, .012)); seg_ = r.standard_normal(min(m, n - i)) * np.exp(-np.arange(min(m, n - i)) / (m / 4)) * r.uniform(.3, 1); x[i:i + len(seg_)] += seg_
+    x += r.standard_normal(n) * .05 * (shape(t / dur) if shape else 1)
+    if hp: x = np.diff(x, prepend=0)
+    x *= np.minimum(1, t / .01) * np.minimum(1, (dur - t) / .05); return x / (np.abs(x).max() + 1e-9) * .85
+sf.write(f'{OUT}/kertas-lepas.wav', crackle(.45, 900, True, 11, lambda u: np.sin(np.pi * u) ** .7), SR)
+sf.write(f'{OUT}/kertas-sobek.wav', crackle(.8, 2500, True, 12, lambda u: np.clip(u * 3, 0, 1) * (1 - u) ** .3), SR)
+sf.write(f'{OUT}/kertas-remas.wav', crackle(1.0, 350, True, 13, lambda u: .4 + .6 * np.abs(np.sin(u * 9))), SR)
 print('ok', os.listdir(OUT))
