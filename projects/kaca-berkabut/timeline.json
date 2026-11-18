@@ -5,25 +5,25 @@
    "id": "n0",
    "t0": 0.0,
    "t1": 5.92,
-   "cap": "Pernah sedang berkendara, lalu tiba-tiba kaca mobil bagian depan berubah buram seperti tertutup kabut,"
+   "cap": "Pernah sedang berkendara, lalu tiba-tiba kaca mobil bagian depan berubah buram seperti tertutup kabut?"
   },
   {
    "id": "n1",
    "t0": 5.92,
    "t1": 10.2,
-   "cap": "padahal tidak hujan, dan kamu masih bisa melihat jalan sebelumnya dengan jelas."
+   "cap": "Padahal tidak hujan, dan kamu masih bisa melihat jalan sebelumnya dengan jelas."
   },
   {
    "id": "n2",
    "t0": 11.04,
    "t1": 14.52,
-   "cap": "Banyak orang langsung mengelap kaca menggunakan tangan atau kain,"
+   "cap": "Banyak orang langsung mengelap kaca menggunakan tangan atau kain."
   },
   {
    "id": "n3",
    "t0": 14.66,
    "t1": 17.68,
-   "cap": "tapi beberapa detik kemudian, kabutnya muncul lagi."
+   "cap": "Tapi beberapa detik kemudian, kabutnya muncul lagi."
   },
   {
    "id": "n4",
@@ -47,7 +47,7 @@
    "id": "n7",
    "t0": 33.42,
    "t1": 37.3,
-   "cap": "Apalagi jika udara di dalam kabin lembab karena napas penumpang,"
+   "cap": "Apalagi jika udara di dalam kabin lembap karena napas penumpang,"
   },
   {
    "id": "n8",
@@ -101,19 +101,19 @@
    "id": "n16",
    "t0": 83.86,
    "t1": 88.98,
-   "cap": "Karena terkadang, masalah yang terlihat sepele ternyata bisa mengganggu sesuatu yang sangat penting,"
+   "cap": "Karena terkadang, masalah yang terlihat sepele ternyata bisa mengganggu sesuatu yang sangat penting:"
   },
   {
    "id": "n17",
    "t0": 89.06,
    "t1": 91.1,
-   "cap": "kemampuan kita melihat jalan."
+   "cap": "kemampuan kita *melihat jalan.*"
   },
   {
    "id": "a1",
    "t0": 91.38,
    "t1": 93.54,
-   "cap": "Inilah Adriy.Project."
+   "cap": "Inilah *Adriy.Project.*"
   },
   {
    "id": "z",
