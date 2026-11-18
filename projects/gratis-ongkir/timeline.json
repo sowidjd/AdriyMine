@@ -1,370 +1,370 @@
 {
- "duration": 242.269,
+ "duration": 172.222,
  "lines": [
   {
    "id": "h1",
    "t0": 0.3,
-   "t1": 4.649,
+   "t1": 4.254,
    "cap": "Kamu belanja dua ratus ribu rupiah, cuma demi *mendapatkan* gratis ongkir sepuluh ribu."
   },
   {
    "id": "h2",
-   "t0": 4.849,
-   "t1": 6.816,
+   "t0": 4.374,
+   "t1": 6.166,
    "cap": "*Rasanya* seperti menang besar, kan?"
   },
   {
    "id": "h3",
-   "t0": 7.016,
-   "t1": 13.306,
+   "t0": 6.286,
+   "t1": 12.01,
    "cap": "Padahal... bisa jadi kamu baru saja *mengeluarkan* uang jauh lebih banyak,"
   },
   {
    "id": "h4",
-   "t0": 13.406,
-   "t1": 15.354,
+   "t0": 12.07,
+   "t1": 13.853,
    "cap": "hanya karena satu kata: *GRATIS*."
   },
   {
    "id": "h5",
-   "t0": 15.654,
-   "t1": 20.557,
+   "t0": 14.033,
+   "t1": 18.503,
    "cap": "Dan ternyata, ada penelitian yang *menjelaskan* kenapa kita begitu mudah tergoda."
   },
   {
    "id": "m1",
-   "t0": 21.457,
-   "t1": 22.325,
+   "t0": 19.043,
+   "t1": 19.842,
    "cap": "Coba *ingat-ingat*."
   },
   {
    "id": "m2",
-   "t0": 22.525,
-   "t1": 26.761,
+   "t0": 19.962,
+   "t1": 23.824,
    "cap": "Kamu awalnya cuma ingin *membeli* satu barang seharga seratus dua puluh ribu rupiah."
   },
   {
    "id": "m3",
-   "t0": 26.961,
-   "t1": 29.249,
+   "t0": 23.944,
+   "t1": 26.037,
    "cap": "Saat mau *membayar*, muncul tulisan:"
   },
   {
    "id": "m4",
-   "t0": 29.349,
-   "t1": 33.574,
+   "t0": 26.097,
+   "t1": 29.945,
    "cap": "Tambahkan belanjaan hingga dua ratus ribu rupiah untuk *mendapatkan* gratis ongkir!"
   },
   {
    "id": "m5",
-   "t0": 33.874,
-   "t1": 36.058,
+   "t0": 30.125,
+   "t1": 32.12,
    "cap": "*Ongkirnya* sendiri cuma sepuluh ribu."
   },
   {
    "id": "m6",
-   "t0": 36.258,
-   "t1": 40.249,
-   "cap": "Tapi kamu mulai *berpikir*, sayang juga kalau harus bayar ongkir."
+   "t0": 32.24,
+   "t1": 32.24,
+   "cap": ""
   },
   {
    "id": "m7",
-   "t0": 40.449,
-   "t1": 43.788,
+   "t0": 32.24,
+   "t1": 35.288,
    "cap": "Akhirnya, kamu keliling toko mencari barang *tambahan*."
   },
   {
    "id": "m8",
-   "t0": 43.988,
-   "t1": 47.529,
+   "t0": 35.408,
+   "t1": 38.638,
    "cap": "Kabel *cadangan*, stiker lucu, aksesori kecil,"
   },
   {
    "id": "m9",
-   "t0": 47.629,
-   "t1": 51.183,
-   "cap": "bahkan barang yang sebenarnya tidak pernah kamu *rencanakan* untuk dibeli."
+   "t0": 38.698,
+   "t1": 38.698,
+   "cap": ""
   },
   {
    "id": "m10",
-   "t0": 51.383,
-   "t1": 55.282,
+   "t0": 38.698,
+   "t1": 42.258,
    "cap": "Sampai akhirnya, *keranjang* belanjamu mencapai dua ratus ribu rupiah."
   },
   {
    "id": "m11",
-   "t0": 56.482,
-   "t1": 57.837,
-   "cap": "Paket datang, kamu *senang*."
+   "t0": 42.978,
+   "t1": 42.978,
+   "cap": ""
   },
   {
    "id": "m12",
-   "t0": 58.137,
-   "t1": 62.83,
+   "t0": 42.978,
+   "t1": 47.254,
    "cap": "Tapi beberapa hari kemudian, kamu melihat barang tambahan itu masih *tergeletak* di dalam laci."
   },
   {
    "id": "m13",
-   "t0": 63.03,
-   "t1": 64.783,
-   "cap": "Bahkan mungkin belum pernah *digunakan*!"
+   "t0": 47.374,
+   "t1": 47.374,
+   "cap": ""
   },
   {
    "id": "m14",
-   "t0": 65.083,
-   "t1": 69.369,
+   "t0": 47.374,
+   "t1": 51.28,
    "cap": "Lalu muncul *pertanyaan*... sebenarnya, siapa yang untung dari transaksi tadi?"
   },
   {
    "id": "d1",
-   "t0": 70.269,
-   "t1": 74.495,
+   "t0": 51.82,
+   "t1": 55.666,
    "cap": "Kebanyakan orang *menganggap* ini hanya masalah boros atau kurang pandai mengatur uang."
   },
   {
    "id": "d2",
-   "t0": 74.695,
-   "t1": 77.051,
-   "cap": "Padahal, ada *sesuatu* yang lebih menarik."
+   "t0": 55.786,
+   "t1": 55.786,
+   "cap": ""
   },
   {
    "id": "d3",
-   "t0": 77.251,
-   "t1": 79.804,
+   "t0": 55.786,
+   "t1": 58.112,
    "cap": "*Masalahnya* bukan sekadar kemampuan berhitung,"
   },
   {
    "id": "d4",
-   "t0": 79.904,
-   "t1": 83.378,
+   "t0": 58.172,
+   "t1": 61.342,
    "cap": "tetapi cara otak kita merespons sesuatu yang *ditawarkan* secara gratis."
   },
   {
    "id": "p1",
-   "t0": 84.278,
-   "t1": 90.8,
+   "t0": 61.882,
+   "t1": 67.825,
    "cap": "Pada tahun dua ribu tujuh, tiga peneliti bernama Kristina *Shampanier*, Nina Mazar, dan Dan Ariely,"
   },
   {
    "id": "p2",
-   "t0": 90.9,
-   "t1": 96.774,
+   "t0": 67.885,
+   "t1": 73.226,
    "cap": "*menerbitkan* penelitian tentang fenomena yang disebut zero price effect, atau efek harga nol."
   },
   {
    "id": "p3",
-   "t0": 97.074,
-   "t1": 99.936,
+   "t0": 73.406,
+   "t1": 76.017,
    "cap": "Mereka melakukan eksperimen *menggunakan* dua jenis cokelat:"
   },
   {
    "id": "p4",
-   "t0": 100.036,
-   "t1": 103.673,
+   "t0": 76.077,
+   "t1": 79.39,
    "cap": "*Hershey's* yang lebih murah, dan Lindt yang lebih mahal."
   },
   {
    "id": "p5",
-   "t0": 103.973,
-   "t1": 109.113,
+   "t0": 79.57,
+   "t1": 84.253,
    "cap": "Dalam salah satu percobaan, *Hershey's* dijual satu sen, sedangkan Lindt dijual lima belas sen."
   },
   {
    "id": "p6",
-   "t0": 109.413,
-   "t1": 114.954,
+   "t0": 84.433,
+   "t1": 89.482,
    "cap": "Ketika harga keduanya *diturunkan* satu sen, Hershey's menjadi gratis dan Lindt menjadi empat belas sen."
   },
   {
    "id": "p7",
-   "t0": 115.254,
-   "t1": 116.956,
+   "t0": 89.662,
+   "t1": 91.218,
    "cap": "Selisih *harganya* tetap sama."
   },
   {
    "id": "p8",
-   "t0": 117.256,
-   "t1": 119.109,
-   "cap": "Namun, hasilnya *mengejutkan*!"
+   "t0": 91.398,
+   "t1": 91.398,
+   "cap": ""
   },
   {
    "id": "p9",
-   "t0": 119.409,
-   "t1": 123.496,
+   "t0": 91.398,
+   "t1": 95.108,
    "cap": "Ketika *Hershey's* masih berharga satu sen, banyak peserta lebih memilih Lindt."
   },
   {
    "id": "p10",
-   "t0": 123.696,
-   "t1": 128.341,
+   "t0": 95.228,
+   "t1": 99.471,
    "cap": "Tetapi ketika *Hershey's* menjadi gratis, pilihan peserta berubah drastis."
   },
   {
    "id": "p11",
-   "t0": 128.541,
-   "t1": 131.23,
+   "t0": 99.591,
+   "t1": 102.039,
    "cap": "Lebih banyak orang justru memilih cokelat gratis *tersebut*."
   },
   {
    "id": "p12",
-   "t0": 131.43,
-   "t1": 134.682,
+   "t0": 102.159,
+   "t1": 105.116,
    "cap": "Padahal, *penurunan* harganya hanya satu sen!"
   },
   {
    "id": "p13",
-   "t0": 135.082,
-   "t1": 139.314,
-   "cap": "Penelitian ini *menunjukkan* bahwa kata gratis bisa memberikan daya tarik emosional,"
+   "t0": 105.356,
+   "t1": 105.356,
+   "cap": ""
   },
   {
    "id": "p14",
-   "t0": 139.414,
-   "t1": 142.847,
-   "cap": "yang jauh lebih besar *daripada* sekadar potongan harga biasa."
+   "t0": 105.356,
+   "t1": 105.356,
+   "cap": ""
   },
   {
    "id": "a1",
-   "t0": 143.747,
-   "t1": 147.642,
+   "t0": 105.356,
+   "t1": 108.901,
    "cap": "Nah, waktu kami di *Adriy.Project* mempelajari penelitian ini,"
   },
   {
    "id": "a1b",
-   "t0": 148.542,
-   "t1": 151.334,
+   "t0": 109.441,
+   "t1": 111.993,
    "cap": "kami langsung teringat pada *kebiasaan* belanja daring."
   },
   {
    "id": "p15",
-   "t0": 151.634,
-   "t1": 154.509,
+   "t0": 112.173,
+   "t1": 114.8,
    "cap": "Karena gratis ongkir *bekerja* dengan daya tarik yang mirip."
   },
   {
    "id": "p16",
-   "t0": 154.709,
-   "t1": 157.885,
-   "cap": "Kita terlalu fokus pada biaya yang berhasil *dihilangkan*,"
+   "t0": 114.92,
+   "t1": 114.92,
+   "cap": ""
   },
   {
    "id": "p17",
-   "t0": 157.985,
-   "t1": 160.978,
-   "cap": "sampai lupa *memperhatikan* uang tambahan yang harus dikeluarkan."
+   "t0": 114.92,
+   "t1": 114.92,
+   "cap": ""
   },
   {
    "id": "s1",
-   "t0": 161.878,
-   "t1": 163.661,
+   "t0": 114.92,
+   "t1": 116.547,
    "cap": "Lalu, bagaimana cara *menghindarinya*?"
   },
   {
    "id": "s2",
-   "t0": 163.961,
-   "t1": 165.597,
+   "t0": 116.727,
+   "t1": 118.221,
    "cap": "Pertama, hitung *selisihnya*."
   },
   {
    "id": "s3",
-   "t0": 165.797,
-   "t1": 171.424,
+   "t0": 118.341,
+   "t1": 123.463,
    "cap": "Misalnya, kamu harus menambah belanjaan delapan puluh ribu rupiah, hanya untuk *menghemat* ongkir sepuluh ribu."
   },
   {
    "id": "s4",
-   "t0": 171.624,
-   "t1": 175.282,
+   "t0": 123.583,
+   "t1": 126.917,
    "cap": "Artinya, *dibandingkan* membeli barang awal dan membayar ongkir,"
   },
   {
    "id": "s5",
-   "t0": 175.382,
-   "t1": 179.228,
+   "t0": 126.977,
+   "t1": 130.487,
    "cap": "kamu justru *mengeluarkan* tambahan tujuh puluh ribu rupiah."
   },
   {
    "id": "s6",
-   "t0": 179.628,
-   "t1": 182.459,
+   "t0": 130.727,
+   "t1": 133.305,
    "cap": "Kedua, *tanyakan* satu hal kepada diri sendiri."
   },
   {
    "id": "s7",
-   "t0": 182.659,
-   "t1": 188.156,
+   "t0": 133.425,
+   "t1": 138.434,
    "cap": "Apakah aku tetap akan membeli barang *tambahan* ini, kalau tidak ada promo gratis ongkir?"
   },
   {
    "id": "s8",
-   "t0": 188.456,
-   "t1": 192.355,
-   "cap": "Kalau jawabannya tidak, *kemungkinan* besar barang itu memang tidak kamu butuhkan."
+   "t0": 138.614,
+   "t1": 138.614,
+   "cap": ""
   },
   {
    "id": "s9",
-   "t0": 192.655,
-   "t1": 198.983,
+   "t0": 138.614,
+   "t1": 144.377,
    "cap": "Ketiga, manfaatkan promo hanya ketika memang ada barang lain yang sudah kamu *rencanakan* untuk dibeli."
   },
   {
    "id": "s10",
-   "t0": 199.183,
-   "t1": 202.904,
-   "cap": "Kamu juga bisa *menggabungkan* pesanan dengan teman, jika memang lebih hemat."
+   "t0": 144.497,
+   "t1": 144.497,
+   "cap": ""
   },
   {
    "id": "r1",
-   "t0": 203.804,
-   "t1": 205.262,
-   "cap": "Jadi, ingat satu hal."
+   "t0": 144.497,
+   "t1": 144.497,
+   "cap": ""
   },
   {
    "id": "r2",
-   "t0": 205.462,
-   "t1": 208.342,
+   "t0": 144.497,
+   "t1": 147.116,
    "cap": "Gratis belum tentu *berarti* untung."
   },
   {
    "id": "r3",
-   "t0": 208.542,
-   "t1": 214.031,
+   "t0": 147.236,
+   "t1": 152.231,
    "cap": "Terkadang, sesuatu yang terlihat gratis justru membuat kita *mengeluarkan* uang lebih banyak."
   },
   {
    "id": "c1",
-   "t0": 214.631,
-   "t1": 216.042,
+   "t0": 152.591,
+   "t1": 153.887,
    "cap": "Nah, *sekarang* giliran kamu!"
   },
   {
    "id": "c2",
-   "t0": 216.242,
-   "t1": 221.027,
+   "t0": 154.007,
+   "t1": 158.37,
    "cap": "Apa barang paling tidak berguna yang pernah kamu beli, hanya demi *mendapatkan* gratis ongkir?"
   },
   {
    "id": "c3",
-   "t0": 221.227,
-   "t1": 226.734,
-   "cap": "Kalau aku, *bayangkan* membeli stiker kucing, hanya supaya keranjang belanja memenuhi batas minimum!"
+   "t0": 158.49,
+   "t1": 158.49,
+   "cap": ""
   },
   {
    "id": "c4",
-   "t0": 227.034,
-   "t1": 232.052,
+   "t0": 158.49,
+   "t1": 163.059,
    "cap": "Tulis *pengalamanmu* di komentar. Aku penasaran, siapa yang pernah mengalami kejadian paling konyol."
   },
   {
    "id": "c5",
-   "t0": 232.352,
-   "t1": 237.301,
+   "t0": 163.239,
+   "t1": 167.748,
    "cap": "Dan simpan video ini. Siapa tahu, lain kali kamu *membukanya* sebelum menekan tombol bayar."
   },
   {
    "id": "z",
-   "t0": 237.801,
-   "t1": 241.069,
+   "t0": 168.048,
+   "t1": 171.022,
    "cap": ""
   }
  ]

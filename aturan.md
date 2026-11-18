@@ -301,7 +301,7 @@ Setiap skrip **wajib** punya CTA dan **wajib** ditutup dengan kalimat khas **"Ex
 
 Masukan pemilik: video terlalu cepat melompat ke penyelesaian, padahal pembahasan masalahnya belum selesai. Penonton butuh waktu untuk **mencerna** dulu.
 
-**Durasi minimal: 2 menit 43 detik (163 detik).** Durasi panjang diisi dengan **pembahasan yang lebih dalam**, bukan kalimat yang diulang-ulang atau jeda kosong.
+**Durasi: minimal 2 menit 43 detik (163 detik), MAKSIMAL 2 menit 57 detik (177 detik)** (batas 3 menit dari pemilik). Kalau naskah kepanjangan: percepat suara sedikit (tempo maks. 1,1×, nada tetap), perpendek jeda (skala_jeda), lalu buang kalimat pelengkap (`"lewati": true` di naskah.json) dan laporkan ke pemilik kalimat mana yang dibuang. Durasi panjang diisi dengan **pembahasan yang lebih dalam**, bukan kalimat yang diulang-ulang atau jeda kosong.
 
 **Alur wajib & pembagian waktu (perkiraan):**
 | Bagian | Isi | Porsi |
@@ -358,7 +358,7 @@ Mulai sekarang semua video memakai tokoh sendiri: **Adriy**, burung hantu kecil 
 
 - [ ] Tokoh = Adriy sesuai lembar karakter (§15), ciri & warna tidak berubah
 - [ ] Topik tidak ada di `projects/SUDAH-DIBUAT.md`
-- [ ] Durasi ≥ 2:43; alur §12 (masalah ± 25% → dugaan → penyebab → solusi baru di ≥ 55% durasi → rangkuman); setiap bagian ada jeda napas
+- [ ] Durasi 2:43–2:57 (maks. 2:57); alur §12 (masalah ± 25% → dugaan → penyebab → solusi baru di ≥ 55% durasi → rangkuman); setiap bagian ada jeda napas
 - [ ] CTA sesuai §13 (jembatan, pertanyaan mudah + contoh jawaban, alasan menjawab, CTA kedua yang spesifik)
 - [ ] Ejaan untuk suara sesuai §14 (huruf c, bahasa gaul, kalimat ≤ 12 kata, tidak belibet)
 - [ ] Tema sesuai urutan selang-seling §1 (urutan sesudah tema terakhir di Riwayat); jenis "Umum"/"Sehari-hari" berbeda dari video sebelumnya

@@ -54,7 +54,8 @@
    "kunci": [
     "suaranya",
     "berharap"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "h6",
@@ -97,7 +98,8 @@
    "kunci": [
     "tempatnya",
     "hening"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "m4",
@@ -524,7 +526,8 @@
    "kunci": [
     "pengalamanmu",
     "daripada"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "c6",
@@ -545,5 +548,7 @@
    "cap": "",
    "kunci": []
   }
- ]
+ ],
+ "tempo": 1.1,
+ "skala_jeda": 0.6
 }

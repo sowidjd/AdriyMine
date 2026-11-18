@@ -119,7 +119,8 @@
    "kunci": [
     "berpikir",
     "ongkir"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "m7",
@@ -152,7 +153,8 @@
    "kunci": [
     "rencanakan",
     "sebenarnya"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "m10",
@@ -174,7 +176,8 @@
    "kunci": [
     "senang",
     "datang"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "m12",
@@ -196,7 +199,8 @@
    "kunci": [
     "digunakan",
     "mungkin"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "m14",
@@ -229,7 +233,8 @@
    "kunci": [
     "sesuatu",
     "padahal"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "d3",
@@ -338,7 +343,8 @@
    "kunci": [
     "mengejutkan",
     "hasilnya"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "p9",
@@ -393,7 +399,8 @@
    "kunci": [
     "menunjukkan",
     "memberikan"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "p14",
@@ -404,7 +411,8 @@
    "kunci": [
     "daripada",
     "potongan"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "a1",
@@ -447,7 +455,8 @@
    "kunci": [
     "dihilangkan",
     "berhasil"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "p17",
@@ -458,7 +467,8 @@
    "kunci": [
     "memperhatikan",
     "dikeluarkan"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "s1",
@@ -546,7 +556,8 @@
    "kunci": [
     "kemungkinan",
     "jawabannya"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "s9",
@@ -568,7 +579,8 @@
    "kunci": [
     "menggabungkan",
     "pesanan"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "r1",
@@ -576,7 +588,8 @@
    "style": "warm, reflective",
    "text": "Jadi, ingat satu hal.",
    "cap": "Jadi, ingat satu hal.",
-   "kunci": []
+   "kunci": [],
+   "lewati": true
   },
   {
    "id": "r2",
@@ -631,7 +644,8 @@
    "kunci": [
     "bayangkan",
     "keranjang"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "c4",
@@ -663,5 +677,7 @@
    "cap": "",
    "kunci": []
   }
- ]
+ ],
+ "tempo": 1.1,
+ "skala_jeda": 0.6
 }

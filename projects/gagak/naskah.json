@@ -44,7 +44,8 @@
    "kunci": [
     "kedengarannya",
     "cerita"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "h5",
@@ -120,7 +121,8 @@
    "kunci": [
     "besoknya",
     "terulang"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "m7",
@@ -306,7 +308,8 @@
    "cap": "Tapi *tunggu* dulu...",
    "kunci": [
     "tunggu"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "p12",
@@ -317,7 +320,8 @@
    "kunci": [
     "penelitian",
     "berhenti"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "p13",
@@ -394,7 +398,8 @@
    "kunci": [
     "mempelajari",
     "bayangkan"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "p20",
@@ -405,7 +410,8 @@
    "kunci": [
     "teman-temannya",
     "bagaimana"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "a1",
@@ -480,7 +486,8 @@
    "kunci": [
     "membahayakan",
     "defensif"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "s4",
@@ -502,7 +509,8 @@
    "kunci": [
     "lingkungan",
     "mengingat"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "s6",
@@ -513,7 +521,8 @@
    "kunci": [
     "kompleks",
     "daripada"
-   ]
+   ],
+   "lewati": true
   },
   {
    "id": "s7",
@@ -632,5 +641,7 @@
    "cap": "",
    "kunci": []
   }
- ]
+ ],
+ "tempo": 1.1,
+ "skala_jeda": 0.6
 }

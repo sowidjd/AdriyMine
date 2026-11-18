@@ -41,12 +41,16 @@ if sys.argv[1] == 'gen':
         print(f"{L['id']:4s} {best[0]:.2f} {'OK ' if best[0] >= .85 else 'CEK'} {len(best[1]) / SR:.1f}s | {best[2]}", flush=True)
 else:
     import numpy as np, soundfile as sf
-    SR = 44100; t = N['lead']; parts = []; tl = []
+    # naskah.json boleh punya: "tempo" (mis. 1.1 = suara 10% lebih cepat, nada tetap), "skala_jeda" (mis. 0.6), dan per kalimat "lewati": true
+    # (kalimat dibuang dari video karena batas durasi; tetap dicatat di timeline dengan panjang nol supaya adegan tidak rusak)
+    SR = 44100; t = N['lead']; parts = []; tl = []; tempo = N.get('tempo', 1.0); sj = N.get('skala_jeda', 1.0)
     for L in N['lines']:
+        if L.get('lewati'): tl.append({'id': L['id'], 't0': round(t, 3), 't1': round(t, 3), 'cap': ''}); continue
         f = os.path.join(OUT, f"{L['id']}.wav"); tmp = os.path.join(OUT, '_t.wav')
-        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', f, '-af', 'silenceremove=start_periods=1:start_threshold=-55dB,areverse,silenceremove=start_periods=1:start_threshold=-55dB,areverse', '-ar', str(SR), '-ac', '1', tmp], check=True)
+        af = 'silenceremove=start_periods=1:start_threshold=-55dB,areverse,silenceremove=start_periods=1:start_threshold=-55dB,areverse' + (f',atempo={tempo}' if tempo != 1.0 else '')
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', f, '-af', af, '-ar', str(SR), '-ac', '1', tmp], check=True)
         a, _ = sf.read(tmp); d = len(a) / SR
-        tl.append({'id': L['id'], 't0': round(t, 3), 't1': round(t + d, 3), 'cap': L['cap']}); parts.append((t, a)); t += d + L['gap']
+        tl.append({'id': L['id'], 't0': round(t, 3), 't1': round(t + d, 3), 'cap': L['cap']}); parts.append((t, a)); t += d + L['gap'] * (sj if L['id'] != 'z' else 1)
     dur = t + 1.2
     mix = np.zeros(int(dur * SR))
     for t0, a in parts: i = int(t0 * SR); mix[i:i + len(a)] += a
