@@ -114,6 +114,10 @@ def make_handler(engine: Engine, token: str | None):
         def _auth(self) -> bool:
             if not token:
                 return True
+            # Kata sandi lewat X-Adriy-Token (dipakai bila server di Space privat Hugging Face,
+            # karena header Authorization dipakai untuk kunci Hugging Face) atau lewat Authorization.
+            if self.headers.get("X-Adriy-Token", "") == token:
+                return True
             if self.headers.get("Authorization", "") == f"Bearer {token}":
                 return True
             self._send(401, b'{"error":"token salah"}', "application/json")

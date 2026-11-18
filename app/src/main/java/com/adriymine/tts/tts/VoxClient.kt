@@ -29,8 +29,15 @@ class VoxClient {
         if (it.startsWith("http://") || it.startsWith("https://")) it else "http://$it"
     }
 
+    /** Kunci Hugging Face (hf_...) untuk server di Space privat; kosong bila server di komputer sendiri. */
+    var hfToken: String = ""
+
     private fun Request.Builder.auth(token: String) = apply {
-        if (token.isNotBlank()) header("Authorization", "Bearer ${token.trim()}")
+        if (token.isNotBlank()) header("X-Adriy-Token", token.trim())
+        when {
+            hfToken.isNotBlank() -> header("Authorization", "Bearer ${hfToken.trim()}")
+            token.isNotBlank() -> header("Authorization", "Bearer ${token.trim()}")
+        }
     }
 
     suspend fun health(url: String, token: String): Health = withContext(Dispatchers.IO) {
@@ -39,7 +46,8 @@ class VoxClient {
             http.newBuilder().readTimeout(15, TimeUnit.SECONDS).build()
                 .newCall(Request.Builder().url(base(url) + "/health").auth(token).build()).execute().use { r ->
                     when {
-                        r.code == 401 -> Health(false, "Kata sandi (token) salah")
+                        r.code == 401 -> Health(false, "Kata sandi server atau kunci Hugging Face salah")
+                        r.code == 404 -> Health(false, "Server tidak ditemukan. Periksa alamat, atau kunci Hugging Face bila Space privat")
                         !r.isSuccessful -> Health(false, "Server menjawab ${r.code}")
                         else -> {
                             val o = JSONObject(r.body?.string() ?: "{}")

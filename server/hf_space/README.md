@@ -3,11 +3,15 @@ title: AdriyTTS VoxCPM2
 sdk: docker
 app_port: 7860
 ---
-# Server VoxCPM2 gratis di Hugging Face (tanpa komputer sendiri)
+# Server VoxCPM2 di Hugging Face Space
+
+> **Penting (diuji 18 Nov 2026):** Hugging Face kini mewajibkan langganan **PRO (berbayar)** untuk Space
+> Docker/Gradio, termasuk di hardware CPU gratis. Jalur ini **tidak lagi gratis**.
+> Bila memakai PRO: buat Space **Private** (rekaman suara di folder `voices/` tidak boleh publik),
+> lalu isi "Kunci Hugging Face" di aplikasi agar bisa mengakses Space privat.
 
 1. Buat akun gratis di huggingface.co.
-2. Klik **New Space** → beri nama (mis. `adriytts`) → SDK **Docker** → hardware **CPU basic (free)** → **Public**.
-   (Pilih Public: Space Private butuh token Hugging Face yang tidak bisa dikirim aplikasi. Server tetap aman karena dikunci kata sandi `TOKEN` di langkah 4.)
+2. Klik **New Space** → beri nama (mis. `adriytts`) → SDK **Docker** → hardware **CPU basic (free)** → **Private** (wajib, karena berisi rekaman suara).
 3. Unggah file: `Dockerfile` dan `README.md` dari folder ini, `voxcpm_server.py` dan folder `voices/` dari folder `server/`.
 4. Buka **Settings → Variables and secrets** → tambah secret `TOKEN` berisi kata sandi pilihan Anda.
 5. Tunggu status **Running** (build pertama ±10–15 menit, termasuk mengunduh model 5 GB).

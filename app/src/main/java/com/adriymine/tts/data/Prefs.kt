@@ -28,6 +28,8 @@ data class Settings(
     /** Alamat server VoxCPM2 milik pengguna (kosong = tidak dipakai). */
     val voxUrl: String = "",
     val voxToken: String = "",
+    /** Kunci Hugging Face (hf_...) bila server berada di Space privat. */
+    val hfToken: String = "",
 )
 
 /** Prosodi akhir = setelan pengguna + setelan optimal suara (bila aktif). */
@@ -68,6 +70,7 @@ class Prefs(context: Context) {
                 chromiumVersion = sp.getString("chromium", d.chromiumVersion)?.takeIf { it.isNotBlank() } ?: d.chromiumVersion,
                 voxUrl = sp.getString("voxUrl", "") ?: "",
                 voxToken = sp.getString("voxToken", "") ?: "",
+                hfToken = sp.getString("hfToken", "") ?: "",
             )
         }.getOrDefault(d)
     }
@@ -93,6 +96,7 @@ class Prefs(context: Context) {
             .putString("chromium", s.chromiumVersion)
             .putString("voxUrl", s.voxUrl)
             .putString("voxToken", s.voxToken)
+            .putString("hfToken", s.hfToken)
             .apply()
     }
 }

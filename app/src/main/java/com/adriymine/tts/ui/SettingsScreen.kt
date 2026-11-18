@@ -71,6 +71,7 @@ fun SettingsScreen(vm: MainViewModel) {
             val voxStatus by vm.voxStatus.collectAsState()
             var url by remember(s.voxUrl) { mutableStateOf(s.voxUrl) }
             var token by remember(s.voxToken) { mutableStateOf(s.voxToken) }
+            var hf by remember(s.hfToken) { mutableStateOf(s.hfToken) }
             Text(
                 "VoxCPM2 adalah model suara 2 miliar parameter. Model ini terlalu besar untuk HP, jadi dijalankan " +
                     "di komputer kamu (sebaiknya dengan kartu grafis NVIDIA) memakai program server AdriyTTS. " +
@@ -82,14 +83,18 @@ fun SettingsScreen(vm: MainViewModel) {
                 label = { Text("Alamat server, mis. http://192.168.1.10:8808") }, modifier = Modifier.fillMaxWidth())
             OutlinedTextField(value = token, onValueChange = { token = it.trim() }, singleLine = true,
                 label = { Text("Kata sandi (token), bila ada") }, modifier = Modifier.fillMaxWidth())
+            OutlinedTextField(value = hf, onValueChange = { hf = it.trim() }, singleLine = true,
+                label = { Text("Kunci Hugging Face (hf_…), bila server di Hugging Face") },
+                visualTransformation = androidx.compose.ui.text.input.PasswordVisualTransformation(),
+                modifier = Modifier.fillMaxWidth())
             Row {
                 TextButton(onClick = {
-                    vm.updateSettings { it.copy(voxUrl = url, voxToken = token) }
+                    vm.updateSettings { it.copy(voxUrl = url, voxToken = token, hfToken = hf) }
                     vm.testVox()
                 }) { Text("Simpan & tes koneksi") }
                 if (s.voxUrl.isNotBlank()) TextButton(onClick = {
-                    url = ""; token = ""
-                    vm.updateSettings { it.copy(voxUrl = "", voxToken = "", voiceId = if (it.voiceId.startsWith("vox-")) "gadis-natural" else it.voiceId) }
+                    url = ""; token = ""; hf = ""
+                    vm.updateSettings { it.copy(voxUrl = "", voxToken = "", hfToken = "", voiceId = if (it.voiceId.startsWith("vox-")) "gadis-natural" else it.voiceId) }
                 }) { Text("Matikan") }
             }
             voxStatus?.let { Text(it, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold) }

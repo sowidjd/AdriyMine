@@ -74,12 +74,15 @@ class SynthesisEngine(
     private suspend fun synth(voice: com.adriymine.tts.tts.Voice, text: String, prosody: Prosody, attempts: Int): com.adriymine.tts.tts.SynthResult {
         if (voice.isVox) {
             val (url, token) = voxConfig()
+            vox.hfToken = hfToken()
             return com.adriymine.tts.tts.SynthResult(vox.synthesize(url, token, text, voice.voxVoice, attempts), emptyList())
         }
         return client.synthesize(text, voice.serverId, prosody, attempts = attempts)
     }
 
-    suspend fun voxHealth() = voxConfig().let { (u, t) -> vox.health(u, t) }
+    var hfToken: () -> String = { "" }
+
+    suspend fun voxHealth() = voxConfig().let { (u, t) -> vox.hfToken = hfToken(); vox.health(u, t) }
     private val jobsRoot = File(context.cacheDir, "jobs").apply { mkdirs() }
 
     private data class Spec(
