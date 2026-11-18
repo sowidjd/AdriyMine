@@ -1,2 +1,26 @@
-{"nama": "kalender-kosmik-tiktok", "musik": [{"file": "sketchbook-2024-03-06_02.ogg", "dari": "awal", "sampai": "d1", "gain": 0.9},
- {"file": "ludum-dare-30-03.ogg", "dari": "d2", "sampai": "t3", "gain": 0.75}, {"file": "sketchbook-2024-09-18.ogg", "dari": "a1", "sampai": "akhir", "gain": 0.85}]}
+{
+ "nama": "kalender-kosmik-tiktok",
+ "musik": [
+  {
+   "file": "sketchbook-2024-03-06_02.ogg",
+   "dari": "awal",
+   "sampai": "d1",
+   "gain": 0.9
+  },
+  {
+   "file": "ludum-dare-30-03.ogg",
+   "dari": "d2",
+   "sampai": "t3",
+   "gain": 0.75
+  },
+  {
+   "file": "sketchbook-2024-09-18.ogg",
+   "dari": "a1",
+   "sampai": "akhir",
+   "gain": 0.85
+  }
+ ],
+ "vol_musik": 0.6,
+ "vol_sfx": 0.9,
+ "duck": 0.45
+}

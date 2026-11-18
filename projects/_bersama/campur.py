@@ -41,7 +41,7 @@ if cfg.get('jingle'):
     for a_, b_, g in cfg['jingle']:
         env = np.zeros(N); env[int(L[a_]['t0'] * SR):int(L[b_]['t1'] * SR)] = 1; music += np.vstack([jg, jg]) * smooth(env, .4) * g * .5
 env = np.abs(voice[0]); env = smooth(env, .2); env = np.clip(env / (np.percentile(env, 95) * .5 + 1e-9), 0, 1); env = smooth(env, .35)
-music *= (1 - .68 * env)
+music *= (1 - cfg.get('duck', .68) * env)
 if 'a1' in L:   # channel moment: dip under the signature sting
     dip = np.ones(N); bs = int((L['a1']['t1'] - .3) * SR); dip[bs:bs + int(2 * SR)] = .55; music *= smooth(dip, .25)
 if 'z' in L:    # closing card: music fades out together with the warm sting
@@ -56,7 +56,7 @@ for t, f, g in json.load(open(os.path.join(D, 'cues.json'))):
     place(sfx, s, t, g)
 if miss: print('tidak ada:', sorted(set(miss)))
 def norm(x, peak): return x / (np.abs(x).max() + 1e-9) * peak
-mix = norm(voice, .95) + norm(music, .3) + norm(sfx, .5); mix = np.tanh(mix * 1.2) / np.tanh(1.2)
+mix = norm(voice, .95) + norm(music, cfg.get('vol_musik', .3)) + norm(sfx, cfg.get('vol_sfx', .5)); mix = np.tanh(mix * 1.2) / np.tanh(1.2)
 out = os.path.join(D, 'audio.wav'); sf.write(out, norm(mix, .9).T, SR); print('audio.wav', round(DUR, 1), 's')
 v = os.path.join(D, 'video-tanpa-suara.mp4')
 if os.path.exists(v):
