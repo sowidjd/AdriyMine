@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="intro"><video id="introVid" muted playsinline preload="auto"></video></div>
 <section class="view" id="dashboard"></section>
 <section class="view" id="catatan"></section>
 <section class="view" id="editor"></section>
@@ -18,6 +19,7 @@
 
 <nav class="nav" id="nav"></nav>
 
+<div class="side" id="side"><div class="sideov" id="sideOv"></div><aside class="sidep" id="sidePanel"></aside></div>
 <div class="sheetbg" id="sheetbg"><div class="sheet" id="sheet"></div></div>
 <div class="srch" id="srch"><div class="bar"><button id="srchBack"></button><input id="srchIn" placeholder="Cari..."></div><div class="res" id="srchRes"></div></div>
 <div class="viewer" id="viewer"><button class="x" id="viewerX"></button><div id="viewerBody"></div></div>
@@ -43,6 +45,7 @@
 <script src="lib/turndown-plugin-gfm.js"></script>
 <script src="lib/purify.min.js"></script>
 <script src="md.js"></script>
+<script src="ai.js"></script>
 <script src="icons.js"></script>
 <script src="app.js"></script>
 </body>

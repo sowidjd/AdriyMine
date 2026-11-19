@@ -1,0 +1,19 @@
+{
+  "name": "catatanbyadriy-intro",
+  "private": true,
+  "scripts": {
+    "render": "remotion render src/index.ts Intro out/intro.webm --codec=vp9 --crf=30 --scale=0.6666666666666666 --concurrency=2",
+    "studio": "remotion studio src/index.ts",
+    "build": "npm run render && cp out/intro.webm ../www/media/intro.webm"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.539",
+    "remotion": "4.0.539",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "typescript": "5.6.3",
+    "@types/react": "18.3.12"
+  }
+}

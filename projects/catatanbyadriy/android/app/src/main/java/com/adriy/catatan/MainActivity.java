@@ -22,7 +22,14 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONObject;
 import java.io.OutputStream;
 
 public class MainActivity extends Activity {
@@ -114,6 +121,9 @@ public class MainActivity extends Activity {
         if (p.endsWith(".png")) return "image/png";
         if (p.endsWith(".woff2")) return "font/woff2";
         if (p.endsWith(".svg")) return "image/svg+xml";
+        if (p.endsWith(".mp4")) return "video/mp4";
+        if (p.endsWith(".webm")) return "video/webm";
+        if (p.endsWith(".json")) return "application/json";
         return "application/octet-stream";
     }
 
@@ -161,6 +171,41 @@ public class MainActivity extends Activity {
     }
 
     private class Bridge {
+        /** Permintaan HTTP dari JS lewat jaringan Android (tanpa batasan CORS). Hasil dikirim ke window.__httpDone. */
+        @JavascriptInterface
+        public void httpRequest(final String id, final String method, final String url, final String headersJson, final String body, final int timeout) {
+            new Thread(() -> {
+                int status = 0; String text; JSONObject hdr = new JSONObject();
+                HttpURLConnection c = null;
+                try {
+                    if (!url.startsWith("https://")) throw new Exception("Hanya https");
+                    c = (HttpURLConnection) new URL(url).openConnection();
+                    c.setRequestMethod(method);
+                    c.setConnectTimeout(Math.min(timeout, 20000));
+                    c.setReadTimeout(timeout);
+                    c.setRequestProperty("User-Agent", "CatatanByAdriy/1.2 (Android)");
+                    JSONObject h = new JSONObject(headersJson == null || headersJson.isEmpty() ? "{}" : headersJson);
+                    Iterator<String> it = h.keys();
+                    while (it.hasNext()) { String k = it.next(); c.setRequestProperty(k, h.getString(k)); }
+                    if (body != null && !body.isEmpty()) {
+                        c.setDoOutput(true);
+                        try (OutputStream os = c.getOutputStream()) { os.write(body.getBytes("UTF-8")); }
+                    }
+                    status = c.getResponseCode();
+                    InputStream in = status >= 400 ? c.getErrorStream() : c.getInputStream();
+                    ByteArrayOutputStream bo = new ByteArrayOutputStream();
+                    if (in != null) { byte[] buf = new byte[8192]; int n; while ((n = in.read(buf)) > 0) bo.write(buf, 0, n); in.close(); }
+                    text = bo.toString("UTF-8");
+                    for (Map.Entry<String, List<String>> e : c.getHeaderFields().entrySet())
+                        if (e.getKey() != null && !e.getValue().isEmpty()) hdr.put(e.getKey().toLowerCase(), e.getValue().get(0));
+                } catch (Exception e) {
+                    status = 0; text = e.getClass().getSimpleName() + ": " + e.getMessage();
+                } finally { if (c != null) c.disconnect(); }
+                final String js = "window.__httpDone&&window.__httpDone(" + JSONObject.quote(id) + "," + status + "," + JSONObject.quote(text) + "," + JSONObject.quote(hdr.toString()) + ")";
+                runOnUiThread(() -> web.evaluateJavascript(js, null));
+            }).start();
+        }
+
         @JavascriptInterface
         public void printHtml(final String title, final String html) {
             runOnUiThread(() -> {

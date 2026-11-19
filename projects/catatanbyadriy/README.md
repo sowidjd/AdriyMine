@@ -6,7 +6,8 @@ Aplikasi catatan, berkas, AI, dan kalender. Tampilan dibuat mengikuti 7 gambar c
 - Semua data (catatan, berkas unggahan, agenda) tersimpan **di HP**, tanpa login, tanpa internet.
 - Catatan membaca Markdown luas: judul, daftar bertingkat, tugas [ ], tabel, kode berwarna, rumus $..$/$$..$$, diagram mermaid, peringatan > [!NOTE], kotak ::: info, ==stabilo==, ++sisipan++, ~sub~, ^sup^, catatan kaki, singkatan, daftar definisi, emoji :smile:. Menu ⋮ → Edit sebagai Markdown / Ekspor .md. Berkas .md bisa dibuka dan dijadikan catatan.
 - "Rapikan dengan AI" merapikan catatan memakai Markdown di HP (tanpa server): spasi, penanda daftar, huruf kapital, judul bagian, tugas, tabel.
-- Asisten AI belum tersambung ke layanan AI apa pun; tombol chat menyimpan pesan dan memberi tahu bahwa AI belum aktif.
+- Asisten AI memakai model gratis yang dicari otomatis (`www/ai.js`): OpenRouter model `:free`, Groq, Gemini (bila kunci gratis diisi di sidebar → Pengaturan), lalu Pollinations tanpa kunci (batas 1 balasan / 45 detik). Model yang error/kena batas dilewati otomatis; daftar model dicari ulang saat semua gagal dan saat internet tersambung lagi.
+- Animasi pembuka dibuat dengan Remotion di folder `intro/` (`REMOTION_BROWSER=/path/chrome-headless-shell npm run build` → `www/media/intro.webm`).
 
 ## Struktur
 - `www/` — tampilan & logika (HTML/CSS/JS). Skala: `1rem` = lebar layar / 64, jadi ukuran pas di semua lebar HP.

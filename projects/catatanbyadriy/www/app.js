@@ -72,7 +72,8 @@ function seed(){
     A(11,'Bayar Tagihan','10.00','','pribadi'),A(-8,'Kelas Online K3','19.00','20.30','belajar'),A(-5,'Servis Motor','09.00','','pribadi'),A(-3,'Evaluasi Target','20.00','','target')];
   return {notes,files,folders,agendas,storageBase:125.4e9-files.reduce((a,f)=>a+f.size,0),model:'Umum'};
 }
-function load(){try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){S=null}if(!S||!S.notes){S=seed();save()}}
+function load(){try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){S=null}if(!S||!S.notes){S=seed()}migrate();save()}
+function migrate(){S.chats=S.chats||[];S.ai=S.ai||{};if(S.chatCur===undefined)S.chatCur=null;AIX.init(S.ai,save)}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){toast('Penyimpanan penuh')}}
 
 /* ---------- IndexedDB untuk isi berkas ---------- */
@@ -100,15 +101,23 @@ function confirmBox(msg,label,fn){sheet(`<h3>${esc(msg)}</h3><button class="prim
 /* ---------- navigasi ---------- */
 let cur='dashboard',prevTab='dashboard';
 const TABS=[['dashboard','Dashboard','house','nav-house-on'],['catatan','Catatan','file-text','nav-file-on'],['berkas','Berkas','folder','nav-folder-on'],['ai','AI','nav-ai','nav-ai-on'],['kalender','Kalender','calendar','nav-cal-on']];
-function renderNav(){const t=cur==='editor'?'catatan':cur;
-  $('#nav').innerHTML=TABS.map(x=>`<button data-v="${x[0]}" class="${x[0]===t?'on':''}">${ic(x[0]===t?x[3]:x[2])}<span>${x[1]}</span></button>`).join('');
-  $('#nav').querySelectorAll('button').forEach(b=>b.onclick=()=>go(b.dataset.v))}
-function go(v){if(cur==='editor'&&v!=='editor')leaveEditor();if(v!=='editor')prevTab=v;cur=v;
-  document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s.id===v));
-  R[v]&&R[v]();renderNav();window.scrollTo(0,0)}
+function renderNav(){const t=cur==='editor'?'catatan':cur;const idx=TABS.findIndex(x=>x[0]===t);
+  const nav=$('#nav');
+  if(!nav.querySelector('.ind')){nav.innerHTML='<span class="ind"></span>'+TABS.map(x=>`<button data-v="${x[0]}"><span class="ico"></span><span class="lb">${x[1]}</span></button>`).join('');
+    nav.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(b.dataset.v!==(cur==='editor'?'catatan':cur)||cur==='editor')go(b.dataset.v);else window.scrollTo({top:0,behavior:'smooth'})})}
+  nav.querySelectorAll('button').forEach((b,i)=>{const on=i===idx;if(b.classList.contains('on')!==on||!b.firstChild.innerHTML){b.classList.toggle('on',on);b.firstChild.innerHTML=ic(on?TABS[i][3]:TABS[i][2])}});
+  nav.style.setProperty('--i',idx)}
+const ORDERV={dashboard:0,catatan:1,editor:1.5,berkas:2,ai:3,kalender:4};
+function go(v){const from=cur;if(cur==='editor'&&v!=='editor')leaveEditor();if(v!=='editor')prevTab=v;cur=v;
+  const dir=(ORDERV[v]||0)>=(ORDERV[from]||0)?1:-1;
+  document.querySelectorAll('.view').forEach(s=>{const on=s.id===v;s.classList.toggle('on',on);if(!on)s.classList.remove('in')});
+  R[v]&&R[v]();renderNav();window.scrollTo(0,0);
+  const el=document.getElementById(v);if(from!==v&&booted){el.style.setProperty('--dx',(v==='editor'?8:dir*7)+'%');el.classList.remove('in');void el.offsetWidth;el.classList.add('in')}}
+let booted=false;
 window.appBack=function(){
   if($('#viewer').classList.contains('on')){closeViewer();return true}
-  if(stack.length){const t=stack[stack.length-1];if(t==='sheet')closeSheet();else if(t==='srch')closeSearch();return true}
+  if(stack.length){const t=stack[stack.length-1];if(t==='sheet')closeSheet();else if(t==='srch')closeSearch();else if(t==='side')closeSidebar();return true}
+  if(cur==='ai'&&curChat()&&curChat().msgs.length){S.chatCur=null;save();R.ai();window.scrollTo(0,0);return true}
   if(cur==='editor'){if(EV.mode==='edit'){setEdMode('read');return true}go(EV.from||'catatan');return true}
   if(cur!=='dashboard'){go('dashboard');return true}
   return false};
@@ -116,7 +125,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')window.appBack()});
 
 /* ---------- header bersama ---------- */
 const hdrMain=()=>`<div class="hdr"><img class="logo" src="img/logo_dash.png" alt=""><div><div class="t1">CatatanByAdriy</div><div class="t2">Catat • Kelola • Simpan • Akses Kapan Saja</div></div><div class="sp"></div><button class="profile"><img class="avatar" src="img/avatar.png" alt="Profil"></button></div>`;
-function bindProfile(root){root.querySelector('.profile').onclick=()=>menu('Profil',[{icon:'download',label:'Cadangkan data (unduh)',fn:backup},{icon:'upload',label:'Pulihkan data dari cadangan',fn:restore},{icon:'trash-2',label:'Atur ulang ke data contoh',red:true,fn:()=>confirmBox('Hapus semua data dan kembali ke data contoh?','Atur ulang',()=>{S=seed();save();go(cur)})}])}
+function bindProfile(root){root.querySelector('.profile').onclick=()=>menu('Profil',[{icon:'download',label:'Cadangkan data (unduh)',fn:backup},{icon:'upload',label:'Pulihkan data dari cadangan',fn:restore},{icon:'trash-2',label:'Atur ulang ke data contoh',red:true,fn:()=>confirmBox('Hapus semua data dan kembali ke data contoh?','Atur ulang',()=>{S=seed();migrate();save();go(cur)})}])}
 
 /* ---------- catatan helpers ---------- */
 const liveNotes=()=>S.notes.filter(n=>!n.trashed);
@@ -390,11 +399,19 @@ function closeViewer(){$('#viewer').classList.remove('on','md');$('#viewerBody')
 $('#viewerX').innerHTML=ic('x');$('#viewerX').onclick=closeViewer;
 
 /* ================= AI ================= */
-const msgs=[];
+// Layar sambutan tampil hanya saat chat masih kosong. Setelah pesan pertama: mode chat
+// (pesan di atas, kolom ketik di bawah). Riwayat & pengaturan ada di sidebar (lebar 78%).
+const AIRUN={busy:false,cancel:false,status:''};
+function curChat(){return S.chats.find(c=>c.id===S.chatCur)||null}
+function newChatObj(){const c={id:'c'+Date.now(),title:'Chat baru',msgs:[],updated:Date.now()};S.chats.unshift(c);S.chatCur=c.id;return c}
 R.ai=function(){
-  const el=$('#ai');
+  const el=$('#ai');const c=curChat();
+  if(c&&c.msgs.length){el.className='view on chatmode';renderChatMode(el,c)}else{el.className='view on';renderWelcome(el)}
+  renderSidebar();
+};
+function renderWelcome(el){
   el.innerHTML=`<div class="hdr2"><img class="logo" src="img/logo_ai.png" alt=""><div><div class="t1">CatatanByAdriy</div><div class="t2">AI Assistant</div></div><div class="sp"></div>
-    <button class="sqbtn" id="aHist" >${ic('history')}</button><button class="sqbtn" id="aSet" >${ic('settings')}</button></div>
+    <button class="sqbtn" id="aHist">${ic('history')}</button><button class="sqbtn" id="aSet">${ic('settings')}</button></div>
   <div class="aibanner"><img src="img/banner_ai.png" alt="Asisten AI Kamu"></div>
   <div class="tools">
     <button data-t="chat"><img src="img/ai_chat.png" alt=""><span>Chat AI</span></button>
@@ -404,7 +421,7 @@ R.ai=function(){
     <button data-t="img"><img src="img/ai_img.png" alt=""><span>Buat Gambar</span></button>
     <button data-t="more"><img src="img/ai_more.png" alt=""><span>Lainnya</span></button>
   </div>
-  <div class="mq"><div class="hd">${ic('zap','z')}<h2>Mulai Cepat</h2><button class="link">Lihat Semua ${ic('chevron-right')}</button></div>
+  <div class="mq"><div class="hd">${ic('zap','z')}<h2>Mulai Cepat</h2><button class="link" id="mqAll">Lihat Semua ${ic('chevron-right')}</button></div>
     <div class="g">
       <button data-q="Rangkum dokumen ini: "><img src="img/mq_doc.png" alt=""><div><div class="a">Rangkum Dokumen</div><div class="b">Ringkas PDF, DOCX, atau catatan</div></div></button>
       <button data-q="Carikan ide konten tentang "><img src="img/mq_bulb.png" alt=""><div><div class="a">Cari Ide Konten</div><div class="b">Ide video, artikel, atau shorts</div></div></button>
@@ -416,30 +433,108 @@ R.ai=function(){
   <div class="chat"><div class="hd">${ic('chatfill')}<h2>Chat dengan AI</h2></div>
     <div class="box"><textarea id="aIn" placeholder="Tanyakan sesuatu..."></textarea>
       <div class="ic"><button id="aAtt">${ic('paperclip')}</button><button id="aImg">${ic('image')}</button><button id="aDoc">${ic('file-text')}</button></div>
-      <button class="model" id="aModel">Model: ${esc(S.model)} ${ic('chevron-down')}</button><button class="send" id="aSend">${ic('send-fill')}</button></div>
-    <div class="msgs" id="aMsgs"></div></div>`;
-  el.querySelector('.hd .link').style.cssText='margin-right:1rem';
+      <button class="model" id="aModel">Model: ${esc(modelLabel())} ${ic('chevron-down')}</button><button class="send" id="aSend">${ic('send-fill')}</button></div></div>`;
   const inp=el.querySelector('#aIn');
   const put=t=>{inp.value=t;inp.focus();inp.setSelectionRange(t.length,t.length)};
-  const T={chat:'',sum:'Rangkum catatan saya: ',write:'Tuliskan konten tentang ',tr:'Terjemahkan ke bahasa Inggris: ',img:'Buatkan gambar: '};
-  el.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{const t=b.dataset.t;if(t==='more'){menu('Fitur AI lainnya',[{icon:'pen-line',label:'Perbaiki tata bahasa',fn:()=>put('Perbaiki tata bahasa: ')},{icon:'list',label:'Buat daftar poin',fn:()=>put('Buat poin-poin dari: ')},{icon:'square-check',label:'Buat soal latihan',fn:()=>put('Buat soal latihan tentang ')}]);return}if(t==='sum'){pickNoteFor(n=>put('Rangkum catatan "'+n.title+'":\n'+plain(n.body).slice(0,600)));return}put(T[t])});
+  const T={chat:'',write:'Tuliskan konten tentang ',tr:'Terjemahkan ke bahasa Inggris: ',img:'Buatkan gambar: '};
+  el.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{const t=b.dataset.t;
+    if(t==='more'){moreTools(put);return}
+    if(t==='sum'){pickNoteFor(n=>sendAi('Rangkum catatan berikut menjadi poin-poin penting.\n\nJudul: '+(n.title||'Tanpa judul')+'\n\n'+MD.toMd(n.body).slice(0,6000)));return}
+    put(T[t])});
   el.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>put(b.dataset.q));
-  el.querySelector('.mq .link').onclick=()=>toast('Semua fitur sudah ditampilkan');
-  el.querySelector('#aSend').onclick=sendAi;
-  inp.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendAi()}});
-  el.querySelector('#aModel').onclick=()=>menu('Pilih model',['Umum','Kreatif','Teliti'].map(m=>({icon:'sparkle-ai',label:m,fn:()=>{S.model=m;save();R.ai()}})));
-  el.querySelector('#aDoc').onclick=()=>pickNoteFor(n=>put('Tentang catatan "'+n.title+'": '));
-  el.querySelector('#aAtt').onclick=()=>toast('Lampiran akan dikirim saat AI sudah tersambung');
-  el.querySelector('#aImg').onclick=()=>toast('Lampiran gambar akan dikirim saat AI sudah tersambung');
-  el.querySelector('#aHist').onclick=()=>{if(!msgs.length)return toast('Belum ada riwayat chat');document.getElementById('aMsgs').scrollIntoView({behavior:'smooth'})};
-  el.querySelector('#aSet').onclick=()=>menu('Pengaturan AI',[{icon:'trash-2',label:'Hapus riwayat chat',red:true,fn:()=>{msgs.length=0;R.ai()}}]);
-  renderMsgs();
-};
+  el.querySelector('#mqAll').onclick=()=>moreTools(put);
+  el.querySelector('#aSend').onclick=()=>sendAi(inp.value);
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendAi(inp.value)}});
+  el.querySelector('#aModel').onclick=pickModel;
+  el.querySelector('#aDoc').onclick=el.querySelector('#aAtt').onclick=()=>pickNoteFor(n=>put('Tentang catatan "'+n.title+'":\n'+MD.toMd(n.body).slice(0,4000)+'\n\nPertanyaan: '));
+  el.querySelector('#aImg').onclick=()=>put('Buatkan gambar: ');
+  el.querySelector('#aHist').onclick=()=>openSidebar();
+  el.querySelector('#aSet').onclick=()=>openSidebar(true);
+}
+function moreTools(put){menu('Fitur AI lainnya',[{icon:'pen-line',label:'Perbaiki tata bahasa',fn:()=>put('Perbaiki tata bahasa: ')},{icon:'list',label:'Buat daftar poin',fn:()=>put('Buat poin-poin dari: ')},{icon:'square-check',label:'Buat soal latihan',fn:()=>put('Buat 5 soal latihan beserta jawabannya tentang ')},{icon:'type',label:'Buat judul & caption',fn:()=>put('Buatkan 5 judul dan caption menarik untuk konten tentang ')}])}
+function renderChatMode(el,c){
+  el.innerHTML=`<div class="chdr"><button class="sqbtn" id="cSide">${ic('menu')}</button><div class="ct"><div class="a">${esc(c.title)}</div><div class="b" id="cModel">${esc(modelLabel(true))}</div></div><button class="sqbtn" id="cNew">${ic('square-pen')}</button></div>
+  <div class="cmsgs" id="cMsgs"></div>
+  <div class="composer"><div class="cbox"><button class="cic" id="cAtt">${ic('paperclip')}</button><textarea id="cIn" rows="1" placeholder="Ketik pesan..."></textarea>
+    <button class="csend" id="cSend">${ic('send-fill')}</button></div></div>`;
+  renderMsgs(true);
+  const inp=el.querySelector('#cIn');
+  const grow=()=>{inp.style.height='auto';inp.style.height=Math.min(inp.scrollHeight,innerWidth*0.32)+'px'};inp.addEventListener('input',grow);
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey&&!('ontouchstart' in window)){e.preventDefault();sendAi(inp.value)}});
+  el.querySelector('#cSend').onclick=()=>{if(AIRUN.busy){AIRUN.cancel=true;return}sendAi(inp.value)};
+  el.querySelector('#cSide').onclick=()=>openSidebar();
+  el.querySelector('#cNew').onclick=()=>{S.chatCur=null;save();R.ai()};
+  el.querySelector('#cAtt').onclick=()=>menu('Lampirkan',[{icon:'file-text',label:'Isi catatan',fn:()=>pickNoteFor(n=>{inp.value='Tentang catatan "'+n.title+'":\n'+MD.toMd(n.body).slice(0,4000)+'\n\nPertanyaan: '+inp.value;grow();inp.focus()})},{icon:'image',label:'Buat gambar',fn:()=>{inp.value='Buatkan gambar: ';inp.focus()}}]);
+  updSend();
+}
+function modelLabel(long){const a=S.ai;if(a.model!=='auto'){const c=a.cands.find(x=>AIX.keyOf(x)===a.model);return c?AIX.shortName(c):'Otomatis'}
+  if(!long)return 'Otomatis';const c=a.cands.find(x=>AIX.keyOf(x)===a.last);return 'Otomatis'+(c?' · '+AIX.shortName(c):' · model gratis')}
+function updSend(){const b=$('#cSend');if(b){b.innerHTML=AIRUN.busy?ic('square','','fill:#fff;stroke:#fff'):ic('send-fill');b.classList.toggle('stop',AIRUN.busy)}}
+function renderMsgs(jump){const box=$('#cMsgs');const c=curChat();if(!box||!c)return;
+  box.innerHTML=c.msgs.map((m,i)=>m.role==='user'?`<div class="mrow me"><div class="bub me">${esc(m.content).replace(/\n/g,'<br>')}</div></div>`
+    :`<div class="mrow bot"><div class="bub bot ${m.err?'err':''}"><div class="body">${m.img?`<img src="${esc(m.img)}" alt="" onerror="this.alt='Gambar gagal dimuat'"><p>${esc(m.content)}</p>`:MD.render(m.content)}</div></div>
+      ${m.err?`<div class="macts"><button data-a="regen" data-i="${i}">${ic('redo-2')}Coba lagi</button></div>`:`<div class="macts"><button data-a="copy" data-i="${i}" title="Salin">${ic('copy')}</button><button data-a="regen" data-i="${i}" title="Buat ulang">${ic('refresh-cw')}</button><button data-a="like" data-i="${i}" class="${m.fb===1?'on':''}" title="Suka">${ic('thumbs-up')}</button><button data-a="dislike" data-i="${i}" class="${m.fb===-1?'on':''}" title="Tidak suka">${ic('thumbs-down')}</button><span class="mm">${esc(m.label||'')}</span></div>`}</div>`).join('')
+    +(AIRUN.busy?`<div class="mrow bot"><div class="bub bot typing"><i></i><i></i><i></i><span id="cStat">${esc(AIRUN.status)}</span></div></div>`:'');
+  box.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>msgAct(b.dataset.a,+b.dataset.i));
+  MD.diagrams(box);
+  if(jump)requestAnimationFrame(()=>window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'}))}
+function msgAct(a,i){const c=curChat(),m=c.msgs[i];
+  if(a==='copy')copyText(m.content);
+  else if(a==='like'||a==='dislike'){const v=a==='like'?1:-1;m.fb=m.fb===v?0:v;save();renderMsgs();toast(m.fb===1?'Terima kasih atas masukannya':m.fb===-1?'Masukan dicatat':'Masukan dihapus')}
+  else if(a==='regen'){if(AIRUN.busy)return;c.msgs.splice(i,1);save();runAi(c,true)}}
+function sendAi(text){text=(text||'').trim();if(!text||AIRUN.busy)return;
+  let c=curChat();if(!c)c=newChatObj();
+  c.msgs.push({role:'user',content:text,ts:Date.now()});if(c.msgs.length===1)c.title=text.replace(/\s+/g,' ').slice(0,40);c.updated=Date.now();save();
+  R.ai();runAi(c)}
+async function runAi(c,regen){
+  const last=[...c.msgs].reverse().find(m=>m.role==='user');if(!last)return;
+  AIRUN.busy=true;AIRUN.cancel=false;AIRUN.status='Mencari model gratis...';renderMsgs(true);updSend();
+  const im=last.content.match(/^\s*buat(?:kan)?\s+gambar\s*:?\s*(.+)/i);
+  try{
+    if(im){if(navigator.onLine===false)throw new Error('Tidak ada koneksi internet.');
+      c.msgs.push({role:'assistant',content:'Gambar: '+im[1].trim(),img:AIX.imageUrl(im[1].trim()),label:'Pollinations Image',ts:Date.now()})}
+    else{const hist=c.msgs.filter(m=>!m.err&&!m.img);
+      const r=await AIX.chat(hist,{onStatus:s=>{AIRUN.status=s;const e=$('#cStat');if(e)e.textContent=s},cancelled:()=>AIRUN.cancel,regen:!!regen});
+      c.msgs.push({role:'assistant',content:r.text,label:r.label,ts:Date.now()})}
+  }catch(e){if(e.message!=='cancel')c.msgs.push({role:'assistant',content:e.message||'Terjadi kesalahan.',err:true,ts:Date.now()})}
+  AIRUN.busy=false;c.updated=Date.now();save();
+  if(cur==='ai'&&curChat()===c){renderMsgs(true);updSend();const b=$('#cModel');if(b)b.textContent=modelLabel(true)}}
+function pickModel(){const a=S.ai;
+  menu('Pilih model',[{icon:'sparkle-ai',label:(a.model==='auto'?'✓ ':'')+'Otomatis (cari model gratis yang aktif)',fn:()=>{a.model='auto';save();R.ai()}}]
+    .concat(a.cands.slice(0,20).map(c=>({icon:'zap',label:(a.model===AIX.keyOf(c)?'✓ ':'')+AIX.shortName(c),fn:()=>{a.model=AIX.keyOf(c);save();R.ai()}})))
+    .concat([{icon:'refresh-cw',label:'Cari ulang model gratis',fn:rescan}]))}
+async function rescan(){toast('Mencari model gratis...');try{const l=await AIX.discover(true);S.ai.cool={};save();toast(l.length+' model gratis ditemukan');renderSidebar();if(cur==='ai')R.ai()}catch(e){toast('Gagal mencari model')}}
 function pickNoteFor(fn){menu('Pilih catatan',liveNotes().slice().sort((a,b)=>b.updated-a.updated).slice(0,8).map(n=>({icon:'file-text',label:n.title||'Tanpa judul',fn:()=>fn(n)})))}
-function renderMsgs(){const m=$('#aMsgs');if(m)m.innerHTML=msgs.map(x=>`<div class="msg ${x.me?'me':'bot'}">${esc(x.t).replace(/\n/g,'<br>')}</div>`).join('')}
-function sendAi(){const inp=$('#aIn');const t=inp.value.trim();if(!t)return;msgs.push({me:true,t});inp.value='';
-  msgs.push({me:false,t:'Asisten AI belum tersambung ke layanan AI, jadi pertanyaan ini belum bisa dijawab. Pesanmu tetap tersimpan di riwayat chat ini.'});renderMsgs();
-  setTimeout(()=>{const m=$('#aMsgs');m&&m.lastElementChild&&m.lastElementChild.scrollIntoView({behavior:'smooth',block:'end'})},50)}
+
+/* ---------- sidebar riwayat & pengaturan ---------- */
+function openSidebar(toSettings){renderSidebar();$('#side').classList.add('on');stack.push('side');if(toSettings)setTimeout(()=>{const s=$('#sideSet');s&&s.scrollIntoView({behavior:'smooth'})},250)}
+function closeSidebar(){$('#side').classList.remove('on');const i=stack.lastIndexOf('side');if(i>=0)stack.splice(i,1)}
+function renderSidebar(){const p=$('#sidePanel');if(!p)return;const a=S.ai;
+  const groups={};S.chats.filter(c=>c.msgs.length).sort((x,y)=>y.updated-x.updated).forEach(c=>{const d=Math.round((dayStart(Date.now())-dayStart(c.updated))/864e5);const g=d===0?'Hari ini':d===1?'Kemarin':d<7?'7 hari terakhir':'Lebih lama';(groups[g]=groups[g]||[]).push(c)});
+  p.innerHTML=`<div class="shd"><img src="img/logo_ai.png" alt=""><div><b>Asisten AI</b><span>CatatanByAdriy</span></div><button id="sClose">${ic('x')}</button></div>
+  <button class="snew" id="sNew">${ic('square-pen')}Chat baru</button>
+  <div class="ssec">${ic('history')}Riwayat Chat</div>
+  <div class="slist">${Object.keys(groups).map(g=>`<div class="sg">${g}</div>`+groups[g].map(c=>`<div class="sitem ${c.id===S.chatCur?'on':''}" data-c="${c.id}"><span>${esc(c.title)}</span><button data-cm="${c.id}">${ic('ellipsis-vertical')}</button></div>`).join('')).join('')||'<div class="sempty">Belum ada riwayat chat.</div>'}</div>
+  <div class="ssec" id="sideSet">${ic('settings')}Pengaturan</div>
+  <div class="sset">
+    <button class="srow" id="sModel"><span><b>Model</b><em>${esc(modelLabel(true))}</em></span>${ic('chevron-right')}</button>
+    <button class="srow" id="sScan"><span><b>Cari ulang model gratis</b><em>${a.cands.length} model ditemukan${a.candsAt?' · '+rel(a.candsAt):''}</em></span>${ic('refresh-cw')}</button>
+    ${AIX.ORDER.map(k=>{const P=AIX.PROV[k];return `<button class="srow" data-k="${k}"><span><b>${esc(P.name)}</b><em>${P.key?((a.keys[k]||'').trim()?'Kunci tersimpan ✓':'Opsional — isi kunci gratis'):((a.keys[k]||'').trim()?'Kunci tersimpan ✓':'Aktif tanpa kunci')}</em></span>${ic('chevron-right')}</button>`}).join('')}
+    <button class="srow red" id="sClear"><span><b>Hapus semua riwayat chat</b></span>${ic('trash-2')}</button>
+  </div>`;
+  p.querySelector('#sClose').onclick=closeSidebar;
+  p.querySelector('#sNew').onclick=()=>{S.chatCur=null;save();closeSidebar();if(cur!=='ai')go('ai');else R.ai()};
+  p.querySelectorAll('.sitem').forEach(x=>x.onclick=e=>{if(e.target.closest('[data-cm]'))return;S.chatCur=x.dataset.c;save();closeSidebar();if(cur!=='ai')go('ai');else R.ai()});
+  p.querySelectorAll('[data-cm]').forEach(b=>b.onclick=()=>{const c=S.chats.find(x=>x.id===b.dataset.cm);menu(c.title,[
+    {icon:'pencil',label:'Ganti nama',fn:()=>ask('Ganti nama chat',[{name:'t',label:'Nama',value:c.title}],v=>{if(!v.t)return false;c.title=v.t;save();renderSidebar();if(cur==='ai')R.ai()})},
+    {icon:'trash-2',label:'Hapus chat',red:true,fn:()=>confirmBox('Hapus chat "'+c.title+'"?','Ya, hapus',()=>{S.chats=S.chats.filter(x=>x!==c);if(S.chatCur===c.id)S.chatCur=null;save();renderSidebar();if(cur==='ai')R.ai()})}])});
+  p.querySelector('#sModel').onclick=pickModel;
+  p.querySelector('#sScan').onclick=rescan;
+  p.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{const k=b.dataset.k,P=AIX.PROV[k];
+    sheet(`<h3>${esc(P.name)}</h3><p class="note">${P.key?'Gratis: buat akun lalu salin kunci API dari <b>'+esc(P.keyUrl)+'</b>. Kunci hanya disimpan di HP ini.':'Sudah aktif tanpa kunci (dibatasi 1 balasan / 45 detik). Kunci dari <b>'+esc(P.keyUrl)+'</b> bersifat opsional untuk membuka batas.'}</p><form id="kf"><label class="fld"><span>Kunci API</span><input name="k" value="${esc(a.keys[k]||'')}" placeholder="Tempel kunci di sini" autocomplete="off"></label><button class="prim" type="submit">Simpan & cari model</button></form>`,el=>{
+      el.querySelector('#kf').onsubmit=e=>{e.preventDefault();a.keys[k]=e.target.k.value.trim();a.cool={};save();closeSheet();rescan()}})});
+  p.querySelector('#sClear').onclick=()=>confirmBox('Hapus semua riwayat chat?','Ya, hapus semua',()=>{S.chats=[];S.chatCur=null;save();renderSidebar();if(cur==='ai')R.ai()});
+}
 
 /* ================= KALENDER ================= */
 let calMonth=null,calSel=null,calTab='agenda';
@@ -520,9 +615,9 @@ function renderSearch(q,pred){q=(q||'').toLowerCase();const r=$('#srchRes');
   r.querySelectorAll('[data-a]').forEach(x=>x.onclick=()=>{closeSearch();calSel=x.dataset.a;calMonth=null;go('kalender')})}
 
 /* ================= cadangan ================= */
-function backup(){const data=JSON.stringify(S);const name='catatanbyadriy-cadangan-'+ymd(Date.now())+'.json';
+function backup(){const data=JSON.stringify(Object.assign({},S,{ai:Object.assign({},S.ai,{keys:{}})}));const name='catatanbyadriy-cadangan-'+ymd(Date.now())+'.json';
   if(window.Android&&Android.saveFile){Android.saveFile(name,'application/json',btoa(unescape(encodeURIComponent(data))))}else{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data],{type:'application/json'}));a.download=name;a.click()}}
-function restore(){const i=document.createElement('input');i.type='file';i.accept='application/json,.json';i.onchange=async()=>{const f=i.files[0];if(!f)return;try{const d=JSON.parse(await f.text());if(!d.notes||!d.agendas)throw 0;S=d;save();go('dashboard');toast('Data dipulihkan')}catch(e){toast('Berkas cadangan tidak valid')}};i.click()}
+function restore(){const i=document.createElement('input');i.type='file';i.accept='application/json,.json';i.onchange=async()=>{const f=i.files[0];if(!f)return;try{const d=JSON.parse(await f.text());if(!d.notes||!d.agendas)throw 0;const keys=S.ai&&S.ai.keys;S=d;migrate();if(keys)S.ai.keys=keys;save();go('dashboard');toast('Data dipulihkan')}catch(e){toast('Berkas cadangan tidak valid')}};i.click()}
 
 /* ---------- keyboard: sembunyikan nav saat mengetik ---------- */
 let baseH=Math.max(window.innerHeight,window.visualViewport?visualViewport.height:0);
@@ -536,5 +631,13 @@ window.addEventListener('orientationchange',()=>{baseH=0;setTimeout(()=>{baseH=w
 const st=document.createElement('style');st.textContent='#eTitle:empty::before{content:attr(data-ph);color:#9aa1b5}';document.head.appendChild(st);
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&cur==='editor'&&EV.timer){clearTimeout(EV.timer);flush()}});
 
-load();go('dashboard');
+/* ---------- animasi pembuka (video dibuat dengan Remotion: folder intro/) ---------- */
+function runIntro(){const box=$('#intro'),v=$('#introVid');if(!box)return;let done=false;
+  const end=()=>{if(done)return;done=true;box.classList.add('out');setTimeout(()=>box.remove(),520)};
+  box.onclick=end;setTimeout(end,6000);
+  fetch('media/intro.webm').then(r=>r.blob()).then(b=>{v.src=URL.createObjectURL(b);v.onended=end;v.onerror=end;
+    const p=v.play();if(p&&p.catch)p.catch(end)}).catch(end)}
+$('#sideOv').onclick=()=>closeSidebar();
+load();go('dashboard');booted=true;runIntro();
+AIX.discover(false).catch(()=>{});
 })();
