@@ -112,7 +112,7 @@ function go(v){const from=cur;if(cur==='editor'&&v!=='editor')leaveEditor();if(v
   const dir=(ORDERV[v]||0)>=(ORDERV[from]||0)?1:-1;
   document.querySelectorAll('.view').forEach(s=>{const on=s.id===v;s.classList.toggle('on',on);if(!on)s.classList.remove('in')});
   R[v]&&R[v]();renderNav();window.scrollTo(0,0);
-  const el=document.getElementById(v);if(from!==v&&booted){el.style.setProperty('--dx',(v==='editor'?8:dir*7)+'%');el.classList.remove('in');void el.offsetWidth;el.classList.add('in')}}
+  const el=document.getElementById(v);if(from!==v&&booted){el.style.setProperty('--dx',(v==='editor'?8:dir*7)+'%');el.classList.remove('in');void el.offsetWidth;el.classList.add('in');el.addEventListener('animationend',function f(e){if(e.target===el){el.classList.remove('in');el.removeEventListener('animationend',f)}})}}
 let booted=false;
 window.appBack=function(){
   if($('#viewer').classList.contains('on')){closeViewer();return true}
@@ -238,10 +238,10 @@ function edNote(){return S.notes.find(x=>x.id===EV.id)}
 R.editor=function(){
   const n=edNote(),el=$('#editor');if(!n)return go('catatan');
   el.innerHTML=`
-  <div class="ehdr"><button class="back" id="eBack">${ic('arrow-left')}</button><img class="logo" src="img/logo_ed.png" alt=""><div style="min-width:0"><div class="t1">CatatanByAdriy</div><div class="t2">Editor Catatan</div></div><div class="sp"></div>
+  <div class="etop" id="eTop"><div class="ehdr"><button class="back" id="eBack">${ic('arrow-left')}</button><img class="logo" src="img/logo_ed.png" alt=""><div style="min-width:0"><div class="t1">CatatanByAdriy</div><div class="t2">Editor Catatan</div></div><div class="sp"></div>
     <button class="circ" data-c="more">${ic('ellipsis-vertical')}</button></div>
   <div class="abar roonly"><button class="aibtn" data-c="ai">${ic('sparkle-ai')}Rapikan dengan AI</button><button class="obtn" data-c="pdf">${ic('pdf')}Ekspor PDF</button><button class="obtn" data-c="edit">${ic('pencil')}Edit</button></div>
-  <div class="abar edonly"><div class="hgrp"><button data-c="undo">${ic('undo-2')}</button><button data-c="redo">${ic('redo-2')}</button></div><button class="spill ai" data-c="ai">${ic('sparkle-ai')}Rapikan AI</button><button class="spill" data-c="pdf">${ic('pdf')}Ekspor</button><button class="spill done" data-c="read">${ic('book-open')}Mode Baca</button></div>
+  <div class="abar edonly"><div class="hgrp"><button data-c="undo">${ic('undo-2')}</button><button data-c="redo">${ic('redo-2')}</button></div><button class="spill ai" data-c="ai">${ic('sparkle-ai')}Rapikan AI</button><button class="spill" data-c="pdf">${ic('pdf')}Ekspor</button><button class="spill done" data-c="read">${ic('book-open')}Mode Baca</button></div></div>
   <div class="ecard">
     <div class="etitle"><h1 id="eTitle" data-ph="Judul catatan">${esc(n.title)}</h1><button class="st ${n.star?'on':''}" data-c="star">${ic('star')}</button></div>
     <div class="etags" id="eTags"></div>
@@ -660,6 +660,7 @@ function runIntro(){const box=$('#intro'),v=$('#introVid');if(!box)return;let do
   fetch('media/intro.webm').then(r=>r.blob()).then(b=>{v.src=URL.createObjectURL(b);v.onended=end;v.onerror=end;
     const p=v.play();if(p&&p.catch)p.catch(end)}).catch(end)}
 $('#sideOv').onclick=()=>closeSidebar();
+window.addEventListener('scroll',()=>{const t=$('#eTop');if(t)t.classList.toggle('stuck',window.scrollY>4)},{passive:true});
 load();go('dashboard');booted=true;runIntro();
 AIX.discover(false).catch(()=>{});
 })();

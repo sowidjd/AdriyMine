@@ -431,7 +431,7 @@ body.kb .ftb{bottom:.8rem}
 #intro.out{opacity:0;transform:scale(1.04);pointer-events:none}
 
 /* ===== transisi antar menu ===== */
-.view.in{animation:viewIn .38s cubic-bezier(.2,.85,.25,1) both}
+.view.in{animation:viewIn .38s cubic-bezier(.2,.85,.25,1) backwards}
 @keyframes viewIn{from{opacity:0;transform:translate3d(var(--dx,6%),0,0)}to{opacity:1;transform:none}}
 .nav .ind{position:absolute;top:1rem;left:1.6rem;height:8.6rem;width:calc((100% - 3.2rem) / 5);border-radius:2.4rem;background:linear-gradient(180deg,#d5e5fd,#c9dcfb);
   transform:translateX(calc(var(--i,0) * 100%));transition:transform .42s cubic-bezier(.34,1.35,.5,1);z-index:0}
@@ -527,3 +527,8 @@ body.kb .composer{bottom:0}
 .sfoot svg:first-child{font-size:3rem;color:#1a66e6}
 .sfoot svg:last-child{font-size:2.6rem;color:#5b6380}
 .snote{font-size:1.8rem;color:#8a91a8;margin:2rem .6rem 0;line-height:1.45}
+
+/* editor: header + tombol aksi tetap terlihat saat di-scroll */
+.etop{position:sticky;top:0;z-index:40;background:rgba(244,247,254,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding-bottom:1.4rem;transition:box-shadow .2s}
+.etop.stuck{box-shadow:0 .4rem 1.6rem rgba(40,80,160,.10)}
+.etop .ehdr{padding-top:1rem;min-height:7.6rem}
