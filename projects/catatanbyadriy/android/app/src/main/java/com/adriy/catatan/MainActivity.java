@@ -35,7 +35,9 @@ import java.io.OutputStream;
 public class MainActivity extends Activity {
     private static final String HOST = "app.catatanbyadriy.local";
     private static final String ORIGIN = "https://" + HOST + "/";
-    private static final int REQ_FILE = 1, REQ_SAVE = 2, REQ_NOTIF = 3, REQ_DRIVE_NEW = 4, REQ_DRIVE_OPEN = 5;
+    private static final int REQ_FILE = 1, REQ_SAVE = 2, REQ_NOTIF = 3, REQ_DRIVE_NEW = 4, REQ_DRIVE_OPEN = 5, REQ_FILES_NEW = 6, REQ_FILES_OPEN = 7;
+    private java.util.zip.ZipOutputStream zout;
+    private java.util.zip.ZipInputStream zin;
     private String pendingOpen = null;
 
     private WebView web;
@@ -160,6 +162,18 @@ public class MainActivity extends Activity {
     }
 
     /** Info file sinkron: {name, provider} atau "" bila belum tersambung. */
+    private Uri filesUri() {
+        String s = getSharedPreferences("cba_sync", MODE_PRIVATE).getString("uri_files", null);
+        return s == null ? null : Uri.parse(s);
+    }
+
+    private String nameOf(Uri u, String def) {
+        try (android.database.Cursor c = getContentResolver().query(u, new String[]{android.provider.OpenableColumns.DISPLAY_NAME}, null, null, null)) {
+            if (c != null && c.moveToFirst() && c.getString(0) != null) return c.getString(0);
+        } catch (Exception ignored) { }
+        return def;
+    }
+
     private String syncInfo() {
         Uri u = syncUri();
         if (u == null) return "";
@@ -173,6 +187,8 @@ public class MainActivity extends Activity {
             String a = u.getAuthority() == null ? "" : u.getAuthority();
             o.put("drive", a.contains("google.android.apps.docs"));
             o.put("provider", a);
+            Uri f = filesUri();
+            if (f != null) o.put("files", nameOf(f, "CatatanByAdriy-berkas.zip"));
         } catch (Exception ignored) { }
         return o.toString();
     }
@@ -221,6 +237,15 @@ public class MainActivity extends Activity {
             }
             fileCb.onReceiveValue(out);
             fileCb = null;
+        } else if (req == REQ_FILES_NEW || req == REQ_FILES_OPEN) {
+            String mode = req == REQ_FILES_NEW ? "fnew" : "fopen";
+            if (res == RESULT_OK && data != null && data.getData() != null) {
+                Uri u = data.getData();
+                try { getContentResolver().takePersistableUriPermission(u, Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION); }
+                catch (Exception e) { try { getContentResolver().takePersistableUriPermission(u, Intent.FLAG_GRANT_READ_URI_PERMISSION); } catch (Exception ignored) { } }
+                getSharedPreferences("cba_sync", MODE_PRIVATE).edit().putString("uri_files", u.toString()).apply();
+                driveJs("window.__driveDone&&window.__driveDone(true," + JSONObject.quote(mode) + "," + JSONObject.quote(syncInfo()) + ")");
+            } else driveJs("window.__driveDone&&window.__driveDone(false," + JSONObject.quote(mode) + ",'')");
         } else if (req == REQ_DRIVE_NEW || req == REQ_DRIVE_OPEN) {
             String mode = req == REQ_DRIVE_NEW ? "new" : "open";
             if (res == RESULT_OK && data != null && data.getData() != null) {
@@ -254,12 +279,15 @@ public class MainActivity extends Activity {
         @JavascriptInterface
         public void syncConnect(final String mode) {
             runOnUiThread(() -> {
-                Intent i = new Intent("open".equals(mode) ? Intent.ACTION_OPEN_DOCUMENT : Intent.ACTION_CREATE_DOCUMENT);
+                boolean open = "open".equals(mode) || "fopen".equals(mode), files = mode.startsWith("f");
+                Intent i = new Intent(open ? Intent.ACTION_OPEN_DOCUMENT : Intent.ACTION_CREATE_DOCUMENT);
                 i.addCategory(Intent.CATEGORY_OPENABLE);
-                if ("open".equals(mode)) i.setType("*/*");
+                if (open) i.setType("*/*");
+                else if (files) { i.setType("application/zip"); i.putExtra(Intent.EXTRA_TITLE, "CatatanByAdriy-berkas.zip"); }
                 else { i.setType("application/json"); i.putExtra(Intent.EXTRA_TITLE, "CatatanByAdriy-data.json"); }
                 i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
-                try { startActivityForResult(i, "open".equals(mode) ? REQ_DRIVE_OPEN : REQ_DRIVE_NEW); }
+                int rq = "open".equals(mode) ? REQ_DRIVE_OPEN : "fnew".equals(mode) ? REQ_FILES_NEW : "fopen".equals(mode) ? REQ_FILES_OPEN : REQ_DRIVE_NEW;
+                try { startActivityForResult(i, rq); }
                 catch (Exception e) { driveJs("window.__driveDone&&window.__driveDone(false,'err','')"); }
             });
         }
@@ -304,10 +332,65 @@ public class MainActivity extends Activity {
 
         @JavascriptInterface
         public void syncDisconnect() {
-            Uri u = syncUri();
-            if (u != null) try { getContentResolver().releasePersistableUriPermission(u, Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION); } catch (Exception ignored) { }
-            getSharedPreferences("cba_sync", MODE_PRIVATE).edit().remove("uri").apply();
+            for (Uri u : new Uri[]{syncUri(), filesUri()})
+                if (u != null) try { getContentResolver().releasePersistableUriPermission(u, Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION); } catch (Exception ignored) { }
+            getSharedPreferences("cba_sync", MODE_PRIVATE).edit().remove("uri").remove("uri_files").apply();
         }
+
+        /* ---- Arsip berkas (ZIP) di Drive: ditulis/dibaca bertahap per potongan agar tanpa batas ukuran ---- */
+        @JavascriptInterface
+        public String zipBegin() {
+            try {
+                Uri u = filesUri(); if (u == null) return "Arsip berkas belum diatur";
+                OutputStream os;
+                try { os = getContentResolver().openOutputStream(u, "wt"); } catch (Exception e) { os = getContentResolver().openOutputStream(u, "w"); }
+                zout = new java.util.zip.ZipOutputStream(new java.io.BufferedOutputStream(os, 1 << 16));
+                zout.setLevel(1);
+                return "";
+            } catch (Exception e) { return e.getClass().getSimpleName() + ": " + e.getMessage(); }
+        }
+
+        @JavascriptInterface
+        public String zipEntry(String name) {
+            try { zout.putNextEntry(new java.util.zip.ZipEntry(name)); return ""; } catch (Exception e) { return e.getMessage(); }
+        }
+
+        @JavascriptInterface
+        public String zipChunk(String b64) {
+            try { zout.write(Base64.decode(b64, Base64.DEFAULT)); return ""; } catch (Exception e) { return e.getMessage(); }
+        }
+
+        @JavascriptInterface
+        public String zipFinish() {
+            try { if (zout != null) { zout.finish(); zout.close(); } zout = null; return ""; }
+            catch (Exception e) { zout = null; return e.getMessage(); }
+        }
+
+        @JavascriptInterface
+        public String zipOpen() {
+            try {
+                Uri u = filesUri(); if (u == null) return "Arsip berkas belum diatur";
+                zin = new java.util.zip.ZipInputStream(new java.io.BufferedInputStream(getContentResolver().openInputStream(u), 1 << 16));
+                return "";
+            } catch (Exception e) { return e.getClass().getSimpleName() + ": " + e.getMessage(); }
+        }
+
+        @JavascriptInterface
+        public String zipNext() {
+            try { java.util.zip.ZipEntry e = zin.getNextEntry(); return e == null ? "" : e.getName(); } catch (Exception e) { return ""; }
+        }
+
+        @JavascriptInterface
+        public String zipRead() {
+            try {
+                byte[] buf = new byte[393216]; int n, t = 0;
+                while (t < buf.length && (n = zin.read(buf, t, buf.length - t)) > 0) t += n;
+                return t <= 0 ? "" : Base64.encodeToString(buf, 0, t, Base64.NO_WRAP);
+            } catch (Exception e) { return ""; }
+        }
+
+        @JavascriptInterface
+        public void zipClose() { try { if (zin != null) zin.close(); } catch (Exception ignored) { } zin = null; }
 
         @JavascriptInterface
         public void setDark(final boolean dark) {

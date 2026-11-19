@@ -676,7 +676,7 @@ R.pengaturan=function(){const el=$('#pengaturan');const A=S.account||{};const n=
   el.innerHTML=`<div class="sthdr"><button class="back" id="stBack">${ic('arrow-left')}</button><div><div class="t1">Pengaturan</div><div class="t2">CatatanByAdriy</div></div></div>
   <div class="acct">${A.loggedIn?`<img src="img/avatar.png" alt=""><div class="ai"><b>${esc(A.name||'Adriy')}</b><span>${A.drive?'Google Drive':'Penyimpanan HP'} · ${esc(A.file||'CatatanByAdriy-data.json')}</span><em id="acStat">${acctStatus()}</em></div><button class="aedit" id="acEdit">${ic('pencil')}</button>`
     :`<img src="img/avatar.png" alt="" style="opacity:.55"><div class="ai"><b>Belum masuk</b><span>Masuk agar data tersimpan aman di Google Drive</span></div><button class="alogin" id="acLogin">Masuk</button>`}</div>
-  ${A.loggedIn?`<div class="setg"><div class="sgh">Akun & Sinkron</div>${setRow({id:'sSyncNow',icon:'refresh-cw',color:'#1a66e6',bg:'#e1edfd',title:'Sinkronkan sekarang',sub:'Otomatis setiap ada perubahan',value:A.lastSync?rel(A.lastSync):'-'})}${setRow({id:'acLogout',icon:'log-out',color:'#d63a4f',bg:'#fdeef0',title:'<span style="color:#d63a4f">Keluar</span>',sub:'Data di HP dan di Drive tetap aman'})}</div>`:''}
+  ${A.loggedIn?`<div class="setg"><div class="sgh">Akun & Sinkron</div>${setRow({id:'sSyncNow',icon:'refresh-cw',color:'#1a66e6',bg:'#e1edfd',title:'Sinkronkan sekarang',sub:'Otomatis setiap ada perubahan',value:A.lastSync?rel(A.lastSync):'-'})}${setRow({id:'sFiles',icon:'folder',color:'#f59e0b',bg:'#fff1db',title:'Berkas (foto, video, PDF)',sub:filesStatus()})}${setRow({id:'acLogout',icon:'log-out',color:'#d63a4f',bg:'#fdeef0',title:'<span style="color:#d63a4f">Keluar</span>',sub:'Data di HP dan di Drive tetap aman'})}</div>`:''}
   <div class="setg"><div class="sgh">Tampilan</div>
     ${setRow({id:'sTheme',icon:'sun-moon',color:'#8b4ef0',bg:'#efe6fd',title:'Tema',value:THEME[setv('theme')]})}
     ${setRow({id:'sScale',icon:'type',color:'#1a66e6',bg:'#e1edfd',title:'Ukuran tampilan',value:UIS[setv('uiScale')]||'Normal'})}
@@ -718,7 +718,7 @@ R.pengaturan=function(){const el=$('#pengaturan');const A=S.account||{};const n=
   const on=(id,fn)=>{const e=el.querySelector('#'+id);if(e)e.onclick=fn};
   const pick=(title,map,k,after)=>menu(title,Object.keys(map).map(x=>({icon:String(setv(k))===String(x)?'check':'circle',label:map[x],fn:()=>{setS(k,isNaN(+x)||x===''?x:+x);after&&after()}})));
   on('stBack',()=>window.appBack());
-  on('acLogin',loginSheet);on('acLogout',logoutCloud);on('sSyncNow',()=>{SYNC.dirty=false;pushCloud();toast('Menyinkronkan ke Google Drive...')});
+  on('acLogin',loginSheet);on('acLogout',logoutCloud);on('sFiles',()=>{if(!SYNC.info.files)return filesSheet();menu('Arsip berkas di Drive',[{icon:'refresh-cw',label:'Simpan berkas sekarang',fn:()=>pushFiles(true)},{icon:'rotate-ccw',label:'Pulihkan berkas dari Drive',fn:()=>confirmBox('Pulihkan berkas dari arsip di Drive?','Pulihkan',()=>pullFiles())},{icon:'folder-input',label:'Pilih arsip lain',fn:()=>Android.syncConnect('fopen')}])});on('sSyncNow',()=>{SYNC.dirty=false;pushCloud();toast('Menyinkronkan ke Google Drive...')});
   on('acEdit',()=>ask('Ubah nama',[{name:'n',label:'Nama',value:A.name}],v=>{if(!v.n){toast('Nama wajib diisi');return false}S.account=Object.assign({},A,{name:v.n});save();R.pengaturan()}));
   on('sTheme',()=>pick('Tema',THEME,'theme'));on('sScale',()=>pick('Ukuran tampilan',UIS,'uiScale'));
   on('sAnim',()=>setS('anim',!setv('anim')));on('sIntro',()=>setS('intro',!setv('intro')));
@@ -744,7 +744,7 @@ R.pengaturan=function(){const el=$('#pengaturan');const A=S.account||{};const n=
   on('sLic',()=>sheet(`<h3>Lisensi pustaka</h3><p class="note">Lucide Icons (ISC) • Inter & Plus Jakarta Sans (OFL) • markdown-it & plugin (MIT) • KaTeX (MIT) • highlight.js (BSD-3) • Mermaid (MIT) • Turndown (MIT) • DOMPurify (Apache-2.0/MPL-2.0) • Remotion (lisensi Remotion) untuk animasi pembuka</p>`));
 };
 function setS(k,v){S.set=S.set||{};S.set[k]=v;save();applySettings();syncReminders();if(cur==='pengaturan')R.pengaturan()}
-function appVer(){try{return (window.Android&&Android.appVersion&&Android.appVersion())||'1.8'}catch(e){return '1.8'}}
+function appVer(){try{return (window.Android&&Android.appVersion&&Android.appVersion())||'1.9'}catch(e){return '1.9'}}
 function storeInfo(){let b=0;try{b=(localStorage.getItem(KEY)||'').length*2}catch(e){}b+=S.files.filter(f=>!f.seed).reduce((a,f)=>a+f.size,0);return fmtSize(b)}
 /* ---------- Masuk = sinkron ke Google Drive milik pengguna (tanpa server / database) ----------
    Pemilih berkas Android membuat/memilih file CatatanByAdriy-data.json di Google Drive; aplikasi
@@ -753,23 +753,52 @@ const SYNC={info:null,busy:false,dirty:false,timer:null,err:null,state:'idle'};
 const syncAvail=()=>!!(window.Android&&Android.syncConnect);
 function syncInit(){if(!syncAvail())return;try{const i=Android.syncInfoJs();SYNC.info=i?JSON.parse(i):null}catch(e){SYNC.info=null}
   S.account=S.account||{};if(SYNC.info){S.account.loggedIn=true;S.account.file=SYNC.info.name;S.account.drive=!!SYNC.info.drive;cloudSoon(1500)}else if(S.account.loggedIn){S.account.loggedIn=false}}
-function cloudSoon(ms){if(!SYNC.info)return;clearTimeout(SYNC.timer);SYNC.timer=setTimeout(pushCloud,ms==null?3000:ms)}
+function cloudSoon(ms){if(!SYNC.info)return;clearTimeout(SYNC.timer);SYNC.timer=setTimeout(pushCloud,ms==null?3000:ms);if(SYNC.info.files){clearTimeout(SYNC.ftimer);SYNC.ftimer=setTimeout(pushFiles,ms==null?8000:ms+4000)}}
+const userFiles=()=>S.files.filter(f=>!f.seed);
+const filesSig=()=>userFiles().map(f=>f.id+':'+f.size).sort().join('|');
+const tick=()=>new Promise(r=>setTimeout(r,0));
+async function pushFiles(force){if(!SYNC.info||!SYNC.info.files||SYNC.fbusy)return;const sig=filesSig();if(!force&&sig===S.account.filesSig)return;
+  SYNC.fbusy=true;let err=Android.zipBegin();const fs=userFiles();let done=0,bytes=0;
+  try{if(err)throw new Error(err);
+    for(const f of fs){const b=await getBlob(f.id);if(!b){done++;continue}
+      err=Android.zipEntry(f.id);if(err)throw new Error(err);
+      for(let o=0;o<b.size;o+=393216){err=Android.zipChunk(await b64(b.slice(o,o+393216)));if(err)throw new Error(err);bytes+=Math.min(393216,b.size-o);
+        SYNC.fprog='Menyimpan berkas '+(done+1)+'/'+fs.length+' · '+fmtSize(bytes);updAcct();await tick()}
+      done++}
+    Android.zipEntry('manifest.json');Android.zipChunk(btoa(unescape(encodeURIComponent(JSON.stringify({app:'CatatanByAdriy',files:fs.map(f=>({id:f.id,name:f.name,mime:f.mime,size:f.size}))})))));
+    err=Android.zipFinish();if(err)throw new Error(err);
+    S.account.filesSig=sig;S.account.filesSync=Date.now();S.account.filesCount=fs.length;S.account.filesBytes=fs.reduce((a,f)=>a+f.size,0);SYNC.ferr=null;
+    try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
+  }catch(e){try{Android.zipFinish()}catch(x){}SYNC.ferr=e.message}
+  SYNC.fbusy=false;SYNC.fprog='';updAcct();if(filesSig()!==S.account.filesSig&&!SYNC.ferr)setTimeout(pushFiles,2000)}
+async function pullFiles(){const err=Android.zipOpen();if(err){toast('Arsip berkas tidak bisa dibaca');return}
+  let n=0,name;const b2u=s=>{const bin=atob(s),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return u};
+  try{while((name=Android.zipNext())){if(name==='manifest.json'){while(Android.zipRead());continue}
+    const parts=[];let c;while((c=Android.zipRead())){parts.push(b2u(c));if(parts.length%8===0){toast('Memulihkan berkas '+(n+1)+'...');await tick()}}
+    const f=S.files.find(x=>x.id===name);await putBlob(name,new Blob(parts,{type:(f&&f.mime)||''}));n++}}finally{Android.zipClose()}
+  S.account.filesSig=filesSig();save();toast(n+' berkas dipulihkan dari Google Drive');if(cur==='berkas'||cur==='pengaturan')R[cur]()}
+function filesSheet(after){sheet(`<h3>Simpan juga berkas ke Drive?</h3><p class="note">Foto, video, PDF, dan berkas lain disimpan di file terpisah <b>CatatanByAdriy-berkas.zip</b>, tanpa batas ukuran (sesuai ruang Google Drive-mu). Diperbarui otomatis saat berkas ditambah atau dihapus.<br><br>Pilih <b>Drive</b> lalu tekan <b>Simpan</b> sekali lagi.</p>
+  <button class="prim" id="fYes">Ya, simpan berkas ke Drive</button><button class="gbtn" id="fOpen">${ic('rotate-ccw')}Pakai arsip berkas yang sudah ada</button><button class="prim" id="fNo" style="background:#eef1f6;color:#141b36">Nanti saja</button>`,el=>{
+  el.querySelector('#fYes').onclick=()=>{closeSheet();Android.syncConnect('fnew')};
+  el.querySelector('#fOpen').onclick=()=>{closeSheet();Android.syncConnect('fopen')};
+  el.querySelector('#fNo').onclick=()=>{closeSheet();after&&after()}})}
 const b64=blob=>new Promise(r=>{const f=new FileReader();f.onload=()=>r(String(f.result).split(',')[1]);f.onerror=()=>r(null);f.readAsDataURL(blob)});
 async function buildPayload(){const data=Object.assign({},S,{ai:Object.assign({},S.ai,{keys:{}})});const blobs={};let total=0;
-  for(const f of S.files.filter(x=>!x.seed)){if(total+f.size>20e6)continue;const b=await getBlob(f.id);if(!b)continue;const s=await b64(b);if(s){blobs[f.id]=s;total+=f.size}}
+  for(const f of (SYNC.info&&SYNC.info.files)?[]:S.files.filter(x=>!x.seed)){if(total+f.size>20e6)continue;const b=await getBlob(f.id);if(!b)continue;const s=await b64(b);if(s){blobs[f.id]=s;total+=f.size}}
   return JSON.stringify({app:'CatatanByAdriy',v:1,savedAt:Date.now(),data,blobs})}
 async function pushCloud(){if(!SYNC.info)return;if(SYNC.busy){SYNC.dirty=true;return}SYNC.busy=true;SYNC.state='sync';updAcct();
   try{Android.syncWrite(await buildPayload())}catch(e){window.__driveWrote(String(e))}}
 window.__driveWrote=err=>{SYNC.busy=false;if(err){SYNC.err=err;SYNC.state='err'}else{SYNC.err=null;SYNC.state='ok';S.account.lastSync=Date.now();try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
   updAcct();if(SYNC.dirty){SYNC.dirty=false;cloudSoon(1500)}};
-function updAcct(){const e=$('#acStat');if(e)e.innerHTML=acctStatus();const r=$('#sSyncNow .sv');if(r)r.textContent=S.account.lastSync?rel(S.account.lastSync):'-'}
-function acctStatus(){if(SYNC.state==='sync')return ic('refresh-cw')+'Menyinkronkan...';if(SYNC.state==='err')return ic('x')+'Gagal sinkron — akan dicoba lagi';
+function updAcct(){const e=$('#acStat');if(e)e.innerHTML=acctStatus();const r=$('#sSyncNow .sv');if(r)r.textContent=S.account.lastSync?rel(S.account.lastSync):'-';const fr=$('#sFiles em');if(fr)fr.innerHTML=filesStatus()}
+function filesStatus(){const A=S.account;if(!SYNC.info||!SYNC.info.files)return 'Belum diatur — berkas >20 MB hanya di HP';if(SYNC.fprog)return esc(SYNC.fprog);if(SYNC.ferr)return '<span style="color:#d63a4f">Gagal: '+esc(SYNC.ferr).slice(0,60)+'</span>';return (A.filesCount||0)+' berkas · '+fmtSize(A.filesBytes||0)+(A.filesSync?' · '+rel(A.filesSync):'')}
+function acctStatus(){if(SYNC.fprog)return ic('refresh-cw')+esc(SYNC.fprog);if(SYNC.state==='sync')return ic('refresh-cw')+'Menyinkronkan...';if(SYNC.state==='err')return ic('x')+'Gagal sinkron — akan dicoba lagi';
   return ic('cloud-check')+(S.account.lastSync?'Tersinkron '+rel(S.account.lastSync):'Tersambung')}
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&SYNC.info&&SYNC.timer){clearTimeout(SYNC.timer);pushCloud()}});
 window.addEventListener('online',()=>{if(SYNC.info&&SYNC.state==='err')cloudSoon(500)});
 function loginSheet(){
   if(!syncAvail()){toast('Masuk hanya tersedia di aplikasi Android');return}
-  sheet(`<h3>Masuk dengan Google Drive</h3><p class="note">Data (catatan, agenda, chat, berkas, pengaturan) disimpan otomatis ke Google Drive milikmu. Tidak perlu daftar akun atau kata sandi.<br><br>Di layar berikutnya pilih <b>Drive</b> (ikon segitiga hijau-kuning-biru) di menu ☰ kiri atas, lalu tekan <b>Simpan</b>.</p>
+  sheet(`<h3>Masuk dengan Google Drive</h3><p class="note">Data (catatan, agenda, chat, pengaturan) dan berkas (foto, video, PDF — tanpa batas ukuran) disimpan otomatis ke Google Drive milikmu. Tidak perlu daftar akun atau kata sandi.<br><br>Di layar berikutnya pilih <b>Drive</b> (ikon segitiga hijau-kuning-biru) di menu ☰ kiri atas, lalu tekan <b>Simpan</b>.</p>
     <button class="prim" id="lgNew">Mulai simpan ke Google Drive</button>
     <button class="gbtn" id="lgOpen">${ic('rotate-ccw')}Sudah punya data di Drive? Pulihkan</button>
     <p class="note" style="margin-top:1.8rem;font-size:1.8rem">Ganti HP atau aplikasi terhapus? Pasang lagi aplikasinya, buka Pengaturan → Masuk → <b>Pulihkan</b>, lalu pilih file <b>CatatanByAdriy-data.json</b> di Drive.</p>`,el=>{
@@ -777,11 +806,14 @@ function loginSheet(){
     el.querySelector('#lgOpen').onclick=()=>{closeSheet();Android.syncConnect('open')}})}
 window.__driveDone=(ok,mode,info)=>{if(!ok){if(mode!=='err')toast('Dibatalkan');else toast('Pemilih berkas tidak tersedia');return}
   let inf={};try{inf=JSON.parse(info)}catch(e){}SYNC.info=inf;
+  if(mode==='fnew'){S.account.filesSig='';save();toast('Arsip berkas dibuat. Menyimpan berkas...');pushFiles(true);if(cur==='pengaturan')R.pengaturan();return}
+  if(mode==='fopen'){sheet(`<h3>Pakai arsip berkas ini?</h3><p class="note">Berkas di dalamnya akan dipulihkan ke HP, lalu arsip ini diperbarui otomatis.</p><button class="prim" id="fpY">Pulihkan berkas</button><button class="prim" id="fpN" style="background:#eef1f6;color:#141b36">Hanya pakai untuk menyimpan</button>`,el=>{
+    el.querySelector('#fpY').onclick=async()=>{closeSheet();await pullFiles();pushFiles()};el.querySelector('#fpN').onclick=()=>{closeSheet();S.account.filesSig='';pushFiles(true)}});if(cur==='pengaturan')R.pengaturan();return}
   if(mode==='open'){toast('Membaca data dari Drive...');Android.syncRead();return}
   S.account=Object.assign({},S.account,{loggedIn:true,file:inf.name,drive:!!inf.drive,name:(S.account&&S.account.name)||'Adriy'});save();pushCloud();
   if(cur==='pengaturan')R.pengaturan();
   if(!inf.drive)sheet(`<h3>Tersimpan di penyimpanan HP</h3><p class="note">Kamu memilih lokasi di HP, bukan Google Drive. Data belum aman bila HP hilang. Untuk memakai Drive: Keluar, lalu Masuk lagi dan pilih <b>Drive</b>.</p><button class="prim" onclick="this.closest('.sheetbg').click()">Mengerti</button>`);
-  else toast('Berhasil masuk. Data tersimpan otomatis ke Google Drive')};
+  else{toast('Berhasil masuk. Data tersimpan otomatis ke Google Drive');if(!inf.files)setTimeout(()=>filesSheet(),900)}};
 window.__driveRead=(err,text)=>{let d=null;try{d=JSON.parse(text)}catch(e){}
   const bad=m=>{Android.syncDisconnect();SYNC.info=null;toast(m)};
   if(err||!d)return bad('File tidak bisa dibaca. Pastikan memilih CatatanByAdriy-data.json');
@@ -791,7 +823,11 @@ window.__driveRead=(err,text)=>{let d=null;try{d=JSON.parse(text)}catch(e){}
     el.querySelector('#rsNo').onclick=()=>{closeSheet();bad('Dibatalkan')};
     el.querySelector('#rsYes').onclick=async()=>{closeSheet();const keys=S.ai&&S.ai.keys;S=data;migrate();if(keys)S.ai.keys=keys;
       for(const [id,s] of Object.entries(d.blobs||{})){try{const bin=atob(s),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);const f=S.files.find(x=>x.id===id);await putBlob(id,new Blob([u],{type:(f&&f.mime)||''}))}catch(e){}}
-      S.account=Object.assign({},S.account,{loggedIn:true,file:SYNC.info.name,drive:!!SYNC.info.drive});save();applySettings();syncReminders();go('dashboard');toast('Data berhasil dipulihkan dari Google Drive')}})};
+      S.account=Object.assign({},S.account,{loggedIn:true,file:SYNC.info.name,drive:!!SYNC.info.drive});save();applySettings();syncReminders();go('dashboard');toast('Data berhasil dipulihkan dari Google Drive');
+      const missing=[];for(const f of userFiles())if(!(await getBlob(f.id)))missing.push(f);
+      if(missing.length)setTimeout(()=>sheet(`<h3>Pulihkan ${missing.length} berkas?</h3><p class="note">Pilih file <b>CatatanByAdriy-berkas.zip</b> di Drive untuk mengembalikan foto, video, dan dokumen.</p><button class="prim" id="pfY">Pilih arsip berkas</button><button class="prim" id="pfN" style="background:#eef1f6;color:#141b36">Nanti saja</button>`,el=>{
+        el.querySelector('#pfY').onclick=()=>{closeSheet();Android.syncConnect('fopen')};el.querySelector('#pfN').onclick=closeSheet}),1200);
+      else if(!SYNC.info.files)setTimeout(()=>filesSheet(),1200)}})};
 function logoutCloud(){confirmBox('Keluar dari Google Drive? Data di HP tetap ada, dan file di Drive tetap aman.','Ya, keluar',async()=>{
   if(SYNC.info){clearTimeout(SYNC.timer);try{Android.syncWrite(await buildPayload())}catch(e){}}
   setTimeout(()=>{if(window.Android&&Android.syncDisconnect)Android.syncDisconnect();SYNC.info=null;SYNC.state='idle';S.account=Object.assign({},S.account,{loggedIn:false});save();R.pengaturan();toast('Kamu sudah keluar. Sinkron otomatis berhenti.')},600)})}
