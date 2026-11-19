@@ -35,7 +35,7 @@ import java.io.OutputStream;
 public class MainActivity extends Activity {
     private static final String HOST = "app.catatanbyadriy.local";
     private static final String ORIGIN = "https://" + HOST + "/";
-    private static final int REQ_FILE = 1, REQ_SAVE = 2, REQ_NOTIF = 3;
+    private static final int REQ_FILE = 1, REQ_SAVE = 2, REQ_NOTIF = 3, REQ_DRIVE_NEW = 4, REQ_DRIVE_OPEN = 5;
     private String pendingOpen = null;
 
     private WebView web;
@@ -152,6 +152,31 @@ public class MainActivity extends Activity {
         if (web != null) web.evaluateJavascript("window.__notifPerm&&window.__notifPerm(" + JSONObject.quote(notifState()) + ",true)", null);
     }
 
+    private void driveJs(String js) { runOnUiThread(() -> web.evaluateJavascript(js, null)); }
+
+    private Uri syncUri() {
+        String s = getSharedPreferences("cba_sync", MODE_PRIVATE).getString("uri", null);
+        return s == null ? null : Uri.parse(s);
+    }
+
+    /** Info file sinkron: {name, provider} atau "" bila belum tersambung. */
+    private String syncInfo() {
+        Uri u = syncUri();
+        if (u == null) return "";
+        JSONObject o = new JSONObject();
+        try {
+            String name = null;
+            try (android.database.Cursor c = getContentResolver().query(u, new String[]{android.provider.OpenableColumns.DISPLAY_NAME}, null, null, null)) {
+                if (c != null && c.moveToFirst()) name = c.getString(0);
+            } catch (Exception ignored) { }
+            o.put("name", name == null ? "CatatanByAdriy-data.json" : name);
+            String a = u.getAuthority() == null ? "" : u.getAuthority();
+            o.put("drive", a.contains("google.android.apps.docs"));
+            o.put("provider", a);
+        } catch (Exception ignored) { }
+        return o.toString();
+    }
+
     private static String mime(String p) {
         p = p.toLowerCase();
         if (p.endsWith(".html")) return "text/html";
@@ -196,6 +221,18 @@ public class MainActivity extends Activity {
             }
             fileCb.onReceiveValue(out);
             fileCb = null;
+        } else if (req == REQ_DRIVE_NEW || req == REQ_DRIVE_OPEN) {
+            String mode = req == REQ_DRIVE_NEW ? "new" : "open";
+            if (res == RESULT_OK && data != null && data.getData() != null) {
+                Uri u = data.getData();
+                try {
+                    getContentResolver().takePersistableUriPermission(u, Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                } catch (Exception e) {
+                    try { getContentResolver().takePersistableUriPermission(u, Intent.FLAG_GRANT_READ_URI_PERMISSION); } catch (Exception ignored) { }
+                }
+                getSharedPreferences("cba_sync", MODE_PRIVATE).edit().putString("uri", u.toString()).apply();
+                driveJs("window.__driveDone&&window.__driveDone(true," + JSONObject.quote(mode) + "," + JSONObject.quote(syncInfo()) + ")");
+            } else driveJs("window.__driveDone&&window.__driveDone(false," + JSONObject.quote(mode) + ",'')");
         } else if (req == REQ_SAVE) {
             if (res == RESULT_OK && data != null && data.getData() != null && pendingBytes != null) {
                 try (OutputStream os = getContentResolver().openOutputStream(data.getData())) {
@@ -212,6 +249,65 @@ public class MainActivity extends Activity {
     private class Bridge {
         @JavascriptInterface
         public String notifPermission() { return notifState(); }
+
+        /* ---- Sinkron ke Google Drive lewat pemilih berkas Android (tanpa server / database) ---- */
+        @JavascriptInterface
+        public void syncConnect(final String mode) {
+            runOnUiThread(() -> {
+                Intent i = new Intent("open".equals(mode) ? Intent.ACTION_OPEN_DOCUMENT : Intent.ACTION_CREATE_DOCUMENT);
+                i.addCategory(Intent.CATEGORY_OPENABLE);
+                if ("open".equals(mode)) i.setType("*/*");
+                else { i.setType("application/json"); i.putExtra(Intent.EXTRA_TITLE, "CatatanByAdriy-data.json"); }
+                i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+                try { startActivityForResult(i, "open".equals(mode) ? REQ_DRIVE_OPEN : REQ_DRIVE_NEW); }
+                catch (Exception e) { driveJs("window.__driveDone&&window.__driveDone(false,'err','')"); }
+            });
+        }
+
+        @JavascriptInterface
+        public String syncInfoJs() { return syncInfo(); }
+
+        @JavascriptInterface
+        public void syncWrite(final String text) {
+            final Uri u = syncUri();
+            new Thread(() -> {
+                String err = null;
+                if (u == null) err = "Belum tersambung";
+                else {
+                    OutputStream os = null;
+                    try {
+                        try { os = getContentResolver().openOutputStream(u, "wt"); } catch (Exception e) { os = getContentResolver().openOutputStream(u, "w"); }
+                        if (os == null) throw new Exception("Tidak bisa menulis");
+                        os.write(text.getBytes("UTF-8"));
+                        os.flush();
+                    } catch (Exception e) { err = e.getClass().getSimpleName() + ": " + e.getMessage(); }
+                    finally { try { if (os != null) os.close(); } catch (Exception ignored) { } }
+                }
+                driveJs("window.__driveWrote&&window.__driveWrote(" + (err == null ? "null" : JSONObject.quote(err)) + ")");
+            }).start();
+        }
+
+        @JavascriptInterface
+        public void syncRead() {
+            final Uri u = syncUri();
+            new Thread(() -> {
+                String text = null, err = null;
+                try (InputStream in = getContentResolver().openInputStream(u)) {
+                    ByteArrayOutputStream bo = new ByteArrayOutputStream(); byte[] buf = new byte[65536]; int n;
+                    while ((n = in.read(buf)) > 0) bo.write(buf, 0, n);
+                    text = bo.toString("UTF-8");
+                } catch (Exception e) { err = e.getClass().getSimpleName() + ": " + e.getMessage(); }
+                final String js = "window.__driveRead&&window.__driveRead(" + (err == null ? "null" : JSONObject.quote(err)) + "," + (text == null ? "null" : JSONObject.quote(text)) + ")";
+                driveJs(js);
+            }).start();
+        }
+
+        @JavascriptInterface
+        public void syncDisconnect() {
+            Uri u = syncUri();
+            if (u != null) try { getContentResolver().releasePersistableUriPermission(u, Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION); } catch (Exception ignored) { }
+            getSharedPreferences("cba_sync", MODE_PRIVATE).edit().remove("uri").apply();
+        }
 
         @JavascriptInterface
         public void setDark(final boolean dark) {

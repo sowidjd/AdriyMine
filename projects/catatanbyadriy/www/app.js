@@ -74,7 +74,7 @@ function seed(){
 }
 function load(){try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){S=null}if(!S||!S.notes){S=seed()}migrate();save()}
 function migrate(){S.set=S.set||{};S.account=S.account||{loggedIn:false,name:'Adriy',email:''};S.chats=S.chats||[];S.ai=S.ai||{};if(S.chatCur===undefined)S.chatCur=null;AIX.init(S.ai,save)}
-function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){toast('Penyimpanan penuh')}if(booted)syncReminders()}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){toast('Penyimpanan penuh')}if(booted){syncReminders();cloudSoon()}}
 
 /* ---------- IndexedDB untuk isi berkas ---------- */
 let dbp=null;
@@ -674,8 +674,9 @@ function setRow(o){return `<button class="setr" ${o.id?`id="${o.id}"`:''}>${o.ic
 R.pengaturan=function(){const el=$('#pengaturan');const A=S.account||{};const n=liveNotes().length;
   const np={granted:['Diizinkan','#1d7f4c'],denied:['Ditolak — buka pengaturan HP','#d63a4f'],default:['Belum diizinkan','#c46a0a'],unsupported:['Tidak tersedia di peramban','#5b6380']}[notifState]||['-','#5b6380'];
   el.innerHTML=`<div class="sthdr"><button class="back" id="stBack">${ic('arrow-left')}</button><div><div class="t1">Pengaturan</div><div class="t2">CatatanByAdriy</div></div></div>
-  <div class="acct">${A.loggedIn?`<img src="img/avatar.png" alt=""><div class="ai"><b>${esc(A.name||'Pengguna')}</b><span>${esc(A.email||'')}</span><em>${ic('cloud-check')}Masuk (mode demo)</em></div><button class="aedit" id="acEdit">${ic('pencil')}</button>`
-    :`<img src="img/avatar.png" alt="" style="opacity:.55"><div class="ai"><b>Belum masuk</b><span>Masuk untuk sinkronisasi (segera hadir)</span></div><button class="alogin" id="acLogin">Masuk</button>`}</div>
+  <div class="acct">${A.loggedIn?`<img src="img/avatar.png" alt=""><div class="ai"><b>${esc(A.name||'Adriy')}</b><span>${A.drive?'Google Drive':'Penyimpanan HP'} · ${esc(A.file||'CatatanByAdriy-data.json')}</span><em id="acStat">${acctStatus()}</em></div><button class="aedit" id="acEdit">${ic('pencil')}</button>`
+    :`<img src="img/avatar.png" alt="" style="opacity:.55"><div class="ai"><b>Belum masuk</b><span>Masuk agar data tersimpan aman di Google Drive</span></div><button class="alogin" id="acLogin">Masuk</button>`}</div>
+  ${A.loggedIn?`<div class="setg"><div class="sgh">Akun & Sinkron</div>${setRow({id:'sSyncNow',icon:'refresh-cw',color:'#1a66e6',bg:'#e1edfd',title:'Sinkronkan sekarang',sub:'Otomatis setiap ada perubahan',value:A.lastSync?rel(A.lastSync):'-'})}${setRow({id:'acLogout',icon:'log-out',color:'#d63a4f',bg:'#fdeef0',title:'<span style="color:#d63a4f">Keluar</span>',sub:'Data di HP dan di Drive tetap aman'})}</div>`:''}
   <div class="setg"><div class="sgh">Tampilan</div>
     ${setRow({id:'sTheme',icon:'sun-moon',color:'#8b4ef0',bg:'#efe6fd',title:'Tema',value:THEME[setv('theme')]})}
     ${setRow({id:'sScale',icon:'type',color:'#1a66e6',bg:'#e1edfd',title:'Ukuran tampilan',value:UIS[setv('uiScale')]||'Normal'})}
@@ -713,13 +714,12 @@ R.pengaturan=function(){const el=$('#pengaturan');const A=S.account||{};const n=
     ${setRow({id:'sAbout',icon:'info',color:'#1a66e6',bg:'#e1edfd',title:'Tentang aplikasi',value:'Versi '+appVer()})}
     ${setRow({id:'sPriv',icon:'shield-check',color:'#22a35a',bg:'#dcf3e3',title:'Privasi',sub:'Semua data tersimpan di HP ini'})}
     ${setRow({id:'sLic',icon:'file-text',color:'#5b6380',bg:'#eef1f6',title:'Lisensi pustaka'})}
-    ${A.loggedIn?setRow({id:'acLogout',icon:'log-out',color:'#d63a4f',bg:'#fdeef0',title:'<span style="color:#d63a4f">Keluar</span>'}):''}
   </div>`;
   const on=(id,fn)=>{const e=el.querySelector('#'+id);if(e)e.onclick=fn};
   const pick=(title,map,k,after)=>menu(title,Object.keys(map).map(x=>({icon:String(setv(k))===String(x)?'check':'circle',label:map[x],fn:()=>{setS(k,isNaN(+x)||x===''?x:+x);after&&after()}})));
   on('stBack',()=>window.appBack());
-  on('acLogin',loginSheet);on('acLogout',()=>confirmBox('Keluar dari akun?','Ya, keluar',()=>{S.account=Object.assign({},S.account,{loggedIn:false});save();R.pengaturan();toast('Kamu sudah keluar. Data di HP tetap aman.')}));
-  on('acEdit',()=>ask('Ubah profil',[{name:'n',label:'Nama',value:A.name},{name:'e',label:'Email',value:A.email,type:'email'}],v=>{if(!v.n){toast('Nama wajib diisi');return false}S.account=Object.assign({},A,{name:v.n,email:v.e});save();R.pengaturan()}));
+  on('acLogin',loginSheet);on('acLogout',logoutCloud);on('sSyncNow',()=>{SYNC.dirty=false;pushCloud();toast('Menyinkronkan ke Google Drive...')});
+  on('acEdit',()=>ask('Ubah nama',[{name:'n',label:'Nama',value:A.name}],v=>{if(!v.n){toast('Nama wajib diisi');return false}S.account=Object.assign({},A,{name:v.n});save();R.pengaturan()}));
   on('sTheme',()=>pick('Tema',THEME,'theme'));on('sScale',()=>pick('Ukuran tampilan',UIS,'uiScale'));
   on('sAnim',()=>setS('anim',!setv('anim')));on('sIntro',()=>setS('intro',!setv('intro')));
   on('sNSize',()=>pick('Ukuran teks catatan',SIZE,'noteSize'));on('sNFont',()=>pick('Jenis huruf catatan',FONT,'noteFont'));
@@ -740,24 +740,61 @@ R.pengaturan=function(){const el=$('#pengaturan');const A=S.account||{};const n=
   on('sWipe',()=>ask('Hapus semua data',[{name:'k',label:'Ketik HAPUS untuk konfirmasi',ph:'HAPUS'}],v=>{if(v.k!=='HAPUS'){toast('Ketik HAPUS (huruf besar) untuk melanjutkan');return false}
     const keep={set:S.set,account:S.account};S={notes:[],files:[],folders:[],agendas:[],chats:[],chatCur:null,storageBase:0,ai:{}};Object.assign(S,keep);migrate();save();indexedDB.deleteDatabase('cba_blobs');dbp=null;syncReminders();go('dashboard');toast('Semua data dihapus')},'Hapus semua'));
   on('sAbout',()=>sheet(`<h3>CatatanByAdriy</h3><p class="note">Versi ${esc(appVer())}<br>Catat • Kelola • Simpan • Akses Kapan Saja.<br><br>Aplikasi catatan, berkas, asisten AI, dan kalender. Semua data disimpan di HP ini; asisten AI memakai layanan AI gratis lewat internet.</p><button class="prim" onclick="this.closest('.sheetbg').click()">Tutup</button>`));
-  on('sPriv',()=>sheet(`<h3>Privasi</h3><p class="note">• Catatan, berkas, agenda, dan riwayat chat hanya disimpan di HP ini.<br>• Pesan ke Asisten AI dikirim ke layanan AI yang dipilih (OpenRouter, Groq, Gemini, atau Pollinations).<br>• Kunci API disimpan di HP ini dan tidak ikut dalam file cadangan.<br>• Login saat ini masih mode demo dan tidak mengirim data ke mana pun.</p>`));
+  on('sPriv',()=>sheet(`<h3>Privasi</h3><p class="note">• Catatan, berkas, agenda, dan riwayat chat hanya disimpan di HP ini.<br>• Pesan ke Asisten AI dikirim ke layanan AI yang dipilih (OpenRouter, Groq, Gemini, atau Pollinations).<br>• Kunci API disimpan di HP ini dan tidak ikut dalam file cadangan.<br>• Saat masuk, data disalin ke file di Google Drive milikmu sendiri (bukan ke server lain). Kunci API tidak ikut.</p>`));
   on('sLic',()=>sheet(`<h3>Lisensi pustaka</h3><p class="note">Lucide Icons (ISC) • Inter & Plus Jakarta Sans (OFL) • markdown-it & plugin (MIT) • KaTeX (MIT) • highlight.js (BSD-3) • Mermaid (MIT) • Turndown (MIT) • DOMPurify (Apache-2.0/MPL-2.0) • Remotion (lisensi Remotion) untuk animasi pembuka</p>`));
 };
 function setS(k,v){S.set=S.set||{};S.set[k]=v;save();applySettings();syncReminders();if(cur==='pengaturan')R.pengaturan()}
-function appVer(){try{return (window.Android&&Android.appVersion&&Android.appVersion())||'1.7'}catch(e){return '1.7'}}
+function appVer(){try{return (window.Android&&Android.appVersion&&Android.appVersion())||'1.8'}catch(e){return '1.8'}}
 function storeInfo(){let b=0;try{b=(localStorage.getItem(KEY)||'').length*2}catch(e){}b+=S.files.filter(f=>!f.seed).reduce((a,f)=>a+f.size,0);return fmtSize(b)}
-function loginSheet(){sheet(`<h3>Masuk ke akun</h3><p class="note">Mode demo: login belum tersambung ke server, data tetap tersimpan di HP ini.</p>
-  <form id="lf"><label class="fld"><span>Email</span><input name="e" type="email" placeholder="nama@email.com" autocomplete="email"></label>
-  <label class="fld"><span>Kata sandi</span><input name="p" type="password" placeholder="Minimal 6 karakter" autocomplete="current-password"></label>
-  <button class="prim" type="submit">Masuk</button></form>
-  <button class="gbtn" id="lg"><b>G</b>Masuk dengan Google (demo)</button>
-  <p class="note" style="text-align:center;margin-top:2rem">Belum punya akun? <a href="#" id="lr" style="color:#1a66e6;font-weight:600">Daftar</a> · <a href="#" id="lfp" style="color:#1a66e6">Lupa sandi</a></p>`,el=>{
-  const done=(email,name)=>{S.account={loggedIn:true,email,name:name||(email.split('@')[0].replace(/[._-]+/g,' ').replace(/\b\w/g,c=>c.toUpperCase()))};save();closeSheet();R.pengaturan();toast('Berhasil masuk (mode demo)')};
-  el.querySelector('#lf').onsubmit=e=>{e.preventDefault();const em=e.target.e.value.trim(),pw=e.target.p.value;
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em))return toast('Email belum benar');if(pw.length<6)return toast('Kata sandi minimal 6 karakter');done(em)};
-  el.querySelector('#lg').onclick=()=>done('adriy@gmail.com','Adriy');
-  el.querySelector('#lr').onclick=e=>{e.preventDefault();toast('Pendaftaran akan tersedia setelah server tersambung')};
-  el.querySelector('#lfp').onclick=e=>{e.preventDefault();toast('Reset sandi akan tersedia setelah server tersambung')}})}
+/* ---------- Masuk = sinkron ke Google Drive milik pengguna (tanpa server / database) ----------
+   Pemilih berkas Android membuat/memilih file CatatanByAdriy-data.json di Google Drive; aplikasi
+   menyimpan izin aksesnya dan menulis ulang file itu otomatis setiap ada perubahan. */
+const SYNC={info:null,busy:false,dirty:false,timer:null,err:null,state:'idle'};
+const syncAvail=()=>!!(window.Android&&Android.syncConnect);
+function syncInit(){if(!syncAvail())return;try{const i=Android.syncInfoJs();SYNC.info=i?JSON.parse(i):null}catch(e){SYNC.info=null}
+  S.account=S.account||{};if(SYNC.info){S.account.loggedIn=true;S.account.file=SYNC.info.name;S.account.drive=!!SYNC.info.drive;cloudSoon(1500)}else if(S.account.loggedIn){S.account.loggedIn=false}}
+function cloudSoon(ms){if(!SYNC.info)return;clearTimeout(SYNC.timer);SYNC.timer=setTimeout(pushCloud,ms==null?3000:ms)}
+const b64=blob=>new Promise(r=>{const f=new FileReader();f.onload=()=>r(String(f.result).split(',')[1]);f.onerror=()=>r(null);f.readAsDataURL(blob)});
+async function buildPayload(){const data=Object.assign({},S,{ai:Object.assign({},S.ai,{keys:{}})});const blobs={};let total=0;
+  for(const f of S.files.filter(x=>!x.seed)){if(total+f.size>20e6)continue;const b=await getBlob(f.id);if(!b)continue;const s=await b64(b);if(s){blobs[f.id]=s;total+=f.size}}
+  return JSON.stringify({app:'CatatanByAdriy',v:1,savedAt:Date.now(),data,blobs})}
+async function pushCloud(){if(!SYNC.info)return;if(SYNC.busy){SYNC.dirty=true;return}SYNC.busy=true;SYNC.state='sync';updAcct();
+  try{Android.syncWrite(await buildPayload())}catch(e){window.__driveWrote(String(e))}}
+window.__driveWrote=err=>{SYNC.busy=false;if(err){SYNC.err=err;SYNC.state='err'}else{SYNC.err=null;SYNC.state='ok';S.account.lastSync=Date.now();try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+  updAcct();if(SYNC.dirty){SYNC.dirty=false;cloudSoon(1500)}};
+function updAcct(){const e=$('#acStat');if(e)e.innerHTML=acctStatus();const r=$('#sSyncNow .sv');if(r)r.textContent=S.account.lastSync?rel(S.account.lastSync):'-'}
+function acctStatus(){if(SYNC.state==='sync')return ic('refresh-cw')+'Menyinkronkan...';if(SYNC.state==='err')return ic('x')+'Gagal sinkron — akan dicoba lagi';
+  return ic('cloud-check')+(S.account.lastSync?'Tersinkron '+rel(S.account.lastSync):'Tersambung')}
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&SYNC.info&&SYNC.timer){clearTimeout(SYNC.timer);pushCloud()}});
+window.addEventListener('online',()=>{if(SYNC.info&&SYNC.state==='err')cloudSoon(500)});
+function loginSheet(){
+  if(!syncAvail()){toast('Masuk hanya tersedia di aplikasi Android');return}
+  sheet(`<h3>Masuk dengan Google Drive</h3><p class="note">Data (catatan, agenda, chat, berkas, pengaturan) disimpan otomatis ke Google Drive milikmu. Tidak perlu daftar akun atau kata sandi.<br><br>Di layar berikutnya pilih <b>Drive</b> (ikon segitiga hijau-kuning-biru) di menu ☰ kiri atas, lalu tekan <b>Simpan</b>.</p>
+    <button class="prim" id="lgNew">Mulai simpan ke Google Drive</button>
+    <button class="gbtn" id="lgOpen">${ic('rotate-ccw')}Sudah punya data di Drive? Pulihkan</button>
+    <p class="note" style="margin-top:1.8rem;font-size:1.8rem">Ganti HP atau aplikasi terhapus? Pasang lagi aplikasinya, buka Pengaturan → Masuk → <b>Pulihkan</b>, lalu pilih file <b>CatatanByAdriy-data.json</b> di Drive.</p>`,el=>{
+    el.querySelector('#lgNew').onclick=()=>{closeSheet();Android.syncConnect('new')};
+    el.querySelector('#lgOpen').onclick=()=>{closeSheet();Android.syncConnect('open')}})}
+window.__driveDone=(ok,mode,info)=>{if(!ok){if(mode!=='err')toast('Dibatalkan');else toast('Pemilih berkas tidak tersedia');return}
+  let inf={};try{inf=JSON.parse(info)}catch(e){}SYNC.info=inf;
+  if(mode==='open'){toast('Membaca data dari Drive...');Android.syncRead();return}
+  S.account=Object.assign({},S.account,{loggedIn:true,file:inf.name,drive:!!inf.drive,name:(S.account&&S.account.name)||'Adriy'});save();pushCloud();
+  if(cur==='pengaturan')R.pengaturan();
+  if(!inf.drive)sheet(`<h3>Tersimpan di penyimpanan HP</h3><p class="note">Kamu memilih lokasi di HP, bukan Google Drive. Data belum aman bila HP hilang. Untuk memakai Drive: Keluar, lalu Masuk lagi dan pilih <b>Drive</b>.</p><button class="prim" onclick="this.closest('.sheetbg').click()">Mengerti</button>`);
+  else toast('Berhasil masuk. Data tersimpan otomatis ke Google Drive')};
+window.__driveRead=(err,text)=>{let d=null;try{d=JSON.parse(text)}catch(e){}
+  const bad=m=>{Android.syncDisconnect();SYNC.info=null;toast(m)};
+  if(err||!d)return bad('File tidak bisa dibaca. Pastikan memilih CatatanByAdriy-data.json');
+  const data=d.data||d;if(!data.notes||!data.agendas)return bad('Ini bukan file data CatatanByAdriy');
+  sheet(`<h3>Pulihkan data dari Drive?</h3><p class="note">Ditemukan ${data.notes.filter(n=>!n.trashed).length} catatan, ${data.agendas.length} agenda, ${(data.chats||[]).length} chat${d.savedAt?' (disimpan '+rel(d.savedAt)+')':''}. Data di HP ini akan diganti dengan data tersebut.</p>
+    <button class="prim" id="rsYes">Ya, pulihkan</button><button class="prim" id="rsNo" style="background:#eef1f6;color:#141b36">Batal</button>`,el=>{
+    el.querySelector('#rsNo').onclick=()=>{closeSheet();bad('Dibatalkan')};
+    el.querySelector('#rsYes').onclick=async()=>{closeSheet();const keys=S.ai&&S.ai.keys;S=data;migrate();if(keys)S.ai.keys=keys;
+      for(const [id,s] of Object.entries(d.blobs||{})){try{const bin=atob(s),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);const f=S.files.find(x=>x.id===id);await putBlob(id,new Blob([u],{type:(f&&f.mime)||''}))}catch(e){}}
+      S.account=Object.assign({},S.account,{loggedIn:true,file:SYNC.info.name,drive:!!SYNC.info.drive});save();applySettings();syncReminders();go('dashboard');toast('Data berhasil dipulihkan dari Google Drive')}})};
+function logoutCloud(){confirmBox('Keluar dari Google Drive? Data di HP tetap ada, dan file di Drive tetap aman.','Ya, keluar',async()=>{
+  if(SYNC.info){clearTimeout(SYNC.timer);try{Android.syncWrite(await buildPayload())}catch(e){}}
+  setTimeout(()=>{if(window.Android&&Android.syncDisconnect)Android.syncDisconnect();SYNC.info=null;SYNC.state='idle';S.account=Object.assign({},S.account,{loggedIn:false});save();R.pengaturan();toast('Kamu sudah keluar. Sinkron otomatis berhenti.')},600)})}
 function dl(name,mime,text){if(window.Android&&Android.saveFile)Android.saveFile(name,mime,btoa(unescape(encodeURIComponent(text))));else{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:mime}));a.download=name;a.click()}}
 function exportAllMd(){const ns=liveNotes().slice().sort((a,b)=>b.updated-a.updated);if(!ns.length)return toast('Belum ada catatan');
   dl('catatanbyadriy-semua-catatan-'+ymd(Date.now())+'.md','text/markdown',ns.map(n=>'# '+(n.title||'Tanpa judul')+'\n\n> '+TAGN[n.tag]+' · '+rel(n.updated)+'\n\n'+MD.toMd(n.body)).join('\n\n---\n\n')+'\n')}
@@ -812,7 +849,7 @@ function runIntro(){const box=$('#intro'),v=$('#introVid');if(!box)return;if(!se
     const p=v.play();if(p&&p.catch)p.catch(end)}).catch(end)}
 $('#sideOv').onclick=()=>closeSidebar();
 window.addEventListener('scroll',()=>{const t=$('#eTop');if(t)t.classList.toggle('stuck',window.scrollY>4)},{passive:true});
-load();applySettings();go('dashboard');booted=true;runIntro();syncReminders();
+load();syncInit();applySettings();go('dashboard');booted=true;runIntro();syncReminders();
 setTimeout(()=>{const o=window.Android&&Android.takeOpen&&Android.takeOpen();if(o)window.__openFrom(o)},300);
 AIX.discover(false).catch(()=>{});
 })();
