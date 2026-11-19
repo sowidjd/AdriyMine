@@ -1,0 +1,32 @@
+plugins { id 'com.android.application' }
+def ks = file('../keystore/catatan.jks')
+android {
+    namespace 'com.adriy.catatan'
+    compileSdk 35
+    buildToolsVersion '35.0.0'
+    defaultConfig {
+        applicationId 'com.adriy.catatan'
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+    signingConfigs {
+        release {
+            if (ks.exists()) {
+                storeFile ks
+                storePassword System.getenv('CBA_KS_PASS') ?: 'catatanbyadriy'
+                keyAlias 'catatan'
+                keyPassword System.getenv('CBA_KS_PASS') ?: 'catatanbyadriy'
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig ks.exists() ? signingConfigs.release : signingConfigs.debug
+        }
+    }
+    sourceSets { main { assets.srcDirs = ['../../www'] } }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+}
