@@ -83,7 +83,8 @@ async function getBlob(k){const d=await db();return new Promise(res=>{const r=d.
 async function delBlob(k){const d=await db();d.transaction('b','readwrite').objectStore('b').delete(k)}
 
 /* ---------- util UI ---------- */
-let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2200)}
+let tt;function toast(m){const t=$('#toast');t.style.pointerEvents='none';t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2200)}
+function toastAct(m,label,fn){const t=$('#toast');t.innerHTML=esc(m)+' <button style="color:#8ec0ff;font-weight:700;margin-left:1.4rem">'+esc(label)+'</button>';t.style.pointerEvents='auto';t.querySelector('button').onclick=()=>{t.classList.remove('on');fn()};t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>{t.classList.remove('on');t.style.pointerEvents='none'},5000)}
 const stack=[]; // tumpukan overlay untuk tombol kembali
 function sheet(html,onMount){$('#sheet').innerHTML='<div class="grab"></div>'+html;$('#sheetbg').classList.add('on');stack.push('sheet');onMount&&onMount($('#sheet'))}
 function closeSheet(){$('#sheetbg').classList.remove('on');const i=stack.lastIndexOf('sheet');if(i>=0)stack.splice(i,1)}
@@ -102,13 +103,13 @@ const TABS=[['dashboard','Dashboard','house','nav-house-on'],['catatan','Catatan
 function renderNav(){const t=cur==='editor'?'catatan':cur;
   $('#nav').innerHTML=TABS.map(x=>`<button data-v="${x[0]}" class="${x[0]===t?'on':''}">${ic(x[0]===t?x[3]:x[2])}<span>${x[1]}</span></button>`).join('');
   $('#nav').querySelectorAll('button').forEach(b=>b.onclick=()=>go(b.dataset.v))}
-function go(v){if(cur==='editor')leaveEditor();if(v!=='editor')prevTab=v;cur=v;
+function go(v){if(cur==='editor'&&v!=='editor')leaveEditor();if(v!=='editor')prevTab=v;cur=v;
   document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s.id===v));
   R[v]&&R[v]();renderNav();window.scrollTo(0,0)}
 window.appBack=function(){
   if($('#viewer').classList.contains('on')){closeViewer();return true}
   if(stack.length){const t=stack[stack.length-1];if(t==='sheet')closeSheet();else if(t==='srch')closeSearch();return true}
-  if(cur==='editor'){if(EV.mode==='edit'){setEdMode('view');return true}go(EV.from||'catatan');return true}
+  if(cur==='editor'){if(EV.mode==='edit'){setEdMode('read');return true}go(EV.from||'catatan');return true}
   if(cur!=='dashboard'){go('dashboard');return true}
   return false};
 document.addEventListener('keydown',e=>{if(e.key==='Escape')window.appBack()});
@@ -125,15 +126,20 @@ function notesBy(f){let a=S.notes.filter(n=>{if(f==='sampah')return n.trashed;if
 function sortNotes(a){return a.sort(S.sortOld?(x,y)=>x.updated-y.updated:(x,y)=>y.updated-x.updated)}
 function newNote(){const n={id:'n'+Date.now(),title:'',sub:'',tag:'kerja',body:'',updated:Date.now(),opened:Date.now(),labels:[],star:false,fav:false,archived:false,trashed:false,pinned:false,draft:false};
   S.notes.push(n);save();openNote(n.id,true)}
-function noteMenu(n,after){
-  menu(n.title||'Tanpa judul',[
+function noteMenu(n,after,inEd){
+  const mdItems=inEd?[{icon:'code',label:'Edit sebagai Markdown',fn:()=>mdSource(n)},{icon:'copy',label:'Salin sebagai Markdown',fn:()=>copyText(MD.toMd(n.body))},{icon:'file-down',label:'Ekspor ke file .md',fn:()=>exportMd(n)}]:[];
+  menu(n.title||'Tanpa judul',mdItems.concat([
     {icon:'pin',label:n.pinned?'Lepas sematan':'Sematkan',fn:()=>{S.notes.forEach(x=>{if(x!==n&&!n.pinned)x.pinned=false});n.pinned=!n.pinned;save();after()}},
     {icon:'bookmark',label:n.fav?'Hapus dari Favorit':'Tambah ke Favorit',fn:()=>{n.fav=!n.fav;save();after()}},
     {icon:'type',label:'Ubah kategori',fn:()=>ask('Kategori',[{name:'tag',label:'Kategori',type:'select',value:n.tag,options:Object.entries(TAGN)}],v=>{n.tag=v.tag;save();after()})},
     n.trashed?{icon:'undo-2',label:'Pulihkan',fn:()=>{n.trashed=false;save();after()}}:{icon:'archive',label:n.archived?'Keluarkan dari Arsip':'Arsipkan',fn:()=>{n.archived=!n.archived;save();after()}},
     n.trashed?{icon:'trash-2',label:'Hapus permanen',red:true,fn:()=>confirmBox('Hapus catatan ini selamanya?','Hapus',()=>{S.notes=S.notes.filter(x=>x!==n);save();after()})}
-             :{icon:'trash-2',label:'Pindahkan ke Sampah',red:true,fn:()=>{n.trashed=true;n.pinned=false;save();after();toast('Dipindahkan ke Sampah')}}
-  ])}
+             :{icon:'trash-2',label:'Pindahkan ke Sampah',red:true,fn:()=>confirmBox('Pindahkan "'+(n.title||'Tanpa judul')+'" ke Sampah?','Ya, hapus',()=>{n.trashed=true;n.pinned=false;save();after();toastAct('Dipindahkan ke Sampah','Batalkan',()=>{n.trashed=false;save();go(cur)})})}
+  ]))}
+function copyText(t){const done=()=>toast('Disalin');if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(done,()=>fallbackCopy(t));else fallbackCopy(t)}
+function fallbackCopy(t){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');toast('Disalin')}catch(e){toast('Gagal menyalin')}a.remove()}
+function exportMd(n){const md='# '+(n.title||'Tanpa judul')+'\n\n'+MD.toMd(n.body)+'\n';const name=(n.title||'catatan').replace(/[\\/:*?"<>|]+/g,'-')+'.md';
+  if(window.Android&&Android.saveFile)Android.saveFile(name,'text/markdown',btoa(unescape(encodeURIComponent(md))));else{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([md],{type:'text/markdown'}));a.download=name;a.click()}}
 
 /* ================= DASHBOARD ================= */
 const R={};
@@ -193,11 +199,11 @@ R.catatan=function(){
   <div class="ctop"><img src="img/hdr_catatan.png" alt=""><div><h1>Catatan Saya</h1><p>Kelola semua catatanmu di sini.</p></div><div class="sp"></div>
     <button class="sqbtn" id="nSearch">${ic('search')}</button><button class="sqbtn" id="nFilter">${ic('sliders-horizontal')}</button><button class="sqbtn" id="nGrid">${ic('layout-grid')}</button></div>
   <div class="chips" id="chipsNote">${F.map(f=>`<button class="chip ${noteFilter===f[0]?'on':''}" data-f="${f[0]}">${ic(f[2])}${f[1]}</button>`).join('')}</div>
-  ${pin?`<button class="pin" id="pinCard"><img class="ill" src="img/pin_illu.png" alt=""><span class="badge">${ic('star-fill')}Disematkan</span><img class="doc" src="img/pin_doc.png" alt="">
-    <div class="tt"><h2>${esc(pin.title)}</h2><div class="s">${esc(pin.sub)}</div><div class="d">${ic('calendar')}Diperbarui: ${rel(pin.updated)}</div></div><span class="more" id="pinMore"></span></button>`:''}
+  ${pin?`<button class="pin" id="pinCard"><img class="ill" src="img/pin_illu.png" alt=""><span class="badge">${ic('star-fill')}Disematkan</span><span class="more" id="pinMore">${ic('ellipsis-vertical')}</span>
+    <div class="row"><img class="doc" src="img/pin_doc.png" alt=""><div class="tt"><h2>${esc(pin.title)}</h2><div class="s">${esc(pin.sub)}</div><div class="d">${ic('calendar')}Diperbarui: ${rel(pin.updated)}</div></div></div></button>`:''}
   <div class="lhead"><h2>${title} <span>(${all.length})</span></h2><button class="sort" id="nSort">${ic('arrow-up-down')}${S.sortOld?'Terlama di Atas':'Terbaru di Atas'}${ic('chevron-down')}</button></div>
-  <div class="nlist">${list.map(n=>`<div class="nrow" data-id="${n.id}"><img class="tile" src="img/${TILE[n.tag]||'nt_blue'}.png" alt=""><div class="tx"><div class="a">${esc(n.title||'Tanpa judul')}</div><div class="b">${esc(n.sub||plain(n.body).slice(0,70))}</div></div>
-    <div class="dt">${ic('calendar')}${rel(n.updated)}</div><span class="tag t-${n.tag}">${TAGN[n.tag]||n.tag}</span>
+  <div class="nlist">${list.map(n=>`<div class="nrow" data-id="${n.id}"><img class="tile" src="img/${TILE[n.tag]||'nt_blue'}.png" alt=""><div class="tx"><div class="a">${esc(n.title||'Tanpa judul')}</div><div class="b">${esc(n.sub||plain(n.body).slice(0,70))}</div>
+    <div class="mt"><span class="dt">${ic('calendar')}${rel(n.updated)}</span><span class="tag t-${n.tag}">${TAGN[n.tag]||n.tag}</span></div></div>
     <button class="star ${n.star?'on':''}" data-s="${n.id}">${ic('star')}</button><button class="m" data-m="${n.id}">${ic('ellipsis-vertical')}</button></div>`).join('')||'<div class="empty">Belum ada catatan di sini.</div>'}</div>
   <button class="fab" id="nFab">${ic('plus')}</button>`;
   bindProfile(el);
@@ -205,7 +211,7 @@ R.catatan=function(){
   el.querySelectorAll('.nrow').forEach(r=>r.onclick=e=>{if(e.target.closest('button'))return;openNote(r.dataset.id)});
   el.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{const n=S.notes.find(x=>x.id===b.dataset.s);n.star=!n.star;save();R.catatan()});
   el.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>noteMenu(S.notes.find(x=>x.id===b.dataset.m),R.catatan));
-  if(pin){el.querySelector('#pinCard').onclick=e=>{if(e.target.id==='pinMore')return noteMenu(pin,R.catatan);openNote(pin.id)}}
+  if(pin){el.querySelector('#pinCard').onclick=e=>{if(e.target.closest('#pinMore'))return noteMenu(pin,R.catatan);openNote(pin.id)}}
   el.querySelector('#nFab').onclick=newNote;
   el.querySelector('#nSearch').onclick=openSearch;
   el.querySelector('#nSort').onclick=()=>{S.sortOld=!S.sortOld;save();R.catatan()};
@@ -216,75 +222,96 @@ function showTag(k){openSearch();$('#srchIn').value='';renderSearch(TAGN[k],n=>n
 const plain=h=>{const d=document.createElement('div');d.innerHTML=h||'';return (d.textContent||'').replace(/\s+/g,' ').trim()};
 
 /* ================= EDITOR ================= */
-const EV={id:null,mode:'view',from:'catatan',timer:null};
-function openNote(id,isNew){const n=S.notes.find(x=>x.id===id);if(!n)return;EV.from=cur==='editor'?EV.from:cur;n.opened=Date.now();save();EV.id=id;go('editor');if(isNew)setEdMode('edit',true)}
+// Mode baca otomatis saat catatan dibuka; toolbar format hanya muncul di mode edit.
+const EV={id:null,mode:'read',from:'catatan',timer:null};
+function openNote(id,isNew){const n=S.notes.find(x=>x.id===id);if(!n)return;EV.from=cur==='editor'?EV.from:cur;n.opened=Date.now();save();EV.id=id;EV.mode=isNew?'edit':'read';go('editor');if(isNew)setEdMode('edit',true)}
 function edNote(){return S.notes.find(x=>x.id===EV.id)}
 R.editor=function(){
   const n=edNote(),el=$('#editor');if(!n)return go('catatan');
-  const tbBtns=`<button data-c="bold" class="bold">B</button><button data-c="italic">${ic('italic')}</button><button data-c="underline">${ic('underline')}</button><button data-c="color" class="col">A<i></i></button><span class="sep"></span><button data-c="insertUnorderedList">${ic('list')}</button><button data-c="insertOrderedList">${ic('list-ordered')}</button><span class="sep"></span><button data-c="check">${ic('square-check')}</button><button data-c="link">${ic('link')}</button><button data-c="image">${ic('image')}</button>`;
-  el.className='view on';
   el.innerHTML=`
-  <div class="ehdr"><button class="back" id="eBack">${ic('arrow-left')}</button><img class="logo" src="img/logo_ed.png" alt=""><div><div class="t1">CatatanByAdriy</div><div class="t2">Editor Catatan</div></div><div class="sp"></div>
-    <button class="pill viewonly" data-c="read">${ic('book-open')}Mode Baca</button>
-    <div class="hgrp editonly"><button data-c="undo">${ic('undo-2')}</button><button data-c="redo">${ic('redo-2')}</button></div>
-    <button class="spill ai editonly" data-c="ai">${ic('sparkle-ai')}Rapikan AI</button><button class="spill editonly" data-c="read">${ic('book-open')}Mode Baca</button><button class="spill editonly" data-c="pdf">${ic('pdf')}Ekspor</button>
+  <div class="ehdr"><button class="back" id="eBack">${ic('arrow-left')}</button><img class="logo" src="img/logo_ed.png" alt=""><div style="min-width:0"><div class="t1">CatatanByAdriy</div><div class="t2">Editor Catatan</div></div><div class="sp"></div>
     <button class="circ" data-c="more">${ic('ellipsis-vertical')}</button></div>
-  <div class="tb viewonly"><button data-c="undo">${ic('undo-2')}</button><button data-c="redo">${ic('redo-2')}</button><span class="sep"></span><button data-c="block" class="ddl">Teks ${ic('chevron-down')}</button>${tbBtns}</div>
+  <div class="abar roonly"><button class="aibtn" data-c="ai">${ic('sparkle-ai')}Rapikan dengan AI</button><button class="obtn" data-c="pdf">${ic('pdf')}Ekspor PDF</button><button class="obtn" data-c="edit">${ic('pencil')}Edit</button></div>
+  <div class="abar edonly"><div class="hgrp"><button data-c="undo">${ic('undo-2')}</button><button data-c="redo">${ic('redo-2')}</button></div><button class="spill ai" data-c="ai">${ic('sparkle-ai')}Rapikan AI</button><button class="spill" data-c="pdf">${ic('pdf')}Ekspor</button><button class="spill done" data-c="read">${ic('book-open')}Mode Baca</button></div>
   <div class="ecard">
-    <div class="etitle"><h1 id="eTitle" contenteditable="true" data-ph="Judul catatan">${esc(n.title)}</h1><button class="st ${n.star?'on':''}" data-c="star">${ic('star')}</button><button data-c="more">${ic('ellipsis-vertical')}</button></div>
+    <div class="etitle"><h1 id="eTitle" data-ph="Judul catatan">${esc(n.title)}</h1><button class="st ${n.star?'on':''}" data-c="star">${ic('star')}</button></div>
     <div class="etags" id="eTags"></div>
-    <div class="emeta"><span>${ic('calendar')}<em id="eEdited" style="font-style:normal">Terakhir diedit: ${rel(n.updated)}</em></span><span class="saved" id="eSaved">${ic('cloud-check')}Tersimpan otomatis</span></div>
-    <div class="body" id="eBody" contenteditable="true">${n.body}</div>
-    <div class="ebar viewonly"><button class="aibtn" data-c="ai">${ic('sparkle-ai')}Rapikan dengan AI</button><span class="sep"></span><button class="obtn" data-c="pdf">${ic('pdf')}Ekspor ke PDF</button><button class="obtn" data-c="edit">${ic('pencil')}Edit</button><div class="wc" id="eWc"></div></div>
+    <div class="emeta"><span>${ic('calendar')}<em id="eEdited" style="font-style:normal">Terakhir diedit: ${rel(n.updated)}</em></span><span class="saved" id="eSaved">${ic('cloud-check')}<b style="font-weight:500">Tersimpan otomatis</b></span><span class="wc" id="eWc"></span></div>
+    <div class="body" id="eBody"></div>
   </div>
-  <div class="btb editonly"><button data-c="block" class="ddl">Teks ${ic('chevron-down')}</button><span class="sep"></span>${tbBtns.replace('<span class="sep"></span><button data-c="check">','<span class="sep"></span><button data-c="check">')}<button data-c="table">${ic('table')}</button></div>`;
-  renderTags();updWc();
+  <div class="ftb edonly" id="eFtb"><button data-c="block" class="ddl">Teks ${ic('chevron-down')}</button><span class="sep"></span>
+    <button data-c="bold" class="bold">B</button><button data-c="italic">${ic('italic')}</button><button data-c="underline">${ic('underline')}</button><button data-c="strikeThrough" class="strike">S</button><button data-c="color" class="col">A<i></i></button><span class="sep"></span>
+    <button data-c="insertUnorderedList">${ic('list')}</button><button data-c="insertOrderedList">${ic('list-ordered')}</button><button data-c="check">${ic('square-check')}</button><span class="sep"></span>
+    <button data-c="quote">${ic('quote')}</button><button data-c="code">${ic('code')}</button><button data-c="link">${ic('link')}</button><button data-c="image">${ic('image')}</button><button data-c="table">${ic('table')}</button><button data-c="hr">${ic('minus')}</button><span class="sep"></span><button data-c="mdsrc" class="mdb">MD</button></div>`;
   const body=el.querySelector('#eBody'),title=el.querySelector('#eTitle');
   body.addEventListener('input',dirty);title.addEventListener('input',dirty);
-  body.addEventListener('focus',()=>setEdMode('edit'));title.addEventListener('focus',()=>setEdMode('edit'));
   title.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();body.focus()}});
-  body.addEventListener('change',e=>{if(e.target.type==='checkbox'){e.target.toggleAttribute('checked',e.target.checked);dirty()}});
+  body.addEventListener('change',e=>{if(e.target.type!=='checkbox')return;e.target.toggleAttribute('checked',e.target.checked);
+    if(EV.mode==='edit')dirty();else toggleStoredCheck(e.target)});
+  body.addEventListener('click',e=>{const a=e.target.closest('a');if(a&&EV.mode==='edit')e.preventDefault()});
   el.querySelectorAll('[data-c]').forEach(b=>{b.addEventListener('mousedown',e=>e.preventDefault());b.onclick=()=>edCmd(b.dataset.c)});
   el.querySelector('#eBack').onclick=()=>window.appBack();
-  setEdMode(EV.mode==='edit'?'edit':'view');
+  setEdMode(EV.mode);
 };
-function renderTags(){const n=edNote();const t=$('#eTags');
-  t.innerHTML=n.labels.map((l,i)=>`<span class="etag">${ic('folder')}${esc(l)}<button class="x" data-x="${i}">${ic('x-small','','stroke-width:2.6')}</button></span>`).join('')+`<button class="etag add" id="eAddTag">${ic('plus')}Tambah Tag</button>`;
+function toggleStoredCheck(cb){const n=edNote(),all=[...$('#eBody').querySelectorAll('input[type=checkbox]')],i=all.indexOf(cb);
+  const t=document.createElement('template');t.innerHTML=n.body;const st=[...t.content.querySelectorAll('input[type=checkbox]')][i];
+  if(st){st.toggleAttribute('checked',cb.checked);n.body=t.innerHTML;touch()}}
+function renderTags(){const n=edNote();const t=$('#eTags');const ed=EV.mode==='edit';
+  t.innerHTML=n.labels.map((l,i)=>`<span class="etag">${ic('folder')}${esc(l)}${ed?`<button class="x" data-x="${i}">${ic('x-small','','stroke-width:2.6')}</button>`:''}</span>`).join('')+(ed?`<button class="etag add" id="eAddTag">${ic('plus')}Tambah Tag</button>`:'');
   t.querySelectorAll('[data-x]').forEach(b=>b.onclick=()=>{n.labels.splice(+b.dataset.x,1);touch();renderTags()});
-  t.querySelector('#eAddTag').onclick=()=>ask('Tambah Tag',[{name:'t',label:'Nama tag',ph:'mis. Produksi'}],v=>{if(v.t){n.labels.push(v.t);touch();renderTags()}})}
-function setEdMode(m,focus){EV.mode=m;const el=$('#editor');el.classList.toggle('edit',m==='edit');
-  if(m==='edit'&&focus)setTimeout(()=>{const t=$('#eTitle');(t.textContent?$('#eBody'):t).focus()},50);
-  if(m==='view'&&document.activeElement&&document.activeElement.blur)document.activeElement.blur()}
-function dirty(){$('#eSaved').lastChild.textContent='Menyimpan...';clearTimeout(EV.timer);EV.timer=setTimeout(flush,500);updWc()}
-function flush(){const n=edNote();if(!n||!$('#eBody'))return;n.title=$('#eTitle').textContent.trim();n.body=$('#eBody').innerHTML;if(!n.sub||n.autoSub){n.sub=plain(n.body).slice(0,70);n.autoSub=true}touch()}
+  const a=t.querySelector('#eAddTag');if(a)a.onclick=()=>ask('Tambah Tag',[{name:'t',label:'Nama tag',ph:'mis. Produksi'}],v=>{if(v.t){n.labels.push(v.t);touch();renderTags()}})}
+function showBody(){const n=edNote(),b=$('#eBody');if(!b)return;b.innerHTML=n.body;if(EV.mode==='read')MD.diagrams(b);updWc()}
+function setEdMode(m,focus){if(EV.mode==='edit'&&m==='read'&&EV.timer){clearTimeout(EV.timer);flush()}
+  EV.mode=m;const el=$('#editor'),ed=m==='edit';el.classList.toggle('edit',ed);document.body.classList.toggle('edit',ed);
+  const b=$('#eBody'),t=$('#eTitle');if(!b)return;
+  b.contentEditable=ed?'true':'false';t.contentEditable=ed?'true':'false';
+  showBody();renderTags();
+  if(ed&&focus)setTimeout(()=>{(t.textContent?b:t).focus();if(t.textContent){const r=document.createRange();r.selectNodeContents(b);r.collapse(false);const s=getSelection();s.removeAllRanges();s.addRange(r)}},60);
+  if(!ed&&document.activeElement&&document.activeElement.blur)document.activeElement.blur()}
+function dirty(){const s=$('#eSaved');if(s)s.lastChild.textContent='Menyimpan...';clearTimeout(EV.timer);EV.timer=setTimeout(flush,500);updWc()}
+function flush(){EV.timer=null;const n=edNote();if(!n||!$('#eBody')||EV.mode!=='edit')return;n.title=$('#eTitle').textContent.trim();n.body=$('#eBody').innerHTML;if(!n.sub||n.autoSub){n.sub=plain(n.body).slice(0,70);n.autoSub=true}touch()}
 function touch(){const n=edNote();n.updated=Date.now();save();const e=$('#eEdited');if(e)e.textContent='Terakhir diedit: '+rel(n.updated);const s=$('#eSaved');if(s)s.lastChild.textContent='Tersimpan otomatis'}
-function leaveEditor(){if(EV.timer){clearTimeout(EV.timer);flush()}const n=edNote();if(n&&!n.title&&!plain(n.body)){S.notes=S.notes.filter(x=>x!==n);save()}EV.mode='view';$('#editor').classList.remove('edit','read')}
-function updWc(){const t=plain(($('#eTitle')||{}).textContent+' '+(($('#eBody')||{}).innerHTML||''));const w=t?t.split(' ').length:0;const c=t.length;const f=x=>x.toLocaleString('id-ID');const e=$('#eWc');if(e)e.innerHTML=`${f(w)} kata<i></i>${f(c)} karakter`}
+function leaveEditor(){if(EV.timer){clearTimeout(EV.timer);flush()}const n=edNote();if(n&&!n.title&&!plain(n.body)){S.notes=S.notes.filter(x=>x!==n);save()}EV.mode='read';$('#editor').classList.remove('edit');document.body.classList.remove('edit')}
+function updWc(){const t=plain((($('#eTitle')||{}).textContent||'')+' '+(($('#eBody')||{}).innerHTML||''));const w=t?t.split(' ').length:0;const f=x=>x.toLocaleString('id-ID');const e=$('#eWc');if(e)e.innerHTML=`${f(w)} kata<i></i>${f(t.length)} karakter`}
+function saveRange(){const s=getSelection();EV.range=s.rangeCount&&$('#eBody').contains(s.anchorNode)?s.getRangeAt(0).cloneRange():null}
+function restoreRange(){const b=$('#eBody');b.focus();if(EV.range){const s=getSelection();s.removeAllRanges();s.addRange(EV.range)}}
 function edCmd(c){const n=edNote(),body=$('#eBody');
-  const ex=(a,b)=>{body.focus();document.execCommand(a,false,b);dirty()};
+  const ex=(a,v)=>{restoreRange();document.execCommand(a,false,v);dirty()};
+  const later=fn=>{saveRange();fn()};
   switch(c){
-    case 'bold':case 'italic':case 'underline':case 'insertUnorderedList':case 'insertOrderedList':case 'undo':case 'redo':ex(c);break;
-    case 'color':menu('Warna teks',[['#141a33','Hitam'],['#1a66e6','Biru'],['#d63a4f','Merah'],['#1d7f4c','Hijau']].map(x=>({icon:'type',label:x[1],fn:()=>ex('foreColor',x[0])})).concat([{icon:'pen-line',label:'Stabilo kuning',fn:()=>ex('hiliteColor','#fef08a')}]));break;
-    case 'block':menu('Gaya teks',[{icon:'type',label:'Teks biasa',fn:()=>ex('formatBlock','P')},{icon:'type',label:'Judul bagian',fn:()=>ex('formatBlock','H2')},{icon:'list-ordered',label:'Langkah bernomor',fn:()=>ex('insertHTML','<ol class="steps"><li><b>Judul langkah</b><span>Keterangan langkah</span></li></ol>')}]);break;
-    case 'check':ex('insertHTML','<div class="ck"><input type="checkbox"><span>Tugas baru</span></div>');break;
-    case 'table':ex('insertHTML','<table><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></table><p><br></p>');break;
-    case 'link':{const sel=window.getSelection();const rg=sel.rangeCount?sel.getRangeAt(0).cloneRange():null;ask('Sisipkan tautan',[{name:'u',label:'Alamat tautan',ph:'https://',type:'url'},{name:'t',label:'Teks (opsional)'}],v=>{if(!v.u)return;body.focus();if(rg){sel.removeAllRanges();sel.addRange(rg)}const u=/^https?:/i.test(v.u)?v.u:'https://'+v.u;document.execCommand('insertHTML',false,`<a href="${esc(u)}">${esc(v.t||u)}</a>`);dirty()},'Sisipkan');break}
-    case 'image':{const sel=window.getSelection();EV.range=sel.rangeCount?sel.getRangeAt(0).cloneRange():null;$('#imgPick').click();break}
+    case 'bold':case 'italic':case 'underline':case 'strikeThrough':case 'insertUnorderedList':case 'insertOrderedList':case 'undo':case 'redo':saveRange();ex(c);break;
+    case 'hr':saveRange();ex('insertHorizontalRule');break;
+    case 'color':later(()=>menu('Warna teks',[['#141a33','Hitam'],['#1a66e6','Biru'],['#d63a4f','Merah'],['#1d7f4c','Hijau']].map(x=>({icon:'type',label:x[1],fn:()=>ex('foreColor',x[0])})).concat([{icon:'pen-line',label:'Stabilo kuning',fn:()=>ex('hiliteColor','#fef08a')}])));break;
+    case 'block':later(()=>menu('Gaya teks',[['P','Teks biasa'],['H1','Judul 1'],['H2','Judul 2'],['H3','Judul 3'],['BLOCKQUOTE','Kutipan']].map(x=>({icon:'type',label:x[1],fn:()=>ex('formatBlock',x[0])})).concat([{icon:'list-ordered',label:'Langkah bernomor',fn:()=>ex('insertHTML','<ol class="steps"><li><b>Judul langkah</b><span>Keterangan langkah</span></li></ol><p><br></p>')}])));break;
+    case 'quote':saveRange();ex('formatBlock','BLOCKQUOTE');break;
+    case 'code':{saveRange();const sel=getSelection().toString();ex('insertHTML',sel&&!sel.includes('\n')?'<code>'+esc(sel)+'</code>&nbsp;':'<pre><code>'+esc(sel||'kode')+'</code></pre><p><br></p>');break}
+    case 'check':saveRange();ex('insertHTML','<ul class="contains-task-list"><li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Tugas baru</li></ul><p><br></p>');break;
+    case 'table':saveRange();ex('insertHTML','<div class="tbl"><table><thead><tr><th>Kolom 1</th><th>Kolom 2</th><th>Kolom 3</th></tr></thead><tbody><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table></div><p><br></p>');break;
+    case 'link':later(()=>{const txt=getSelection().toString();ask('Sisipkan tautan',[{name:'u',label:'Alamat tautan',ph:'https://',type:'url'},{name:'t',label:'Teks (opsional)',value:txt}],v=>{if(!v.u)return;const u=/^[a-z]+:/i.test(v.u)?v.u:'https://'+v.u;ex('insertHTML',`<a href="${esc(u)}">${esc(v.t||u)}</a>`)},'Sisipkan')});break;
+    case 'image':saveRange();$('#imgPick').click();break;
+    case 'mdsrc':mdSource(n);break;
     case 'star':n.star=!n.star;save();document.querySelector('#editor .st').classList.toggle('on',n.star);break;
-    case 'read':$('#editor').classList.toggle('read');if($('#editor').classList.contains('read')){setEdMode('view');$('#eBody').contentEditable='false';$('#eTitle').contentEditable='false';toast('Mode Baca aktif')}else{$('#eBody').contentEditable='true';$('#eTitle').contentEditable='true';toast('Mode Baca nonaktif')}break;
+    case 'read':setEdMode('read');break;
     case 'edit':setEdMode('edit',true);break;
     case 'pdf':exportPdf(n);break;
     case 'ai':aiTidy();break;
-    case 'more':noteMenu(n,()=>{if(n.trashed&&!S.notes.includes(n)){go('catatan')}else R.editor()});break;
+    case 'more':noteMenu(n,()=>{if(!S.notes.includes(n)||n.trashed)go(EV.from||'catatan');else R.editor()},true);break;
   }}
-$('#imgPick').onchange=e=>{const f=e.target.files[0];e.target.value='';if(!f)return;const r=new FileReader();r.onload=()=>{const body=$('#eBody');body.focus();if(EV.range){const s=window.getSelection();s.removeAllRanges();s.addRange(EV.range)}document.execCommand('insertHTML',false,`<img src="${r.result}">`);dirty()};r.readAsDataURL(f)};
-function aiTidy(){ // merapikan tanpa server: spasi ganda, huruf kapital awal kalimat, paragraf kosong
-  const b=$('#eBody');if(!b)return;flush();
-  const walk=node=>{node.childNodes.forEach(c=>{if(c.nodeType===3){c.textContent=c.textContent.replace(/[ \t]{2,}/g,' ').replace(/\s+([,.;:!?])/g,'$1').replace(/(^|[.!?]\s+)([a-z])/g,(m,a,b)=>a+b.toUpperCase())}else walk(c)})};
-  walk(b);b.querySelectorAll('p,div:not(.ck)').forEach(p=>{if(!p.textContent.trim()&&!p.querySelector('img,input'))p.remove()});
-  const t=$('#eTitle');t.textContent=t.textContent.trim().replace(/\s+/g,' ');if(t.textContent)t.textContent=t.textContent[0].toUpperCase()+t.textContent.slice(1);
-  dirty();toast('Catatan dirapikan')}
-function exportPdf(n){flush();const html=`<!doctype html><html><head><meta charset="utf-8"><style>body{font-family:sans-serif;color:#141a33;padding:24px;line-height:1.5}h1{font-size:26px;margin:0 0 6px}h2{background:#e7f0fd;border-left:4px solid #2f7ff6;padding:6px 12px;font-size:18px;border-radius:4px}ol.steps{list-style:none;padding:0;counter-reset:s}ol.steps li{counter-increment:s;position:relative;padding-left:40px;margin-bottom:12px}ol.steps li:before{content:counter(s);position:absolute;left:0;top:2px;width:26px;height:26px;border-radius:6px;background:#1a66e6;color:#fff;text-align:center;line-height:26px;font-weight:bold}ol.steps b{display:block}ol.steps span{display:block}img{max-width:100%}table{border-collapse:collapse}td{border:1px solid #ccc;padding:6px}.meta{color:#666;font-size:12px;margin-bottom:16px}</style></head><body><h1>${esc(n.title||'Tanpa judul')}</h1><div class="meta">CatatanByAdriy • ${rel(n.updated)}</div>${n.body}</body></html>`;
+$('#imgPick').onchange=e=>{const f=e.target.files[0];e.target.value='';if(!f)return;const r=new FileReader();r.onload=()=>{restoreRange();document.execCommand('insertHTML',false,`<img src="${r.result}">`);dirty()};r.readAsDataURL(f)};
+function mdSource(n){if(EV.timer){clearTimeout(EV.timer);flush()}
+  const src=MD.toMd(n.body);
+  sheet(`<h3>Edit sebagai Markdown</h3><p class="note">Tulis atau tempel Markdown di sini (judul #, daftar -, tabel |, [ ] tugas, \`\`\`kode\`\`\`, $rumus$, \`\`\`mermaid, > [!NOTE], ::: info, ==stabilo==, catatan kaki [^1], dll).</p><form id="mdf"><label class="fld"><textarea class="code" name="md" spellcheck="false">${esc(src)}</textarea></label><button class="prim" type="submit">Simpan</button></form>`,el=>{
+    el.querySelector('#mdf').onsubmit=e=>{e.preventDefault();n.body=MD.render(e.target.md.value);n.autoSub=true;n.sub=plain(n.body).slice(0,70);touch();closeSheet();showBody();toast('Markdown disimpan')}})}
+function aiTidy(){ // merapikan dengan Markdown: HTML → Markdown → dirapikan → ditampilkan ulang (tanpa server)
+  const n=edNote();if(!n)return;if(EV.timer){clearTimeout(EV.timer);flush()}
+  if(EV.mode==='edit'){n.body=$('#eBody').innerHTML}
+  const before=n.body;n.body=MD.tidy(before);
+  const t=($('#eTitle').textContent||'').trim().replace(/\s+/g,' ');if(t){n.title=t[0].toUpperCase()+t.slice(1);$('#eTitle').textContent=n.title}
+  n.autoSub=true;n.sub=plain(n.body).slice(0,70);touch();showBody();
+  EV.undoTidy=before;toastAct('Catatan dirapikan dengan Markdown','Batalkan',()=>{n.body=EV.undoTidy;touch();showBody()})}
+function exportPdf(n){if(EV.timer){clearTimeout(EV.timer);flush()}
+  const css=[...document.styleSheets].map(s=>{try{return [...s.cssRules].map(r=>r.cssText).join('\n')}catch(e){return ''}}).join('\n');
+  const html=`<!doctype html><html><head><meta charset="utf-8"><base href="${location.href.replace(/[^/]*$/,'')}"><style>${css}\nhtml{font-size:7px}body{background:#fff!important;padding:24px;max-width:none}.body{padding:0;min-height:0}h1.tt{font-family:Jakarta,Inter;font-size:30px;margin:0 0 4px;color:#0b1130}.meta{color:#666;font-size:12px;margin-bottom:18px}</style></head><body><h1 class="tt">${esc(n.title||'Tanpa judul')}</h1><div class="meta">CatatanByAdriy • ${rel(n.updated)}</div><div class="body">${$('#eBody')?$('#eBody').innerHTML:n.body}</div></body></html>`;
   if(window.Android&&Android.printHtml){Android.printHtml(n.title||'Catatan',html)}else{const w=window.open('');if(w){w.document.write(html);w.document.close();w.print()}}}
 
 /* ================= BERKAS ================= */
@@ -310,7 +337,7 @@ R.berkas=function(){
   <div class="stor"><img class="ill" src="img/store_illu.png" alt=""><img class="db" src="img/db.png" alt=""><h3>Penyimpanan</h3><p>${fmtSize(used)} dari ∞ (Tanpa Batas)</p><div class="bar"><i style="width:${Math.min(100,used/190e9*100).toFixed(1)}%"></i></div></div>
   <div class="sechd"><h2>Folder Saya <span>(${S.folders.length})</span></h2><button class="link" id="fAll">Lihat Semua ${ic('chevron-right')}</button></div>
   <div class="fgrid">${S.folders.slice(0,6).map((f,i)=>`<div class="fold ${fileFolder===f.name?'on':''}" data-i="${i}"><img src="img/${f.img||'f_arch'}.png" alt=""><div><div class="a">${esc(f.name)}</div><div class="b">${f.count} berkas</div></div><button class="m" data-fm="${i}">${ic('ellipsis-vertical')}</button></div>`).join('')}</div>
-  <div class="sechd" style="margin-top:3.6rem"><h2 style="font-size:3.2rem">${fileFolder?esc(fileFolder):'Berkas Terbaru'}</h2><div class="fl2"><button class="sort" id="fSort" style="font-size:2rem">${ic('arrow-up-down')}${S.fileOld?'Terlama di Atas':'Terbaru di Atas'}${ic('chevron-down')}</button>
+  <div class="sechd"><h2>${fileFolder?esc(fileFolder):'Berkas Terbaru'}</h2><div class="fl2"><button class="sort" id="fSort">${ic('arrow-up-down')}${S.fileOld?'Terlama di Atas':'Terbaru di Atas'}${ic('chevron-down')}</button>
     <div class="vt"><button class="${fileGrid?'':'on'}" id="vList">${ic('list')}</button><button class="${fileGrid?'on':''}" id="vGrid">${ic('layout-grid')}</button></div></div></div>
   <div class="flist ${fileGrid?'grid':''}">${fs.map(f=>`<div class="frow" data-id="${f.id}"><div class="ic">${fileIcon(f)}</div><div class="tx"><div class="a">${esc(f.name)}</div><div class="b">${fmtSize(f.size)}&nbsp; • &nbsp;${rel(f.ts)}</div></div><button class="m" data-m="${f.id}">${ic('ellipsis-vertical')}</button></div>`).join('')||'<div class="empty">Belum ada berkas.</div>'}</div>
   <button class="fab" id="fab2">${ic('plus')}</button>`;
@@ -347,21 +374,27 @@ async function openFile(id){const f=S.files.find(x=>x.id===id);if(!f)return;
   if(!b){if(f.thumb&&f.type==='image'){showViewer(`<img src="${f.thumb}">`)}else toast('Ini berkas contoh — unggah berkasmu sendiri lewat tombol +');return}
   const u=URL.createObjectURL(b);
   if(f.type==='image')showViewer(`<img src="${u}">`);else if(f.type==='video')showViewer(`<video src="${u}" controls autoplay></video>`);else if(f.type==='music')showViewer(`<audio src="${u}" controls autoplay></audio>`);
-  else if(/^text\//.test(b.type)||/\.(txt|csv|md)$/i.test(f.name)){const t=await b.text();showViewer(`<pre style="color:#fff;white-space:pre-wrap;font-size:2.2rem;max-height:80vh;overflow:auto;padding:3rem">${esc(t)}</pre>`)}
+  else if(/\.(md|markdown)$/i.test(f.name)){const t=await b.text();showMd(f.name,t)}
+  else if(/^text\//.test(b.type)||/\.(txt|csv)$/i.test(f.name)){const t=await b.text();showViewer(`<pre style="color:#fff;white-space:pre-wrap;font-size:2.2rem;max-height:80vh;overflow:auto;padding:3rem">${esc(t)}</pre>`)}
   else shareFile(f)}
 async function shareFile(f){const b=await getBlob(f.id);if(!b){toast('Berkas contoh tidak punya isi');return}
   if(window.Android&&Android.saveFile){const r=new FileReader();r.onload=()=>Android.saveFile(f.name,f.mime||b.type||'application/octet-stream',String(r.result).split(',')[1]);r.readAsDataURL(b)}
   else{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=f.name;a.click()}}
-function showViewer(h){$('#viewerBody').innerHTML=h;$('#viewer').classList.add('on')}
-function closeViewer(){$('#viewer').classList.remove('on');$('#viewerBody').innerHTML=''}
+function showViewer(h){$('#viewer').classList.remove('md');$('#viewerBody').innerHTML=h;$('#viewer').classList.add('on')}
+function showMd(name,text){$('#viewerBody').innerHTML=`<div class="mdbar"><span>${esc(name)}</span><button id="mdToNote">Jadikan Catatan</button></div><div class="mdv"><div class="body">${MD.render(text)}</div></div>`;
+  const v=$('#viewer');v.classList.add('on','md');MD.diagrams(v.querySelector('.mdv .body'));
+  $('#mdToNote').onclick=()=>{let t=text,title=name.replace(/\.(md|markdown)$/i,'');const m=t.match(/^\s*#\s+(.+)\n/);if(m){title=m[1].trim();t=t.slice(m[0].length)}
+    const n={id:'n'+Date.now(),title,sub:'',autoSub:true,tag:'kerja',body:MD.render(t),updated:Date.now(),opened:Date.now(),labels:[],star:false,fav:false,archived:false,trashed:false,pinned:false,draft:false};
+    n.sub=plain(n.body).slice(0,70);S.notes.push(n);save();closeViewer();openNote(n.id)}}
+function closeViewer(){$('#viewer').classList.remove('on','md');$('#viewerBody').innerHTML=''}
 $('#viewerX').innerHTML=ic('x');$('#viewerX').onclick=closeViewer;
 
 /* ================= AI ================= */
 const msgs=[];
 R.ai=function(){
   const el=$('#ai');
-  el.innerHTML=`<div class="hdr2" style="margin-top:3.4rem;padding-left:4.4rem"><img class="logo" src="img/logo_ai.png" alt="" style="width:8.6rem"><div><div class="t1">CatatanByAdriy</div><div class="t2">AI Assistant</div></div><div class="sp"></div>
-    <button class="sqbtn" id="aHist" style="width:8rem;height:6.8rem">${ic('history')}</button><button class="sqbtn" id="aSet" style="width:8rem;height:6.8rem">${ic('settings')}</button></div>
+  el.innerHTML=`<div class="hdr2"><img class="logo" src="img/logo_ai.png" alt=""><div><div class="t1">CatatanByAdriy</div><div class="t2">AI Assistant</div></div><div class="sp"></div>
+    <button class="sqbtn" id="aHist" >${ic('history')}</button><button class="sqbtn" id="aSet" >${ic('settings')}</button></div>
   <div class="aibanner"><img src="img/banner_ai.png" alt="Asisten AI Kamu"></div>
   <div class="tools">
     <button data-t="chat"><img src="img/ai_chat.png" alt=""><span>Chat AI</span></button>
@@ -427,10 +460,10 @@ R.kalender=function(){
   const tk=ymd(today);const nextDays={};S.agendas.filter(a=>a.date>tk&&!a.done).sort(agSort).forEach(a=>{if(!nextDays[a.date])nextDays[a.date]=a});
   const up=Object.values(nextDays).slice(0,3);
   let lower='';
-  if(calTab==='agenda'){lower=`<div class="sechd" style="margin:3.4rem 2.2rem 0 3.4rem"><h2>Agenda Mendatang</h2><button class="link" id="kAll">Lihat Semua ${ic('chevron-right')}</button></div>
+  if(calTab==='agenda'){lower=`<div class="sechd"><h2>Agenda Mendatang</h2><button class="link" id="kAll">Lihat Semua ${ic('chevron-right')}</button></div>
     <div class="uplist">${up.map(a=>{const d=parseYmd(a.date);return `<div class="up" data-id="${a.id}"><div class="dt d-${a.cat}"><span>${HARI[d.getDay()]}</span><span>${d.getDate()} ${BLN[d.getMonth()]}</span></div><span class="vl"></span>${ic(CATI[a.cat][0],'ic','color:'+CATI[a.cat][1])}<div class="tx"><div class="a">${esc(a.title)}</div><div class="b">${timeStr(a)}</div></div><span class="tag ${TAGC[a.cat]}">${CATN[a.cat]}</span><button class="m" data-m="${a.id}">${ic('ellipsis-vertical')}</button></div>`}).join('')||'<div class="empty">Tidak ada agenda mendatang.</div>'}</div>`}
-  else if(calTab==='tugas'){const t=S.agendas.filter(a=>a.date>=tk).sort(agSort);lower=`<div class="sechd" style="margin:3.4rem 2.2rem 0 3.4rem"><h2>Tugas</h2><span class="link">${t.filter(a=>a.done).length}/${t.length} selesai</span></div><div class="uplist">${t.map(agRow).join('')||'<div class="empty">Tidak ada tugas.</div>'}</div>`}
-  else{const mm=S.agendas.filter(a=>a.date.startsWith(y+'-'+pad(m+1)));lower=`<div class="sechd" style="margin:3.4rem 2.2rem 0 3.4rem"><h2>Ringkasan ${BULAN[m]}</h2></div><div class="ksum"><div>Total agenda<b>${mm.length}</b></div><div>Selesai<b>${mm.filter(a=>a.done).length}</b></div>${Object.keys(CATN).map(c=>`<div>${CATN[c]}<b>${mm.filter(a=>a.cat===c).length}</b></div>`).join('')}</div>`}
+  else if(calTab==='tugas'){const t=S.agendas.filter(a=>a.date>=tk).sort(agSort);lower=`<div class="sechd"><h2>Tugas</h2><span class="link">${t.filter(a=>a.done).length}/${t.length} selesai</span></div><div class="uplist">${t.map(agRow).join('')||'<div class="empty">Tidak ada tugas.</div>'}</div>`}
+  else{const mm=S.agendas.filter(a=>a.date.startsWith(y+'-'+pad(m+1)));lower=`<div class="sechd"><h2>Ringkasan ${BULAN[m]}</h2></div><div class="ksum"><div>Total agenda<b>${mm.length}</b></div><div>Selesai<b>${mm.filter(a=>a.done).length}</b></div>${Object.keys(CATN).map(c=>`<div>${CATN[c]}<b>${mm.filter(a=>a.cat===c).length}</b></div>`).join('')}</div>`}
   el.innerHTML=`<div class="hdr3"><img class="logo" src="img/logo_kal.png" alt=""><div><div class="t1">CatatanByAdriy</div><div class="t2">Kalender</div></div><div class="sp"></div>
     <button class="sqbtn" id="kSearch">${ic('search')}</button><button class="sqbtn" id="kAdd">${ic('calendar-plus')}</button><button class="sqbtn" id="kSet">${ic('settings')}</button></div>
   <div class="krow"><div class="mcal"><div class="top"><button id="kPrev">${ic('chevron-left')}</button><button class="ttl" id="kMon">${BULAN[m]} ${y} ${ic('chevron-down')}</button><button id="kNext">${ic('chevron-right')}</button></div>
@@ -439,7 +472,7 @@ R.kalender=function(){
       <div class="ls">${dayAg.map(agRow).join('')||'<div class="empty" style="padding:4rem 1rem">Belum ada agenda.</div>'}</div></div></div>
   <div class="krow2"><button class="addag" id="kAddBtn">${ic('plus')}Tambah Agenda</button><div class="ktabs"><button class="${calTab==='agenda'?'on':''}" data-tab="agenda">${ic('calendar')}Agenda</button><button class="${calTab==='tugas'?'on':''}" data-tab="tugas">${ic('square-check-big')}Tugas</button><button class="${calTab==='ringkasan'?'on':''}" data-tab="ringkasan">${ic('bars','barsic','')}Ringkasan</button></div></div>
   ${lower}
-  <div class="sechd" style="margin:3.6rem 2.2rem 0 3.4rem"><h2>Kategori Agenda</h2><button class="link" id="kKat">Kelola Kategori ${ic('chevron-right')}</button></div>
+  <div class="sechd"><h2>Kategori Agenda</h2><button class="link" id="kKat">Kelola Kategori ${ic('chevron-right')}</button></div>
   <div class="kats">${Object.keys(CATN).map(c=>`<button class="kat k-${c}" data-k="${c}">${ic(c==='kerja'?'briefcase-business':c==='konten'?'play':c==='belajar'?'book-open':c==='pribadi'?'calendar-days':'flag')}${CATN[c]}</button>`).join('')}<button class="kat k-add" id="kKatAdd">${ic('plus')}Tambah</button></div>`;
   // ikon ringkasan pada tab: batang biru → warna teks
   el.querySelectorAll('.ktabs .barsic rect').forEach(r=>r.setAttribute('fill','currentColor'));
@@ -458,8 +491,8 @@ R.kalender=function(){
   el.querySelectorAll('.kat[data-k]').forEach(b=>b.onclick=()=>{const c=b.dataset.k;menu('Agenda '+CATN[c],S.agendas.filter(a=>a.cat===c).sort(agSort).map(a=>{const d=parseYmd(a.date);return {icon:CATI[c][0],label:`${d.getDate()} ${BLN[d.getMonth()]} • ${a.title}`,fn:()=>{calSel=a.date;calMonth=null;R.kalender()}}}).concat([{icon:'plus',label:'Tambah agenda '+CATN[c],fn:()=>addAgenda(calSel,R.kalender,c)}]))});
   el.querySelector('#kKat').onclick=el.querySelector('#kKatAdd').onclick=()=>toast('Kategori: Kerja, Konten, Belajar, Pribadi, Target');
 };
-function agRow(a){return `<div class="ag c-${a.cat} ${a.done?'done':''}"><button class="cb" data-cb="${a.id}">${a.done?ic('check'):''}</button><div class="tx"><div class="a">${esc(a.title)}</div><div class="b">${timeStr(a)}</div></div><span class="tag ${TAGC[a.cat]}">${CATN[a.cat]}</span><button class="m" data-m="${a.id}">${ic('ellipsis-vertical')}</button></div>`}
-function agMenu(id){const a=S.agendas.find(x=>x.id===id);menu(a.title,[{icon:'square-check',label:a.done?'Tandai belum selesai':'Tandai selesai',fn:()=>{a.done=!a.done;save();go(cur)}},{icon:'pencil',label:'Ubah',fn:()=>addAgenda(a.date,()=>go(cur),a.cat,a)},{icon:'trash-2',label:'Hapus',red:true,fn:()=>{S.agendas=S.agendas.filter(x=>x!==a);save();go(cur)}}])}
+function agRow(a){return `<div class="ag c-${a.cat} ${a.done?'done':''}"><button class="cb" data-cb="${a.id}"><i>${a.done?ic('check'):''}</i></button><div class="tx"><div class="a">${esc(a.title)}</div><div class="b">${timeStr(a)}</div></div><span class="tag ${TAGC[a.cat]}">${CATN[a.cat]}</span><button class="m" data-m="${a.id}">${ic('ellipsis-vertical')}</button></div>`}
+function agMenu(id){const a=S.agendas.find(x=>x.id===id);menu(a.title,[{icon:'square-check',label:a.done?'Tandai belum selesai':'Tandai selesai',fn:()=>{a.done=!a.done;save();go(cur)}},{icon:'pencil',label:'Ubah',fn:()=>addAgenda(a.date,()=>go(cur),a.cat,a)},{icon:'trash-2',label:'Hapus',red:true,fn:()=>confirmBox('Hapus agenda "'+a.title+'"?','Ya, hapus',()=>{S.agendas=S.agendas.filter(x=>x!==a);save();go(cur)})}])}
 function addAgenda(date,after,cat,edit){
   const toT=s=>(s||'').replace('.',':'),fromT=s=>(s||'').replace(':','.');
   ask(edit?'Ubah Agenda':'Tambah Agenda',[{name:'title',label:'Judul agenda',value:edit&&edit.title,ph:'mis. Shift Pagi'},{name:'date',label:'Tanggal',type:'date',value:edit?edit.date:date},
@@ -492,9 +525,15 @@ function backup(){const data=JSON.stringify(S);const name='catatanbyadriy-cadang
 function restore(){const i=document.createElement('input');i.type='file';i.accept='application/json,.json';i.onchange=async()=>{const f=i.files[0];if(!f)return;try{const d=JSON.parse(await f.text());if(!d.notes||!d.agendas)throw 0;S=d;save();go('dashboard');toast('Data dipulihkan')}catch(e){toast('Berkas cadangan tidak valid')}};i.click()}
 
 /* ---------- keyboard: sembunyikan nav saat mengetik ---------- */
-let baseH=window.innerHeight;
-window.addEventListener('resize',()=>{const kb=window.innerHeight<baseH*0.78;document.body.classList.toggle('kb',kb);if(!kb)baseH=Math.max(baseH,window.innerHeight)});
-const st=document.createElement('style');st.textContent='body.kb .nav,body.kb .fab{display:none}body.kb .btb{bottom:1rem}#eTitle:empty::before{content:attr(data-ph);color:#9aa1b5}';document.head.appendChild(st);
+let baseH=Math.max(window.innerHeight,window.visualViewport?visualViewport.height:0);
+function kbCheck(){const h=window.visualViewport?Math.min(visualViewport.height,window.innerHeight):window.innerHeight;const ae=document.activeElement;
+  const typing=ae&&(ae.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(ae.tagName));const kb=h<baseH*0.8&&typing;
+  document.body.classList.toggle('kb',kb);if(h>baseH)baseH=h;
+  if(kb&&ae&&ae.isContentEditable){const s=getSelection();if(s.rangeCount){const r=s.getRangeAt(0).getBoundingClientRect();if(r.bottom>h-90)window.scrollBy(0,r.bottom-h+110)}}}
+window.addEventListener('resize',kbCheck);if(window.visualViewport)visualViewport.addEventListener('resize',kbCheck);
+document.addEventListener('focusout',()=>setTimeout(kbCheck,120));document.addEventListener('focusin',()=>setTimeout(kbCheck,350));
+window.addEventListener('orientationchange',()=>{baseH=0;setTimeout(()=>{baseH=window.innerHeight;kbCheck()},400)});
+const st=document.createElement('style');st.textContent='#eTitle:empty::before{content:attr(data-ph);color:#9aa1b5}';document.head.appendChild(st);
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&cur==='editor'&&EV.timer){clearTimeout(EV.timer);flush()}});
 
 load();go('dashboard');
