@@ -116,7 +116,7 @@ function go(v){const from=cur;if(cur==='editor'&&v!=='editor')leaveEditor();if(v
 let booted=false;
 window.appBack=function(){
   if($('#viewer').classList.contains('on')){closeViewer();return true}
-  if(stack.length){const t=stack[stack.length-1];if(t==='sheet')closeSheet();else if(t==='srch')closeSearch();else if(t==='side')closeSidebar();return true}
+  if(stack.length){const t=stack[stack.length-1];if(t==='sheet')closeSheet();else if(t==='srch')closeSearch();else if(t==='side'){if(sideView==='set'&&!sideDirect){sideView='main';renderSidebar()}else closeSidebar()}return true}
   if(cur==='ai'&&curChat()&&curChat().msgs.length){S.chatCur=null;save();R.ai();window.scrollTo(0,0);return true}
   if(cur==='editor'){if(EV.mode==='edit'){setEdMode('read');return true}go(EV.from||'catatan');return true}
   if(cur!=='dashboard'){go('dashboard');return true}
@@ -520,28 +520,39 @@ async function rescan(){toast('Mencari model gratis...');try{const l=await AIX.d
 function pickNoteFor(fn){menu('Pilih catatan',liveNotes().slice().sort((a,b)=>b.updated-a.updated).slice(0,8).map(n=>({icon:'file-text',label:n.title||'Tanpa judul',fn:()=>fn(n)})))}
 
 /* ---------- sidebar riwayat & pengaturan ---------- */
-function openSidebar(toSettings){renderSidebar();$('#side').classList.add('on');stack.push('side');if(toSettings)setTimeout(()=>{const s=$('#sideSet');s&&s.scrollIntoView({behavior:'smooth'})},250)}
+let sideView='main',sideDirect=false;
+function openSidebar(toSettings){sideView=toSettings?'set':'main';sideDirect=!!toSettings;renderSidebar();$('#side').classList.add('on');stack.push('side')}
 function closeSidebar(){$('#side').classList.remove('on');const i=stack.lastIndexOf('side');if(i>=0)stack.splice(i,1)}
 function renderSidebar(){const p=$('#sidePanel');if(!p)return;const a=S.ai;
   const groups={};S.chats.filter(c=>c.msgs.length).sort((x,y)=>y.updated-x.updated).forEach(c=>{const d=Math.round((dayStart(Date.now())-dayStart(c.updated))/864e5);const g=d===0?'Hari ini':d===1?'Kemarin':d<7?'7 hari terakhir':'Lebih lama';(groups[g]=groups[g]||[]).push(c)});
-  p.innerHTML=`<div class="shd"><img src="img/logo_ai.png" alt=""><div><b>Asisten AI</b><span>CatatanByAdriy</span></div><button id="sClose">${ic('x')}</button></div>
+  if(sideView==='set'){p.innerHTML=`<div class="shd sback"><button id="sBack">${ic('arrow-left')}</button><div><b>Pengaturan AI</b><span>Model & layanan AI gratis</span></div><button id="sClose">${ic('x')}</button></div>
+  <div class="spage">
+    <div class="sg">Model</div>
+    <div class="sset">
+      <button class="srow" id="sModel"><span><b>Model</b><em>${esc(modelLabel(true))}</em></span>${ic('chevron-right')}</button>
+      <button class="srow" id="sScan"><span><b>Cari ulang model gratis</b><em>${a.cands.length} model ditemukan${a.candsAt?' · '+rel(a.candsAt):''}</em></span>${ic('refresh-cw')}</button>
+    </div>
+    <div class="sg">Layanan AI gratis</div>
+    <div class="sset">${AIX.ORDER.map(k=>{const P=AIX.PROV[k];return `<button class="srow" data-k="${k}"><span><b>${esc(P.name)}</b><em>${P.key?((a.keys[k]||'').trim()?'Kunci tersimpan ✓':'Opsional — isi kunci gratis'):((a.keys[k]||'').trim()?'Kunci tersimpan ✓':'Aktif tanpa kunci')}</em></span>${ic('chevron-right')}</button>`}).join('')}</div>
+    <p class="snote">Pengaturan ini hanya untuk Asisten AI. Kunci disimpan di HP ini saja.</p>
+  </div>`}
+  else p.innerHTML=`<div class="shd"><img src="img/logo_ai.png" alt=""><div><b>Asisten AI</b><span>CatatanByAdriy</span></div><button id="sClose">${ic('x')}</button></div>
   <button class="snew" id="sNew">${ic('square-pen')}Chat baru</button>
   <div class="ssec">${ic('history')}Riwayat Chat</div>
   <div class="slist">${Object.keys(groups).map(g=>`<div class="sg">${g}</div>`+groups[g].map(c=>`<div class="sitem ${c.id===S.chatCur?'on':''}" data-c="${c.id}"><span>${esc(c.title)}</span><button data-cm="${c.id}">${ic('ellipsis-vertical')}</button></div>`).join('')).join('')||'<div class="sempty">Belum ada riwayat chat.</div>'}</div>
-  <div class="ssec" id="sideSet">${ic('settings')}Pengaturan</div>
-  <div class="sset">
-    <button class="srow" id="sModel"><span><b>Model</b><em>${esc(modelLabel(true))}</em></span>${ic('chevron-right')}</button>
-    <button class="srow" id="sScan"><span><b>Cari ulang model gratis</b><em>${a.cands.length} model ditemukan${a.candsAt?' · '+rel(a.candsAt):''}</em></span>${ic('refresh-cw')}</button>
-    ${AIX.ORDER.map(k=>{const P=AIX.PROV[k];return `<button class="srow" data-k="${k}"><span><b>${esc(P.name)}</b><em>${P.key?((a.keys[k]||'').trim()?'Kunci tersimpan ✓':'Opsional — isi kunci gratis'):((a.keys[k]||'').trim()?'Kunci tersimpan ✓':'Aktif tanpa kunci')}</em></span>${ic('chevron-right')}</button>`}).join('')}
-  </div>`;
+  <button class="sfoot" id="sSet">${ic('settings')}<span>Pengaturan AI</span>${ic('chevron-right')}</button>`;
+  p.firstElementChild.parentElement.classList.remove('sv-in');void p.offsetWidth;p.classList.add('sv-in');
+  const on=(id,fn)=>{const e=p.querySelector(id);if(e)e.onclick=fn};
+  on('#sBack',()=>{sideView='main';renderSidebar()});
+  on('#sSet',()=>{sideView='set';sideDirect=false;renderSidebar()});
   p.querySelector('#sClose').onclick=closeSidebar;
-  p.querySelector('#sNew').onclick=()=>{S.chatCur=null;save();closeSidebar();if(cur!=='ai')go('ai');else R.ai()};
+  on('#sNew',()=>{S.chatCur=null;save();closeSidebar();if(cur!=='ai')go('ai');else R.ai()});
   p.querySelectorAll('.sitem').forEach(x=>x.onclick=e=>{if(e.target.closest('[data-cm]'))return;S.chatCur=x.dataset.c;save();closeSidebar();if(cur!=='ai')go('ai');else R.ai()});
   p.querySelectorAll('[data-cm]').forEach(b=>b.onclick=()=>{const c=S.chats.find(x=>x.id===b.dataset.cm);menu(c.title,[
     {icon:'pencil',label:'Ganti nama',fn:()=>ask('Ganti nama chat',[{name:'t',label:'Nama',value:c.title}],v=>{if(!v.t)return false;c.title=v.t;save();renderSidebar();if(cur==='ai')R.ai()})},
     {icon:'trash-2',label:'Hapus chat',red:true,fn:()=>confirmBox('Hapus chat "'+c.title+'"?','Ya, hapus',()=>{S.chats=S.chats.filter(x=>x!==c);if(S.chatCur===c.id)S.chatCur=null;save();renderSidebar();if(cur==='ai')R.ai()})}])});
-  p.querySelector('#sModel').onclick=pickModel;
-  p.querySelector('#sScan').onclick=rescan;
+  on('#sModel',pickModel);
+  on('#sScan',rescan);
   p.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{const k=b.dataset.k,P=AIX.PROV[k];
     sheet(`<h3>${esc(P.name)}</h3><p class="note">${P.key?'Gratis: buat akun lalu salin kunci API dari <b>'+esc(P.keyUrl)+'</b>. Kunci hanya disimpan di HP ini.':'Sudah aktif tanpa kunci (dibatasi 1 balasan / 45 detik). Kunci dari <b>'+esc(P.keyUrl)+'</b> bersifat opsional untuk membuka batas.'}</p><form id="kf"><label class="fld"><span>Kunci API</span><input name="k" value="${esc(a.keys[k]||'')}" placeholder="Tempel kunci di sini" autocomplete="off"></label><button class="prim" type="submit">Simpan & cari model</button></form>`,el=>{
       el.querySelector('#kf').onsubmit=e=>{e.preventDefault();a.keys[k]=e.target.k.value.trim();a.cool={};save();closeSheet();rescan()}})});
