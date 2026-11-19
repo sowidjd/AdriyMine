@@ -35,7 +35,8 @@ import java.io.OutputStream;
 public class MainActivity extends Activity {
     private static final String HOST = "app.catatanbyadriy.local";
     private static final String ORIGIN = "https://" + HOST + "/";
-    private static final int REQ_FILE = 1, REQ_SAVE = 2;
+    private static final int REQ_FILE = 1, REQ_SAVE = 2, REQ_NOTIF = 3;
+    private String pendingOpen = null;
 
     private WebView web;
     private WebView printWeb;
@@ -95,9 +96,15 @@ public class MainActivity extends Activity {
                 Intent i = new Intent(Intent.ACTION_GET_CONTENT);
                 i.addCategory(Intent.CATEGORY_OPENABLE);
                 String[] types = params.getAcceptTypes();
-                String t = (types != null && types.length > 0 && types[0] != null && !types[0].isEmpty()) ? types[0] : "*/*";
-                if (t.startsWith(".")) t = "*/*";
-                i.setType(t);
+                java.util.ArrayList<String> mimes = new java.util.ArrayList<>();
+                boolean any = types == null || types.length == 0;
+                if (types != null) for (String t : types) {
+                    if (t == null || t.trim().isEmpty()) continue;
+                    for (String x : t.split(",")) { x = x.trim(); if (x.startsWith(".") || x.isEmpty()) any = true; else mimes.add(x); }
+                }
+                if (any || mimes.isEmpty()) i.setType("*/*");
+                else if (mimes.size() == 1) i.setType(mimes.get(0));
+                else { i.setType("*/*"); i.putExtra(Intent.EXTRA_MIME_TYPES, mimes.toArray(new String[0])); }
                 if (params.getMode() == FileChooserParams.MODE_OPEN_MULTIPLE) i.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
                 try {
                     startActivityForResult(Intent.createChooser(i, "Pilih berkas"), REQ_FILE);
@@ -109,8 +116,40 @@ public class MainActivity extends Activity {
             }
         });
         setContentView(web);
+        Reminders.ensureChannel(this);
+        pendingOpen = getIntent().getStringExtra("open");
         if (b != null) web.restoreState(b);
         else web.loadUrl(ORIGIN + "index.html");
+    }
+
+    @Override
+    protected void onNewIntent(Intent i) {
+        super.onNewIntent(i);
+        String o = i.getStringExtra("open");
+        if (o != null && !o.isEmpty()) web.evaluateJavascript("window.__openFrom&&window.__openFrom(" + JSONObject.quote(o) + ")", null);
+    }
+
+    private String notifState() {
+        android.app.NotificationManager nm = (android.app.NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= 33) {
+            if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) == android.content.pm.PackageManager.PERMISSION_GRANTED)
+                return nm.areNotificationsEnabled() ? "granted" : "denied";
+            boolean asked = getSharedPreferences("cba_reminders", MODE_PRIVATE).getBoolean("asked", false);
+            return asked && !shouldShowRequestPermissionRationale(android.Manifest.permission.POST_NOTIFICATIONS) ? "denied" : "default";
+        }
+        return nm.areNotificationsEnabled() ? "granted" : "denied";
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int req, String[] perms, int[] res) {
+        super.onRequestPermissionsResult(req, perms, res);
+        if (req == REQ_NOTIF) web.evaluateJavascript("window.__notifPerm&&window.__notifPerm(" + JSONObject.quote(notifState()) + ")", null);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (web != null) web.evaluateJavascript("window.__notifPerm&&window.__notifPerm(" + JSONObject.quote(notifState()) + ",true)", null);
     }
 
     private static String mime(String p) {
@@ -171,6 +210,59 @@ public class MainActivity extends Activity {
     }
 
     private class Bridge {
+        @JavascriptInterface
+        public String notifPermission() { return notifState(); }
+
+        @JavascriptInterface
+        public void setDark(final boolean dark) {
+            runOnUiThread(() -> {
+                Window w = getWindow();
+                w.setStatusBarColor(Color.parseColor(dark ? "#0B0F1C" : "#F4F7FE"));
+                w.setNavigationBarColor(Color.parseColor(dark ? "#11162A" : "#FDFEFF"));
+                int f = dark ? 0 : View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+                if (Build.VERSION.SDK_INT >= 26 && !dark) f |= View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
+                w.getDecorView().setSystemUiVisibility(f);
+                web.setBackgroundColor(Color.parseColor(dark ? "#0B0F1C" : "#F4F7FE"));
+            });
+        }
+
+        @JavascriptInterface
+        public void requestNotif() {
+            runOnUiThread(() -> {
+                if (Build.VERSION.SDK_INT >= 33 && !"granted".equals(notifState()) && !"denied".equals(notifState())) {
+                    getSharedPreferences("cba_reminders", MODE_PRIVATE).edit().putBoolean("asked", true).apply();
+                    requestPermissions(new String[]{android.Manifest.permission.POST_NOTIFICATIONS}, REQ_NOTIF);
+                } else if (!"granted".equals(notifState())) {
+                    openNotifSettings();
+                } else web.evaluateJavascript("window.__notifPerm&&window.__notifPerm('granted')", null);
+            });
+        }
+
+        @JavascriptInterface
+        public void openNotifSettings() {
+            runOnUiThread(() -> {
+                Intent i = new Intent(android.provider.Settings.ACTION_APP_NOTIFICATION_SETTINGS);
+                i.putExtra(android.provider.Settings.EXTRA_APP_PACKAGE, getPackageName());
+                try { startActivity(i); } catch (Exception e) {
+                    startActivity(new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + getPackageName())));
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void syncReminders(String json) { Reminders.sync(MainActivity.this, json); }
+
+        @JavascriptInterface
+        public void testNotif(String title, String body) { Reminders.show(MainActivity.this, "test-" + System.currentTimeMillis(), title, body, "kalender"); }
+
+        @JavascriptInterface
+        public String takeOpen() { String o = pendingOpen; pendingOpen = null; return o == null ? "" : o; }
+
+        @JavascriptInterface
+        public String appVersion() {
+            try { return getPackageManager().getPackageInfo(getPackageName(), 0).versionName; } catch (Exception e) { return ""; }
+        }
+
         /** Permintaan HTTP dari JS lewat jaringan Android (tanpa batasan CORS). Hasil dikirim ke window.__httpDone. */
         @JavascriptInterface
         public void httpRequest(final String id, final String method, final String url, final String headersJson, final String body, final int timeout) {

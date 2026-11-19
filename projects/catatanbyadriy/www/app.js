@@ -73,8 +73,8 @@ function seed(){
   return {notes,files,folders,agendas,storageBase:125.4e9-files.reduce((a,f)=>a+f.size,0),model:'Umum'};
 }
 function load(){try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){S=null}if(!S||!S.notes){S=seed()}migrate();save()}
-function migrate(){S.chats=S.chats||[];S.ai=S.ai||{};if(S.chatCur===undefined)S.chatCur=null;AIX.init(S.ai,save)}
-function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){toast('Penyimpanan penuh')}}
+function migrate(){S.set=S.set||{};S.account=S.account||{loggedIn:false,name:'Adriy',email:''};S.chats=S.chats||[];S.ai=S.ai||{};if(S.chatCur===undefined)S.chatCur=null;AIX.init(S.ai,save)}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){toast('Penyimpanan penuh')}if(booted)syncReminders()}
 
 /* ---------- IndexedDB untuk isi berkas ---------- */
 let dbp=null;
@@ -96,6 +96,7 @@ function ask(title,fields,onOk,okLabel){
   sheet(`<h3>${esc(title)}</h3><form id="askf">${fields.map(f=>`<label class="fld"><span>${esc(f.label)}</span>${f.type==='select'?`<select name="${f.name}">${f.options.map(o=>`<option value="${esc(o[0])}" ${o[0]===f.value?'selected':''}>${esc(o[1])}</option>`).join('')}</select>`:f.type==='textarea'?`<textarea name="${f.name}" placeholder="${esc(f.ph||'')}">${esc(f.value||'')}</textarea>`:`<input name="${f.name}" type="${f.type||'text'}" value="${esc(f.value||'')}" placeholder="${esc(f.ph||'')}">`}</label>`).join('')}<button class="prim" type="submit">${esc(okLabel||'Simpan')}</button></form>`,el=>{
     const f=el.querySelector('#askf');const first=f.querySelector('input,textarea');if(first)setTimeout(()=>first.focus(),150);
     f.onsubmit=e=>{e.preventDefault();const v={};new FormData(f).forEach((x,k)=>v[k]=String(x).trim());if(onOk(v)!==false)closeSheet()}})}
+function confirmIf(msg,label,fn){if(setv('confirmDelete'))confirmBox(msg,label,fn);else fn()}
 function confirmBox(msg,label,fn){sheet(`<h3>${esc(msg)}</h3><button class="prim" id="cfy" style="background:linear-gradient(180deg,#ef5a6f,#d63a4f)">${esc(label)}</button><button class="prim" id="cfn" style="background:#eef1f6;color:#141b36">Batal</button>`,el=>{el.querySelector('#cfy').onclick=()=>{closeSheet();fn()};el.querySelector('#cfn').onclick=closeSheet})}
 
 /* ---------- navigasi ---------- */
@@ -106,8 +107,8 @@ function renderNav(){const t=cur==='editor'?'catatan':cur;const idx=TABS.findInd
   if(!nav.querySelector('.ind')){nav.innerHTML='<span class="ind"></span>'+TABS.map(x=>`<button data-v="${x[0]}"><span class="ico"></span><span class="lb">${x[1]}</span></button>`).join('');
     nav.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(b.dataset.v!==(cur==='editor'?'catatan':cur)||cur==='editor')go(b.dataset.v);else window.scrollTo({top:0,behavior:'smooth'})})}
   nav.querySelectorAll('button').forEach((b,i)=>{const on=i===idx;if(b.classList.contains('on')!==on||!b.firstChild.innerHTML){b.classList.toggle('on',on);b.firstChild.innerHTML=ic(on?TABS[i][3]:TABS[i][2])}});
-  nav.style.setProperty('--i',idx)}
-const ORDERV={dashboard:0,catatan:1,editor:1.5,berkas:2,ai:3,kalender:4};
+  nav.style.setProperty('--i',Math.max(idx,0));nav.classList.toggle('noind',idx<0)}
+const ORDERV={dashboard:0,catatan:1,editor:1.5,berkas:2,ai:3,kalender:4,pengaturan:5};
 function go(v){const from=cur;if(cur==='editor'&&v!=='editor')leaveEditor();if(v!=='editor')prevTab=v;cur=v;
   const dir=(ORDERV[v]||0)>=(ORDERV[from]||0)?1:-1;
   document.querySelectorAll('.view').forEach(s=>{const on=s.id===v;s.classList.toggle('on',on);if(!on)s.classList.remove('in')});
@@ -119,13 +120,15 @@ window.appBack=function(){
   if(stack.length){const t=stack[stack.length-1];if(t==='sheet')closeSheet();else if(t==='srch')closeSearch();else if(t==='side'){if(sideView==='set'&&!sideDirect){sideView='main';renderSidebar()}else closeSidebar()}return true}
   if(cur==='ai'&&curChat()&&curChat().msgs.length){S.chatCur=null;save();R.ai();window.scrollTo(0,0);return true}
   if(cur==='editor'){if(EV.mode==='edit'){setEdMode('read');return true}go(EV.from||'catatan');return true}
+  if(cur==='pengaturan'){go(setFrom||'dashboard');return true}
   if(cur!=='dashboard'){go('dashboard');return true}
   return false};
 document.addEventListener('keydown',e=>{if(e.key==='Escape')window.appBack()});
 
 /* ---------- header bersama ---------- */
 const hdrMain=()=>`<div class="hdr"><img class="logo" src="img/logo_dash.png" alt=""><div><div class="t1">CatatanByAdriy</div><div class="t2">Catat • Kelola • Simpan • Akses Kapan Saja</div></div><div class="sp"></div><button class="profile"><img class="avatar" src="img/avatar.png" alt="Profil"></button></div>`;
-function bindProfile(root){root.querySelector('.profile').onclick=()=>menu('Profil',[{icon:'download',label:'Cadangkan data (unduh)',fn:backup},{icon:'upload',label:'Pulihkan data dari cadangan',fn:restore},{icon:'trash-2',label:'Atur ulang ke data contoh',red:true,fn:()=>confirmBox('Hapus semua data dan kembali ke data contoh?','Atur ulang',()=>{S=seed();migrate();save();go(cur)})}])}
+function bindProfile(root){root.querySelector('.profile').onclick=openSettings}
+function oldProfileMenu(){menu('Profil',[{icon:'download',label:'Cadangkan data (unduh)',fn:backup},{icon:'upload',label:'Pulihkan data dari cadangan',fn:restore},{icon:'trash-2',label:'Atur ulang ke data contoh',red:true,fn:()=>confirmBox('Hapus semua data dan kembali ke data contoh?','Atur ulang',()=>{S=seed();migrate();save();go(cur)})}])}
 
 /* ---------- catatan helpers ---------- */
 const liveNotes=()=>S.notes.filter(n=>!n.trashed);
@@ -137,13 +140,13 @@ function newNote(){const n={id:'n'+Date.now(),title:'',sub:'',tag:'kerja',body:'
   S.notes.push(n);save();openNote(n.id,true)}
 function noteMenu(n,after,inEd){
   const mdItems=inEd?[{icon:'code',label:'Edit sebagai Markdown',fn:()=>mdSource(n)},{icon:'copy',label:'Salin sebagai Markdown',fn:()=>copyText(MD.toMd(n.body))},{icon:'file-down',label:'Ekspor ke file .md',fn:()=>exportMd(n)}]:[];
-  menu(n.title||'Tanpa judul',mdItems.concat([
+  menu(n.title||'Tanpa judul',mdItems.concat([{icon:'bell',label:n.remind&&n.remind>Date.now()?'Pengingat: '+rel(n.remind):'Atur pengingat',fn:()=>noteRemind(n,after)}].concat(n.remind&&n.remind>Date.now()?[{icon:'x',label:'Hapus pengingat',fn:()=>{n.remind=0;save();after();toast('Pengingat dihapus')}}]:[]),[
     {icon:'pin',label:n.pinned?'Lepas sematan':'Sematkan',fn:()=>{S.notes.forEach(x=>{if(x!==n&&!n.pinned)x.pinned=false});n.pinned=!n.pinned;save();after()}},
     {icon:'bookmark',label:n.fav?'Hapus dari Favorit':'Tambah ke Favorit',fn:()=>{n.fav=!n.fav;save();after()}},
     {icon:'type',label:'Ubah kategori',fn:()=>ask('Kategori',[{name:'tag',label:'Kategori',type:'select',value:n.tag,options:Object.entries(TAGN)}],v=>{n.tag=v.tag;save();after()})},
     n.trashed?{icon:'undo-2',label:'Pulihkan',fn:()=>{n.trashed=false;save();after()}}:{icon:'archive',label:n.archived?'Keluarkan dari Arsip':'Arsipkan',fn:()=>{n.archived=!n.archived;save();after()}},
     n.trashed?{icon:'trash-2',label:'Hapus permanen',red:true,fn:()=>confirmBox('Hapus catatan ini selamanya?','Hapus',()=>{S.notes=S.notes.filter(x=>x!==n);save();after()})}
-             :{icon:'trash-2',label:'Pindahkan ke Sampah',red:true,fn:()=>confirmBox('Pindahkan "'+(n.title||'Tanpa judul')+'" ke Sampah?','Ya, hapus',()=>{n.trashed=true;n.pinned=false;save();after();toastAct('Dipindahkan ke Sampah','Batalkan',()=>{n.trashed=false;save();go(cur)})})}
+             :{icon:'trash-2',label:'Pindahkan ke Sampah',red:true,fn:()=>confirmIf('Pindahkan "'+(n.title||'Tanpa judul')+'" ke Sampah?','Ya, hapus',()=>{n.trashed=true;n.pinned=false;save();after();toastAct('Dipindahkan ke Sampah','Batalkan',()=>{n.trashed=false;save();go(cur)})})}
   ]))}
 function copyText(t){const done=()=>toast('Disalin');if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(done,()=>fallbackCopy(t));else fallbackCopy(t)}
 function fallbackCopy(t){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');toast('Disalin')}catch(e){toast('Gagal menyalin')}a.remove()}
@@ -233,7 +236,7 @@ const plain=h=>{const d=document.createElement('div');d.innerHTML=h||'';return (
 /* ================= EDITOR ================= */
 // Mode baca otomatis saat catatan dibuka; toolbar format hanya muncul di mode edit.
 const EV={id:null,mode:'read',from:'catatan',timer:null};
-function openNote(id,isNew){const n=S.notes.find(x=>x.id===id);if(!n)return;EV.from=cur==='editor'?EV.from:cur;n.opened=Date.now();save();EV.id=id;EV.mode=isNew?'edit':'read';go('editor');if(isNew)setEdMode('edit',true)}
+function openNote(id,isNew){const n=S.notes.find(x=>x.id===id);if(!n)return;EV.from=cur==='editor'?EV.from:cur;n.opened=Date.now();save();EV.id=id;EV.mode=isNew||setv('openMode')==='edit'?'edit':'read';go('editor');if(isNew)setEdMode('edit',true)}
 function edNote(){return S.notes.find(x=>x.id===EV.id)}
 R.editor=function(){
   const n=edNote(),el=$('#editor');if(!n)return go('catatan');
@@ -245,7 +248,7 @@ R.editor=function(){
   <div class="ecard">
     <div class="etitle"><h1 id="eTitle" data-ph="Judul catatan">${esc(n.title)}</h1><button class="st ${n.star?'on':''}" data-c="star">${ic('star')}</button></div>
     <div class="etags" id="eTags"></div>
-    <div class="emeta"><span>${ic('calendar')}<em id="eEdited" style="font-style:normal">Terakhir diedit: ${rel(n.updated)}</em></span><span class="saved" id="eSaved">${ic('cloud-check')}<b style="font-weight:500">Tersimpan otomatis</b></span><span class="wc" id="eWc"></span></div>
+    <div class="emeta"><span>${ic('calendar')}<em id="eEdited" style="font-style:normal">Terakhir diedit: ${rel(n.updated)}</em></span><span class="saved" id="eSaved">${ic('cloud-check')}<b style="font-weight:500">Tersimpan otomatis</b></span><span class="wc" id="eWc"></span>${n.remind&&n.remind>Date.now()?`<span class="erem">${ic('bell')}Pengingat: ${rel(n.remind)}</span>`:''}</div>
     <div class="body" id="eBody"></div>
   </div>
   <div class="ftb edonly" id="eFtb"><button data-c="block" class="ddl">Teks ${ic('chevron-down')}</button><span class="sep"></span>
@@ -609,15 +612,163 @@ R.kalender=function(){
   el.querySelector('#kKat').onclick=el.querySelector('#kKatAdd').onclick=()=>toast('Kategori: Kerja, Konten, Belajar, Pribadi, Target');
 };
 function agRow(a){return `<div class="ag c-${a.cat} ${a.done?'done':''}"><button class="cb" data-cb="${a.id}"><i>${a.done?ic('check'):''}</i></button><div class="tx"><div class="a">${esc(a.title)}</div><div class="b">${timeStr(a)}</div></div><span class="tag ${TAGC[a.cat]}">${CATN[a.cat]}</span><button class="m" data-m="${a.id}">${ic('ellipsis-vertical')}</button></div>`}
-function agMenu(id){const a=S.agendas.find(x=>x.id===id);menu(a.title,[{icon:'square-check',label:a.done?'Tandai belum selesai':'Tandai selesai',fn:()=>{a.done=!a.done;save();go(cur)}},{icon:'pencil',label:'Ubah',fn:()=>addAgenda(a.date,()=>go(cur),a.cat,a)},{icon:'trash-2',label:'Hapus',red:true,fn:()=>confirmBox('Hapus agenda "'+a.title+'"?','Ya, hapus',()=>{S.agendas=S.agendas.filter(x=>x!==a);save();go(cur)})}])}
+function agMenu(id){const a=S.agendas.find(x=>x.id===id);menu(a.title,[{icon:'square-check',label:a.done?'Tandai belum selesai':'Tandai selesai',fn:()=>{a.done=!a.done;save();go(cur)}},{icon:'pencil',label:'Ubah',fn:()=>addAgenda(a.date,()=>go(cur),a.cat,a)},{icon:'trash-2',label:'Hapus',red:true,fn:()=>confirmIf('Hapus agenda "'+a.title+'"?','Ya, hapus',()=>{S.agendas=S.agendas.filter(x=>x!==a);save();go(cur)})}])}
 function addAgenda(date,after,cat,edit){
   const toT=s=>(s||'').replace('.',':'),fromT=s=>(s||'').replace(':','.');
   ask(edit?'Ubah Agenda':'Tambah Agenda',[{name:'title',label:'Judul agenda',value:edit&&edit.title,ph:'mis. Shift Pagi'},{name:'date',label:'Tanggal',type:'date',value:edit?edit.date:date},
     {name:'start',label:'Jam mulai',type:'time',value:toT(edit?edit.start:'08.00')},{name:'end',label:'Jam selesai (opsional)',type:'time',value:toT(edit&&edit.end)},
     {name:'cat',label:'Kategori',type:'select',value:edit?edit.cat:(cat||'kerja'),options:Object.entries(CATN)}],v=>{
       if(!v.title){toast('Judul agenda wajib diisi');return false}if(!v.date){toast('Tanggal wajib diisi');return false}
-      const o=edit||{id:'a'+Date.now(),done:false};Object.assign(o,{title:v.title,date:v.date,start:fromT(v.start)||'00.00',end:fromT(v.end),cat:v.cat});if(!edit)S.agendas.push(o);save();
+      const o=edit||{id:'a'+Date.now(),done:false};Object.assign(o,{title:v.title,date:v.date,start:fromT(v.start)||'00.00',end:fromT(v.end),cat:v.cat});if(!edit)S.agendas.push(o);save();if(!edit&&setv('remind')&&notifState!=='granted'&&!S.set.askedNotif){S.set.askedNotif=1;save();setTimeout(()=>askNotif('Agar kamu diingatkan sebelum "'+o.title+'" dimulai, izinkan notifikasi.',()=>{}),350)}
       if(cur==='kalender'){calSel=v.date;calMonth=null}after&&after();toast(edit?'Agenda diubah':'Agenda ditambahkan')})}
+
+/* ================= PENGATURAN ================= */
+// Dibuka dari ikon akun di header. Login/logout masih demo (belum tersambung ke server).
+const DEFSET={theme:'light',uiScale:1,noteSize:'m',noteFont:'sans',openMode:'read',listCompact:false,confirmDelete:true,anim:true,intro:true,
+  remind:true,remindLead:10,daily:false,dailyTime:'07:00'};
+function setv(k){return (S.set&&S.set[k]!==undefined)?S.set[k]:DEFSET[k]}
+function applySettings(){const h=document.documentElement,b=document.body;
+  const dark=setv('theme')==='dark'||(setv('theme')==='system'&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches);
+  h.classList.toggle('dark',dark);h.style.setProperty('--k',setv('uiScale'));
+  ['s','m','l','xl'].forEach(x=>b.classList.toggle('ns-'+x,setv('noteSize')===x));
+  ['sans','serif','mono'].forEach(x=>b.classList.toggle('nf-'+x,setv('noteFont')===x));
+  b.classList.toggle('noanim',!setv('anim'));b.classList.toggle('compact',!!setv('listCompact'));
+  if(window.Android&&Android.setDark)Android.setDark(dark)}
+if(window.matchMedia)matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>applySettings());
+
+/* ---------- notifikasi & pengingat ---------- */
+let notifState=window.Android&&Android.notifPermission?Android.notifPermission():('Notification' in window?(Notification.permission==='default'?'default':Notification.permission):'unsupported');
+let notifCb=null;
+window.__notifPerm=(st,quiet)=>{const was=notifState;notifState=st;if(cur==='pengaturan')R.pengaturan();if(notifCb){const f=notifCb;notifCb=null;f(st)}
+  if(!quiet&&st==='granted'&&was!=='granted'){toast('Notifikasi diizinkan');syncReminders()}};
+function askNotif(why,done){ // jelaskan dulu, baru minta izin sistem
+  if(notifState==='granted'){done&&done('granted');return}
+  if(!(window.Android&&Android.requestNotif)&&!('Notification' in window)){toast('Notifikasi hanya tersedia di aplikasi Android');return}
+  sheet(`<h3>Izinkan notifikasi?</h3><p class="note">${esc(why||'CatatanByAdriy akan memberi tahu saat agenda, jadwal, atau pengingat catatan tiba, walau aplikasi sedang ditutup.')}</p>
+    <button class="prim" id="nYes">${notifState==='denied'?'Buka pengaturan notifikasi':'Izinkan notifikasi'}</button><button class="prim" id="nNo" style="background:#eef1f6;color:#141b36">Nanti saja</button>`,el=>{
+    el.querySelector('#nNo').onclick=()=>{closeSheet();done&&done(notifState)};
+    el.querySelector('#nYes').onclick=()=>{closeSheet();notifCb=done||null;
+      if(window.Android&&Android.requestNotif){if(notifState==='denied')Android.openNotifSettings();else Android.requestNotif()}
+      else Notification.requestPermission().then(p=>window.__notifPerm(p))}})}
+function remindItems(){const out=[];const now=Date.now();const lead=+setv('remindLead');
+  const at=(date,t)=>{const d=parseYmd(date);const [h,m]=(t||'00.00').split(/[.:]/).map(Number);d.setHours(h||0,m||0,0,0);return d.getTime()};
+  if(setv('remind'))S.agendas.forEach(a=>{if(a.done)return;const t=at(a.date,a.start)-lead*60e3;if(t>now)out.push({id:'ag-'+a.id,at:t,
+    title:(lead?'⏰ ':'🔔 ')+a.title,body:(lead?(lead>=1440?'Besok':'Dimulai '+(lead>=60?(lead/60)+' jam':lead+' menit')+' lagi')+' · ':'Sekarang · ')+timeStr(a)+' · '+CATN[a.cat],open:'kalender'})});
+  S.notes.forEach(n=>{if(n.remind&&n.remind>now&&!n.trashed)out.push({id:'nt-'+n.id,at:n.remind,title:'📝 Pengingat catatan',body:n.title||'Tanpa judul',open:'note:'+n.id})});
+  if(setv('daily'))for(let i=0;i<7;i++){const d=new Date();d.setDate(d.getDate()+i);const k=ymd(d);const ag=S.agendas.filter(a=>a.date===k&&!a.done).sort(agSort);
+    const t=at(k,setv('dailyTime'));if(t>now&&ag.length)out.push({id:'daily-'+k,at:t,title:'📅 Agenda hari ini ('+ag.length+')',body:ag.map(a=>a.start+' '+a.title).join(' · '),open:'kalender'})}
+  return out.sort((x,y)=>x.at-y.at).slice(0,60)}
+let syncT;function syncReminders(){clearTimeout(syncT);syncT=setTimeout(()=>{if(window.Android&&Android.syncReminders)Android.syncReminders(JSON.stringify(remindItems()))},400)}
+window.__openFrom=o=>{if(!o)return;if(o==='kalender'){calSel=ymd(Date.now());calMonth=null;go('kalender')}else if(o.startsWith('note:'))openNote(o.slice(5))};
+function noteRemind(n,after){const v=n.remind?new Date(n.remind):new Date(Date.now()+3600e3);const loc=x=>x.getFullYear()+'-'+pad(x.getMonth()+1)+'-'+pad(x.getDate())+'T'+pad(x.getHours())+':'+pad(x.getMinutes());
+  ask('Pengingat catatan',[{name:'t',label:'Ingatkan pada',type:'datetime-local',value:loc(v)}],r=>{const t=new Date(r.t).getTime();if(!t||t<=Date.now()){toast('Pilih waktu yang akan datang');return false}
+    n.remind=t;save();after&&after();askNotif('Agar pengingat catatan "'+(n.title||'Tanpa judul')+'" muncul tepat waktu, izinkan notifikasi.',()=>{});toast('Pengingat diatur: '+rel(t))},'Atur pengingat')}
+
+/* ---------- halaman pengaturan ---------- */
+let setFrom='dashboard';
+function openSettings(){if(cur!=='pengaturan')setFrom=cur==='editor'?'catatan':cur;go('pengaturan')}
+const SIZE={s:'Kecil',m:'Sedang',l:'Besar',xl:'Sangat besar'},FONT={sans:'Sans (Inter)',serif:'Serif',mono:'Monospace'},THEME={light:'Terang',dark:'Gelap',system:'Ikuti sistem'};
+const LEAD={0:'Tepat waktu',5:'5 menit sebelumnya',10:'10 menit sebelumnya',15:'15 menit sebelumnya',30:'30 menit sebelumnya',60:'1 jam sebelumnya',1440:'1 hari sebelumnya'};
+const UIS={0.9:'Kecil (90%)',1:'Normal (100%)',1.1:'Besar (110%)'};
+function setRow(o){return `<button class="setr" ${o.id?`id="${o.id}"`:''}>${o.icon?`<span class="si" style="${o.color?`color:${o.color};background:${o.bg}`:''}">${ic(o.icon)}</span>`:''}<span class="st"><b>${o.title}</b>${o.sub?`<em>${o.sub}</em>`:''}</span>${o.toggle!==undefined?`<span class="tg ${o.toggle?'on':''}"><i></i></span>`:o.value?`<span class="sv">${o.value}</span>${ic('chevron-right','sc')}`:ic(o.end||'chevron-right','sc')}</button>`}
+R.pengaturan=function(){const el=$('#pengaturan');const A=S.account||{};const n=liveNotes().length;
+  const np={granted:['Diizinkan','#1d7f4c'],denied:['Ditolak — buka pengaturan HP','#d63a4f'],default:['Belum diizinkan','#c46a0a'],unsupported:['Tidak tersedia di peramban','#5b6380']}[notifState]||['-','#5b6380'];
+  el.innerHTML=`<div class="sthdr"><button class="back" id="stBack">${ic('arrow-left')}</button><div><div class="t1">Pengaturan</div><div class="t2">CatatanByAdriy</div></div></div>
+  <div class="acct">${A.loggedIn?`<img src="img/avatar.png" alt=""><div class="ai"><b>${esc(A.name||'Pengguna')}</b><span>${esc(A.email||'')}</span><em>${ic('cloud-check')}Masuk (mode demo)</em></div><button class="aedit" id="acEdit">${ic('pencil')}</button>`
+    :`<img src="img/avatar.png" alt="" style="opacity:.55"><div class="ai"><b>Belum masuk</b><span>Masuk untuk sinkronisasi (segera hadir)</span></div><button class="alogin" id="acLogin">Masuk</button>`}</div>
+  <div class="setg"><div class="sgh">Tampilan</div>
+    ${setRow({id:'sTheme',icon:'sun-moon',color:'#8b4ef0',bg:'#efe6fd',title:'Tema',value:THEME[setv('theme')]})}
+    ${setRow({id:'sScale',icon:'type',color:'#1a66e6',bg:'#e1edfd',title:'Ukuran tampilan',value:UIS[setv('uiScale')]||'Normal'})}
+    ${setRow({id:'sAnim',icon:'sparkles',color:'#f59e0b',bg:'#fff1db',title:'Animasi transisi',sub:'Gerakan halus saat pindah menu',toggle:setv('anim')})}
+    ${setRow({id:'sIntro',icon:'circle-play',color:'#e8457a',bg:'#fde3ea',title:'Animasi pembuka',sub:'Tampil saat aplikasi dibuka',toggle:setv('intro')})}
+  </div>
+  <div class="setg"><div class="sgh">Catatan</div>
+    ${setRow({id:'sNSize',icon:'a-large-small',color:'#1a66e6',bg:'#e1edfd',title:'Ukuran teks catatan',value:SIZE[setv('noteSize')]})}
+    ${setRow({id:'sNFont',icon:'type',color:'#22a35a',bg:'#dcf3e3',title:'Jenis huruf catatan',value:FONT[setv('noteFont')]})}
+    ${setRow({id:'sOpen',icon:'book-open',color:'#8b4ef0',bg:'#efe6fd',title:'Saat membuka catatan',value:setv('openMode')==='edit'?'Langsung edit':'Mode Baca'})}
+    ${setRow({id:'sSort',icon:'arrow-up-down',color:'#f59e0b',bg:'#fff1db',title:'Urutan daftar',value:S.sortOld?'Terlama di atas':'Terbaru di atas'})}
+    ${setRow({id:'sCompact',icon:'layout-list',color:'#1a66e6',bg:'#e1edfd',title:'Daftar ringkas',sub:'Sembunyikan keterangan di daftar catatan',toggle:!!setv('listCompact')})}
+    ${setRow({id:'sConfirm',icon:'shield-check',color:'#22a35a',bg:'#dcf3e3',title:'Konfirmasi sebelum menghapus',toggle:setv('confirmDelete')})}
+    ${setRow({id:'sTrash',icon:'trash-2',color:'#d63a4f',bg:'#fdeef0',title:'Kosongkan Sampah',value:notesBy('sampah').length+' catatan'})}
+  </div>
+  <div class="setg"><div class="sgh">Notifikasi & Pengingat</div>
+    ${setRow({id:'sNotif',icon:'bell',color:'#1a66e6',bg:'#e1edfd',title:'Izin notifikasi',sub:`<span style="color:${np[1]}">${np[0]}</span>`,end:notifState==='granted'?'check':'chevron-right'})}
+    ${setRow({id:'sRemind',icon:'bell-ring',color:'#f59e0b',bg:'#fff1db',title:'Pengingat agenda',sub:'Beri tahu sebelum agenda dimulai',toggle:setv('remind')})}
+    ${setRow({id:'sLead',icon:'clock',color:'#8b4ef0',bg:'#efe6fd',title:'Waktu pengingat',value:LEAD[setv('remindLead')]})}
+    ${setRow({id:'sDaily',icon:'calendar-days',color:'#22a35a',bg:'#dcf3e3',title:'Ringkasan agenda harian',sub:'Daftar agenda hari ini setiap pagi',toggle:setv('daily')})}
+    ${setv('daily')?setRow({id:'sDailyT',icon:'clock',color:'#22a35a',bg:'#dcf3e3',title:'Jam ringkasan',value:setv('dailyTime').replace(':','.')}):''}
+    ${setRow({id:'sTest',icon:'send',color:'#1a66e6',bg:'#e1edfd',title:'Kirim notifikasi uji'})}
+  </div>
+  <div class="setg"><div class="sgh">Data, Ekspor & Impor</div>
+    ${setRow({id:'sExp',icon:'download',color:'#1a66e6',bg:'#e1edfd',title:'Ekspor cadangan lengkap',sub:'Catatan, agenda, chat, pengaturan (.json)'})}
+    ${setRow({id:'sImp',icon:'upload',color:'#1a66e6',bg:'#e1edfd',title:'Impor cadangan',sub:'Pulihkan dari file .json'})}
+    ${setRow({id:'sExpMd',icon:'file-down',color:'#22a35a',bg:'#dcf3e3',title:'Ekspor semua catatan ke Markdown',sub:n+' catatan dalam satu file .md'})}
+    ${setRow({id:'sImpMd',icon:'file-plus',color:'#22a35a',bg:'#dcf3e3',title:'Impor catatan dari file .md / .txt'})}
+    ${setRow({id:'sExpIcs',icon:'calendar-plus',color:'#f59e0b',bg:'#fff1db',title:'Ekspor agenda ke kalender (.ics)',sub:'Bisa dibuka di Google Calendar dll.'})}
+    ${setRow({id:'sStore',icon:'database',color:'#8b4ef0',bg:'#efe6fd',title:'Penyimpanan di HP',value:storeInfo()})}
+    ${setRow({id:'sReset',icon:'rotate-ccw',color:'#d63a4f',bg:'#fdeef0',title:'Atur ulang ke data contoh'})}
+    ${setRow({id:'sWipe',icon:'trash-2',color:'#d63a4f',bg:'#fdeef0',title:'Hapus semua data'})}
+  </div>
+  <div class="setg"><div class="sgh">Tentang</div>
+    ${setRow({id:'sAbout',icon:'info',color:'#1a66e6',bg:'#e1edfd',title:'Tentang aplikasi',value:'Versi '+appVer()})}
+    ${setRow({id:'sPriv',icon:'shield-check',color:'#22a35a',bg:'#dcf3e3',title:'Privasi',sub:'Semua data tersimpan di HP ini'})}
+    ${setRow({id:'sLic',icon:'file-text',color:'#5b6380',bg:'#eef1f6',title:'Lisensi pustaka'})}
+    ${A.loggedIn?setRow({id:'acLogout',icon:'log-out',color:'#d63a4f',bg:'#fdeef0',title:'<span style="color:#d63a4f">Keluar</span>'}):''}
+  </div>`;
+  const on=(id,fn)=>{const e=el.querySelector('#'+id);if(e)e.onclick=fn};
+  const pick=(title,map,k,after)=>menu(title,Object.keys(map).map(x=>({icon:String(setv(k))===String(x)?'check':'circle',label:map[x],fn:()=>{setS(k,isNaN(+x)||x===''?x:+x);after&&after()}})));
+  on('stBack',()=>window.appBack());
+  on('acLogin',loginSheet);on('acLogout',()=>confirmBox('Keluar dari akun?','Ya, keluar',()=>{S.account=Object.assign({},S.account,{loggedIn:false});save();R.pengaturan();toast('Kamu sudah keluar. Data di HP tetap aman.')}));
+  on('acEdit',()=>ask('Ubah profil',[{name:'n',label:'Nama',value:A.name},{name:'e',label:'Email',value:A.email,type:'email'}],v=>{if(!v.n){toast('Nama wajib diisi');return false}S.account=Object.assign({},A,{name:v.n,email:v.e});save();R.pengaturan()}));
+  on('sTheme',()=>pick('Tema',THEME,'theme'));on('sScale',()=>pick('Ukuran tampilan',UIS,'uiScale'));
+  on('sAnim',()=>setS('anim',!setv('anim')));on('sIntro',()=>setS('intro',!setv('intro')));
+  on('sNSize',()=>pick('Ukuran teks catatan',SIZE,'noteSize'));on('sNFont',()=>pick('Jenis huruf catatan',FONT,'noteFont'));
+  on('sOpen',()=>pick('Saat membuka catatan',{read:'Mode Baca (disarankan)',edit:'Langsung edit'},'openMode'));
+  on('sSort',()=>{S.sortOld=!S.sortOld;save();R.pengaturan()});
+  on('sCompact',()=>setS('listCompact',!setv('listCompact')));on('sConfirm',()=>setS('confirmDelete',!setv('confirmDelete')));
+  on('sTrash',()=>{const t=notesBy('sampah');if(!t.length)return toast('Sampah sudah kosong');confirmBox('Hapus permanen '+t.length+' catatan di Sampah?','Ya, kosongkan',()=>{S.notes=S.notes.filter(x=>!x.trashed);save();R.pengaturan();toast('Sampah dikosongkan')})});
+  on('sNotif',()=>{if(notifState==='granted')return toast('Notifikasi sudah diizinkan');askNotif(null,()=>R.pengaturan())});
+  on('sRemind',()=>{setS('remind',!setv('remind'));if(setv('remind'))askNotif(null,()=>{})});
+  on('sLead',()=>pick('Waktu pengingat',LEAD,'remindLead'));
+  on('sDaily',()=>{setS('daily',!setv('daily'));if(setv('daily'))askNotif(null,()=>{})});
+  on('sDailyT',()=>ask('Jam ringkasan harian',[{name:'t',label:'Jam',type:'time',value:setv('dailyTime')}],v=>{if(!v.t)return false;setS('dailyTime',v.t)}));
+  on('sTest',()=>{const go2=()=>{if(window.Android&&Android.testNotif)Android.testNotif('🔔 Notifikasi uji','Notifikasi CatatanByAdriy berfungsi dengan baik.');else if(window.Notification&&Notification.permission==='granted')new Notification('Notifikasi uji',{body:'Notifikasi berfungsi.'});else toast('Notifikasi belum diizinkan')};
+    if(notifState==='granted')go2();else askNotif(null,st=>{if(st==='granted')go2()})});
+  on('sExp',backup);on('sImp',restore);on('sExpMd',exportAllMd);on('sImpMd',importMd);on('sExpIcs',exportIcs);
+  on('sStore',()=>toast(storeInfo()+' dipakai di HP ini'));
+  on('sReset',()=>confirmBox('Ganti semua data dengan data contoh? Data sekarang akan hilang.','Atur ulang',()=>{const keep={set:S.set,account:S.account};S=seed();Object.assign(S,keep);migrate();save();syncReminders();go('dashboard');toast('Data contoh dipulihkan')}));
+  on('sWipe',()=>ask('Hapus semua data',[{name:'k',label:'Ketik HAPUS untuk konfirmasi',ph:'HAPUS'}],v=>{if(v.k!=='HAPUS'){toast('Ketik HAPUS (huruf besar) untuk melanjutkan');return false}
+    const keep={set:S.set,account:S.account};S={notes:[],files:[],folders:[],agendas:[],chats:[],chatCur:null,storageBase:0,ai:{}};Object.assign(S,keep);migrate();save();indexedDB.deleteDatabase('cba_blobs');dbp=null;syncReminders();go('dashboard');toast('Semua data dihapus')},'Hapus semua'));
+  on('sAbout',()=>sheet(`<h3>CatatanByAdriy</h3><p class="note">Versi ${esc(appVer())}<br>Catat • Kelola • Simpan • Akses Kapan Saja.<br><br>Aplikasi catatan, berkas, asisten AI, dan kalender. Semua data disimpan di HP ini; asisten AI memakai layanan AI gratis lewat internet.</p><button class="prim" onclick="this.closest('.sheetbg').click()">Tutup</button>`));
+  on('sPriv',()=>sheet(`<h3>Privasi</h3><p class="note">• Catatan, berkas, agenda, dan riwayat chat hanya disimpan di HP ini.<br>• Pesan ke Asisten AI dikirim ke layanan AI yang dipilih (OpenRouter, Groq, Gemini, atau Pollinations).<br>• Kunci API disimpan di HP ini dan tidak ikut dalam file cadangan.<br>• Login saat ini masih mode demo dan tidak mengirim data ke mana pun.</p>`));
+  on('sLic',()=>sheet(`<h3>Lisensi pustaka</h3><p class="note">Lucide Icons (ISC) • Inter & Plus Jakarta Sans (OFL) • markdown-it & plugin (MIT) • KaTeX (MIT) • highlight.js (BSD-3) • Mermaid (MIT) • Turndown (MIT) • DOMPurify (Apache-2.0/MPL-2.0) • Remotion (lisensi Remotion) untuk animasi pembuka</p>`));
+};
+function setS(k,v){S.set=S.set||{};S.set[k]=v;save();applySettings();syncReminders();if(cur==='pengaturan')R.pengaturan()}
+function appVer(){try{return (window.Android&&Android.appVersion&&Android.appVersion())||'1.6'}catch(e){return '1.6'}}
+function storeInfo(){let b=0;try{b=(localStorage.getItem(KEY)||'').length*2}catch(e){}b+=S.files.filter(f=>!f.seed).reduce((a,f)=>a+f.size,0);return fmtSize(b)}
+function loginSheet(){sheet(`<h3>Masuk ke akun</h3><p class="note">Mode demo: login belum tersambung ke server, data tetap tersimpan di HP ini.</p>
+  <form id="lf"><label class="fld"><span>Email</span><input name="e" type="email" placeholder="nama@email.com" autocomplete="email"></label>
+  <label class="fld"><span>Kata sandi</span><input name="p" type="password" placeholder="Minimal 6 karakter" autocomplete="current-password"></label>
+  <button class="prim" type="submit">Masuk</button></form>
+  <button class="gbtn" id="lg"><b>G</b>Masuk dengan Google (demo)</button>
+  <p class="note" style="text-align:center;margin-top:2rem">Belum punya akun? <a href="#" id="lr" style="color:#1a66e6;font-weight:600">Daftar</a> · <a href="#" id="lfp" style="color:#1a66e6">Lupa sandi</a></p>`,el=>{
+  const done=(email,name)=>{S.account={loggedIn:true,email,name:name||(email.split('@')[0].replace(/[._-]+/g,' ').replace(/\b\w/g,c=>c.toUpperCase()))};save();closeSheet();R.pengaturan();toast('Berhasil masuk (mode demo)')};
+  el.querySelector('#lf').onsubmit=e=>{e.preventDefault();const em=e.target.e.value.trim(),pw=e.target.p.value;
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em))return toast('Email belum benar');if(pw.length<6)return toast('Kata sandi minimal 6 karakter');done(em)};
+  el.querySelector('#lg').onclick=()=>done('adriy@gmail.com','Adriy');
+  el.querySelector('#lr').onclick=e=>{e.preventDefault();toast('Pendaftaran akan tersedia setelah server tersambung')};
+  el.querySelector('#lfp').onclick=e=>{e.preventDefault();toast('Reset sandi akan tersedia setelah server tersambung')}})}
+function dl(name,mime,text){if(window.Android&&Android.saveFile)Android.saveFile(name,mime,btoa(unescape(encodeURIComponent(text))));else{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:mime}));a.download=name;a.click()}}
+function exportAllMd(){const ns=liveNotes().slice().sort((a,b)=>b.updated-a.updated);if(!ns.length)return toast('Belum ada catatan');
+  dl('catatanbyadriy-semua-catatan-'+ymd(Date.now())+'.md','text/markdown',ns.map(n=>'# '+(n.title||'Tanpa judul')+'\n\n> '+TAGN[n.tag]+' · '+rel(n.updated)+'\n\n'+MD.toMd(n.body)).join('\n\n---\n\n')+'\n')}
+function importMd(){const i=document.createElement('input');i.type='file';i.multiple=true;i.accept='.md,.markdown,.txt,text/markdown,text/plain';
+  i.onchange=async()=>{let c=0;for(const f of i.files){try{let t=await f.text(),title=f.name.replace(/\.(md|markdown|txt)$/i,'');const m=t.match(/^\s*#\s+(.+)\n/);if(m){title=m[1].trim();t=t.slice(m[0].length)}
+    const body=/\.txt$/i.test(f.name)?'<p>'+esc(t).replace(/\n{2,}/g,'</p><p>').replace(/\n/g,'<br>')+'</p>':MD.render(t);
+    S.notes.push({id:'n'+Date.now()+c,title,sub:plain(body).slice(0,70),autoSub:true,tag:'kerja',body,updated:Date.now(),opened:Date.now(),labels:['Impor'],star:false,fav:false,archived:false,trashed:false,pinned:false,draft:false});c++}catch(e){}}
+    save();toast(c+' catatan diimpor');if(cur==='pengaturan')R.pengaturan()};i.click()}
+function exportIcs(){if(!S.agendas.length)return toast('Belum ada agenda');const t=(d,s)=>d.replace(/-/g,'')+'T'+(s||'00.00').replace(/[.:]/,'')+'00';
+  const ev=S.agendas.map(a=>{let end=a.end&&a.end>a.start?t(a.date,a.end):null;return ['BEGIN:VEVENT','UID:'+a.id+'@catatanbyadriy','DTSTAMP:'+new Date().toISOString().replace(/[-:]/g,'').slice(0,15)+'Z','DTSTART:'+t(a.date,a.start),end?'DTEND:'+end:'','SUMMARY:'+a.title.replace(/[,;]/g,'\\$&'),'CATEGORIES:'+CATN[a.cat],'END:VEVENT'].filter(Boolean).join('\r\n')});
+  dl('agenda-catatanbyadriy.ics','text/calendar','BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//CatatanByAdriy//ID\r\n'+ev.join('\r\n')+'\r\nEND:VCALENDAR\r\n')}
 
 /* ================= CARI ================= */
 function openSearch(){$('#srch').classList.add('on');stack.push('srch');$('#srchIn').value='';renderSearch('');setTimeout(()=>$('#srchIn').focus(),100)}
@@ -639,7 +790,7 @@ function renderSearch(q,pred){q=(q||'').toLowerCase();const r=$('#srchRes');
 /* ================= cadangan ================= */
 function backup(){const data=JSON.stringify(Object.assign({},S,{ai:Object.assign({},S.ai,{keys:{}})}));const name='catatanbyadriy-cadangan-'+ymd(Date.now())+'.json';
   if(window.Android&&Android.saveFile){Android.saveFile(name,'application/json',btoa(unescape(encodeURIComponent(data))))}else{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data],{type:'application/json'}));a.download=name;a.click()}}
-function restore(){const i=document.createElement('input');i.type='file';i.accept='application/json,.json';i.onchange=async()=>{const f=i.files[0];if(!f)return;try{const d=JSON.parse(await f.text());if(!d.notes||!d.agendas)throw 0;const keys=S.ai&&S.ai.keys;S=d;migrate();if(keys)S.ai.keys=keys;save();go('dashboard');toast('Data dipulihkan')}catch(e){toast('Berkas cadangan tidak valid')}};i.click()}
+function restore(){const i=document.createElement('input');i.type='file';i.accept='application/json,.json';i.onchange=async()=>{const f=i.files[0];if(!f)return;try{const d=JSON.parse(await f.text());if(!d.notes||!d.agendas)throw 0;const keys=S.ai&&S.ai.keys;S=d;migrate();if(keys)S.ai.keys=keys;save();applySettings();go('dashboard');toast('Data dipulihkan')}catch(e){toast('Berkas cadangan tidak valid')}};i.click()}
 
 /* ---------- keyboard: sembunyikan nav saat mengetik ---------- */
 let baseH=Math.max(window.innerHeight,window.visualViewport?visualViewport.height:0);
@@ -654,13 +805,14 @@ const st=document.createElement('style');st.textContent='#eTitle:empty::before{c
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&cur==='editor'&&EV.timer){clearTimeout(EV.timer);flush()}});
 
 /* ---------- animasi pembuka (video dibuat dengan Remotion: folder intro/) ---------- */
-function runIntro(){const box=$('#intro'),v=$('#introVid');if(!box)return;let done=false;
+function runIntro(){const box=$('#intro'),v=$('#introVid');if(!box)return;if(!setv('intro')){box.remove();return}let done=false;
   const end=()=>{if(done)return;done=true;box.classList.add('out');setTimeout(()=>box.remove(),520)};
   box.onclick=end;setTimeout(end,6000);
   fetch('media/intro.webm').then(r=>r.blob()).then(b=>{v.src=URL.createObjectURL(b);v.onended=end;v.onerror=end;
     const p=v.play();if(p&&p.catch)p.catch(end)}).catch(end)}
 $('#sideOv').onclick=()=>closeSidebar();
 window.addEventListener('scroll',()=>{const t=$('#eTop');if(t)t.classList.toggle('stuck',window.scrollY>4)},{passive:true});
-load();go('dashboard');booted=true;runIntro();
+load();applySettings();go('dashboard');booted=true;runIntro();syncReminders();
+setTimeout(()=>{const o=window.Android&&Android.takeOpen&&Android.takeOpen();if(o)window.__openFrom(o)},300);
 AIX.discover(false).catch(()=>{});
 })();

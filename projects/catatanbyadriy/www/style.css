@@ -4,8 +4,8 @@
 :root{--navy:#0a1652;--ink:#121a3a;--muted:#5b6380;--blue:#1a66e6;--blueText:#1556cf;
   --shadow:0 .3rem 1.4rem rgba(40,80,160,.08),0 .1rem .3rem rgba(40,80,160,.05);--sab:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html{font-size:calc(100vw / 64)}
-@media (min-width:600px){html{font-size:9.375px}body{max-width:600px;margin:0 auto}}
+html{font-size:calc(100vw / 64 * var(--k,1))}
+@media (min-width:600px){html{font-size:calc(9.375px * var(--k,1))}body{max-width:600px;margin:0 auto}}
 body{font-family:Inter,system-ui,sans-serif;color:var(--ink);min-height:100vh;overflow-x:hidden;
   background:linear-gradient(180deg,#f5f8fd 0%,#f3f6fe 50%,#f2f5fd 100%) fixed;-webkit-font-smoothing:antialiased}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
@@ -532,3 +532,60 @@ body.kb .composer{bottom:0}
 .etop{position:sticky;top:0;z-index:40;background:rgba(244,247,254,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding-bottom:1.4rem;transition:box-shadow .2s}
 .etop.stuck{box-shadow:0 .4rem 1.6rem rgba(40,80,160,.10)}
 .etop .ehdr{padding-top:1rem;min-height:7.6rem}
+
+/* ===== PENGATURAN ===== */
+.sthdr{display:flex;align-items:center;gap:1rem;padding:1.6rem 2.4rem 0 1.6rem;min-height:8.4rem}
+.sthdr .back{font-size:3.2rem;color:#2a3150;width:5rem;height:5.6rem;display:flex;align-items:center;justify-content:center}
+.acct{display:flex;align-items:center;gap:1.8rem;margin:1.8rem 2.4rem 0;padding:2.2rem;border-radius:2.6rem;background:linear-gradient(120deg,#2f80f4,#1559dc);color:#fff;box-shadow:0 .8rem 2.4rem rgba(21,89,220,.3)}
+.acct img{width:8rem;height:8rem;border-radius:50%;background:#fff;flex:none}
+.acct .ai{flex:1;min-width:0}
+.acct b{display:block;font-size:2.7rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.acct span{display:block;font-size:1.9rem;opacity:.9;margin-top:.3rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.acct em{display:inline-flex;align-items:center;gap:.6rem;font-style:normal;font-size:1.7rem;margin-top:.9rem;background:rgba(255,255,255,.2);padding:.4rem 1.2rem;border-radius:1.4rem}
+.acct em svg{font-size:2.1rem}
+.alogin{height:5.4rem;padding:0 2.6rem;border-radius:2.7rem;background:#fff;color:#1559dc;font-size:2.1rem;font-weight:700;flex:none}
+.aedit{width:5.4rem;height:5.4rem;border-radius:50%;background:rgba(255,255,255,.2);color:#fff;font-size:2.6rem;display:flex;align-items:center;justify-content:center;flex:none}
+.setg{margin:2.4rem 2.4rem 0;background:#fff;border-radius:2.4rem;box-shadow:var(--shadow);overflow:hidden}
+.sgh{font-size:1.8rem;font-weight:700;color:#1a66e6;padding:2rem 2.2rem .8rem;text-transform:uppercase;letter-spacing:.06rem}
+.setr{display:flex;align-items:center;gap:1.6rem;width:100%;min-height:7.6rem;padding:1.1rem 2rem;text-align:left;border-top:.15rem solid #f0f2f7}
+.sgh+.setr{border-top:0}
+.setr:active{background:#f4f7fe}
+.setr .si{width:4.8rem;height:4.8rem;border-radius:1.4rem;display:flex;align-items:center;justify-content:center;font-size:2.6rem;flex:none}
+.setr .si svg{stroke-width:1.9}
+.setr .st{flex:1;min-width:0}
+.setr b{display:block;font-size:2.2rem;font-weight:600;color:#141b36}
+.setr em{display:block;font-style:normal;font-size:1.8rem;color:#5b6380;margin-top:.3rem}
+.setr .sv{font-size:1.9rem;color:#5b6380;white-space:nowrap;max-width:24rem;overflow:hidden;text-overflow:ellipsis}
+.setr .sc{font-size:2.4rem;color:#9aa1b5}
+.tg{width:7rem;height:4rem;border-radius:2rem;background:#d6dce8;position:relative;flex:none;transition:background .25s}
+.tg i{position:absolute;top:.4rem;left:.4rem;width:3.2rem;height:3.2rem;border-radius:50%;background:#fff;box-shadow:0 .2rem .6rem rgba(0,0,0,.2);transition:transform .25s cubic-bezier(.3,1.4,.5,1)}
+.tg.on{background:#1a66e6}.tg.on i{transform:translateX(3rem)}
+#pengaturan{padding-bottom:calc(16rem + var(--sab))}
+.nav.noind .ind{opacity:0}
+.gbtn{width:100%;height:6.6rem;border-radius:3.3rem;border:.2rem solid #d9e0ec;background:#fff;font-size:2.2rem;font-weight:600;color:#141b36;margin-top:1.4rem;display:flex;align-items:center;justify-content:center;gap:1.4rem}
+.gbtn b{font-size:2.6rem;color:#4285f4;font-family:Arial,sans-serif}
+.erem{display:flex;align-items:center;gap:.8rem;color:#c46a0a;font-size:1.8rem;width:100%}
+.erem svg{font-size:2.2rem}
+/* ukuran & huruf catatan */
+.ns-s .body{font-size:2.1rem}.ns-l .body{font-size:2.6rem}.ns-xl .body{font-size:2.95rem}
+.ns-s .body ol.steps span{font-size:1.95rem}.ns-l .body ol.steps span{font-size:2.4rem}.ns-xl .body ol.steps span{font-size:2.7rem}
+.nf-serif .body,.nf-serif #eTitle{font-family:Georgia,'Noto Serif','Times New Roman',serif}
+.nf-mono .body{font-family:ui-monospace,'Roboto Mono',Menlo,monospace;font-size:.95em}
+.compact .nrow .b{display:none}
+.noanim .view.in,.noanim .mrow,.noanim .sidep.sv-in>*{animation:none!important}
+.noanim .nav .ind,.noanim .sidep,.noanim .sideov{transition:none!important}
+/* ===== tema gelap ===== */
+html.dark{filter:invert(1) hue-rotate(180deg);background:#fff}
+html.dark img,html.dark video,html.dark .katex,html.dark .mrow.bot .body img,html.dark .acct{filter:invert(1) hue-rotate(180deg)}
+html.dark .acct img{filter:none}
+html.dark body{background:#f6f8fc}
+html.dark .card,html.dark .nrow,html.dark .frow,html.dark .fold,html.dark .qa button,html.dark .setg,html.dark .ecard,html.dark .mcal,html.dark .ag,html.dark .up,html.dark .tools button,html.dark .mq .g button,html.dark .sqbtn,html.dark .chip:not(.on),html.dark .sort,html.dark .bub.bot,html.dark .cbox,html.dark .sheet,html.dark .sidep,html.dark .nav,html.dark .ftb{background:#eceff6;box-shadow:none;border-color:#dde2ec}
+html.dark .ring .in,html.dark .recent .in{background:#e2e6ef;box-shadow:none}
+/* cegah meluber saat ukuran tampilan diperbesar */
+.fgrid,.flist.grid,.mq .g{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tools,.kats{grid-template-columns:repeat(3,minmax(0,1fr))}
+.qa{grid-template-columns:repeat(5,minmax(0,1fr))}
+.hdr>div:not(.sp),.hdr2>div:not(.sp),.hdr3>div:not(.sp),.ehdr>div:not(.sp){min-width:0}
+.t1,.t2{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sqbtn{flex-shrink:1;min-width:4.6rem}
+.sechd h2{min-width:0;overflow:hidden;text-overflow:ellipsis}.fl2{flex:none}
