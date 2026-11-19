@@ -473,13 +473,26 @@ function updSend(){const b=$('#cSend');if(b){b.innerHTML=AIRUN.busy?ic('square',
 function renderMsgs(jump){const box=$('#cMsgs');const c=curChat();if(!box||!c)return;
   box.innerHTML=c.msgs.map((m,i)=>m.role==='user'?`<div class="mrow me"><div class="bub me">${esc(m.content).replace(/\n/g,'<br>')}</div></div>`
     :`<div class="mrow bot"><div class="bub bot ${m.err?'err':''}"><div class="body">${m.img?`<img src="${esc(m.img)}" alt="" onerror="this.alt='Gambar gagal dimuat'"><p>${esc(m.content)}</p>`:MD.render(m.content)}</div></div>
-      ${m.err?`<div class="macts"><button data-a="regen" data-i="${i}">${ic('redo-2')}Coba lagi</button></div>`:`<div class="macts"><button data-a="copy" data-i="${i}" title="Salin">${ic('copy')}</button><button data-a="regen" data-i="${i}" title="Buat ulang">${ic('refresh-cw')}</button><button data-a="like" data-i="${i}" class="${m.fb===1?'on':''}" title="Suka">${ic('thumbs-up')}</button><button data-a="dislike" data-i="${i}" class="${m.fb===-1?'on':''}" title="Tidak suka">${ic('thumbs-down')}</button><span class="mm">${esc(m.label||'')}</span></div>`}</div>`).join('')
+      ${m.err?`<div class="macts"><button data-a="regen" data-i="${i}">${ic('redo-2')}Coba lagi</button></div>`:`<div class="macts"><button data-a="copy" data-i="${i}" title="Salin">${ic('copy')}</button><button data-a="regen" data-i="${i}" title="Buat ulang">${ic('refresh-cw')}</button><button data-a="note" data-i="${i}" class="${savedNote(m)?'on':''}" title="Simpan ke catatan">${ic(savedNote(m)?'file-check':'file-plus')}</button><button data-a="like" data-i="${i}" class="${m.fb===1?'on':''}" title="Suka">${ic('thumbs-up')}</button><button data-a="dislike" data-i="${i}" class="${m.fb===-1?'on':''}" title="Tidak suka">${ic('thumbs-down')}</button><span class="mm">${esc(m.label||'')}</span></div>`}</div>`).join('')
     +(AIRUN.busy?`<div class="mrow bot"><div class="bub bot typing"><i></i><i></i><i></i><span id="cStat">${esc(AIRUN.status)}</span></div></div>`:'');
   box.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>msgAct(b.dataset.a,+b.dataset.i));
   MD.diagrams(box);
   if(jump)requestAnimationFrame(()=>window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'}))}
+function savedNote(m){return m.noteId&&S.notes.find(n=>n.id===m.noteId&&!n.trashed)}
+function saveToNote(c,i){const m=c.msgs[i];const ex=savedNote(m);
+  if(ex){toastAct('Sudah tersimpan di catatan','Buka',()=>openNote(ex.id));return}
+  const q=c.msgs.slice(0,i).reverse().find(x=>x.role==='user');
+  const h=String(m.content).match(/^\s*#{1,3}\s+(.+)$/m);
+  let title=(h?h[1]:(q?q.content:c.title)).replace(/[*_`#>]/g,'').replace(/\s+/g,' ').trim().slice(0,60)||'Hasil Chat AI';
+  title=title[0].toUpperCase()+title.slice(1);
+  const md=m.img?'![Gambar AI]('+m.img+')\n\n'+m.content:m.content;
+  const body=MD.render(md)+(q?'<hr><p><em>Pertanyaan: '+esc(q.content.slice(0,300))+'</em></p>':'');
+  const n={id:'n'+Date.now(),title,sub:'',autoSub:true,tag:'konten',body,updated:Date.now(),opened:Date.now(),labels:['AI'],star:false,fav:false,archived:false,trashed:false,pinned:false,draft:false};
+  n.sub=plain(MD.render(md)).slice(0,70);S.notes.push(n);m.noteId=n.id;save();renderMsgs();
+  toastAct('Disimpan ke Catatan','Buka',()=>openNote(n.id))}
 function msgAct(a,i){const c=curChat(),m=c.msgs[i];
   if(a==='copy')copyText(m.content);
+  else if(a==='note')saveToNote(c,i);
   else if(a==='like'||a==='dislike'){const v=a==='like'?1:-1;m.fb=m.fb===v?0:v;save();renderMsgs();toast(m.fb===1?'Terima kasih atas masukannya':m.fb===-1?'Masukan dicatat':'Masukan dihapus')}
   else if(a==='regen'){if(AIRUN.busy)return;c.msgs.splice(i,1);save();runAi(c,true)}}
 function sendAi(text){text=(text||'').trim();if(!text||AIRUN.busy)return;
@@ -520,7 +533,6 @@ function renderSidebar(){const p=$('#sidePanel');if(!p)return;const a=S.ai;
     <button class="srow" id="sModel"><span><b>Model</b><em>${esc(modelLabel(true))}</em></span>${ic('chevron-right')}</button>
     <button class="srow" id="sScan"><span><b>Cari ulang model gratis</b><em>${a.cands.length} model ditemukan${a.candsAt?' · '+rel(a.candsAt):''}</em></span>${ic('refresh-cw')}</button>
     ${AIX.ORDER.map(k=>{const P=AIX.PROV[k];return `<button class="srow" data-k="${k}"><span><b>${esc(P.name)}</b><em>${P.key?((a.keys[k]||'').trim()?'Kunci tersimpan ✓':'Opsional — isi kunci gratis'):((a.keys[k]||'').trim()?'Kunci tersimpan ✓':'Aktif tanpa kunci')}</em></span>${ic('chevron-right')}</button>`}).join('')}
-    <button class="srow red" id="sClear"><span><b>Hapus semua riwayat chat</b></span>${ic('trash-2')}</button>
   </div>`;
   p.querySelector('#sClose').onclick=closeSidebar;
   p.querySelector('#sNew').onclick=()=>{S.chatCur=null;save();closeSidebar();if(cur!=='ai')go('ai');else R.ai()};
@@ -533,7 +545,6 @@ function renderSidebar(){const p=$('#sidePanel');if(!p)return;const a=S.ai;
   p.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{const k=b.dataset.k,P=AIX.PROV[k];
     sheet(`<h3>${esc(P.name)}</h3><p class="note">${P.key?'Gratis: buat akun lalu salin kunci API dari <b>'+esc(P.keyUrl)+'</b>. Kunci hanya disimpan di HP ini.':'Sudah aktif tanpa kunci (dibatasi 1 balasan / 45 detik). Kunci dari <b>'+esc(P.keyUrl)+'</b> bersifat opsional untuk membuka batas.'}</p><form id="kf"><label class="fld"><span>Kunci API</span><input name="k" value="${esc(a.keys[k]||'')}" placeholder="Tempel kunci di sini" autocomplete="off"></label><button class="prim" type="submit">Simpan & cari model</button></form>`,el=>{
       el.querySelector('#kf').onsubmit=e=>{e.preventDefault();a.keys[k]=e.target.k.value.trim();a.cool={};save();closeSheet();rescan()}})});
-  p.querySelector('#sClear').onclick=()=>confirmBox('Hapus semua riwayat chat?','Ya, hapus semua',()=>{S.chats=[];S.chatCur=null;save();renderSidebar();if(cur==='ai')R.ai()});
 }
 
 /* ================= KALENDER ================= */
