@@ -589,3 +589,9 @@ html.dark .ring .in,html.dark .recent .in{background:#e2e6ef;box-shadow:none}
 .t1,.t2{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sqbtn{flex-shrink:1;min-width:4.6rem}
 .sechd h2{min-width:0;overflow:hidden;text-overflow:ellipsis}.fl2{flex:none}
+
+/* banner siang / malam (tema gelap): malam memudar masuk */
+.dn{position:relative}
+.dn .night{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .6s ease}
+html.dark .dn .night{opacity:1}
+html.dark .banner,html.dark .aibanner{box-shadow:0 .6rem 2.4rem rgba(255,210,120,.18)}

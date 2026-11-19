@@ -4,7 +4,8 @@
   "scripts": {
     "render": "remotion render src/index.ts Intro out/intro.webm --codec=vp9 --crf=30 --scale=0.6666666666666666 --concurrency=2",
     "studio": "remotion studio src/index.ts",
-    "build": "npm run render && cp out/intro.webm ../www/media/intro.webm"
+    "build": "npm run render && npm run render-dark && cp out/intro.webm out/intro_dark.webm ../www/media/",
+    "render-dark": "remotion render src/index.ts IntroDark out/intro_dark.webm --codec=vp9 --crf=30 --scale=0.6666666666666666 --concurrency=2"
   },
   "dependencies": {
     "@remotion/cli": "4.0.539",

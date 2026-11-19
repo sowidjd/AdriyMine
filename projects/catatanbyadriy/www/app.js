@@ -162,7 +162,7 @@ R.dashboard=function(){
   const upcoming=S.agendas.filter(a=>!a.done&&a.date>today).length;
   const urgent=S.agendas.filter(a=>{if(a.done||a.date!==today)return false;const [h,m]=a.start.split('.').map(Number);const t=new Date();t.setHours(h,m,0,0);const d=(t-now)/6e4;return d>=0&&d<=60});
   el.innerHTML=hdrMain()+`
-  <div class="banner"><img src="img/banner_dash.png" alt="Selamat Datang, Adriy!"></div>
+  <div class="banner dn"><img class="day" src="img/banner_dash.png" alt="Selamat Datang, Adriy!"><img class="night" src="img/banner_dash_night.png" alt=""></div>
   <div class="qa">
     <button id="qNew"><img src="img/qa_note.png" alt=""><span>Catatan Baru</span></button>
     <button id="qUp"><img src="img/qa_upload.png" alt=""><span>Unggah Berkas</span></button>
@@ -415,7 +415,7 @@ R.ai=function(){
 function renderWelcome(el){
   el.innerHTML=`<div class="hdr2"><img class="logo" src="img/logo_ai.png" alt=""><div><div class="t1">CatatanByAdriy</div><div class="t2">AI Assistant</div></div><div class="sp"></div>
     <button class="sqbtn" id="aHist">${ic('history')}</button><button class="sqbtn" id="aSet">${ic('settings')}</button></div>
-  <div class="aibanner"><img src="img/banner_ai.png" alt="Asisten AI Kamu"></div>
+  <div class="aibanner dn"><img class="day" src="img/banner_ai.png" alt="Asisten AI Kamu"><img class="night" src="img/banner_ai_night.png" alt=""></div>
   <div class="tools">
     <button data-t="chat"><img src="img/ai_chat.png" alt=""><span>Chat AI</span></button>
     <button data-t="sum"><img src="img/ai_sum.png" alt=""><span>Rangkum<br>Catatan</span></button>
@@ -744,7 +744,7 @@ R.pengaturan=function(){const el=$('#pengaturan');const A=S.account||{};const n=
   on('sLic',()=>sheet(`<h3>Lisensi pustaka</h3><p class="note">Lucide Icons (ISC) • Inter & Plus Jakarta Sans (OFL) • markdown-it & plugin (MIT) • KaTeX (MIT) • highlight.js (BSD-3) • Mermaid (MIT) • Turndown (MIT) • DOMPurify (Apache-2.0/MPL-2.0) • Remotion (lisensi Remotion) untuk animasi pembuka</p>`));
 };
 function setS(k,v){S.set=S.set||{};S.set[k]=v;save();applySettings();syncReminders();if(cur==='pengaturan')R.pengaturan()}
-function appVer(){try{return (window.Android&&Android.appVersion&&Android.appVersion())||'1.6'}catch(e){return '1.6'}}
+function appVer(){try{return (window.Android&&Android.appVersion&&Android.appVersion())||'1.7'}catch(e){return '1.7'}}
 function storeInfo(){let b=0;try{b=(localStorage.getItem(KEY)||'').length*2}catch(e){}b+=S.files.filter(f=>!f.seed).reduce((a,f)=>a+f.size,0);return fmtSize(b)}
 function loginSheet(){sheet(`<h3>Masuk ke akun</h3><p class="note">Mode demo: login belum tersambung ke server, data tetap tersimpan di HP ini.</p>
   <form id="lf"><label class="fld"><span>Email</span><input name="e" type="email" placeholder="nama@email.com" autocomplete="email"></label>
@@ -808,7 +808,7 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden&&cur==='edi
 function runIntro(){const box=$('#intro'),v=$('#introVid');if(!box)return;if(!setv('intro')){box.remove();return}let done=false;
   const end=()=>{if(done)return;done=true;box.classList.add('out');setTimeout(()=>box.remove(),520)};
   box.onclick=end;setTimeout(end,6000);
-  fetch('media/intro.webm').then(r=>r.blob()).then(b=>{v.src=URL.createObjectURL(b);v.onended=end;v.onerror=end;
+  fetch(document.documentElement.classList.contains('dark')?'media/intro_dark.webm':'media/intro.webm').then(r=>r.blob()).then(b=>{v.src=URL.createObjectURL(b);v.onended=end;v.onerror=end;
     const p=v.play();if(p&&p.catch)p.catch(end)}).catch(end)}
 $('#sideOv').onclick=()=>closeSidebar();
 window.addEventListener('scroll',()=>{const t=$('#eTop');if(t)t.classList.toggle('stuck',window.scrollY>4)},{passive:true});

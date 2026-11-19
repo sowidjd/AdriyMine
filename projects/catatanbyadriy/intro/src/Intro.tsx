@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, staticFile, delayRender, continueRender, Easing} from 'remotion';
 
-const BG = '#f4f7fe';
-const NAVY = '#0a1652';
-const BLUE = '#1a66e6';
+type P = {dark?: boolean};
+let BG = '#f4f7fe';
+let NAVY = '#0a1652';
+let BLUE = '#1a66e6';
+let TILE = '#fff';
+let SUB = '#5b6380';
 
 const useFonts = () => {
   const [h] = useState(() => delayRender('fonts'));
@@ -57,7 +60,7 @@ const ICONS: {c: string; bg: string; d: string}[] = [
   {c: '#8b4ef0', bg: '#efe6fd', d: 'M11 3c.7 5 2.1 6.4 7.1 7.1-5 .7-6.4 2.1-7.1 7.1-.7-5-2.1-6.4-7.1-7.1C8.9 9.4 10.3 8 11 3zM19 15v6M16 18h6'},
   {c: '#22a35a', bg: '#dcf3e3', d: 'M8 2v4M16 2v4M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM3 10h18'},
 ];
-const Orbit: React.FC<{f: number; fps: number}> = ({f, fps}) => (
+const Orbit: React.FC<{f: number; fps: number; dark?: boolean}> = ({f, fps, dark}) => (
   <>
     {ICONS.map((ic, i) => {
       const s = spring({frame: f - 30 - i * 4, fps, config: {damping: 12, stiffness: 150}});
@@ -68,8 +71,8 @@ const Orbit: React.FC<{f: number; fps: number}> = ({f, fps}) => (
       return (
         <div key={i} style={{position: 'absolute', left: '50%', top: '42%', width: 130, height: 130, marginLeft: -65, marginTop: -65,
           transform: `translate(${x}px,${y}px) scale(${s * out}) rotate(${interpolate(s, [0, 1], [-90, 0])}deg)`,
-          borderRadius: 38, background: '#fff', boxShadow: '0 20px 40px rgba(40,80,160,.16)', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-          <div style={{width: 92, height: 92, borderRadius: 28, background: ic.bg, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          borderRadius: 38, background: TILE, boxShadow: dark ? '0 20px 50px rgba(0,0,0,.45)' : '0 20px 40px rgba(40,80,160,.16)', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <div style={{width: 92, height: 92, borderRadius: 28, background: dark ? 'rgba(255,255,255,.08)' : ic.bg, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
             <svg viewBox="0 0 24 24" width={56} height={56} fill="none" stroke={ic.c} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d={ic.d} /></svg>
           </div>
         </div>
@@ -78,8 +81,9 @@ const Orbit: React.FC<{f: number; fps: number}> = ({f, fps}) => (
   </>
 );
 
-export const Intro: React.FC = () => {
+export const Intro: React.FC<P> = ({dark}) => {
   useFonts();
+  if (dark) {BG = '#0b1022'; NAVY = '#eef2ff'; BLUE = '#6fa8ff'; TILE = '#18203d'; SUB = '#a9b4d6';} else {BG = '#f4f7fe'; NAVY = '#0a1652'; BLUE = '#1a66e6'; TILE = '#fff'; SUB = '#5b6380';}
   const f = useCurrentFrame();
   const {fps} = useVideoConfig();
   const title = 'CatatanByAdriy';
@@ -89,19 +93,19 @@ export const Intro: React.FC = () => {
   return (
     <AbsoluteFill style={{background: BG, fontFamily: 'Jakarta, Inter, sans-serif', overflow: 'hidden'}}>
       {/* latar: gradien lembut + lingkaran membesar + riak */}
-      <AbsoluteFill style={{opacity: bgIn, background: 'radial-gradient(circle at 50% 40%, #e3eefe 0%, #f4f7fe 60%)'}} />
+      <AbsoluteFill style={{opacity: bgIn, background: dark ? 'radial-gradient(circle at 50% 40%, #1b2a5c 0%, #0b1022 62%)' : 'radial-gradient(circle at 50% 40%, #e3eefe 0%, #f4f7fe 60%)'}} />
       {[0, 1, 2].map((i) => {
         const p = interpolate(f, [4 + i * 9, 60 + i * 9], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
         return <div key={i} style={{position: 'absolute', left: '50%', top: '42%', width: 1600, height: 1600, marginLeft: -800, marginTop: -800,
-          borderRadius: '50%', border: '6px solid rgba(42,134,245,.25)', transform: `scale(${p})`, opacity: 1 - p}} />;
+          borderRadius: '50%', border: dark ? '6px solid rgba(111,168,255,.28)' : '6px solid rgba(42,134,245,.25)', transform: `scale(${p})`, opacity: 1 - p}} />;
       })}
       <div style={{position: 'absolute', width: 900, height: 900, borderRadius: '50%', left: -420, top: interpolate(f, [0, 100], [-380, -300]),
-        background: 'radial-gradient(circle,#bfdcff 0%,rgba(191,220,255,0) 70%)', opacity: bgIn}} />
+        background: dark ? 'radial-gradient(circle,#24407e 0%,rgba(36,64,126,0) 70%)' : 'radial-gradient(circle,#bfdcff 0%,rgba(191,220,255,0) 70%)', opacity: bgIn}} />
       <div style={{position: 'absolute', width: 1000, height: 1000, borderRadius: '50%', right: -480, bottom: interpolate(f, [0, 100], [-460, -380]),
-        background: 'radial-gradient(circle,#cfe0ff 0%,rgba(207,224,255,0) 70%)', opacity: bgIn}} />
+        background: dark ? 'radial-gradient(circle,#2a2f6e 0%,rgba(42,47,110,0) 70%)' : 'radial-gradient(circle,#cfe0ff 0%,rgba(207,224,255,0) 70%)', opacity: bgIn}} />
 
       <AbsoluteFill style={{transform: `scale(${1 + exit * 0.08})`, opacity: 1 - exit}}>
-        <Orbit f={f} fps={fps} />
+        <Orbit f={f} fps={fps} dark={dark} />
         <div style={{position: 'absolute', left: '50%', top: '42%', transform: 'translate(-50%,-50%)'}}>
           <Logo f={f} fps={fps} />
         </div>
@@ -116,7 +120,7 @@ export const Intro: React.FC = () => {
         </div>
         {/* subjudul */}
         <div style={{position: 'absolute', top: '69.5%', width: '100%', display: 'flex', justifyContent: 'center', gap: 16, fontFamily: 'Inter',
-          fontSize: 38, color: '#5b6380', fontWeight: 500}}>
+          fontSize: 38, color: SUB, fontWeight: 500}}>
           {sub.map((w, i) => {
             const s = spring({frame: f - 54 - i * 5, fps, config: {damping: 16}});
             return (
