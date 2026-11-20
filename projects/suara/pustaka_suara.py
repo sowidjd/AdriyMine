@@ -19,6 +19,8 @@ Pasang VoxCPM2 sekali per sesi (tanpa GPU, versi CPU):
   python3 projects/suara/pustaka_suara.py cari "bawang"               # cari kalimat (tanpa model)
   python3 projects/suara/pustaka_suara.py daftar --fungsi "ajakan"    # daftar per fungsi alur cerita
   python3 projects/suara/pustaka_suara.py ringkas                     # jumlah kalimat per suara & fungsi
+  python3 projects/suara/pustaka_suara.py profil                     # daftar profil suara (adriy, ongky, ...)
+  $PY projects/suara/pustaka_suara.py profil adriy rekaman.wav "teks persis"  # ganti dengan rekaman asli
   python3 projects/suara/pustaka_suara.py kirim                       # commit & push kalimat baru ke repo aset privat
 
 Format naskah: satu kalimat atau lebih per baris. Baris kosong = jeda panjang, baris diawali # dilewati,
@@ -44,8 +46,9 @@ from pelafalan import lafal  # noqa: E402
 ASET = HERE.parent / "karakter" / "aset"
 LIB = ASET / "suara"
 KATALOG = LIB / "katalog.json"
+PROFIL = LIB / "profil"  # profil/<suara>/prompt.wav + prompt.txt (+ reference.wav): suara yang ditiru
 # Klip prompt per suara (id di katalog): suara baru ditiru dari klip ini + teksnya.
-PROMPT_BAWAAN = {"adriy": "44acec416ad1"}
+PROMPT_BAWAAN = {"adriy": "44acec416ad1", "ongky": "64295c8936f6"}  # cadangan bila profil tidak ada
 JEDA_KALIMAT, JEDA_BARIS, JEDA_PARAGRAF = 0.25, 0.45, 0.9  # detik, untuk narasi.wav
 
 # Fungsi kalimat dalam alur cerita (sama dengan repo Aidriy). Urutan = prioritas; 1-2 fungsi per kalimat.
@@ -133,12 +136,20 @@ class Pembuat:
 
     def _prompt(self, suara):
         if suara not in self.prompt:
-            cocok = [e for e in self.k["kalimat"] if e["suara"] == suara and 6 <= (e.get("durasi") or 0) <= 10]
-            if not cocok:
-                sys.exit(f"Tidak ada klip 6-10 detik untuk suara '{suara}' di pustaka.")
-            e = next((e for e in cocok if e["id"] == PROMPT_BAWAAN.get(suara)), None) or max(cocok, key=lambda e: e["durasi"])
-            f = str(ASET / e["file"])
-            self.prompt[suara] = dict(prompt_wav_path=f, prompt_text=e["teks"], reference_wav_path=f)
+            d = PROFIL / suara
+            if (d / "prompt.wav").exists() and (d / "prompt.txt").exists():
+                ref = d / "reference.wav"
+                self.prompt[suara] = dict(prompt_wav_path=str(d / "prompt.wav"),
+                                          prompt_text=(d / "prompt.txt").read_text(encoding="utf-8").strip(),
+                                          reference_wav_path=str(ref if ref.exists() else d / "prompt.wav"))
+                print(f"profil suara: {suara}", flush=True)
+            else:  # belum ada profil: pakai satu klip pustaka
+                cocok = [e for e in self.k["kalimat"] if e["suara"] == suara and 6 <= (e.get("durasi") or 0) <= 10]
+                if not cocok:
+                    sys.exit(f"Suara '{suara}' belum punya profil. Buat dulu: pustaka_suara.py profil {suara} rekaman.wav \"teks persis\"")
+                e = next((e for e in cocok if e["id"] == PROMPT_BAWAAN.get(suara)), None) or max(cocok, key=lambda e: e["durasi"])
+                f = str(ASET / e["file"])
+                self.prompt[suara] = dict(prompt_wav_path=f, prompt_text=e["teks"], reference_wav_path=f)
         return self.prompt[suara]
 
     def buat(self, suara, teks, catatan="", sumber=""):
@@ -292,6 +303,31 @@ def cmd_kirim(a):
     print(f"{len(n)} kalimat baru dikirim ke repo aset ({cabang}).")
 
 
+def cmd_profil(a):
+    """Tampilkan profil, atau buat/ganti profil dari rekaman (5-15 dtk untuk prompt; sisanya jadi reference)."""
+    if not a.nama:
+        for d in sorted(PROFIL.glob("*/")):
+            info = json.loads((d / "info.json").read_text(encoding="utf-8")) if (d / "info.json").exists() else {}
+            n = sum(e["suara"] == d.name for e in baca_katalog()["kalimat"])
+            print(f"{d.name:8s} {info.get('jenis', '?'):30s} {n:5d} kalimat di pustaka")
+        return
+    if not (a.rekaman and a.teks):
+        sys.exit("Pakai: pustaka_suara.py profil NAMA rekaman.wav \"teks persis dari 5-15 detik pertama rekaman\"")
+    import numpy as np
+    import soundfile as sf
+    w, sr = sf.read(a.rekaman, dtype="float32", always_2d=True)
+    w = w.mean(axis=1)
+    d = PROFIL / a.nama
+    d.mkdir(parents=True, exist_ok=True)
+    sf.write(d / "prompt.wav", w[: int(a.potong * sr)], sr)
+    sf.write(d / "reference.wav", w, sr)
+    (d / "prompt.txt").write_text(a.teks.strip() + "\n", encoding="utf-8")
+    (d / "info.json").write_text(json.dumps({"nama": a.nama, "jenis": "rekaman asli", "sumber": Path(a.rekaman).name,
+                                             "dibuat": time.strftime("%Y-%m-%d")}, ensure_ascii=False, indent=1) + "\n")
+    print(f"profil '{a.nama}' disimpan ({len(w) / sr:.1f} dtk). Teks prompt harus persis {a.potong:.0f} detik pertama rekaman.")
+    print("Kalimat lama di pustaka tetap dipakai; kalimat baru memakai profil ini. Jangan lupa: pustaka_suara.py kirim")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -307,11 +343,14 @@ def main():
     s = sub.add_parser("daftar")
     s.add_argument("--suara"), s.add_argument("--fungsi")
     sub.add_parser("ringkas")
+    s = sub.add_parser("profil", help="lihat / buat profil suara")
+    s.add_argument("nama", nargs="?"), s.add_argument("rekaman", nargs="?"), s.add_argument("teks", nargs="?")
+    s.add_argument("--potong", type=float, default=15, help="detik pertama rekaman untuk prompt (teks harus sama)")
     s = sub.add_parser("kirim", help="commit & push pustaka ke repo aset privat")
     s.add_argument("--cabang", default="ccr-a6f601eb-m17nbt")
     a = ap.parse_args()
     {"naskah": cmd_naskah, "tambah": cmd_tambah, "buat": cmd_buat, "cari": cmd_cari, "daftar": cmd_daftar,
-     "ringkas": cmd_ringkas, "kirim": cmd_kirim}[a.cmd](a)
+     "ringkas": cmd_ringkas, "kirim": cmd_kirim, "profil": cmd_profil}[a.cmd](a)
 
 
 if __name__ == "__main__":
