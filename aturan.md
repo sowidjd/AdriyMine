@@ -343,7 +343,7 @@ Model suara bukan model khusus bahasa Indonesia, jadi beberapa tulisan salah dib
 
 Mulai sekarang semua video memakai tokoh sendiri: **Adriy**, burung hantu kecil yang penasaran (dipilih pemilik). Tokoh lama (Clawd) **tidak dipakai lagi**: ia maskot milik perusahaan lain, sedangkan Adriy milik Adriy.Project.
 
-- **Lembar karakter resmi:** `projects/karakter/adriy-lembar-karakter.png` (sumber: `adriy.html`). Fungsi gambar: `adriy()` di `projects/_bersama/dasar.js` (nama lama `clawd()` masih jalan).
+- **Lembar karakter resmi:** `projects/karakter/adriy-lembar-karakter.png` (sumber: `adriy.html`). Fungsi gambar: `adriy()` di `projects/_bersama/dasar.js` (nama lama `clawd()` masih jalan). Salinan aset resmi: repo `sowidjd/Adriy-aset-karakter`; kalau karakter diubah di sini, perbarui juga repo itu.
 - **Ciri wajib (tidak boleh diubah):** kacamata bulat besar, syal merah dengan ekor di kanan, jambul telinga, perut krem, paruh & kaki oranye.
 - **Warna tetap:** badan `#A9714B`, sayap `#8A5A3C`, perut `#F1DCC0`, paruh/kaki `#F2A23B`, syal `#D9534F`. Gaya animasi hanya mengubah cara goresan (tinta manga, cat air, pensil), bukan bentuk & warna.
 - **Ekspresi lewat mata di balik kacamata** (senang, ketawa, penasaran, kaget, bingung, sedih, kesal, ngantuk, takjub) + tanda bergambar (!, ?, keringat, awan, lampu ide).
