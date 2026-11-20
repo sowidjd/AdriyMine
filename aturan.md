@@ -1,3 +1,5 @@
+> **SEMENTARA TIDAK DIPAKAI** (keputusan pemilik, 20 Nov 2026). Untuk skrip, ikuti skill `/skrip-cerita-cepat`. §15 (tokoh ADRIY & aset) tetap jadi referensi. File ini disimpan supaya bisa diaktifkan lagi.
+
 # Aturan Konten
 
 Aturan ini wajib diikuti untuk setiap video konten (TikTok 9:16, tokoh Adriy, narasi suara pemilik akun).
