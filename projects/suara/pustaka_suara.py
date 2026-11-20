@@ -317,14 +317,16 @@ def cmd_profil(a):
     import soundfile as sf
     w, sr = sf.read(a.rekaman, dtype="float32", always_2d=True)
     w = w.mean(axis=1)
+    w = w / (np.abs(w).max() + 1e-9) * 0.9  # samakan volume
     d = PROFIL / a.nama
     d.mkdir(parents=True, exist_ok=True)
-    sf.write(d / "prompt.wav", w[: int(a.potong * sr)], sr)
-    sf.write(d / "reference.wav", w, sr)
+    m = int(a.mulai * sr)
+    sf.write(d / "prompt.wav", w[m: m + int(a.potong * sr)], sr)
+    sf.write(d / "reference.wav", w[: int(a.acuan * sr)], sr)
     (d / "prompt.txt").write_text(a.teks.strip() + "\n", encoding="utf-8")
-    (d / "info.json").write_text(json.dumps({"nama": a.nama, "jenis": "rekaman asli", "sumber": Path(a.rekaman).name,
+    (d / "info.json").write_text(json.dumps({"nama": a.nama, "jenis": "rekaman asli", "sumber": Path(a.rekaman).name, "prompt_detik": [a.mulai, a.mulai + a.potong],
                                              "dibuat": time.strftime("%Y-%m-%d")}, ensure_ascii=False, indent=1) + "\n")
-    print(f"profil '{a.nama}' disimpan ({len(w) / sr:.1f} dtk). Teks prompt harus persis {a.potong:.0f} detik pertama rekaman.")
+    print(f"profil '{a.nama}' disimpan (rekaman {len(w) / sr:.1f} dtk, prompt detik {a.mulai:g}-{a.mulai + a.potong:g}). Teks prompt harus persis isi potongan itu.")
     print("Kalimat lama di pustaka tetap dipakai; kalimat baru memakai profil ini. Jangan lupa: pustaka_suara.py kirim")
 
 
@@ -345,7 +347,9 @@ def main():
     sub.add_parser("ringkas")
     s = sub.add_parser("profil", help="lihat / buat profil suara")
     s.add_argument("nama", nargs="?"), s.add_argument("rekaman", nargs="?"), s.add_argument("teks", nargs="?")
-    s.add_argument("--potong", type=float, default=15, help="detik pertama rekaman untuk prompt (teks harus sama)")
+    s.add_argument("--mulai", type=float, default=0, help="detik awal potongan prompt")
+    s.add_argument("--potong", type=float, default=15, help="panjang potongan prompt dalam detik (teks harus sama persis)")
+    s.add_argument("--acuan", type=float, default=30, help="detik pertama rekaman untuk warna suara (reference)")
     s = sub.add_parser("kirim", help="commit & push pustaka ke repo aset privat")
     s.add_argument("--cabang", default="ccr-a6f601eb-m17nbt")
     a = ap.parse_args()
