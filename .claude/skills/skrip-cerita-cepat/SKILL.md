@@ -188,7 +188,7 @@ Penutup tidak harus ajakan follow. Pilih satu yang cocok:
 - **Kesimpulan:** "Yang kelihatan sederhana ternyata jauh lebih rumit dari bayangan kita."
 - **Pertanyaan:** "Kalau ini bisa terjadi di alam, apa lagi yang belum kita tahu?"
 - **Pemikiran:** sudut pandang baru yang membekas dan terasa personal.
-- **CTA akun (wajib, setelah penutup di atas):** "Follow Adriy Project biar kamu makin sering bilang: oh, ternyata begitu." Satu–dua kalimat, di akhir skrip.
+- **CTA akun (wajib, setelah penutup di atas):** "Follow Adriy Project, biar kamu makin sering bilang: oh, ternyata begitu." Satu–dua kalimat, di akhir skrip.
 
 Pengenalan akun dan ajakan tengah juga wajib (lihat langkah 1). Variasikan kalimatnya antarvideo supaya tidak terdengar template.
 
