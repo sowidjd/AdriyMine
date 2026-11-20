@@ -339,26 +339,37 @@ Model suara bukan model khusus bahasa Indonesia, jadi beberapa tulisan salah dib
 - Kalimat maksimal **± 12 kata**. Kalimat panjang dipecah dua.
 - Setiap kalimat punya **kata kunci** yang wajib terdengar jelas (dicek otomatis dengan Whisper). Kalau gagal 4 kali, **ganti katanya**, jangan dipaksakan.
 
-## 15. Tokoh: ADRIY (burung hantu Adriy.Project)
+## 15. Tokoh: ADRIY (karakter resmi Adriy.Project)
 
-> **Sedang diganti (20 Nov 2026):** pemilik tidak mau memakai burung hantu Adriy lagi. Karakter baru akan dikirim pemilik dalam bentuk gambar. Sampai itu ada, jangan buat video baru dengan burung hantu ini; tanyakan dulu ke pemilik. Aturan di bawah tetap disimpan sebagai catatan untuk video lama.
+Mulai 20 November 2026 semua video memakai **ADRIY**: pemuda semi-realistis berkacamata, karakter yang dikirim pemilik. Tokoh lama (burung hantu Adriy, dan sebelumnya Clawd) **tidak dipakai lagi**; file lamanya di `projects/karakter/` dan fungsi `adriy()` di `projects/_bersama/dasar.js` hanya disimpan untuk video lama.
 
-Mulai sekarang semua video memakai tokoh sendiri: **Adriy**, burung hantu kecil yang penasaran (dipilih pemilik). Tokoh lama (Clawd) **tidak dipakai lagi**: ia maskot milik perusahaan lain, sedangkan Adriy milik Adriy.Project.
+- **Sumber aset:** repo privat `sowidjd/Adriy-aset-karakter`. Ambil dengan `bash projects/karakter/ambil_aset.sh` → `projects/karakter/aset/` (tidak masuk git, karena berisi wajah orang sungguhan; jangan salin gambar ADRIY ke repo AdriyMine).
+- **Bentuk aset:** PNG latar transparan, satu file per pose, di `aset/<outfit>/pose/`. Peta nama pose → file ada di `<outfit>/peta.json` (`santai`, `travel`) atau `pose/index.json` (outfit lain). ADRIY **tidak digambar ulang** dengan Canvas; pakai PNG apa adanya (boleh digeser, diperbesar, dibalik kiri-kanan bila tulisan ADRIY tidak terlihat terbalik, diberi bayangan).
+- **Ciri wajib (tidak boleh diubah):** rambut hitam ikal pendek, kacamata hitam persegi, tulisan **ADRIY** di baju, jam tangan hitam. Jangan pakai AI untuk membuat wajah/pose baru yang mengubah wajah.
+- **Outfit dipilih sesuai topik** (satu outfit per video, kecuali ceritanya memang ganti tempat):
 
-- **Lembar karakter resmi:** `projects/karakter/adriy-lembar-karakter.png` (sumber: `adriy.html`). Fungsi gambar: `adriy()` di `projects/_bersama/dasar.js` (nama lama `clawd()` masih jalan).
-- **Ciri wajib (tidak boleh diubah):** kacamata bulat besar, syal merah dengan ekor di kanan, jambul telinga, perut krem, paruh & kaki oranye.
-- **Warna tetap:** badan `#A9714B`, sayap `#8A5A3C`, perut `#F1DCC0`, paruh/kaki `#F2A23B`, syal `#D9534F`. Gaya animasi hanya mengubah cara goresan (tinta manga, cat air, pensil), bukan bentuk & warna.
-- **Ekspresi lewat mata di balik kacamata** (senang, ketawa, penasaran, kaget, bingung, sedih, kesal, ngantuk, takjub) + tanda bergambar (!, ?, keringat, awan, lampu ide).
-- **Gerak:** sayap = tangan (melambai, menunjuk); berkedip & bernapas otomatis.
-- **Lencana Adriy.Project** memakai wajah Adriy (kacamata + paruh + syal).
-- Tokoh pendamping (teman, orang lain) boleh beda warna, tapi tidak boleh memakai kacamata bulat + syal merah (itu ciri khas Adriy).
+| Outfit | Folder | Untuk topik |
+|---|---|---|
+| Santai (sweater abu-abu, celana hitam, sneaker) | `santai/` | Default: kebiasaan sehari-hari, kehidupan digital, psikologi, waktu |
+| Travel (jaket, ransel, headphone) | `travel/` | Perjalanan, tempat, budaya, geografi |
+| Arkeolog / petualang lapangan | `arkeolog/` | Sejarah, arkeologi, alam liar, ekspedisi |
+| Formal (jas) | `formal/` | Uang, investasi, ekonomi, bisnis, berita |
+| Astronot | `angkasa/` | Luar angkasa, planet, atmosfer |
+| Penyelam | `penyelam/` | Laut, hewan laut (jangan pakai `penyelam/rusak/`) |
+| Jas lab | `lab/` | Sains, kimia, biologi, tubuh & kesehatan |
+
+- **Ekspresi & akting** lewat pilihan pose (sapa, jelaskan, tunjuk, kaget, pikir, tanya, senang, rayakan, dll.) dan close-up `dekat` untuk momen penting. Bicara: ganti-ganti gambar bentuk mulut (`bicara` di `santai/peta.json`) mengikuti suara. Tanda bergambar (!, ?, keringat, lampu ide) boleh ditambah di sekitar kepala.
+- **Gaya animasi (§9)** mengubah latar, benda, teks, dan transisi; ADRIY tetap tampil semi-realistis seperti aslinya.
+- **Benda & SFX tambahan:** `aset/objek/benda/` (385 gambar CC0, daftar di `objek/katalog.json`) dan `aset/sfx/` (cek lisensi di `sfx/katalog.json`; file CC BY wajib dikredit sesuai `sfx/KREDIT.md`).
+- **Lencana Adriy.Project** memakai wajah ADRIY dari pose close-up (dipotong bulat), bukan wajah burung hantu.
+- Tokoh pendamping boleh ada, tapi tidak memakai baju bertulisan ADRIY.
 - Nama "Adriy" tidak perlu disebut di narasi; penyebutan nama akun tetap mengikuti §10.
 
 ## Checklist sebelum video dianggap selesai
 
 - [ ] Topik memenuhi minimal 1 dari Tiga Tips (§0); tips yang dipenuhi & emosi inti disebut di laporan; tag emosi, gaya karakter & efek suara mengikuti emosi inti
 
-- [ ] Tokoh = Adriy sesuai lembar karakter (§15), ciri & warna tidak berubah
+- [ ] Tokoh = ADRIY dari repo aset (§15), outfit sesuai topik, wajah & ciri tidak diubah
 - [ ] Topik tidak ada di `projects/SUDAH-DIBUAT.md`
 - [ ] Durasi 2:43–2:57 (maks. 2:57); alur §12 (masalah ± 25% → dugaan → penyebab → solusi baru di ≥ 55% durasi → rangkuman); setiap bagian ada jeda napas
 - [ ] CTA sesuai §13 (jembatan, pertanyaan mudah + contoh jawaban, alasan menjawab, CTA kedua yang spesifik)
@@ -368,7 +379,7 @@ Mulai sekarang semua video memakai tokoh sendiri: **Adriy**, burung hantu kecil 
 - [ ] Judul spesifik, ≤ 10 kata, bukan "Tips/Cara…"
 - [ ] 3 versi hook ditulis, yang terbaik dipilih; detik 0 sudah bergerak & bersuara
 - [ ] Twist/penasaran di detik 2–3
-- [ ] Minimal 5 emosi Adriy, semua perubahan pakai "take"
+- [ ] Minimal 5 ekspresi/pose ADRIY berbeda, semua perubahan pakai "take"
 - [ ] Narasi berekspresi (tidak datar), ucapan lolos `cek_ucapan.py`
 - [ ] Suasana berubah: masalah → penjelasan → solusi → penutup
 - [ ] Minimal 3 latar/komposisi, dengan detail kehidupan Indonesia

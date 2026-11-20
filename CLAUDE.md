@@ -1,6 +1,6 @@
 # AdriyMine
 
-Proyek video konten TikTok edukasi (tokoh burung hantu Adriy **sedang diganti**: pemilik akan mengirim gambar karakter baru, lihat aturan.md §15; aset karakter resmi nanti disimpan di repo github.com/sowidjd/Adriy-aset-karakter; narasi suara pemilik akun, bahasa Indonesia santai).
+Proyek video konten TikTok edukasi (tokoh **ADRIY**, pemuda semi-realistis berkacamata dengan 7 outfit, lihat aturan.md §15; aset di repo privat github.com/sowidjd/Adriy-aset-karakter, ambil dengan `bash projects/karakter/ambil_aset.sh`; burung hantu Adriy tidak dipakai lagi; narasi suara pemilik akun, bahasa Indonesia santai).
 
 - **Sebelum membuat konten apa pun, baca dan ikuti `aturan.md`.** Setelah video jadi, cek dengan checklist di sana dan tambahkan baris ke tabel Riwayat.
 - Ide tema: `projects/IDE-KONTEN.md`. **Jangan usulkan judul/topik yang ada di `projects/SUDAH-DIBUAT.md`** (sudah dibuat pemilik).
