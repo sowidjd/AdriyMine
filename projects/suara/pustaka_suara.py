@@ -245,7 +245,7 @@ def cmd_tambah(a):
     k = baca_katalog()
     kal = list(a.kalimat)
     if a.file:
-        kal += [t for t, _ in pecah_naskah(a.file, k, a.suara[0])]
+        kal += [b.strip() for b in Path(a.file).read_text(encoding="utf-8").splitlines() if b.strip() and not b.startswith("#")]  # satu baris = satu kalimat
     if not kal:
         sys.exit("Tidak ada kalimat.")
     p, baru, t0 = Pembuat(k), 0, time.time()
