@@ -48,3 +48,6 @@ cocokkan dulu dengan daftar ini. Kalau pemilik membuat video baru, tambahkan di 
 33. Kenapa Kata Sering Macet di Ujung Lidah?
 34. Kenapa Kita Mengucap Halo Saat Mengangkat Telepon?
 35. Kenapa Kilat Terlihat Dulu, Petir Terdengar Belakangan
+
+## 21 November 2026 (dibuat Claude atas permintaan pemilik)
+36. Kenapa Lagu Bisa Bikin Kita Merinding? (versi baru dari #1, sudut otot arrector pili & frisson; projects/merinding-lagu)
