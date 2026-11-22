@@ -33,7 +33,10 @@ fs.mkdirSync(OUT, { recursive: true });
     await page.click('.seg button:has-text("50%")');
     await page.click('button:has-text("Buat video")');
     try {
-      await page.waitForSelector('.sheet video', { timeout: 600000 });
+      const tick = setInterval(async () => { try { console.log('  kemajuan:', (await page.evaluate(() => (document.querySelector('.prog-row') || {}).innerText || '')).replace(/\n/g, ' ')); } catch {} }, 60000);
+      await page.waitForSelector('.sheet video, .card.err.inner', { timeout: 2400000 });
+      clearInterval(tick);
+      if (!(await page.$('.sheet video'))) throw new Error(await page.locator('.card.err.inner').innerText());
       ok('pratinjau hasil terbuka otomatis setelah render', true, await page.locator('.sheet-info').innerText());
       await page.waitForTimeout(1500);
       await page.screenshot({ path: OUT + '/sains-sheet.png' });

@@ -112,15 +112,18 @@ export const SakuThreeCanvas = ({ children, width, height, style, gl, dpr, onCre
     return () => { if (frameHold.current !== null) { continueRender(frameHold.current); frameHold.current = null; } };
   }, [frame, delayRender, continueRender]);
 
+  // Dipanggil setelah frame selesai digambar (termasuk gambar ulang penyelesaian):
+  // baru di sini perender video boleh mengambil gambar.
   const onRendered = useCallback(() => {
     if (frameHold.current !== null) { continueRender(frameHold.current); frameHold.current = null; }
+    if (createdHold.current !== null) { continueRender(createdHold.current); createdHold.current = null; }
   }, [continueRender]);
 
   const handleCreated = useCallback((state) => {
     state.gl.localClippingEnabled = true;
     created.current = true;
     state.advance(frame / fps);
-    if (createdHold.current !== null) { continueRender(createdHold.current); createdHold.current = null; }
+    // createdHold dilepas oleh onRendered setelah gambar penyelesaian pertama.
     if (onCreated) onCreated(state);
   }, [continueRender, onCreated]); // eslint-disable-line react-hooks/exhaustive-deps
 
