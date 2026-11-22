@@ -1,0 +1,41 @@
+{
+  "name": "remotion-saku",
+  "version": "1.0.0",
+  "description": "Aplikasi HP: tempel kode Remotion, putar, dan ekspor MP4 di browser",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node test/e2e.cjs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@remotion/animation-utils": "^4.0.545",
+    "@remotion/captions": "^4.0.545",
+    "@remotion/effects": "^4.0.545",
+    "@remotion/fonts": "^4.0.545",
+    "@remotion/gif": "^4.0.545",
+    "@remotion/layout-utils": "^4.0.545",
+    "@remotion/light-leaks": "^4.0.545",
+    "@remotion/lottie": "^4.0.545",
+    "@remotion/media": "^4.0.545",
+    "@remotion/media-utils": "^4.0.545",
+    "@remotion/motion-blur": "^4.0.545",
+    "@remotion/noise": "^4.0.545",
+    "@remotion/paths": "^4.0.545",
+    "@remotion/player": "^4.0.545",
+    "@remotion/rounded-text-box": "^4.0.545",
+    "@remotion/shapes": "^4.0.545",
+    "@remotion/starburst": "^4.0.545",
+    "@remotion/transitions": "^4.0.545",
+    "@remotion/web-renderer": "^4.0.545",
+    "@remotion/zod-types": "^4.0.545",
+    "esbuild": "^0.28.2",
+    "lottie-web": "^5.13.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "remotion": "^4.0.545",
+    "sucrase": "^3.35.1",
+    "zod": "^4.6.7"
+  },
+  "private": true
+}
