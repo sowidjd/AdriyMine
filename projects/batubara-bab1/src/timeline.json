@@ -1,0 +1,1056 @@
+{
+"durasi": 24758,
+"adegan": [
+{
+"id": "S0",
+"nama": "pembuka",
+"a": 0,
+"n": 4,
+"b": 714
+},
+{
+"id": "S1",
+"nama": "pendahuluan",
+"a": 714,
+"n": 12,
+"b": 2484
+},
+{
+"id": "S2",
+"nama": "pengertian",
+"a": 2484,
+"n": 14,
+"b": 4593
+},
+{
+"id": "S3",
+"nama": "batubara kokas",
+"a": 4593,
+"n": 20,
+"b": 7887
+},
+{
+"id": "S4",
+"nama": "komponen",
+"a": 7887,
+"n": 37,
+"b": 13559
+},
+{
+"id": "S5",
+"nama": "sifat",
+"a": 13559,
+"n": 23,
+"b": 16989
+},
+{
+"id": "S6",
+"nama": "campuran",
+"a": 16989,
+"n": 13,
+"b": 19349
+},
+{
+"id": "S7",
+"nama": "pengaruh",
+"a": 19349,
+"n": 16,
+"b": 21281
+},
+{
+"id": "S8",
+"nama": "pemeriksaan",
+"a": 21281,
+"n": 12,
+"b": 22835
+},
+{
+"id": "S9",
+"nama": "ringkasan",
+"a": 22835,
+"n": 12,
+"b": 24758
+}
+],
+"kalimat": [
+{
+"teks": "Batu hitam yang sama, bisa berakhir jadi abu, atau jadi bahan yang menopang industri baja dunia.",
+"adegan": 0,
+"a": 12,
+"b": 204
+},
+{
+"teks": "Di Adriy Project, kali ini kita bedah batubara, bahan baku utama pabrik kokas, dari dalam.",
+"adegan": 0,
+"a": 218,
+"b": 398
+},
+{
+"teks": "Kokas adalah bahan padat yang kuat dan berpori, dibuat dari batubara yang dipanaskan tanpa udara.",
+"adegan": 0,
+"a": 411,
+"b": 591
+},
+{
+"teks": "Tapi ternyata, tidak semua batubara bisa dijadikan kokas.",
+"adegan": 0,
+"a": 605,
+"b": 700
+},
+{
+"teks": "Batubara harus dipanaskan di dalam ruang tertutup yang disebut ruang karbonisasi.",
+"adegan": 1,
+"a": 714,
+"b": 846
+},
+{
+"teks": "Di sana, butiran batubara melunak, melepaskan gas dan cairan, lalu menyatu menjadi satu massa.",
+"adegan": 1,
+"a": 860,
+"b": 1028
+},
+{
+"teks": "Setelah itu, massa ini mengeras kembali menjadi kokas yang kuat dan berpori.",
+"adegan": 1,
+"a": 1041,
+"b": 1185
+},
+{
+"teks": "Batubara yang bisa berperilaku seperti ini disebut batubara kokas.",
+"adegan": 1,
+"a": 1198,
+"b": 1307
+},
+{
+"teks": "Alurnya begini: batubara dari tambang dipilih berdasarkan kualitas, lalu disiapkan dan dicampur.",
+"adegan": 1,
+"a": 1320,
+"b": 1464
+},
+{
+"teks": "Campuran itu diisikan ke ruang karbonisasi, lalu dipanaskan tanpa udara.",
+"adegan": 1,
+"a": 1478,
+"b": 1598
+},
+{
+"teks": "Hasil utamanya kokas, sedangkan gas dan produk sampingnya dikirim ke bagian pemurnian gas.",
+"adegan": 1,
+"a": 1611,
+"b": 1767
+},
+{
+"teks": "Kenapa harus tanpa udara?",
+"adegan": 1,
+"a": 1780,
+"b": 1828
+},
+{
+"teks": "Kalau ada oksigen, batubara akan terbakar dan habis menjadi abu dan panas.",
+"adegan": 1,
+"a": 1842,
+"b": 1986
+},
+{
+"teks": "Tanpa udara, batubara tidak terbakar, tetapi terurai karena panas.",
+"adegan": 1,
+"a": 2000,
+"b": 2108
+},
+{
+"teks": "Bagian yang mudah menguap keluar sebagai gas, sedangkan karbon padatnya tertinggal sebagai kokas.",
+"adegan": 1,
+"a": 2121,
+"b": 2277
+},
+{
+"teks": "Panasnya datang dari ruang pembakaran di balik dinding, bukan dari api di dalam ruang karbonisasi.",
+"adegan": 1,
+"a": 2291,
+"b": 2471
+},
+{
+"teks": "Lalu, batubara itu sebenarnya apa?",
+"adegan": 2,
+"a": 2484,
+"b": 2544
+},
+{
+"teks": "Batubara adalah bahan padat kaya karbon yang terbentuk dari sisa tumbuhan purba.",
+"adegan": 2,
+"a": 2558,
+"b": 2702
+},
+{
+"teks": "Tumbuhan rawa yang mati tertimbun air, sehingga tidak membusuk habis.",
+"adegan": 2,
+"a": 2715,
+"b": 2835
+},
+{
+"teks": "Lalu tekanan, suhu, dan waktu geologi yang sangat panjang mengubahnya perlahan.",
+"adegan": 2,
+"a": 2849,
+"b": 2981
+},
+{
+"teks": "Proses ini disebut pembatubaraan.",
+"adegan": 2,
+"a": 2994,
+"b": 3042
+},
+{
+"teks": "Tahap pertama adalah gambut, masih berserat dan sangat basah.",
+"adegan": 2,
+"a": 3056,
+"b": 3164
+},
+{
+"teks": "Tahap kedua adalah batubara cokelat atau lignit, dengan kadar air dan zat terbang yang tinggi.",
+"adegan": 2,
+"a": 3177,
+"b": 3357
+},
+{
+"teks": "Tahap ketiga adalah batubara bituminus, kelompok yang dipakai untuk membuat kokas.",
+"adegan": 2,
+"a": 3371,
+"b": 3503
+},
+{
+"teks": "Tahap terakhir adalah antrasit, paling tua, paling keras, dan karbonnya paling tinggi.",
+"adegan": 2,
+"a": 3516,
+"b": 3660
+},
+{
+"teks": "Semakin tinggi tingkat pembatubaraan, kadar karbon umumnya naik, sedangkan air dan zat terbang makin rendah.",
+"adegan": 2,
+"a": 3674,
+"b": 3853
+},
+{
+"teks": "Tapi antrasit tidak bisa dijadikan kokas, karena tidak melunak saat dipanaskan.",
+"adegan": 2,
+"a": 3867,
+"b": 3999
+},
+{
+"teks": "Butirannya tidak bisa menyatu, jadi tidak terbentuk kokas.",
+"adegan": 2,
+"a": 4012,
+"b": 4108
+},
+{
+"teks": "Untuk membedakan kelompoknya, standar Tiongkok memakai kadar zat terbang pada basis kering bebas abu.",
+"adegan": 2,
+"a": 4122,
+"b": 4290
+},
+{
+"teks": "Antrasit sampai sepuluh persen, bituminus di atas sepuluh sampai sekitar tiga puluh tujuh persen, dan batubara cokelat di atas tiga puluh tujuh persen.",
+"adegan": 2,
+"a": 4304,
+"b": 4580
+},
+{
+"teks": "Sekarang bandingkan dua jenis batubara: batubara bahan bakar dan batubara kokas.",
+"adegan": 3,
+"a": 4593,
+"b": 4725
+},
+{
+"teks": "Batubara bahan bakar dibakar dengan udara untuk diambil panasnya, seperti di PLTU dan boiler.",
+"adegan": 3,
+"a": 4739,
+"b": 4906
+},
+{
+"teks": "Hasil akhirnya abu dan gas buang.",
+"adegan": 3,
+"a": 4920,
+"b": 4992
+},
+{
+"teks": "Batubara kokas justru dipanaskan tanpa udara, dan hasilnya kokas, gas, tar, serta produk samping.",
+"adegan": 3,
+"a": 5006,
+"b": 5174
+},
+{
+"teks": "Yang membedakan adalah perilakunya saat dipanaskan.",
+"adegan": 3,
+"a": 5187,
+"b": 5259
+},
+{
+"teks": "Kita masuk ke dalam ruang karbonisasi dan lihat perubahannya.",
+"adegan": 3,
+"a": 5273,
+"b": 5381
+},
+{
+"teks": "Pertama, pengeringan: air menguap, sekitar di bawah dua ratus derajat Celsius.",
+"adegan": 3,
+"a": 5394,
+"b": 5526
+},
+{
+"teks": "Kedua, penguraian akibat panas: ikatan kimia mulai putus dan gas mulai keluar, sekitar dua ratus sampai tiga ratus lima puluh derajat.",
+"adegan": 3,
+"a": 5540,
+"b": 5792
+},
+{
+"teks": "Ketiga, pelunakan: butiran mulai lunak, sekitar tiga ratus lima puluh sampai empat ratus derajat.",
+"adegan": 3,
+"a": 5805,
+"b": 5973
+},
+{
+"teks": "Keempat, terbentuk lapisan plastis, massa lunak seperti adonan yang bercampur gas dan cairan.",
+"adegan": 3,
+"a": 5987,
+"b": 6143
+},
+{
+"teks": "Kelima, massa lunak itu mengisi celah dan merekatkan butiran.",
+"adegan": 3,
+"a": 6156,
+"b": 6264
+},
+{
+"teks": "Keenam, pemadatan kembali menjadi semi kokas, sekitar empat ratus lima puluh sampai lima ratus derajat.",
+"adegan": 3,
+"a": 6278,
+"b": 6458
+},
+{
+"teks": "Ketujuh, semi kokas terus melepas gas dan menyusut, sampai pusat kue mencapai sekitar sembilan ratus lima puluh sampai seribu lima puluh derajat.",
+"adegan": 3,
+"a": 6471,
+"b": 6735
+},
+{
+"teks": "Angka suhu ini perkiraan umum dari literatur, bukan angka SOP pabrik.",
+"adegan": 3,
+"a": 6749,
+"b": 6881
+},
+{
+"teks": "Tahap pelunakan dan lapisan plastis adalah yang paling penting.",
+"adegan": 3,
+"a": 6894,
+"b": 7002
+},
+{
+"teks": "Kalau batubara tidak punya sifat pembentuk kokas yang cukup, butiran tidak menyatu, dan kokas menjadi lemah serta mudah hancur.",
+"adegan": 3,
+"a": 7016,
+"b": 7244
+},
+{
+"teks": "Ada satu hal menarik.",
+"adegan": 3,
+"a": 7257,
+"b": 7305
+},
+{
+"teks": "Panas masuk dari kedua dinding oven, jadi batubara di dekat dinding melunak lebih dulu.",
+"adegan": 3,
+"a": 7319,
+"b": 7487
+},
+{
+"teks": "Lapisan plastis terbentuk di dua sisi, lalu bergerak ke tengah dan bertemu di tengah oven.",
+"adegan": 3,
+"a": 7500,
+"b": 7680
+},
+{
+"teks": "Saat keduanya bertemu, gas yang terperangkap menekan dinding, dan ini salah satu sumber tekanan pemuaian.",
+"adegan": 3,
+"a": 7694,
+"b": 7874
+},
+{
+"teks": "Kalau video ini membantu kamu belajar, simpan dulu supaya gampang diulang.",
+"adegan": 4,
+"a": 7887,
+"b": 8019
+},
+{
+"teks": "Sekarang kita bedah isi batubara, komponen apa saja yang diperiksa.",
+"adegan": 4,
+"a": 8033,
+"b": 8153
+},
+{
+"teks": "Komponen pertama adalah kadar air.",
+"adegan": 4,
+"a": 8166,
+"b": 8226
+},
+{
+"teks": "Ada air bebas yang menempel di permukaan butiran, dan air bawaan yang terikat di dalam pori.",
+"adegan": 4,
+"a": 8240,
+"b": 8432
+},
+{
+"teks": "Jumlah keduanya disebut air total.",
+"adegan": 4,
+"a": 8445,
+"b": 8505
+},
+{
+"teks": "Selama air belum habis menguap, suhu di tengah kue batubara tertahan sekitar seratus derajat.",
+"adegan": 4,
+"a": 8519,
+"b": 8687
+},
+{
+"teks": "Makin banyak air, makin lama tertahan, sehingga waktu pematangan kokas bertambah.",
+"adegan": 4,
+"a": 8700,
+"b": 8832
+},
+{
+"teks": "Komponen kedua adalah kadar abu, yaitu bahan mineral yang tidak terbakar.",
+"adegan": 4,
+"a": 8846,
+"b": 8978
+},
+{
+"teks": "Abu dari batubara hampir seluruhnya masuk ke dalam kokas.",
+"adegan": 4,
+"a": 8991,
+"b": 9099
+},
+{
+"teks": "Dan abu kokas selalu lebih tinggi daripada abu batubara.",
+"adegan": 4,
+"a": 9113,
+"b": 9221
+},
+{
+"teks": "Karena zat terbang keluar dan beratnya berkurang, sedangkan abunya tertinggal sehingga makin pekat.",
+"adegan": 4,
+"a": 9234,
+"b": 9390
+},
+{
+"teks": "Perkiraannya, abu kokas sama dengan abu batubara dibagi hasil kokas.",
+"adegan": 4,
+"a": 9404,
+"b": 9524
+},
+{
+"teks": "Misalnya abu batubara sembilan persen dan hasil kokas tujuh puluh lima persen, maka abu kokas sekitar dua belas persen.",
+"adegan": 4,
+"a": 9537,
+"b": 9765
+},
+{
+"teks": "Abu berisi silika, alumina, oksida besi, kapur, dan alkali.",
+"adegan": 4,
+"a": 9779,
+"b": 9887
+},
+{
+"teks": "Alkali yang tinggi membuat kokas mudah bereaksi di tanur tinggi, sehingga kekuatannya turun.",
+"adegan": 4,
+"a": 9900,
+"b": 10056
+},
+{
+"teks": "Komponen ketiga adalah zat terbang, bagian yang lepas saat batubara dipanaskan tanpa udara.",
+"adegan": 4,
+"a": 10070,
+"b": 10226
+},
+{
+"teks": "Zat terbang berubah menjadi gas, uap air, tar, amonia, benzena, naftalena, dan hidrogen sulfida.",
+"adegan": 4,
+"a": 10239,
+"b": 10407
+},
+{
+"teks": "Semuanya menjadi gas oven kokas mentah, lalu dikirim ke pemurnian gas.",
+"adegan": 4,
+"a": 10421,
+"b": 10553
+},
+{
+"teks": "Zat terbang tidak menjadi kokas.",
+"adegan": 4,
+"a": 10566,
+"b": 10626
+},
+{
+"teks": "Jadi makin tinggi zat terbang, makin banyak gas dan tar, tetapi kokas yang dihasilkan makin sedikit dan cenderung lebih retak.",
+"adegan": 4,
+"a": 10640,
+"b": 10880
+},
+{
+"teks": "Di laboratorium, zat terbang diuji dengan memanaskan contoh batubara tanpa udara pada suhu sekitar sembilan ratus derajat.",
+"adegan": 4,
+"a": 10893,
+"b": 11097
+},
+{
+"teks": "Komponen keempat adalah karbon tetap, bagian padat yang menjadi kerangka kokas.",
+"adegan": 4,
+"a": 11111,
+"b": 11243
+},
+{
+"teks": "Karbon tetap tidak diukur langsung, tetapi dihitung.",
+"adegan": 4,
+"a": 11256,
+"b": 11340
+},
+{
+"teks": "Rumusnya, seratus dikurangi air, dikurangi abu, dikurangi zat terbang.",
+"adegan": 4,
+"a": 11354,
+"b": 11462
+},
+{
+"teks": "Contohnya air satu koma lima persen, abu sembilan persen, zat terbang dua puluh enam persen, maka karbon tetapnya enam puluh tiga koma lima persen.",
+"adegan": 4,
+"a": 11475,
+"b": 11763
+},
+{
+"teks": "Komponen kelima adalah sulfur.",
+"adegan": 4,
+"a": 11777,
+"b": 11825
+},
+{
+"teks": "Sulfur ada dalam bentuk pirit, sulfur organik, dan sedikit sulfat.",
+"adegan": 4,
+"a": 11838,
+"b": 11958
+},
+{
+"teks": "Sekitar enam puluh sampai delapan puluh persen sulfur tertinggal di kokas.",
+"adegan": 4,
+"a": 11972,
+"b": 12104
+},
+{
+"teks": "Sisanya keluar sebagai hidrogen sulfida dalam gas, yang nanti dihilangkan di unit penghilangan sulfur.",
+"adegan": 4,
+"a": 12117,
+"b": 12285
+},
+{
+"teks": "Di tanur tinggi, sulfur dari kokas membuat baja rapuh saat panas.",
+"adegan": 4,
+"a": 12299,
+"b": 12431
+},
+{
+"teks": "Komponen keenam adalah fosfor.",
+"adegan": 4,
+"a": 12444,
+"b": 12492
+},
+{
+"teks": "Berbeda dengan sulfur, fosfor hampir seluruhnya tertinggal di kokas.",
+"adegan": 4,
+"a": 12506,
+"b": 12614
+},
+{
+"teks": "Di baja, fosfor membuat logam getas dan mudah patah saat dingin.",
+"adegan": 4,
+"a": 12627,
+"b": 12759
+},
+{
+"teks": "Satu-satunya cara mengendalikannya adalah memilih batubara yang fosfornya rendah.",
+"adegan": 4,
+"a": 12773,
+"b": 12881
+},
+{
+"teks": "Hasil laboratorium juga punya basis analisis.",
+"adegan": 4,
+"a": 12894,
+"b": 12966
+},
+{
+"teks": "Basis seperti diterima termasuk semua air, basis kering udara dikeringkan di udara ruangan, basis kering tanpa air sama sekali, dan basis kering bebas abu dianggap tanpa air dan tanpa abu.",
+"adegan": 4,
+"a": 12980,
+"b": 13340
+},
+{
+"teks": "Angka yang sama bisa terlihat berbeda kalau basisnya berbeda, jadi selalu bandingkan dengan basis yang sama.",
+"adegan": 4,
+"a": 13353,
+"b": 13545
+},
+{
+"teks": "Komposisi saja belum cukup.",
+"adegan": 5,
+"a": 13559,
+"b": 13607
+},
+{
+"teks": "Kita juga harus tahu bagaimana batubara berperilaku saat dipanaskan.",
+"adegan": 5,
+"a": 13620,
+"b": 13728
+},
+{
+"teks": "Sifat pertama adalah kemampuan mengikat, yaitu kemampuan batubara yang melunak mengikat butiran lain menjadi satu massa.",
+"adegan": 5,
+"a": 13742,
+"b": 13934
+},
+{
+"teks": "Sifat ini diukur dengan indeks G, makin tinggi nilainya makin kuat daya ikatnya.",
+"adegan": 5,
+"a": 13947,
+"b": 14103
+},
+{
+"teks": "Sifat kedua adalah kemampuan membentuk kokas, yaitu kemampuan menghasilkan kokas dengan struktur dan kekuatan yang sesuai.",
+"adegan": 5,
+"a": 14117,
+"b": 14309
+},
+{
+"teks": "Bayangkan lem dan bangunan.",
+"adegan": 5,
+"a": 14322,
+"b": 14370
+},
+{
+"teks": "Kemampuan mengikat itu kekuatan lemnya, sedangkan kemampuan membentuk kokas itu kualitas bangunannya.",
+"adegan": 5,
+"a": 14384,
+"b": 14528
+},
+{
+"teks": "Lem kuat belum tentu bangunannya bagus.",
+"adegan": 5,
+"a": 14541,
+"b": 14613
+},
+{
+"teks": "Batubara lemak daya ikatnya sangat kuat, tetapi kalau dipakai sendirian kokasnya banyak retak.",
+"adegan": 5,
+"a": 14627,
+"b": 14783
+},
+{
+"teks": "Sifat ketiga adalah kecairan saat dipanaskan, diukur dengan alat Gieseler.",
+"adegan": 5,
+"a": 14796,
+"b": 14916
+},
+{
+"teks": "Terlalu rendah, butiran tidak menyatu, terlalu tinggi, kokas berpori besar dan rapuh.",
+"adegan": 5,
+"a": 14930,
+"b": 15074
+},
+{
+"teks": "Kuncinya sesuai, bukan setinggi-tingginya.",
+"adegan": 5,
+"a": 15087,
+"b": 15135
+},
+{
+"teks": "Sifat keempat adalah pemuaian dan penyusutan.",
+"adegan": 5,
+"a": 15149,
+"b": 15221
+},
+{
+"teks": "Batubara memuai pada tahap plastis, lalu menyusut saat menjadi kokas.",
+"adegan": 5,
+"a": 15234,
+"b": 15354
+},
+{
+"teks": "Kalau memuai berlebihan, dinding oven tertekan, batanya bisa retak, dan umur oven memendek.",
+"adegan": 5,
+"a": 15368,
+"b": 15524
+},
+{
+"teks": "Kalau menyusut terlalu sedikit, kokas menempel ke dinding dan sulit didorong keluar.",
+"adegan": 5,
+"a": 15537,
+"b": 15681
+},
+{
+"teks": "Penyusutan di akhir justru dibutuhkan, karena membuat celah kecil antara kokas dan dinding.",
+"adegan": 5,
+"a": 15695,
+"b": 15851
+},
+{
+"teks": "Sifat kelima adalah ukuran butiran.",
+"adegan": 5,
+"a": 15864,
+"b": 15924
+},
+{
+"teks": "Terlalu kasar, campuran kurang seragam dan kokas bisa retak di titik butiran besar.",
+"adegan": 5,
+"a": 15938,
+"b": 16094
+},
+{
+"teks": "Terlalu halus, kepadatan pengisian turun dan lebih berdebu.",
+"adegan": 5,
+"a": 16107,
+"b": 16203
+},
+{
+"teks": "Kehalusan diukur dari persentase butiran yang lolos ayakan tiga milimeter.",
+"adegan": 5,
+"a": 16217,
+"b": 16337
+},
+{
+"teks": "Menurut materi lama, oven pengisian atas tujuh meter memakai kehalusan tujuh puluh sampai tujuh puluh empat persen, dan oven pemadatan lima koma lima meter memakai delapan puluh enam sampai sembilan puluh persen.",
+"adegan": 5,
+"a": 16350,
+"b": 16734
+},
+{
+"teks": "Laboratorium juga mengukur tebal lapisan plastis, penyusutan akhir, pemuaian, indeks muai bebas, dan reflektansi vitrinit untuk tingkat kematangan batubara.",
+"adegan": 5,
+"a": 16748,
+"b": 16976
+},
+{
+"teks": "Di pabrik kokas, batubara hampir tidak pernah dipakai satu jenis saja.",
+"adegan": 6,
+"a": 16989,
+"b": 17121
+},
+{
+"teks": "Beberapa jenis dicampur, dan prosesnya disebut pencampuran batubara.",
+"adegan": 6,
+"a": 17135,
+"b": 17231
+},
+{
+"teks": "Alasannya, tidak ada satu jenis yang sempurna, batubara terbaik mahal dan terbatas, jenis tertentu tidak aman untuk oven jika dipakai sendirian, dan campuran membuat kualitas lebih stabil.",
+"adegan": 6,
+"a": 17244,
+"b": 17568
+},
+{
+"teks": "Batubara gas, zat terbangnya tinggi, menambah gas dan hasil samping, tetapi kokasnya kecil dan retak jika berlebihan.",
+"adegan": 6,
+"a": 17582,
+"b": 17786
+},
+{
+"teks": "Batubara lemak adalah lem campuran, daya ikatnya sangat kuat dan daerah plastisnya lebar.",
+"adegan": 6,
+"a": 17799,
+"b": 17955
+},
+{
+"teks": "Batubara kokas utama adalah tulang punggung campuran, yang menghasilkan kokas kuat.",
+"adegan": 6,
+"a": 17969,
+"b": 18101
+},
+{
+"teks": "Batubara kurus mengatur campuran, mengurangi retak, dan menambah ukuran kokas.",
+"adegan": 6,
+"a": 18114,
+"b": 18234
+},
+{
+"teks": "Ada juga sepertiga batubara kokas dan batubara gas lemak yang sering muncul di daftar pabrik.",
+"adegan": 6,
+"a": 18248,
+"b": 18428
+},
+{
+"teks": "Masing-masing jenis disimpan terpisah, ditakar sesuai perbandingan, lalu dicampur menjadi campuran batubara yang dikirim ke oven.",
+"adegan": 6,
+"a": 18441,
+"b": 18633
+},
+{
+"teks": "Perbandingan campuran tidak bisa ditentukan hanya dari nama jenisnya.",
+"adegan": 6,
+"a": 18647,
+"b": 18755
+},
+{
+"teks": "Formulanya ditentukan dari hasil uji bahan baku, target mutu kokas, kondisi oven, dan ketentuan pabrik.",
+"adegan": 6,
+"a": 18768,
+"b": 18948
+},
+{
+"teks": "Tugas operator adalah memastikan perbandingan itu benar-benar tercapai: timbangan akurat, pengumpan tidak macet, dan silo tidak kosong.",
+"adegan": 6,
+"a": 18962,
+"b": 19166
+},
+{
+"teks": "Menurut materi lama, batas kesalahan timbangan pencampuran paling besar nol koma lima persen.",
+"adegan": 6,
+"a": 19179,
+"b": 19335
+},
+{
+"teks": "Kualitas batubara memengaruhi hampir seluruh proses produksi kokas.",
+"adegan": 7,
+"a": 19349,
+"b": 19445
+},
+{
+"teks": "Kadar air terlalu tinggi, beban panas naik dan kokas bisa kurang matang.",
+"adegan": 7,
+"a": 19458,
+"b": 19602
+},
+{
+"teks": "Kadar abu terlalu tinggi, abu kokas ikut naik.",
+"adegan": 7,
+"a": 19616,
+"b": 19712
+},
+{
+"teks": "Sulfur terlalu tinggi, sulfur kokas dan hidrogen sulfida di gas ikut naik.",
+"adegan": 7,
+"a": 19725,
+"b": 19869
+},
+{
+"teks": "Zat terbang terlalu tinggi, gas dan tar naik, hasil kokas turun, dan kokas lebih retak.",
+"adegan": 7,
+"a": 19883,
+"b": 20063
+},
+{
+"teks": "Daya ikat terlalu rendah, kokas rapuh dan banyak serbuk.",
+"adegan": 7,
+"a": 20076,
+"b": 20184
+},
+{
+"teks": "Pemuaian berlebihan, tekanan dinding naik dan kokas sulit didorong.",
+"adegan": 7,
+"a": 20198,
+"b": 20306
+},
+{
+"teks": "Dan kalau kualitasnya berubah-ubah, seluruh proses menjadi tidak stabil.",
+"adegan": 7,
+"a": 20319,
+"b": 20427
+},
+{
+"teks": "Kokas kurang matang berwarna hitam, kusam, dan rapuh.",
+"adegan": 7,
+"a": 20441,
+"b": 20537
+},
+{
+"teks": "Kokas matang lewat berwarna abu-abu keperakan, getas, dan banyak retak memanjang.",
+"adegan": 7,
+"a": 20550,
+"b": 20682
+},
+{
+"teks": "Mutu kokas diukur dengan beberapa angka.",
+"adegan": 7,
+"a": 20696,
+"b": 20768
+},
+{
+"teks": "Kekuatan tahan pecah, makin tinggi makin baik.",
+"adegan": 7,
+"a": 20781,
+"b": 20865
+},
+{
+"teks": "Ketahanan aus, makin rendah makin baik.",
+"adegan": 7,
+"a": 20879,
+"b": 20951
+},
+{
+"teks": "Reaktivitas terhadap karbon dioksida, makin rendah umumnya makin baik.",
+"adegan": 7,
+"a": 20964,
+"b": 21072
+},
+{
+"teks": "Dan kekuatan setelah bereaksi, makin tinggi makin baik.",
+"adegan": 7,
+"a": 21086,
+"b": 21182
+},
+{
+"teks": "Semuanya sangat dipengaruhi oleh campuran batubara.",
+"adegan": 7,
+"a": 21195,
+"b": 21267
+},
+{
+"teks": "Karena itu, sebelum dipakai, kualitas batubara harus diperiksa dan dikendalikan.",
+"adegan": 8,
+"a": 21281,
+"b": 21401
+},
+{
+"teks": "Langkah pertama, pengambilan contoh yang mewakili seluruh tumpukan.",
+"adegan": 8,
+"a": 21414,
+"b": 21510
+},
+{
+"teks": "Langkah kedua, persiapan contoh: dihancurkan, dicampur, dan dibagi.",
+"adegan": 8,
+"a": 21524,
+"b": 21620
+},
+{
+"teks": "Langkah ketiga, pengujian di laboratorium.",
+"adegan": 8,
+"a": 21633,
+"b": 21693
+},
+{
+"teks": "Langkah keempat, penilaian kualitas dengan membandingkan hasil terhadap standar.",
+"adegan": 8,
+"a": 21707,
+"b": 21815
+},
+{
+"teks": "Langkah kelima, penyesuaian campuran jika kualitas bahan berubah.",
+"adegan": 8,
+"a": 21828,
+"b": 21924
+},
+{
+"teks": "Dari semua langkah, pengambilan contoh adalah yang paling menentukan.",
+"adegan": 8,
+"a": 21938,
+"b": 22046
+},
+{
+"teks": "Laboratorium seakurat apa pun tidak berguna jika contohnya tidak mewakili.",
+"adegan": 8,
+"a": 22059,
+"b": 22179
+},
+{
+"teks": "Ambil dari banyak titik, jangan hanya permukaan atau satu sisi tumpukan.",
+"adegan": 8,
+"a": 22193,
+"b": 22325
+},
+{
+"teks": "Jangan memilih bongkahan yang terlihat bagus.",
+"adegan": 8,
+"a": 22338,
+"b": 22410
+},
+{
+"teks": "Simpan di wadah tertutup rapat, dan beri label jenis batubara, lokasi, waktu, dan nama petugas.",
+"adegan": 8,
+"a": 22424,
+"b": 22604
+},
+{
+"teks": "Tujuannya bukan sekadar tahu batubara bagus atau buruk, tetapi memastikan campuran yang masuk ke oven sifatnya stabil.",
+"adegan": 8,
+"a": 22617,
+"b": 22821
+},
+{
+"teks": "Jadi alurnya begini: batubara diperiksa, dipilih jenisnya, ditentukan campurannya, disiapkan, diisikan ke oven, lalu dikarbonisasi menjadi kokas dan gas mentah.",
+"adegan": 9,
+"a": 22835,
+"b": 23075
+},
+{
+"teks": "Ada beberapa salah kaprah yang sering terjadi.",
+"adegan": 9,
+"a": 23088,
+"b": 23172
+},
+{
+"teks": "Semua batubara bisa dijadikan kokas, padahal hanya batubara kokas yang bisa.",
+"adegan": 9,
+"a": 23186,
+"b": 23318
+},
+{
+"teks": "Antrasit paling bagus karena karbonnya tinggi, padahal antrasit tidak melunak.",
+"adegan": 9,
+"a": 23331,
+"b": 23451
+},
+{
+"teks": "Makin halus makin bagus, padahal terlalu halus menurunkan kepadatan pengisian.",
+"adegan": 9,
+"a": 23465,
+"b": 23585
+},
+{
+"teks": "Makin kering makin bagus, padahal yang penting sesuai dan stabil.",
+"adegan": 9,
+"a": 23598,
+"b": 23718
+},
+{
+"teks": "Abu kokas sama dengan abu batubara, padahal abu kokas selalu lebih tinggi.",
+"adegan": 9,
+"a": 23732,
+"b": 23876
+},
+{
+"teks": "Daya ikat setinggi-tingginya pasti bagus, padahal harus seimbang.",
+"adegan": 9,
+"a": 23889,
+"b": 23985
+},
+{
+"teks": "Dan laboratorium akurat berarti data pasti benar, padahal contoh yang tidak mewakili membuat data tidak sah.",
+"adegan": 9,
+"a": 23999,
+"b": 24191
+},
+{
+"teks": "Batubara yang stabil menghasilkan proses yang stabil, dan proses yang stabil menghasilkan kokas yang terkendali.",
+"adegan": 9,
+"a": 24204,
+"b": 24384
+},
+{
+"teks": "Di bagian berikutnya, kita bedah persiapan batubara, dari penerimaan sampai siap masuk oven.",
+"adegan": 9,
+"a": 24398,
+"b": 24554
+},
+{
+"teks": "Follow Adriy Project, biar kamu makin sering bilang, oh ternyata begitu.",
+"adegan": 9,
+"a": 24567,
+"b": 24699
+}
+],
+"perkiraan": true
+}

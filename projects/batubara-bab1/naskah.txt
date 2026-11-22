@@ -1,0 +1,182 @@
+# S0 pembuka
+Batu hitam yang sama, bisa berakhir jadi abu, atau jadi bahan yang menopang industri baja dunia.
+Di Adriy Project, kali ini kita bedah batubara, bahan baku utama pabrik kokas, dari dalam.
+Kokas adalah bahan padat yang kuat dan berpori, dibuat dari batubara yang dipanaskan tanpa udara.
+Tapi ternyata, tidak semua batubara bisa dijadikan kokas.
+
+# S1 pendahuluan
+Batubara harus dipanaskan di dalam ruang tertutup yang disebut ruang karbonisasi.
+Di sana, butiran batubara melunak, melepaskan gas dan cairan, lalu menyatu menjadi satu massa.
+Setelah itu, massa ini mengeras kembali menjadi kokas yang kuat dan berpori.
+Batubara yang bisa berperilaku seperti ini disebut batubara kokas.
+Alurnya begini: batubara dari tambang dipilih berdasarkan kualitas, lalu disiapkan dan dicampur.
+Campuran itu diisikan ke ruang karbonisasi, lalu dipanaskan tanpa udara.
+Hasil utamanya kokas, sedangkan gas dan produk sampingnya dikirim ke bagian pemurnian gas.
+Kenapa harus tanpa udara?
+Kalau ada oksigen, batubara akan terbakar dan habis menjadi abu dan panas.
+Tanpa udara, batubara tidak terbakar, tetapi terurai karena panas.
+Bagian yang mudah menguap keluar sebagai gas, sedangkan karbon padatnya tertinggal sebagai kokas.
+Panasnya datang dari ruang pembakaran di balik dinding, bukan dari api di dalam ruang karbonisasi.
+
+# S2 pengertian
+Lalu, batubara itu sebenarnya apa?
+Batubara adalah bahan padat kaya karbon yang terbentuk dari sisa tumbuhan purba.
+Tumbuhan rawa yang mati tertimbun air, sehingga tidak membusuk habis.
+Lalu tekanan, suhu, dan waktu geologi yang sangat panjang mengubahnya perlahan.
+Proses ini disebut pembatubaraan.
+Tahap pertama adalah gambut, masih berserat dan sangat basah.
+Tahap kedua adalah batubara cokelat atau lignit, dengan kadar air dan zat terbang yang tinggi.
+Tahap ketiga adalah batubara bituminus, kelompok yang dipakai untuk membuat kokas.
+Tahap terakhir adalah antrasit, paling tua, paling keras, dan karbonnya paling tinggi.
+Semakin tinggi tingkat pembatubaraan, kadar karbon umumnya naik, sedangkan air dan zat terbang makin rendah.
+Tapi antrasit tidak bisa dijadikan kokas, karena tidak melunak saat dipanaskan.
+Butirannya tidak bisa menyatu, jadi tidak terbentuk kokas.
+Untuk membedakan kelompoknya, standar Tiongkok memakai kadar zat terbang pada basis kering bebas abu.
+Antrasit sampai sepuluh persen, bituminus di atas sepuluh sampai sekitar tiga puluh tujuh persen, dan batubara cokelat di atas tiga puluh tujuh persen.
+
+# S3 batubara kokas
+Sekarang bandingkan dua jenis batubara: batubara bahan bakar dan batubara kokas.
+Batubara bahan bakar dibakar dengan udara untuk diambil panasnya, seperti di PLTU dan boiler.
+Hasil akhirnya abu dan gas buang.
+Batubara kokas justru dipanaskan tanpa udara, dan hasilnya kokas, gas, tar, serta produk samping.
+Yang membedakan adalah perilakunya saat dipanaskan.
+Kita masuk ke dalam ruang karbonisasi dan lihat perubahannya.
+Pertama, pengeringan: air menguap, sekitar di bawah dua ratus derajat Celsius.
+Kedua, penguraian akibat panas: ikatan kimia mulai putus dan gas mulai keluar, sekitar dua ratus sampai tiga ratus lima puluh derajat.
+Ketiga, pelunakan: butiran mulai lunak, sekitar tiga ratus lima puluh sampai empat ratus derajat.
+Keempat, terbentuk lapisan plastis, massa lunak seperti adonan yang bercampur gas dan cairan.
+Kelima, massa lunak itu mengisi celah dan merekatkan butiran.
+Keenam, pemadatan kembali menjadi semi kokas, sekitar empat ratus lima puluh sampai lima ratus derajat.
+Ketujuh, semi kokas terus melepas gas dan menyusut, sampai pusat kue mencapai sekitar sembilan ratus lima puluh sampai seribu lima puluh derajat.
+Angka suhu ini perkiraan umum dari literatur, bukan angka SOP pabrik.
+Tahap pelunakan dan lapisan plastis adalah yang paling penting.
+Kalau batubara tidak punya sifat pembentuk kokas yang cukup, butiran tidak menyatu, dan kokas menjadi lemah serta mudah hancur.
+Ada satu hal menarik.
+Panas masuk dari kedua dinding oven, jadi batubara di dekat dinding melunak lebih dulu.
+Lapisan plastis terbentuk di dua sisi, lalu bergerak ke tengah dan bertemu di tengah oven.
+Saat keduanya bertemu, gas yang terperangkap menekan dinding, dan ini salah satu sumber tekanan pemuaian.
+
+# S4 komponen
+Kalau video ini membantu kamu belajar, simpan dulu supaya gampang diulang.
+Sekarang kita bedah isi batubara, komponen apa saja yang diperiksa.
+Komponen pertama adalah kadar air.
+Ada air bebas yang menempel di permukaan butiran, dan air bawaan yang terikat di dalam pori.
+Jumlah keduanya disebut air total.
+Selama air belum habis menguap, suhu di tengah kue batubara tertahan sekitar seratus derajat.
+Makin banyak air, makin lama tertahan, sehingga waktu pematangan kokas bertambah.
+Komponen kedua adalah kadar abu, yaitu bahan mineral yang tidak terbakar.
+Abu dari batubara hampir seluruhnya masuk ke dalam kokas.
+Dan abu kokas selalu lebih tinggi daripada abu batubara.
+Karena zat terbang keluar dan beratnya berkurang, sedangkan abunya tertinggal sehingga makin pekat.
+Perkiraannya, abu kokas sama dengan abu batubara dibagi hasil kokas.
+Misalnya abu batubara sembilan persen dan hasil kokas tujuh puluh lima persen, maka abu kokas sekitar dua belas persen.
+Abu berisi silika, alumina, oksida besi, kapur, dan alkali.
+Alkali yang tinggi membuat kokas mudah bereaksi di tanur tinggi, sehingga kekuatannya turun.
+Komponen ketiga adalah zat terbang, bagian yang lepas saat batubara dipanaskan tanpa udara.
+Zat terbang berubah menjadi gas, uap air, tar, amonia, benzena, naftalena, dan hidrogen sulfida.
+Semuanya menjadi gas oven kokas mentah, lalu dikirim ke pemurnian gas.
+Zat terbang tidak menjadi kokas.
+Jadi makin tinggi zat terbang, makin banyak gas dan tar, tetapi kokas yang dihasilkan makin sedikit dan cenderung lebih retak.
+Di laboratorium, zat terbang diuji dengan memanaskan contoh batubara tanpa udara pada suhu sekitar sembilan ratus derajat.
+Komponen keempat adalah karbon tetap, bagian padat yang menjadi kerangka kokas.
+Karbon tetap tidak diukur langsung, tetapi dihitung.
+Rumusnya, seratus dikurangi air, dikurangi abu, dikurangi zat terbang.
+Contohnya air satu koma lima persen, abu sembilan persen, zat terbang dua puluh enam persen, maka karbon tetapnya enam puluh tiga koma lima persen.
+Komponen kelima adalah sulfur.
+Sulfur ada dalam bentuk pirit, sulfur organik, dan sedikit sulfat.
+Sekitar enam puluh sampai delapan puluh persen sulfur tertinggal di kokas.
+Sisanya keluar sebagai hidrogen sulfida dalam gas, yang nanti dihilangkan di unit penghilangan sulfur.
+Di tanur tinggi, sulfur dari kokas membuat baja rapuh saat panas.
+Komponen keenam adalah fosfor.
+Berbeda dengan sulfur, fosfor hampir seluruhnya tertinggal di kokas.
+Di baja, fosfor membuat logam getas dan mudah patah saat dingin.
+Satu-satunya cara mengendalikannya adalah memilih batubara yang fosfornya rendah.
+Hasil laboratorium juga punya basis analisis.
+Basis seperti diterima termasuk semua air, basis kering udara dikeringkan di udara ruangan, basis kering tanpa air sama sekali, dan basis kering bebas abu dianggap tanpa air dan tanpa abu.
+Angka yang sama bisa terlihat berbeda kalau basisnya berbeda, jadi selalu bandingkan dengan basis yang sama.
+
+# S5 sifat
+Komposisi saja belum cukup.
+Kita juga harus tahu bagaimana batubara berperilaku saat dipanaskan.
+Sifat pertama adalah kemampuan mengikat, yaitu kemampuan batubara yang melunak mengikat butiran lain menjadi satu massa.
+Sifat ini diukur dengan indeks G, makin tinggi nilainya makin kuat daya ikatnya.
+Sifat kedua adalah kemampuan membentuk kokas, yaitu kemampuan menghasilkan kokas dengan struktur dan kekuatan yang sesuai.
+Bayangkan lem dan bangunan.
+Kemampuan mengikat itu kekuatan lemnya, sedangkan kemampuan membentuk kokas itu kualitas bangunannya.
+Lem kuat belum tentu bangunannya bagus.
+Batubara lemak daya ikatnya sangat kuat, tetapi kalau dipakai sendirian kokasnya banyak retak.
+Sifat ketiga adalah kecairan saat dipanaskan, diukur dengan alat Gieseler.
+Terlalu rendah, butiran tidak menyatu, terlalu tinggi, kokas berpori besar dan rapuh.
+Kuncinya sesuai, bukan setinggi-tingginya.
+Sifat keempat adalah pemuaian dan penyusutan.
+Batubara memuai pada tahap plastis, lalu menyusut saat menjadi kokas.
+Kalau memuai berlebihan, dinding oven tertekan, batanya bisa retak, dan umur oven memendek.
+Kalau menyusut terlalu sedikit, kokas menempel ke dinding dan sulit didorong keluar.
+Penyusutan di akhir justru dibutuhkan, karena membuat celah kecil antara kokas dan dinding.
+Sifat kelima adalah ukuran butiran.
+Terlalu kasar, campuran kurang seragam dan kokas bisa retak di titik butiran besar.
+Terlalu halus, kepadatan pengisian turun dan lebih berdebu.
+Kehalusan diukur dari persentase butiran yang lolos ayakan tiga milimeter.
+Menurut materi lama, oven pengisian atas tujuh meter memakai kehalusan tujuh puluh sampai tujuh puluh empat persen, dan oven pemadatan lima koma lima meter memakai delapan puluh enam sampai sembilan puluh persen.
+Laboratorium juga mengukur tebal lapisan plastis, penyusutan akhir, pemuaian, indeks muai bebas, dan reflektansi vitrinit untuk tingkat kematangan batubara.
+
+# S6 campuran
+Di pabrik kokas, batubara hampir tidak pernah dipakai satu jenis saja.
+Beberapa jenis dicampur, dan prosesnya disebut pencampuran batubara.
+Alasannya, tidak ada satu jenis yang sempurna, batubara terbaik mahal dan terbatas, jenis tertentu tidak aman untuk oven jika dipakai sendirian, dan campuran membuat kualitas lebih stabil.
+Batubara gas, zat terbangnya tinggi, menambah gas dan hasil samping, tetapi kokasnya kecil dan retak jika berlebihan.
+Batubara lemak adalah lem campuran, daya ikatnya sangat kuat dan daerah plastisnya lebar.
+Batubara kokas utama adalah tulang punggung campuran, yang menghasilkan kokas kuat.
+Batubara kurus mengatur campuran, mengurangi retak, dan menambah ukuran kokas.
+Ada juga sepertiga batubara kokas dan batubara gas lemak yang sering muncul di daftar pabrik.
+Masing-masing jenis disimpan terpisah, ditakar sesuai perbandingan, lalu dicampur menjadi campuran batubara yang dikirim ke oven.
+Perbandingan campuran tidak bisa ditentukan hanya dari nama jenisnya.
+Formulanya ditentukan dari hasil uji bahan baku, target mutu kokas, kondisi oven, dan ketentuan pabrik.
+Tugas operator adalah memastikan perbandingan itu benar-benar tercapai: timbangan akurat, pengumpan tidak macet, dan silo tidak kosong.
+Menurut materi lama, batas kesalahan timbangan pencampuran paling besar nol koma lima persen.
+
+# S7 pengaruh
+Kualitas batubara memengaruhi hampir seluruh proses produksi kokas.
+Kadar air terlalu tinggi, beban panas naik dan kokas bisa kurang matang.
+Kadar abu terlalu tinggi, abu kokas ikut naik.
+Sulfur terlalu tinggi, sulfur kokas dan hidrogen sulfida di gas ikut naik.
+Zat terbang terlalu tinggi, gas dan tar naik, hasil kokas turun, dan kokas lebih retak.
+Daya ikat terlalu rendah, kokas rapuh dan banyak serbuk.
+Pemuaian berlebihan, tekanan dinding naik dan kokas sulit didorong.
+Dan kalau kualitasnya berubah-ubah, seluruh proses menjadi tidak stabil.
+Kokas kurang matang berwarna hitam, kusam, dan rapuh.
+Kokas matang lewat berwarna abu-abu keperakan, getas, dan banyak retak memanjang.
+Mutu kokas diukur dengan beberapa angka.
+Kekuatan tahan pecah, makin tinggi makin baik.
+Ketahanan aus, makin rendah makin baik.
+Reaktivitas terhadap karbon dioksida, makin rendah umumnya makin baik.
+Dan kekuatan setelah bereaksi, makin tinggi makin baik.
+Semuanya sangat dipengaruhi oleh campuran batubara.
+
+# S8 pemeriksaan
+Karena itu, sebelum dipakai, kualitas batubara harus diperiksa dan dikendalikan.
+Langkah pertama, pengambilan contoh yang mewakili seluruh tumpukan.
+Langkah kedua, persiapan contoh: dihancurkan, dicampur, dan dibagi.
+Langkah ketiga, pengujian di laboratorium.
+Langkah keempat, penilaian kualitas dengan membandingkan hasil terhadap standar.
+Langkah kelima, penyesuaian campuran jika kualitas bahan berubah.
+Dari semua langkah, pengambilan contoh adalah yang paling menentukan.
+Laboratorium seakurat apa pun tidak berguna jika contohnya tidak mewakili.
+Ambil dari banyak titik, jangan hanya permukaan atau satu sisi tumpukan.
+Jangan memilih bongkahan yang terlihat bagus.
+Simpan di wadah tertutup rapat, dan beri label jenis batubara, lokasi, waktu, dan nama petugas.
+Tujuannya bukan sekadar tahu batubara bagus atau buruk, tetapi memastikan campuran yang masuk ke oven sifatnya stabil.
+
+# S9 ringkasan
+Jadi alurnya begini: batubara diperiksa, dipilih jenisnya, ditentukan campurannya, disiapkan, diisikan ke oven, lalu dikarbonisasi menjadi kokas dan gas mentah.
+Ada beberapa salah kaprah yang sering terjadi.
+Semua batubara bisa dijadikan kokas, padahal hanya batubara kokas yang bisa.
+Antrasit paling bagus karena karbonnya tinggi, padahal antrasit tidak melunak.
+Makin halus makin bagus, padahal terlalu halus menurunkan kepadatan pengisian.
+Makin kering makin bagus, padahal yang penting sesuai dan stabil.
+Abu kokas sama dengan abu batubara, padahal abu kokas selalu lebih tinggi.
+Daya ikat setinggi-tingginya pasti bagus, padahal harus seimbang.
+Dan laboratorium akurat berarti data pasti benar, padahal contoh yang tidak mewakili membuat data tidak sah.
+Batubara yang stabil menghasilkan proses yang stabil, dan proses yang stabil menghasilkan kokas yang terkendali.
+Di bagian berikutnya, kita bedah persiapan batubara, dari penerimaan sampai siap masuk oven.
+Follow Adriy Project, biar kamu makin sering bilang, oh ternyata begitu.
