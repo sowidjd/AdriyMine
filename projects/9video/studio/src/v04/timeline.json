@@ -1,0 +1,391 @@
+{
+ "kalimat": [
+  {
+   "no": 1,
+   "teks": "Coba masukkan es batu ke dalam gelas berisi air.",
+   "mulai": 0.0,
+   "durasi": 4.35
+  },
+  {
+   "no": 2,
+   "teks": "Di Adriy Project, kita bahas sains sehari-hari dengan bahasa yang gampang.",
+   "mulai": 4.8,
+   "durasi": 5.18
+  },
+  {
+   "no": 3,
+   "teks": "Es batu itu akan mengapung, dan kelihatannya biasa saja.",
+   "mulai": 10.43,
+   "durasi": 4.35
+  },
+  {
+   "no": 4,
+   "teks": "Padahal, ini salah satu keanehan terbesar di dunia kimia.",
+   "mulai": 15.23,
+   "durasi": 4.35
+  },
+  {
+   "no": 5,
+   "teks": "Coba pikirkan lilin, mentega, atau besi.",
+   "mulai": 20.03,
+   "durasi": 3.1
+  },
+  {
+   "no": 6,
+   "teks": "Saat dibekukan, hampir semua zat menjadi lebih padat dan lebih rapat.",
+   "mulai": 23.58,
+   "durasi": 5.18
+  },
+  {
+   "no": 7,
+   "teks": "Bentuk padatnya lebih berat daripada bentuk cairnya, sehingga ia tenggelam.",
+   "mulai": 29.21,
+   "durasi": 4.77
+  },
+  {
+   "no": 8,
+   "teks": "Tapi air justru melakukan kebalikannya.",
+   "mulai": 34.43,
+   "durasi": 2.68
+  },
+  {
+   "no": 9,
+   "teks": "Saat membeku, air mengembang sekitar sembilan persen.",
+   "mulai": 37.56,
+   "durasi": 3.52
+  },
+  {
+   "no": 10,
+   "teks": "Volumenya bertambah, tapi beratnya tetap sama.",
+   "mulai": 41.53,
+   "durasi": 3.1
+  },
+  {
+   "no": 11,
+   "teks": "Akibatnya, es menjadi lebih ringan daripada air di sekitarnya, dan ia pun mengapung.",
+   "mulai": 45.08,
+   "durasi": 6.02
+  },
+  {
+   "no": 12,
+   "teks": "Lalu kenapa air bisa mengembang saat membeku?",
+   "mulai": 51.55,
+   "durasi": 3.52
+  },
+  {
+   "no": 13,
+   "teks": "Rahasianya ada pada bentuk molekul air.",
+   "mulai": 55.52,
+   "durasi": 3.1
+  },
+  {
+   "no": 14,
+   "teks": "Satu molekul air terdiri dari satu atom oksigen dan dua atom hidrogen, membentuk huruf V.",
+   "mulai": 59.07,
+   "durasi": 6.85
+  },
+  {
+   "no": 15,
+   "teks": "Molekul-molekul ini saling tarik lewat ikatan yang disebut ikatan hidrogen.",
+   "mulai": 66.37,
+   "durasi": 4.77
+  },
+  {
+   "no": 16,
+   "teks": "Dalam air cair, ikatan ini terus putus dan tersambung lagi, jadi molekulnya bisa berdesakan rapat.",
+   "mulai": 71.59,
+   "durasi": 6.85
+  },
+  {
+   "no": 17,
+   "teks": "Tapi saat membeku, setiap molekul terkunci di posisi yang tetap.",
+   "mulai": 78.89,
+   "durasi": 4.77
+  },
+  {
+   "no": 18,
+   "teks": "Mereka tersusun seperti sarang lebah segi enam, dengan banyak ruang kosong di tengahnya.",
+   "mulai": 84.11,
+   "durasi": 6.02
+  },
+  {
+   "no": 19,
+   "teks": "Ruang kosong inilah yang membuat es lebih renggang daripada air.",
+   "mulai": 90.58,
+   "durasi": 4.77
+  },
+  {
+   "no": 20,
+   "teks": "Kirim video ini ke temanmu yang paling suka penasaran.",
+   "mulai": 95.8,
+   "durasi": 4.35
+  },
+  {
+   "no": 21,
+   "teks": "Keanehan kecil ini ternyata menyelamatkan kehidupan di Bumi.",
+   "mulai": 100.6,
+   "durasi": 3.93
+  },
+  {
+   "no": 22,
+   "teks": "Saat musim dingin, danau dan laut membeku dari atas, bukan dari bawah.",
+   "mulai": 104.98,
+   "durasi": 5.6
+  },
+  {
+   "no": 23,
+   "teks": "Lapisan es di permukaan bekerja seperti selimut, menahan dingin agar air di bawahnya tidak ikut membeku.",
+   "mulai": 111.03,
+   "durasi": 7.27
+  },
+  {
+   "no": 24,
+   "teks": "Air paling berat pada suhu sekitar empat derajat Celsius, jadi air sesuhu itu tenggelam ke dasar.",
+   "mulai": 118.75,
+   "durasi": 7.27
+  },
+  {
+   "no": 25,
+   "teks": "Berkat itu, ikan dan makhluk lain tetap bisa hidup di bawah es sepanjang musim dingin.",
+   "mulai": 126.47,
+   "durasi": 6.85
+  },
+  {
+   "no": 26,
+   "teks": "Seandainya es tenggelam, danau bisa membeku dari dasar sampai ke atas.",
+   "mulai": 133.77,
+   "durasi": 5.18
+  },
+  {
+   "no": 27,
+   "teks": "Sifat mengembang ini juga punya sisi lain.",
+   "mulai": 139.4,
+   "durasi": 3.52
+  },
+  {
+   "no": 28,
+   "teks": "Pipa air di negara dingin bisa pecah saat airnya membeku.",
+   "mulai": 143.37,
+   "durasi": 4.77
+  },
+  {
+   "no": 29,
+   "teks": "Dan gunung es yang kita lihat di laut, sekitar sembilan puluh persen bagiannya tersembunyi di bawah permukaan.",
+   "mulai": 148.59,
+   "durasi": 7.68
+  },
+  {
+   "no": 30,
+   "teks": "Jadi, es batu di gelasmu sedang menunjukkan salah satu sifat air yang paling penting bagi kehidupan.",
+   "mulai": 156.72,
+   "durasi": 7.27
+  },
+  {
+   "no": 31,
+   "teks": "Follow Adriy Project supaya kamu nggak ketinggalan fakta berikutnya.",
+   "mulai": 164.44,
+   "durasi": 4.35
+  },
+  {
+   "no": 32,
+   "teks": "Explore More, Know More.",
+   "mulai": 169.24,
+   "durasi": 2.27
+  }
+ ],
+ "total": 171.96,
+ "sub": [
+  {
+   "no": 1,
+   "teks": "Coba masukkan es batu ke dalam gelas berisi air.",
+   "mulai": 0.0,
+   "durasi": 4.35
+  },
+  {
+   "no": 2,
+   "teks": "Di Adriy Project, kita bahas sains sehari-hari dengan bahasa yang gampang.",
+   "mulai": 4.8,
+   "durasi": 5.18
+  },
+  {
+   "no": 3,
+   "teks": "Es batu itu akan mengapung, dan kelihatannya biasa saja.",
+   "mulai": 10.43,
+   "durasi": 4.35
+  },
+  {
+   "no": 4,
+   "teks": "Padahal, ini salah satu keanehan terbesar di dunia kimia.",
+   "mulai": 15.23,
+   "durasi": 4.35
+  },
+  {
+   "no": 5,
+   "teks": "Coba pikirkan lilin, mentega, atau besi.",
+   "mulai": 20.03,
+   "durasi": 3.1
+  },
+  {
+   "no": 6,
+   "teks": "Saat dibekukan, hampir semua zat menjadi lebih padat dan lebih rapat.",
+   "mulai": 23.58,
+   "durasi": 5.18
+  },
+  {
+   "no": 7,
+   "teks": "Bentuk padatnya lebih berat daripada bentuk cairnya, sehingga ia tenggelam.",
+   "mulai": 29.21,
+   "durasi": 4.77
+  },
+  {
+   "no": 8,
+   "teks": "Tapi air justru melakukan kebalikannya.",
+   "mulai": 34.43,
+   "durasi": 2.68
+  },
+  {
+   "no": 9,
+   "teks": "Saat membeku, air mengembang sekitar sembilan persen.",
+   "mulai": 37.56,
+   "durasi": 3.52
+  },
+  {
+   "no": 10,
+   "teks": "Volumenya bertambah, tapi beratnya tetap sama.",
+   "mulai": 41.53,
+   "durasi": 3.1
+  },
+  {
+   "no": 11,
+   "teks": "Akibatnya, es menjadi lebih ringan daripada air di sekitarnya, dan ia pun mengapung.",
+   "mulai": 45.08,
+   "durasi": 6.02
+  },
+  {
+   "no": 12,
+   "teks": "Lalu kenapa air bisa mengembang saat membeku?",
+   "mulai": 51.55,
+   "durasi": 3.52
+  },
+  {
+   "no": 13,
+   "teks": "Rahasianya ada pada bentuk molekul air.",
+   "mulai": 55.52,
+   "durasi": 3.1
+  },
+  {
+   "no": 14,
+   "teks": "Satu molekul air terdiri dari satu atom oksigen dan dua atom hidrogen, membentuk huruf V.",
+   "mulai": 59.07,
+   "durasi": 6.85
+  },
+  {
+   "no": 15,
+   "teks": "Molekul-molekul ini saling tarik lewat ikatan yang disebut ikatan hidrogen.",
+   "mulai": 66.37,
+   "durasi": 4.77
+  },
+  {
+   "no": 16,
+   "teks": "Dalam air cair, ikatan ini terus putus dan tersambung lagi, jadi molekulnya bisa berdesakan rapat.",
+   "mulai": 71.59,
+   "durasi": 6.85
+  },
+  {
+   "no": 17,
+   "teks": "Tapi saat membeku, setiap molekul terkunci di posisi yang tetap.",
+   "mulai": 78.89,
+   "durasi": 4.77
+  },
+  {
+   "no": 18,
+   "teks": "Mereka tersusun seperti sarang lebah segi enam, dengan banyak ruang kosong di tengahnya.",
+   "mulai": 84.11,
+   "durasi": 6.02
+  },
+  {
+   "no": 19,
+   "teks": "Ruang kosong inilah yang membuat es lebih renggang daripada air.",
+   "mulai": 90.58,
+   "durasi": 4.77
+  },
+  {
+   "no": 20,
+   "teks": "Kirim video ini ke temanmu yang paling suka penasaran.",
+   "mulai": 95.8,
+   "durasi": 4.35
+  },
+  {
+   "no": 21,
+   "teks": "Keanehan kecil ini ternyata menyelamatkan kehidupan di Bumi.",
+   "mulai": 100.6,
+   "durasi": 3.93
+  },
+  {
+   "no": 22,
+   "teks": "Saat musim dingin, danau dan laut membeku dari atas, bukan dari bawah.",
+   "mulai": 104.98,
+   "durasi": 5.6
+  },
+  {
+   "no": 23,
+   "teks": "Lapisan es di permukaan bekerja seperti selimut, menahan dingin agar air di bawahnya tidak ikut membeku.",
+   "mulai": 111.03,
+   "durasi": 7.27
+  },
+  {
+   "no": 24,
+   "teks": "Air paling berat pada suhu sekitar empat derajat Celsius, jadi air sesuhu itu tenggelam ke dasar.",
+   "mulai": 118.75,
+   "durasi": 7.27
+  },
+  {
+   "no": 25,
+   "teks": "Berkat itu, ikan dan makhluk lain tetap bisa hidup di bawah es sepanjang musim dingin.",
+   "mulai": 126.47,
+   "durasi": 6.85
+  },
+  {
+   "no": 26,
+   "teks": "Seandainya es tenggelam, danau bisa membeku dari dasar sampai ke atas.",
+   "mulai": 133.77,
+   "durasi": 5.18
+  },
+  {
+   "no": 27,
+   "teks": "Sifat mengembang ini juga punya sisi lain.",
+   "mulai": 139.4,
+   "durasi": 3.52
+  },
+  {
+   "no": 28,
+   "teks": "Pipa air di negara dingin bisa pecah saat airnya membeku.",
+   "mulai": 143.37,
+   "durasi": 4.77
+  },
+  {
+   "no": 29,
+   "teks": "Dan gunung es yang kita lihat di laut, sekitar sembilan puluh persen bagiannya tersembunyi di bawah permukaan.",
+   "mulai": 148.59,
+   "durasi": 7.68
+  },
+  {
+   "no": 30,
+   "teks": "Jadi, es batu di gelasmu sedang menunjukkan salah satu sifat air yang paling penting bagi kehidupan.",
+   "mulai": 156.72,
+   "durasi": 7.27
+  },
+  {
+   "no": 31,
+   "teks": "Follow Adriy Project supaya kamu nggak ketinggalan fakta berikutnya.",
+   "mulai": 164.44,
+   "durasi": 4.35
+  },
+  {
+   "no": 32,
+   "teks": "Explore More, Know More.",
+   "mulai": 169.24,
+   "durasi": 2.27
+  }
+ ]
+}

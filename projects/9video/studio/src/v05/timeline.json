@@ -1,0 +1,367 @@
+{
+ "kalimat": [
+  {
+   "no": 1,
+   "teks": "Pernah lihat rute pesawat di layar kursi penumpang, lalu bingung kenapa jalurnya melengkung?",
+   "mulai": 0.0,
+   "durasi": 6.02
+  },
+  {
+   "no": 2,
+   "teks": "Di Adriy Project, kita bahas pertanyaan yang mungkin pernah mampir di kepalamu.",
+   "mulai": 6.47,
+   "durasi": 5.6
+  },
+  {
+   "no": 3,
+   "teks": "Kalau tujuannya ada di sebelah kanan peta, kenapa pesawat malah berbelok ke atas, mendekati kutub?",
+   "mulai": 12.52,
+   "durasi": 6.85
+  },
+  {
+   "no": 4,
+   "teks": "Apakah pilotnya mengambil jalan memutar?",
+   "mulai": 19.82,
+   "durasi": 2.68
+  },
+  {
+   "no": 5,
+   "teks": "Ternyata justru sebaliknya.",
+   "mulai": 22.95,
+   "durasi": 1.85
+  },
+  {
+   "no": 6,
+   "teks": "Jalur melengkung itu sering kali adalah jalur yang paling pendek.",
+   "mulai": 25.25,
+   "durasi": 4.77
+  },
+  {
+   "no": 7,
+   "teks": "Masalahnya ada pada peta yang biasa kita lihat.",
+   "mulai": 30.47,
+   "durasi": 3.93
+  },
+  {
+   "no": 8,
+   "teks": "Bumi berbentuk bulat, sedangkan peta itu datar.",
+   "mulai": 34.85,
+   "durasi": 3.52
+  },
+  {
+   "no": 9,
+   "teks": "Untuk mengubah bola menjadi lembaran datar, bentuk benua dan jarak pasti ikut berubah.",
+   "mulai": 38.82,
+   "durasi": 6.02
+  },
+  {
+   "no": 10,
+   "teks": "Pada peta yang paling umum, yaitu peta Mercator, daerah dekat kutub terlihat jauh lebih besar dari aslinya.",
+   "mulai": 45.29,
+   "durasi": 7.68
+  },
+  {
+   "no": 11,
+   "teks": "Greenland di peta itu terlihat hampir sebesar Afrika.",
+   "mulai": 53.42,
+   "durasi": 3.93
+  },
+  {
+   "no": 12,
+   "teks": "Padahal, Afrika sebenarnya sekitar empat belas kali lebih luas.",
+   "mulai": 57.8,
+   "durasi": 4.35
+  },
+  {
+   "no": 13,
+   "teks": "Karena peta menipu mata kita, garis lurus di peta belum tentu jalur terpendek di Bumi.",
+   "mulai": 62.6,
+   "durasi": 6.85
+  },
+  {
+   "no": 14,
+   "teks": "Coba bayangkan kamu mengambil sebuah bola dunia dan seutas tali.",
+   "mulai": 69.9,
+   "durasi": 4.77
+  },
+  {
+   "no": 15,
+   "teks": "Tarik tali itu sekencang mungkin di antara dua kota.",
+   "mulai": 75.12,
+   "durasi": 4.35
+  },
+  {
+   "no": 16,
+   "teks": "Tali akan mengikuti jalur terpendek di permukaan bola.",
+   "mulai": 79.92,
+   "durasi": 3.93
+  },
+  {
+   "no": 17,
+   "teks": "Jalur ini disebut lingkaran besar.",
+   "mulai": 84.3,
+   "durasi": 2.68
+  },
+  {
+   "no": 18,
+   "teks": "Saat jalur lingkaran besar itu digambar ulang di peta datar, hasilnya terlihat melengkung.",
+   "mulai": 87.43,
+   "durasi": 6.02
+  },
+  {
+   "no": 19,
+   "teks": "Sebagai contoh, penerbangan dari New York ke Tokyo biasanya lewat dekat Alaska, bukan lurus melintasi Pasifik di tengah peta.",
+   "mulai": 93.9,
+   "durasi": 8.52
+  },
+  {
+   "no": 20,
+   "teks": "Simpan video ini supaya kamu nggak lupa.",
+   "mulai": 102.87,
+   "durasi": 3.52
+  },
+  {
+   "no": 21,
+   "teks": "Tapi jalur terpendek bukan satu-satunya pertimbangan.",
+   "mulai": 106.84,
+   "durasi": 3.1
+  },
+  {
+   "no": 22,
+   "teks": "Pilot juga memperhitungkan arus angin kencang di ketinggian, yang disebut jet stream.",
+   "mulai": 110.39,
+   "durasi": 5.6
+  },
+  {
+   "no": 23,
+   "teks": "Kalau angin datang dari belakang, pesawat bisa lebih cepat dan lebih hemat bahan bakar.",
+   "mulai": 116.44,
+   "durasi": 6.43
+  },
+  {
+   "no": 24,
+   "teks": "Itulah kenapa waktu terbang pergi dan pulang di rute yang sama bisa berbeda.",
+   "mulai": 123.32,
+   "durasi": 6.02
+  },
+  {
+   "no": 25,
+   "teks": "Selain itu, ada aturan jalur udara, cuaca buruk, dan bandara cadangan yang harus selalu terjangkau.",
+   "mulai": 129.79,
+   "durasi": 6.85
+  },
+  {
+   "no": 26,
+   "teks": "Jadi, rute pesawat adalah hasil perhitungan antara jarak, angin, dan keselamatan.",
+   "mulai": 137.09,
+   "durasi": 5.18
+  },
+  {
+   "no": 27,
+   "teks": "Lain kali kamu melihat jalur yang melengkung di layar pesawat, kamu tahu bahwa itu bukan jalan memutar.",
+   "mulai": 142.72,
+   "durasi": 7.68
+  },
+  {
+   "no": 28,
+   "teks": "Itu adalah jalan pintas di atas Bumi yang bulat.",
+   "mulai": 150.85,
+   "durasi": 4.35
+  },
+  {
+   "no": 29,
+   "teks": "Follow Adriy Project, dan ajak temanmu belajar bareng.",
+   "mulai": 155.65,
+   "durasi": 3.93
+  },
+  {
+   "no": 30,
+   "teks": "Explore More, Know More.",
+   "mulai": 160.03,
+   "durasi": 2.27
+  }
+ ],
+ "total": 162.75,
+ "sub": [
+  {
+   "no": 1,
+   "teks": "Pernah lihat rute pesawat di layar kursi penumpang, lalu bingung kenapa jalurnya melengkung?",
+   "mulai": 0.0,
+   "durasi": 6.02
+  },
+  {
+   "no": 2,
+   "teks": "Di Adriy Project, kita bahas pertanyaan yang mungkin pernah mampir di kepalamu.",
+   "mulai": 6.47,
+   "durasi": 5.6
+  },
+  {
+   "no": 3,
+   "teks": "Kalau tujuannya ada di sebelah kanan peta, kenapa pesawat malah berbelok ke atas, mendekati kutub?",
+   "mulai": 12.52,
+   "durasi": 6.85
+  },
+  {
+   "no": 4,
+   "teks": "Apakah pilotnya mengambil jalan memutar?",
+   "mulai": 19.82,
+   "durasi": 2.68
+  },
+  {
+   "no": 5,
+   "teks": "Ternyata justru sebaliknya.",
+   "mulai": 22.95,
+   "durasi": 1.85
+  },
+  {
+   "no": 6,
+   "teks": "Jalur melengkung itu sering kali adalah jalur yang paling pendek.",
+   "mulai": 25.25,
+   "durasi": 4.77
+  },
+  {
+   "no": 7,
+   "teks": "Masalahnya ada pada peta yang biasa kita lihat.",
+   "mulai": 30.47,
+   "durasi": 3.93
+  },
+  {
+   "no": 8,
+   "teks": "Bumi berbentuk bulat, sedangkan peta itu datar.",
+   "mulai": 34.85,
+   "durasi": 3.52
+  },
+  {
+   "no": 9,
+   "teks": "Untuk mengubah bola menjadi lembaran datar, bentuk benua dan jarak pasti ikut berubah.",
+   "mulai": 38.82,
+   "durasi": 6.02
+  },
+  {
+   "no": 10,
+   "teks": "Pada peta yang paling umum, yaitu peta Mercator, daerah dekat kutub terlihat jauh lebih besar dari aslinya.",
+   "mulai": 45.29,
+   "durasi": 7.68
+  },
+  {
+   "no": 11,
+   "teks": "Greenland di peta itu terlihat hampir sebesar Afrika.",
+   "mulai": 53.42,
+   "durasi": 3.93
+  },
+  {
+   "no": 12,
+   "teks": "Padahal, Afrika sebenarnya sekitar empat belas kali lebih luas.",
+   "mulai": 57.8,
+   "durasi": 4.35
+  },
+  {
+   "no": 13,
+   "teks": "Karena peta menipu mata kita, garis lurus di peta belum tentu jalur terpendek di Bumi.",
+   "mulai": 62.6,
+   "durasi": 6.85
+  },
+  {
+   "no": 14,
+   "teks": "Coba bayangkan kamu mengambil sebuah bola dunia dan seutas tali.",
+   "mulai": 69.9,
+   "durasi": 4.77
+  },
+  {
+   "no": 15,
+   "teks": "Tarik tali itu sekencang mungkin di antara dua kota.",
+   "mulai": 75.12,
+   "durasi": 4.35
+  },
+  {
+   "no": 16,
+   "teks": "Tali akan mengikuti jalur terpendek di permukaan bola.",
+   "mulai": 79.92,
+   "durasi": 3.93
+  },
+  {
+   "no": 17,
+   "teks": "Jalur ini disebut lingkaran besar.",
+   "mulai": 84.3,
+   "durasi": 2.68
+  },
+  {
+   "no": 18,
+   "teks": "Saat jalur lingkaran besar itu digambar ulang di peta datar, hasilnya terlihat melengkung.",
+   "mulai": 87.43,
+   "durasi": 6.02
+  },
+  {
+   "no": 19,
+   "teks": "Sebagai contoh, penerbangan dari New York ke Tokyo biasanya lewat dekat Alaska, bukan lurus melintasi Pasifik di tengah peta.",
+   "mulai": 93.9,
+   "durasi": 8.52
+  },
+  {
+   "no": 20,
+   "teks": "Simpan video ini supaya kamu nggak lupa.",
+   "mulai": 102.87,
+   "durasi": 3.52
+  },
+  {
+   "no": 21,
+   "teks": "Tapi jalur terpendek bukan satu-satunya pertimbangan.",
+   "mulai": 106.84,
+   "durasi": 3.1
+  },
+  {
+   "no": 22,
+   "teks": "Pilot juga memperhitungkan arus angin kencang di ketinggian, yang disebut jet stream.",
+   "mulai": 110.39,
+   "durasi": 5.6
+  },
+  {
+   "no": 23,
+   "teks": "Kalau angin datang dari belakang, pesawat bisa lebih cepat dan lebih hemat bahan bakar.",
+   "mulai": 116.44,
+   "durasi": 6.43
+  },
+  {
+   "no": 24,
+   "teks": "Itulah kenapa waktu terbang pergi dan pulang di rute yang sama bisa berbeda.",
+   "mulai": 123.32,
+   "durasi": 6.02
+  },
+  {
+   "no": 25,
+   "teks": "Selain itu, ada aturan jalur udara, cuaca buruk, dan bandara cadangan yang harus selalu terjangkau.",
+   "mulai": 129.79,
+   "durasi": 6.85
+  },
+  {
+   "no": 26,
+   "teks": "Jadi, rute pesawat adalah hasil perhitungan antara jarak, angin, dan keselamatan.",
+   "mulai": 137.09,
+   "durasi": 5.18
+  },
+  {
+   "no": 27,
+   "teks": "Lain kali kamu melihat jalur yang melengkung di layar pesawat, kamu tahu bahwa itu bukan jalan memutar.",
+   "mulai": 142.72,
+   "durasi": 7.68
+  },
+  {
+   "no": 28,
+   "teks": "Itu adalah jalan pintas di atas Bumi yang bulat.",
+   "mulai": 150.85,
+   "durasi": 4.35
+  },
+  {
+   "no": 29,
+   "teks": "Follow Adriy Project, dan ajak temanmu belajar bareng.",
+   "mulai": 155.65,
+   "durasi": 3.93
+  },
+  {
+   "no": 30,
+   "teks": "Explore More, Know More.",
+   "mulai": 160.03,
+   "durasi": 2.27
+  }
+ ]
+}

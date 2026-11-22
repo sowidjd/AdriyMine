@@ -1,0 +1,38 @@
+{
+ "cek_manometer": [
+  362,
+  775
+ ],
+ "foto_kamera_lampu": [
+  513,
+  683
+ ],
+ "ok_senter": [
+  401,
+  835
+ ],
+ "tutup_dua_jempol": [
+  380,
+  934
+ ],
+ "wajah_kaget_regulator": [
+  736,
+  500
+ ],
+ "wajah_ok_senyum_regulator": [
+  734,
+  506
+ ],
+ "wajah_takjub_berbinar": [
+  652,
+  596
+ ],
+ "wajah_takjub_mulut_terbuka": [
+  662,
+  498
+ ],
+ "wajah_tertawa_lepas": [
+  648,
+  594
+ ]
+}

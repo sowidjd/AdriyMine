@@ -1,0 +1,403 @@
+{
+ "kalimat": [
+  {
+   "no": 1,
+   "teks": "Bayangkan kamu menyelam ke tempat yang begitu gelap, sampai tanganmu sendiri tidak kelihatan.",
+   "mulai": 0.0,
+   "durasi": 6.02
+  },
+  {
+   "no": 2,
+   "teks": "Di Adriy Project, kita bahas hal yang bikin kamu pengin tahu lebih banyak.",
+   "mulai": 6.47,
+   "durasi": 6.02
+  },
+  {
+   "no": 3,
+   "teks": "Lalu tiba-tiba, di depanmu muncul cahaya biru kecil yang berkedip.",
+   "mulai": 12.94,
+   "durasi": 4.77
+  },
+  {
+   "no": 4,
+   "teks": "Itu bukan lampu penyelam lain, melainkan seekor hewan laut.",
+   "mulai": 18.16,
+   "durasi": 4.35
+  },
+  {
+   "no": 5,
+   "teks": "Kenapa hewan di laut dalam bisa bercahaya?",
+   "mulai": 22.96,
+   "durasi": 3.52
+  },
+  {
+   "no": 6,
+   "teks": "Kita mulai dari cahaya matahari.",
+   "mulai": 26.93,
+   "durasi": 2.68
+  },
+  {
+   "no": 7,
+   "teks": "Di permukaan, laut terlihat terang dan biru.",
+   "mulai": 30.06,
+   "durasi": 3.52
+  },
+  {
+   "no": 8,
+   "teks": "Tapi semakin dalam kita turun, cahaya matahari semakin cepat menghilang.",
+   "mulai": 34.03,
+   "durasi": 4.77
+  },
+  {
+   "no": 9,
+   "teks": "Di bawah sekitar dua ratus meter, laut tinggal remang-remang.",
+   "mulai": 39.25,
+   "durasi": 4.35
+  },
+  {
+   "no": 10,
+   "teks": "Dan di bawah sekitar seribu meter, cahaya matahari praktis tidak sampai sama sekali.",
+   "mulai": 44.05,
+   "durasi": 6.02
+  },
+  {
+   "no": 11,
+   "teks": "Di kegelapan inilah, banyak hewan membuat cahayanya sendiri.",
+   "mulai": 50.52,
+   "durasi": 3.93
+  },
+  {
+   "no": 12,
+   "teks": "Kemampuan ini disebut bioluminesensi.",
+   "mulai": 54.9,
+   "durasi": 2.27
+  },
+  {
+   "no": 13,
+   "teks": "Cahaya itu lahir dari reaksi kimia di dalam tubuh hewan.",
+   "mulai": 57.62,
+   "durasi": 4.77
+  },
+  {
+   "no": 14,
+   "teks": "Ada zat bernama luciferin, yang bereaksi dengan oksigen dengan bantuan enzim luciferase.",
+   "mulai": 62.84,
+   "durasi": 5.6
+  },
+  {
+   "no": 15,
+   "teks": "Hasil reaksinya adalah cahaya yang hampir tidak menghasilkan panas, sehingga sering disebut cahaya dingin.",
+   "mulai": 68.89,
+   "durasi": 6.43
+  },
+  {
+   "no": 16,
+   "teks": "Dan yang mengejutkan, sebagian besar hewan di laut dalam ternyata bisa bercahaya.",
+   "mulai": 75.77,
+   "durasi": 5.6
+  },
+  {
+   "no": 17,
+   "teks": "Sebuah penelitian di perairan Monterey, Amerika, menemukan sekitar tiga perempat hewan yang teramati punya kemampuan ini.",
+   "mulai": 81.82,
+   "durasi": 7.27
+  },
+  {
+   "no": 18,
+   "teks": "Pertanyaannya, untuk apa mereka bercahaya?",
+   "mulai": 89.54,
+   "durasi": 2.68
+  },
+  {
+   "no": 19,
+   "teks": "Sebelum lanjut, coba tebak dulu jawabannya di komentar.",
+   "mulai": 92.67,
+   "durasi": 3.93
+  },
+  {
+   "no": 20,
+   "teks": "Pertama, untuk berburu.",
+   "mulai": 97.05,
+   "durasi": 1.85
+  },
+  {
+   "no": 21,
+   "teks": "Ikan sungut ganggang punya umpan bercahaya di kepalanya, untuk memancing mangsa mendekat ke mulutnya.",
+   "mulai": 99.35,
+   "durasi": 6.43
+  },
+  {
+   "no": 22,
+   "teks": "Kedua, untuk bersembunyi.",
+   "mulai": 106.23,
+   "durasi": 1.85
+  },
+  {
+   "no": 23,
+   "teks": "Beberapa ikan menyalakan cahaya di bagian perutnya, supaya bayangan tubuhnya menyatu dengan cahaya samar dari atas.",
+   "mulai": 108.53,
+   "durasi": 7.27
+  },
+  {
+   "no": 24,
+   "teks": "Predator yang melihat dari bawah jadi sulit menemukan mereka.",
+   "mulai": 116.25,
+   "durasi": 4.35
+  },
+  {
+   "no": 25,
+   "teks": "Ketiga, untuk mengelabui musuh.",
+   "mulai": 121.05,
+   "durasi": 2.27
+  },
+  {
+   "no": 26,
+   "teks": "Ada udang yang menyemburkan cairan bercahaya, lalu kabur saat musuhnya kebingungan.",
+   "mulai": 123.77,
+   "durasi": 5.18
+  },
+  {
+   "no": 27,
+   "teks": "Keempat, untuk berkomunikasi dan mencari pasangan.",
+   "mulai": 129.4,
+   "durasi": 3.1
+  },
+  {
+   "no": 28,
+   "teks": "Lalu kenapa cahayanya kebanyakan berwarna biru?",
+   "mulai": 132.95,
+   "durasi": 3.1
+  },
+  {
+   "no": 29,
+   "teks": "Karena cahaya biru adalah warna yang paling jauh menembus air laut.",
+   "mulai": 136.5,
+   "durasi": 5.18
+  },
+  {
+   "no": 30,
+   "teks": "Warna merah cepat diserap air, jadi banyak hewan laut dalam bahkan tidak bisa melihat warna merah.",
+   "mulai": 142.13,
+   "durasi": 7.27
+  },
+  {
+   "no": 31,
+   "teks": "Jadi, laut dalam yang kita kira gelap gulita, sebenarnya dipenuhi lampu-lampu kecil yang hidup.",
+   "mulai": 149.85,
+   "durasi": 6.43
+  },
+  {
+   "no": 32,
+   "teks": "Follow Adriy Project supaya kamu nggak ketinggalan fakta berikutnya.",
+   "mulai": 156.73,
+   "durasi": 4.35
+  },
+  {
+   "no": 33,
+   "teks": "Explore More, Know More.",
+   "mulai": 161.53,
+   "durasi": 2.27
+  }
+ ],
+ "total": 164.25,
+ "sub": [
+  {
+   "no": 1,
+   "teks": "Bayangkan kamu menyelam ke tempat yang begitu gelap, sampai tanganmu sendiri tidak kelihatan.",
+   "mulai": 0.0,
+   "durasi": 6.02
+  },
+  {
+   "no": 2,
+   "teks": "Di Adriy Project, kita bahas hal yang bikin kamu pengin tahu lebih banyak.",
+   "mulai": 6.47,
+   "durasi": 6.02
+  },
+  {
+   "no": 3,
+   "teks": "Lalu tiba-tiba, di depanmu muncul cahaya biru kecil yang berkedip.",
+   "mulai": 12.94,
+   "durasi": 4.77
+  },
+  {
+   "no": 4,
+   "teks": "Itu bukan lampu penyelam lain, melainkan seekor hewan laut.",
+   "mulai": 18.16,
+   "durasi": 4.35
+  },
+  {
+   "no": 5,
+   "teks": "Kenapa hewan di laut dalam bisa bercahaya?",
+   "mulai": 22.96,
+   "durasi": 3.52
+  },
+  {
+   "no": 6,
+   "teks": "Kita mulai dari cahaya matahari.",
+   "mulai": 26.93,
+   "durasi": 2.68
+  },
+  {
+   "no": 7,
+   "teks": "Di permukaan, laut terlihat terang dan biru.",
+   "mulai": 30.06,
+   "durasi": 3.52
+  },
+  {
+   "no": 8,
+   "teks": "Tapi semakin dalam kita turun, cahaya matahari semakin cepat menghilang.",
+   "mulai": 34.03,
+   "durasi": 4.77
+  },
+  {
+   "no": 9,
+   "teks": "Di bawah sekitar dua ratus meter, laut tinggal remang-remang.",
+   "mulai": 39.25,
+   "durasi": 4.35
+  },
+  {
+   "no": 10,
+   "teks": "Dan di bawah sekitar seribu meter, cahaya matahari praktis tidak sampai sama sekali.",
+   "mulai": 44.05,
+   "durasi": 6.02
+  },
+  {
+   "no": 11,
+   "teks": "Di kegelapan inilah, banyak hewan membuat cahayanya sendiri.",
+   "mulai": 50.52,
+   "durasi": 3.93
+  },
+  {
+   "no": 12,
+   "teks": "Kemampuan ini disebut bioluminesensi.",
+   "mulai": 54.9,
+   "durasi": 2.27
+  },
+  {
+   "no": 13,
+   "teks": "Cahaya itu lahir dari reaksi kimia di dalam tubuh hewan.",
+   "mulai": 57.62,
+   "durasi": 4.77
+  },
+  {
+   "no": 14,
+   "teks": "Ada zat bernama luciferin, yang bereaksi dengan oksigen dengan bantuan enzim luciferase.",
+   "mulai": 62.84,
+   "durasi": 5.6
+  },
+  {
+   "no": 15,
+   "teks": "Hasil reaksinya adalah cahaya yang hampir tidak menghasilkan panas, sehingga sering disebut cahaya dingin.",
+   "mulai": 68.89,
+   "durasi": 6.43
+  },
+  {
+   "no": 16,
+   "teks": "Dan yang mengejutkan, sebagian besar hewan di laut dalam ternyata bisa bercahaya.",
+   "mulai": 75.77,
+   "durasi": 5.6
+  },
+  {
+   "no": 17,
+   "teks": "Sebuah penelitian di perairan Monterey, Amerika, menemukan sekitar tiga perempat hewan yang teramati punya kemampuan ini.",
+   "mulai": 81.82,
+   "durasi": 7.27
+  },
+  {
+   "no": 18,
+   "teks": "Pertanyaannya, untuk apa mereka bercahaya?",
+   "mulai": 89.54,
+   "durasi": 2.68
+  },
+  {
+   "no": 19,
+   "teks": "Sebelum lanjut, coba tebak dulu jawabannya di komentar.",
+   "mulai": 92.67,
+   "durasi": 3.93
+  },
+  {
+   "no": 20,
+   "teks": "Pertama, untuk berburu.",
+   "mulai": 97.05,
+   "durasi": 1.85
+  },
+  {
+   "no": 21,
+   "teks": "Ikan sungut ganggang punya umpan bercahaya di kepalanya, untuk memancing mangsa mendekat ke mulutnya.",
+   "mulai": 99.35,
+   "durasi": 6.43
+  },
+  {
+   "no": 22,
+   "teks": "Kedua, untuk bersembunyi.",
+   "mulai": 106.23,
+   "durasi": 1.85
+  },
+  {
+   "no": 23,
+   "teks": "Beberapa ikan menyalakan cahaya di bagian perutnya, supaya bayangan tubuhnya menyatu dengan cahaya samar dari atas.",
+   "mulai": 108.53,
+   "durasi": 7.27
+  },
+  {
+   "no": 24,
+   "teks": "Predator yang melihat dari bawah jadi sulit menemukan mereka.",
+   "mulai": 116.25,
+   "durasi": 4.35
+  },
+  {
+   "no": 25,
+   "teks": "Ketiga, untuk mengelabui musuh.",
+   "mulai": 121.05,
+   "durasi": 2.27
+  },
+  {
+   "no": 26,
+   "teks": "Ada udang yang menyemburkan cairan bercahaya, lalu kabur saat musuhnya kebingungan.",
+   "mulai": 123.77,
+   "durasi": 5.18
+  },
+  {
+   "no": 27,
+   "teks": "Keempat, untuk berkomunikasi dan mencari pasangan.",
+   "mulai": 129.4,
+   "durasi": 3.1
+  },
+  {
+   "no": 28,
+   "teks": "Lalu kenapa cahayanya kebanyakan berwarna biru?",
+   "mulai": 132.95,
+   "durasi": 3.1
+  },
+  {
+   "no": 29,
+   "teks": "Karena cahaya biru adalah warna yang paling jauh menembus air laut.",
+   "mulai": 136.5,
+   "durasi": 5.18
+  },
+  {
+   "no": 30,
+   "teks": "Warna merah cepat diserap air, jadi banyak hewan laut dalam bahkan tidak bisa melihat warna merah.",
+   "mulai": 142.13,
+   "durasi": 7.27
+  },
+  {
+   "no": 31,
+   "teks": "Jadi, laut dalam yang kita kira gelap gulita, sebenarnya dipenuhi lampu-lampu kecil yang hidup.",
+   "mulai": 149.85,
+   "durasi": 6.43
+  },
+  {
+   "no": 32,
+   "teks": "Follow Adriy Project supaya kamu nggak ketinggalan fakta berikutnya.",
+   "mulai": 156.73,
+   "durasi": 4.35
+  },
+  {
+   "no": 33,
+   "teks": "Explore More, Know More.",
+   "mulai": 161.53,
+   "durasi": 2.27
+  }
+ ]
+}
