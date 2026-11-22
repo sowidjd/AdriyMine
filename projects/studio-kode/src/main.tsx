@@ -40,7 +40,9 @@ export const Video: React.FC = () => {
 type Atur = { durasi: number; fps: number; lebar: number; tinggi: number };
 const angka = (kode: string, nama: string) => { const m = kode.match(new RegExp(nama + "\\s*=\\s*\\{\\s*(\\d+)\\s*\\}")); return m ? Number(m[1]) : null; };
 
-function kompilasi(kode: string): { komp: React.ComponentType | null; galat: string | null; nama: string } {
+function kompilasi(kodeAsli: string): { komp: React.ComponentType | null; galat: string | null; nama: string } {
+  // buang pagar markdown ``` yang sering ikut tersalin dari chat
+  const kode = kodeAsli.replace(/^\s*```[a-zA-Z]*\s*$/gm, "");
   try {
     const js = transform(kode, { transforms: ["typescript", "jsx", "imports"], jsxRuntime: "automatic", production: true }).code;
     const module = { exports: {} as Record<string, unknown> };
@@ -53,7 +55,14 @@ function kompilasi(kode: string): { komp: React.ComponentType | null; galat: str
     const hasil = (dariComp && typeof ex[dariComp] === "function" ? [dariComp, ex[dariComp]] : null) ?? pilih ?? fungsi[0];
     if (!hasil) return { komp: null, galat: "Tidak ada komponen yang di-export. Tambahkan 'export' di depan komponen video, mis. export const Video = () => ...", nama: "" };
     return { komp: hasil[1] as React.ComponentType, galat: null, nama: hasil[0] };
-  } catch (e) { return { komp: null, galat: String((e as Error).message || e), nama: "" }; }
+  } catch (e) {
+    const pesan = String((e as Error).message || e);
+    const m = pesan.match(/\((\d+):(\d+)\)/);
+    if (!m) return { komp: null, galat: pesan, nama: "" };
+    const n = Number(m[1]), c = Number(m[2]); const baris = kode.split("\n");
+    const cuplik = [n - 1, n, n + 1].filter((i) => i >= 1 && i <= baris.length).map((i) => `${String(i).padStart(4)} | ${baris[i - 1]}` + (i === n ? `\n     | ${" ".repeat(Math.max(0, c - 1))}^` : "")).join("\n");
+    return { komp: null, galat: `Kode tidak bisa dibaca di baris ${n}, kolom ${c}:\n${cuplik}\n\n(${pesan})\nBiasanya: kode terpotong saat disalin, ada teks biasa di luar komentar, atau kurung/kurawal tidak lengkap.`, nama: "" };
+  }
 }
 
 class Pengaman extends React.Component<{ children: React.ReactNode; kunci: string }, { galat: string | null }> {
