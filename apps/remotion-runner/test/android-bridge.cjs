@@ -43,12 +43,14 @@ const CLIP = `import { AbsoluteFill } from 'remotion';\nexport const DariClipboa
   await page.waitForSelector('.sheet video', { timeout: 300000 });
   const blobSize = await page.evaluate(async () => (await (await fetch(document.querySelector('.sheet video').src)).blob()).size);
   ok('layar tetap menyala saat render lalu dilepas', (await page.evaluate(() => window.__screen)) === false);
-  await page.click('button:has-text("Simpan ke HP")');
+  await page.click('.sheet button:has-text("Simpan ke HP")');
   await page.waitForFunction(() => window.__saved.length > 0, null, { timeout: 30000 });
   const saved = await page.evaluate(() => window.__saved[0]);
   ok('simpan video lewat jembatan Android (utuh)', saved.bytes === blobSize && saved.name.endsWith('.mp4'), JSON.stringify(saved) + ' blob=' + blobSize);
   const b64 = await page.evaluate(async () => { const bl = await (await fetch(document.querySelector('.sheet video').src)).blob(); return await new Promise((r) => { const fr = new FileReader(); fr.onload = () => r(fr.result.split(',')[1]); fr.readAsDataURL(bl); }); });
   if (process.env.SHOTS) fs.writeFileSync(process.env.SHOTS + '/radial.mp4', Buffer.from(b64, 'base64'));
+  await page.click('.sheet button[aria-label="Tutup pratinjau"]');
+  ok('pratinjau hasil bisa ditutup', !(await page.$('.sheet')));
   await page.click('.tabs button:nth-child(1)');
   await page.click('button:has-text("Tempel")');
   await page.waitForTimeout(300);

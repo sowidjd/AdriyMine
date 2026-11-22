@@ -58,6 +58,7 @@ code += `\nexport const Kuliah = () => (\n  <AbsoluteFill>\n${Array.from({ lengt
   t = await page.evaluate(() => document.querySelector('.pane:not([hidden])').innerText);
   ok('rasio YouTube 16:9 diterapkan ke pratinjau', Math.abs(ar - 16 / 9) < 0.02 && /1920×1080/.test(t), 'rasio=' + ar);
   await page.screenshot({ path: OUT + '/rasio-youtube.png' });
+  if (process.env.SKIP_PART) { console.log(res.join('\n')); await b.close(); process.exit(res.some((r) => !r.startsWith('LULUS')) ? 1 : 0); }
   // Ekspor per bagian 5 menit: tunggu bagian pertama selesai, lalu batalkan
   await page.click('.tabs button:nth-child(3)');
   await page.click('.seg button:has-text("50%")');
