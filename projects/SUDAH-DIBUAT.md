@@ -51,3 +51,6 @@ cocokkan dulu dengan daftar ini. Kalau pemilik membuat video baru, tambahkan di 
 
 ## 21 November 2026 (dibuat Claude atas permintaan pemilik)
 36. Kenapa Lagu Bisa Bikin Kita Merinding? (versi baru dari #1, sudut otot arrector pili & frisson; projects/merinding-lagu)
+
+## 22 November 2026 (kode dari pemilik, dirender Claude)
+37. Bedah Benda #01: Kenapa Resleting Bisa Mengunci? (projects/bedah-resleting)
