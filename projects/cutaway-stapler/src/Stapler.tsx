@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Easing } from "remotion";
+import { Audio, staticFile, AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Easing } from "remotion";
 import { ThreeCanvas } from "@remotion/three";
 import * as THREE from "three";
 
@@ -123,8 +123,10 @@ const Label: React.FC<{ f: number; at: number; p: number[]; dx: number; dy: numb
   );
 };
 
+const BARU = [0, 166, 218, 424, 572, 729, 904]; const LAMA = [0, 60, 110, 195, 245, 298, 360];
+export const DURASI = 904;
 export const Stapler: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = interpolate(useCurrentFrame(), BARU, LAMA, cl);
   const { width, height } = useVideoConfig();
   // kamera: berputar pelan, lalu mendekat ke ujung depan saat ditekan
   const orbit = interpolate(f, [0, 190], [1.05, 0.55], ez);
@@ -139,6 +141,7 @@ export const Stapler: React.FC = () => {
   );
   return (
     <AbsoluteFill style={{ background: "radial-gradient(circle at 50% 40%, #24344d 0%, #0b1018 75%)" }}>
+      <Audio src={staticFile("narasi.wav")} />
       <ThreeCanvas width={width} height={height} camera={{ fov: 38, position: [cam.x, cam.y, cam.z] }} onCreated={({ gl }) => { gl.localClippingEnabled = true; }}>
         <CamLook pos={cam} target={target} />
         <Adegan f={f} />
