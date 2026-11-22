@@ -204,7 +204,27 @@ function googleFontModule(slug) {
   return { __esModule: true, fontFamily, loadFont, getInfo: () => ({ fontFamily: family, importName: slug, fonts: {} }), default: { fontFamily, loadFont } };
 }
 
-// ---------- 5. Menjalankan proyek ----------
+// ---------- 5. Nama yang otomatis tersedia walau lupa di-import ----------
+
+const REACT_NAMES = ['useState', 'useEffect', 'useLayoutEffect', 'useMemo', 'useCallback', 'useRef', 'useContext', 'useReducer', 'useId',
+  'createContext', 'Fragment', 'forwardRef', 'memo', 'Suspense', 'lazy', 'createElement', 'cloneElement', 'Children', 'useImperativeHandle', 'useTransition', 'useDeferredValue'];
+const EXTRA = [
+  ['@remotion/transitions', ['TransitionSeries', 'linearTiming', 'springTiming']],
+  ['@remotion/transitions/fade', ['fade']], ['@remotion/transitions/slide', ['slide']], ['@remotion/transitions/wipe', ['wipe']],
+  ['@remotion/transitions/flip', ['flip']], ['@remotion/transitions/clock-wipe', ['clockWipe']], ['@remotion/transitions/iris', ['iris']],
+  ['@remotion/three', ['ThreeCanvas']], ['zod', ['z']],
+];
+function makeGlobals(remotionShim) {
+  const g = Object.create(null);
+  const put = (k, v) => { if (v === undefined || k === 'default' || k === '__esModule') return; if (k in window) return; g[k] = v; };
+  for (const [pkg, names] of EXTRA) { const m = BUILTIN[pkg]; if (m) for (const n of names) put(n, m[n]); }
+  for (const n of REACT_NAMES) put(n, React[n]);
+  for (const [k, v] of Object.entries(remotionShim)) put(k, v);
+  g.React = React; // "React is not defined" pada kode JSX lama
+  return g;
+}
+
+// ---------- 6. Menjalankan proyek ----------
 
 const FN_HEADER_LINES = 2; // baris tambahan dari new Function di Chrome/Safari
 const cdnCache = new Map();
@@ -339,6 +359,7 @@ export async function runProject(files, { assets = {}, settings }) {
     getStaticFiles: () => Object.keys(assets).map((n) => ({ name: n, src: assets[n], sizeInBytes: 0, lastModified: 0 })),
     getRemotionEnvironment: () => ({ isStudio: false, isRendering: false, isPlayer: true, isReadOnlyStudio: false, isClientSideRendering: false }),
   };
+  const globals = makeGlobals(remotionShim);
 
   const cache = new Map();
   const loading = [];
@@ -368,8 +389,11 @@ export async function runProject(files, { assets = {}, settings }) {
     loading.push(name);
     try {
       // eslint-disable-next-line no-new-func
-      const fn = new Function('require', 'module', 'exports', compiled[name] + `\n//# sourceURL=rr-file:///${name}`);
-      fn(requireFrom(name), module, module.exports);
+      // "with" menyediakan fungsi Remotion/React yang lupa di-import. Nama yang
+      // dideklarasikan sendiri oleh kode tetap menang. Ditulis di baris yang sama
+      // agar nomor baris error tetap tepat.
+      const fn = new Function('require', 'module', 'exports', '__g', 'with(__g){(function(){' + compiled[name] + `\n}).call(this)}\n//# sourceURL=rr-file:///${name}`);
+      fn.call(undefined, requireFrom(name), module, module.exports, globals);
     } catch (e) {
       cache.delete(name);
       throw e instanceof FriendlyError ? e : toFriendly(e, name);

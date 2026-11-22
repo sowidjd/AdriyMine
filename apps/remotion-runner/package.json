@@ -4,11 +4,14 @@
   "description": "Aplikasi HP: tempel kode Remotion, putar, dan ekspor MP4 di browser",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node test/e2e.cjs"
+    "test": "node test/e2e.cjs && node test/ai-fallback.cjs && node test/android-bridge.cjs",
+    "apk": "node scripts/build.mjs && cd android && gradle assembleRelease && cp app/build/outputs/apk/release/app-release.apk ../apk/RemotionSaku.apk"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.2",
     "@remotion/animation-utils": "^4.0.545",
     "@remotion/captions": "^4.0.545",
     "@remotion/effects": "^4.0.545",
@@ -26,15 +29,18 @@
     "@remotion/rounded-text-box": "^4.0.545",
     "@remotion/shapes": "^4.0.545",
     "@remotion/starburst": "^4.0.545",
+    "@remotion/three": "^4.0.545",
     "@remotion/transitions": "^4.0.545",
     "@remotion/web-renderer": "^4.0.545",
     "@remotion/zod-types": "^4.0.545",
     "esbuild": "^0.28.2",
     "lottie-web": "^5.13.0",
+    "prettier": "^3.9.10",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "remotion": "^4.0.545",
     "sucrase": "^3.35.1",
+    "three": "^0.187.0",
     "zod": "^4.6.7"
   },
   "private": true

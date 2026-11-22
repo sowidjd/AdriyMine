@@ -5,6 +5,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 const root = path.resolve(import.meta.dirname, '..');
 execFileSync('node', [path.join(root, 'scripts/gen-modules.mjs')], { stdio: 'inherit' });
+execFileSync('node', [path.join(root, 'scripts/patch-web-renderer.mjs')], { stdio: 'inherit' });
 const r = await build({
   entryPoints: [path.join(root, 'src/main.jsx')],
   bundle: true, minify: true, format: 'iife', target: ['chrome100', 'safari15', 'firefox110'],
@@ -12,7 +13,13 @@ const r = await build({
   jsx: 'automatic', write: false, legalComments: 'none', logLevel: 'warning',
   loader: { '.js': 'jsx' },
 });
-const js = r.outputFiles[0].text.replace(/<\/script/gi, '<\\/script').replace(/<!--/g, '<\\!--');
+const esc = (t) => t.replace(/<\/script/gi, '<\\/script').replace(/<!--/g, '<\\!--');
+const js = esc(r.outputFiles[0].text);
+const pr = await build({
+  entryPoints: [path.join(root, 'src/prettier-entry.js')],
+  bundle: true, minify: true, format: 'iife', target: ['chrome100', 'safari15'], write: false, legalComments: 'none', logLevel: 'warning',
+});
+const prettierJs = esc(pr.outputFiles[0].text);
 const css = fs.readFileSync(path.join(root, 'src/style.css'), 'utf8');
 const head = `<title>Remotion Saku</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -24,6 +31,7 @@ const head = `<title>Remotion Saku</title>
 <style>${css}</style>`;
 const bodyInner = `<div id="root"></div>
 <noscript>Aktifkan JavaScript untuk memakai Remotion Saku.</noscript>
+<script type="text/x-lazy" id="lazy-prettier">${prettierJs}</script>
 <script>${js}</script>`;
 fs.mkdirSync(path.join(root, 'dist'), { recursive: true });
 // 1) Untuk Artifact claude.ai (kerangka html/head/body ditambahkan otomatis)
@@ -37,4 +45,10 @@ ${head}</head><body>
 ${bodyInner}
 </body></html>
 `);
+// 3) Aset untuk APK Android
+const androidAssets = path.join(root, 'android/app/src/main/assets');
+if (fs.existsSync(path.dirname(androidAssets))) {
+  fs.mkdirSync(androidAssets, { recursive: true });
+  fs.copyFileSync(path.join(root, 'dist/remotion-saku.html'), path.join(androidAssets, 'index.html'));
+}
 console.log('ukuran:', (fs.statSync(path.join(root, 'dist/index.html')).size / 1e6).toFixed(2), 'MB');

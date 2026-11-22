@@ -1,0 +1,6 @@
+app/src/main/assets/
+keystore/
+.gradle/
+build/
+app/build/
+local.properties

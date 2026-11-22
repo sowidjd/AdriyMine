@@ -61,8 +61,8 @@ long += `\nexport const Panjang = () => (<AbsoluteFill>${Array.from({ length: 40
 CASES.long = long;
 
 (async () => {
-  const browser = await chromium.launch();
-  const ctx = await browser.newContext({ ...devices['Pixel 7'], permissions: ['clipboard-read', 'clipboard-write'] });
+  const browser = await chromium.launch(process.env.https_proxy ? { proxy: { server: process.env.https_proxy } } : {});
+  const ctx = await browser.newContext({ ...devices['Pixel 7'], permissions: ['clipboard-read', 'clipboard-write'], ignoreHTTPSErrors: true });
   const page = await ctx.newPage();
   const logs = [];
   page.on('pageerror', (e) => logs.push('PAGEERROR ' + e.message));
@@ -103,8 +103,33 @@ CASES.long = long;
   await page.screenshot({ path: OUT + '/3-error.png' });
 
   await pasteRun(CASES.missingImport);
+  await page.waitForTimeout(500);
   t = await visibleText();
-  ok('lupa import terdeteksi', /useCurrentFrame/.test(t) && /(import|error)/i.test(t), JSON.stringify(t.slice(0, 300)));
+  ok('lupa import -> otomatis tersedia, tanpa error', !/error/i.test(t) && await page.locator('.stage').isVisible(), JSON.stringify(t.slice(0, 120)));
+
+  // Rapikan (Prettier offline)
+  await page.click('.tabs button:nth-child(1)');
+  await page.evaluate((t) => navigator.clipboard.writeText(t), "import {AbsoluteFill} from 'remotion'\nexport const R=()=>{return <AbsoluteFill style={{background:'red'}}><div>hai</div></AbsoluteFill>}");
+  await page.click('text=Tempel');
+  await page.click('button:has-text("Rapikan")');
+  await page.waitForTimeout(2500);
+  const tidied = await page.inputValue('#kode');
+  ok('tombol Rapikan', tidied.includes("style={{ background: 'red' }}") && tidied.split('\n').length > 4, JSON.stringify(tidied.slice(0, 120)));
+
+  // AI memperbaiki error sintaks (memanggil AI gratis sungguhan)
+  if (!process.env.NO_AI) {
+    await pasteRun(CASES.syntax);
+    await page.click('button:has-text("Perbaiki dengan AI")');
+    const tAi = Date.now();
+    try {
+      await page.waitForFunction(() => document.querySelector('.stage') && !document.querySelector('.pane:not([hidden]) .card.err') && !document.querySelector('.aibox'), null, { timeout: 300000 });
+      const toast = await page.locator('.toast').innerText().catch(() => '');
+      ok('AI gratis memperbaiki error', true, `${Math.round((Date.now() - tAi) / 1000)} dtk · ${toast.slice(0, 160)}`);
+    } catch {
+      ok('AI gratis memperbaiki error', false, (await visibleText()).slice(0, 500));
+    }
+    await page.screenshot({ path: OUT + '/6-ai.png' });
+  }
 
   await pasteRun(CASES.runtime);
   await page.waitForTimeout(800);
@@ -112,10 +137,50 @@ CASES.long = long;
   ok('error saat diputar tidak membuat aplikasi crash', /error/i.test(t) && await page.locator('.tabs').isVisible(), JSON.stringify(t.slice(0, 200)));
   await page.screenshot({ path: OUT + '/4-runtime.png' });
 
+  // Tempel sungguhan lewat keyboard (event paste) ke kolom kosong: 20.000+ baris
+  let huge = CASES.long;
+  while (huge.split('\n').length < 20000) huge += '\n' + CASES.long.replace(/\bS(\d+)\b/g, (m, d) => 'S' + d + '_' + huge.length).replace(/export const Panjang/, 'export const Panjang' + huge.length);
+  await page.click('.tabs button:nth-child(1)');
+  await page.click('button:has-text("Kosongkan")'); await page.click('button:has-text("Yakin")');
+  await page.evaluate((t) => navigator.clipboard.writeText(t), huge);
+  await page.focus('#kode');
+  await page.keyboard.press('Control+V');
+  await page.waitForTimeout(800);
+  const pastedLen = (await page.inputValue('#kode')).length;
+  const tH = Date.now();
+  await page.click('.run');
+  await page.waitForFunction(() => !document.querySelector('.run.busy'), null, { timeout: 60000 });
+  await page.waitForTimeout(500);
+  t = await visibleText();
+  ok(`tempel sungguhan ${huge.split('\n').length} baris (${(huge.length / 1e6).toFixed(1)} MB)`, pastedLen >= huge.length - 5 && await page.locator('.stage').isVisible(), `${Date.now() - tH}ms`);
+
   const t0 = Date.now();
   await pasteRun(CASES.long);
   t = await visibleText();
   ok(`kode panjang (${CASES.long.split('\n').length} baris)`, /Panjang/.test(t) && await page.locator('.stage').isVisible(), `${Date.now() - t0}ms`);
+
+  // 3D
+  await page.click('.tabs button:nth-child(1)');
+  await page.click('summary:has-text("Contoh")');
+  await page.click('button:has-text("3D (Three.js)")');
+  await page.click('.run');
+  await page.waitForFunction(() => !document.querySelector('.run.busy'), null, { timeout: 30000 });
+  await page.waitForTimeout(1500);
+  await page.evaluate(() => { const b = document.querySelector('.stage button'); }); 
+  const has3d = await page.evaluate(() => !!document.querySelector('.stage canvas'));
+  t = await visibleText();
+  ok('3D tampil (ThreeCanvas + drei)', has3d && !/error/i.test(t), JSON.stringify(t.slice(0, 100)));
+  await page.screenshot({ path: OUT + '/7-3d.png' });
+  await page.click('.tabs button:nth-child(3)');
+  await page.click('.seg button:has-text("50%")');
+  await page.click('text=Buat video');
+  try {
+    await page.waitForSelector('text=Video siap', { timeout: 240000 });
+    const b64 = await page.evaluate(async () => { const v = document.querySelector('video.result'); const b = await (await fetch(v.src)).blob(); return await new Promise((r) => { const fr = new FileReader(); fr.onload = () => r(fr.result.split(',')[1]); fr.readAsDataURL(b); }); });
+    fs.writeFileSync(OUT + '/3d.mp4', Buffer.from(b64, 'base64'));
+    ok('ekspor video 3D', true, (await page.locator('.pane:not([hidden]) .card:last-of-type .muted').first().innerText()));
+  } catch (e) { ok('ekspor video 3D', false, (await visibleText()).slice(0, 300)); }
+  await page.click('.tabs button:nth-child(1)');
 
   // Ekspor video pendek
   await pasteRun(`import { AbsoluteFill, useCurrentFrame, interpolate } from 'remotion';

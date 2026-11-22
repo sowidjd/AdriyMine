@@ -1,9 +1,12 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Player } from '@remotion/player';
-import { renderMediaOnWeb, canRenderMediaOnWeb } from '@remotion/web-renderer';
+import { renderMediaOnWeb, canRenderMediaOnWeb, renderStillOnWeb } from '@remotion/web-renderer';
 import { runProject, splitPasted, cleanText, FriendlyError, toFriendly } from './runtime.js';
-import { SAMPLE_SINGLE, SAMPLE_MULTI } from './samples.js';
+import { SAMPLE_SINGLE, SAMPLE_MULTI, SAMPLE_3D } from './samples.js';
+import { aiFix, providerStatus, getKeys, setKey, clearCooldowns } from './ai.js';
+import { formatAll } from './format.js';
+import * as Native from './native.js';
 
 // ---------- Penyimpanan aman (tidak pernah membuat aplikasi gagal) ----------
 const LS = {
@@ -52,7 +55,7 @@ const idb = (() => {
 const downloadsP = (typeof window !== 'undefined' && window.claude && typeof window.claude.use === 'function')
   ? Promise.resolve(window.claude.use('downloads')).catch(() => null)
   : Promise.resolve(null);
-const IN_ARTIFACT = !!(window.claude && window.claude.use);
+const IN_ARTIFACT = !!(window.claude && window.claude.use) && !Native.IS_ANDROID_APP;
 
 const DEFAULT_SETTINGS = { width: 1080, height: 1920, fps: 30, seconds: 10, override: false };
 const PRESETS = [
@@ -81,6 +84,9 @@ const I = {
   share: <><path d="M12 15V3M7 8l5-5 5 5" /><path d="M5 13v7h14v-7" /></>,
   copy: <><rect x="8" y="8" width="12" height="12" rx="2" /><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3" /></>,
   alert: <><path d="M12 3 2 20h20z" /><path d="M12 10v4M12 17v.5" /></>,
+  wand: <><path d="m4 20 11-11M14 4l1 2 2 1-2 1-1 2-1-2-2-1 2-1zM19 11l.6 1.4L21 13l-1.4.6L19 15l-.6-1.4L17 13l1.4-.6z" /></>,
+  brush: <><path d="M4 6h16M4 10h10M4 14h16M4 18h8" /></>,
+  more: <><circle cx="5" cy="12" r="1.6" fill="currentColor" /><circle cx="12" cy="12" r="1.6" fill="currentColor" /><circle cx="19" cy="12" r="1.6" fill="currentColor" /></>,
 };
 const Icon = ({ n, s = 20 }) => (
   <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{I[n]}</svg>
@@ -158,6 +164,8 @@ function App() {
   const [wrap, setWrap] = useState(() => LS.get('rs.wrap', false));
   const [confirmClear, setConfirmClear] = useState(false);
   const [playerError, setPlayerError] = useState(null);
+  const [ai, setAi] = useState(null); // {busy, status, error, tried}
+  const aiAbort = useRef(null);
   const taRef = useRef(null);
   const toastT = useRef(null);
 
@@ -234,6 +242,16 @@ function App() {
     say(parts.length > 1 ? `${label || 'Ditempel'}: ${parts.length} file terdeteksi.` : `${label || 'Ditempel'}: ${parts[0].code.split('\n').length} baris.`, 'undo');
     return true;
   };
+  // Teks/kode yang dibagikan dari aplikasi lain (APK Android)
+  const replaceAllRef = useRef(null);
+  replaceAllRef.current = replaceAll;
+  useEffect(() => {
+    const handle = () => { const t = Native.takeSharedText(); if (t && t.trim()) { replaceAllRef.current(t, 'Kode diterima'); setTab('kode'); } };
+    window.__sakuIncoming = handle;
+    handle();
+    return () => { if (window.__sakuIncoming === handle) delete window.__sakuIncoming; };
+  }, []);
+
   const smartPaste = (t) => {
     const cleaned = cleanText(t);
     const parts = splitPasted(cleaned, files[active]?.name || 'Video.tsx');
@@ -248,8 +266,11 @@ function App() {
 
   const pasteButton = async () => {
     try {
-      if (!navigator.clipboard || !navigator.clipboard.readText) throw new Error('no');
-      const t = await navigator.clipboard.readText();
+      let t = Native.readClipboardNative();
+      if (t == null) {
+        if (!navigator.clipboard || !navigator.clipboard.readText) throw new Error('no');
+        t = await navigator.clipboard.readText();
+      }
       if (!t || !t.trim()) throw new Error('kosong');
       replaceAll(t);
     } catch {
@@ -282,6 +303,40 @@ function App() {
   };
   const doUndo = () => { if (undo) { setFiles(undo); setActive(0); setUndo(null); setToast(null); } };
 
+  const tidy = async () => {
+    if (busy) return;
+    setBusy(true);
+    try {
+      const out = await formatAll(files);
+      const changed = out.some((f, i) => f.code !== files[i].code);
+      if (changed) { setUndo(files); setFiles(out); say('Kode sudah dirapikan.', 'undo'); } else say('Kode sudah rapi.');
+      setError(null);
+    } catch (e) {
+      const fe = e instanceof FriendlyError ? e : toFriendly(e);
+      setError(fe);
+      if (fe.file) { const i = files.findIndex((f) => f.name === fe.file); if (i >= 0) setActive(i); }
+    } finally { setBusy(false); }
+  };
+
+  const fixWithAI = async (err) => {
+    if (ai && ai.busy) return;
+    const ac = new AbortController(); aiAbort.current = ac;
+    setAi({ busy: true, status: 'Menyiapkan…' });
+    try {
+      const r = await aiFix({ files, error: err, signal: ac.signal, onStatus: (st) => setAi((a) => (a && a.busy ? { ...a, status: st } : a)) });
+      let next = r.files;
+      try { next = await formatAll(next); } catch { /* biarkan tanpa dirapikan */ }
+      setUndo(files);
+      setFiles(next);
+      setAi(null); setError(null); setPlayerError(null);
+      say(`Diperbaiki oleh ${r.provider}. ${r.note || ''}`.trim(), 'undo');
+      await run(next, settings);
+    } catch (e) {
+      if (ac.signal.aborted) { setAi(null); return; }
+      setAi({ busy: false, error: e.message, tried: e.tried || [] });
+    } finally { aiAbort.current = null; }
+  };
+
   const jumpTo = (line) => {
     const ta = taRef.current; if (!ta || !line) return;
     const v = ta.value; let pos = 0;
@@ -308,6 +363,7 @@ function App() {
         <section hidden={tab !== 'kode'} className="pane pane-code">
           <div className="toolbar">
             <button className="btn primary-soft" onClick={pasteButton}><Icon n="paste" />Tempel</button>
+            <button className="btn" onClick={tidy} disabled={busy}><Icon n="brush" />Rapikan</button>
             <button className="btn" onClick={() => { if (!confirmClear) { setConfirmClear(true); setTimeout(() => setConfirmClear(false), 3000); return; } setConfirmClear(false); setUndo(files); setFiles([{ name: 'Video.tsx', code: '' }]); setActive(0); setError(null); say('Kode dihapus.', 'undo'); setTimeout(() => taRef.current && taRef.current.focus(), 50); }}>
               <Icon n="trash" />{confirmClear ? 'Yakin? Tekan lagi' : 'Kosongkan'}
             </button>
@@ -316,6 +372,7 @@ function App() {
               <div className="menu">
                 <button onClick={(e) => { e.currentTarget.closest('details').open = false; replaceAll(SAMPLE_SINGLE, 'Contoh 1 file'); }}>Satu file (animasi teks)</button>
                 <button onClick={(e) => { e.currentTarget.closest('details').open = false; replaceAll(SAMPLE_MULTI, 'Contoh banyak file'); }}>Banyak file + Composition</button>
+                <button onClick={(e) => { e.currentTarget.closest('details').open = false; replaceAll(SAMPLE_3D, 'Contoh 3D'); }}>3D (Three.js)</button>
               </div>
             </details>
           </div>
@@ -344,7 +401,11 @@ function App() {
               <p className="err-msg">{error.message}</p>
               {error.file && <p className="err-loc">{error.file}{error.line ? ` · baris ${error.line}` : ''}{error.column ? `, kolom ${error.column}` : ''}</p>}
               {error.hint && <p className="err-hint">{error.hint}</p>}
-              {error.line && <button className="btn" onClick={() => jumpTo(error.line)}>Lihat baris {error.line}</button>}
+              <div className="row">
+                {error.line && <button className="btn" onClick={() => jumpTo(error.line)}>Lihat baris {error.line}</button>}
+                {error.kind !== 'empty' && <button className="btn ai" onClick={() => fixWithAI(error)} disabled={ai && ai.busy}><Icon n="wand" />Perbaiki dengan AI</button>}
+              </div>
+              <AiBox ai={ai} onCancel={() => aiAbort.current && aiAbort.current.abort()} onClose={() => setAi(null)} />
             </div>
           )}
 
@@ -365,10 +426,10 @@ function App() {
                 </div>
               )}
               <Guard key={result.key + ':' + sel} onError={(e) => setPlayerError(toFriendly(e))}
-                fallback={(err, reset) => <PlayerErrorCard err={toFriendly(err)} onRetry={reset} />}>
+                fallback={(err, reset) => <PlayerErrorCard err={toFriendly(err)} onRetry={reset} onAI={() => fixWithAI(toFriendly(err))} ai={ai} onCancelAI={() => aiAbort.current && aiAbort.current.abort()} onCloseAI={() => setAi(null)} />}>
                 <PlayerBox entry={entry} onError={setPlayerError} />
               </Guard>
-              {playerError && <PlayerErrorCard err={playerError} onRetry={() => run()} />}
+              {playerError && <PlayerErrorCard err={playerError} onRetry={() => run()} onAI={() => fixWithAI(playerError)} ai={ai} onCancelAI={() => aiAbort.current && aiAbort.current.abort()} onCloseAI={() => setAi(null)} />}
               <div className="meta-row">
                 <span>{entry.id}</span>
                 <span>{entry.width}×{entry.height}</span>
@@ -386,13 +447,14 @@ function App() {
         {/* ---------------- EKSPOR ---------------- */}
         <section hidden={tab !== 'video'} className="pane">
           <Guard>
-            <ExportPanel entry={entry} say={say} />
+            <ExportPanel entry={entry} say={say} files={files} />
           </Guard>
         </section>
 
         {/* ---------------- ASET & BANTUAN ---------------- */}
         <section hidden={tab !== 'aset'} className="pane">
           <AssetPanel assets={assets} setAssets={setAssets} say={say} />
+          <AiPanel say={say} />
           <Help />
         </section>
       </main>
@@ -410,7 +472,7 @@ function App() {
       )}
 
       <nav className="tabs" aria-label="Menu">
-        {[['kode', 'Kode', 'code'], ['putar', 'Putar', 'play'], ['video', 'Ekspor', 'film'], ['aset', 'Aset', 'box']].map(([k, l, ic]) => (
+        {[['kode', 'Kode', 'code'], ['putar', 'Putar', 'play'], ['video', 'Ekspor', 'film'], ['aset', 'Lainnya', 'more']].map(([k, l, ic]) => (
           <button key={k} className={tab === k ? 'on' : ''} onClick={() => setTab(k)} aria-current={tab === k ? 'page' : undefined}>
             <Icon n={ic} s={22} /><span>{l}</span>
             {k === 'kode' && error && <i className="badge" aria-label="ada error" />}
@@ -421,14 +483,34 @@ function App() {
   );
 }
 
-function PlayerErrorCard({ err, onRetry }) {
+function AiBox({ ai, onCancel, onClose }) {
+  if (!ai) return null;
+  if (ai.busy) return (
+    <div className="aibox" role="status"><span className="spin dark" aria-hidden="true" /><span>{ai.status}</span>
+      <button className="link" onClick={onCancel}>Batal</button></div>
+  );
+  return (
+    <div className="aibox fail" role="alert">
+      <b>{ai.error}</b>
+      {ai.tried && ai.tried.length > 0 && <ul>{ai.tried.slice(0, 8).map((t, i) => <li key={i}>{t}</li>)}</ul>}
+      <p>Coba lagi beberapa menit lagi, atau tambahkan kunci gratis (OpenRouter, Groq, Gemini) di tab Lainnya agar ada lebih banyak cadangan AI.</p>
+      <button className="link" onClick={onClose}>Tutup</button>
+    </div>
+  );
+}
+
+function PlayerErrorCard({ err, onRetry, onAI, ai, onCancelAI, onCloseAI }) {
   return (
     <div className="card err" role="alert">
       <div className="err-head"><Icon n="alert" />Video error saat diputar</div>
       <p className="err-msg">{err.message}</p>
       {err.file && <p className="err-loc">{err.file}{err.line ? ` · baris ${err.line}` : ''}</p>}
       {err.hint && <p className="err-hint">{err.hint}</p>}
-      <button className="btn" onClick={onRetry}>Coba lagi</button>
+      <div className="row">
+        <button className="btn" onClick={onRetry}>Coba lagi</button>
+        {onAI && <button className="btn ai" onClick={onAI} disabled={ai && ai.busy}><Icon n="wand" />Perbaiki dengan AI</button>}
+      </div>
+      <AiBox ai={ai} onCancel={onCancelAI} onClose={onCloseAI} />
     </div>
   );
 }
@@ -437,7 +519,7 @@ function PlayerBox({ entry, onError }) {
   const ref = useRef(null);
   useEffect(() => {
     const p = ref.current; if (!p) return;
-    const h = (e) => onError(toFriendly(e.detail && e.detail.error ? e.detail.error : e));
+    const h = (e) => { const er = e.detail && e.detail.error ? e.detail.error : e; onError(toFriendly(er, (String(er && er.stack || '').match(/rr-file:\/*([^:]+):/) || [])[1])); };
     try { p.addEventListener('error', h); } catch { /* abaikan */ }
     return () => { try { p.removeEventListener('error', h); } catch { /* abaikan */ } };
   }, [onError, entry]);
@@ -508,13 +590,59 @@ function SettingsPanel({ settings, setSettings, fromComposition, onApply }) {
   );
 }
 
-function ExportPanel({ entry, say }) {
+const RISKY = [
+  [/conic-gradient/, 'conic-gradient'],
+  [/backdrop-?[fF]ilter/, 'backdrop-filter (efek blur kaca)'],
+  [/mix-?[bB]lend-?[mM]ode/, 'mix-blend-mode'],
+  [/<iframe/i, 'iframe'],
+  [/repeating-(linear|radial)-gradient/, 'repeating-gradient'],
+];
+
+function compositionOf(entry) {
+  const even = (n) => Math.max(2, Math.round(n / 2) * 2);
+  return {
+    id: entry.id.replace(/[^\w-]/g, '-') || 'Video', component: entry.component,
+    width: even(entry.width), height: even(entry.height), fps: entry.fps, durationInFrames: entry.durationInFrames, defaultProps: entry.props,
+  };
+}
+
+function StillCheck({ entry }) {
+  const [frame, setFrame] = useState(() => Math.floor(entry.durationInFrames / 2));
+  const [st, setSt] = useState({ phase: 'idle' });
+  const urlRef = useRef(null);
+  useEffect(() => { setFrame(Math.floor(entry.durationInFrames / 2)); setSt({ phase: 'idle' }); }, [entry]);
+  useEffect(() => () => { if (urlRef.current) URL.revokeObjectURL(urlRef.current); }, []);
+  const check = async () => {
+    setSt({ phase: 'busy' });
+    try {
+      const r = await renderStillOnWeb({ composition: compositionOf(entry), inputProps: entry.props, frame: Math.min(entry.durationInFrames - 1, Math.max(0, frame)), scale: Math.min(1, 720 / Math.max(entry.width, entry.height)), licenseKey: 'free-license', isProduction: false, logLevel: 'error', delayRenderTimeoutInMilliseconds: 60000 });
+      const b = await r.blob({ format: 'jpeg', quality: 0.9 });
+      if (urlRef.current) URL.revokeObjectURL(urlRef.current);
+      urlRef.current = URL.createObjectURL(b);
+      setSt({ phase: 'done', url: urlRef.current });
+    } catch (e) { setSt({ phase: 'error', msg: e.message }); }
+  };
+  return (
+    <details className="card help">
+      <summary>Cek cuplikan hasil (1 frame)</summary>
+      <p className="muted">Menggambar satu frame persis seperti nanti di file video. Bandingkan dengan pratinjau di tab Putar sebelum membuat video panjang.</p>
+      <div className="field"><label htmlFor="frame-cek">Frame ke-{frame} dari {entry.durationInFrames - 1}</label>
+        <input id="frame-cek" type="range" min="0" max={Math.max(0, entry.durationInFrames - 1)} value={frame} onChange={(e) => setFrame(Number(e.target.value))} /></div>
+      <button className="btn wide" onClick={check} disabled={st.phase === 'busy'}>{st.phase === 'busy' ? 'Menggambar…' : 'Lihat cuplikan'}</button>
+      {st.phase === 'done' && <img className="still" src={st.url} alt={`Cuplikan frame ${frame}`} style={{ aspectRatio: `${entry.width} / ${entry.height}` }} />}
+      {st.phase === 'error' && <p className="err-msg">{st.msg}</p>}
+    </details>
+  );
+}
+
+function ExportPanel({ entry, say, files = [] }) {
   const [fmt, setFmt] = useState('mp4');
   const [quality, setQuality] = useState('high');
   const [scale, setScale] = useState(1);
   const [state, setState] = useState({ phase: 'idle' }); // idle|check|render|done|error
   const abortRef = useRef(null);
   const urlRef = useRef(null);
+  const [saving, setSaving] = useState(null);
 
   useEffect(() => () => { if (urlRef.current) URL.revokeObjectURL(urlRef.current); }, []);
 
@@ -522,12 +650,15 @@ function ExportPanel({ entry, say }) {
 
   const even = (n) => Math.max(2, Math.round(n / 2) * 2);
   const outW = even(entry.width * scale), outH = even(entry.height * scale);
+  const allCode = files.map((f) => f.code).join('\n');
+  const risky = RISKY.filter(([re]) => re.test(allCode)).map(([, n]) => n);
 
   const start = async () => {
     if (urlRef.current) { URL.revokeObjectURL(urlRef.current); urlRef.current = null; }
     setState({ phase: 'check' });
     let wake = null;
     try { wake = navigator.wakeLock ? await navigator.wakeLock.request('screen') : null; } catch { wake = null; }
+    Native.keepScreenOn(true);
     try {
       const plan = [fmt === 'mp4' ? ['mp4', 'h264'] : ['webm', 'vp8'], fmt === 'mp4' ? ['webm', 'vp8'] : ['mp4', 'h264'], ['webm', 'vp9']];
       let chosen = null, issues = [];
@@ -544,13 +675,7 @@ function ExportPanel({ entry, say }) {
       const t0 = Date.now();
       setState({ phase: 'render', p: 0, container: chosen.container });
       const res = await renderMediaOnWeb({
-        composition: {
-          id: entry.id.replace(/[^\w-]/g, '-') || 'Video',
-          component: entry.component,
-          width: even2(entry.width), height: even2(entry.height),
-          fps: entry.fps, durationInFrames: entry.durationInFrames,
-          defaultProps: entry.props,
-        },
+        composition: compositionOf(entry),
         inputProps: entry.props,
         container: chosen.container,
         videoCodec: chosen.videoCodec,
@@ -572,11 +697,18 @@ function ExportPanel({ entry, say }) {
     } finally {
       abortRef.current = null;
       try { wake && wake.release(); } catch { /* abaikan */ }
+      Native.keepScreenOn(false);
     }
   };
 
   const fileName = () => `${entry.id.replace(/[^\w-]+/g, '-').replace(/^-|-$/g, '') || 'video'}.${state.ext}`;
   const save = async () => {
+    if (Native.IS_ANDROID_APP) {
+      try { setSaving(0); const where = await Native.saveBlobNative(state.blob, fileName(), setSaving); say('Tersimpan di ' + where); }
+      catch (e) { say('Gagal menyimpan: ' + e.message); }
+      finally { setSaving(null); }
+      return;
+    }
     const dl = await downloadsP;
     if (dl) {
       try { await dl.save({ filename: fileName(), data: state.blob }); say('Video disimpan.'); return; } catch (e) {
@@ -631,11 +763,14 @@ function ExportPanel({ entry, say }) {
           <video className="result" src={state.url} controls playsInline />
           <p className="muted">{fileName()} · {fmtBytes(state.size)} · dibuat dalam {fmtSec(state.took)}</p>
           <div className="row">
-            <button className="btn primary" onClick={save}><Icon n="down" />Simpan ke HP</button>
+            <button className="btn primary" onClick={save} disabled={saving != null}><Icon n="down" />{saving != null ? `Menyimpan ${Math.round(saving * 100)}%` : 'Simpan ke HP'}</button>
             {canShare && <button className="btn" onClick={share}><Icon n="share" />Bagikan</button>}
+            {Native.IS_ANDROID_APP && <button className="btn" onClick={() => { if (!Native.shareNative()) say('Simpan dulu, lalu tekan Bagikan.'); }}><Icon n="share" />Bagikan</button>}
           </div>
         </div>
       )}
+      {risky.length > 0 && <div className="card warn"><p>Kode memakai {risky.join(', ')}. Efek ini bisa tampil berbeda di file video. Cek dulu dengan cuplikan di bawah.</p></div>}
+      <StillCheck entry={entry} />
       <p className="muted small">Pembuatan video berjalan di HP Anda sendiri (tanpa server). Hasil paling stabil di Chrome Android versi terbaru. Video panjang butuh waktu lebih lama.</p>
     </div>
   );
@@ -683,6 +818,36 @@ function AssetPanel({ assets, setAssets, say }) {
   );
 }
 
+function AiPanel({ say }) {
+  const [list, setList] = useState(null);
+  const [keys, setKeys] = useState(() => getKeys());
+  const refresh = useCallback(() => { providerStatus().then(setList).catch(() => setList([])); }, []);
+  useEffect(() => { refresh(); }, [refresh]);
+  const save = (id, v) => { setKey(id, v); setKeys(getKeys()); refresh(); say(v ? 'Kunci disimpan di HP ini.' : 'Kunci dihapus.'); };
+  return (
+    <details className="card help" onToggle={(e) => { if (e.currentTarget.open) refresh(); }}>
+      <summary>AI gratis untuk memperbaiki kode</summary>
+      <p className="muted">AI hanya dipakai saat Anda menekan <b>Perbaiki dengan AI</b> pada kode yang error. Aplikasi mencoba penyedia gratis satu per satu: bila kuota satu habis, otomatis pindah ke yang berikutnya. Tanpa daftar pun sudah bisa (Pollinations, LLM7). Kunci gratis di bawah ini opsional, untuk cadangan tambahan.</p>
+      <ul className="prov">
+        {(list || []).filter((p) => !(p.kind === 'sample' && p.state !== 'siap')).map((p) => (
+          <li key={p.id}>
+            <div className="prov-head"><b>{p.name}</b><span className={'st ' + (p.state === 'siap' ? 'ok' : p.state === 'butuh kunci' ? 'idle' : 'bad')}>{p.state}</span></div>
+            <span className="muted small">{p.note}</span>
+            {!p.keyless && (
+              <div className="keyrow">
+                <input id={'key-' + p.id} type="password" autoComplete="off" placeholder={p.hasKey ? 'Kunci tersimpan' : 'Tempel kunci gratis'} defaultValue="" onBlur={(e) => { if (e.target.value.trim()) { save(p.id, e.target.value); e.target.value = ''; } }} />
+                {keys[p.id] && <button className="link" onClick={() => save(p.id, '')}>Hapus</button>}
+              </div>
+            )}
+            {!p.keyless && <span className="muted small">Ambil kunci gratis: <a href={p.keyUrl} target="_blank" rel="noreferrer" onClick={(e) => { if (Native.openUrl(p.keyUrl)) e.preventDefault(); }}>{p.keyUrl.replace('https://', '')}</a></span>}
+          </li>
+        ))}
+      </ul>
+      <button className="btn wide" onClick={() => { clearCooldowns(); refresh(); say('Status kuota diatur ulang.'); }}>Coba semua penyedia lagi</button>
+    </details>
+  );
+}
+
 function Help() {
   return (
     <details className="card help">
@@ -692,14 +857,15 @@ function Help() {
         <li>Buka tab <b>Kode</b>, tekan <b>Tempel</b> (atau tekan lama di kolom lalu Tempel).</li>
         <li>Tekan <b>Jalankan</b>. Video tampil di tab <b>Putar</b>.</li>
         <li>Tab <b>Ekspor</b> membuat file MP4 untuk diunggah ke TikTok.</li>
+        <li>Kode berantakan? Tekan <b>Rapikan</b>. Kode error? Tekan <b>Perbaiki dengan AI</b> (gratis).</li>
       </ol>
       <h3>Banyak file sekaligus</h3>
       <p>Tempel saja semuanya. Aplikasi memisahkan file otomatis bila tiap file diawali baris seperti <code>// src/Root.tsx</code>, atau bila kode berupa beberapa blok <code>```tsx</code>. Import seperti <code>./Judul</code> otomatis tersambung.</p>
       <h3>Yang dikenali</h3>
       <p><code>&lt;Composition&gt;</code>, <code>registerRoot</code>, <code>calculateMetadata</code>, <code>defaultProps</code>, atau cukup komponen yang di-export. TypeScript dan JSX langsung jalan.</p>
       <h3>Paket bawaan</h3>
-      <p className="pk">remotion, @remotion/player, transitions (fade, slide, wipe, flip, iris, dll.), shapes, paths, noise, motion-blur, layout-utils, animation-utils, media-utils, media, fonts, google-fonts, captions, gif, lottie, light-leaks, starburst, rounded-text-box, effects, zod, react.</p>
-      <p>Paket lain dicoba diambil dari internet secara otomatis.</p>
+      <p className="pk">3D: @remotion/three (ThreeCanvas), three, @react-three/fiber, @react-three/drei. Lainnya: remotion, @remotion/player, transitions (fade, slide, wipe, flip, iris, dll.), shapes, paths, noise, motion-blur, layout-utils, animation-utils, media-utils, media, fonts, google-fonts, captions, gif, lottie, light-leaks, starburst, rounded-text-box, effects, zod, react.</p>
+      <p>Paket lain dicoba diambil dari internet secara otomatis. Fungsi Remotion/React yang lupa di-import (mis. useCurrentFrame, interpolate, useState) otomatis tersedia.</p>
     </details>
   );
 }

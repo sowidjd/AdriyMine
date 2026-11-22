@@ -8,7 +8,7 @@ const pkgs = [
   '@remotion/motion-blur', '@remotion/layout-utils', '@remotion/animation-utils', '@remotion/fonts',
   '@remotion/media-utils', '@remotion/media', '@remotion/zod-types', '@remotion/captions', '@remotion/gif',
   '@remotion/lottie', '@remotion/light-leaks', '@remotion/starburst', '@remotion/rounded-text-box',
-  'zod', 'lottie-web',
+  'zod', 'lottie-web', '@remotion/three', 'three', '@react-three/fiber', '@react-three/drei',
 ];
 for (const multi of ['@remotion/transitions', '@remotion/effects']) {
   const j = JSON.parse(fs.readFileSync(path.join(root, 'node_modules', multi, 'package.json'), 'utf8'));

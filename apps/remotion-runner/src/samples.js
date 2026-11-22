@@ -76,3 +76,47 @@ export const Kartu: React.FC<{ judul: string; isi: string }> = ({ judul, isi }) 
   );
 };
 `;
+
+export const SAMPLE_3D = `import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { ThreeCanvas } from '@remotion/three';
+import { RoundedBox } from '@react-three/drei';
+
+const Objek = () => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const masuk = 0.35 + 0.65 * spring({ frame, fps, config: { damping: 14 } });
+  const putar = frame * 0.03;
+  return (
+    <>
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[4, 6, 5]} intensity={2.2} />
+      <pointLight position={[-4, -2, 3]} intensity={30} color="#ff7ab6" />
+      <mesh rotation={[putar, putar * 1.3, 0]} scale={masuk * 1.2} position={[0, 0.8, 0]}>
+        <torusKnotGeometry args={[1, 0.34, 220, 32]} />
+        <meshStandardMaterial color="#4d8dff" metalness={0.55} roughness={0.2} />
+      </mesh>
+      <RoundedBox args={[1.4, 1.4, 1.4]} radius={0.22} smoothness={6} position={[0, -2.3, 0]} rotation={[0.5, -putar * 2, 0]} scale={masuk}>
+        <meshStandardMaterial color="#ffd166" metalness={0.2} roughness={0.35} />
+      </RoundedBox>
+    </>
+  );
+};
+
+export const Video3D = () => {
+  const frame = useCurrentFrame();
+  const { width, height } = useVideoConfig();
+  const teks = interpolate(frame, [0, 25], [0.2, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  return (
+    <AbsoluteFill style={{ background: 'radial-gradient(circle at 50% 35%, #233457, #0a0f1a 70%)' }}>
+      <ThreeCanvas width={width} height={height} camera={{ position: [0, -0.4, 9], fov: 45 }}>
+        <Objek />
+      </ThreeCanvas>
+      <AbsoluteFill style={{ justifyContent: 'flex-start', alignItems: 'center', paddingTop: 200 }}>
+        <div style={{ fontFamily: 'Arial Black, sans-serif', fontSize: 96, color: 'white', opacity: teks, letterSpacing: 2 }}>3D di HP</div>
+      </AbsoluteFill>
+    </AbsoluteFill>
+  );
+};
+
+export const durationInFrames = 150;
+`;
