@@ -1,0 +1,14 @@
+{
+  "name": "bedah-resleting",
+  "private": true,
+  "scripts": { "render": "remotion render src/index.ts Video out/video.mp4" },
+  "dependencies": {
+    "@fontsource/caveat": "5.1.0",
+    "@fontsource/patrick-hand": "5.1.0",
+    "@remotion/cli": "4.0.242",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.242"
+  },
+  "devDependencies": { "@types/react": "18.3.12", "typescript": "5.6.3" }
+}
