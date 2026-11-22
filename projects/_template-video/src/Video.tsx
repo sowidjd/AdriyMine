@@ -6,8 +6,8 @@
  *
  * Aturan singkat (lengkapnya: projects/GAYA-VISUAL.md):
  * - Teks penting di x 60–927, y 212–1540. Judul ≥ 80px, isi ≥ 40px.
- * - Benda utama di y 300–1150. ADRIY di bawah kiri/kanan, tinggi ±520 (setengah badan) / ±700 (seluruh badan).
- * - Subtitle otomatis di y ±1250, jangan taruh teks lain di situ.
+ * - Benda utama di y 300–1120. ADRIY di bawah kiri/kanan, tinggi ±520 (setengah badan) / ±560 (seluruh badan), supaya wajahnya tidak tertutup subtitle.
+ * - Subtitle otomatis di y 1170–1330, jangan taruh teks/benda lain di situ (maks. y 1120).
  * - Waktu di dalam adegan pakai frame lokal: t(n) = frame mulai kalimat ke-n, d = panjang adegan.
  */
 import React from "react";
@@ -50,7 +50,7 @@ const A2: React.FC<P> = ({ t }) => (
       <div style={{ width: 840, height: 520, borderRadius: 40, background: "#fbf5e6", border: `6px solid ${C.pensil}` }} />
     </Muncul>
     <Label at={t(3)} x={160} y={1100} warna={C.biru}>← label muncul di kalimat 3</Label>
-    <Adriy pose="jelaskan_tangan_terbuka" sisi="kanan" tinggi={700} at={4} />
+    <Adriy pose="jelaskan_tangan_terbuka" sisi="kanan" tinggi={560} at={4} />
   </>
 );
 

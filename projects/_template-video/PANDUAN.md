@@ -47,9 +47,9 @@ bash projects/_template-video/video.sh render judul-video        # 6. video jadi
 ### Aturan tata letak (dari `GAYA-VISUAL.md`)
 
 - **Teks penting:** di area x 60–927, y 212–1540. Judul minimal 80 px, isi minimal 40 px.
-- **Benda utama:** di area y 300–1150.
-- **ADRIY:** di bawah kiri atau kanan. Tinggi ±520 untuk pose setengah badan (`setengah_*`), ±700 untuk pose seluruh badan.
-- **Subtitle:** otomatis di sekitar y 1250. Jangan taruh teks lain di area itu.
+- **Benda utama:** di area y 300–1120.
+- **ADRIY:** di bawah kiri atau kanan. Tinggi ±520 untuk pose setengah badan (`setengah_*`), ±560 untuk pose seluruh badan (lebih tinggi dari itu, wajahnya tertutup subtitle).
+- **Subtitle:** otomatis di y 1170–1330. Jangan taruh teks atau benda lain di area itu; teks lain maksimal sampai y 1120.
 - **Ganti visual:** tiap 2–4 detik, minimal 5 emosi/pose ADRIY per video.
 
 Contoh lengkap yang sudah jadi ada di `projects/merinding-lagu/src/` (13 adegan, gaya colored-pencil).

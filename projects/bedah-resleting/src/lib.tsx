@@ -209,7 +209,7 @@ export const Subtitle: React.FC = () => {
   }
   const kini = pot[pIdx];
   return (
-    <div style={{ position: "absolute", left: 60, right: 153, top: 1250, display: "flex", justifyContent: "center", zIndex: 20 }}>
+    <div style={{ position: "absolute", left: 60, right: 153, top: 1170, display: "flex", justifyContent: "center", zIndex: 20 }}>
       <div
         style={{
           background: "rgba(28,42,68,.88)",

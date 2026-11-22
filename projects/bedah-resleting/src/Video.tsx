@@ -223,7 +223,7 @@ const A2: React.FC<P> = ({ d, t }) => {
   const sliderY = interpolate(
     f,
     [t(5), t(8)],
-    [0, 110],
+    [0, 50],
     cl
   );
 
@@ -252,7 +252,7 @@ const A2: React.FC<P> = ({ d, t }) => {
           style={{
             position: "absolute",
             left: 330,
-            top: 760 + sliderY,
+            top: 740 + sliderY,
             width: 420,
             height: 180,
             background: "#64748b",
@@ -283,7 +283,7 @@ const A2: React.FC<P> = ({ d, t }) => {
       <Label
         at={t(5)}
         x={90}
-        y={1075}
+        y={1000}
         warna="#2563eb"
         size={56}
       >
@@ -293,7 +293,7 @@ const A2: React.FC<P> = ({ d, t }) => {
       <Label
         at={t(6)}
         x={90}
-        y={1150}
+        y={1075}
         warna="#d97706"
         size={56}
       >
@@ -303,7 +303,7 @@ const A2: React.FC<P> = ({ d, t }) => {
       <Adriy
         pose="jelaskan_tangan_terbuka"
         sisi="kanan"
-        tinggi={700}
+        tinggi={560}
         at={t(3)}
       />
     </>
@@ -352,7 +352,7 @@ const A3: React.FC<P> = ({ d, t }) => {
       <Label
         at={t(9)}
         x={640}
-        y={1050}
+        y={990}
         warna="#93c5fd"
         size={56}
       >
@@ -362,7 +362,7 @@ const A3: React.FC<P> = ({ d, t }) => {
       <Label
         at={t(10)}
         x={640}
-        y={1125}
+        y={1065}
         warna="#93c5fd"
         size={56}
       >
