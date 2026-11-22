@@ -67,6 +67,21 @@ function kompilasi(kodeAsli: string): { komp: React.ComponentType | null; galat:
   }
 }
 
+function cekKurung(k: string): string {
+  let a = 0, b = 0, c = 0, i = 0; const n = k.length;
+  while (i < n) {
+    const ch = k[i], nx = k[i + 1];
+    if (ch === "/" && nx === "/") { while (i < n && k[i] !== "\n") i++; continue; }
+    if (ch === "/" && nx === "*") { i += 2; while (i < n && !(k[i] === "*" && k[i + 1] === "/")) i++; i += 2; continue; }
+    if (ch === '"' || ch === "'" || ch === "`") { const q = ch; i++; while (i < n && k[i] !== q) { if (k[i] === "\\") i++; i++; } i++; continue; }
+    if (ch === "{") a++; else if (ch === "}") a--; else if (ch === "(") b++; else if (ch === ")") b--; else if (ch === "[") c++; else if (ch === "]") c--;
+    i++;
+  }
+  const s: string[] = [];
+  if (a > 0) s.push(`${a} kurung kurawal "}"`); if (b > 0) s.push(`${b} kurung ")"`); if (c > 0) s.push(`${c} kurung "]"`);
+  return s.length ? `⚠ Kode sepertinya terpotong saat disalin: kurang ${s.join(", ")} di akhir. Salin ulang sampai baris terakhir, atau pakai tombol "Buka file".` : "";
+}
+
 class Pengaman extends React.Component<{ children: React.ReactNode; kunci: string }, { galat: string | null }> {
   state = { galat: null as string | null };
   static getDerivedStateFromError(e: Error) { return { galat: e.message }; }
@@ -78,8 +93,13 @@ const simpan = (k: string, v: string) => { try { localStorage.setItem(k, v); } c
 const baca = (k: string) => { try { return localStorage.getItem(k); } catch { return null; } };
 
 function App() {
-  const [kode, setKode] = useState(() => baca("kode") || CONTOH);
-  const [aktif, setAktif] = useState(kode);
+  const awal = useMemo(() => baca("kode") || CONTOH, []);
+  const kodeRef = useRef<HTMLTextAreaElement>(null);
+  const ambil = () => kodeRef.current?.value ?? awal;
+  const isi = (t: string) => { if (kodeRef.current) kodeRef.current.value = t; hitungUlang(); };
+  const [info, setInfo] = useState("");
+  const hitungUlang = () => { const t = ambil(); setInfo(`${t.split("\n").length} baris · ${t.length.toLocaleString("id-ID")} karakter`); };
+  const [aktif, setAktif] = useState(awal);
   const [atur, setAtur] = useState<Atur>({ durasi: 150, fps: 30, lebar: 1080, tinggi: 1920 });
   const [status, setStatus] = useState<string>("");
   const [persen, setPersen] = useState<number | null>(null);
@@ -87,13 +107,17 @@ function App() {
   const blobRef = useRef<Blob | null>(null);
   const batal = useRef<AbortController | null>(null);
   const { komp, galat, nama } = useMemo(() => kompilasi(aktif), [aktif]);
+  const infoTunda = useRef(0);
+  useEffect(() => { hitungUlang(); }, []); // eslint-disable-line
 
   const jalankan = useCallback(() => {
+    const kode = ambil(); hitungUlang();
     simpan("kode", kode);
     const d = angka(kode, "durationInFrames"), fps = angka(kode, "fps"), w = angka(kode, "width"), h = angka(kode, "height");
     setAtur((a) => ({ durasi: d ?? a.durasi, fps: fps ?? a.fps, lebar: w ?? a.lebar, tinggi: h ?? a.tinggi }));
-    setAktif(kode); setStatus("");
-  }, [kode]);
+    const kurang = cekKurung(kode);
+    setAktif(kode); setStatus(kurang);
+  }, []); // eslint-disable-line
   useEffect(() => { jalankan(); }, []); // eslint-disable-line
 
   const render = async () => {
@@ -131,8 +155,11 @@ function App() {
       <header><h1>Studio Kode</h1><p>Tempel kode Remotion, putar pratinjau, lalu render jadi MP4 langsung di HP. Tanpa server, tanpa suara.</p></header>
       <section className="panel">
         <label htmlFor="kode">Kode Remotion (.tsx)</label>
-        <textarea id="kode" spellCheck={false} value={kode} onChange={(e) => setKode(e.target.value)} />
-        <div className="tombol"><button onClick={jalankan}>▶ Jalankan</button><button className="kedua" onClick={() => setKode("")}>Kosongkan</button><button className="kedua" onClick={() => setKode(CONTOH)}>Contoh</button></div>
+        <textarea id="kode" ref={kodeRef} spellCheck={false} autoCapitalize="off" autoCorrect="off" defaultValue={awal} onInput={() => { if (!infoTunda.current) infoTunda.current = window.setTimeout(() => { infoTunda.current = 0; hitungUlang(); }, 400); }} />
+        <p className="kecil">{info}</p>
+        <div className="tombol"><button onClick={jalankan}>▶ Jalankan</button>
+          <label className="file kedua">📂 Buka file<input id="file" type="file" accept=".tsx,.ts,.jsx,.js,.txt,text/plain" onChange={async (e) => { const f = e.target.files?.[0]; if (f) { isi(await f.text()); jalankan(); } e.target.value = ""; }} /></label>
+          <button className="kedua" onClick={() => isi("")}>Kosongkan</button><button className="kedua" onClick={() => isi(CONTOH)}>Contoh</button></div>
         <div className="atur">
           <label>Durasi (frame)<input id="durasi" type="number" value={atur.durasi} onChange={ubah("durasi")} /></label>
           <label>FPS<input id="fps" type="number" value={atur.fps} onChange={ubah("fps")} /></label>
