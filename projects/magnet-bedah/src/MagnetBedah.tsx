@@ -1,134 +1,51 @@
+/**
+ * ADRIY PROJECT — RAHASIA DI BALIK SEBUAH MAGNET (kode dari pemilik)
+ *
+ * Penyesuaian:
+ * - Typo kurung tutup di SceneTitle dibetulkan.
+ * - Waktu adegan & subtitle mengikuti narasi suara Mia (timeline.json), bukan detik tetap.
+ * - Frame tiap adegan dihitung dari awal adegan (lokal), jadi animasi selalu mulai dari awal.
+ * - Magnet di adegan 8 & 9 diberi posisi (sebelumnya menempel di pojok kiri atas).
+ * - Gambar ADRIY (pose seluruh badan) diukur dari tinggi supaya tidak menutupi layar.
+ * - 🔩 diganti baut gambar sendiri (emoji tidak ada di mesin render).
+ * - Narasi + musik CC0 ditambahkan.
+ */
 import React from "react";
 import {
   AbsoluteFill,
+  Audio,
   Img,
   Sequence,
+  useCurrentFrame,
   interpolate,
   spring,
-  useCurrentFrame,
-  useVideoConfig,
   staticFile,
+  useVideoConfig,
 } from "remotion";
+import timeline from "./timeline.json";
 
-const Subtitle = ({ text }: { text: string }) => {
-  return (
-    <div
-      style={{
-        position: "absolute",
-        bottom: 300,
-        left: 60,
-        right: 60,
-        padding: "22px 36px",
-        borderRadius: 28,
-        background: "rgba(2,8,20,.72)",
-        zIndex: 10,
-        textAlign: "center",
-        fontSize: 43,
-        fontWeight: 800,
-        color: "#FFFFFF",
-        lineHeight: 1.4,
-        textShadow: "0 4px 15px rgba(0,0,0,.9)",
-      }}
-    >
-      {text}
-    </div>
-  );
+const FPS = 30;
+type Kal = { no: number; teks: string; mulai: number; durasi: number };
+const KAL: Kal[] = (timeline as { kalimat: Kal[] }).kalimat;
+const TOTAL_DETIK: number = (timeline as { total: number }).total;
+export const DURASI = Math.ceil((TOTAL_DETIK + 2) * FPS);
+
+// frame mulai kalimat ke-i (0-based) = frame mulai adegan ke-i
+const S = KAL.map((k, i) => (i === 0 ? 0 : Math.round(k.mulai * FPS) - 6));
+
+const sceneAt = (f: number) => {
+  let s = 0;
+  for (let i = 0; i < S.length; i++) if (f >= S[i]) s = i;
+  return s;
 };
 
-const Adriy = ({
-  emotion = "curious",
-  position = "left",
-}: {
-  emotion?: string;
-  position?: "left" | "right";
-}) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-
-  const entrance = spring({
-    frame,
-    fps,
-    config: {
-      damping: 15,
-      stiffness: 100,
-    },
-  });
-
-  const floating = Math.sin(frame / 15) * 8;
-
-  return (
-    <Img
-      src={staticFile(`adriy-${emotion}.png`)}
-      style={{
-        position: "absolute",
-        bottom: 0,
-        // Pose ADRIY seluruh badan (tinggi > lebar): ukur dari tinggi,
-        // supaya tidak menutupi judul dan magnet.
-        height: 760,
-        width: "auto",
-        objectFit: "contain",
-        left: position === "left" ? 10 : undefined,
-        right: position === "right" ? 10 : undefined,
-        transform: `
-          translateY(${interpolate(entrance, [0, 1], [200, 0]) + floating}px)
-          scale(${interpolate(entrance, [0, 1], [0.8, 1])})
-        `,
-        filter: "drop-shadow(0 20px 50px rgba(0,0,0,.5))",
-      }}
-    />
-  );
+const captionAt = (frame: number) => {
+  const t = frame / FPS;
+  const k = KAL.find((x) => t >= x.mulai - 0.05 && t < x.mulai + x.durasi + 0.3);
+  return k ? k.teks : "";
 };
 
-const Magnet = () => {
-  const frame = useCurrentFrame();
-
-  const rotation = Math.sin(frame / 35) * 8;
-  const pulse = 1 + Math.sin(frame / 12) * 0.03;
-
-  return (
-    <div
-      style={{
-        width: 480,
-        height: 160,
-        display: "flex",
-        transform: `rotate(${rotation}deg) scale(${pulse})`,
-        filter: "drop-shadow(0 0 35px rgba(80,150,255,.25))",
-      }}
-    >
-      <div
-        style={{
-          flex: 1,
-          background: "linear-gradient(135deg,#ff7777,#dc2626,#991b1b)",
-          borderRadius: "25px 0 0 25px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontSize: 70,
-          fontWeight: 900,
-          color: "white",
-        }}
-      >
-        N
-      </div>
-
-      <div
-        style={{
-          flex: 1,
-          background: "linear-gradient(135deg,#60a5fa,#2563eb,#1e3a8a)",
-          borderRadius: "0 25px 25px 0",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontSize: 70,
-          fontWeight: 900,
-          color: "white",
-        }}
-      >
-        S
-      </div>
-    </div>
-  );
-};
+const cl = { extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const };
 
 const Background = () => {
   const frame = useCurrentFrame();
@@ -137,12 +54,13 @@ const Background = () => {
     <AbsoluteFill
       style={{
         background:
-          "radial-gradient(circle at 50% 40%, #17345c, #07111f 60%, #02050c)",
+          "radial-gradient(ellipse at 50% 45%, #19385c 0%, #071525 48%, #02050b 100%)",
       }}
     >
-      {Array.from({ length: 35 }).map((_, i) => {
-        const x = (i * 137) % 1080;
-        const y = (i * 251) % 1920;
+      {Array.from({ length: 50 }).map((_, i) => {
+        const x = (i * 137.5) % 1080;
+        const y = (i * 257.3) % 1920;
+        const move = Math.sin(frame / 35 + i) * 30;
 
         return (
           <div
@@ -150,13 +68,13 @@ const Background = () => {
             style={{
               position: "absolute",
               left: x,
-              top: y + Math.sin(frame / 20 + i) * 30,
-              width: 4,
-              height: 4,
-              background: "#93c5fd",
+              top: y + move,
+              width: i % 4 === 0 ? 5 : 2,
+              height: i % 4 === 0 ? 5 : 2,
               borderRadius: "50%",
-              opacity: 0.4,
-              boxShadow: "0 0 10px #60a5fa",
+              background: "#9bd0ff",
+              opacity: 0.15 + Math.abs(Math.sin(frame / 20 + i)) * 0.3,
+              boxShadow: "0 0 12px #60a5fa",
             }}
           />
         );
@@ -165,254 +83,564 @@ const Background = () => {
   );
 };
 
-const IntroScene = () => {
-  const frame = useCurrentFrame();
+const Magnet3D = ({ frame, exploded = false }: { frame: number; exploded?: boolean }) => {
+  const rotate = interpolate(frame, [0, 120], [-15, 20], cl);
+  const float = Math.sin(frame / 15) * 20;
 
-  const zoom = interpolate(frame, [0, 120], [1, 1.15]);
-
-  return (
-    <AbsoluteFill>
-      <Background />
-
-      <div
-        style={{
-          position: "absolute",
-          top: 350,
-          left: 80,
-          fontSize: 70,
-          fontWeight: 900,
-          color: "white",
-          lineHeight: 1.2,
-        }}
-      >
-        KENAPA
-        <br />
-        <span style={{ color: "#60a5fa" }}>MAGNET</span>
-        <br />
-        BISA MENARIK?
-      </div>
-
-      <div
-        style={{
-          position: "absolute",
-          top: 820,
-          left: 300,
-          transform: `scale(${zoom})`,
-        }}
-      >
-        <Magnet />
-      </div>
-
-      <Adriy emotion="curious" position="right" />
-
-      <Subtitle text="Pernah berpikir, benda sekecil ini bisa menarik besi tanpa menyentuhnya?" />
-    </AbsoluteFill>
-  );
-};
-
-const ExplodedScene = () => {
-  const frame = useCurrentFrame();
-
-  const separation = interpolate(frame, [0, 120], [0, 300], {
-    extrapolateRight: "clamp",
-  });
+  const separation = exploded ? interpolate(frame, [0, 100], [0, 260], cl) : 0;
 
   return (
-    <AbsoluteFill>
-      <Background />
-
-      <div
-        style={{
-          position: "absolute",
-          top: 300,
-          width: "100%",
-          textAlign: "center",
-          fontSize: 60,
-          fontWeight: 900,
-          color: "white",
-        }}
-      >
-        <span style={{ color: "#60a5fa" }}>KITA BEDAH</span>
-        <br />
-        MAGNET INI
-      </div>
-
-      <div
-        style={{
-          position: "absolute",
-          top: 850,
-          left: "50%",
-          transform: "translateX(-50%)",
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <div
-          style={{
-            width: 240,
-            height: 150,
-            background: "linear-gradient(135deg,#ff7777,#dc2626)",
-            borderRadius: 25,
-            transform: `translateX(-${separation / 2}px)`,
-          }}
-        />
-
-        <div
-          style={{
-            width: 240,
-            height: 150,
-            background: "linear-gradient(135deg,#60a5fa,#2563eb)",
-            borderRadius: 25,
-            transform: `translateX(${separation / 2}px)`,
-          }}
-        />
-      </div>
-
-      <Adriy emotion="explaining" position="left" />
-
-      <Subtitle text="Ternyata, rahasianya tidak sesederhana yang kita lihat dari luar." />
-    </AbsoluteFill>
-  );
-};
-
-const MicroscopicScene = () => {
-  const frame = useCurrentFrame();
-
-  return (
-    <AbsoluteFill>
-      <Background />
-
-      <div
-        style={{
-          position: "absolute",
-          top: 300,
-          width: "100%",
-          textAlign: "center",
-          fontSize: 60,
-          fontWeight: 900,
-          color: "#60a5fa",
-        }}
-      >
-        DUNIA
-        <br />
-        MIKROSKOPIS
-      </div>
-
-      <div
-        style={{
-          position: "absolute",
-          top: 560,
-          left: 120,
-          width: 840,
-          height: 620,
-          borderRadius: 40,
-          background: "rgba(10,30,60,.8)",
-          border: "2px solid rgba(96,165,250,.4)",
-          display: "grid",
-          gridTemplateColumns: "repeat(6, 1fr)",
-          gap: 20,
-          padding: 40,
-        }}
-      >
-        {Array.from({ length: 36 }).map((_, i) => {
-          const angle = interpolate(frame, [0, 150], [(i * 97) % 360, 0], {
-            extrapolateRight: "clamp",
-          });
-
-          return (
-            <div
-              key={i}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <div
-                style={{
-                  width: 60,
-                  height: 15,
-                  borderRadius: 20,
-                  background: "linear-gradient(90deg,#ef4444 50%,#3b82f6 50%)",
-                  transform: `rotate(${angle}deg)`,
-                  boxShadow: "0 0 15px rgba(96,165,250,.4)",
-                }}
-              />
-            </div>
-          );
-        })}
-      </div>
-
-      <Adriy emotion="explaining" position="right" />
-
-      <Subtitle text="Di dalamnya terdapat domain magnetik, kelompok kecil yang memiliki arah magnet." />
-    </AbsoluteFill>
-  );
-};
-
-export const MagnetBedah: React.FC = () => {
-  return (
-    <AbsoluteFill
+    <div
       style={{
-        fontFamily: "Arial, sans-serif",
-        overflow: "hidden",
+        width: 620,
+        height: 230,
+        position: "relative",
+        transformStyle: "preserve-3d",
+        transform: `perspective(1200px) rotateY(${rotate}deg) rotateX(-12deg) translateY(${float}px)`,
       }}
     >
-      {/* INTRO */}
-      <Sequence from={0} durationInFrames={180}>
-        <IntroScene />
-      </Sequence>
+      {/* Bagian merah */}
+      <div
+        style={{
+          position: "absolute",
+          left: -separation,
+          width: 310,
+          height: 200,
+          borderRadius: "35px 8px 8px 35px",
+          background: "linear-gradient(145deg,#ffaaaa 0%,#ef4444 20%,#b91c1c 75%,#701010 100%)",
+          boxShadow: "inset 0 8px 20px rgba(255,255,255,.3), 0 30px 60px rgba(0,0,0,.5)",
+          transform: "translateZ(35px)",
+          border: "2px solid rgba(255,255,255,.15)",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            transform: "translateZ(30px)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: 90,
+            color: "#fff",
+            fontWeight: 900,
+            textShadow: "0 5px 20px #600",
+          }}
+        >
+          N
+        </div>
+      </div>
 
-      {/* BEDAH */}
-      <Sequence from={180} durationInFrames={300}>
-        <ExplodedScene />
-      </Sequence>
+      {/* Bagian biru */}
+      <div
+        style={{
+          position: "absolute",
+          right: separation,
+          width: 310,
+          height: 200,
+          borderRadius: "8px 35px 35px 8px",
+          background: "linear-gradient(145deg,#bfdbfe 0%,#60a5fa 20%,#2563eb 75%,#172f7b 100%)",
+          boxShadow: "inset 0 8px 20px rgba(255,255,255,.3), 0 30px 60px rgba(0,0,0,.5)",
+          transform: "translateZ(35px)",
+          border: "2px solid rgba(255,255,255,.15)",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            transform: "translateZ(30px)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: 90,
+            color: "#fff",
+            fontWeight: 900,
+            textShadow: "0 5px 20px #003",
+          }}
+        >
+          S
+        </div>
+      </div>
 
-      {/* MIKROSKOP */}
-      <Sequence from={480} durationInFrames={450}>
-        <MicroscopicScene />
-      </Sequence>
+      {/* Sisi magnet */}
+      <div
+        style={{
+          position: "absolute",
+          top: 30,
+          left: 0,
+          width: 620,
+          height: 200,
+          transform: "translateZ(-35px)",
+          background: "linear-gradient(90deg,#7f1d1d,#1e3a8a)",
+          borderRadius: 30,
+        }}
+      />
+    </div>
+  );
+};
 
-      {/* ENDING */}
-      <Sequence from={930} durationInFrames={870}>
-        <AbsoluteFill>
-          <Background />
+const FieldLines = ({ frame }: { frame: number }) => {
+  const pulse = 0.5 + Math.sin(frame / 18) * 0.3;
 
+  return (
+    <svg
+      viewBox="0 0 1000 1000"
+      style={{ position: "absolute", width: 1000, height: 1000, left: 40, top: 450 }}
+    >
+      {Array.from({ length: 8 }).map((_, i) => (
+        <path
+          key={i}
+          d={`M ${250 + i * 20} 500
+          C ${150 + i * 20} ${100 - i * 10},
+            ${850 - i * 20} ${100 - i * 10},
+            ${750 - i * 20} 500
+          C ${850 - i * 20} ${900 + i * 10},
+            ${150 + i * 20} ${900 + i * 10},
+            ${250 + i * 20} 500`}
+          fill="none"
+          stroke="#60a5fa"
+          strokeWidth="3"
+          strokeOpacity={0.15 + pulse * 0.2}
+          strokeDasharray="10 12"
+          strokeDashoffset={-frame * 1.5}
+        />
+      ))}
+    </svg>
+  );
+};
+
+const ExplodedMagnet = ({ frame }: { frame: number }) => {
+  const distance = interpolate(frame, [0, 100], [0, 240], cl);
+
+  const parts = [
+    { color: "#ef4444", label: "N", x: -distance },
+    { color: "#f59e0b", label: "", x: -distance * 0.4 },
+    { color: "#cbd5e1", label: "", x: 0 },
+    { color: "#64748b", label: "", x: distance * 0.4 },
+    { color: "#2563eb", label: "S", x: distance },
+  ];
+
+  return (
+    <div
+      style={{
+        position: "relative",
+        width: 800,
+        height: 400,
+        transform: "perspective(1000px) rotateX(-18deg)",
+      }}
+    >
+      {parts.map((part, i) => (
+        <div
+          key={i}
+          style={{
+            position: "absolute",
+            left: 100 + i * 120,
+            top: 80,
+            width: 120,
+            height: 220,
+            borderRadius: 18,
+            background: `linear-gradient(145deg,${part.color},#111827)`,
+            border: "2px solid rgba(255,255,255,.15)",
+            boxShadow: "0 30px 60px rgba(0,0,0,.5)",
+            transform: `translateX(${part.x}px) translateZ(${i * 15}px)`,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "white",
+            fontSize: 55,
+            fontWeight: 900,
+          }}
+        >
+          {part.label}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const Atom = ({ frame, index }: { frame: number; index: number }) => {
+  const angle = frame / 20 + index;
+  const orbit = 50 + (index % 3) * 30;
+  // sebar atom di area tengah (y 560–1150)
+  const cx = 200 + ((index * 173) % 680);
+  const cy = 620 + ((index * 97) % 480);
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        left: cx + Math.cos(angle) * orbit,
+        top: cy + Math.sin(angle) * orbit,
+        width: 50,
+        height: 50,
+        borderRadius: "50%",
+        background: "radial-gradient(circle at 30% 25%,#fff,#60a5fa 30%,#1d4ed8 70%,#071a40)",
+        boxShadow: "0 0 30px rgba(96,165,250,.6)",
+      }}
+    />
+  );
+};
+
+const Domains = ({ frame, sejajar = 1 }: { frame: number; sejajar?: number }) => {
+  const alignment = interpolate(frame, [0, 240], [0, sejajar], cl);
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        left: 100,
+        top: 470,
+        width: 880,
+        height: 660,
+        display: "grid",
+        gridTemplateColumns: "repeat(6,1fr)",
+        gap: 20,
+        padding: 40,
+        borderRadius: 40,
+        background: "rgba(8,24,50,.7)",
+        border: "2px solid rgba(96,165,250,.3)",
+        boxSizing: "border-box",
+      }}
+    >
+      {Array.from({ length: 36 }).map((_, i) => {
+        const initial = (i * 83) % 360;
+        const rotation = interpolate(alignment, [0, 1], [initial, 0]);
+
+        return (
+          <div key={i} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <div
+              style={{
+                width: 70,
+                height: 20,
+                borderRadius: 20,
+                background: "linear-gradient(90deg,#ef4444 50%,#3b82f6 50%)",
+                transform: `rotate(${rotation}deg)`,
+                boxShadow: "0 0 15px rgba(96,165,250,.3)",
+              }}
+            />
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+const Baut = () => (
+  <svg width={120} height={200} viewBox="0 0 120 200">
+    <defs>
+      <linearGradient id="besi" x1="0" x2="1">
+        <stop offset="0" stopColor="#475569" />
+        <stop offset="0.45" stopColor="#e2e8f0" />
+        <stop offset="1" stopColor="#334155" />
+      </linearGradient>
+    </defs>
+    <rect x={10} y={0} width={100} height={45} rx={8} fill="url(#besi)" stroke="#1e293b" strokeWidth={3} />
+    <rect x={38} y={45} width={44} height={150} rx={6} fill="url(#besi)" stroke="#1e293b" strokeWidth={3} />
+    {Array.from({ length: 9 }).map((_, i) => (
+      <line key={i} x1={36} y1={60 + i * 15} x2={84} y2={68 + i * 15} stroke="#1e293b" strokeWidth={3} />
+    ))}
+  </svg>
+);
+
+const Character = ({ emotion = "curious", kiri = false }: { emotion?: string; kiri?: boolean }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const masuk = spring({ frame, fps, config: { damping: 15, stiffness: 100 } });
+  const float = Math.sin(frame / 12) * 10;
+
+  return (
+    <Img
+      src={staticFile(`adriy-${emotion}.png`)}
+      style={{
+        position: "absolute",
+        bottom: 0,
+        [kiri ? "left" : "right"]: 10,
+        height: 520,
+        width: "auto",
+        transform: `translateY(${interpolate(masuk, [0, 1], [200, 0]) + float}px)`,
+        filter: "drop-shadow(0 30px 50px rgba(0,0,0,.5))",
+      }}
+    />
+  );
+};
+
+const SceneTitle = ({ title, subtitle }: { title: string; subtitle?: string }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const p = spring({ frame, fps, config: { damping: 14 } });
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: 260,
+        width: "100%",
+        textAlign: "center",
+        padding: "0 50px",
+        boxSizing: "border-box",
+        opacity: p,
+        transform: `translateY(${(1 - p) * 30}px)`,
+      }}
+    >
+      <div style={{ fontSize: 80, fontWeight: 900, color: "#fff", textShadow: "0 5px 30px #000" }}>{title}</div>
+
+      {subtitle && <div style={{ marginTop: 20, fontSize: 42, color: "#93c5fd" }}>{subtitle}</div>}
+    </div>
+  );
+};
+
+const Subtitle = ({ text }: { text: string }) =>
+  text ? (
+    <div
+      style={{
+        position: "absolute",
+        top: 1190,
+        left: 65,
+        right: 65,
+        padding: "25px 30px",
+        borderRadius: 24,
+        background: "rgba(0,0,0,.72)",
+        border: "1px solid rgba(255,255,255,.12)",
+        color: "#fff",
+        fontSize: 42,
+        fontWeight: 800,
+        lineHeight: 1.4,
+        textAlign: "center",
+        textShadow: "0 3px 10px #000",
+        zIndex: 50,
+      }}
+    >
+      {text}
+    </div>
+  ) : null;
+
+const Scene = ({ children }: { children: React.ReactNode }) => (
+  <AbsoluteFill>
+    <Background />
+    {children}
+  </AbsoluteFill>
+);
+
+const Tengah = ({ top, children }: { top: number; children: React.ReactNode }) => (
+  <div style={{ position: "absolute", top, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
+    {children}
+  </div>
+);
+
+// Isi tiap adegan, f = frame lokal (0 = awal adegan), d = panjang adegan
+const ADEGAN: ((f: number, d: number) => React.ReactNode)[] = [
+  // 1 — hook
+  (f) => (
+    <>
+      <SceneTitle title="RAHASIA" subtitle="DI BALIK SEBUAH MAGNET" />
+      <FieldLines frame={f} />
+      <Tengah top={720}>
+        <div style={{ transform: `scale(${interpolate(f, [0, 300], [1, 1.15], cl)})` }}>
+          <Magnet3D frame={f} />
+        </div>
+      </Tengah>
+      <Character emotion="curious" />
+    </>
+  ),
+  // 2 — anggapan umum
+  (f) => (
+    <>
+      <SceneTitle title="BENDA BIASA?" subtitle="Dua kutub: N dan S" />
+      <Tengah top={720}>
+        <Magnet3D frame={f} />
+      </Tengah>
+      <Character emotion="explaining" kiri />
+    </>
+  ),
+  // 3 — bahan magnet
+  (f) => (
+    <>
+      <SceneTitle title="MEMBEDAH" subtitle="Bahan magnet permanen" />
+      <Tengah top={600}>
+        <Magnet3D frame={f} />
+      </Tengah>
+      {["NEODYMIUM", "FERRITE", "ALNICO"].map((b, i) => {
+        const p = interpolate(f, [30 + i * 25, 50 + i * 25], [0, 1], cl);
+        return (
           <div
+            key={b}
             style={{
               position: "absolute",
-              top: 400,
-              width: "100%",
-              textAlign: "center",
-              fontSize: 65,
+              top: 860 + i * 88,
+              left: 90,
+              padding: "12px 30px",
+              borderRadius: 18,
+              background: "rgba(37,99,235,.25)",
+              border: "2px solid #60a5fa",
+              color: "#dbeafe",
+              fontSize: 44,
               fontWeight: 900,
-              color: "white",
+              letterSpacing: 3,
+              opacity: p,
+              transform: `translateX(${(1 - p) * -60}px)`,
             }}
           >
-            Kekuatan
-            <br />
-            <span style={{ color: "#60a5fa" }}>TAK TERLIHAT</span>
+            {b}
           </div>
+        );
+      })}
+      <Character emotion="explaining" />
+    </>
+  ),
+  // 4 — pembongkaran
+  (f) => (
+    <>
+      <SceneTitle title="STRUKTUR MATERIAL" subtitle="Visualisasi pembongkaran" />
+      <Tengah top={620}>
+        <ExplodedMagnet frame={f} />
+      </Tengah>
+    </>
+  ),
+  // 5 — atom & elektron
+  (f, d) => (
+    <>
+      <SceneTitle title="MASUK KE DALAM" subtitle="Atom & elektron" />
+      <AbsoluteFill style={{ transform: `scale(${interpolate(f, [0, d], [1, 1.25], cl)})` }}>
+        {Array.from({ length: 14 }).map((_, i) => (
+          <Atom frame={f} index={i} key={i} />
+        ))}
+      </AbsoluteFill>
+    </>
+  ),
+  // 6 — domain acak → mulai sejajar
+  (f) => (
+    <>
+      <SceneTitle title="DOMAIN MAGNETIK" subtitle="Kelompok momen magnetik" />
+      <Domains frame={f} sejajar={0.35} />
+    </>
+  ),
+  // 7 — domain sejajar
+  (f) => (
+    <>
+      <SceneTitle title="ARAH YANG SEJAJAR" subtitle="Efek magnet makin kuat" />
+      <Domains frame={f + 84} />
+    </>
+  ),
+  // 8 — medan magnet
+  (f) => (
+    <>
+      <SceneTitle title="MEDAN MAGNET" subtitle="Kekuatan yang tak terlihat" />
+      <FieldLines frame={f} />
+      <Tengah top={835}>
+        <Magnet3D frame={f} />
+      </Tengah>
+    </>
+  ),
+  // 9 — gaya tarik
+  (f, d) => (
+    <>
+      <SceneTitle title="GAYA TARIK" subtitle="Interaksi dengan besi" />
+      <Tengah top={720}>
+        <div style={{ transform: "translateX(-160px) scale(0.8)" }}>
+          <Magnet3D frame={f} />
+        </div>
+      </Tengah>
+      <div
+        style={{
+          position: "absolute",
+          top: 720,
+          left: interpolate(f, [0, d * 0.7], [880, 690], {
+            ...cl,
+            easing: (x) => x * x * x,
+          }),
+          transform: `rotate(${interpolate(f, [0, d * 0.7], [25, 90], cl)}deg)`,
+        }}
+      >
+        <Baut />
+      </div>
+    </>
+  ),
+  // 10 — penutup
+  (f, d) => (
+    <>
+      <SceneTitle title="ADRIY PROJECT" subtitle="Sains di balik hal sederhana" />
+      <Tengah top={680}>
+        <Magnet3D frame={f} />
+      </Tengah>
+      <Character emotion="confident" kiri />
+      <AbsoluteFill style={{ background: "#000", opacity: interpolate(f, [d - 25, d], [0, 1], cl) }} />
+    </>
+  ),
+];
 
-          <Adriy emotion="confident" position="left" />
+export const MagnetBedah: React.FC = () => {
+  const frame = useCurrentFrame();
 
-          <Subtitle text="Inilah salah satu kekuatan alam yang selalu ada di sekitar kita." />
+  const scene = sceneAt(frame);
+  const subtitle = captionAt(frame);
 
-          <div
-            style={{
-              position: "absolute",
-              top: 120,
-              right: 80,
-              fontSize: 32,
-              fontWeight: 900,
-              letterSpacing: 5,
-              color: "#93c5fd",
-            }}
-          >
-            ADRIY.PROJECT
-          </div>
-        </AbsoluteFill>
-      </Sequence>
+  return (
+    <AbsoluteFill style={{ backgroundColor: "#020814", overflow: "hidden", fontFamily: "Arial, sans-serif" }}>
+      {ADEGAN.map((isi, i) => {
+        const from = S[i];
+        const d = (i + 1 < S.length ? S[i + 1] : DURASI) - from;
+        return (
+          <Sequence key={i} from={from} durationInFrames={d}>
+            <Scene>
+              <Lokal d={d} isi={isi} />
+            </Scene>
+          </Sequence>
+        );
+      })}
+
+      {/* BRAND */}
+      <div
+        style={{
+          position: "absolute",
+          top: 120,
+          left: 70,
+          zIndex: 100,
+          fontSize: 30,
+          fontWeight: 900,
+          letterSpacing: 5,
+          color: "#93c5fd",
+        }}
+      >
+        ADRIY.PROJECT
+      </div>
+
+      {/* SUBTITLE */}
+      <Subtitle text={subtitle} />
+
+      {/* PROGRESS */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: 100,
+          left: 70,
+          right: 70,
+          height: 6,
+          background: "rgba(255,255,255,.15)",
+          borderRadius: 10,
+          zIndex: 60,
+        }}
+      >
+        <div
+          style={{
+            height: "100%",
+            width: `${(frame / DURASI) * 100}%`,
+            background: "linear-gradient(90deg,#2563eb,#93c5fd)",
+            borderRadius: 10,
+          }}
+        />
+      </div>
+
+      <Audio src={staticFile("narasi.wav")} />
+      <Audio
+        src={staticFile("musik1.ogg")}
+        loop
+        volume={(x) => interpolate(x, [0, 25, DURASI - 40, DURASI], [0, 0.12, 0.12, 0], cl)}
+      />
     </AbsoluteFill>
   );
+};
+
+const Lokal = ({ d, isi }: { d: number; isi: (f: number, d: number) => React.ReactNode }) => {
+  const f = useCurrentFrame();
+  return <>{isi(f, d)}</>;
 };

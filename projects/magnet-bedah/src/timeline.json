@@ -1,0 +1,65 @@
+{
+ "kalimat": [
+  {
+   "no": 1,
+   "teks": "Pernah nggak kamu melihat benda kecil seperti ini, tetapi mampu menarik benda lain tanpa menyentuhnya?",
+   "mulai": 0.0,
+   "durasi": 6.6
+  },
+  {
+   "no": 2,
+   "teks": "Kita sering menganggap magnet hanyalah benda biasa dengan dua kutub.",
+   "mulai": 7.05,
+   "durasi": 4.6
+  },
+  {
+   "no": 3,
+   "teks": "Magnet permanen terbuat dari material khusus seperti neodymium, ferrite, atau alnico.",
+   "mulai": 12.1,
+   "durasi": 5.0
+  },
+  {
+   "no": 4,
+   "teks": "Bayangkan kita bisa membongkar magnet ini. Pembongkaran ini adalah visualisasi struktur materialnya.",
+   "mulai": 17.55,
+   "durasi": 5.4
+  },
+  {
+   "no": 5,
+   "teks": "Di dalam material terdapat atom. Elektron memiliki sifat magnetik yang berhubungan dengan spin dan gerak orbital.",
+   "mulai": 23.4,
+   "durasi": 7.0
+  },
+  {
+   "no": 6,
+   "teks": "Momen magnetik atom dapat berinteraksi dan membentuk kelompok yang disebut domain magnetik.",
+   "mulai": 30.85,
+   "durasi": 5.4
+  },
+  {
+   "no": 7,
+   "teks": "Ketika banyak domain menjadi lebih sejajar, efek magnetik material semakin kuat.",
+   "mulai": 36.7,
+   "durasi": 5.0
+  },
+  {
+   "no": 8,
+   "teks": "Medan magnet terbentuk di sekitar magnet. Walaupun tidak terlihat, medan ini dapat memengaruhi benda tertentu.",
+   "mulai": 42.15,
+   "durasi": 6.6
+  },
+  {
+   "no": 9,
+   "teks": "Saat besi mendekat, medan magnet menyebabkan perubahan susunan magnetik yang menghasilkan gaya tarik.",
+   "mulai": 49.2,
+   "durasi": 5.8
+  },
+  {
+   "no": 10,
+   "teks": "Di balik benda sederhana, terdapat dunia mikroskopis dengan susunan magnetik yang luar biasa.",
+   "mulai": 55.45,
+   "durasi": 5.8
+  }
+ ],
+ "total": 61.7
+}

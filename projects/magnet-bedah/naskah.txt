@@ -1,0 +1,10 @@
+Pernah nggak kamu melihat benda kecil seperti ini, tetapi mampu menarik benda lain tanpa menyentuhnya?
+Kita sering menganggap magnet hanyalah benda biasa dengan dua kutub.
+Magnet permanen terbuat dari material khusus seperti neodymium, ferrite, atau alnico.
+Bayangkan kita bisa membongkar magnet ini. Pembongkaran ini adalah visualisasi struktur materialnya.
+Di dalam material terdapat atom. Elektron memiliki sifat magnetik yang berhubungan dengan spin dan gerak orbital.
+Momen magnetik atom dapat berinteraksi dan membentuk kelompok yang disebut domain magnetik.
+Ketika banyak domain menjadi lebih sejajar, efek magnetik material semakin kuat.
+Medan magnet terbentuk di sekitar magnet. Walaupun tidak terlihat, medan ini dapat memengaruhi benda tertentu.
+Saat besi mendekat, medan magnet menyebabkan perubahan susunan magnetik yang menghasilkan gaya tarik.
+Di balik benda sederhana, terdapat dunia mikroskopis dengan susunan magnetik yang luar biasa.
