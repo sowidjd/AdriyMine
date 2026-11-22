@@ -54,3 +54,4 @@ cocokkan dulu dengan daftar ini. Kalau pemilik membuat video baru, tambahkan di 
 
 ## 22 November 2026 (kode dari pemilik, dirender Claude)
 37. Bedah Benda #01: Kenapa Resleting Bisa Mengunci? (projects/bedah-resleting)
+38. Rahasia di Balik Sebuah Magnet (domain magnetik, suara Mia; projects/magnet-bedah)
