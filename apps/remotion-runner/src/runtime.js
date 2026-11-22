@@ -212,12 +212,13 @@ const EXTRA = [
   ['@remotion/transitions', ['TransitionSeries', 'linearTiming', 'springTiming']],
   ['@remotion/transitions/fade', ['fade']], ['@remotion/transitions/slide', ['slide']], ['@remotion/transitions/wipe', ['wipe']],
   ['@remotion/transitions/flip', ['flip']], ['@remotion/transitions/clock-wipe', ['clockWipe']], ['@remotion/transitions/iris', ['iris']],
-  ['@remotion/three', ['ThreeCanvas']], ['zod', ['z']],
+  ['zod', ['z']],
 ];
 function makeGlobals(remotionShim) {
   const g = Object.create(null);
   const put = (k, v) => { if (v === undefined || k === 'default' || k === '__esModule') return; if (k in window) return; g[k] = v; };
   for (const [pkg, names] of EXTRA) { const m = BUILTIN[pkg]; if (m) for (const n of names) put(n, m[n]); }
+  if (BUILTIN['@saku/3d']) put('ThreeCanvas', BUILTIN['@saku/3d'].SakuThreeCanvas);
   for (const n of REACT_NAMES) put(n, React[n]);
   for (const [k, v] of Object.entries(remotionShim)) put(k, v);
   g.React = React; // "React is not defined" pada kode JSX lama
@@ -268,13 +269,23 @@ function asModule(m) {
 }
 
 const builtinCache = new Map();
+/** 'three/examples/jsm/x/Y.js' dan 'three/addons/x/Y' -> kunci yang sama */
+export function normalizeSpec(spec) {
+  const m = /^three\/(?:examples\/jsm|addons)\/(.+?)(?:\.js)?$/.exec(spec);
+  return m ? 'three/addons/' + m[1] : spec;
+}
 function builtin(spec) {
+  spec = normalizeSpec(spec);
   if (builtinCache.has(spec)) return builtinCache.get(spec);
   const m = BUILTIN[spec];
   if (!m) return null;
   // Paket ESM berbentuk namespace: default = isi default atau seluruh namespace.
   const o = { __esModule: true, ...m };
   if (!('default' in m)) o.default = m;
+  // Kanvas 3D diganti versi yang jamnya terkunci ke frame video (pratinjau = hasil ekspor).
+  const saku = BUILTIN['@saku/3d'];
+  if (saku && spec === '@remotion/three') o.ThreeCanvas = saku.SakuThreeCanvas;
+  if (saku && spec === '@react-three/fiber') o.Canvas = saku.SakuThreeCanvas;
   builtinCache.set(spec, o);
   return o;
 }
@@ -324,7 +335,7 @@ export async function runProject(files, { assets = {}, settings }) {
     while ((m = reqRe.exec(code))) {
       const s = m[2];
       if (s.startsWith('.') || s.startsWith('/')) continue;
-      if (BUILTIN[s] || s.startsWith('@remotion/google-fonts') || /\.css$/i.test(s)) continue;
+      if (BUILTIN[normalizeSpec(s)] || s.startsWith('@remotion/google-fonts') || /\.css$/i.test(s)) continue;
       bare.add(s);
     }
   }

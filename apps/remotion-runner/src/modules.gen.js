@@ -142,6 +142,38 @@ import * as m139 from "@remotion/effects/white-balance";
 import * as m140 from "@remotion/effects/white-noise";
 import * as m141 from "@remotion/effects/zoom-blur";
 import * as m142 from "@remotion/effects/zigzag";
+import * as m143 from "postprocessing";
+import * as m144 from "@react-three/postprocessing";
+import * as m145 from "three/examples/jsm/environments/RoomEnvironment.js";
+import * as m146 from "three/examples/jsm/loaders/GLTFLoader.js";
+import * as m147 from "three/examples/jsm/loaders/OBJLoader.js";
+import * as m148 from "three/examples/jsm/loaders/FBXLoader.js";
+import * as m149 from "three/examples/jsm/loaders/STLLoader.js";
+import * as m150 from "three/examples/jsm/loaders/PLYLoader.js";
+import * as m151 from "three/examples/jsm/loaders/FontLoader.js";
+import * as m152 from "three/examples/jsm/loaders/RGBELoader.js";
+import * as m153 from "three/examples/jsm/loaders/HDRLoader.js";
+import * as m154 from "three/examples/jsm/geometries/TextGeometry.js";
+import * as m155 from "three/examples/jsm/geometries/RoundedBoxGeometry.js";
+import * as m156 from "three/examples/jsm/geometries/ConvexGeometry.js";
+import * as m157 from "three/examples/jsm/geometries/ParametricGeometry.js";
+import * as m158 from "three/examples/jsm/geometries/DecalGeometry.js";
+import * as m159 from "three/examples/jsm/math/ImprovedNoise.js";
+import * as m160 from "three/examples/jsm/math/SimplexNoise.js";
+import * as m161 from "three/examples/jsm/utils/BufferGeometryUtils.js";
+import * as m162 from "three/examples/jsm/utils/SkeletonUtils.js";
+import * as m163 from "three/examples/jsm/objects/Reflector.js";
+import * as m164 from "three/examples/jsm/objects/Sky.js";
+import * as m165 from "three/examples/jsm/objects/Water.js";
+import * as m166 from "three/examples/jsm/lines/Line2.js";
+import * as m167 from "three/examples/jsm/lines/LineMaterial.js";
+import * as m168 from "three/examples/jsm/lines/LineGeometry.js";
+import * as m169 from "three/examples/jsm/lines/LineSegments2.js";
+import * as m170 from "three/examples/jsm/lines/LineSegmentsGeometry.js";
+import * as m171 from "three/examples/jsm/curves/NURBSCurve.js";
+import * as m172 from "three/examples/jsm/modifiers/SimplifyModifier.js";
+import * as m173 from "three/examples/jsm/controls/OrbitControls.js";
+import * as m174 from "./saku3d.jsx";
 export const BUILTIN = {
   "react": m0,
   "react/jsx-runtime": m1,
@@ -286,4 +318,36 @@ export const BUILTIN = {
   "@remotion/effects/white-noise": m140,
   "@remotion/effects/zoom-blur": m141,
   "@remotion/effects/zigzag": m142,
+  "postprocessing": m143,
+  "@react-three/postprocessing": m144,
+  "three/addons/environments/RoomEnvironment": m145,
+  "three/addons/loaders/GLTFLoader": m146,
+  "three/addons/loaders/OBJLoader": m147,
+  "three/addons/loaders/FBXLoader": m148,
+  "three/addons/loaders/STLLoader": m149,
+  "three/addons/loaders/PLYLoader": m150,
+  "three/addons/loaders/FontLoader": m151,
+  "three/addons/loaders/RGBELoader": m152,
+  "three/addons/loaders/HDRLoader": m153,
+  "three/addons/geometries/TextGeometry": m154,
+  "three/addons/geometries/RoundedBoxGeometry": m155,
+  "three/addons/geometries/ConvexGeometry": m156,
+  "three/addons/geometries/ParametricGeometry": m157,
+  "three/addons/geometries/DecalGeometry": m158,
+  "three/addons/math/ImprovedNoise": m159,
+  "three/addons/math/SimplexNoise": m160,
+  "three/addons/utils/BufferGeometryUtils": m161,
+  "three/addons/utils/SkeletonUtils": m162,
+  "three/addons/objects/Reflector": m163,
+  "three/addons/objects/Sky": m164,
+  "three/addons/objects/Water": m165,
+  "three/addons/lines/Line2": m166,
+  "three/addons/lines/LineMaterial": m167,
+  "three/addons/lines/LineGeometry": m168,
+  "three/addons/lines/LineSegments2": m169,
+  "three/addons/lines/LineSegmentsGeometry": m170,
+  "three/addons/curves/NURBSCurve": m171,
+  "three/addons/modifiers/SimplifyModifier": m172,
+  "three/addons/controls/OrbitControls": m173,
+  "@saku/3d": m174,
 };

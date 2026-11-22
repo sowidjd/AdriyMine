@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-three/drei": "^10.7.9",
     "@react-three/fiber": "^9.8.2",
+    "@react-three/postprocessing": "^3.2.2",
     "@remotion/animation-utils": "^4.0.545",
     "@remotion/captions": "^4.0.545",
     "@remotion/effects": "^4.0.545",
@@ -35,6 +36,7 @@
     "@remotion/zod-types": "^4.0.545",
     "esbuild": "^0.28.2",
     "lottie-web": "^5.13.0",
+    "postprocessing": "^6.39.6",
     "prettier": "^3.9.10",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

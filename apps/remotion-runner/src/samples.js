@@ -120,3 +120,70 @@ export const Video3D = () => {
 
 export const durationInFrames = 150;
 `;
+
+export const SAMPLE_SAINS = `// Contoh video sains 3D: penampang lapisan Bumi (gaya cutaway)
+import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Easing } from 'remotion';
+import { Canvas3D, Studio, Effects, Cutaway, Label3D, CameraPath, Turntable } from '@saku/3d';
+
+const LAPISAN = [
+  { nama: 'Kerak', tebal: '5–70 km', r: 2.0, warna: '#2f6fd6', potong: '#7d5a3c' },
+  { nama: 'Mantel', tebal: '2.900 km', r: 1.86, warna: '#c2410c', potong: '#f97316' },
+  { nama: 'Inti luar', tebal: '2.200 km', r: 1.05, warna: '#f59e0b', potong: '#fbbf24' },
+  { nama: 'Inti dalam', tebal: '1.220 km', r: 0.55, warna: '#fff1c1', potong: '#fffbeb', panas: true },
+];
+
+const Bumi = () => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const belah = interpolate(frame, [1.2 * fps, 4 * fps], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.inOut(Easing.cubic) });
+  const muncul = (i) => interpolate(frame, [(4.2 + i * 0.7) * fps, (4.6 + i * 0.7) * fps], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  return (
+    <>
+      <Turntable speed={0.12}>
+        <Cutaway progress={belah} axis="z" at={0}>
+          {LAPISAN.map((l) => (
+            <mesh key={l.nama} castShadow userData={{ capColor: l.potong }}>
+              <sphereGeometry args={[l.r, 128, 128]} />
+              <meshStandardMaterial color={l.warna} roughness={l.panas ? 0.3 : 0.55} metalness={0.05}
+                emissive={l.panas ? '#ffcf6b' : '#000000'} emissiveIntensity={l.panas ? 2.2 : 0} />
+            </mesh>
+          ))}
+        </Cutaway>
+      </Turntable>
+      {LAPISAN.map((l, i) => (
+        <Label3D key={l.nama} position={[l.r * 0.72 - (i === 3 ? 0.4 : 0), 0.15 + i * 0.05, 0.02]} offset={[2.4 - l.r * 0.6, 1.6 - i * 0.9, 0]} opacity={muncul(i)} accent={l.potong}>
+          {l.nama} · {l.tebal}
+        </Label3D>
+      ))}
+    </>
+  );
+};
+
+export const PenampangBumi = () => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const judul = spring({ frame, fps, config: { damping: 18 } });
+  return (
+    <AbsoluteFill style={{ background: 'radial-gradient(circle at 50% 40%, #1c2a4a, #070a12 72%)' }}>
+      <Canvas3D camera={{ position: [0, 1, 9], fov: 38 }}>
+        <Studio groundY={-2.6} shadowOpacity={0.45} />
+        <CameraPath points={[
+          { at: 0, position: [0.5, 1.4, 10.5], target: [0, 0, 0] },
+          { at: 4, position: [3.2, 1.6, 8.2], target: [0.6, 0, 0] },
+          { at: 10, position: [4.2, 2.2, 7.4], target: [1, -0.1, 0] },
+        ]} />
+        <Bumi />
+        <Effects bloom={0.9} bloomThreshold={0.75} ao vignette={0.4} />
+      </Canvas3D>
+      <AbsoluteFill style={{ alignItems: 'center', paddingTop: '9%', pointerEvents: 'none' }}>
+        <div style={{ fontFamily: 'Inter, Arial, sans-serif', fontWeight: 800, fontSize: 84, color: 'white', letterSpacing: 1, opacity: judul, transform: \`translateY(\${(1 - judul) * 40}px)\`, textShadow: '0 6px 30px rgba(0,0,0,.5)' }}>
+          Isi Perut Bumi
+        </div>
+        <div style={{ fontFamily: 'Inter, Arial, sans-serif', fontSize: 40, color: '#c9d6ea', marginTop: 12, opacity: judul }}>dari kerak sampai inti</div>
+      </AbsoluteFill>
+    </AbsoluteFill>
+  );
+};
+
+export const durationInFrames = 300;
+`;

@@ -17,8 +17,20 @@ for (const multi of ['@remotion/transitions', '@remotion/effects']) {
     pkgs.push(k === '.' ? multi : multi + k.slice(1));
   }
 }
+pkgs.push('postprocessing', '@react-three/postprocessing');
+// Pustaka tambahan three.js, bisa di-import sebagai 'three/addons/...' atau 'three/examples/jsm/...'
+const ADDONS = [
+  'environments/RoomEnvironment', 'loaders/GLTFLoader', 'loaders/OBJLoader', 'loaders/FBXLoader', 'loaders/STLLoader', 'loaders/PLYLoader',
+  'loaders/FontLoader', 'loaders/RGBELoader', 'loaders/HDRLoader', 'geometries/TextGeometry', 'geometries/RoundedBoxGeometry',
+  'geometries/ConvexGeometry', 'geometries/ParametricGeometry', 'geometries/DecalGeometry', 'math/ImprovedNoise', 'math/SimplexNoise',
+  'utils/BufferGeometryUtils', 'utils/SkeletonUtils', 'objects/Reflector', 'objects/Sky', 'objects/Water', 'lines/Line2', 'lines/LineMaterial',
+  'lines/LineGeometry', 'lines/LineSegments2', 'lines/LineSegmentsGeometry', 'curves/NURBSCurve', 'modifiers/SimplifyModifier', 'controls/OrbitControls',
+];
+const entries = pkgs.map((p) => [p, p]);
+for (const a of ADDONS) entries.push(['three/addons/' + a, 'three/examples/jsm/' + a + '.js']);
+entries.push(['@saku/3d', '../src/saku3d.jsx'.replace('../src/', './')]);
 let out = '// FILE INI DIBUAT OTOMATIS oleh scripts/gen-modules.mjs\n';
-pkgs.forEach((p, i) => { out += `import * as m${i} from ${JSON.stringify(p)};\n`; });
-out += 'export const BUILTIN = {\n' + pkgs.map((p, i) => `  ${JSON.stringify(p)}: m${i},`).join('\n') + '\n};\n';
+entries.forEach(([, from], i) => { out += `import * as m${i} from ${JSON.stringify(from)};\n`; });
+out += 'export const BUILTIN = {\n' + entries.map(([k], i) => `  ${JSON.stringify(k)}: m${i},`).join('\n') + '\n};\n';
 fs.writeFileSync(path.join(root, 'src/modules.gen.js'), out);
-console.log('modul bawaan:', pkgs.length);
+console.log('modul bawaan:', entries.length);

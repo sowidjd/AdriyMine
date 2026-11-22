@@ -172,14 +172,15 @@ CASES.long = long;
   ok('3D tampil (ThreeCanvas + drei)', has3d && !/error/i.test(t), JSON.stringify(t.slice(0, 100)));
   await page.screenshot({ path: OUT + '/7-3d.png' });
   await page.click('.tabs button:nth-child(3)');
-  await page.click('.seg button:has-text("50%")');
-  await page.click('text=Buat video');
+  await page.click('.seg button:has-text("50% (cepat)")');
+  await page.click('button:has-text("Buat video")');
   try {
-    await page.waitForSelector('text=Video siap', { timeout: 240000 });
-    const b64 = await page.evaluate(async () => { const v = document.querySelector('video.result'); const b = await (await fetch(v.src)).blob(); return await new Promise((r) => { const fr = new FileReader(); fr.onload = () => r(fr.result.split(',')[1]); fr.readAsDataURL(b); }); });
+    await page.waitForSelector('.sheet video', { timeout: 900000 });
+    const b64 = await page.evaluate(async () => { const v = document.querySelector('.sheet video'); const b = await (await fetch(v.src)).blob(); return await new Promise((r) => { const fr = new FileReader(); fr.onload = () => r(fr.result.split(',')[1]); fr.readAsDataURL(b); }); });
     fs.writeFileSync(OUT + '/3d.mp4', Buffer.from(b64, 'base64'));
-    ok('ekspor video 3D', true, (await page.locator('.pane:not([hidden]) .card:last-of-type .muted').first().innerText()));
+    ok('ekspor video 3D', true, (await page.locator('.sheet-info').innerText()).replace(/\n/g, ' '));
   } catch (e) { ok('ekspor video 3D', false, (await visibleText()).slice(0, 300)); }
+  await page.click('.sheet button[aria-label="Tutup pratinjau"]').catch(() => {});
   await page.click('.tabs button:nth-child(1)');
 
   // Ekspor video pendek
@@ -188,11 +189,11 @@ export const Pendek = () => { const f = useCurrentFrame(); return <AbsoluteFill 
 <div style={{ width: 300, height: 300, borderRadius: 40, background: 'orange', transform: \`rotate(\${f*6}deg)\`, opacity: interpolate(f,[0,30],[0.3,1]) }} /></AbsoluteFill>; };
 export const durationInFrames = 45;`);
   await page.click('.tabs button:nth-child(3)');
-  await page.click('.seg button:has-text("50%")');
-  await page.click('text=Buat video');
+  await page.click('.seg button:has-text("50% (cepat)")');
+  await page.click('button:has-text("Buat video")');
   try {
-    await page.waitForSelector('text=Video siap', { timeout: 120000 });
-    const info = await page.locator('.pane:not([hidden]) .card:last-of-type .muted').first().innerText();
+    await page.waitForSelector('.sheet video', { timeout: 300000 });
+    const info = (await page.locator('.sheet-info').innerText()).replace(/\n/g, ' ');
     ok('ekspor video di browser', true, info);
     await page.screenshot({ path: OUT + '/5-ekspor.png' });
   } catch (e) {

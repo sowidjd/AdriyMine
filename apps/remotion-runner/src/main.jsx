@@ -3,10 +3,11 @@ import { createRoot } from 'react-dom/client';
 import { Player } from '@remotion/player';
 import { renderMediaOnWeb, canRenderMediaOnWeb, renderStillOnWeb } from '@remotion/web-renderer';
 import { runProject, splitPasted, cleanText, FriendlyError, toFriendly } from './runtime.js';
-import { SAMPLE_SINGLE, SAMPLE_MULTI, SAMPLE_3D } from './samples.js';
+import { SAMPLE_SINGLE, SAMPLE_MULTI, SAMPLE_3D, SAMPLE_SAINS } from './samples.js';
 import { aiFix, providerStatus, getKeys, setKey, clearCooldowns } from './ai.js';
 import { formatAll } from './format.js';
 import * as Native from './native.js';
+import { FormatPanel, applyFormat, DEFAULT_FORMAT, formatName } from './videoformat.jsx';
 
 // ---------- Penyimpanan aman (tidak pernah membuat aplikasi gagal) ----------
 const LS = {
@@ -58,12 +59,6 @@ const downloadsP = (typeof window !== 'undefined' && window.claude && typeof win
 const IN_ARTIFACT = !!(window.claude && window.claude.use) && !Native.IS_ANDROID_APP;
 
 const DEFAULT_SETTINGS = { width: 1080, height: 1920, fps: 30, seconds: 10, override: false };
-const PRESETS = [
-  { label: 'TikTok / Reels 9:16', w: 1080, h: 1920 },
-  { label: 'Persegi 1:1', w: 1080, h: 1080 },
-  { label: 'YouTube 16:9', w: 1920, h: 1080 },
-  { label: 'Potret 4:5', w: 1080, h: 1350 },
-];
 
 const fmtBytes = (n) => (n > 1e6 ? (n / 1e6).toFixed(1) + ' MB' : Math.max(1, Math.round(n / 1e3)) + ' KB');
 const fmtSec = (s) => { s = Math.max(0, Math.round(s)); const m = Math.floor(s / 60); return m ? `${m} mnt ${s % 60} dtk` : `${s} dtk`; };
@@ -165,6 +160,8 @@ function App() {
   const [confirmClear, setConfirmClear] = useState(false);
   const [playerError, setPlayerError] = useState(null);
   const [ai, setAi] = useState(null); // {busy, status, error, tried}
+  const [format, setFormat] = useState(() => ({ ...DEFAULT_FORMAT, ...LS.get('rs.format', {}) }));
+  useEffect(() => { LS.set('rs.format', format); }, [format]);
   const aiAbort = useRef(null);
   const taRef = useRef(null);
   const toastT = useRef(null);
@@ -348,7 +345,8 @@ function App() {
     ta.scrollTop = Math.max(0, (line - 4) * lh);
   };
 
-  const entry = result && result.entries[sel];
+  const baseEntry = result && result.entries[sel];
+  const entry = useMemo(() => applyFormat(baseEntry, format), [baseEntry, format]);
   const totalLines = files.reduce((n, f) => n + f.code.split('\n').length, 0);
 
   return (
@@ -373,6 +371,7 @@ function App() {
                 <button onClick={(e) => { e.currentTarget.closest('details').open = false; replaceAll(SAMPLE_SINGLE, 'Contoh 1 file'); }}>Satu file (animasi teks)</button>
                 <button onClick={(e) => { e.currentTarget.closest('details').open = false; replaceAll(SAMPLE_MULTI, 'Contoh banyak file'); }}>Banyak file + Composition</button>
                 <button onClick={(e) => { e.currentTarget.closest('details').open = false; replaceAll(SAMPLE_3D, 'Contoh 3D'); }}>3D (Three.js)</button>
+                <button onClick={(e) => { e.currentTarget.closest('details').open = false; replaceAll(SAMPLE_SAINS, 'Contoh 3D sains'); }}>3D sains: penampang Bumi</button>
               </div>
             </details>
           </div>
@@ -425,6 +424,7 @@ function App() {
                   </select>
                 </div>
               )}
+              <FormatPanel base={baseEntry} format={format} setFormat={setFormat} out={entry} />
               <Guard key={result.key + ':' + sel} onError={(e) => setPlayerError(toFriendly(e))}
                 fallback={(err, reset) => <PlayerErrorCard err={toFriendly(err)} onRetry={reset} onAI={() => fixWithAI(toFriendly(err))} ai={ai} onCancelAI={() => aiAbort.current && aiAbort.current.abort()} onCloseAI={() => setAi(null)} />}>
                 <PlayerBox entry={entry} onError={setPlayerError} />
@@ -447,7 +447,7 @@ function App() {
         {/* ---------------- EKSPOR ---------------- */}
         <section hidden={tab !== 'video'} className="pane">
           <Guard>
-            <ExportPanel entry={entry} say={say} files={files} />
+            <ExportPanel entry={entry} say={say} files={files} formatText={formatName(format)} onChangeFormat={() => setTab('putar')} />
           </Guard>
         </section>
 
@@ -560,31 +560,26 @@ function SettingsPanel({ settings, setSettings, fromComposition, onApply }) {
   const set = (k, v) => setS((o) => ({ ...o, [k]: v }));
   const apply = () => {
     const clean = {
-      width: Math.min(7680, Math.max(16, Math.round(Number(s.width) || 1080))),
-      height: Math.min(7680, Math.max(16, Math.round(Number(s.height) || 1920))),
+      ...settings,
       fps: Math.min(120, Math.max(1, Number(s.fps) || 30)),
-      seconds: Math.min(3600, Math.max(0.1, Number(s.seconds) || 10)),
+      seconds: Math.min(4 * 3600, Math.max(0.1, Number(s.minutes || 0) * 60 + Number(s.secs || 0) || Number(s.seconds) || 10)),
       override: !!s.override,
     };
     setSettings(clean); onApply(clean);
   };
+  const mins = s.minutes ?? Math.floor(Number(s.seconds) / 60);
+  const secs = s.secs ?? Math.round((Number(s.seconds) % 60) * 10) / 10;
   return (
-    <details className="card settings" open={!fromComposition}>
-      <summary>Ukuran & durasi</summary>
-      <p className="muted">{fromComposition ? 'Kode Anda sudah punya <Composition>, jadi ukurannya dipakai dari kode. Centang "Paksa" untuk memakai pengaturan di bawah.' : 'Kode tanpa <Composition> memakai pengaturan ini.'}</p>
-      <div className="presets">
-        {PRESETS.map((p) => (
-          <button key={p.label} className={'pill' + (Number(s.width) === p.w && Number(s.height) === p.h ? ' on' : '')} onClick={() => setS((o) => ({ ...o, width: p.w, height: p.h }))}>{p.label}</button>
-        ))}
-      </div>
-      <div className="grid2">
-        <div className="field"><label htmlFor="lebar">Lebar (px)</label><input id="lebar" inputMode="numeric" value={s.width} onChange={(e) => set('width', e.target.value)} /></div>
-        <div className="field"><label htmlFor="tinggi">Tinggi (px)</label><input id="tinggi" inputMode="numeric" value={s.height} onChange={(e) => set('height', e.target.value)} /></div>
+    <details className="card settings">
+      <summary>Durasi & FPS</summary>
+      <p className="muted">{fromComposition ? 'Kode Anda sudah punya <Composition>, jadi durasi dan FPS diambil dari kode. Centang "Paksa" untuk memakai nilai di bawah.' : 'Kode tanpa <Composition> memakai durasi dan FPS ini (maksimal 4 jam).'}</p>
+      <div className="grid3">
+        <div className="field"><label htmlFor="durasi-menit">Menit</label><input id="durasi-menit" inputMode="numeric" value={mins} onChange={(e) => setS((o) => ({ ...o, minutes: e.target.value, secs: o.secs ?? secs }))} /></div>
+        <div className="field"><label htmlFor="durasi-detik">Detik</label><input id="durasi-detik" inputMode="decimal" value={secs} onChange={(e) => setS((o) => ({ ...o, secs: e.target.value, minutes: o.minutes ?? mins }))} /></div>
         <div className="field"><label htmlFor="fps">FPS</label>
           <select id="fps" value={String(s.fps)} onChange={(e) => set('fps', Number(e.target.value))}>{[24, 25, 30, 50, 60].map((f) => <option key={f} value={f}>{f}</option>)}</select></div>
-        <div className="field"><label htmlFor="durasi">Durasi (detik)</label><input id="durasi" inputMode="decimal" value={s.seconds} onChange={(e) => set('seconds', e.target.value)} /></div>
       </div>
-      <label className="tog"><input id="paksa" type="checkbox" checked={!!s.override} onChange={(e) => set('override', e.target.checked)} />Paksa pakai pengaturan ini</label>
+      <label className="tog"><input id="paksa" type="checkbox" checked={!!s.override} onChange={(e) => set('override', e.target.checked)} />Paksa pakai durasi & FPS ini</label>
       <button className="btn wide" onClick={apply}>Terapkan & putar ulang</button>
     </details>
   );
@@ -635,64 +630,150 @@ function StillCheck({ entry }) {
   );
 }
 
-function ExportPanel({ entry, say, files = [] }) {
+const QUALITY_BPP = { medium: 0.06, high: 0.1, 'very-high': 0.16 };
+const fileBase = (entry) => entry.id.replace(/[^\w-]+/g, '-').replace(/^-|-$/g, '') || 'video';
+const fmtClock = (s) => { s = Math.max(0, Math.round(s)); const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), d = s % 60; return (h ? h + ':' + String(m).padStart(2, '0') : m) + ':' + String(d).padStart(2, '0'); };
+
+async function saveBlob(blob, filename, say, onProgress) {
+  if (Native.IS_ANDROID_APP) {
+    const where = await Native.saveBlobNative(blob, filename, onProgress);
+    say('Tersimpan di ' + where);
+    return true;
+  }
+  const dl = await downloadsP;
+  if (dl) {
+    try { await dl.save({ filename, data: blob }); say('Video disimpan.'); return true; } catch (e) {
+      if (e && e.code === 'declined') { say('Penyimpanan dibatalkan.'); return false; }
+      if (e && e.code === 'rate_limited') { say('Tunggu sebentar, lalu tekan Simpan lagi.'); return false; }
+    }
+  }
+  if (!IN_ARTIFACT) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 60000);
+    say('Video diunduh.'); return true;
+  }
+  say('Penyimpanan tidak tersedia di tampilan ini. Tekan lama video lalu pilih Simpan/Unduh.');
+  return false;
+}
+
+/** Layar pratinjau hasil: tonton file video yang sudah jadi sebelum disimpan. */
+function ResultSheet({ item, entry, onClose, onDiscard, say }) {
+  const [saving, setSaving] = useState(null);
+  const vref = useRef(null);
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onClose]);
+  if (!item) return null;
+  const canShare = !IN_ARTIFACT && !Native.IS_ANDROID_APP && navigator.canShare && (() => { try { return navigator.canShare({ files: [new File([item.blob], item.name, { type: item.blob.type })] }); } catch { return false; } })();
+  return (
+    <div className="sheet" role="dialog" aria-modal="true" aria-label="Pratinjau hasil video">
+      <div className="sheet-top">
+        <button className="icon-btn" onClick={onClose} aria-label="Tutup pratinjau"><Icon n="x" /></button>
+        <div className="sheet-title"><b>Pratinjau hasil</b><span>{item.name}</span></div>
+      </div>
+      <div className="sheet-stage">
+        <video ref={vref} src={item.url} controls playsInline autoPlay muted loop style={{ aspectRatio: `${item.w} / ${item.h}` }} />
+      </div>
+      <div className="sheet-info">
+        <span>{item.w}×{item.h}</span><span>{fmtClock(item.seconds)}</span><span>{fmtBytes(item.size)}</span><span>{item.ext.toUpperCase()}</span>
+        {item.part && <span>Bagian {item.part}</span>}
+      </div>
+      <p className="muted small sheet-note">Ini file video yang sebenarnya. Suara mati otomatis saat dibuka; ketuk ikon suara untuk mendengar.</p>
+      <div className="sheet-actions">
+        <button className="btn primary" disabled={saving != null} onClick={async () => { setSaving(0); try { await saveBlob(item.blob, item.name, say, setSaving); } catch (e) { say('Gagal menyimpan: ' + e.message); } finally { setSaving(null); } }}>
+          <Icon n="down" />{saving != null ? `Menyimpan ${Math.round(saving * 100)}%` : 'Simpan ke HP'}
+        </button>
+        {canShare && <button className="btn" onClick={async () => { try { await navigator.share({ files: [new File([item.blob], item.name, { type: item.blob.type })], title: entry.id }); } catch { /* batal */ } }}><Icon n="share" />Bagikan</button>}
+        {Native.IS_ANDROID_APP && <button className="btn" onClick={() => { if (!Native.shareNative()) say('Simpan dulu, lalu tekan Bagikan.'); }}><Icon n="share" />Bagikan</button>}
+        <button className="btn" onClick={onDiscard}><Icon n="trash" />Buang</button>
+      </div>
+    </div>
+  );
+}
+
+function ExportPanel({ entry, say, files = [], formatText, onChangeFormat }) {
   const [fmt, setFmt] = useState('mp4');
   const [quality, setQuality] = useState('high');
   const [scale, setScale] = useState(1);
-  const [state, setState] = useState({ phase: 'idle' }); // idle|check|render|done|error
+  const [partMin, setPartMin] = useState(0); // 0 = utuh
+  const [state, setState] = useState({ phase: 'idle' });
+  const [items, setItems] = useState([]);
+  const [open, setOpen] = useState(null);
+  const [target, setTarget] = useState(null); // 'web-fs' | 'arraybuffer'
   const abortRef = useRef(null);
-  const urlRef = useRef(null);
-  const [saving, setSaving] = useState(null);
 
-  useEffect(() => () => { if (urlRef.current) URL.revokeObjectURL(urlRef.current); }, []);
+  useEffect(() => () => { items.forEach((it) => URL.revokeObjectURL(it.url)); }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    let alive = true;
+    if (!entry) return undefined;
+    canRenderMediaOnWeb({ container: 'mp4', videoCodec: 'h264', width: 640, height: 360 }).then((r) => { if (alive) setTarget(r.resolvedOutputTarget); }).catch(() => {});
+    return () => { alive = false; };
+  }, [entry]);
 
   if (!entry) return <div className="empty"><p>Jalankan kode dulu. Setelah video tampil di tab Putar, Anda bisa membuat file video di sini.</p></div>;
 
   const even = (n) => Math.max(2, Math.round(n / 2) * 2);
   const outW = even(entry.width * scale), outH = even(entry.height * scale);
+  const seconds = entry.durationInFrames / entry.fps;
   const allCode = files.map((f) => f.code).join('\n');
   const risky = RISKY.filter(([re]) => re.test(allCode)).map(([, n]) => n);
+  const estBytes = (outW * outH * entry.fps * (QUALITY_BPP[quality] || 0.1) * seconds) / 8;
+  const partFrames = partMin ? Math.round(partMin * 60 * entry.fps) : entry.durationInFrames;
+  const ranges = [];
+  for (let a = 0; a < entry.durationInFrames; a += partFrames) ranges.push([a, Math.min(entry.durationInFrames, a + partFrames) - 1]);
+  const memoryRisk = target === 'arraybuffer' && estBytes / ranges.length > 600e6;
 
   const start = async () => {
-    if (urlRef.current) { URL.revokeObjectURL(urlRef.current); urlRef.current = null; }
     setState({ phase: 'check' });
     let wake = null;
     try { wake = navigator.wakeLock ? await navigator.wakeLock.request('screen') : null; } catch { wake = null; }
     Native.keepScreenOn(true);
+    const ac = new AbortController(); abortRef.current = ac;
     try {
       const plan = [fmt === 'mp4' ? ['mp4', 'h264'] : ['webm', 'vp8'], fmt === 'mp4' ? ['webm', 'vp8'] : ['mp4', 'h264'], ['webm', 'vp9']];
       let chosen = null, issues = [];
       for (const [container, videoCodec] of plan) {
         try {
           const r = await canRenderMediaOnWeb({ container, videoCodec, width: outW, height: outH, videoBitrate: quality });
-          if (r.canRender) { chosen = { container, videoCodec: r.resolvedVideoCodec || videoCodec, audioCodec: r.resolvedAudioCodec }; break; }
+          if (r.canRender) { chosen = { container, videoCodec: r.resolvedVideoCodec || videoCodec }; break; }
           issues = r.issues;
         } catch (e) { issues = [{ message: e.message }]; }
       }
       if (!chosen) throw new Error('Browser ini belum bisa membuat file video (' + (issues.map((i) => i.message).join('; ') || 'WebCodecs tidak ada') + '). Coba Chrome versi terbaru.');
-      const even2 = (n) => Math.max(2, Math.round(n / 2) * 2);
-      const ac = new AbortController(); abortRef.current = ac;
+      const comp = compositionOf(entry);
       const t0 = Date.now();
-      setState({ phase: 'render', p: 0, container: chosen.container });
-      const res = await renderMediaOnWeb({
-        composition: compositionOf(entry),
-        inputProps: entry.props,
-        container: chosen.container,
-        videoCodec: chosen.videoCodec,
-        videoBitrate: quality,
-        scale: outW / even2(entry.width),
-        signal: ac.signal,
-        licenseKey: 'free-license',
-        isProduction: false,
-        logLevel: 'error',
-        delayRenderTimeoutInMilliseconds: 60000,
-        onProgress: (pr) => setState((s) => (s.phase === 'render' ? { ...s, p: pr.progress || 0, frames: pr.renderedFrames, eta: pr.renderEstimatedTime } : s)),
-      });
-      const blob = await res.getBlob();
-      const url = URL.createObjectURL(blob); urlRef.current = url;
-      setState({ phase: 'done', url, blob, size: blob.size, ext: chosen.container, took: (Date.now() - t0) / 1000 });
+      const total = entry.durationInFrames;
+      let done = 0;
+      const made = [];
+      for (let i = 0; i < ranges.length; i++) {
+        const [a, b] = ranges[i];
+        const n = b - a + 1;
+        setState({ phase: 'render', p: done / total, part: i + 1, parts: ranges.length, t0 });
+        const res = await renderMediaOnWeb({
+          composition: comp, inputProps: entry.props,
+          container: chosen.container, videoCodec: chosen.videoCodec, videoBitrate: quality,
+          scale: outW / comp.width, signal: ac.signal,
+          frameRange: ranges.length > 1 ? [a, b] : null,
+          licenseKey: 'free-license', isProduction: false, logLevel: 'error', delayRenderTimeoutInMilliseconds: 120000,
+          onProgress: (pr) => setState((s) => (s.phase === 'render' ? { ...s, p: (done + (pr.progress || 0) * n) / total, frames: done + (pr.renderedFrames || 0) } : s)),
+        });
+        const blob = await res.getBlob();
+        done += n;
+        const suffix = ranges.length > 1 ? `-bagian-${String(i + 1).padStart(2, '0')}` : '';
+        const item = { id: Date.now() + i, url: URL.createObjectURL(blob), blob, size: blob.size, ext: chosen.container, w: outW, h: outH, seconds: n / entry.fps, part: ranges.length > 1 ? `${i + 1}/${ranges.length} (${fmtClock(a / entry.fps)}–${fmtClock((b + 1) / entry.fps)})` : null, name: `${fileBase(entry)}${suffix}.${chosen.container}` };
+        made.push(item);
+        setItems((list) => [...list, item]);
+        // Video panjang di APK: tiap bagian langsung disimpan agar aman bila aplikasi tertutup.
+        if (ranges.length > 1 && Native.IS_ANDROID_APP) { try { await saveBlob(blob, item.name, () => {}); item.saved = true; } catch { /* tetap ada di daftar */ } }
+      }
+      setState({ phase: 'done', took: (Date.now() - t0) / 1000 });
+      if (made.length === 1) setOpen(made[0]);
     } catch (e) {
-      if (abortRef.current && abortRef.current.signal.aborted) setState({ phase: 'idle' });
+      if (ac.signal.aborted) setState({ phase: 'idle' });
       else setState({ phase: 'error', msg: (e && e.message) || String(e) });
     } finally {
       abortRef.current = null;
@@ -701,50 +782,35 @@ function ExportPanel({ entry, say, files = [] }) {
     }
   };
 
-  const fileName = () => `${entry.id.replace(/[^\w-]+/g, '-').replace(/^-|-$/g, '') || 'video'}.${state.ext}`;
-  const save = async () => {
-    if (Native.IS_ANDROID_APP) {
-      try { setSaving(0); const where = await Native.saveBlobNative(state.blob, fileName(), setSaving); say('Tersimpan di ' + where); }
-      catch (e) { say('Gagal menyimpan: ' + e.message); }
-      finally { setSaving(null); }
-      return;
-    }
-    const dl = await downloadsP;
-    if (dl) {
-      try { await dl.save({ filename: fileName(), data: state.blob }); say('Video disimpan.'); return; } catch (e) {
-        if (e && e.code === 'declined') { say('Penyimpanan dibatalkan.'); return; }
-        if (e && e.code === 'rate_limited') { say('Tunggu sebentar, lalu tekan Simpan lagi.'); return; }
-      }
-    }
-    if (!IN_ARTIFACT) {
-      const a = document.createElement('a'); a.href = state.url; a.download = fileName();
-      document.body.appendChild(a); a.click(); a.remove(); say('Video diunduh.'); return;
-    }
-    say('Penyimpanan tidak tersedia di tampilan ini. Tekan lama video di atas lalu pilih Simpan/Unduh.');
-  };
-  const canShare = !IN_ARTIFACT && state.blob && navigator.canShare && (() => { try { return navigator.canShare({ files: [new File([state.blob], fileName(), { type: state.blob.type })] }); } catch { return false; } })();
-  const share = async () => {
-    try { await navigator.share({ files: [new File([state.blob], fileName(), { type: state.blob.type })], title: entry.id }); } catch { /* dibatalkan */ }
-  };
-
+  const discard = (it) => { URL.revokeObjectURL(it.url); setItems((l) => l.filter((x) => x !== it)); setOpen(null); };
   const rendering = state.phase === 'render' || state.phase === 'check';
+  const elapsed = state.t0 ? (Date.now() - state.t0) / 1000 : 0;
+  const eta = state.p > 0.01 ? elapsed / state.p - elapsed : 0;
   return (
     <div className="stack">
       <div className="card">
         <h2>Buat file video</h2>
-        <p className="muted">{entry.id} · {outW}×{outH} · {+entry.fps.toFixed(2)} fps · {fmtSec(entry.durationInFrames / entry.fps)} ({entry.durationInFrames} frame)</p>
-        <div className="field"><span className="lbl">Format</span>
-          <div className="seg">{[['mp4', 'MP4 (TikTok)'], ['webm', 'WebM']].map(([k, l]) => <button key={k} className={fmt === k ? 'on' : ''} onClick={() => setFmt(k)} disabled={rendering}>{l}</button>)}</div></div>
+        <p className="muted">{entry.id} · {formatText} · {outW}×{outH} · {+entry.fps.toFixed(2)} fps · {fmtClock(seconds)} ({entry.durationInFrames.toLocaleString('id-ID')} frame)</p>
+        <button className="link left" onClick={onChangeFormat}>Ubah rasio (TikTok, YouTube, Reels…)</button>
+        <div className="field"><span className="lbl">Format file</span>
+          <div className="seg">{[['mp4', 'MP4'], ['webm', 'WebM']].map(([k, l]) => <button key={k} className={fmt === k ? 'on' : ''} onClick={() => setFmt(k)} disabled={rendering}>{l}</button>)}</div></div>
         <div className="field"><span className="lbl">Kualitas</span>
           <div className="seg">{[['medium', 'Sedang'], ['high', 'Tinggi'], ['very-high', 'Maks']].map(([k, l]) => <button key={k} className={quality === k ? 'on' : ''} onClick={() => setQuality(k)} disabled={rendering}>{l}</button>)}</div></div>
-        <div className="field"><span className="lbl">Resolusi</span>
+        <div className="field"><span className="lbl">Ukuran render</span>
           <div className="seg">{[[1, '100%'], [0.75, '75%'], [0.5, '50% (cepat)']].map(([k, l]) => <button key={k} className={scale === k ? 'on' : ''} onClick={() => setScale(k)} disabled={rendering}>{l}</button>)}</div></div>
-        {!rendering && <button className="btn primary wide" onClick={start}><Icon n="film" />Buat video</button>}
+        {seconds > 120 && (
+          <div className="field"><span className="lbl">Video panjang: bagi menjadi beberapa file</span>
+            <div className="seg">{[[0, 'Utuh'], [5, '5 mnt'], [10, '10 mnt'], [15, '15 mnt']].map(([k, l]) => <button key={k} className={partMin === k ? 'on' : ''} onClick={() => setPartMin(k)} disabled={rendering}>{l}</button>)}</div>
+            <span className="muted small">{partMin ? `${ranges.length} file berurutan. Jika terhenti, bagian yang sudah jadi tetap aman.` : 'Satu file utuh.'} Perkiraan ukuran total ± {fmtBytes(estBytes)}.</span>
+          </div>
+        )}
+        {memoryRisk && <div className="card warn inner"><p>Browser ini menyimpan hasil di memori. Untuk video sepanjang ini, pilih "bagi menjadi beberapa file" agar HP tidak kehabisan memori.</p></div>}
+        {!rendering && <button className="btn primary wide" onClick={start}><Icon n="film" />{ranges.length > 1 ? `Buat ${ranges.length} file video` : 'Buat video'}</button>}
         {rendering && (
           <div className="prog">
-            <div className="bar"><i style={{ width: `${Math.round((state.p || 0) * 100)}%` }} /></div>
-            <div className="prog-row"><span>{state.phase === 'check' ? 'Memeriksa browser…' : `${Math.round((state.p || 0) * 100)}%${state.frames ? ` · frame ${state.frames}/${entry.durationInFrames}` : ''}`}</span>
-              {state.eta > 0 && <span>sisa ± {fmtSec(state.eta / 1000)}</span>}</div>
+            <div className="bar"><i style={{ width: `${Math.round((state.p || 0) * 1000) / 10}%` }} /></div>
+            <div className="prog-row"><span>{state.phase === 'check' ? 'Memeriksa browser…' : `${(Math.round((state.p || 0) * 1000) / 10).toFixed(1)}%${state.parts > 1 ? ` · bagian ${state.part}/${state.parts}` : ''}${state.frames ? ` · frame ${state.frames.toLocaleString('id-ID')}` : ''}`}</span>
+              {eta > 1 && <span>sisa ± {fmtSec(eta)}</span>}</div>
             <p className="muted">Biarkan layar tetap menyala dan jangan pindah aplikasi sampai selesai.</p>
             <button className="btn wide" onClick={() => abortRef.current && abortRef.current.abort()}><Icon n="x" />Batalkan</button>
           </div>
@@ -753,25 +819,31 @@ function ExportPanel({ entry, say, files = [] }) {
           <div className="card err inner" role="alert">
             <div className="err-head"><Icon n="alert" />Video gagal dibuat</div>
             <p className="err-msg">{state.msg}</p>
-            <p className="err-hint">Pratinjau tetap bisa dipakai. Coba resolusi 50% atau format lain. Efek CSS tertentu (filter rumit, video dari situs lain) belum bisa direkam di browser.</p>
+            <p className="err-hint">Pratinjau tetap bisa dipakai. Coba ukuran render 50%, format lain, atau bagi video panjang menjadi beberapa file.</p>
           </div>
         )}
       </div>
-      {state.phase === 'done' && (
+      {items.length > 0 && (
         <div className="card">
-          <h2>Video siap</h2>
-          <video className="result" src={state.url} controls playsInline />
-          <p className="muted">{fileName()} · {fmtBytes(state.size)} · dibuat dalam {fmtSec(state.took)}</p>
-          <div className="row">
-            <button className="btn primary" onClick={save} disabled={saving != null}><Icon n="down" />{saving != null ? `Menyimpan ${Math.round(saving * 100)}%` : 'Simpan ke HP'}</button>
-            {canShare && <button className="btn" onClick={share}><Icon n="share" />Bagikan</button>}
-            {Native.IS_ANDROID_APP && <button className="btn" onClick={() => { if (!Native.shareNative()) say('Simpan dulu, lalu tekan Bagikan.'); }}><Icon n="share" />Bagikan</button>}
-          </div>
+          <h2>Hasil ({items.length})</h2>
+          <p className="muted small">Tonton pratinjau dulu sebelum menyimpan.</p>
+          <ul className="results">
+            {items.map((it) => (
+              <li key={it.id}>
+                <button className="res-thumb" onClick={() => setOpen(it)} aria-label={`Pratinjau ${it.name}`}>
+                  <video src={it.url + '#t=0.1'} muted playsInline preload="metadata" /><span className="play"><Icon n="play" s={18} /></span>
+                </button>
+                <div className="a-info"><b>{it.name}</b><span>{fmtClock(it.seconds)} · {fmtBytes(it.size)}{it.saved ? ' · tersimpan' : ''}</span></div>
+                <button className="btn" onClick={() => setOpen(it)}>Pratinjau</button>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
       {risky.length > 0 && <div className="card warn"><p>Kode memakai {risky.join(', ')}. Efek ini bisa tampil berbeda di file video. Cek dulu dengan cuplikan di bawah.</p></div>}
       <StillCheck entry={entry} />
-      <p className="muted small">Pembuatan video berjalan di HP Anda sendiri (tanpa server). Hasil paling stabil di Chrome Android versi terbaru. Video panjang butuh waktu lebih lama.</p>
+      <p className="muted small">Pembuatan video berjalan di HP Anda sendiri (tanpa server). Hasil paling stabil di Chrome Android versi terbaru dan aplikasi APK.</p>
+      <ResultSheet item={open} entry={entry} onClose={() => setOpen(null)} onDiscard={() => discard(open)} say={say} />
     </div>
   );
 }
