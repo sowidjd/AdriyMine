@@ -47,8 +47,7 @@ code += `\nexport const Kuliah = () => (\n  <AbsoluteFill>\n${Array.from({ lengt
   let t = await page.evaluate(() => document.querySelector('.pane:not([hidden])').innerText);
   ok(`kode ${code.split('\n').length} baris, video ${SCENES * PER / 30 / 60} menit dijalankan`, /32 mnt 30 dtk/.test(t) && await page.locator('.stage').isVisible(), `${Date.now() - t0}ms`);
   // Lompat ke dekat akhir video lewat bilah waktu pemutar
-  const bar = await page.evaluate(() => { const el = [...document.querySelectorAll('.stage div')].filter((d) => getComputedStyle(d).cursor === 'pointer' && d.getBoundingClientRect().height < 30 && d.getBoundingClientRect().width > 150).pop(); if (!el) return null; const r = el.getBoundingClientRect(); return { x: r.x, y: r.y, w: r.width, h: r.height }; });
-  if (bar) { await page.mouse.click(bar.x + bar.w * 0.995, bar.y + bar.h / 2); await page.waitForTimeout(1200); }
+  await require('./seek.js')(page, 0.995); await page.waitForTimeout(1500);
   t = await page.evaluate(() => document.querySelector('.stage').innerText);
   ok('lompat ke menit terakhir (Bab 130 tampil)', /Bab 130/.test(t), t.replace(/\n/g, ' ').slice(0, 80));
   await page.screenshot({ path: OUT + '/panjang-akhir.png' });

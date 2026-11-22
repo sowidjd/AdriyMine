@@ -1,10 +1,10 @@
 {
   "name": "remotion-saku",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "Aplikasi HP: tempel kode Remotion, putar, dan ekspor MP4 di browser",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node test/e2e.cjs && node test/ai-fallback.cjs && node test/android-bridge.cjs",
+    "test": "node test/e2e.cjs && node test/sains3d.cjs && node test/panjang.cjs && node test/ai-fallback.cjs && node test/android-bridge.cjs",
     "apk": "node scripts/build.mjs && cd android && gradle assembleRelease && cp app/build/outputs/apk/release/app-release.apk ../apk/RemotionSaku.apk"
   },
   "author": "",

@@ -260,3 +260,4 @@ input[type="range"] { width: 100%; accent-color: var(--accent); min-height: 32px
 .sheet-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 .sheet-actions .btn { flex: 1; min-width: 120px; background: rgba(255,255,255,0.1); border-color: transparent; color: #fff; }
 .sheet-actions .btn.primary { background: var(--accent); }
+.help ul.tight { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 3px; font-size: 13.5px; }

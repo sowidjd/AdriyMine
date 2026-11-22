@@ -2,8 +2,8 @@
 // Semua animasi terkunci ke frame video, sehingga pratinjau dan hasil ekspor identik.
 import React, { Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
-import { Canvas, useThree } from '@react-three/fiber';
-import { ContactShadows, Html, Line, useGLTF, Center } from '@react-three/drei';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { ContactShadows, useGLTF, Center } from '@react-three/drei';
 import { EffectComposer, Bloom, DepthOfField, N8AO, Vignette, ToneMapping } from '@react-three/postprocessing';
 import { ToneMappingMode } from 'postprocessing';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
@@ -21,24 +21,43 @@ export const useTime = () => {
 
 // ---------- Kanvas 3D yang sinkron dengan frame ----------
 
+const NOOP_SIZE = () => null;
+// Kunci ukuran kanvas = ukuran video (tidak ikut berubah saat pemutar diperkecil di layar).
 const SizeLock = ({ width, height }) => {
-  const setSize = useThree((s) => s.setSize);
+  const get = useThree((s) => s.get);
   const set = useThree((s) => s.set);
   useLayoutEffect(() => {
-    setSize(width, height);
-    set({ setSize: () => null });
-    return () => set({ setSize });
-  }, [setSize, width, height, set]);
+    const st = get();
+    const orig = st.__sakuSetSize || st.setSize;
+    orig(width, height);
+    if (!st.__sakuSetSize) set({ setSize: NOOP_SIZE, __sakuSetSize: orig });
+  }, [width, height, get, set]);
   return null;
 };
 
+// Menggambar ulang scene sesuai frame video. Saat baru dibuka atau setelah lompat waktu,
+// scene digambar 2x lagi di frame layar berikutnya agar efek, label, dan tekstur yang baru
+// siap ikut tergambar (penting untuk cuplikan 1 frame dan video yang dijeda).
 const Advancer = ({ onRendered }) => {
   const advance = useThree((s) => s.advance);
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
+  const last = useRef({ frame: null, count: 0 });
   useEffect(() => {
-    advance(frame / fps); // jam 3D = waktu video (detik)
-    onRendered();
+    const t = frame / fps;
+    advance(t);
+    const L = last.current;
+    const settle = L.count < 3 || L.frame === null || Math.abs(frame - L.frame) !== 1;
+    L.frame = frame; L.count += 1;
+    if (!settle) { onRendered(); return undefined; }
+    let alive = true;
+    const raf = (fn) => (typeof requestAnimationFrame === 'function' ? requestAnimationFrame(fn) : setTimeout(fn, 16));
+    raf(() => {
+      if (!alive) return;
+      advance(t);
+      raf(() => { if (!alive) return; advance(t); onRendered(); });
+    });
+    return () => { alive = false; onRendered(); };
   }, [frame, fps, advance, onRendered]);
   return null;
 };
@@ -56,7 +75,12 @@ const ReadyKick = () => {
   const advance = useThree((s) => s.advance);
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  useEffect(() => { advance(frame / fps); }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    const t = frame / fps;
+    advance(t);
+    const id = setTimeout(() => advance(t), 50);
+    return () => clearTimeout(id);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   return null;
 };
 
@@ -126,7 +150,7 @@ export const Canvas3D = SakuThreeCanvas;
 
 // ---------- Studio: lampu, lingkungan pantul, bayangan lantai ----------
 
-export const Studio = ({ intensity = 1, environment = true, envIntensity = 0.9, ground = true, groundY = -1.6, shadowOpacity = 0.55, shadowBlur = 2.4, background, keyColor = '#ffffff', rimColor = '#8fb8ff' }) => {
+export const Studio = ({ intensity = 1, environment = true, envIntensity = 0.55, ground = true, groundY = -1.6, shadowOpacity = 0.55, shadowBlur = 2.4, background, keyColor = '#ffffff', rimColor = '#8fb8ff' }) => {
   const gl = useThree((s) => s.gl);
   const scene = useThree((s) => s.scene);
   useLayoutEffect(() => {
@@ -159,7 +183,7 @@ export const Studio = ({ intensity = 1, environment = true, envIntensity = 0.9, 
 
 // ---------- Efek sinematik ----------
 
-export const Effects = ({ bloom = 0.7, bloomThreshold = 0.8, ao = true, dof = 0, focusDistance = 0.015, focalLength = 0.04, vignette = 0.35 }) => {
+export const Effects = ({ bloom = 0.45, bloomThreshold = 1, ao = true, dof = 0, focusDistance = 0.015, focalLength = 0.04, vignette = 0.35 }) => {
   const list = [];
   if (ao) list.push(<N8AO key="ao" aoRadius={0.9} intensity={2} distanceFalloff={1} quality="medium" halfRes />);
   if (dof) list.push(<DepthOfField key="dof" focusDistance={focusDistance} focalLength={focalLength} bokehScale={dof} />);
@@ -180,7 +204,7 @@ const radiusOf = (m) => { if (!m.geometry.boundingSphere) m.geometry.computeBoun
  * (otomatis dari warna material, atau mesh.userData.capColor / prop capColors).
  * Mesh harus tertutup (bola, kotak, model utuh).
  */
-export const Cutaway = ({ children, progress = 1, axis = 'x', at = 0, capColors, showCaps = true, capRoughness = 0.5 }) => {
+export const Cutaway = ({ children, progress = 1, axis = 'x', at = 0, capColors, showCaps = true, capRoughness = 0.85 }) => {
   const group = useRef(null);
   const scene = useThree((s) => s.scene);
   const gl = useThree((s) => s.gl);
@@ -214,7 +238,7 @@ export const Cutaway = ({ children, progress = 1, axis = 'x', at = 0, capColors,
       mk(THREE.BackSide, THREE.IncrementWrapStencilOp);
       mk(THREE.FrontSide, THREE.DecrementWrapStencilOp);
       const src = mats[0];
-      const color = m.userData.capColor || (capColors && capColors[i]) || (src && src.color ? src.color.clone().offsetHSL(0, 0.06, 0.1) : new THREE.Color('#ff6b6b'));
+      const color = new THREE.Color(m.userData.capColor || (capColors && capColors[i]) || (src && src.color ? src.color.clone().offsetHSL(0, 0.04, 0.04) : '#ff6b6b'));
       const capMat = new THREE.MeshStandardMaterial({
         color, roughness: capRoughness, metalness: 0.05, side: THREE.DoubleSide,
         emissive: src && src.emissive ? src.emissive.clone() : new THREE.Color(0), emissiveIntensity: src && src.emissiveIntensity ? src.emissiveIntensity * 0.8 : 0,
@@ -258,21 +282,89 @@ export const Cutaway = ({ children, progress = 1, axis = 'x', at = 0, capColors,
 
 // ---------- Label penunjuk (gaya video sains) ----------
 
-export const Label3D = ({ position = [0, 0, 0], offset = [1.2, 0.8, 0], children, color = '#ffffff', opacity = 1, fontSize, accent = '#4d8dff', dot = true }) => {
+const textOf = (children) => React.Children.toArray(children).map((c) => (typeof c === 'string' || typeof c === 'number' ? String(c) : '')).join('');
+
+/**
+ * Label penunjuk: titik di objek, garis, dan kotak teks yang mengikuti posisi 3D.
+ * Teks digambar sebagai elemen biasa di atas kanvas (ikut terekam saat ekspor).
+ */
+export const Label3D = ({ position = [0, 0, 0], offset = [1.2, 0.8, 0], children, color = '#ffffff', opacity = 1, fontSize, accent = '#4d8dff', dot = true, align }) => {
   const { height } = useVideoConfig();
   const fs = fontSize ?? Math.round(height * 0.02);
-  if (opacity <= 0.001) return null;
+  const gl = useThree((s) => s.gl);
+  const camera = useThree((s) => s.camera);
+  const size = useThree((s) => s.size);
+  const base = useRef(null);
+  const anchor = useRef(null);
+  const nodes = useRef(null);
+  const text = textOf(children);
+  const side = align || (offset[0] > 0.05 ? 'left' : offset[0] < -0.05 ? 'right' : 'center');
+
+  useLayoutEffect(() => {
+    const target = gl.domElement.parentNode;
+    if (!target) return undefined;
+    const NS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('data-saku-label', '');
+    Object.assign(svg.style, { position: 'absolute', left: '0px', top: '0px', overflow: 'visible', pointerEvents: 'none', zIndex: '4' });
+    const line = document.createElementNS(NS, 'line');
+    const dotEl = document.createElementNS(NS, 'circle');
+    svg.appendChild(line); svg.appendChild(dotEl);
+    const box = document.createElement('div');
+    box.setAttribute('data-saku-label', '');
+    target.appendChild(svg); target.appendChild(box);
+    nodes.current = { svg, line, dot: dotEl, box };
+    return () => { svg.remove(); box.remove(); nodes.current = null; };
+  }, [gl]);
+
+  const toScreen = (obj) => {
+    obj.updateWorldMatrix(true, false);
+    const v = new THREE.Vector3().setFromMatrixPosition(obj.matrixWorld).project(camera);
+    return { x: ((v.x + 1) / 2) * size.width, y: ((1 - v.y) / 2) * size.height, behind: v.z > 1 };
+  };
+
+  const place = useCallback(() => {
+    const n = nodes.current;
+    if (!n || !base.current || !anchor.current) return;
+    const p = toScreen(base.current), q = toScreen(anchor.current);
+    const w = n.box.offsetWidth, h = n.box.offsetHeight, m = Math.round(size.width * 0.03);
+    let left = side === 'left' ? q.x : side === 'right' ? q.x - w : q.x - w / 2;
+    left = Math.min(Math.max(m, left), Math.max(m, size.width - w - m)); // tetap di dalam bingkai
+    const top = Math.min(Math.max(m, q.y - h / 2), Math.max(m, size.height - h - m));
+    n.box.style.transform = `translate(${left}px, ${top}px)`;
+    // garis dari titik ke sisi kotak yang terdekat
+    const ex = p.x < left ? left : p.x > left + w ? left + w : p.x;
+    const ey = p.y < top ? top : p.y > top + h ? top + h : top + h / 2;
+    n.svg.setAttribute('width', size.width); n.svg.setAttribute('height', size.height);
+    n.line.setAttribute('x1', p.x); n.line.setAttribute('y1', p.y); n.line.setAttribute('x2', ex); n.line.setAttribute('y2', ey);
+    n.dot.setAttribute('cx', p.x); n.dot.setAttribute('cy', p.y);
+    const hide = p.behind || q.behind;
+    n.box.style.display = hide ? 'none' : 'block';
+    n.svg.style.display = hide ? 'none' : 'block';
+  }, [camera, size, side]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useLayoutEffect(() => {
+    const n = nodes.current;
+    if (!n) return;
+    const lw = Math.max(2, fs / 12);
+    n.box.textContent = text;
+    Object.assign(n.box.style, {
+      position: 'absolute', left: '0px', top: '0px', zIndex: '5', pointerEvents: 'none', whiteSpace: 'nowrap',
+      fontFamily: 'Inter, Arial, sans-serif', fontWeight: '700', fontSize: fs + 'px', lineHeight: '1.15', color: '#fff',
+      padding: `${fs * 0.35}px ${fs * 0.6}px`, borderRadius: fs * 0.4 + 'px', background: 'rgba(10,14,22,0.78)',
+      borderLeft: `${Math.max(3, fs / 8)}px solid ${accent}`,
+      opacity: String(opacity), visibility: opacity > 0.001 ? 'visible' : 'hidden',
+    });
+    n.line.setAttribute('stroke', color); n.line.setAttribute('stroke-width', lw); n.line.setAttribute('stroke-linecap', 'round');
+    n.dot.setAttribute('r', dot ? lw * 2.2 : 0); n.dot.setAttribute('fill', color);
+    n.svg.style.opacity = String(opacity); n.svg.style.visibility = opacity > 0.001 ? 'visible' : 'hidden';
+    place();
+  });
+  useFrame(place);
+
   return (
-    <group position={position}>
-      {dot && <mesh><sphereGeometry args={[0.05, 16, 16]} /><meshBasicMaterial color={color} transparent opacity={opacity} toneMapped={false} /></mesh>}
-      <Line points={[[0, 0, 0], offset]} color={color} lineWidth={Math.max(2, fs / 12)} transparent opacity={opacity} toneMapped={false} />
-      <Html position={offset} center zIndexRange={[50, 0]} style={{ pointerEvents: 'none' }}>
-        <div style={{
-          fontFamily: 'Inter, Arial, sans-serif', fontWeight: 700, fontSize: fs, lineHeight: 1.15, color: '#fff', whiteSpace: 'nowrap',
-          padding: `${fs * 0.35}px ${fs * 0.6}px`, borderRadius: fs * 0.4, background: 'rgba(10,14,22,0.72)', borderLeft: `${Math.max(3, fs / 8)}px solid ${accent}`,
-          opacity, transform: `translateX(${offset[0] >= 0 ? '50%' : '-50%'})`,
-        }}>{children}</div>
-      </Html>
+    <group ref={base} position={position}>
+      <group ref={anchor} position={offset} />
     </group>
   );
 };

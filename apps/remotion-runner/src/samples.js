@@ -126,9 +126,9 @@ import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Eas
 import { Canvas3D, Studio, Effects, Cutaway, Label3D, CameraPath, Turntable } from '@saku/3d';
 
 const LAPISAN = [
-  { nama: 'Kerak', tebal: '5–70 km', r: 2.0, warna: '#2f6fd6', potong: '#7d5a3c' },
-  { nama: 'Mantel', tebal: '2.900 km', r: 1.86, warna: '#c2410c', potong: '#f97316' },
-  { nama: 'Inti luar', tebal: '2.200 km', r: 1.05, warna: '#f59e0b', potong: '#fbbf24' },
+  { nama: 'Kerak', tebal: '5–70 km', r: 2.0, warna: '#2f6fd6', potong: '#6b4f3a' },
+  { nama: 'Mantel', tebal: '2.900 km', r: 1.86, warna: '#c2410c', potong: '#d9480f' },
+  { nama: 'Inti luar', tebal: '2.200 km', r: 1.05, warna: '#f59e0b', potong: '#f59f00' },
   { nama: 'Inti dalam', tebal: '1.220 km', r: 0.55, warna: '#fff1c1', potong: '#fffbeb', panas: true },
 ];
 
@@ -145,16 +145,24 @@ const Bumi = () => {
             <mesh key={l.nama} castShadow userData={{ capColor: l.potong }}>
               <sphereGeometry args={[l.r, 128, 128]} />
               <meshStandardMaterial color={l.warna} roughness={l.panas ? 0.3 : 0.55} metalness={0.05}
-                emissive={l.panas ? '#ffcf6b' : '#000000'} emissiveIntensity={l.panas ? 2.2 : 0} />
+                emissive={l.panas ? '#ffb347' : '#000000'} emissiveIntensity={l.panas ? 1.6 : 0} />
             </mesh>
           ))}
         </Cutaway>
       </Turntable>
-      {LAPISAN.map((l, i) => (
-        <Label3D key={l.nama} position={[l.r * 0.72 - (i === 3 ? 0.4 : 0), 0.15 + i * 0.05, 0.02]} offset={[2.4 - l.r * 0.6, 1.6 - i * 0.9, 0]} opacity={muncul(i)} accent={l.potong}>
-          {l.nama} · {l.tebal}
-        </Label3D>
-      ))}
+      {LAPISAN.map((l, i) => {
+        // titik di tengah tiap cincin potongan, label berjajar di kanan
+        const dalam = LAPISAN[i + 1] ? LAPISAN[i + 1].r : 0;
+        const tengah = (l.r + dalam) / 2;
+        const sudut = 0.6 - i * 0.2;
+        const titik = [Math.cos(sudut) * tengah, Math.sin(sudut) * tengah, 0.01];
+        const label = [2.2, 2.3 - i * 0.62, 0];
+        return (
+          <Label3D key={l.nama} position={titik} offset={[label[0] - titik[0], label[1] - titik[1], 0]} opacity={muncul(i)} accent={l.potong}>
+            {l.nama} · {l.tebal}
+          </Label3D>
+        );
+      })}
     </>
   );
 };
@@ -168,12 +176,12 @@ export const PenampangBumi = () => {
       <Canvas3D camera={{ position: [0, 1, 9], fov: 38 }}>
         <Studio groundY={-2.6} shadowOpacity={0.45} />
         <CameraPath points={[
-          { at: 0, position: [0.5, 1.4, 10.5], target: [0, 0, 0] },
-          { at: 4, position: [3.2, 1.6, 8.2], target: [0.6, 0, 0] },
-          { at: 10, position: [4.2, 2.2, 7.4], target: [1, -0.1, 0] },
+          { at: 0, position: [0.5, 1.6, 15], target: [0, -0.2, 0] },
+          { at: 4, position: [4.5, 2, 12.5], target: [0.7, -0.2, 0] },
+          { at: 10, position: [5.5, 2.6, 11.5], target: [1.1, -0.3, 0] },
         ]} />
         <Bumi />
-        <Effects bloom={0.9} bloomThreshold={0.75} ao vignette={0.4} />
+        <Effects bloom={0.6} ao vignette={0.45} />
       </Canvas3D>
       <AbsoluteFill style={{ alignItems: 'center', paddingTop: '9%', pointerEvents: 'none' }}>
         <div style={{ fontFamily: 'Inter, Arial, sans-serif', fontWeight: 800, fontSize: 84, color: 'white', letterSpacing: 1, opacity: judul, transform: \`translateY(\${(1 - judul) * 40}px)\`, textShadow: '0 6px 30px rgba(0,0,0,.5)' }}>

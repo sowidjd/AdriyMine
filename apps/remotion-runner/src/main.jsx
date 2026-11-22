@@ -935,6 +935,20 @@ function Help() {
       <p>Tempel saja semuanya. Aplikasi memisahkan file otomatis bila tiap file diawali baris seperti <code>// src/Root.tsx</code>, atau bila kode berupa beberapa blok <code>```tsx</code>. Import seperti <code>./Judul</code> otomatis tersambung.</p>
       <h3>Yang dikenali</h3>
       <p><code>&lt;Composition&gt;</code>, <code>registerRoot</code>, <code>calculateMetadata</code>, <code>defaultProps</code>, atau cukup komponen yang di-export. TypeScript dan JSX langsung jalan.</p>
+      <h3>3D gaya video sains</h3>
+      <p>Pakai <code>import {'{'} Canvas3D, Studio, Effects, Cutaway, Label3D, CameraPath, OrbitCamera, Turntable, Model {'}'} from '@saku/3d'</code>.</p>
+      <ul className="tight">
+        <li><code>&lt;Canvas3D&gt;</code>: kanvas 3D seukuran video, jamnya mengikuti frame (useFrame ikut sinkron).</li>
+        <li><code>&lt;Studio /&gt;</code>: lampu studio, pantulan lingkungan, bayangan lembut di lantai.</li>
+        <li><code>&lt;Effects bloom ao dof vignette /&gt;</code>: cahaya berpendar, bayangan sudut, fokus kamera.</li>
+        <li><code>&lt;Cutaway progress axis="z"&gt;</code>: membelah objek, permukaan potong diberi warna (<code>userData={'{{'} capColor {'}}'}</code>).</li>
+        <li><code>&lt;Label3D position offset&gt;Teks&lt;/Label3D&gt;</code>: label dengan garis penunjuk.</li>
+        <li><code>&lt;CameraPath points /&gt;</code>, <code>&lt;OrbitCamera /&gt;</code>, <code>&lt;Turntable /&gt;</code>: gerak kamera/objek.</li>
+        <li><code>&lt;Model src={'{'}staticFile('jantung.glb'){'}'} /&gt;</code>: model 3D dari tab Lainnya → Aset.</li>
+      </ul>
+      <p>Lihat contoh lengkap di <b>Contoh → 3D sains: penampang Bumi</b>. Kode yang memakai <code>ThreeCanvas</code> atau <code>Canvas</code> biasa juga otomatis memakai kanvas ini.</p>
+      <h3>Video panjang</h3>
+      <p>Durasi bisa sampai 4 jam. Di tab Ekspor, video di atas 2 menit bisa dibagi menjadi file per 5/10/15 menit agar aman di HP.</p>
       <h3>Paket bawaan</h3>
       <p className="pk">3D: @remotion/three (ThreeCanvas), three, @react-three/fiber, @react-three/drei. Lainnya: remotion, @remotion/player, transitions (fade, slide, wipe, flip, iris, dll.), shapes, paths, noise, motion-blur, layout-utils, animation-utils, media-utils, media, fonts, google-fonts, captions, gif, lottie, light-leaks, starburst, rounded-text-box, effects, zod, react.</p>
       <p>Paket lain dicoba diambil dari internet secara otomatis. Fungsi Remotion/React yang lupa di-import (mis. useCurrentFrame, interpolate, useState) otomatis tersedia.</p>

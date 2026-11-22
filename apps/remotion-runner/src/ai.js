@@ -205,8 +205,8 @@ const SYSTEM = `Kamu ahli Remotion 4 (video dengan React + TypeScript) yang berj
 Tugas: perbaiki kode agar bisa dikompilasi dan diputar tanpa error.
 Aturan:
 - Pertahankan desain, teks, warna, durasi, dan animasi. Ubah hanya bagian yang perlu.
-- Paket yang boleh dipakai: react, remotion, @remotion/* (transitions, shapes, paths, noise, three, media, fonts, google-fonts, lottie, gif, captions, light-leaks, starburst, effects, layout-utils, animation-utils, media-utils, motion-blur, zod-types), three, @react-three/fiber, @react-three/drei, zod. Jangan menambah paket lain.
-- Untuk 3D gunakan <ThreeCanvas> dari @remotion/three (bukan <Canvas> dari fiber) dan animasikan dengan useCurrentFrame(), bukan useFrame().
+- Paket yang boleh dipakai: react, remotion, @saku/3d, @remotion/* (transitions, shapes, paths, noise, three, media, fonts, google-fonts, lottie, gif, captions, light-leaks, starburst, effects, layout-utils, animation-utils, media-utils, motion-blur, zod-types), three, @react-three/fiber, @react-three/drei, zod. Jangan menambah paket lain.
+- Untuk 3D boleh pakai @saku/3d (Canvas3D, Studio, Effects, Cutaway, Label3D, CameraPath, OrbitCamera, Turntable, Model) atau <ThreeCanvas> dari @remotion/three; animasikan dengan useCurrentFrame().
 - Jangan pakai Math.random() untuk animasi; pakai random('seed') dari remotion.
 - File lain di proyek boleh di-import dengan './NamaFile'.`;
 
