@@ -42,7 +42,9 @@ const angka = (kode: string, nama: string) => { const m = kode.match(new RegExp(
 
 function kompilasi(kodeAsli: string): { komp: React.ComponentType | null; galat: string | null; nama: string } {
   // buang pagar markdown ``` yang sering ikut tersalin dari chat
-  const kode = kodeAsli.replace(/^\s*```[a-zA-Z]*\s*$/gm, "");
+  const kode = kodeAsli.replace(/^\s*```[a-zA-Z]*\s*$/gm, "")
+  // tanda panah/perbandingan yang diubah jadi simbol oleh aplikasi catatan/chat (⇒ ≥ ≤ ≠), spasi tak terlihat
+    .replace(/⇒/g, "=>").replace(/≥/g, ">=").replace(/≤/g, "<=").replace(/≠/g, "!=").replace(/\u00a0/g, " ").replace(/[\u200b-\u200d\ufeff]/g, "");
   try {
     const js = transform(kode, { transforms: ["typescript", "jsx", "imports"], jsxRuntime: "automatic", production: true }).code;
     const module = { exports: {} as Record<string, unknown> };
