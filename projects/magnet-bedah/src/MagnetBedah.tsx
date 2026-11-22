@@ -265,7 +265,7 @@ const Atom = ({ frame, index }: { frame: number; index: number }) => {
   const orbit = 50 + (index % 3) * 30;
   // sebar atom di area tengah (y 560–1150)
   const cx = 200 + ((index * 173) % 680);
-  const cy = 620 + ((index * 97) % 480);
+  const cy = 560 + ((index * 97) % 400);
 
   return (
     <div
@@ -291,13 +291,13 @@ const Domains = ({ frame, sejajar = 1 }: { frame: number; sejajar?: number }) =>
       style={{
         position: "absolute",
         left: 100,
-        top: 470,
+        top: 460,
         width: 880,
-        height: 660,
+        height: 600,
         display: "grid",
         gridTemplateColumns: "repeat(6,1fr)",
-        gap: 20,
-        padding: 40,
+        gap: 12,
+        padding: 30,
         borderRadius: 40,
         background: "rgba(8,24,50,.7)",
         border: "2px solid rgba(96,165,250,.3)",
@@ -356,8 +356,8 @@ const Character = ({ emotion = "curious", kiri = false }: { emotion?: string; ki
       style={{
         position: "absolute",
         bottom: 0,
-        [kiri ? "left" : "right"]: 10,
-        height: 520,
+        [kiri ? "left" : "right"]: -20,
+        height: 620,
         width: "auto",
         transform: `translateY(${interpolate(masuk, [0, 1], [200, 0]) + float}px)`,
         filter: "drop-shadow(0 30px 50px rgba(0,0,0,.5))",
@@ -395,7 +395,7 @@ const Subtitle = ({ text }: { text: string }) =>
     <div
       style={{
         position: "absolute",
-        top: 1190,
+        top: 1085,
         left: 65,
         right: 65,
         padding: "25px 30px",
@@ -440,7 +440,7 @@ const ADEGAN: ((f: number, d: number) => React.ReactNode)[] = [
           <Magnet3D frame={f} />
         </div>
       </Tengah>
-      <Character emotion="curious" />
+      <Character emotion="setengah_kaget_tangan_terbuka" />
     </>
   ),
   // 2 — anggapan umum
@@ -450,7 +450,7 @@ const ADEGAN: ((f: number, d: number) => React.ReactNode)[] = [
       <Tengah top={720}>
         <Magnet3D frame={f} />
       </Tengah>
-      <Character emotion="explaining" kiri />
+      <Character emotion="setengah_bingung_garuk" kiri />
     </>
   ),
   // 3 — bahan magnet
@@ -467,7 +467,7 @@ const ADEGAN: ((f: number, d: number) => React.ReactNode)[] = [
             key={b}
             style={{
               position: "absolute",
-              top: 860 + i * 88,
+              top: 830 + i * 80,
               left: 90,
               padding: "12px 30px",
               borderRadius: 18,
@@ -485,7 +485,7 @@ const ADEGAN: ((f: number, d: number) => React.ReactNode)[] = [
           </div>
         );
       })}
-      <Character emotion="explaining" />
+      <Character emotion="setengah_senang_kepal" />
     </>
   ),
   // 4 — pembongkaran
@@ -495,6 +495,7 @@ const ADEGAN: ((f: number, d: number) => React.ReactNode)[] = [
       <Tengah top={620}>
         <ExplodedMagnet frame={f} />
       </Tengah>
+      <Character emotion="setengah_mikir_dagu_2" kiri />
     </>
   ),
   // 5 — atom & elektron
@@ -506,6 +507,7 @@ const ADEGAN: ((f: number, d: number) => React.ReactNode)[] = [
           <Atom frame={f} index={i} key={i} />
         ))}
       </AbsoluteFill>
+      <Character emotion="setengah_kaget_dua_tangan" />
     </>
   ),
   // 6 — domain acak → mulai sejajar
@@ -513,6 +515,7 @@ const ADEGAN: ((f: number, d: number) => React.ReactNode)[] = [
     <>
       <SceneTitle title="DOMAIN MAGNETIK" subtitle="Kelompok momen magnetik" />
       <Domains frame={f} sejajar={0.35} />
+      <Character emotion="setengah_mikir_gir" kiri />
     </>
   ),
   // 7 — domain sejajar
@@ -520,6 +523,7 @@ const ADEGAN: ((f: number, d: number) => React.ReactNode)[] = [
     <>
       <SceneTitle title="ARAH YANG SEJAJAR" subtitle="Efek magnet makin kuat" />
       <Domains frame={f + 84} />
+      <Character emotion="setengah_semangat_kedip" />
     </>
   ),
   // 8 — medan magnet
@@ -527,9 +531,10 @@ const ADEGAN: ((f: number, d: number) => React.ReactNode)[] = [
     <>
       <SceneTitle title="MEDAN MAGNET" subtitle="Kekuatan yang tak terlihat" />
       <FieldLines frame={f} />
-      <Tengah top={835}>
+      <Tengah top={770}>
         <Magnet3D frame={f} />
       </Tengah>
+      <Character emotion="setengah_tenang_tangan_dada" kiri />
     </>
   ),
   // 9 — gaya tarik
@@ -554,6 +559,7 @@ const ADEGAN: ((f: number, d: number) => React.ReactNode)[] = [
       >
         <Baut />
       </div>
+      <Character emotion="setengah_eureka_kepal" />
     </>
   ),
   // 10 — penutup
@@ -563,7 +569,7 @@ const ADEGAN: ((f: number, d: number) => React.ReactNode)[] = [
       <Tengah top={680}>
         <Magnet3D frame={f} />
       </Tengah>
-      <Character emotion="confident" kiri />
+      <Character emotion="setengah_jempol_senyum" kiri />
       <AbsoluteFill style={{ background: "#000", opacity: interpolate(f, [d - 25, d], [0, 1], cl) }} />
     </>
   ),
