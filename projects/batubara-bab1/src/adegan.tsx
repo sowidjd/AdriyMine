@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { interpolate } from "remotion";
 import * as THREE from "three";
-import { Adriy, antara, cl, Ctx, ez, FONT, Kartu, Lampu, muncul, Panah, Teks, useBongkah, useMat } from "./lib";
+import { antara, cl, Ctx, ez, FONT, Kartu, Lampu, muncul, Panah, Teks, useBongkah, useMat } from "./lib";
 
 type V3 = [number, number, number];
 export type Adegan = { kode: string; judul: string; han?: string; kamera: (c: Ctx) => { pos: V3; target: V3 }; Tiga: React.FC<{ c: Ctx }>; Atas: React.FC<{ c: Ctx }> };
@@ -92,8 +92,7 @@ const S0: Adegan = {
       {c.f > c.T(1) && Array.from({ length: 60 }).map((_, i) => <mesh key={i} position={[(rnd(i) - 0.5) * 2, (rnd(i + 1) - 0.5) * 2, -rnd(i + 2) * 1.2]} scale={kokas * 0.6 + 0.4}><sphereGeometry args={[0.05 + rnd(i + 3) * 0.06, 8, 8]} /><meshStandardMaterial color="#0a0a0a" /></mesh>)}</>);
   },
   Atas: ({ c }) => (<>
-    <Kartu c={c} items={[{ i: 1, teks: "Bahan baku utama pabrik kokas", warna: "#f59e0b" }, { i: 2, teks: "Kokas 焦炭: padat, kuat, berpori", sub: "dipanaskan TANPA udara", warna: "#94a3b8" }, { i: 3, teks: "Tidak semua batubara bisa!", warna: "#ef4444", tanda: "⚠" }]} kanan={360} />
-    <Adriy pose="setengah_ide_tablet" o={muncul(c.f, c.T(1))} x={730} y={1130} h={450} />
+    <Kartu c={c} items={[{ i: 1, teks: "Bahan baku utama pabrik kokas", warna: "#f59e0b" }, { i: 2, teks: "Kokas 焦炭: padat, kuat, berpori", sub: "dipanaskan TANPA udara", warna: "#94a3b8" }, { i: 3, teks: "Tidak semua batubara bisa!", warna: "#ef4444", tanda: "⚠" }]} />
   </>),
 };
 
@@ -454,8 +453,7 @@ const S6: Adegan = {
       { i: 10, teks: "Dari uji bahan, target mutu, kondisi oven, aturan pabrik", warna: "#ef4444" },
       { i: 11, teks: "Operator: timbangan akurat, pengumpan lancar, silo terisi", warna: "#22c55e", tanda: "👷" },
       { i: 12, teks: "📌 Materi lama: kesalahan timbangan ≤ 0,5%", warna: "#fbbf24" },
-    ]} maks={3} kanan={c.idx >= 11 ? 360 : 50} />
-    <Adriy pose="setengah_ok_laptop" o={antara(c.f, c.T(11), c.d)} x={730} y={1130} h={450} />
+    ]} maks={3} />
   </>),
 };
 
@@ -557,8 +555,7 @@ const S9: Adegan = {
         { i: 9, teks: "Batubara stabil → proses stabil → kokas terkendali", warna: "#22c55e" },
         { i: 10, teks: "Berikutnya: BAB 2 Persiapan Batubara 备煤", warna: "#f59e0b" },
         { i: 11, teks: "Follow Adriy Project", sub: "biar makin sering bilang: oh, ternyata begitu", warna: "#f472b6", tanda: "➕" },
-      ]} maks={3} top={1150} kanan={c.idx >= 11 ? 360 : 50} />}
-      <Adriy pose="setengah_sorak_kepal" o={antara(c.f, c.T(11) - 10, c.d + 30)} x={730} y={1130} h={450} />
+      ]} maks={3} top={1150} />}
     </>);
   },
 };
