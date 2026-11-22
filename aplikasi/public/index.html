@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Adriy Studio</title>
+<style>
+:root{--bg:#0b1018;--kartu:#141c2b;--garis:#263247;--teks:#e8edf5;--redup:#93a1b8;--aksen:#f59e0b;--ok:#22c55e;--bahaya:#ef4444}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--teks);font:16px/1.45 system-ui,Arial,sans-serif}
+main{max-width:640px;margin:0 auto;padding:16px}h1{font-size:22px;margin:8px 0 16px}h1 b{color:var(--aksen)}
+.kartu{background:var(--kartu);border:1px solid var(--garis);border-radius:14px;padding:16px;margin-bottom:16px}
+label{display:block;font-size:14px;color:var(--redup);margin:12px 0 6px}
+input,textarea,select{width:100%;background:#0e1522;color:var(--teks);border:1px solid var(--garis);border-radius:10px;padding:12px;font:inherit}
+textarea{min-height:260px;resize:vertical}.baris{display:flex;gap:10px}.baris>*{flex:1}
+button{background:var(--aksen);color:#111;border:0;border-radius:10px;padding:13px 16px;font-weight:800;font-size:16px;width:100%;margin-top:14px}
+button.kedua{background:transparent;color:var(--teks);border:1px solid var(--garis)}button:disabled{opacity:.5}
+.kecil{font-size:13px;color:var(--redup)}.kerja{border-top:1px solid var(--garis);padding:12px 0}.kerja:first-child{border-top:0}
+.bar{height:8px;background:#0e1522;border-radius:9px;overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;background:var(--aksen)}
+.lencana{display:inline-block;font-size:12px;font-weight:800;padding:2px 8px;border-radius:99px;background:#263247}
+.selesai .lencana{background:var(--ok);color:#052e16}.gagal .lencana{background:var(--bahaya)}video{width:100%;border-radius:10px;margin-top:8px}
+a{color:var(--aksen)}.sembunyi{display:none}
+</style></head><body><main>
+<h1>🎬 <b>Adriy</b> Studio</h1>
+<section id="masuk" class="kartu sembunyi"><label>Password</label><input id="sandi" type="password" autocomplete="current-password"><button id="btnMasuk">Masuk</button><p id="salah" class="kecil"></p></section>
+<section id="app" class="sembunyi">
+ <div class="kartu">
+  <label>Judul (tampil di atas video)</label><input id="judul" placeholder="mis. BAB 1 Batubara">
+  <label>Naskah — satu kalimat/baris boleh; baris diawali <b>#</b> = judul bagian</label>
+  <textarea id="naskah" placeholder="# Pembuka&#10;Pernah penasaran, kenapa ...?&#10;&#10;# Bagian 1&#10;..."></textarea>
+  <div class="kecil" id="hitung">0 kalimat</div>
+  <label>Ambil teks dari PDF (untuk disunting jadi naskah)</label><input id="pdf" type="file" accept="application/pdf">
+  <div class="baris"><div><label>Suara</label><select id="suara"><option value="mia">Mia</option><option value="adriy">Adriy</option><option value="hasan">Hasan</option><option value="ongky">Ongky</option></select></div>
+  <div><label>Tema 3D</label><select id="tema"><option value="bongkah">Bongkah (batubara/mineral)</option><option value="bumi">Lapisan bumi</option><option value="atom">Atom</option><option value="roda">Roda gigi (mesin)</option></select></div></div>
+  <button id="btnBuat">Buat Video</button><p class="kecil" id="info"></p>
+ </div>
+ <div class="kartu"><b>Daftar video</b><div id="daftar" class="kecil">Memuat…</div></div>
+</section>
+</main>
+<script>
+const $=s=>document.querySelector(s);let K=localStorage.getItem("sandi")||"";
+const api=(u,o={})=>fetch(u,{...o,headers:{...(o.headers||{}),"x-sandi":K}}).then(async r=>{const j=await r.json().catch(()=>({}));if(r.status==401){tampil(false);throw new Error("401")}if(!r.ok)throw new Error(j.galat||r.status);return j});
+function tampil(m){$("#masuk").classList.toggle("sembunyi",m);$("#app").classList.toggle("sembunyi",!m);if(m)muat()}
+$("#btnMasuk").onclick=async()=>{K=$("#sandi").value;try{await api("/api/cek");localStorage.setItem("sandi",K);tampil(true)}catch{$("#salah").textContent="Password salah."}};
+const hitung=()=>{const n=$("#naskah").value.split(/\n/).filter(b=>b.trim()&&!b.trim().startsWith("#")).join(" ").split(/(?<=[.!?…])\s+/).filter(s=>s.trim()).length;$("#hitung").textContent=`${n} kalimat · perkiraan suara ±${Math.ceil(n*30/60)} menit (kalimat yang sudah ada di pustaka lebih cepat)`};
+$("#naskah").oninput=hitung;
+$("#pdf").onchange=async e=>{const f=e.target.files[0];if(!f)return;$("#info").textContent="Membaca PDF…";const fd=new FormData();fd.append("pdf",f);try{const r=await api("/api/pdf",{method:"POST",body:fd});$("#naskah").value=r.teks;hitung();$("#info").textContent="Teks PDF dimasukkan. Rapikan dulu jadi naskah narasi sebelum membuat video."}catch(x){$("#info").textContent="Gagal: "+x.message}};
+$("#btnBuat").onclick=async()=>{$("#btnBuat").disabled=true;try{await api("/api/buat",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({judul:$("#judul").value,naskah:$("#naskah").value,suara:$("#suara").value,tema:$("#tema").value})});$("#info").textContent="Masuk antrean ✓";muat()}catch(x){$("#info").textContent="Gagal: "+x.message}$("#btnBuat").disabled=false};
+const NAMA={antre:"Antre",suara:"Membuat suara",render:"Render video",akhir:"Merapikan audio",selesai:"Selesai",gagal:"Gagal"};
+async function muat(){try{const d=await api("/api/daftar");$("#daftar").innerHTML=d.length?d.map(j=>`<div class="kerja ${j.tahap}"><span class="lencana">${NAMA[j.tahap]||j.tahap}</span> <b>${j.judul.replace(/</g,"&lt;")}</b><div class="kecil">${j.kalimat} kalimat · suara ${j.suara} · ${new Date(j.dibuat).toLocaleString("id-ID")}</div>${["suara","render"].includes(j.tahap)?`<div class="bar"><i style="width:${j.persen}%"></i></div><div class="kecil">${j.persen}%</div>`:""}${j.tahap=="selesai"?`<video controls preload="none" src="/berkas/${j.id}/video.mp4?k=${encodeURIComponent(K)}"></video><a href="/berkas/${j.id}/video.mp4?k=${encodeURIComponent(K)}" download="${j.id}.mp4">⬇ Unduh MP4</a>`:""}${j.tahap=="gagal"?`<div class="kecil">${(j.pesan||"").replace(/</g,"&lt;")}</div>`:""}</div>`).join(""):"Belum ada video."}catch{}}
+setInterval(()=>{if(!$("#app").classList.contains("sembunyi"))muat()},4000);
+api("/api/cek").then(()=>tampil(true)).catch(()=>tampil(false));
+</script></body></html>
