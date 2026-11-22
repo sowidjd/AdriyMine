@@ -36,8 +36,8 @@ const Objek: React.FC<{ tema: string; f: number }> = ({ tema, f }) => {
   </group>);
   if (tema === "roda") return (<group rotation={[0.4, 0, 0]}>
     {[[-1.1, 0, 1, 12], [1.25, 0.4, -1.2, 9]].map(([x, y, arah, gigi], j) => <group key={j} position={[Number(x), Number(y), 0]} rotation={[0, 0, (f / 40) * Number(arah)]}>
-      <mesh><cylinderGeometry args={[1, 1, 0.4, 48]} />{m("#94a3b8", { metalness: 0.8, roughness: 0.3 })}</mesh>
-      {Array.from({ length: Number(gigi) }).map((_, i) => { const a = (i / Number(gigi)) * Math.PI * 2; return <mesh key={i} position={[Math.cos(a) * 1.12, 0, Math.sin(a) * 1.12]} rotation={[0, -a, 0]}><boxGeometry args={[0.3, 0.4, 0.22]} /><meshStandardMaterial color="#64748b" metalness={0.8} /></mesh>; })}
+      <mesh><cylinderGeometry args={[1, 1, 0.4, 48]} />{m("#cbd5e1", { metalness: 0.35, roughness: 0.35 })}</mesh>
+      {Array.from({ length: Number(gigi) }).map((_, i) => { const a = (i / Number(gigi)) * Math.PI * 2; return <mesh key={i} position={[Math.cos(a) * 1.12, 0, Math.sin(a) * 1.12]} rotation={[0, -a, 0]}><boxGeometry args={[0.3, 0.4, 0.22]} /><meshStandardMaterial color="#94a3b8" metalness={0.35} /></mesh>; })}
     </group>)}
   </group>);
   return (<group rotation={[0.3, f / 180, 0.1]}>
