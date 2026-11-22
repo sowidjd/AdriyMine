@@ -4,62 +4,142 @@
    "no": 1,
    "teks": "Pernah nggak kamu melihat benda kecil seperti ini, tetapi mampu menarik benda lain tanpa menyentuhnya?",
    "mulai": 0.0,
-   "durasi": 6.6
+   "durasi": 5.92
   },
   {
    "no": 2,
    "teks": "Kita sering menganggap magnet hanyalah benda biasa dengan dua kutub.",
-   "mulai": 7.05,
-   "durasi": 4.6
+   "mulai": 6.37,
+   "durasi": 3.36
   },
   {
    "no": 3,
    "teks": "Magnet permanen terbuat dari material khusus seperti neodymium, ferrite, atau alnico.",
-   "mulai": 12.1,
-   "durasi": 5.0
+   "mulai": 10.18,
+   "durasi": 6.24
   },
   {
    "no": 4,
    "teks": "Bayangkan kita bisa membongkar magnet ini. Pembongkaran ini adalah visualisasi struktur materialnya.",
-   "mulai": 17.55,
-   "durasi": 5.4
+   "mulai": 16.87,
+   "durasi": 6.97
   },
   {
    "no": 5,
    "teks": "Di dalam material terdapat atom. Elektron memiliki sifat magnetik yang berhubungan dengan spin dan gerak orbital.",
-   "mulai": 23.4,
-   "durasi": 7.0
+   "mulai": 24.29,
+   "durasi": 7.45
   },
   {
    "no": 6,
    "teks": "Momen magnetik atom dapat berinteraksi dan membentuk kelompok yang disebut domain magnetik.",
-   "mulai": 30.85,
-   "durasi": 5.4
+   "mulai": 32.19,
+   "durasi": 5.28
   },
   {
    "no": 7,
    "teks": "Ketika banyak domain menjadi lebih sejajar, efek magnetik material semakin kuat.",
-   "mulai": 36.7,
-   "durasi": 5.0
+   "mulai": 37.92,
+   "durasi": 4.8
   },
   {
    "no": 8,
    "teks": "Medan magnet terbentuk di sekitar magnet. Walaupun tidak terlihat, medan ini dapat memengaruhi benda tertentu.",
-   "mulai": 42.15,
-   "durasi": 6.6
+   "mulai": 43.17,
+   "durasi": 7.29
   },
   {
    "no": 9,
    "teks": "Saat besi mendekat, medan magnet menyebabkan perubahan susunan magnetik yang menghasilkan gaya tarik.",
-   "mulai": 49.2,
-   "durasi": 5.8
+   "mulai": 50.91,
+   "durasi": 5.92
   },
   {
    "no": 10,
    "teks": "Di balik benda sederhana, terdapat dunia mikroskopis dengan susunan magnetik yang luar biasa.",
-   "mulai": 55.45,
-   "durasi": 5.8
+   "mulai": 57.28,
+   "durasi": 5.76
   }
  ],
- "total": 61.7
+ "total": 63.49,
+ "sub": [
+  {
+   "no": 1,
+   "teks": "Pernah nggak kamu melihat benda kecil seperti ini, tetapi mampu menarik benda lain tanpa menyentuhnya?",
+   "mulai": 0.0,
+   "durasi": 5.92
+  },
+  {
+   "no": 2,
+   "teks": "Kita sering menganggap magnet hanyalah benda biasa dengan dua kutub.",
+   "mulai": 6.37,
+   "durasi": 3.36
+  },
+  {
+   "no": 3,
+   "teks": "Magnet permanen terbuat dari material khusus seperti neodymium, ferrite, atau alnico.",
+   "mulai": 10.18,
+   "durasi": 6.24
+  },
+  {
+   "no": 4,
+   "teks": "Bayangkan kita bisa membongkar magnet ini.",
+   "mulai": 16.87,
+   "durasi": 2.72
+  },
+  {
+   "no": 5,
+   "teks": "Pembongkaran ini adalah visualisasi struktur materialnya.",
+   "mulai": 19.84,
+   "durasi": 4.0
+  },
+  {
+   "no": 6,
+   "teks": "Di dalam material terdapat atom.",
+   "mulai": 24.29,
+   "durasi": 2.24
+  },
+  {
+   "no": 7,
+   "teks": "Elektron memiliki sifat magnetik yang berhubungan dengan spin dan gerak orbital.",
+   "mulai": 26.78,
+   "durasi": 4.96
+  },
+  {
+   "no": 8,
+   "teks": "Momen magnetik atom dapat berinteraksi dan membentuk kelompok yang disebut domain magnetik.",
+   "mulai": 32.19,
+   "durasi": 5.28
+  },
+  {
+   "no": 9,
+   "teks": "Ketika banyak domain menjadi lebih sejajar, efek magnetik material semakin kuat.",
+   "mulai": 37.92,
+   "durasi": 4.8
+  },
+  {
+   "no": 10,
+   "teks": "Medan magnet terbentuk di sekitar magnet.",
+   "mulai": 43.17,
+   "durasi": 2.88
+  },
+  {
+   "no": 11,
+   "teks": "Walaupun tidak terlihat, medan ini dapat memengaruhi benda tertentu.",
+   "mulai": 46.3,
+   "durasi": 4.16
+  },
+  {
+   "no": 12,
+   "teks": "Saat besi mendekat, medan magnet menyebabkan perubahan susunan magnetik yang menghasilkan gaya tarik.",
+   "mulai": 50.91,
+   "durasi": 5.92
+  },
+  {
+   "no": 13,
+   "teks": "Di balik benda sederhana, terdapat dunia mikroskopis dengan susunan magnetik yang luar biasa.",
+   "mulai": 57.28,
+   "durasi": 5.76
+  }
+ ]
 }

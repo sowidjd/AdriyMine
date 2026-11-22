@@ -27,6 +27,7 @@ import timeline from "./timeline.json";
 const FPS = 30;
 type Kal = { no: number; teks: string; mulai: number; durasi: number };
 const KAL: Kal[] = (timeline as { kalimat: Kal[] }).kalimat;
+const SUB: Kal[] = (timeline as unknown as { sub: Kal[] }).sub;
 const TOTAL_DETIK: number = (timeline as { total: number }).total;
 export const DURASI = Math.ceil((TOTAL_DETIK + 2) * FPS);
 
@@ -41,7 +42,7 @@ const sceneAt = (f: number) => {
 
 const captionAt = (frame: number) => {
   const t = frame / FPS;
-  const k = KAL.find((x) => t >= x.mulai - 0.05 && t < x.mulai + x.durasi + 0.3);
+  const k = SUB.find((x) => t >= x.mulai - 0.05 && t < x.mulai + x.durasi + 0.3);
   return k ? k.teks : "";
 };
 
@@ -211,7 +212,7 @@ const FieldLines = ({ frame }: { frame: number }) => {
 };
 
 const ExplodedMagnet = ({ frame }: { frame: number }) => {
-  const distance = interpolate(frame, [0, 100], [0, 240], cl);
+  const distance = interpolate(frame, [0, 100], [0, 165], cl);
 
   const parts = [
     { color: "#ef4444", label: "N", x: -distance },
