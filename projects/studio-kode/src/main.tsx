@@ -44,7 +44,7 @@ function kompilasi(kodeAsli: string): { komp: React.ComponentType | null; galat:
   // buang pagar markdown ``` yang sering ikut tersalin dari chat
   const kode = kodeAsli.replace(/^\s*```[a-zA-Z]*\s*$/gm, "")
   // tanda panah/perbandingan yang diubah jadi simbol oleh aplikasi catatan/chat (⇒ ≥ ≤ ≠), spasi tak terlihat
-    .replace(/⇒/g, "=>").replace(/≥/g, ">=").replace(/≤/g, "<=").replace(/≠/g, "!=").replace(/\u00a0/g, " ").replace(/[\u200b-\u200d\ufeff]/g, "");
+    .replace(/⇒/g, "=>").replace(/≥/g, ">=").replace(/≤/g, "<=").replace(/≠/g, "!=").replace(/[\uff01-\uff5e]/g, (x) => String.fromCharCode(x.charCodeAt(0) - 0xfee0)).replace(/[\u00a0\u2000-\u200a\u202f\u3000]/g, " ").replace(/[\u200b-\u200d\ufeff]/g, "");
   try {
     const js = transform(kode, { transforms: ["typescript", "jsx", "imports"], jsxRuntime: "automatic", production: true }).code;
     const module = { exports: {} as Record<string, unknown> };
@@ -62,8 +62,9 @@ function kompilasi(kodeAsli: string): { komp: React.ComponentType | null; galat:
     const m = pesan.match(/\((\d+):(\d+)\)/);
     if (!m) return { komp: null, galat: pesan, nama: "" };
     const n = Number(m[1]), c = Number(m[2]); const baris = kode.split("\n");
+    const aneh = [...new Set((baris[n - 1] || "").split("").filter((ch) => ch.charCodeAt(0) > 126))].map((ch) => `"${ch}" (U+${ch.charCodeAt(0).toString(16).toUpperCase().padStart(4, "0")})`);
     const cuplik = [n - 1, n, n + 1].filter((i) => i >= 1 && i <= baris.length).map((i) => `${String(i).padStart(4)} | ${baris[i - 1]}` + (i === n ? `\n     | ${" ".repeat(Math.max(0, c - 1))}^` : "")).join("\n");
-    return { komp: null, galat: `Kode tidak bisa dibaca di baris ${n}, kolom ${c}:\n${cuplik}\n\n(${pesan})\nBiasanya: kode terpotong saat disalin, ada teks biasa di luar komentar, atau kurung/kurawal tidak lengkap.`, nama: "" };
+    return { komp: null, galat: `Kode tidak bisa dibaca di baris ${n}, kolom ${c}:\n${cuplik}\n\n(${pesan})${aneh.length ? `\nKarakter bukan-kode di baris ini: ${aneh.join(", ")}. Ganti dengan tanda biasa dari keyboard.` : ""}\nBiasanya: kode terpotong saat disalin, ada teks biasa di luar komentar, atau kurung/kurawal tidak lengkap.`, nama: "" };
   }
 }
 
@@ -152,7 +153,7 @@ function App() {
   const ubah = (k: keyof Atur) => (e: React.ChangeEvent<HTMLInputElement>) => setAtur({ ...atur, [k]: Math.max(1, Number(e.target.value) || 1) });
   return (
     <main>
-      <header><h1>Studio Kode</h1><p>Tempel kode Remotion, putar pratinjau, lalu render jadi MP4 langsung di HP. Tanpa server, tanpa suara.</p></header>
+      <header><h1>Studio Kode <span className="versi">v5</span></h1><p>Tempel kode Remotion, putar pratinjau, lalu render jadi MP4 langsung di HP. Tanpa server, tanpa suara.</p></header>
       <section className="panel">
         <label htmlFor="kode">Kode Remotion (.tsx)</label>
         <textarea id="kode" ref={kodeRef} spellCheck={false} autoCapitalize="off" autoCorrect="off" defaultValue={awal} onInput={() => { if (!infoTunda.current) infoTunda.current = window.setTimeout(() => { infoTunda.current = 0; hitungUlang(); }, 400); }} />
