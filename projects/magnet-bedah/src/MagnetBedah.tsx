@@ -31,14 +31,8 @@ const SUB: Kal[] = (timeline as unknown as { sub: Kal[] }).sub;
 const TOTAL_DETIK: number = (timeline as { total: number }).total;
 export const DURASI = Math.ceil((TOTAL_DETIK + 2) * FPS);
 
-// frame mulai kalimat ke-i (0-based) = frame mulai adegan ke-i
-const S = KAL.map((k, i) => (i === 0 ? 0 : Math.round(k.mulai * FPS) - 6));
-
-const sceneAt = (f: number) => {
-  let s = 0;
-  for (let i = 0; i < S.length; i++) if (f >= S[i]) s = i;
-  return s;
-};
+// frame mulai kalimat ke-n (1-based)
+const fk = (n: number) => Math.round(KAL[n - 1].mulai * FPS);
 
 const captionAt = (frame: number) => {
   const t = frame / FPS;
@@ -428,10 +422,188 @@ const Tengah = ({ top, children }: { top: number; children: React.ReactNode }) =
   </div>
 );
 
-// Isi tiap adegan, f = frame lokal (0 = awal adegan), d = panjang adegan
-const ADEGAN: ((f: number, d: number) => React.ReactNode)[] = [
-  // 1 — hook
-  (f) => (
+// ─── Komponen tambahan untuk versi panjang ───────────────────
+
+// Satu atom: inti + orbit + elektron dengan panah spin
+const AtomDiagram = ({ f, x, y, skala = 1 }: { f: number; x: number; y: number; skala?: number }) => {
+  const a = f / 14;
+  const ex = Math.cos(a) * 230;
+  const ey = Math.sin(a) * 80;
+  return (
+    <svg width={600} height={360} viewBox="-300 -180 600 360" style={{ position: "absolute", left: x - 300, top: y - 180, transform: `scale(${skala})` }}>
+      <ellipse cx={0} cy={0} rx={230} ry={80} fill="none" stroke="#60a5fa" strokeWidth={3} strokeDasharray="10 10" opacity={0.6} />
+      <circle cx={0} cy={0} r={46} fill="url(#inti)" />
+      <defs>
+        <radialGradient id="inti" cx="35%" cy="30%">
+          <stop offset="0" stopColor="#fde68a" />
+          <stop offset="0.5" stopColor="#f59e0b" />
+          <stop offset="1" stopColor="#92400e" />
+        </radialGradient>
+      </defs>
+      <g transform={`translate(${ex},${ey})`}>
+        <circle r={22} fill="#93c5fd" stroke="#1d4ed8" strokeWidth={4} />
+        <g transform={`rotate(${f * 8})`}>
+          <ellipse rx={34} ry={10} fill="none" stroke="#fbbf24" strokeWidth={3} opacity={0.8} />
+        </g>
+        <line x1={0} y1={14} x2={0} y2={-58} stroke="#fff" strokeWidth={6} strokeLinecap="round" />
+        <polygon points="-12,-50 12,-50 0,-74" fill="#fff" />
+      </g>
+    </svg>
+  );
+};
+
+const Kartu = ({ at, f, top, left, children, warna = "#60a5fa", size = 44 }: {
+  at: number; f: number; top: number; left: number; children: React.ReactNode; warna?: string; size?: number;
+}) => {
+  const p = interpolate(f, [at, at + 14], [0, 1], cl);
+  return (
+    <div
+      style={{
+        position: "absolute", top, left, padding: "12px 28px", borderRadius: 18,
+        background: "rgba(10,30,60,.85)", border: `3px solid ${warna}`, color: "#fff",
+        fontSize: size, fontWeight: 900, letterSpacing: 2, opacity: p,
+        transform: `translateY(${(1 - p) * 30}px) scale(${0.9 + 0.1 * p})`, whiteSpace: "nowrap",
+      }}
+    >
+      {children}
+    </div>
+  );
+};
+
+// Panah magnet kecil (merah = utara, biru = selatan)
+const Panah = ({ sudut, w = 120 }: { sudut: number; w?: number }) => (
+  <div style={{ width: w, height: w * 0.28, borderRadius: 20, background: "linear-gradient(90deg,#3b82f6 50%,#ef4444 50%)", transform: `rotate(${sudut}deg)`, boxShadow: "0 0 18px rgba(96,165,250,.45)" }} />
+);
+
+// Pasangan elektron: atas & bawah → saling meniadakan
+const PasanganElektron = ({ f }: { f: number }) => (
+  <div style={{ position: "absolute", top: 560, left: 0, right: 0, display: "flex", justifyContent: "center", gap: 30 }}>
+    {[0, 1, 2].map((i) => {
+      const p = interpolate(f, [10 + i * 12, 26 + i * 12], [0, 1], cl);
+      return (
+        <div key={i} style={{ display: "flex", gap: 18, opacity: p, padding: 22, borderRadius: 26, border: "3px dashed rgba(147,197,253,.5)" }}>
+          {[0, 180].map((r) => (
+            <div key={r} style={{ width: 100, height: 100, borderRadius: "50%", background: "#1e3a8a", border: "4px solid #93c5fd", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 76, color: "#fff", fontWeight: 900, transform: `rotate(${r}deg)` }}>↑</div>
+          ))}
+        </div>
+      );
+    })}
+  </div>
+);
+
+const Unsur = ({ f, at }: { f: number; at: number }) => (
+  <div style={{ position: "absolute", top: 520, left: 0, right: 0, display: "flex", justifyContent: "center", gap: 26 }}>
+    {[["Fe", "Besi"], ["Ni", "Nikel"], ["Co", "Kobalt"], ["Nd", "Neodymium"]].map(([u, n], i) => {
+      const p = interpolate(f, [at + i * 10, at + 14 + i * 10], [0, 1], cl);
+      return (
+        <div key={u} style={{ width: 200, height: 250, borderRadius: 24, background: "linear-gradient(160deg,#1e3a8a,#0b1730)", border: "3px solid #60a5fa", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", opacity: p, transform: `scale(${0.8 + 0.2 * p})` }}>
+          <div style={{ fontSize: 96, fontWeight: 900, color: "#fff" }}>{u}</div>
+          <div style={{ fontSize: 30, color: "#93c5fd", marginTop: 6 }}>{n}</div>
+          <div style={{ marginTop: 14, fontSize: 44, color: "#fbbf24" }}>↑</div>
+        </div>
+      );
+    })}
+  </div>
+);
+
+// Grid domain dengan tingkat kesejajaran a (0 = acak, 1 = sejajar)
+const GridDomain = ({ a, top = 470, cols = 6, rows = 6, w = 880, h = 600 }: { a: number; top?: number; cols?: number; rows?: number; w?: number; h?: number }) => (
+  <div
+    style={{
+      position: "absolute", left: (1080 - w) / 2, top, width: w, height: h, boxSizing: "border-box",
+      display: "grid", gridTemplateColumns: `repeat(${cols},1fr)`, gap: 12, padding: 30, borderRadius: 40,
+      background: "rgba(8,24,50,.7)", border: "2px solid rgba(96,165,250,.3)",
+    }}
+  >
+    {Array.from({ length: cols * rows }).map((_, i) => {
+      const awal = (i * 83) % 360;
+      return (
+        <div key={i} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <Panah sudut={interpolate(a, [0, 1], [awal, 0])} w={74} />
+        </div>
+      );
+    })}
+  </div>
+);
+
+// Pertukaran: barisan atom bertetangga yang saling menyejajarkan
+const BarisPertukaran = ({ f }: { f: number }) => (
+  <div style={{ position: "absolute", top: 600, left: 0, right: 0, display: "flex", justifyContent: "center", gap: 30 }}>
+    {Array.from({ length: 6 }).map((_, i) => {
+      const a = interpolate(f, [20 + i * 14, 50 + i * 14], [0, 1], cl);
+      const awal = [70, -120, 160, -40, 110, -150][i];
+      return (
+        <div key={i} style={{ width: 130, height: 130, borderRadius: "50%", background: "radial-gradient(circle at 30% 25%,#1e40af,#0b1730)", border: "3px solid #60a5fa", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <Panah sudut={interpolate(a, [0, 1], [awal, 0])} w={100} />
+        </div>
+      );
+    })}
+  </div>
+);
+
+const Paku = ({ a, magnet = false }: { a: number; magnet?: boolean }) => (
+  <div style={{ position: "absolute", top: 560, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
+    <div style={{ position: "relative", width: 860, height: 260 }}>
+      <div style={{ position: "absolute", left: 0, top: 20, width: 60, height: 220, borderRadius: 12, background: "linear-gradient(90deg,#64748b,#e2e8f0,#475569)" }} />
+      <div style={{ position: "absolute", left: 60, top: 70, width: 740, height: 120, background: "linear-gradient(180deg,#94a3b8,#e2e8f0 40%,#475569)", clipPath: "polygon(0 0, 92% 0, 100% 50%, 92% 100%, 0 100%)", display: "flex", alignItems: "center", justifyContent: "space-around", paddingRight: 70, boxSizing: "border-box" }}>
+        {Array.from({ length: 7 }).map((_, i) => (
+          <Panah key={i} sudut={interpolate(a, [0, 1], [(i * 97) % 360, 0])} w={64} />
+        ))}
+      </div>
+      {magnet && <div style={{ position: "absolute", right: -10, top: -70, fontSize: 40, color: "#93c5fd", fontWeight: 900 }}>MEDAN LUAR →</div>}
+    </div>
+  </div>
+);
+
+const Gembok = ({ p }: { p: number }) => (
+  <svg width={160} height={190} viewBox="0 0 160 190" style={{ opacity: p, transform: `scale(${0.6 + 0.4 * p})` }}>
+    <path d="M40 85 V55 a40 40 0 0 1 80 0 V85" fill="none" stroke="#fbbf24" strokeWidth={16} />
+    <rect x={15} y={80} width={130} height={100} rx={18} fill="#f59e0b" stroke="#92400e" strokeWidth={5} />
+    <circle cx={80} cy={125} r={14} fill="#78350f" />
+    <rect x={74} y={130} width={12} height={30} rx={4} fill="#78350f" />
+  </svg>
+);
+
+const Kulkas = ({ f }: { f: number }) => (
+  <div style={{ position: "absolute", top: 480, left: 330, width: 420, height: 600, borderRadius: 30, background: "linear-gradient(160deg,#f1f5f9,#cbd5e1)", border: "6px solid #94a3b8" }}>
+    <div style={{ position: "absolute", top: 190, left: 0, right: 0, height: 6, background: "#94a3b8" }} />
+    <div style={{ position: "absolute", top: 40, right: 26, width: 14, height: 110, borderRadius: 8, background: "#64748b" }} />
+    <div style={{ position: "absolute", top: 260, left: 70, transform: `rotate(${Math.sin(f / 20) * 3}deg)` }}>
+      <div style={{ width: 150, height: 110, borderRadius: 16, background: "linear-gradient(135deg,#f472b6,#db2777)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 60 }}>♥</div>
+    </div>
+    <div style={{ position: "absolute", top: 400, left: 210, width: 130, height: 90, borderRadius: 14, background: "linear-gradient(135deg,#60a5fa,#1d4ed8)" }} />
+  </div>
+);
+
+const Termometer = ({ p }: { p: number }) => (
+  <div style={{ position: "absolute", top: 470, left: 90, width: 120, height: 600 }}>
+    <div style={{ position: "absolute", left: 35, top: 0, width: 50, height: 500, borderRadius: 25, background: "rgba(255,255,255,.15)", border: "4px solid #e2e8f0", overflow: "hidden" }}>
+      <div style={{ position: "absolute", bottom: 0, width: "100%", height: `${10 + p * 90}%`, background: "linear-gradient(0deg,#dc2626,#f97316)" }} />
+    </div>
+    <div style={{ position: "absolute", left: 10, top: 470, width: 100, height: 100, borderRadius: "50%", background: "#dc2626", border: "4px solid #e2e8f0" }} />
+    <div style={{ position: "absolute", left: 140, top: 500 - p * 450, fontSize: 48, fontWeight: 900, color: "#fdba74", whiteSpace: "nowrap" }}>{Math.round(20 + p * 750)}°C</div>
+  </div>
+);
+
+const BukanMagnet = ({ f }: { f: number }) => (
+  <div style={{ position: "absolute", top: 560, left: 0, right: 0, display: "flex", justifyContent: "center", gap: 80 }}>
+    {[["PLASTIK", "#22c55e"], ["KAYU", "#b45309"]].map(([n, c], i) => {
+      const p = interpolate(f, [10 + i * 14, 24 + i * 14], [0, 1], cl);
+      return (
+        <div key={n} style={{ position: "relative", opacity: p }}>
+          <div style={{ width: 280, height: 220, borderRadius: 26, background: c, opacity: 0.85, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 50, fontWeight: 900, color: "#fff" }}>{n}</div>
+          <div style={{ position: "absolute", top: -30, right: -30, width: 90, height: 90, borderRadius: "50%", background: "#ef4444", border: "5px solid #fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 60, color: "#fff", fontWeight: 900 }}>✕</div>
+        </div>
+      );
+    })}
+  </div>
+);
+
+// ─── Daftar adegan: [kalimat awal, kalimat akhir, isi] ─────────
+type Isi = (f: number, d: number, t: (n: number) => number) => React.ReactNode;
+
+const ADEGAN: [number, number, Isi][] = [
+  [1, 2, (f) => (
     <>
       <SceneTitle title="RAHASIA" subtitle="DI BALIK SEBUAH MAGNET" />
       <FieldLines frame={f} />
@@ -442,154 +614,214 @@ const ADEGAN: ((f: number, d: number) => React.ReactNode)[] = [
       </Tengah>
       <Character emotion="setengah_kaget_tangan_terbuka" />
     </>
-  ),
-  // 2 — anggapan umum
-  (f) => (
+  )],
+  [3, 4, (f, d, t) => (
     <>
       <SceneTitle title="BENDA BIASA?" subtitle="Dua kutub: N dan S" />
-      <Tengah top={720}>
-        <Magnet3D frame={f} />
+      <Tengah top={640}>
+        <div style={{ transform: `scale(${interpolate(f, [t(4), d], [1, 2.4], cl)})`, opacity: interpolate(f, [d - 20, d], [1, 0.3], cl) }}>
+          <Magnet3D frame={f} />
+        </div>
       </Tengah>
+      <Kartu f={f} at={t(4) + 10} top={960} left={250} warna="#fbbf24">SAMPAI KE ATOM</Kartu>
       <Character emotion="setengah_bingung_garuk" kiri />
     </>
-  ),
-  // 3 — bahan magnet
-  (f) => (
+  )],
+  [5, 5, (f) => (
     <>
-      <SceneTitle title="MEMBEDAH" subtitle="Bahan magnet permanen" />
-      <Tengah top={600}>
+      <SceneTitle title="BAHAN MAGNET" subtitle="Magnet permanen" />
+      <Tengah top={560}>
         <Magnet3D frame={f} />
       </Tengah>
-      {["NEODYMIUM", "FERRITE", "ALNICO"].map((b, i) => {
-        const p = interpolate(f, [30 + i * 25, 50 + i * 25], [0, 1], cl);
-        return (
-          <div
-            key={b}
-            style={{
-              position: "absolute",
-              top: 830 + i * 80,
-              left: 90,
-              padding: "12px 30px",
-              borderRadius: 18,
-              background: "rgba(37,99,235,.25)",
-              border: "2px solid #60a5fa",
-              color: "#dbeafe",
-              fontSize: 44,
-              fontWeight: 900,
-              letterSpacing: 3,
-              opacity: p,
-              transform: `translateX(${(1 - p) * -60}px)`,
-            }}
-          >
-            {b}
-          </div>
-        );
-      })}
+      {["NEODYMIUM", "FERRITE", "ALNICO"].map((b, i) => (
+        <Kartu key={b} f={f} at={20 + i * 22} top={830 + i * 80} left={90}>{b}</Kartu>
+      ))}
       <Character emotion="setengah_senang_kepal" />
     </>
-  ),
-  // 4 — pembongkaran
-  (f) => (
+  )],
+  [6, 7, (f, d, t) => (
     <>
-      <SceneTitle title="STRUKTUR MATERIAL" subtitle="Visualisasi pembongkaran" />
-      <Tengah top={620}>
-        <ExplodedMagnet frame={f} />
+      <SceneTitle title="KITA BONGKAR" subtitle="Lapis demi lapis" />
+      <Tengah top={560}>
+        <div style={{ opacity: interpolate(f, [t(7), t(7) + 20], [1, 0.15], cl) }}>
+          <ExplodedMagnet frame={f} />
+        </div>
       </Tengah>
-      <Character emotion="setengah_mikir_dagu_2" kiri />
-    </>
-  ),
-  // 5 — atom & elektron
-  (f, d) => (
-    <>
-      <SceneTitle title="MASUK KE DALAM" subtitle="Atom & elektron" />
-      <AbsoluteFill style={{ transform: `scale(${interpolate(f, [0, d], [1, 1.25], cl)})` }}>
+      <div style={{ opacity: interpolate(f, [t(7), t(7) + 20], [0, 1], cl) }}>
         {Array.from({ length: 14 }).map((_, i) => (
           <Atom frame={f} index={i} key={i} />
         ))}
-      </AbsoluteFill>
-      <Character emotion="setengah_kaget_dua_tangan" />
+      </div>
+      <Character emotion="setengah_mikir_dagu_2" kiri />
     </>
-  ),
-  // 6 — domain acak → mulai sejajar
-  (f) => (
+  )],
+  [8, 9, (f, d, t) => (
     <>
-      <SceneTitle title="DOMAIN MAGNETIK" subtitle="Kelompok momen magnetik" />
-      <Domains frame={f} sejajar={0.35} />
-      <Character emotion="setengah_mikir_gir" kiri />
-    </>
-  ),
-  // 7 — domain sejajar
-  (f) => (
-    <>
-      <SceneTitle title="ARAH YANG SEJAJAR" subtitle="Efek magnet makin kuat" />
-      <Domains frame={f + 84} />
+      <SceneTitle title="ELEKTRON" subtitle="Magnet yang sangat kecil" />
+      <AtomDiagram f={f} x={540} y={720} skala={1.3} />
+      <Kartu f={f} at={t(9)} top={930} left={90} warna="#fbbf24">SPIN</Kartu>
+      <Kartu f={f} at={t(9) + 25} top={930} left={330}>GERAK ORBIT</Kartu>
       <Character emotion="setengah_semangat_kedip" />
     </>
-  ),
-  // 8 — medan magnet
-  (f) => (
+  )],
+  [10, 12, (f, d, t) => (
     <>
-      <SceneTitle title="MEDAN MAGNET" subtitle="Kekuatan yang tak terlihat" />
+      <SceneTitle title="KENAPA TIDAK SEMUA?" subtitle="Elektron berpasangan" />
+      <PasanganElektron f={f - t(11)} />
+      <Kartu f={f} at={t(12)} top={800} left={190} warna="#ef4444" size={60}>SALING MENIADAKAN</Kartu>
+      <Character emotion="setengah_pusing_swirl" kiri />
+    </>
+  )],
+  [13, 14, (f, d, t) => (
+    <>
+      <SceneTitle title="BERBEDA" subtitle="Elektron tidak berpasangan" />
+      <Unsur f={f} at={10} />
+      <Kartu f={f} at={t(14)} top={850} left={200} warna="#fbbf24">TIAP ATOM = MAGNET KECIL</Kartu>
+      <Character emotion="setengah_eureka_kepal" />
+    </>
+  )],
+  [15, 16, (f, d, t) => (
+    <>
+      <SceneTitle title="SALING MENGATUR" subtitle="Atom bertetangga" />
+      <BarisPertukaran f={f} />
+      <Kartu f={f} at={t(16)} top={830} left={110} warna="#a78bfa">INTERAKSI PERTUKARAN</Kartu>
+      <Kartu f={f} at={t(16) + 20} top={920} left={110} warna="#a78bfa" size={38}>efek fisika kuantum</Kartu>
+      <Character emotion="setengah_mikir_gir" kiri />
+    </>
+  )],
+  [17, 18, (f, d, t) => (
+    <>
+      <SceneTitle title="DOMAIN MAGNETIK" subtitle="Kelompok yang arahnya seragam" />
+      <GridDomain a={1} top={470} cols={3} rows={3} w={600} h={460} />
+      <div style={{ position: "absolute", top: 960, left: 240, width: 600, opacity: interpolate(f, [t(18), t(18) + 15], [0, 1], cl) }}>
+        <div style={{ height: 8, background: "#fbbf24", borderRadius: 4 }} />
+        <div style={{ textAlign: "center", fontSize: 42, fontWeight: 900, color: "#fde68a", marginTop: 10 }}>± beberapa mikrometer</div>
+      </div>
+    </>
+  )],
+  [19, 19, (f) => {
+    const p = spring({ frame: f, fps: FPS, config: { damping: 10 } });
+    return (
+      <>
+        <SceneTitle title="SIMPAN DULU" subtitle="Biar nggak lupa" />
+        <Tengah top={560}>
+          <svg width={260} height={340} viewBox="0 0 260 340" style={{ transform: `scale(${p})` }}>
+            <path d="M30 20 H230 V320 L130 240 L30 320 Z" fill="#fbbf24" stroke="#92400e" strokeWidth={10} strokeLinejoin="round" />
+          </svg>
+        </Tengah>
+        <Character emotion="setengah_tunjuk_kamera_marah" />
+      </>
+    );
+  }],
+  [20, 21, (f, d, t) => (
+    <>
+      <SceneTitle title="PAKU BIASA" subtitle="Domain ke segala arah" />
+      <Paku a={0} />
+      <Kartu f={f} at={t(21)} top={880} left={260} warna="#ef4444" size={56}>TIDAK MENARIK</Kartu>
+      <Character emotion="setengah_bingung_garuk" kiri />
+    </>
+  )],
+  [22, 23, (f, d, t) => (
+    <>
+      <SceneTitle title="DIBERI MEDAN KUAT" subtitle="Domain mulai sejajar" />
+      <GridDomain a={interpolate(f, [10, d - 20], [0, 1], cl)} h={520} />
+      <Kartu f={f} at={t(23)} top={1010} left={170} warna="#fbbf24" size={40}>MAKIN SEJAJAR = MAKIN KUAT</Kartu>
+    </>
+  )],
+  [24, 25, (f, d, t) => (
+    <>
+      <SceneTitle title="TERKUNCI" subtitle="Magnet permanen" />
+      <div style={{ opacity: interpolate(f, [t(25) - 10, t(25) + 10], [1, 0], cl) }}>
+        <GridDomain a={1} cols={4} rows={4} w={640} h={520} />
+        <div style={{ position: "absolute", top: 640, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
+          <Gembok p={interpolate(f, [15, 35], [0, 1], cl)} />
+        </div>
+      </div>
+      <div style={{ opacity: interpolate(f, [t(25) - 10, t(25) + 10], [0, 1], cl) }}>
+        <Kulkas f={f} />
+      </div>
+      <Character emotion="setengah_tenang_tangan_dada" kiri />
+    </>
+  )],
+  [26, 28, (f, d, t) => {
+    const panas = interpolate(f, [t(27), t(28) + 30], [0, 1], cl);
+    return (
+      <>
+        <SceneTitle title="MUSUHNYA: PANAS" subtitle="Suhu Curie" />
+        <AbsoluteFill style={{ background: "radial-gradient(circle at 50% 60%, rgba(249,115,22,.35), transparent 70%)", opacity: panas }} />
+        <div style={{ position: "absolute", left: 140 }}>
+          <GridDomain a={1 - panas} cols={4} rows={5} w={560} h={520} top={470} />
+        </div>
+        <Termometer p={panas} />
+        <Kartu f={f} at={t(28)} top={1010} left={330} warna="#f97316" size={40}>BESI ± 770°C</Kartu>
+      </>
+    );
+  }],
+  [29, 30, (f, d, t) => (
+    <>
+      <SceneTitle title="MEDAN MAGNET" subtitle="Keluar dari N, masuk ke S" />
       <FieldLines frame={f} />
       <Tengah top={770}>
         <Magnet3D frame={f} />
       </Tengah>
-      <Character emotion="setengah_tenang_tangan_dada" kiri />
+      <Character emotion="setengah_mikir_dagu_2" kiri />
     </>
-  ),
-  // 9 — gaya tarik
-  (f, d) => (
-    <>
-      <SceneTitle title="GAYA TARIK" subtitle="Interaksi dengan besi" />
-      <Tengah top={720}>
-        <div style={{ transform: "translateX(-160px) scale(0.8)" }}>
+  )],
+  [31, 33, (f, d, t) => {
+    const dekat = interpolate(f, [0, t(33)], [0, 1], { ...cl, easing: (x) => x * x });
+    const induksi = interpolate(f, [t(32), t(32) + 20], [0, 1], cl);
+    return (
+      <>
+        <SceneTitle title="GAYA TARIK" subtitle="Besi jadi magnet sementara" />
+        <div style={{ position: "absolute", top: 700, left: 40, transform: "scale(0.75)", transformOrigin: "left top" }}>
           <Magnet3D frame={f} />
         </div>
-      </Tengah>
-      <div
-        style={{
-          position: "absolute",
-          top: 720,
-          left: interpolate(f, [0, d * 0.7], [880, 690], {
-            ...cl,
-            easing: (x) => x * x * x,
-          }),
-          transform: `rotate(${interpolate(f, [0, d * 0.7], [25, 90], cl)}deg)`,
-        }}
-      >
-        <Baut />
-      </div>
-      <Character emotion="setengah_eureka_kepal" />
-    </>
-  ),
-  // 10 — penutup
-  (f, d) => (
+        <div style={{ position: "absolute", top: 700, left: interpolate(dekat, [0, 1], [760, 540]), width: 300, height: 170, borderRadius: 18, background: "linear-gradient(180deg,#94a3b8,#e2e8f0 40%,#475569)", border: "3px solid #1e293b", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 18px", boxSizing: "border-box" }}>
+          <div style={{ fontSize: 64, fontWeight: 900, color: "#2563eb", opacity: induksi }}>S</div>
+          <div style={{ fontSize: 34, fontWeight: 900, color: "#1e293b" }}>BESI</div>
+          <div style={{ fontSize: 64, fontWeight: 900, color: "#dc2626", opacity: induksi }}>N</div>
+        </div>
+        <Kartu f={f} at={t(33)} top={930} left={240} warna="#22c55e" size={50}>KUTUB BERLAWANAN</Kartu>
+        <Character emotion="setengah_eureka_kepal" />
+      </>
+    );
+  }],
+  [34, 34, (f) => (
     <>
-      <SceneTitle title="ADRIY PROJECT" subtitle="Sains di balik hal sederhana" />
+      <SceneTitle title="BUKAN MAGNETIK" subtitle="Tidak ada domain" />
+      <BukanMagnet f={f} />
+      <Character emotion="setengah_kaget_dua_tangan" kiri />
+    </>
+  )],
+  [35, 37, (f, d) => (
+    <>
+      <SceneTitle title="ADRIY PROJECT" subtitle="Explore More, Know More." />
+      <FieldLines frame={f} />
       <Tengah top={680}>
         <Magnet3D frame={f} />
       </Tengah>
       <Character emotion="setengah_jempol_senyum" kiri />
       <AbsoluteFill style={{ background: "#000", opacity: interpolate(f, [d - 25, d], [0, 1], cl) }} />
     </>
-  ),
+  )],
 ];
+
+const mulai = (i: number) => (i === 0 ? 0 : fk(ADEGAN[i][0]) - 6);
+const akhir = (i: number) => (i === ADEGAN.length - 1 ? DURASI : mulai(i + 1));
 
 export const MagnetBedah: React.FC = () => {
   const frame = useCurrentFrame();
-
-  const scene = sceneAt(frame);
   const subtitle = captionAt(frame);
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#020814", overflow: "hidden", fontFamily: "Arial, sans-serif" }}>
-      {ADEGAN.map((isi, i) => {
-        const from = S[i];
-        const d = (i + 1 < S.length ? S[i + 1] : DURASI) - from;
+      {ADEGAN.map(([, , isi], i) => {
+        const from = mulai(i);
+        const d = akhir(i) - from;
         return (
           <Sequence key={i} from={from} durationInFrames={d}>
             <Scene>
-              <Lokal d={d} isi={isi} />
+              <Lokal d={d} isi={isi} t={(n) => fk(n) - from} />
             </Scene>
           </Sequence>
         );
@@ -647,7 +879,7 @@ export const MagnetBedah: React.FC = () => {
   );
 };
 
-const Lokal = ({ d, isi }: { d: number; isi: (f: number, d: number) => React.ReactNode }) => {
+const Lokal = ({ d, isi, t }: { d: number; t: (n: number) => number; isi: Isi }) => {
   const f = useCurrentFrame();
-  return <>{isi(f, d)}</>;
+  return <>{isi(f, d, t)}</>;
 };

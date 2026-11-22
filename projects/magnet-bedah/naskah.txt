@@ -1,10 +1,37 @@
 Pernah nggak kamu melihat benda kecil seperti ini, tetapi mampu menarik benda lain tanpa menyentuhnya?
+Di Adriy Project, kita bongkar fakta yang jarang dibahas.
 Kita sering menganggap magnet hanyalah benda biasa dengan dua kutub.
+Padahal, rahasianya tersembunyi jauh di dalam, sampai ke ukuran atom.
 Magnet permanen terbuat dari material khusus seperti neodymium, ferrite, atau alnico.
-Bayangkan kita bisa membongkar magnet ini. Pembongkaran ini adalah visualisasi struktur materialnya.
-Di dalam material terdapat atom. Elektron memiliki sifat magnetik yang berhubungan dengan spin dan gerak orbital.
-Momen magnetik atom dapat berinteraksi dan membentuk kelompok yang disebut domain magnetik.
-Ketika banyak domain menjadi lebih sejajar, efek magnetik material semakin kuat.
-Medan magnet terbentuk di sekitar magnet. Walaupun tidak terlihat, medan ini dapat memengaruhi benda tertentu.
-Saat besi mendekat, medan magnet menyebabkan perubahan susunan magnetik yang menghasilkan gaya tarik.
-Di balik benda sederhana, terdapat dunia mikroskopis dengan susunan magnetik yang luar biasa.
+Bayangkan kita bisa membongkar magnet ini, lapis demi lapis.
+Di dalam material, ada miliaran atom yang tersusun sangat rapat.
+Setiap atom punya elektron, dan elektron berperilaku seperti magnet yang sangat kecil.
+Sifat magnet ini datang dari spin elektron dan gerakannya mengelilingi inti atom.
+Lalu muncul pertanyaan: kalau semua benda punya elektron, kenapa tidak semua benda jadi magnet?
+Jawabannya, pada kebanyakan atom, elektron hidup berpasangan dengan arah yang berlawanan.
+Akibatnya, efek magnet mereka saling meniadakan.
+Tapi besi, nikel, kobalt, dan neodymium berbeda.
+Atom-atomnya punya elektron yang tidak berpasangan, jadi masing-masing atom tetap bersifat magnet.
+Dan yang lebih menarik, atom-atom tetangga ini saling memengaruhi supaya menghadap ke arah yang sama.
+Ilmuwan menyebutnya interaksi pertukaran, sebuah efek dari fisika kuantum.
+Dari situ terbentuk kelompok kecil yang arahnya seragam, disebut domain magnetik.
+Satu domain ukurannya sangat kecil, bisa hanya beberapa mikrometer.
+Simpan dulu video ini, siapa tahu nanti butuh.
+Pada paku besi biasa, domain-domain ini menghadap ke segala arah.
+Efeknya saling meniadakan, jadi paku itu tidak menarik apa pun.
+Saat diberi medan magnet yang kuat, domain yang searah membesar, dan batas antardomain ikut bergeser.
+Semakin banyak domain yang sejajar, efek magnetik material semakin kuat.
+Pada magnet permanen, susunan sejajar ini terkunci dan sulit kembali acak.
+Itulah kenapa magnet kulkas bisa bertahan bertahun-tahun.
+Tapi ada satu musuhnya, yaitu panas.
+Kalau dipanaskan melewati suhu tertentu, yang disebut suhu Curie, susunan itu kembali acak dan sifat magnetnya hilang.
+Untuk besi, suhu itu sekitar tujuh ratus tujuh puluh derajat Celsius.
+Lalu, dari mana datangnya gaya tarik?
+Medan magnet terbentuk di sekitar magnet, keluar dari kutub utara dan masuk ke kutub selatan.
+Saat besi mendekat, medan ini membuat domain di dalam besi ikut sejajar.
+Untuk sementara, besi itu berubah menjadi magnet, dengan kutub yang berlawanan menghadap magnet kita.
+Kutub yang berlawanan saling tarik, dan besi pun menempel.
+Itulah sebabnya magnet tidak menarik plastik atau kayu, karena tidak ada domain yang bisa disejajarkan.
+Jadi, di balik benda sederhana ini, ada dunia mikroskopis yang bekerja tanpa henti.
+Tetap penasaran, dan follow Adriy Project.
+Explore More, Know More.
