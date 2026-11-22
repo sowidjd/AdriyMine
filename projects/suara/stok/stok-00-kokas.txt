@@ -1,0 +1,169 @@
+Selamat datang di pabrik kokas.
+Pabrik kokas mengolah batu bara menjadi kokas.
+Kokas adalah batu bara yang sudah dipanaskan tanpa udara.
+Proses ini disebut karbonisasi.
+Batu bara dipanaskan di dalam tungku tertutup selama berjam-jam.
+Suhu di dalam tungku bisa mencapai lebih dari seribu derajat Celsius.
+Karena tidak ada udara, batu bara tidak terbakar menjadi abu.
+Zat yang mudah menguap keluar sebagai gas dan uap.
+Yang tersisa adalah kokas yang keras, ringan, dan berpori.
+Kokas dipakai sebagai bahan bakar sekaligus bahan pereduksi di tanur.
+Tanpa kokas, bijih besi dan nikel sulit diolah menjadi logam.
+Satu deretan tungku kokas disebut baterai.
+Satu baterai bisa berisi puluhan ruang oven yang berjajar rapat.
+Setiap ruang oven sempit, tinggi, dan panjang.
+Di antara ruang oven ada dinding pemanas.
+Gas dibakar di dinding pemanas untuk memanaskan batu bara.
+Sebelum masuk tungku, beberapa jenis batu bara dicampur dulu.
+Pencampuran batu bara ini menentukan kualitas kokas.
+Batu bara lalu dihancurkan sampai halus di mesin penghancur.
+Batu bara halus disimpan di menara batu bara.
+Mobil pengisi membawa batu bara dari menara ke atas tungku.
+Batu bara dimasukkan lewat lubang di atas oven.
+Setelah terisi penuh, lubang ditutup rapat.
+Waktu pemasakan biasanya belasan sampai dua puluhan jam.
+Selama pemasakan, suhu oven harus dijaga stabil.
+Setelah matang, batu bara berubah menjadi bongkahan kokas yang membara.
+Pintu oven dibuka di kedua sisi.
+Mesin pendorong mendorong kokas panas keluar dari oven.
+Kokas jatuh ke gerbong pemadam.
+Gerbong pemadam membawa kokas ke menara pemadam.
+Di menara pemadam, kokas disiram air dalam jumlah besar.
+Uap putih yang besar keluar dari menara pemadam.
+Ada juga cara pemadaman kering memakai gas lembam.
+Panas dari pemadaman kering bisa dipakai untuk membangkitkan listrik.
+Setelah dingin, kokas diayak sesuai ukurannya.
+Kokas lalu dibawa dengan ban berjalan ke tempat penyimpanan.
+Gas yang keluar dari oven disebut gas oven kokas atau COG.
+Gas ini naik lewat pipa naik, lalu dikumpulkan di pipa pengumpul.
+Gas didinginkan supaya ter dan air amonia terpisah.
+Ter batu bara dan bahan lain diolah menjadi produk sampingan.
+Belerang dalam gas dibuang lewat proses desulfurisasi.
+Gas yang sudah bersih dipakai lagi untuk memanaskan tungku.
+Pernah lihat asap putih besar dari menara di kawasan industri?
+Bisa jadi itu bukan asap, melainkan uap air dari pemadaman kokas.
+Batu bara hitam ternyata bisa berubah menjadi bahan yang lebih kuat.
+Kokas punya banyak pori, seperti spons yang keras.
+Pori-pori ini membantu udara panas mengalir di dalam tanur.
+Kokas yang bagus harus kuat supaya tidak hancur ditimpa beban berat.
+Kalau kokasnya rapuh, proses di tanur bisa terganggu.
+Jadi, di balik logam yang kita pakai, ada kerja keras pabrik kokas.
+Tahukah kamu, ponsel dan mobil listrik juga berhubungan dengan kokas?
+Nikel untuk baterai diolah di tanur yang memakai kokas atau batu bara.
+Pekerja kokas bekerja di dekat panas yang luar biasa setiap hari.
+Bayangkan bekerja di samping dinding yang suhunya ribuan derajat.
+Itulah kenapa keselamatan kerja jadi nomor satu di pabrik kokas.
+Selamat pagi semua, kita mulai safety talk.
+Sebelum mulai kerja, kita briefing dulu.
+Hari ini ada pekerjaan perbaikan di baterai dua.
+Semua pekerja wajib memakai APD lengkap.
+Helm, kacamata, sarung tangan, sepatu keselamatan, dan baju tahan panas.
+Masker gas wajib dibawa di area tungku.
+Jangan pernah masuk area gas sendirian.
+Selalu cek kadar gas CO sebelum masuk area tertutup.
+Gas CO tidak berwarna dan tidak berbau, tapi sangat beracun.
+Kalau alarm gas berbunyi, segera keluar ke tempat aman.
+Berjalanlah melawan arah angin saat terjadi kebocoran gas.
+Jangan berdiri di jalur mesin pendorong.
+Jauhi pintu oven saat proses pendorongan berlangsung.
+Area ini panas, jaga jarak aman.
+Dilarang merokok di seluruh area pabrik.
+Pekerjaan api harus punya izin kerja panas.
+Matikan dan kunci sumber energi sebelum perbaikan.
+Pasang label LOTO sebelum memperbaiki mesin.
+Jangan melepas kunci orang lain.
+Periksa alat sebelum dipakai.
+Laporkan kondisi tidak aman ke atasan.
+Kalau ragu, berhenti dan tanya dulu.
+Minum air yang cukup supaya tidak dehidrasi.
+Kalau badan terasa pusing, segera istirahat dan lapor.
+Kotak P3K ada di ruang kontrol.
+Titik kumpul darurat ada di dekat pos keamanan.
+Keselamatan adalah tanggung jawab kita bersama.
+Pulang dengan selamat, keluarga menunggu di rumah.
+Kerja selamat, kerja sehat, kerja produktif.
+Ruang kontrol ke lapangan, ganti.
+Lapangan masuk, silakan.
+Copy, dimengerti.
+Roger, laksanakan.
+Tolong ulangi, suara putus-putus.
+Mohon standby di posisi.
+Mesin pendorong siap, oven nomor dua belas.
+Pintu oven sudah terbuka, aman untuk didorong.
+Gerbong pemadam sudah di posisi.
+Mulai dorong sekarang.
+Tahan dulu, jangan didorong.
+Stop, stop, ada orang di jalur.
+Jalur sudah clear, silakan lanjut.
+Pendorongan selesai, pintu ditutup.
+Gerbong menuju menara pemadam.
+Pemadaman selesai, kokas dibawa ke ban berjalan.
+Suhu oven turun, tolong dicek.
+Tekanan gas di pipa pengumpul naik.
+Blower nomor satu berhenti, segera cek.
+Ban berjalan macet, matikan dulu.
+Ada kebocoran di pintu oven nomor tujuh.
+Panggil tukang las ke baterai satu.
+Panggil teknisi listrik ke ruang panel.
+Tolong ambilkan kunci pas dan obeng.
+Katup sudah ditutup.
+Pompa air sudah dinyalakan.
+Laporan serah terima shift, semua normal.
+Shift malam selesai, tidak ada kejadian.
+Catat semua di buku laporan.
+Kerja bagus, terima kasih semuanya.
+Dalam bahasa Mandarin, tungku kokas disebut 焦炉.
+Mesin pendorong kokas disebut 推焦车.
+Mesin pemandu kokas disebut 拦焦车.
+Gerbong pemadam kokas disebut 熄焦车.
+Mobil pengisi batu bara disebut 装煤车.
+Menara pemadam disebut 熄焦塔.
+Menara batu bara disebut 煤塔.
+Kokas dalam bahasa Mandarin adalah 焦炭.
+Batu bara dalam bahasa Mandarin adalah 煤.
+Gas disebut 煤气.
+Ter batu bara disebut 焦油.
+Air amonia disebut 氨水.
+Blower disebut 鼓风机.
+Pintu oven disebut 炉门.
+Pipa naik disebut 上升管.
+Pipa pengumpul gas disebut 集气管.
+Ban berjalan disebut 皮带.
+Pencampuran batu bara disebut 配煤.
+Mesin penghancur disebut 粉碎机.
+Pemadaman kering disebut 干熄焦.
+Bongkahan kokas di oven disebut 焦饼.
+Suhu oven disebut 炉温.
+Pengayakan kokas disebut 筛焦.
+Desulfurisasi disebut 脱硫.
+Helm keselamatan disebut 安全帽.
+Masker gas disebut 防毒面具.
+Gas karbon monoksida disebut 一氧化碳.
+Izin kerja panas disebut 动火证.
+Serah terima shift disebut 交接班.
+Patroli pemeriksaan disebut 巡检.
+Perbaikan atau perawatan disebut 检修.
+Kepala regu disebut 班长.
+Panggilan untuk tukang senior adalah 师傅.
+Crane disebut 天车.
+Forklift disebut 叉车.
+Loader disebut 铲车.
+HT atau radio disebut 对讲机.
+Teknisi listrik disebut 电工.
+Tukang las disebut 焊工.
+Kunci pas disebut 扳手.
+Katup disebut 阀门.
+Pompa air disebut 水泵.
+Pipa disebut 管道.
+Alat ukur disebut 仪表.
+Suhu disebut 温度.
+Tekanan disebut 压力.
+注意安全 artinya utamakan keselamatan.
+危险 artinya bahaya.
+小心 artinya hati-hati.
+快点 artinya cepat sedikit.
+慢点 artinya pelan-pelan.
+好的 artinya baik atau siap.
+没问题 artinya tidak masalah.
+停车 artinya matikan mesin.
+开车 artinya nyalakan mesin.
