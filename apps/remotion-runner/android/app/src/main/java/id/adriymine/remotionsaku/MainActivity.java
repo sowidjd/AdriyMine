@@ -36,6 +36,15 @@ import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.io.ByteArrayOutputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONObject;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -221,6 +230,54 @@ public class MainActivity extends Activity {
             });
             try { latch.await(3, TimeUnit.SECONDS); } catch (InterruptedException ignored) { }
             return ref.get();
+        }
+
+        private final ExecutorService pool = Executors.newCachedThreadPool();
+
+        /** HTTP untuk AI: dijalankan di Android agar tidak terhalang aturan CORS. Hasil dikirim ke window.__sakuHttpDone. */
+        @JavascriptInterface
+        public void httpRequest(final String id, final String method, final String url, final String headersJson, final String body, final int timeoutMs) {
+            pool.execute(() -> {
+                int status = 0;
+                String resp = "";
+                String err = "";
+                JSONObject hdrs = new JSONObject();
+                HttpURLConnection c = null;
+                try {
+                    c = (HttpURLConnection) new URL(url).openConnection();
+                    c.setRequestMethod(method == null || method.isEmpty() ? "GET" : method);
+                    c.setConnectTimeout(Math.min(Math.max(timeoutMs, 5000), 30000));
+                    c.setReadTimeout(Math.max(timeoutMs, 5000));
+                    c.setRequestProperty("User-Agent", "RemotionSaku/3");
+                    JSONObject h = new JSONObject(headersJson == null || headersJson.isEmpty() ? "{}" : headersJson);
+                    Iterator<String> it = h.keys();
+                    while (it.hasNext()) { String k = it.next(); c.setRequestProperty(k, h.optString(k)); }
+                    if (body != null && !body.isEmpty() && !"GET".equalsIgnoreCase(method)) {
+                        c.setDoOutput(true);
+                        try (OutputStream o = c.getOutputStream()) { o.write(body.getBytes(StandardCharsets.UTF_8)); }
+                    }
+                    status = c.getResponseCode();
+                    for (Map.Entry<String, List<String>> e : c.getHeaderFields().entrySet()) {
+                        if (e.getKey() != null && e.getValue() != null && !e.getValue().isEmpty()) hdrs.put(e.getKey().toLowerCase(), e.getValue().get(0));
+                    }
+                    InputStream in = status >= 400 ? c.getErrorStream() : c.getInputStream();
+                    if (in != null) {
+                        ByteArrayOutputStream bo = new ByteArrayOutputStream();
+                        byte[] buf = new byte[1 << 14];
+                        int r;
+                        while ((r = in.read(buf)) > 0) bo.write(buf, 0, r);
+                        in.close();
+                        resp = new String(bo.toByteArray(), StandardCharsets.UTF_8);
+                    }
+                } catch (Exception e) {
+                    status = 0;
+                    err = e.getClass().getSimpleName() + ": " + e.getMessage();
+                } finally {
+                    if (c != null) c.disconnect();
+                }
+                final String js = "window.__sakuHttpDone && window.__sakuHttpDone(" + JSONObject.quote(id) + "," + status + "," + JSONObject.quote(hdrs.toString()) + "," + JSONObject.quote(resp) + "," + JSONObject.quote(err) + ")";
+                runOnUiThread(() -> { if (web != null) web.evaluateJavascript(js, null); });
+            });
         }
 
         @JavascriptInterface

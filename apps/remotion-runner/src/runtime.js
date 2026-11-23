@@ -6,6 +6,8 @@ import { createRoot } from 'react-dom/client';
 import * as RemotionReal from 'remotion';
 import { transform } from 'sucrase';
 import { BUILTIN } from './modules.gen.js';
+import { compileTolerant, skipLine, makeScope, missingModule, safeJsxRuntime, report, resetIssues, getIssues } from './tolerant.js';
+export { onIssues, getIssues } from './tolerant.js';
 
 export const CODE_EXT = /\.(tsx|ts|jsx|js|mjs|cjs)$/i;
 const FILE_TOKEN = /((?:[\w@.-]+\/)*[\w@.-]+\.(?:tsx|ts|jsx|js|mjs|css))/i;
@@ -309,6 +311,7 @@ async function fetchCdnModule(spec) {
  */
 export async function runProject(files, { assets = {}, settings }) {
   const warnings = [];
+  resetIssues();
   const codeFiles = files.filter((f) => !/\.css$/i.test(f.name));
   const cssFiles = files.filter((f) => /\.css$/i.test(f.name));
   if (!codeFiles.some((f) => f.code.trim())) throw new FriendlyError('Kode masih kosong.', { hint: 'Tempel kode Remotion Anda di kolom kode, lalu tekan Jalankan.', kind: 'empty' });
@@ -322,9 +325,23 @@ export async function runProject(files, { assets = {}, settings }) {
     document.head.appendChild(s);
   }
 
-  // Kompilasi semua file dulu supaya error sintaks langsung ketahuan.
+  // Kompilasi semua file. Salah tulis kecil diperbaiki otomatis (dicatat sebagai laporan).
   const compiled = {};
-  for (const f of codeFiles) compiled[f.name] = compileFile(f.name, f.code);
+  const source = {};
+  const broken = new Set();
+  let firstError = null;
+  for (const f of codeFiles) {
+    try {
+      const r = compileTolerant(f.name, f.code);
+      compiled[f.name] = r.compiled; source[f.name] = r.code;
+      for (const rp of r.repairs) report({ kind: 'syntax', file: f.name, line: rp.line, message: rp.message, action: rp.action, text: rp.text });
+    } catch (e) {
+      if (!firstError) firstError = e;
+      broken.add(f.name);
+      report({ kind: 'file', file: f.name, line: e.line, message: e.message, action: 'file ini dilewati karena terlalu banyak salah tulis' });
+    }
+  }
+  if (broken.size === codeFiles.length && firstError) throw firstError;
 
   // Paket di luar daftar bawaan: coba ambil dari CDN.
   const external = {};
@@ -344,9 +361,8 @@ export async function runProject(files, { assets = {}, settings }) {
       external[s] = asModule(await fetchCdnModule(s));
       warnings.push(`Paket "${s}" diambil dari internet (bukan bawaan). Bila tampil aneh, ganti dengan paket Remotion bawaan.`);
     } catch {
-      throw new FriendlyError(`Paket "${s}" tidak tersedia.`, {
-        hint: 'Paket ini tidak termasuk bawaan dan gagal diambil dari internet. Periksa sambungan internet, atau hapus import paket itu.', kind: 'package',
-      });
+      external[s] = missingModule(s);
+      report({ kind: 'package', name: s, message: `Paket "${s}" tidak tersedia (bukan bawaan dan gagal diambil dari internet)`, action: 'isinya diganti kosong' });
     }
   }
 
@@ -376,6 +392,7 @@ export async function runProject(files, { assets = {}, settings }) {
   const loading = [];
   const requireFrom = (fromName) => (spec) => {
     if (spec === 'remotion') return remotionShim;
+    if (spec === 'react/jsx-runtime' || spec === 'react/jsx-dev-runtime') return safeJsxRuntime;
     const b = builtin(spec);
     if (b) return b;
     if (spec.startsWith('@remotion/google-fonts')) return googleFontModule(spec.split('/')[2] || 'Inter');
@@ -386,30 +403,43 @@ export async function runProject(files, { assets = {}, settings }) {
       if (target) return load(target);
       if (IMG_EXT.test(spec)) return { __esModule: true, default: assetUrl(baseName(spec)) };
       if (/\.css$/i.test(spec)) { warnings.push(`File gaya "${spec}" tidak ada, dilewati.`); return {}; }
-      throw new FriendlyError(`File "${spec}" yang di-import oleh ${fromName} tidak ditemukan.`, {
-        file: fromName, hint: `Tambahkan file itu lewat tombol "+ File" (beri nama ${baseName(spec)}.tsx), atau tempel semua file sekaligus dengan penanda // NamaFile.tsx di atas tiap file.`, kind: 'missing-file',
-      });
+      report({ kind: 'missing-file', file: fromName, name: spec, message: `File "${spec}" tidak ditemukan`, action: 'isinya diganti kosong. Tambahkan file itu lewat "+ File" atau tempel semua file sekaligus' });
+      return missingModule(spec);
     }
     if (/\.css$/i.test(spec)) return {};
-    throw new FriendlyError(`Paket "${spec}" tidak tersedia.`, { file: fromName, kind: 'package' });
+    report({ kind: 'package', file: fromName, name: spec, message: `Paket "${spec}" tidak tersedia`, action: 'isinya diganti kosong' });
+    return missingModule(spec);
   };
   function load(name) {
     if (cache.has(name)) return cache.get(name).exports;
-    const module = { exports: {} };
-    cache.set(name, module);
-    loading.push(name);
-    try {
-      // eslint-disable-next-line no-new-func
-      // "with" menyediakan fungsi Remotion/React yang lupa di-import. Nama yang
-      // dideklarasikan sendiri oleh kode tetap menang. Ditulis di baris yang sama
-      // agar nomor baris error tetap tepat.
-      const fn = new Function('require', 'module', 'exports', '__g', 'with(__g){(function(){' + compiled[name] + `\n}).call(this)}\n//# sourceURL=rr-file:///${name}`);
-      fn.call(undefined, requireFrom(name), module, module.exports, globals);
-    } catch (e) {
-      cache.delete(name);
-      throw e instanceof FriendlyError ? e : toFriendly(e, name);
-    } finally { loading.pop(); }
-    return module.exports;
+    if (broken.has(name)) return missingModule(name);
+    for (let attempt = 0; ; attempt++) {
+      const module = { exports: {} };
+      cache.set(name, module);
+      try {
+        // "with" menyediakan fungsi Remotion/React yang lupa di-import dan mengganti nama tak dikenal
+        // dengan pengganti kosong. Ditulis di baris yang sama agar nomor baris error tetap tepat.
+        // eslint-disable-next-line no-new-func
+        const fn = new Function('require', 'module', 'exports', '__g', 'with(__g){(function(){' + compiled[name] + `\n}).call(this)}\n//# sourceURL=rr-file:///${name}`);
+        fn.call(undefined, requireFrom(name), module, module.exports, makeScope(globals, name));
+        return module.exports;
+      } catch (e) {
+        cache.delete(name);
+        if (e instanceof FriendlyError && e.kind !== 'runtime') throw e;
+        const fe = toFriendly(e, name);
+        // Error saat file dijalankan: lewati baris penyebabnya lalu coba lagi (maks. 6 kali).
+        const fixed = attempt < 6 && fe.line ? skipLine(source[name], fe.line) : null;
+        let ok = false;
+        if (fixed) { try { compiled[name] = compileFile(name, fixed); source[name] = fixed; ok = true; } catch { ok = false; } }
+        if (ok) { report({ kind: 'module', file: name, line: fe.line, message: fe.message, action: 'baris ini dilewati' }); continue; }
+        if (codeFiles.length > 1) {
+          broken.add(name);
+          report({ kind: 'file', file: name, line: fe.line, message: fe.message, action: 'file ini dilewati' });
+          return missingModule(name);
+        }
+        throw fe;
+      }
+    }
   }
 
   const allExports = {};
@@ -494,7 +524,7 @@ export async function runProject(files, { assets = {}, settings }) {
       kind: 'no-entry',
     });
   }
-  return { entries, warnings };
+  return { entries, warnings, issues: getIssues() };
 }
 
 function score(f) {

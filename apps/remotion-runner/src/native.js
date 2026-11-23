@@ -34,3 +34,24 @@ export async function saveBlobNative(blob, filename, onProgress) {
 export function shareNative(id) { try { return A && A.shareLast ? A.shareLast() : false; } catch { return false; } }
 
 export function takeSharedText() { try { return A && A.takeSharedText ? A.takeSharedText() : null; } catch { return null; } }
+
+// ---------- HTTP lewat Android (bebas aturan CORS) ----------
+const pendingHttp = new Map();
+let httpSeq = 0;
+if (typeof window !== 'undefined') {
+  window.__sakuHttpDone = (id, status, headersJson, body, err) => {
+    const p = pendingHttp.get(id);
+    if (!p) return;
+    pendingHttp.delete(id);
+    if (!status) { p.reject(new Error(err || 'Jaringan gagal')); return; }
+    let h = {};
+    try { h = JSON.parse(headersJson || '{}'); } catch { h = {}; }
+    p.resolve({ ok: status >= 200 && status < 300, status, headers: { get: (k) => h[String(k).toLowerCase()] ?? null }, text: async () => body || '', json: async () => JSON.parse(body || 'null') });
+  };
+}
+export const nativeFetch = A && A.httpRequest ? (url, { method = 'GET', headers = {}, body = '', timeout = 120000, signal } = {}) => new Promise((resolve, reject) => {
+  const id = 'h' + (++httpSeq);
+  pendingHttp.set(id, { resolve, reject });
+  if (signal) signal.addEventListener('abort', () => { if (pendingHttp.delete(id)) reject(new Error('Dibatalkan')); }, { once: true });
+  try { A.httpRequest(id, method, url, JSON.stringify(headers || {}), body || '', timeout); } catch (e) { pendingHttp.delete(id); reject(e); }
+}) : null;

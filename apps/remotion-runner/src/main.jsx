@@ -2,9 +2,10 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client';
 import { Player } from '@remotion/player';
 import { renderMediaOnWeb, canRenderMediaOnWeb, renderStillOnWeb } from '@remotion/web-renderer';
-import { runProject, splitPasted, cleanText, FriendlyError, toFriendly } from './runtime.js';
+import { runProject, splitPasted, cleanText, FriendlyError, toFriendly, onIssues, getIssues } from './runtime.js';
+import { compileTolerant, explain } from './tolerant.js';
 import { SAMPLE_SINGLE, SAMPLE_MULTI, SAMPLE_3D, SAMPLE_SAINS } from './samples.js';
-import { aiFix, providerStatus, getKeys, setKey, clearCooldowns } from './ai.js';
+import { aiFixFile, providerStatus, getKeys, setKey, clearCooldowns, refreshCatalog } from './ai.js';
 import { formatAll } from './format.js';
 import * as Native from './native.js';
 import { FormatPanel, applyFormat, DEFAULT_FORMAT, formatName } from './videoformat.jsx';
@@ -161,6 +162,8 @@ function App() {
   const [playerError, setPlayerError] = useState(null);
   const [ai, setAi] = useState(null); // {busy, status, error, tried}
   const [format, setFormat] = useState(() => ({ ...DEFAULT_FORMAT, ...LS.get('rs.format', {}) }));
+  const [issues, setIssues] = useState([]);
+  useEffect(() => onIssues(setIssues), []);
   useEffect(() => { LS.set('rs.format', format); }, [format]);
   const aiAbort = useRef(null);
   const taRef = useRef(null);
@@ -304,9 +307,19 @@ function App() {
     if (busy) return;
     setBusy(true);
     try {
-      const out = await formatAll(files);
+      let src = files;
+      let fixedCount = 0;
+      let out;
+      try { out = await formatAll(src); } catch (e1) {
+        // Ada salah tulis: perbaiki otomatis dulu (tanpa AI), lalu rapikan.
+        src = files.map((f) => {
+          if (/\.css$/i.test(f.name) || !f.code.trim()) return f;
+          try { const r = compileTolerant(f.name, f.code); fixedCount += r.repairs.length; return { ...f, code: r.code }; } catch { return f; }
+        });
+        out = await formatAll(src);
+      }
       const changed = out.some((f, i) => f.code !== files[i].code);
-      if (changed) { setUndo(files); setFiles(out); say('Kode sudah dirapikan.', 'undo'); } else say('Kode sudah rapi.');
+      if (changed) { setUndo(files); setFiles(out); say(fixedCount ? `Dirapikan, ${fixedCount} salah tulis diperbaiki otomatis (baris yang dilewati diberi tanda // [dilewati]).` : 'Kode sudah dirapikan.', 'undo'); } else say('Kode sudah rapi.');
       setError(null);
     } catch (e) {
       const fe = e instanceof FriendlyError ? e : toFriendly(e);
@@ -315,24 +328,40 @@ function App() {
     } finally { setBusy(false); }
   };
 
-  const fixWithAI = async (err) => {
+  const fixWithAI = async (err, issueList) => {
     if (ai && ai.busy) return;
     const ac = new AbortController(); aiAbort.current = ac;
-    setAi({ busy: true, status: 'Menyiapkan…' });
+    const log = [];
+    setAi({ busy: true, status: 'Menyiapkan…', log: [] });
+    const onStatus = (st) => setAi((a) => (a && a.busy ? { ...a, status: st } : a));
+    const onAttempt = (at) => { log.push(at); setAi((a) => (a && a.busy ? { ...a, log: [...log] } : a)); };
+    const probs = (issueList && issueList.length ? issueList : [err]).filter(Boolean).map((x) => ({ file: x.file, line: x.line, message: x.message, name: x.name }));
+    const mainFile = (files.find((f) => !/\.css$/i.test(f.name) && f.code.trim()) || files[0]).name;
+    const byFile = new Map();
+    for (const p of probs) { const f = p.file && files.some((ff) => ff.name === p.file) ? p.file : mainFile; if (!byFile.has(f)) byFile.set(f, []); byFile.get(f).push(p); }
+    const next = files.map((f) => ({ ...f }));
+    const done = [];
     try {
-      const r = await aiFix({ files, error: err, signal: ac.signal, onStatus: (st) => setAi((a) => (a && a.busy ? { ...a, status: st } : a)) });
-      let next = r.files;
-      try { next = await formatAll(next); } catch { /* biarkan tanpa dirapikan */ }
+      for (const [fname, list] of byFile) {
+        const idx = next.findIndex((f) => f.name === fname);
+        const r = await aiFixFile({ file: next[idx], problems: list.slice(0, 8), otherFiles: next.filter((f, i) => i !== idx && !/\.css$/i.test(f.name)), onStatus, onAttempt, signal: ac.signal });
+        next[idx] = { ...next[idx], code: r.code };
+        done.push(r);
+      }
       setUndo(files);
       setFiles(next);
       setAi(null); setError(null); setPlayerError(null);
-      say(`Diperbaiki oleh ${r.provider}. ${r.note || ''}`.trim(), 'undo');
+      const r0 = done[done.length - 1];
+      say(`Diperbaiki oleh ${r0.provider}${r0.model && r0.model !== r0.provider ? ' · ' + r0.model : ''}. ${r0.note || ''}`.trim(), 'undo');
       await run(next, settings);
     } catch (e) {
       if (ac.signal.aborted) { setAi(null); return; }
-      setAi({ busy: false, error: e.message, tried: e.tried || [] });
+      setAi({ busy: false, error: e.message, log, tried: e.tried || [] });
     } finally { aiAbort.current = null; }
   };
+
+  // Cari model AI gratis yang aktif di latar belakang (bila online).
+  useEffect(() => { const t = setTimeout(() => { refreshCatalog().catch(() => {}); }, 4000); return () => clearTimeout(t); }, []);
 
   const jumpTo = (line) => {
     const ta = taRef.current; if (!ta || !line) return;
@@ -397,7 +426,8 @@ function App() {
           {error && (
             <div className="card err" role="alert">
               <div className="err-head"><Icon n="alert" />{error.kind === 'syntax' ? 'Kode belum bisa dibaca' : error.kind === 'empty' ? 'Belum ada kode' : 'Kode berhenti dengan error'}</div>
-              <p className="err-msg">{error.message}</p>
+              <p className="err-msg">{explain(error.message)}</p>
+              {explain(error.message) !== error.message && <p className="muted small">{error.message}</p>}
               {error.file && <p className="err-loc">{error.file}{error.line ? ` · baris ${error.line}` : ''}{error.column ? `, kolom ${error.column}` : ''}</p>}
               {error.hint && <p className="err-hint">{error.hint}</p>}
               <div className="row">
@@ -436,6 +466,10 @@ function App() {
                 <span>{+entry.fps.toFixed(2)} fps</span>
                 <span>{fmtSec(entry.durationInFrames / entry.fps)}</span>
               </div>
+              <IssuesCard issues={issues} files={files} ai={ai}
+                onShow={(it) => { const i = files.findIndex((f) => f.name === it.file); if (i >= 0) setActive(i); setTab('kode'); setTimeout(() => jumpTo(it.line), 80); }}
+                onFix={() => fixWithAI(null, issues)}
+                onCancelAI={() => aiAbort.current && aiAbort.current.abort()} onCloseAI={() => setAi(null)} />
               {result.warnings.length > 0 && (
                 <div className="card warn">{result.warnings.map((w, i) => <p key={i}>{w}</p>)}</div>
               )}
@@ -476,6 +510,7 @@ function App() {
           <button key={k} className={tab === k ? 'on' : ''} onClick={() => setTab(k)} aria-current={tab === k ? 'page' : undefined}>
             <Icon n={ic} s={22} /><span>{l}</span>
             {k === 'kode' && error && <i className="badge" aria-label="ada error" />}
+            {k === 'putar' && issues.length > 0 && <i className="badge warnb" aria-label={`${issues.length} bagian dilewati`} />}
           </button>
         ))}
       </nav>
@@ -483,17 +518,68 @@ function App() {
   );
 }
 
+const KIND_LABEL = { syntax: 'Salah tulis', file: 'File dilewati', module: 'Error saat dijalankan', 'missing-name': 'Nama tidak dikenal', 'missing-file': 'File tidak ada', package: 'Paket tidak ada', render: 'Komponen error' };
+
+function IssuesCard({ issues, ai, onShow, onFix, onCancelAI, onCloseAI }) {
+  if (!issues.length) return null;
+  return (
+    <div className="card issues" role="status">
+      <div className="err-head warnh"><Icon n="alert" />Video tetap diputar, {issues.length} bagian kode dilewati</div>
+      <ul>
+        {issues.slice(0, 12).map((it) => (
+          <li key={it.id}>
+            <span className="tag">{KIND_LABEL[it.kind] || 'Masalah'}</span>
+            <div className="iss-body">
+              <b>{it.file ? it.file : ''}{it.line ? ` · baris ${it.line}` : ''}{it.name && it.kind !== 'missing-name' ? ` · ${it.name}` : ''}</b>
+              <span>{explain(it.message)}</span>
+              <span className="muted small">Tindakan: {it.action}{it.text ? ` — "${it.text}"` : ''}</span>
+            </div>
+            {it.file && it.line && <button className="link" onClick={() => onShow(it)}>Lihat</button>}
+          </li>
+        ))}
+      </ul>
+      {issues.length > 12 && <p className="muted small">…dan {issues.length - 12} lainnya.</p>}
+      <button className="btn ai wide" onClick={onFix} disabled={ai && ai.busy}><Icon n="wand" />Perbaiki semuanya dengan AI</button>
+      <AiBox ai={ai} onCancel={onCancelAI} onClose={onCloseAI} />
+    </div>
+  );
+}
+
+function AttemptList({ items }) {
+  if (!items || !items.length) return null;
+  return (
+    <ul className="attempts">
+      {items.slice(-10).map((t, i) => (
+        <li key={i} className={t.ok ? 'ok' : 'no'}>
+          <span className="dotk" aria-hidden="true" />
+          <span><b>{t.provider}</b>{t.model ? ` · ${t.model}` : ''}</span>
+          <span className="why">{t.ok ? 'menjawab' : t.why}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 function AiBox({ ai, onCancel, onClose }) {
   if (!ai) return null;
   if (ai.busy) return (
-    <div className="aibox" role="status"><span className="spin dark" aria-hidden="true" /><span>{ai.status}</span>
-      <button className="link" onClick={onCancel}>Batal</button></div>
+    <div className="aibox" role="status">
+      <div className="aibox-row"><span className="spin dark" aria-hidden="true" /><span>{ai.status}</span><button className="link" onClick={onCancel}>Batal</button></div>
+      <AttemptList items={ai.log} />
+    </div>
   );
+  const all = [...(ai.tried || [])];
+  const reasons = all.map((t) => t.why || '');
+  const tip = reasons.some((r) => /ramai/.test(r)) ? 'Beberapa model sedang ramai. Tunggu sekitar 1 menit lalu tekan lagi; aplikasi akan memilih model lain.'
+    : reasons.some((r) => /kuota|saldo/.test(r)) ? 'Kuota gratis beberapa layanan sudah habis untuk sementara. Tambahkan kunci gratis (OpenRouter, Groq, Gemini) di tab Lainnya sebagai cadangan.'
+    : reasons.some((r) => /panjang/.test(r)) ? 'Kodenya terlalu panjang untuk model gratis yang tersedia. Coba perbaiki satu file saja atau tambahkan kunci Gemini (konteks besar).'
+    : /internet/.test(ai.error) ? 'Sambungkan HP ke internet lalu coba lagi.'
+    : 'Coba lagi sebentar lagi. Video tetap bisa diputar karena bagian yang salah dilewati otomatis.';
   return (
     <div className="aibox fail" role="alert">
       <b>{ai.error}</b>
-      {ai.tried && ai.tried.length > 0 && <ul>{ai.tried.slice(0, 8).map((t, i) => <li key={i}>{t}</li>)}</ul>}
-      <p>Coba lagi beberapa menit lagi, atau tambahkan kunci gratis (OpenRouter, Groq, Gemini) di tab Lainnya agar ada lebih banyak cadangan AI.</p>
+      <AttemptList items={all.length ? all : ai.log} />
+      <p>{tip}</p>
       <button className="link" onClick={onClose}>Tutup</button>
     </div>
   );
@@ -899,11 +985,13 @@ function AiPanel({ say }) {
   return (
     <details className="card help" onToggle={(e) => { if (e.currentTarget.open) refresh(); }}>
       <summary>AI gratis untuk memperbaiki kode</summary>
-      <p className="muted">AI hanya dipakai saat Anda menekan <b>Perbaiki dengan AI</b> pada kode yang error. Aplikasi mencoba penyedia gratis satu per satu: bila kuota satu habis, otomatis pindah ke yang berikutnya. Tanpa daftar pun sudah bisa (Pollinations, LLM7). Kunci gratis di bawah ini opsional, untuk cadangan tambahan.</p>
+      <p className="muted">AI hanya dipakai saat Anda menekan <b>Perbaiki dengan AI</b>. Router otomatis mencari model gratis yang sedang aktif di internet, mendahulukan yang paling sering berhasil, dan pindah sendiri bila satu model ramai atau kuotanya habis. Tanpa daftar sudah bisa (Pollinations, LLM7, OVHcloud; Kilo di APK). Kunci gratis di bawah opsional untuk cadangan tambahan.</p>
+      <button className="btn wide" onClick={async () => { say('Mencari model gratis…'); await refreshCatalog(true).catch(() => {}); refresh(); say('Daftar model gratis diperbarui.'); }}>Cari model gratis sekarang</button>
       <ul className="prov">
         {(list || []).filter((p) => !(p.kind === 'sample' && p.state !== 'siap')).map((p) => (
           <li key={p.id}>
-            <div className="prov-head"><b>{p.name}</b><span className={'st ' + (p.state === 'siap' ? 'ok' : p.state === 'butuh kunci' ? 'idle' : 'bad')}>{p.state}</span></div>
+            <div className="prov-head"><b>{p.name}</b><span className={'st ' + (p.state === 'siap' ? 'ok' : /butuh kunci|hanya di APK|tidak tersedia/.test(p.state) ? 'idle' : 'bad')}>{p.state}</span></div>
+            {p.modelCount > 0 && p.kind !== 'sample' && <span className="muted small">{p.modelCount} model</span>}
             <span className="muted small">{p.note}</span>
             {!p.keyless && (
               <div className="keyrow">
@@ -929,7 +1017,7 @@ function Help() {
         <li>Buka tab <b>Kode</b>, tekan <b>Tempel</b> (atau tekan lama di kolom lalu Tempel).</li>
         <li>Tekan <b>Jalankan</b>. Video tampil di tab <b>Putar</b>.</li>
         <li>Tab <b>Ekspor</b> membuat file MP4 untuk diunggah ke TikTok.</li>
-        <li>Kode berantakan? Tekan <b>Rapikan</b>. Kode error? Tekan <b>Perbaiki dengan AI</b> (gratis).</li>
+        <li>Kode berantakan? Tekan <b>Rapikan</b>. Ada kesalahan? Video <b>tetap diputar</b>: baris salah tulis dilewati, nama yang tidak dikenal dikosongkan, komponen yang error disembunyikan. Daftar bagian yang dilewati muncul di tab Putar, lengkap dengan tombol <b>Perbaiki semuanya dengan AI</b> (gratis).</li>
       </ol>
       <h3>Banyak file sekaligus</h3>
       <p>Tempel saja semuanya. Aplikasi memisahkan file otomatis bila tiap file diawali baris seperti <code>// src/Root.tsx</code>, atau bila kode berupa beberapa blok <code>```tsx</code>. Import seperti <code>./Judul</code> otomatis tersambung.</p>
@@ -957,6 +1045,7 @@ function Help() {
 }
 
 // ---------- Mulai ----------
+window.__saku = { compileTolerant, getIssues }; // untuk uji otomatis & diagnosis
 const rootEl = document.getElementById('root');
 createRoot(rootEl).render(<Guard fallback={(err) => (
   <div className="fatal"><h1>Aplikasi perlu dimuat ulang</h1><p>{String(err && err.message)}</p><p>Kode Anda tetap tersimpan.</p>

@@ -99,7 +99,7 @@ CASES.long = long;
 
   await pasteRun(CASES.syntax);
   t = await visibleText();
-  ok('error sintaks tampil ramah', /belum bisa dibaca/.test(t) && /baris \d+/.test(t), JSON.stringify(t.slice(0, 200)));
+  ok('kode salah tulis tetap diputar + laporan jelas', await page.locator('.stage').isVisible() && /Salah tulis/.test(t) && /baris \d+/.test(t), JSON.stringify(t.slice(t.indexOf('Video tetap'), t.indexOf('Video tetap') + 220)));
   await page.screenshot({ path: OUT + '/3-error.png' });
 
   await pasteRun(CASES.missingImport);
@@ -119,14 +119,15 @@ CASES.long = long;
   // AI memperbaiki error sintaks (memanggil AI gratis sungguhan)
   if (!process.env.NO_AI) {
     await pasteRun(CASES.syntax);
-    await page.click('button:has-text("Perbaiki dengan AI")');
+    await page.click('button:has-text("Perbaiki semuanya dengan AI")');
     const tAi = Date.now();
     try {
-      await page.waitForFunction(() => document.querySelector('.stage') && !document.querySelector('.pane:not([hidden]) .card.err') && !document.querySelector('.aibox'), null, { timeout: 300000 });
+      await page.waitForFunction(() => (document.querySelector('.toast') && /Diperbaiki oleh/.test(document.querySelector('.toast').innerText)) || document.querySelector('.aibox.fail'), null, { timeout: 300000 });
       const toast = await page.locator('.toast').innerText().catch(() => '');
-      ok('AI gratis memperbaiki error', true, `${Math.round((Date.now() - tAi) / 1000)} dtk · ${toast.slice(0, 160)}`);
+      const fail = await page.locator('.aibox.fail').innerText().catch(() => '');
+      ok('AI gratis memperbaiki error', /Diperbaiki oleh/.test(toast), `${Math.round((Date.now() - tAi) / 1000)} dtk · ${(toast || fail).replace(/\n/g, ' ').slice(0, 200)}`);
     } catch {
-      ok('AI gratis memperbaiki error', false, (await visibleText()).slice(0, 500));
+      ok('AI gratis memperbaiki error', false, (await visibleText()).slice(0, 300));
     }
     await page.screenshot({ path: OUT + '/6-ai.png' });
   }

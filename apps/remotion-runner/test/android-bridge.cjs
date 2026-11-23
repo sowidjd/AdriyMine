@@ -25,6 +25,14 @@ const CLIP = `import { AbsoluteFill } from 'remotion';\nexport const DariClipboa
       appendChunk: (id, b64) => { files[id].parts.push(atob(b64).length); return true; },
       finishFile: (id) => { const f = files[id]; window.__saved.push({ name: f.name, mime: f.mime, bytes: f.parts.reduce((a, c) => a + c, 0) }); return 'Movies/Remotion Saku/' + f.name; },
       shareLast: () => true,
+      // Meniru MainActivity.httpRequest: hasil dikirim lewat window.__sakuHttpDone
+      httpRequest: (id, method, url, headersJson, body) => {
+        window.__native = (window.__native || []).concat(url);
+        const done = (st, h, b, e) => setTimeout(() => window.__sakuHttpDone(id, st, JSON.stringify(h || {}), b || '', e || ''), 30);
+        if (url.endsWith('/models')) return done(200, {}, JSON.stringify(url.includes('kilo') ? { data: [{ id: 'kilo-auto/free' }] } : { data: [] }));
+        if (url.includes('ai-gateway.kilo.ai')) return done(200, {}, JSON.stringify({ choices: [{ message: { content: 'GANTI 5-5\n  </AbsoluteFill>;\n};\nSELESAI\nDiperbaiki lewat Kilo.' } }] }));
+        return done(429, { 'retry-after': '600' }, JSON.stringify({ error: { message: 'Rate limit exceeded' } }));
+      },
     };
   }, { SHARED, CLIP });
   const page = await ctx.newPage();
@@ -55,6 +63,18 @@ const CLIP = `import { AbsoluteFill } from 'remotion';\nexport const DariClipboa
   await page.click('button:has-text("Tempel")');
   await page.waitForTimeout(300);
   ok('tombol Tempel membaca clipboard HP', (await page.inputValue('#kode')).includes('DariClipboard'));
+  // AI lewat jalur HTTP Android (Kilo hanya bisa di APK)
+  const BROKEN = "import { AbsoluteFill } from 'remotion';\nexport const A = () => {\n  return <AbsoluteFill style={{background:'red'}}>\n    <div>halo</div>\n  </AbsoluteFill>;\n";
+  await page.evaluate(() => { window.SakuAndroid.readClipboard = () => window.__clip; });
+  await page.evaluate((t) => { window.__clip = t; }, BROKEN);
+  await page.click('button:has-text("Tempel")');
+  await page.click('.run');
+  await page.waitForSelector('.issues', { timeout: 30000 });
+  await page.click('button:has-text("Perbaiki semuanya dengan AI")');
+  await page.waitForFunction(() => document.querySelector('.toast') && /Diperbaiki oleh/.test(document.querySelector('.toast').innerText), null, { timeout: 60000 }).catch(() => {});
+  const toastA = await page.locator('.toast').innerText().catch(() => '');
+  const nat = await page.evaluate(() => window.__native || []);
+  ok('AI lewat jalur HTTP Android (Kilo Gateway)', /Kilo/.test(toastA) && nat.some((u) => u.includes('kilo')), toastA.replace(/\n/g, ' ').slice(0, 120));
   console.log(res.join('\n'));
   await b.close(); srv.close();
   process.exit(res.some((r) => !r.startsWith('LULUS')) ? 1 : 0);

@@ -14,11 +14,20 @@ Aplikasi HP untuk menjalankan kode Remotion: **tempel kode → Jalankan → puta
 5. Tab **Ekspor** → **Cek cuplikan hasil** (opsional) → **Buat video** → **Simpan ke HP** (masuk ke folder Movies/Remotion Saku).
 6. Tab **Lainnya**: unggah aset untuk `staticFile()`, status & kunci AI, bantuan.
 
+## Kode salah tetap diputar (mode toleran)
+- Salah tulis kecil diperbaiki otomatis: tanda yang kurang ditambahkan, kurung di akhir ditutup, baris yang rusak dilewati (lokasi error dicari dengan @babel/parser).
+- Nama/komponen/fungsi yang belum dibuat atau di-import diganti "kosong"; file/paket yang tidak ada diganti modul kosong.
+- Komponen yang error saat diputar disembunyikan sendirian (pelindung per komponen), bagian lain tetap jalan.
+- Semua tindakan tampil di tab Putar: "Video tetap diputar, N bagian kode dilewati", dengan pesan berbahasa Indonesia, tombol Lihat baris, dan **Perbaiki semuanya dengan AI**.
+
 ## AI gratis dengan cadangan otomatis
-Urutan: Claude (hanya di claude.ai) → penyedia yang kuncinya Anda isi → Pollinations → Pollinations Gen → LLM7.
-Kunci gratis opsional: OpenRouter (router `openrouter/free` + model `:free` yang dicari otomatis), Groq, Google Gemini, Cerebras, Hugging Face.
-Bila satu penyedia kuotanya habis (429/402), aplikasi menandainya "istirahat" dan langsung pindah ke berikutnya; bila model tidak ada, mencoba model lain di penyedia yang sama.
-Hasil AI selalu diperiksa dulu (dikompilasi); kalau masih error, AI diminta mencoba lagi dengan pesan error barunya. File panjang (>350 baris) diperbaiki dengan potongan SEARCH/REPLACE agar tidak terpotong.
+Router otomatis:
+- Tanpa kunci: Pollinations, LLM7, OVHcloud AI Endpoints, dan **Kilo Gateway** (router model gratis; hanya di APK karena dipanggil lewat Android, bebas aturan CORS).
+- Daftar model gratis dicari online (endpoint /models tiap penyedia + katalog harian model ":free" untuk OpenRouter), diperbarui tiap 6 jam saat terhubung internet.
+- Model yang paling sering berhasil didahulukan. Error dibaca dengan benar: "sedang ramai" (429) hanya mengistirahatkan model itu sebentar, "kode terlalu panjang" pindah ke model lain, hanya "kuota habis"/"perlu saldo" yang mengistirahatkan penyedia.
+- Kunci gratis opsional: OpenRouter, Groq, Gemini, Cerebras, Hugging Face, Pollinations.
+- AI hanya diminta **mengganti baris tertentu** (format `GANTI a-b … SELESAI`), jadi tidak bisa meringkas kode; jawaban berisi "// ..." / "sisanya sama" ditolak; hasil diperiksa dulu sebelum dipakai.
+- Setiap percobaan (penyedia, model, alasan gagal) ditampilkan di layar.
 
 ## Format video (rasio)
 Tab **Putar → Format video**: Asli, TikTok, Reels, Shorts (9:16), YouTube (16:9), Feed IG (1:1, 4:5), Sinema (21:9), atau Kustom; resolusi 720p–4K.
