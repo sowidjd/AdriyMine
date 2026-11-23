@@ -53,7 +53,7 @@ const BROKEN = "import { AbsoluteFill } from 'remotion';\nexport const A = () =>
   await page.click('.tabs button:nth-child(4)');
   await page.click('summary:has-text("AI gratis")');
   await page.waitForTimeout(800);
-  const panel = await page.locator('.prov').innerText();
+  const panel = await page.locator('details:has(summary:has-text("AI gratis")) .prov').innerText();
   ok('Pollinations "sedang ramai", bukan "kuota habis"', !/kuota habis/.test(panel) && /Pollinations\s*\n?\s*siap|ramai/.test(panel), panel.split('\n').slice(0, 8).join(' | '));
   console.log(res.join('\n'));
   await b.close();

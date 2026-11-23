@@ -1,10 +1,10 @@
 {
   "name": "remotion-saku",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Aplikasi HP: tempel kode Remotion, putar, dan ekspor MP4 di browser",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node test/e2e.cjs && node test/toleran.cjs && node test/ai-fallback.cjs && node test/sains3d.cjs && node test/panjang.cjs && node test/android-bridge.cjs",
+    "test": "node test/e2e.cjs && node test/toleran.cjs && node test/nodejs.cjs && node test/ai-fallback.cjs && node test/sains3d.cjs && node test/panjang.cjs && node test/android-bridge.cjs",
     "apk": "node scripts/build.mjs && cd android && gradle assembleRelease && cp app/build/outputs/apk/release/app-release.apk ../apk/RemotionSaku.apk",
     "test:ai": "node test/ai-nyata.cjs"
   },
@@ -36,15 +36,24 @@
     "@remotion/transitions": "^4.0.545",
     "@remotion/web-renderer": "^4.0.545",
     "@remotion/zod-types": "^4.0.545",
+    "assert": "^2.1.0",
+    "buffer": "^6.0.3",
     "esbuild": "^0.28.2",
+    "events": "^3.3.0",
     "lottie-web": "^5.13.0",
+    "path-browserify": "^1.0.1",
     "postprocessing": "^6.39.6",
     "prettier": "^3.9.10",
+    "process": "^0.11.10",
+    "querystring-es3": "^0.2.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "remotion": "^4.0.545",
+    "stream-browserify": "^3.0.0",
+    "string_decoder": "^1.3.0",
     "sucrase": "^3.35.1",
     "three": "^0.187.0",
+    "util": "^0.12.5",
     "zod": "^4.6.7"
   },
   "private": true

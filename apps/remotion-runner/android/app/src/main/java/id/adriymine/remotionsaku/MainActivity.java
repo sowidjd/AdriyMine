@@ -288,6 +288,28 @@ public class MainActivity extends Activity {
         }
 
         @JavascriptInterface
+        public void writeClipboard(final String text) {
+            runOnUiThread(() -> {
+                try {
+                    ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                    cm.setPrimaryClip(ClipData.newPlainText("Remotion Saku", text));
+                } catch (Exception ignored) { }
+            });
+        }
+
+        @JavascriptInterface
+        public boolean openApp(String pkg) {
+            try {
+                Intent i = getPackageManager().getLaunchIntentForPackage(pkg);
+                if (i == null) return false;
+                startActivity(i);
+                return true;
+            } catch (Exception e) {
+                return false;
+            }
+        }
+
+        @JavascriptInterface
         public void keepScreenOn(final boolean on) {
             runOnUiThread(() -> {
                 if (on) getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);

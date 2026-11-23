@@ -55,3 +55,6 @@ export const nativeFetch = A && A.httpRequest ? (url, { method = 'GET', headers 
   if (signal) signal.addEventListener('abort', () => { if (pendingHttp.delete(id)) reject(new Error('Dibatalkan')); }, { once: true });
   try { A.httpRequest(id, method, url, JSON.stringify(headers || {}), body || '', timeout); } catch (e) { pendingHttp.delete(id); reject(e); }
 }) : null;
+
+export function writeClipboardNative(text) { try { if (A && A.writeClipboard) { A.writeClipboard(text); return true; } } catch { /* abaikan */ } return false; }
+export function openAppNative(pkg) { try { return !!(A && A.openApp && A.openApp(pkg)); } catch { return false; } }

@@ -8,13 +8,16 @@ import { transform } from 'sucrase';
 import { BUILTIN } from './modules.gen.js';
 import { compileTolerant, skipLine, makeScope, missingModule, safeJsxRuntime, report, resetIssues, getIssues } from './tolerant.js';
 export { onIssues, getIssues } from './tolerant.js';
+import { makeNodeModules, nodeName, NODE_GLOBALS } from './nodecompat.js';
+import { bridgeBundle, bridgeReady } from './bridge.js';
+export const DATA_EXT = /\.(json|txt|md|csv|xml|ya?ml|srt|vtt)$/i;
 
 export const CODE_EXT = /\.(tsx|ts|jsx|js|mjs|cjs)$/i;
-const FILE_TOKEN = /((?:[\w@.-]+\/)*[\w@.-]+\.(?:tsx|ts|jsx|js|mjs|css))/i;
+const FILE_TOKEN = /((?:[\w@.-]+\/)*[\w@.-]+\.(?:tsx|ts|jsx|js|mjs|css|json|txt|md|csv))/i;
 
 // ---------- 1. Memecah teks tempelan menjadi beberapa file ----------
 
-const CODE_LANGS = new Set(['', 'tsx', 'ts', 'jsx', 'js', 'javascript', 'typescript', 'react', 'css', 'mjs']);
+const CODE_LANGS = new Set(['', 'tsx', 'ts', 'jsx', 'js', 'javascript', 'typescript', 'react', 'css', 'mjs', 'json']);
 
 export function cleanText(t) {
   return String(t ?? '')
@@ -43,7 +46,7 @@ export function splitPasted(raw, fallbackName = 'Video.tsx') {
       const before = text.slice(last, m.index).trim().split('\n').slice(-3).join('\n');
       last = re.lastIndex;
       if (!CODE_LANGS.has(lang) && !FILE_TOKEN.test(info)) continue;
-      if (!looksLikeCode(body) && lang !== 'css') continue;
+      if (!looksLikeCode(body) && lang !== 'css' && lang !== 'json' && !/\.(json|txt|md|csv)$/i.test(info)) continue;
       let name = (info.match(FILE_TOKEN) || [])[1] || (before.match(new RegExp(FILE_TOKEN.source + '(?![\\s\\S]*' + FILE_TOKEN.source + ')', 'i')) || [])[1];
       const first = body.split('\n')[0];
       if (!name && /^\s*(\/\/|\/\*)/.test(first)) name = (first.match(FILE_TOKEN) || [])[1];
@@ -53,7 +56,7 @@ export function splitPasted(raw, fallbackName = 'Video.tsx') {
   }
   // b) Komentar penanda file, mis. "// src/Root.tsx" atau "// File: Judul.tsx"
   const lines = text.split('\n');
-  const marker = /^\s*(?:\/\/+|\/\*+|#+)\s*(?:(?:file|filename|nama file|berkas)\s*[:=-]?\s*)?[`*=\-\s]*((?:[\w@.-]+\/)*[\w@.-]+\.(?:tsx|ts|jsx|js|mjs|css))[`*=\-\s]*(?:\*+\/)?\s*$/i;
+  const marker = /^\s*(?:\/\/+|\/\*+|#+)\s*(?:(?:file|filename|nama file|berkas)\s*[:=-]?\s*)?[`*=\-\s]*((?:[\w@.-]+\/)*[\w@.-]+\.(?:tsx|ts|jsx|js|mjs|css|json|txt|md|csv))[`*=\-\s]*(?:\*+\/)?\s*$/i;
   const parts = [];
   let cur = { name: '', lines: [] };
   for (const line of lines) {
@@ -224,6 +227,7 @@ function makeGlobals(remotionShim) {
   for (const n of REACT_NAMES) put(n, React[n]);
   for (const [k, v] of Object.entries(remotionShim)) put(k, v);
   g.React = React; // "React is not defined" pada kode JSX lama
+  for (const [k, v] of Object.entries(NODE_GLOBALS)) if (!(k in g) && !(k in window)) g[k] = v; // process, Buffer, __dirname, dll.
   return g;
 }
 
@@ -292,6 +296,7 @@ function builtin(spec) {
   return o;
 }
 
+const NODE_NAMES = new Set(['fs', 'fs/promises', 'path', 'path/posix', 'buffer', 'events', 'util', 'process', 'stream', 'string_decoder', 'assert', 'querystring', 'url', 'os', 'crypto', 'timers', 'timers/promises', 'child_process', 'http', 'https', 'net', 'tls', 'zlib', 'worker_threads', 'cluster', 'dns', 'readline', 'v8', 'vm', '@remotion/cli/config', '@remotion/cli', '@remotion/renderer', '@remotion/bundler', '@remotion/lambda', '@remotion/cloudrun']);
 const IMG_EXT = /\.(png|jpe?g|gif|webp|svg|avif|mp4|webm|mov|mp3|wav|m4a|aac|ogg|json|ttf|otf|woff2?)$/i;
 
 async function fetchCdnModule(spec) {
@@ -312,7 +317,7 @@ async function fetchCdnModule(spec) {
 export async function runProject(files, { assets = {}, settings }) {
   const warnings = [];
   resetIssues();
-  const codeFiles = files.filter((f) => !/\.css$/i.test(f.name));
+  const codeFiles = files.filter((f) => !/\.css$/i.test(f.name) && !DATA_EXT.test(f.name));
   const cssFiles = files.filter((f) => /\.css$/i.test(f.name));
   if (!codeFiles.some((f) => f.code.trim())) throw new FriendlyError('Kode masih kosong.', { hint: 'Tempel kode Remotion Anda di kolom kode, lalu tekan Jalankan.', kind: 'empty' });
 
@@ -352,11 +357,20 @@ export async function runProject(files, { assets = {}, settings }) {
     while ((m = reqRe.exec(code))) {
       const s = m[2];
       if (s.startsWith('.') || s.startsWith('/')) continue;
-      if (BUILTIN[normalizeSpec(s)] || s.startsWith('@remotion/google-fonts') || /\.css$/i.test(s)) continue;
+      if (BUILTIN[normalizeSpec(s)] || s.startsWith('@remotion/google-fonts') || /\.css$/i.test(s) || s.startsWith('node:') || NODE_NAMES.has(s)) continue;
       bare.add(s);
     }
   }
   for (const s of bare) {
+    // Node.js asli (Termux) tersambung: paket dipasang dengan npm + esbuild sungguhan, React/Remotion tetap satu.
+    if (await bridgeReady()) {
+      try {
+        const r = await bridgeBundle(s, Object.keys(BUILTIN));
+        external[s] = { __lazyCjs: r.code, version: r.version };
+        warnings.push(`Paket "${s}"${r.version ? ' v' + r.version : ''} dipasang lewat Node.js asli (Termux).`);
+        continue;
+      } catch (e) { warnings.push(`Node.js asli gagal memasang "${s}": ${e.message}. Mencoba lewat internet (CDN).`); }
+    }
     try {
       external[s] = asModule(await fetchCdnModule(s));
       warnings.push(`Paket "${s}" diambil dari internet (bukan bawaan). Bila tampil aneh, ganti dengan paket Remotion bawaan.`);
@@ -388,18 +402,41 @@ export async function runProject(files, { assets = {}, settings }) {
   };
   const globals = makeGlobals(remotionShim);
 
+  // Node mini: fs berisi file proyek + aset (aset dibaca hanya bila kode memakai fs).
+  const usesFs = codeFiles.some((f) => /(['"])(node:)?fs(\/promises)?\1/.test(f.code));
+  const assetBytes = {};
+  if (usesFs) {
+    let total = 0;
+    for (const [n, url] of Object.entries(assets)) {
+      try { const buf = new Uint8Array(await (await fetch(url)).arrayBuffer()); total += buf.length; if (total > 40e6) break; assetBytes[n] = buf; } catch { /* lewati */ }
+    }
+  }
+  const nodeMods = makeNodeModules({ files, assetBytes });
   const cache = new Map();
   const loading = [];
+  const evalCjs = (code, name) => {
+    const module = { exports: {} };
+    // eslint-disable-next-line no-new-func
+    new Function('require', 'module', 'exports', 'process', 'global', code + `\n//# sourceURL=rr-pkg:///${name}`)(requireFrom(name), module, module.exports, NODE_GLOBALS.process, globalThis);
+    return asModule(module.exports);
+  };
   const requireFrom = (fromName) => (spec) => {
     if (spec === 'remotion') return remotionShim;
     if (spec === 'react/jsx-runtime' || spec === 'react/jsx-dev-runtime') return safeJsxRuntime;
+    if (nodeMods[nodeName(spec)]) return nodeMods[nodeName(spec)];
     const b = builtin(spec);
     if (b) return b;
     if (spec.startsWith('@remotion/google-fonts')) return googleFontModule(spec.split('/')[2] || 'Inter');
+    if (external[spec] && external[spec].__lazyCjs) { const code = external[spec].__lazyCjs; external[spec] = evalCjs(code, spec); }
     if (external[spec]) return external[spec];
     if (spec.startsWith('.') || spec.startsWith('/')) {
       const target = resolveLocal(files, fromName, spec);
       if (target && /\.css$/i.test(target)) return {};
+      if (target && DATA_EXT.test(target)) {
+        const txt = files.find((f) => f.name === target).code;
+        if (/\.json$/i.test(target)) { try { const v = JSON.parse(txt); return { __esModule: true, default: v, ...(v && typeof v === 'object' && !Array.isArray(v) ? v : {}) }; } catch (e) { report({ kind: 'file', file: target, message: 'Format JSON salah: ' + e.message, action: 'diganti objek kosong' }); return { __esModule: true, default: {} }; } }
+        return { __esModule: true, default: txt };
+      }
       if (target) return load(target);
       if (IMG_EXT.test(spec)) return { __esModule: true, default: assetUrl(baseName(spec)) };
       if (/\.css$/i.test(spec)) { warnings.push(`File gaya "${spec}" tidak ada, dilewati.`); return {}; }

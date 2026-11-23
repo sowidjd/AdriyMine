@@ -279,3 +279,8 @@ input[type="range"] { width: 100%; accent-color: var(--accent); min-height: 32px
 .attempts .dotk { width: 8px; height: 8px; border-radius: 50%; background: var(--warn); }
 .attempts li.ok .dotk { background: var(--ok); }
 .attempts li.ok .why { color: var(--ok); }
+.steps { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
+.steps a { color: var(--accent); overflow-wrap: anywhere; }
+.link.inline { padding: 0; min-height: 0; margin-left: 4px; }
+.mini-code { width: 100%; font: 13px/1.5 var(--font-code); background: var(--panel-2); border: 1px solid var(--line); border-radius: 10px; padding: 10px; resize: vertical; }
+.node-out { margin: 0; max-height: 240px; overflow: auto; font: 12.5px/1.5 var(--font-code); background: #05070a; color: #d6e2f0; border-radius: 10px; padding: 10px; white-space: pre-wrap; overflow-wrap: anywhere; }

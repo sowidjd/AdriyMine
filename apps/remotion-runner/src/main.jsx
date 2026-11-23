@@ -9,6 +9,9 @@ import { aiFixFile, providerStatus, getKeys, setKey, clearCooldowns, refreshCata
 import { formatAll } from './format.js';
 import * as Native from './native.js';
 import { FormatPanel, applyFormat, DEFAULT_FORMAT, formatName } from './videoformat.jsx';
+import { bridgeStatus, bridgeRun, getBridgeToken, setBridgeToken } from './bridge.js';
+import { BRIDGE_SOURCE } from './bridge-source.gen.js';
+import { NODE_COMPAT_VERSION } from './nodecompat.js';
 
 // ---------- Penyimpanan aman (tidak pernah membuat aplikasi gagal) ----------
 const LS = {
@@ -360,6 +363,9 @@ function App() {
     } finally { aiAbort.current = null; }
   };
 
+  // Node.js asli di Termux: beri tahu bila terdeteksi tapi belum disambungkan.
+  useEffect(() => { const t = setTimeout(() => { bridgeStatus().then((st) => { if (st.reachable && !st.paired) say('Node.js di Termux terdeteksi. Masukkan kode sambung di tab Lainnya → Node.js.'); }).catch(() => {}); }, 2500); return () => clearTimeout(t); }, [say]);
+
   // Cari model AI gratis yang aktif di latar belakang (bila online).
   useEffect(() => { const t = setTimeout(() => { refreshCatalog().catch(() => {}); }, 4000); return () => clearTimeout(t); }, []);
 
@@ -488,6 +494,7 @@ function App() {
         {/* ---------------- ASET & BANTUAN ---------------- */}
         <section hidden={tab !== 'aset'} className="pane">
           <AssetPanel assets={assets} setAssets={setAssets} say={say} />
+          <NodePanel say={say} />
           <AiPanel say={say} />
           <Help />
         </section>
@@ -976,6 +983,66 @@ function AssetPanel({ assets, setAssets, say }) {
   );
 }
 
+const TERMUX_CMD = `pkg update -y && pkg install -y nodejs-lts && cat > ~/saku-bridge.mjs <<'SAKU_EOF'\n${BRIDGE_SOURCE}\nSAKU_EOF\nnode ~/saku-bridge.mjs`;
+const RESTART_CMD = 'node ~/saku-bridge.mjs';
+
+function NodePanel({ say }) {
+  const [st, setSt] = useState(null);
+  const [code, setCode] = useState(() => getBridgeToken());
+  const [script, setScript] = useState("const os = await import('node:os');\nconsole.log('Halo dari Node.js', process.version, os.arch());");
+  const [out, setOut] = useState(null);
+  const [running, setRunning] = useState(false);
+  const check = useCallback(async () => { setSt(null); setSt(await bridgeStatus(true)); }, []);
+  useEffect(() => { check(); }, [check]);
+  const copy = async (text, label) => {
+    if (Native.writeClipboardNative(text)) { say(label + ' disalin.'); return; }
+    try { await navigator.clipboard.writeText(text); say(label + ' disalin.'); } catch { say('Tidak bisa menyalin otomatis. Tekan lama teks perintah lalu Salin.'); }
+  };
+  const paired = st && st.reachable && st.paired;
+  const chip = !st ? ['…', 'idle'] : paired ? [`tersambung · Node ${st.node}`, 'ok'] : st.reachable ? ['terdeteksi, masukkan kode sambung', 'bad'] : ['belum tersambung', 'idle'];
+  return (
+    <details className="card help node" onToggle={(e) => { if (e.currentTarget.open) check(); }} open={!!paired}>
+      <summary>Node.js</summary>
+      <ul className="prov">
+        <li>
+          <div className="prov-head"><b>Node mini (bawaan)</b><span className="st ok">aktif</span></div>
+          <span className="muted small">{NODE_COMPAT_VERSION}. Kode yang memakai fs, path, process, Buffer, events, util, stream, url, os, crypto, serta file data (.json, .txt, .csv) dan remotion.config.ts tetap berjalan tanpa memasang apa pun.</span>
+        </li>
+        <li>
+          <div className="prov-head"><b>Node.js asli (Termux)</b><span className={'st ' + chip[1]}>{chip[0]}</span></div>
+          <span className="muted small">Untuk memasang paket npm apa pun dengan npm + esbuild sungguhan, dan menjalankan skrip Node.js. Opsional.</span>
+          {paired && <span className="muted small">npm {st.npm} · {st.platform}/{st.arch} · jembatan {st.bridge}</span>}
+        </li>
+      </ul>
+      {!paired && (
+        <ol className="steps">
+          <li>Pasang <b>Termux</b> dari F-Droid (versi Play Store sudah usang): <a href="https://f-droid.org/packages/com.termux/" target="_blank" rel="noreferrer" onClick={(e) => { if (Native.openUrl('https://f-droid.org/packages/com.termux/')) e.preventDefault(); }}>f-droid.org/packages/com.termux</a></li>
+          <li>Salin perintah ini, buka Termux, tempel, lalu tekan Enter. Pemasangan pertama butuh beberapa menit.
+            <div className="row"><button className="btn" onClick={() => copy(TERMUX_CMD, 'Perintah pemasangan')}><Icon n="copy" />Salin perintah</button>
+              {Native.IS_ANDROID_APP && <button className="btn" onClick={() => { if (!Native.openAppNative('com.termux')) say('Termux belum terpasang.'); }}>Buka Termux</button>}</div>
+            <span className="muted small">Lain kali cukup jalankan: <code>{RESTART_CMD}</code> <button className="link inline" onClick={() => copy(RESTART_CMD, 'Perintah')}>salin</button></span>
+          </li>
+          <li>Masukkan <b>kode sambung</b> 6 angka yang muncul di Termux:
+            <div className="keyrow"><input id="kode-sambung" inputMode="numeric" maxLength={6} value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))} placeholder="123456" />
+              <button className="btn primary" onClick={async () => { setBridgeToken(code); const s2 = await bridgeStatus(true); setSt(s2); say(s2.paired ? 'Node.js tersambung.' : s2.reachable ? 'Kode sambung salah.' : 'Jembatan belum berjalan di Termux.'); }}>Sambungkan</button></div>
+          </li>
+        </ol>
+      )}
+      {paired && (
+        <div className="stack">
+          <p className="muted small">Paket npm yang bukan bawaan (mis. <code>lucide-react</code>) sekarang otomatis dipasang lewat Node.js ini saat kode dijalankan.</p>
+          <div className="field"><label htmlFor="skrip-node">Jalankan skrip di Node.js asli</label>
+            <textarea id="skrip-node" className="mini-code" value={script} onChange={(e) => setScript(e.target.value)} spellCheck={false} autoCapitalize="off" rows={4} /></div>
+          <button className="btn wide" disabled={running} onClick={async () => { setRunning(true); setOut(null); try { setOut(await bridgeRun(script)); } catch (e) { setOut({ stderr: e.message, exitCode: 1 }); } finally { setRunning(false); } }}>{running ? 'Menjalankan…' : 'Jalankan di Node.js'}</button>
+          {out && <pre className="node-out">{(out.stdout || '') + (out.stderr ? '\n' + out.stderr : '')}{`\n[selesai, kode keluar ${out.exitCode}]`}</pre>}
+          <button className="link left" onClick={() => { setBridgeToken(''); setCode(''); check(); }}>Putuskan sambungan</button>
+        </div>
+      )}
+      <button className="btn wide" onClick={check}>Cek sambungan</button>
+    </details>
+  );
+}
+
 function AiPanel({ say }) {
   const [list, setList] = useState(null);
   const [keys, setKeys] = useState(() => getKeys());
@@ -1035,6 +1102,8 @@ function Help() {
         <li><code>&lt;Model src={'{'}staticFile('jantung.glb'){'}'} /&gt;</code>: model 3D dari tab Lainnya → Aset.</li>
       </ul>
       <p>Lihat contoh lengkap di <b>Contoh → 3D sains: penampang Bumi</b>. Kode yang memakai <code>ThreeCanvas</code> atau <code>Canvas</code> biasa juga otomatis memakai kanvas ini.</p>
+      <h3>Node.js</h3>
+      <p>Kode yang memakai <code>fs</code>, <code>path</code>, <code>process</code>, <code>Buffer</code>, file <code>.json</code>, atau <code>remotion.config.ts</code> langsung jalan (Node mini bawaan). Untuk paket npm apa pun dan skrip Node asli, sambungkan Node.js di Termux lewat tab Lainnya → Node.js.</p>
       <h3>Video panjang</h3>
       <p>Durasi bisa sampai 4 jam. Di tab Ekspor, video di atas 2 menit bisa dibagi menjadi file per 5/10/15 menit agar aman di HP.</p>
       <h3>Paket bawaan</h3>

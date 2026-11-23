@@ -6,12 +6,15 @@ import { execFileSync } from 'node:child_process';
 const root = path.resolve(import.meta.dirname, '..');
 execFileSync('node', [path.join(root, 'scripts/gen-modules.mjs')], { stdio: 'inherit' });
 execFileSync('node', [path.join(root, 'scripts/patch-web-renderer.mjs')], { stdio: 'inherit' });
+// Teks skrip jembatan Termux ikut di dalam aplikasi (untuk tombol "Salin perintah").
+fs.writeFileSync(path.join(root, 'src/bridge-source.gen.js'), '// DIBUAT OTOMATIS dari bridge/saku-bridge.mjs\nexport const BRIDGE_SOURCE = ' + JSON.stringify(fs.readFileSync(path.join(root, 'bridge/saku-bridge.mjs'), 'utf8')) + ';\n');
 const r = await build({
   entryPoints: [path.join(root, 'src/main.jsx')],
   bundle: true, minify: true, format: 'iife', target: ['chrome100', 'safari15', 'firefox110'],
   define: { 'process.env.NODE_ENV': '"production"' },
   jsx: 'automatic', write: false, legalComments: 'none', logLevel: 'warning',
   loader: { '.js': 'jsx' },
+  inject: [path.join(root, 'src/process-inject.js')],
 });
 const esc = (t) => t.replace(/<\/script/gi, '<\\/script').replace(/<!--/g, '<\\!--');
 const js = esc(r.outputFiles[0].text);

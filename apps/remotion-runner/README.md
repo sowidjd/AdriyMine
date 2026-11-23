@@ -20,6 +20,10 @@ Aplikasi HP untuk menjalankan kode Remotion: **tempel kode → Jalankan → puta
 - Komponen yang error saat diputar disembunyikan sendirian (pelindung per komponen), bagian lain tetap jalan.
 - Semua tindakan tampil di tab Putar: "Video tetap diputar, N bagian kode dilewati", dengan pesan berbahasa Indonesia, tombol Lihat baris, dan **Perbaiki semuanya dengan AI**.
 
+## Node.js
+- **Node mini (bawaan, selalu aktif)**: `fs` (berisi file proyek di `/src` dan aset di `/public`), `path`, `process`, `Buffer`, `events`, `util`, `stream`, `url`, `os`, `crypto` (randomUUID, createHash sha256), `timers`, file data `.json/.txt/.csv/.md`, dan `remotion.config.ts` (`@remotion/cli/config` diabaikan dengan aman). Fungsi yang memang butuh proses/server (child_process, http, @remotion/renderer) memberi pesan jelas.
+- **Node.js asli lewat Termux (opsional)**: `bridge/saku-bridge.mjs` berjalan di Termux (`pkg install nodejs-lts`), hanya di 127.0.0.1:3737 dan wajib **kode sambung** 6 angka. Fungsinya: memasang paket npm apa pun (npm `--ignore-scripts` + esbuild, React/Remotion tetap memakai milik aplikasi) dan menjalankan skrip Node.js dari tab Lainnya. Perintah pemasangan bisa disalin dari aplikasi.
+
 ## AI gratis dengan cadangan otomatis
 Router otomatis:
 - Tanpa kunci: Pollinations, LLM7, OVHcloud AI Endpoints, dan **Kilo Gateway** (router model gratis; hanya di APK karena dipanggil lewat Android, bebas aturan CORS).
