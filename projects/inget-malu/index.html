@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Inget kejadian malu</title>
+<style>
+@font-face { font-family: 'Fredoka'; src: url(../_bersama/fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; }
+html,body{margin:0;background:#111}canvas{height:100vh;display:block;margin:auto}
+</style></head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script src="../_bersama/dasar.js"></script>
+<script src="../_bersama/papercut.js"></script>
+<script>
+// "Lagi seneng, tiba-tiba inget kejadian malu 5 tahun lalu" — gaya PAPERCUT (skill /papercut). Lihat NASKAH.md.
+// Metafora: ingatan = lembar kertas di rak kepala; momen malu = lembar yang tiba-tiba "pop-up" ke depan tanpa diminta.
+// Cahaya: kamar malam (palet malam) -> kamar mandi (laut, terang) -> kamar gelap -> "dalam kepala" (permen) -> pagi hangat (senja).
+const GAYA = PC.gaya({ palet: 'malam' });
+const R = PC.R, age = id => T - t0(id), k = (id, a = 0, b = .6) => seg(T, t0(id) + a, t0(id) + b);
+const KREM = '#FFF4E4', MERAH = '#E2575B', KUNING = '#FFD36E', TINTA = '#2A1F2D';
+// "take": badan menyusut lalu memantul saat ekspresi berganti (aturan §4)
+const take = (...ts) => { let s = 0; for (const tc of ts) { const a = T - tc; if (a > 0 && a < .45) s += .16 * Math.sin(a / .45 * Math.PI) * (a < .15 ? 1 : -.6); } return s; };
+const muka = (pilihan) => { let f = pilihan[0][1]; for (const [tt, ff] of pilihan) if (T >= tt) f = ff; return f; };
+const TOKOH = (x, y, u, o = {}) => PC.tokoh(() => adriy(x, y, u, o), { dalam: .85 });
+function teksKertas(s, x, y, uk, o = {}) { ctx.save(); ctx.font = `700 ${uk}px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = o.warna ?? TINTA; ctx.fillText(s, x, y); ctx.restore(); }
+// kartu kertas berisi gambar kecil (kenangan), muncul pop-up dari engsel bawah
+function kartu(x, y, w, h, kk, isi, o = {}) { if (kk <= 0) return; PC.popup(kk, y + h / 2, () => { const p = new Path2D(); p.roundRect(x - w / 2, y - h / 2, w, h, 26); PC.potong(p, o.warna ?? KREM, { dalam: .7, y0: y - h / 2 });
+    ctx.save(); ctx.beginPath(); ctx.roundRect(x - w / 2 + 14, y - h / 2 + 14, w - 28, h - 28, 18); ctx.clip(); isi(x, y, w, h); ctx.restore(); }); }
+// orang kertas sederhana (tokoh pendamping, tanpa kacamata bulat & syal merah, aturan §15)
+function orang(x, y, s, warna, o = {}) { const p = new Path2D(); p.moveTo(x - 46 * s, y); p.quadraticCurveTo(x - 46 * s, y - 120 * s, x, y - 124 * s); p.quadraticCurveTo(x + 46 * s, y - 120 * s, x + 46 * s, y); p.closePath();
+  PC.potong(p, warna, { dalam: .6 }); PC.potong(PC.lingkaran(x, y - 160 * s, 38 * s), '#F2C9A5', { dalam: .62 });
+  if (o.sanggul) PC.potong(PC.lingkaran(x, y - 205 * s, 20 * s), '#3B2A2A', { dalam: .63 });
+  if (o.lambai) { const a = Math.sin(T * 9) * .4; ctx.save(); ctx.translate(x + 40 * s, y - 100 * s); ctx.rotate(-1.1 + a); const t2 = new Path2D(); t2.roundRect(-10 * s, -80 * s, 20 * s, 80 * s, 10 * s); PC.potong(t2, warna, { dalam: .65, tepi: false }); ctx.restore(); } }
+function gelembung(x, y, w, h, s, uk = 44) { const p = new Path2D(); p.roundRect(x - w / 2, y - h / 2, w, h, 24); p.moveTo(x - w * .15, y + h / 2 - 2); p.lineTo(x - w * .3, y + h / 2 + 34); p.lineTo(x + w * .02, y + h / 2 - 2);
+  PC.potong(p, '#FFFFFF', { dalam: .75, gradasi: false }); teksKertas(s, x, y + 2, uk); }
+function hp(x, y, s, o = {}) { const p = new Path2D(); p.roundRect(x - 70 * s, y - 130 * s, 140 * s, 260 * s, 22 * s); PC.potong(p, '#2E2C3A', { dalam: .7 });
+  ctx.fillStyle = o.layar ?? '#BFE3FF'; ctx.beginPath(); ctx.roundRect(x - 58 * s, y - 112 * s, 116 * s, 214 * s, 12 * s); ctx.fill(); }
+function kamarMalam(t, o = {}) { PC.pakai('malam'); PC.langit(); const L = PC.palet().lapis;
+  PC.potong(new Path2D('M 0 0 H 1080 V 1250 H 0 Z'), '#2C2F5E', { dalam: .05, gradasi: true, tinggiGradasi: 1200 });          // dinding
+  const jendela = new Path2D(); jendela.roundRect(640, 330, 300, 360, 30); PC.potong(jendela, '#151638', { dalam: .1 }); PC.potong(PC.lingkaran(820, 430, 48), '#FFF3CC', { dalam: .12 });
+  for (let i = 0; i < 6; i++) PC.potong(PC.bintang(680 + R(i) * 230, 380 + R(i + 9) * 260, 9), PC.palet().aksen, { dalam: .1, bayang: 3, gradasi: false });
+  PC.potong(PC.lingkaran(230, 470, 70), '#3B3F78', { dalam: .2 }); PC.potong(new Path2D('M 222 540 H 238 V 760 H 222 Z'), '#3B3F78', { dalam: .2 });          // kipas angin
+  ctx.save(); ctx.translate(230, 470); ctx.rotate(t * (o.kipas ?? 6)); for (let i = 0; i < 3; i++) { ctx.rotate(TAU / 3); PC.potong(new Path2D('M 0 0 Q 30 -60 0 -62 Q -30 -60 0 0'), '#5A5FA8', { dalam: .25, tepi: false }); } ctx.restore();
+  PC.potong(new Path2D('M 0 1250 H 1080 V 1920 H 0 Z'), L[4], { dalam: .3 });                                                                 // lantai
+  const kasur = new Path2D(); kasur.roundRect(80, 1000, 920, 260, 40); PC.potong(kasur, '#E7E2F4', { dalam: .5 });                              // kasur
+  const selimut = new Path2D(); selimut.roundRect(380, 1040, 640, 240, 50); PC.potong(selimut, o.selimut ?? '#7B6FC4', { dalam: .6 });           // selimut
+  if (o.lampu != null) { ctx.fillStyle = `rgba(255,220,150,${.18 * o.lampu})`; ctx.fillRect(0, 0, W, H); } }
+
+GROUPS = [['hook', ['h1', 'h2', 'h3', 'h4']], ['mandi', ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7']], ['malam', ['m8', 'm9', 'm10', 'm11', 'm12', 'm13', 'm14', 'm15']],
+  ['dugaan', ['d1', 'd2', 'd3', 'd4', 'd5']], ['kepala', ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8']], ['brand', ['a1', 'a1b']], ['amigdala', ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7']],
+  ['pudar', ['q8', 'q9', 'q10']], ['langkah1', ['s1', 's2', 's3', 's4', 's5', 's6']], ['langkah2', ['s7', 's8', 's9']], ['langkah3', ['s10', 's11', 's12', 's13']], ['cta', ['r1', 'r2', 'r3', 'r4', 'r5', 'r6', 'r7']], ['akhir', ['z']]];
+
+// HOOK: rebahan senyum di kamar malam (lampu tidur) -> kenangan malu pop-up -> kaget -> "bukan lebay"
+S.hook = t => { kamarMalam(t, { lampu: 1 });
+  const f = muka([[0, 'happy'], [t0('h2') + .3, 'shock'], [t0('h3'), 'worried'], [t0('h4'), 'curious']]);
+  TOKOH(330, 1110, 26, { face: f, sq: take(t0('h2') + .3, t0('h3'), t0('h4')), mark: t > t0('h2') + .3 && t < t0('h3') ? '!' : null, markAge: age('h2') - .3, blush: t > t0('h2') + .4 && t < t1('h3'), rot: -.08 });
+  hp(560, 1060, .55, { layar: '#CFE8FF' });
+  kartu(700, 760, 520, 420, k('h2', .1, .6), (x, y) => { orang(x - 110, y + 150, .9, '#6BA5D8', { sanggul: true }); orang(x + 90, y + 160, .65, '#F4A35E'); gelembung(x + 100, y - 110, 230, 100, 'MAMA!', 54); });
+  if (t < t0('h3')) PC.teks('INGET INI!', 540, 380, 120, { k: k('h2', .1, .8), lapis: [KUNING, '#FFFFFF'] });
+  else PC.teks('KAMU BUKAN LEBAY', 540, 380, 96, { k: k('h3', 0, .8), lapis: [KUNING, '#FFFFFF'] }); };
+
+// MASALAH 1: kamar mandi (terang, keramik) -> kenangan: salah panggil guru, salah lambai -> muka panas -> pengen ngilang
+S.mandi = t => { PC.pakai('laut'); PC.langit(); const L = PC.palet().lapis;
+  for (let y = 0; y < 1300; y += 120) for (let x = 0; x < 1080; x += 120) { const p = new Path2D(); p.roundRect(x + 6, y + 6, 108, 108, 10); PC.potong(p, (x / 120 + y / 120) % 2 ? '#CDEDEF' : '#BDE4E8', { dalam: .05, bayang: 3, gradasi: false, tepi: false }); }
+  PC.potong(new Path2D('M 0 1250 H 1080 V 1920 H 0 Z'), L[2], { dalam: .3 });
+  const bak = new Path2D(); bak.roundRect(620, 1020, 400, 260, 30); PC.potong(bak, '#E9F7F8', { dalam: .5 }); PC.potong(new Path2D('M 640 1040 H 1000 V 1080 H 640 Z'), '#6FC2CF', { dalam: .52, tepi: false });
+  const ay = Math.sin(t * 3) * 20, gay = new Path2D(); gay.roundRect(420, 900 + ay, 130, 110, 20); gay.rect(530, 930 + ay, 110, 26); PC.potong(gay, '#F9A8C6', { dalam: .7 });   // gayung
+  if (t < t0('m3')) for (let i = 0; i < 8; i++) { const y = (900 + ((t * 600 + i * 90) % 300)); PC.potong(PC.lingkaran(470 + R(i) * 60, y + 120, 8), '#9ED8DB', { dalam: .6, gradasi: false, bayang: 3 }); }
+  const panas = seg(t, t0('m6'), t0('m6') + .5) * (1 - seg(t, t0('m7') + .2, t1('m7'))), hilang = seg(t, t0('m7'), t1('m7')) * .55;
+  ctx.save(); ctx.globalAlpha = 1 - hilang; const f = muka([[0, 'neutral'], [t0('m3'), 'curious'], [t0('m4') + .4, 'shock'], [t0('m5') + .4, 'squint'], [t0('m6'), 'worried'], [t0('m7'), 'sad']]);
+  TOKOH(300, 1260, 27, { face: f, sq: take(t0('m3'), t0('m4') + .4, t0('m5') + .4, t0('m6'), t0('m7')), blush: panas > 0, cheeks: false, mark: t > t0('m4') + .4 && t < t0('m5') ? '!' : null, markAge: age('m4') - .4 }); ctx.restore();
+  if (panas > 0) { ctx.fillStyle = `rgba(255,90,90,${.18 * panas})`; ctx.fillRect(0, 0, W, H); for (let i = 0; i < 3; i++) PC.potong(new Path2D(`M ${210 + i * 90} ${760 - ((t * 120 + i * 40) % 120)} q 15 -30 0 -60`), MERAH, { dalam: .4, tepi: false }); }
+  // kenangan muncul sebagai kartu pop-up
+  if (t < t0('m5') - .2) kartu(620, 620, 600, 460, k('m3', .1, .7), (x, y) => { orang(x - 130, y + 180, 1, '#6BA5D8', { sanggul: true }); orang(x + 110, y + 190, .7, '#F4A35E'); if (T > t0('m4')) gelembung(x + 110, y - 120, 260, 110, '"MAMA!"', 54); });
+  else kartu(620, 620, 600, 460, k('m5', -.2, .4), (x, y) => { orang(x - 170, y + 180, .8, '#7BC47F'); orang(x - 20, y + 190, .7, '#F4A35E', { lambai: true }); orang(x + 170, y + 180, .8, '#B993E8', { lambai: true });
+    ctx.save(); ctx.strokeStyle = MERAH; ctx.lineWidth = 8; ctx.setLineDash([16, 12]); ctx.beginPath(); ctx.moveTo(x - 140, y - 30); ctx.quadraticCurveTo(x, y - 150, x + 150, y - 30); ctx.stroke(); ctx.restore(); teksKertas('ups...', x, y - 150, 50, { warna: MERAH }); }); };
+
+// MASALAH 2: kamar gelap, lampu mati -> chat salah kirim zaman SMP -> bantal -> rak kenangan: yang senang di belakang, yang malu maju
+S.malam = t => { const mati = seg(t, t0('m9'), t0('m9') + .4); kamarMalam(t, { lampu: 1 - mati, kipas: 4 });
+  if (mati > 0) { ctx.fillStyle = `rgba(8,8,25,${.45 * mati})`; ctx.fillRect(0, 0, W, H); }
+  const bantal = seg(t, t0('m11'), t0('m11') + .4), rak = seg(t, t0('m14') - .3, t0('m14') + .5);
+  const f = muka([[0, 'neutral'], [t0('m9'), 'sleepy'], [t0('m10') + .3, 'shock'], [t0('m11'), 'squint'], [t0('m12'), 'worried'], [t0('m14'), 'squint'], [t0('m15'), 'curious']]);
+  if (rak < 1) { TOKOH(330, 1110, 26, { face: f, sq: take(t0('m10') + .3, t0('m11'), t0('m12'), t0('m14')), rot: -.1, mark: t > t0('m10') + .3 && t < t0('m11') ? '!' : t > t0('m15') ? '?' : null, markAge: T - t0('m10') - .3 });
+    if (bantal > 0 && t < t0('m12') + .3) { const p = new Path2D(); p.ellipse(330, 950 + (1 - easeOut(bantal)) * 200, 170, 90, -.1, 0, TAU); PC.potong(p, '#FFFFFF', { dalam: .9 }); }
+    if (t > t0('m10') && t < t0('m11') + .5) { ctx.fillStyle = 'rgba(190,227,255,0.25)'; ctx.beginPath(); ctx.arc(560, 1000, 260, 0, TAU); ctx.fill(); }
+    hp(560, 1050, .55, { layar: t > t0('m10') && t < t0('m11') + .5 ? '#CFE8FF' : '#1C1B29' });
+    kartu(700, 640, 470, 520, k('m10', .2, .8) * (1 - seg(t, t0('m12'), t0('m12') + .4)), (x, y) => { hp(x, y + 10, 1.5);
+      gelembung(x + 10, y - 100, 160, 70, 'sayang ❤', 30); ctx.save(); ctx.strokeStyle = MERAH; ctx.lineWidth = 12; ctx.beginPath(); ctx.moveTo(x - 90, y + 20); ctx.lineTo(x + 90, y + 140); ctx.moveTo(x + 90, y + 20); ctx.lineTo(x - 90, y + 140); ctx.stroke(); ctx.restore();
+      teksKertas('ke grup kelas', x, y + 200, 38, { warna: MERAH }); });
+    if (t > t0('m12') + .2) PC.teks('5 TAHUN LALU', 540, 360, 90, { k: k('m12', .2, 1), lapis: [KUNING, '#FFFFFF'] }); }
+  if (rak > 0) { ctx.save(); ctx.globalAlpha = rak; ctx.fillStyle = 'rgba(20,18,50,0.92)'; ctx.fillRect(0, 0, W, H);
+    for (let r = 0; r < 3; r++) { PC.potong(new Path2D(`M 120 ${560 + r * 250} H 960 V ${584 + r * 250} H 120 Z`), '#C9A77E', { dalam: .3 });
+      for (let i = 0; i < 6; i++) { const malu = r === 1 && i === 3, maju = malu ? easeOut(seg(t, t0('m15'), t0('m15') + .8)) : 0, x = 190 + i * 135, y = 470 + r * 250;
+        ctx.save(); ctx.translate(x, y - maju * 200); ctx.scale(1 + maju * 1.6, 1 + maju * 1.6); const p = new Path2D(); p.roundRect(-45, -80, 90, 160, 10);
+        PC.potong(p, malu ? MERAH : (R(r * 6 + i) > .3 ? KUNING : '#9EC9F0'), { dalam: .4 + maju * .5 }); ctx.restore(); } }
+    teksKertas('kenangan senang', 540, 330, 50, { warna: KUNING }); ctx.restore();
+    TOKOH(170, 1330, 16, { face: f, sq: take(t0('m15')), mark: t > t0('m15') ? '?' : null, markAge: age('m15') }); } };
+
+// DUGAAN: "aku baperan?" -> geleng-geleng "udah, lupain!" -> kenangan malah berlipat
+S.dugaan = t => { PC.pakai('permen'); PC.langit(); const L = PC.palet().lapis;
+  PC.potong(PC.bukit(1300, 60, .8, 31), L[1], { dalam: .3 }); PC.potong(PC.bukit(1400, 50, 1.1, 32), L[3], { dalam: .5 });
+  const geleng = t > t0('d4') && t < t1('d4') + .3 ? Math.sin(t * 22) * .18 : 0, f = muka([[0, 'worried'], [t0('d2'), 'sad'], [t0('d3'), 'squint'], [t0('d5'), 'shock']]);
+  TOKOH(540, 1330, 30, { face: f, rot: geleng, sq: take(t0('d2'), t0('d3'), t0('d5')), mark: t > t0('d2') && t < t0('d3') ? 'cloud' : t > t0('d5') ? '!' : null, markAge: t > t0('d5') ? age('d5') : age('d2') });
+  if (t > t0('d2') - .1 && t < t0('d3')) gelembung(540, 520, 620, 130, '"Aku baperan, ya?"', 52);
+  if (t > t0('d4') - .1 && t < t0('d5')) gelembung(540, 520, 580, 130, '"UDAH, LUPAIN!"', 56);
+  const n = Math.floor(seg(t, t0('d5'), t0('d5') + 1.2) * 9);                                                         // kenangan malah berlipat
+  for (let i = 0; i < n; i++) { const kk = seg(t, t0('d5') + i * .12, t0('d5') + i * .12 + .4); ctx.save(); ctx.translate(180 + (i % 3) * 360, 380 + Math.floor(i / 3) * 210); ctx.rotate((R(i) - .5) * .4); ctx.scale(backOut(kk), backOut(kk));
+    const p = new Path2D(); p.roundRect(-110, -80, 220, 160, 16); PC.potong(p, MERAH, { dalam: .7 }); teksKertas('MALU', 0, 4, 46, { warna: '#FFFFFF' }); ctx.restore(); } };
+
+// PENYEBAB: dalam kepala = rak kertas; ingatan muncul sendiri beberapa kali sehari, butuh "kunci", muncul saat santai
+S.kepala = t => { PC.pakai('permen'); PC.langit();
+  const kepala = new Path2D('M 540 230 C 840 230 960 430 950 660 C 945 820 900 900 900 980 L 930 1090 C 940 1130 900 1150 860 1140 L 820 1135 L 830 1250 C 830 1300 790 1320 740 1320 L 300 1320 C 200 1320 150 1250 150 1150 C 150 1000 120 900 125 700 C 130 420 270 230 540 230 Z');
+  PC.potong(kepala, '#FFD6E5', { dalam: .3 });
+  for (let r = 0; r < 3; r++) { PC.potong(new Path2D(`M 220 ${620 + r * 220} H 820 V ${640 + r * 220} H 220 Z`), '#C66AA6', { dalam: .4 });
+    for (let i = 0; i < 5; i++) { const id = r * 5 + i, nyala = (id === 7 && t > t0('p2')) || (t > t0('p5') && [2, 9, 13].includes(id) && t > t0('p5') + .4 * [2, 9, 13].indexOf(id) + .3);
+      const loncat = nyala ? Math.sin(Math.min(1, (T - t0('p2')) * 3) * Math.PI) * 40 : 0, p = new Path2D(); p.roundRect(260 + i * 115 - 35, 545 + r * 220 - loncat, 70, 95, 8);
+      PC.potong(p, nyala ? MERAH : (R(id) > .4 ? KUNING : '#9EC9F0'), { dalam: .5 + (nyala ? .3 : 0) }); } }
+  if (t > t0('p3') && t < t0('p5')) { const kk = k('p3', 0, .8) * (1 - seg(t, t0('p5') - .4, t0('p5'))); ctx.save(); ctx.globalAlpha = kk; const p = new Path2D(); p.roundRect(330, 300, 420, 120, 30); PC.potong(p, '#FFFFFF', { dalam: .7 });
+    teksKertas('beberapa kali', 540, 342, 46, { warna: MERAH }); teksKertas('sehari', 540, 390, 40); ctx.restore(); }
+  if (t > t0('p4')) for (let i = 0; i < 5; i++) { const kk = backOut(seg(t, t0('p4') + i * .12, t0('p4') + i * .12 + .4)); if (kk > 0) { ctx.save(); ctx.translate(150 + i * 195, 1240); ctx.scale(kk * .5, kk * .5);   // semua orang
+      ctx.translate(-150 - i * 195, -1240); orang(150 + i * 195, 1290, 1, ['#6BA5D8', '#F4A35E', '#7BC47F', '#B993E8', '#F28FA8'][i]); ctx.restore(); } }
+  const kunci = [['♪', 'lagu'], ['〰', 'bau'], ['Aa', 'kata'], ['⌂', 'tempat']];                                     // "kunci" pemicu
+  if (t > t0('p5') && t < t0('p7')) kunci.forEach(([ik, nm], i) => { const kk = backOut(seg(t, t0('p6') + i * .35, t0('p6') + i * .35 + .4)); if (kk <= 0) return; ctx.save(); ctx.translate(205 + i * 225, 450); ctx.scale(kk, kk);
+    PC.potong(PC.lingkaran(0, 0, 70), KUNING, { dalam: .8 }); teksKertas(ik, 0, -8, 56); teksKertas(nm, 0, 108, 36, { warna: '#6C3B7E' }); ctx.restore(); });
+  if (t > t0('p5') - .1 && t < t0('p6')) { ctx.save(); ctx.translate(540, 450); ctx.rotate(-.2); const s2 = backOut(k('p5', 0, .5)); ctx.scale(s2, s2);                // ikon kunci
+    PC.potong(new Path2D('M -110 -30 a 50 50 0 1 0 0 60 l 160 0 l 0 -20 l -20 0 l 0 -10 l 20 0 l 0 -30 Z'), KUNING, { dalam: .8 }); ctx.restore(); }
+  if (t > t0('p7') - .2) [['mandi', '#9ED8DB'], ['rebahan', '#B993E8'], ['mau tidur', '#3B3F78']].forEach(([nm, w2], i) => { const kk = backOut(seg(t, t0('p8') + i * .3, t0('p8') + i * .3 + .4)); if (kk <= 0) return;
+    ctx.save(); ctx.translate(230 + i * 310, 430); ctx.scale(kk, kk); PC.potong(PC.lingkaran(0, 0, 105), w2, { dalam: .8 }); adriy(0, 70, 7, { face: i === 2 ? 'sleepy' : 'happy' }); teksKertas(nm, 0, 150, 38, { warna: '#6C3B7E' }); ctx.restore(); });
+  if (t > t0('p7') - .3 && t < t0('p8')) PC.teks('PAS SANTAI', 540, 430, 100, { k: k('p7', -.3, .5), lapis: [MERAH, '#FFFFFF'] });
+  TOKOH(920, 1330, 13, { face: muka([[0, 'curious'], [t0('p2'), 'happy'], [t0('p5'), 'curious'], [t0('p7'), 'laugh']]), sq: take(t0('p2'), t0('p5'), t0('p7')) }); };
+
+// MOMEN ARFIY WORLD: stempel kertas + Adriy menunjuk bangga
+S.brand = t => { PC.pakai('senja'); PC.langit(); const L = PC.palet().lapis; L.slice(2).forEach((c, i) => PC.potong(PC.bukit(1150 + i * 110, 70, .9 + i * .2, 40 + i), c, { dalam: (i + 2) / 6 }));
+  const st = t1('a1') - .25, kk = seg(t, st, st + .35);
+  if (kk > 0) { ctx.save(); ctx.translate(540, 560); ctx.rotate(-.06); const s = 1 + 1.2 * (1 - easeOut(kk)); ctx.scale(s, s); ctx.globalAlpha = Math.min(1, kk * 3);
+    const g = ctx.createRadialGradient(0, 0, 0, 0, 0, 420); g.addColorStop(0, 'rgba(255,230,160,0.6)'); g.addColorStop(1, 'rgba(255,230,160,0)'); ctx.fillStyle = g; ctx.fillRect(-500, -400, 1000, 800);
+    const p = new Path2D(); p.roundRect(-330, -110, 660, 220, 50); PC.potong(p, '#FFF6E8', { dalam: .9 }); adriy(-230, 70, 9, { face: 'happy' });
+    ctx.font = `700 84px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#A94676'; ctx.fillText('Arfiy World', 60, 4); ctx.restore(); }
+  TOKOH(540, 1300, 30, { face: t > st ? 'happy' : 'curious', arms: t > st ? [.3, 1.45] : [.3, .3], sq: take(st), look: [0, -1] });
+  if (t > t0('a1b')) PC.teks('KOK MOMEN MALU?', 540, 920, 80, { k: k('a1b', 0, .8), lapis: [MERAH, '#FFFFFF'] }); };
+
+// AMIGDALA: deg-degan -> amigdala sibuk -> hormon stres -> "mengunci" kenangan (gembok) -> otak waspada = menjaga (payung)
+S.amigdala = t => { PC.pakai('permen'); PC.langit();
+  const kepala = new Path2D('M 540 260 C 820 260 920 440 910 640 C 905 800 870 880 870 950 L 330 950 C 230 950 180 880 180 800 C 180 700 160 620 165 560 C 170 380 300 260 540 260 Z');
+  PC.potong(kepala, '#FFD6E5', { dalam: .3 });
+  const detak = Math.pow(Math.max(0, Math.sin(t * 9)), 8), sibuk = seg(t, t0('q2'), t0('q2') + .5);
+  if (t < t0('q2')) { const h = new Path2D(), s = 1 + .12 * detak; ctx.save(); ctx.translate(540, 620); ctx.scale(s, s); h.moveTo(0, 120); h.bezierCurveTo(-200, 0, -120, -150, 0, -60); h.bezierCurveTo(120, -150, 200, 0, 0, 120); PC.potong(h, MERAH, { dalam: .7 }); ctx.restore();
+    teksKertas('deg-degan!', 540, 830, 54, { warna: '#A94676' }); }
+  else { const am = new Path2D(); am.ellipse(560, 650, 70 * (1 + .1 * detak * sibuk), 45, .4, 0, TAU); PC.potong(am, '#FF8A3D', { dalam: .7 });
+    if (sibuk > 0) { ctx.fillStyle = `rgba(255,138,61,${.35 * sibuk * (.6 + .4 * detak)})`; ctx.beginPath(); ctx.arc(560, 650, 150, 0, TAU); ctx.fill(); }
+    teksKertas('amigdala', 560, 760, 46, { warna: '#A94676' });
+    if (t > t0('q3')) for (let i = 0; i < 10; i++) { const a = i / 10 * TAU + t, r = 160 + 40 * Math.sin(t * 3 + i); PC.potong(PC.bintang(560 + Math.cos(a) * r, 650 + Math.sin(a) * r, 16, 4), KUNING, { dalam: .8, gradasi: false, bayang: 4 }); }
+    if (t > t0('q3') + .5) { const kk = backOut(seg(t, t0('q3') + .5, t0('q3') + 1.1)); ctx.save(); ctx.translate(800, 420); ctx.scale(kk, kk); const p = new Path2D(); p.roundRect(-60, -90, 120, 160, 12); PC.potong(p, MERAH, { dalam: .7 });
+      const g = new Path2D(); g.roundRect(-55, 10, 110, 90, 14); PC.potong(g, '#F6C85F', { dalam: .9 }); ctx.strokeStyle = '#B08A2E'; ctx.lineWidth = 14; ctx.beginPath(); ctx.arc(0, 10, 34, Math.PI, 0); ctx.stroke(); ctx.restore(); } }
+  if (t > t0('q4') && t < t0('q5')) PC.teks('JELAS BANGET', 540, 1080, 90, { k: k('q4', 0, .7), lapis: [MERAH, '#FFFFFF'] });
+  if (t > t0('q5')) { const kk = seg(t, t0('q6'), t0('q6') + .6); PC.teks(t > t0('q7') ? 'OTAKMU JAGAIN KAMU' : 'BIAR NGGAK NGULANG', 540, 1080, 74, { k: k(t > t0('q7') ? 'q7' : 'q5', 0, .8), lapis: [KUNING, '#A94676'] });
+    if (t > t0('q7')) { const u = new Path2D(); u.moveTo(380, 1290); u.quadraticCurveTo(540, 1110, 700, 1290); u.quadraticCurveTo(660, 1270, 620, 1290); u.quadraticCurveTo(580, 1270, 540, 1290); u.quadraticCurveTo(500, 1270, 460, 1290); u.quadraticCurveTo(420, 1270, 380, 1290); PC.potong(u, '#7BC47F', { dalam: .85 }); } }
+  TOKOH(880, 1330, 15, { face: muka([[0, 'shock'], [t0('q2'), 'curious'], [t0('q4'), 'worried'], [t0('q5'), 'curious'], [t0('q7'), 'happy']]), sq: take(t0('q2'), t0('q4'), t0('q5'), t0('q7')) }); };
+
+// PUDAR: kabar baik — warna kartu malu memudar lebih cepat daripada kartu senang
+S.pudar = t => { PC.pakai('senja'); PC.langit(); const L = PC.palet().lapis; PC.potong(PC.bukit(1280, 60, .8, 51), L[3], { dalam: .4 }); PC.potong(PC.bukit(1380, 50, 1.2, 52), L[5], { dalam: .6 });
+  const p = seg(t, t0('q8') + .3, t1('q10')), pm = 1 - .85 * ease(p), ps = 1 - .3 * ease(p);
+  const kartu2 = (x, warna, a, lbl) => { const kk = backOut(seg(t, t0('q8') - .2, t0('q8') + .3)); ctx.save(); ctx.translate(x, 700); ctx.scale(kk, kk); const q = new Path2D(); q.roundRect(-170, -230, 340, 460, 22); PC.potong(q, '#FFFFFF', { dalam: .6 });
+    ctx.globalAlpha = a; const q2 = new Path2D(); q2.roundRect(-150, -210, 300, 420, 16); ctx.fillStyle = warna; ctx.fill(q2); ctx.globalAlpha = 1; teksKertas(lbl, 0, 290, 50, { warna: '#FFFFFF' }); ctx.restore(); };
+  kartu2(300, MERAH, pm, 'malu'); kartu2(780, KUNING, ps, 'senang');
+  PC.teks('MEMUDAR', 300, 330, 80, { k: k('q8', .4, 1.2), lapis: ['#FFFFFF', MERAH] });
+  TOKOH(540, 1260, 22, { face: muka([[0, 'happy'], [t0('q9'), 'star'], [t0('q10'), 'happy']]), sq: take(t0('q9'), t0('q10')) }); };
+
+// SOLUSI 1: jangan diusir — "beruang putih" makin banyak; biarkan lewat seperti awan
+S.langkah1 = t => { PC.pakai('senja'); PC.langit(); const L = PC.palet().lapis;
+  PC.potong(PC.lingkaran(800, 420, 90), '#FFF1C1', { dalam: .1 }); L.slice(1).forEach((c, i) => PC.potong(PC.bukit(1100 + i * 90, 70, .9 + i * .2, 60 + i, t * 6 * (i % 2 ? 1 : -1)), c, { dalam: (i + 1) / 6 }));
+  if (t > t0('s2') - .2) { const p = new Path2D(); p.roundRect(140, 260, 800, 130, 36); ctx.save(); ctx.globalAlpha = k('s2', -.2, .3); PC.potong(p, '#FFFFFF', { dalam: .8 }); teksKertas('1. Jangan diusir paksa', 540, 326, 58, { warna: '#A94676' }); ctx.restore(); }
+  const beruang = (x, y, s) => { ctx.save(); ctx.translate(x, y); ctx.scale(s, s); for (const [dx, dy, r] of [[-38, -58, 22], [38, -58, 22], [0, 0, 70], [0, -30, 50]]) PC.potong(PC.lingkaran(dx, dy - 20, r), '#FFFFFF', { dalam: .7, tepi: false });
+    ctx.fillStyle = TINTA; for (const d of [-1, 1]) { ctx.beginPath(); ctx.arc(d * 16, -55, 5, 0, TAU); ctx.fill(); } ctx.beginPath(); ctx.arc(0, -38, 8, 0, TAU); ctx.fill(); ctx.restore(); };
+  if (t > t0('s3') && t < t0('s5')) { const n = 1 + Math.floor(seg(t, t0('s4'), t1('s4')) * 7); for (let i = 0; i < n; i++) beruang(220 + (i % 4) * 210, 640 + Math.floor(i / 4) * 230, .9 * backOut(seg(t, t0('s3') + (i ? t0('s4') - t0('s3') + i * .25 : 0), t0('s3') + (i ? t0('s4') - t0('s3') + i * .25 : 0) + .4)));
+    if (t < t0('s4')) gelembung(540, 980, 520, 110, '"jangan pikirin!"', 46); }
+  if (t > t0('s5') - .2) { const x = -250 + 1600 * seg(t, t0('s5'), t1('s6') + .5); PC.potong(PC.awan(x, 700, 260, 71), '#FFFFFF', { dalam: .5 }); ctx.save(); ctx.translate(x, 700); const p = new Path2D(); p.roundRect(-60, -60, 120, 90, 10); PC.potong(p, MERAH, { dalam: .6 }); ctx.restore(); }
+  TOKOH(300, 1300, 24, { face: muka([[0, 'curious'], [t0('s3'), 'worried'], [t0('s4') + .5, 'shock'], [t0('s5'), 'happy'], [t0('s6'), 'sleepy']]), sq: take(t0('s3'), t0('s4') + .5, t0('s5')) }); };
+
+// SOLUSI 2: kasih nama perasaannya — label "rasa malu" menempel, amigdala tenang
+S.langkah2 = t => { PC.pakai('senja'); PC.langit(); const L = PC.palet().lapis; L.slice(2).forEach((c, i) => PC.potong(PC.bukit(1150 + i * 100, 60, .9 + i * .3, 80 + i), c, { dalam: (i + 2) / 6 }));
+  const p0 = new Path2D(); p0.roundRect(140, 260, 800, 130, 36); PC.potong(p0, '#FFFFFF', { dalam: .8 }); teksKertas('2. Kasih nama perasaannya', 540, 326, 54, { warna: '#A94676' });
+  const q = new Path2D(); q.roundRect(380, 520, 320, 420, 20); PC.potong(q, MERAH, { dalam: .6 });
+  const lb = backOut(seg(t, t0('s8') + .3, t0('s8') + .8)); if (lb > 0) { ctx.save(); ctx.translate(540, 900); ctx.rotate(-.08); ctx.scale(lb, lb); const tg = new Path2D(); tg.roundRect(-190, -55, 380, 110, 20); PC.potong(tg, KUNING, { dalam: .9 }); teksKertas('"ini rasa malu"', 0, 4, 48); ctx.restore(); }
+  const tenang = seg(t, t0('s9') + .3, t1('s9')), r = 120 * (1 - .6 * tenang); ctx.fillStyle = `rgba(255,138,61,${.5 - .35 * tenang})`; ctx.beginPath(); ctx.arc(840, 640, r, 0, TAU); ctx.fill();
+  const am = new Path2D(); am.ellipse(840, 640, 50, 32, .4, 0, TAU); PC.potong(am, tenang > .5 ? '#9ED8DB' : '#FF8A3D', { dalam: .7 }); teksKertas('amigdala', 840, 730, 34, { warna: '#FFFFFF' });
+  TOKOH(260, 1300, 24, { face: muka([[0, 'worried'], [t0('s8') + .3, 'curious'], [t0('s9') + .5, 'happy']]), sq: take(t0('s8') + .3, t0('s9') + .5) }); };
+
+// SOLUSI 3: pakai namamu sendiri — gelembung "Rina, itu 5 tahun lalu" -> kamera mundur, kenangan mengecil (lihat dari jauh)
+S.langkah3 = t => { PC.pakai('senja'); PC.langit(); const L = PC.palet().lapis, jauh = ease(seg(t, t0('s12'), t1('s12')));
+  PC.lapisan(.2, { zoom: 1 - .25 * jauh }, () => { PC.potong(PC.lingkaran(820, 420, 90), '#FFF1C1', { dalam: .1 }); });
+  L.slice(1).forEach((c, i) => PC.lapisan((i + 1) / 6, { zoom: 1 - .3 * jauh }, () => PC.potong(PC.bukit(1100 + i * 90, 70, .9 + i * .2, 90 + i), c, { dalam: (i + 1) / 6 })));
+  const p0 = new Path2D(); p0.roundRect(140, 260, 800, 130, 36); PC.potong(p0, '#FFFFFF', { dalam: .8 }); teksKertas('3. Pakai namamu sendiri', 540, 326, 54, { warna: '#A94676' });
+  PC.lapisan(.9, { zoom: 1 - .45 * jauh }, () => { const q = new Path2D(); q.roundRect(700, 560, 200, 260, 14); PC.potong(q, MERAH, { dalam: .6 });
+    TOKOH(380, 1230, 26 , { face: muka([[0, 'curious'], [t0('s11'), 'happy'], [t0('s12'), 'star']]), sq: take(t0('s11'), t0('s12')) }); });
+  if (t > t0('s11') && t < t0('s13')) gelembung(540, 820 - jauh * 40, 760, 140, '"Rina, itu 5 tahun lalu."', 48);
+  if (t > t0('s13')) PC.teks('LEBIH RINGAN', 540, 520, 96, { k: k('s13', 0, .7), lapis: [KUNING, '#A94676'] }); };
+
+// CTA: kesimpulan hangat -> "ceritain dalam 3 kata" (3 kotak kertas) -> pin -> kirim ke teman
+S.cta = t => { PC.pakai('senja'); PC.langit(); const L = PC.palet().lapis; L.slice(2).forEach((c, i) => PC.potong(PC.bukit(1120 + i * 100, 60, .8 + i * .3, 110 + i), c, { dalam: (i + 2) / 6 }));
+  if (t < t0('r3')) PC.teks(t > t0('r2') ? 'OTAKMU PEDULI' : 'KAMU NGGAK ANEH', 540, 480, 92, { k: k(t > t0('r2') ? 'r2' : 'r1', 0, .8), lapis: [KUNING, '#A94676'] });
+  else { teksKertas('Momen paling malumu:', 540, 400, 56, { warna: '#FFFFFF' });
+    const kata = ['panggil', 'guru', 'Mama']; kata.forEach((w, i) => { const kk = backOut(seg(t, t0('r4') + i * .25, t0('r4') + i * .25 + .4)); if (kk <= 0) return; ctx.save(); ctx.translate(250 + i * 290, 560); ctx.rotate((R(i) - .5) * .12); ctx.scale(kk, kk);
+      const p = new Path2D(); p.roundRect(-125, -60, 250, 120, 18); PC.potong(p, '#FFFFFF', { dalam: .8 }); teksKertas(t > t0('r5') ? w : '...', 0, 4, 52, { warna: '#A94676' }); ctx.restore(); });
+    if (t > t0('r6')) { const kk = backOut(k('r6', 0, .4)); ctx.save(); ctx.translate(780, 760); ctx.scale(kk, kk); ctx.rotate(.3); PC.potong(PC.lingkaran(0, -30, 30), MERAH, { dalam: .9 }); PC.potong(new Path2D('M -6 0 L 6 0 L 0 50 Z'), '#9AA0A6', { dalam: .9 }); ctx.restore(); teksKertas('di-pin!', 850, 850, 44, { warna: '#FFFFFF' }); }
+    if (t > t0('r7')) { orang(330, 1150, .8, '#6BA5D8'); orang(560, 1150, .8, '#F4A35E'); ctx.save(); ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 8; ctx.setLineDash([14, 10]); ctx.beginPath(); ctx.moveTo(700, 1000); ctx.quadraticCurveTo(620, 880, 560, 950); ctx.stroke(); ctx.restore(); } }
+  TOKOH(790, 1300, 22, { face: muka([[0, 'happy'], [t0('r3'), 'laugh'], [t0('r6'), 'star'], [t0('r7'), 'happy']]), arms: t > t0('r4') && t < t0('r6') ? [.3, 1.45] : [.3, .5], sq: take(t0('r3'), t0('r6'), t0('r7')) }); };
+S.akhir = t => {};
+
+// ---------- efek suara (cues.json): my: = ElevenLabs milik pemilik, own: = buatan kode, lainnya sfx-kit CC0 ----------
+window.cues = () => {
+  c(0, 'my:suasana_malam_sepi', .35); c(0, 'my:musik_piano_arpeggio_lembut', .35);                                       // room tone + soft piano (tema 7)
+  c(t0('h2') + .1, 'my:ui_notifikasi_ping', .7); c(t0('h2') + .2, 'own:kertas-lepas', .6); c(t0('h2') + .3, 'pops/pop-large-in', .5); c(t0('h3'), 'my:ui_tanya_pop', .4);
+  c(t0('m2'), 'foley/foley-glass-slide', .3); c(t0('m3') + .1, 'own:kertas-lepas', .5); c(t0('m4') + .3, 'my:sinematik_kejutan_tajam', .45); c(t0('m5'), 'own:kertas-lepas', .5); c(t0('m6'), 'my:ui_salah_buzzer', .3);
+  c(t0('m9'), 'foley/foley-plastic-touch', .5); c(t0('m10') + .2, 'my:ui_notifikasi_ping', .6); c(t0('m10') + .3, 'own:kertas-lepas', .5); c(t0('m11'), 'foley/foley-fabric-touch', .6);
+  c(t0('m14') - .3, 'own:kertas-sobek', .4); c(t0('m15'), 'pops/pop-medium-in', .5);
+  c(t0('d4'), 'foley/foley-fabric-slide', .4); for (let i = 0; i < 9; i++) c(t0('d5') + i * .12, 'pops/pop-small-in', .35);
+  c(t0('p2'), 'pops/pop-medium-bubble', .5); c(t0('p3'), 'my:ui_ide_lonceng', .4); for (let i = 0; i < 4; i++) c(t0('p6') + i * .35, 'pops/pop-small-bubble', .4); c(t0('p7') - .3, 'my:transisi_whoosh', .3);
+  c(t1('a1') - .25, 'logo-stings/sting-bright-short', 1); c(t1('a1') - .25, 'my:alat_stempel_hantaman', .5);
+  c(t0('q1'), 'my:tubuh_detak_jantung', .55); c(t0('q3') + .5, 'mechanical/mechanical-lock-heavy', .5); c(t0('q7'), 'shimmers/shimmer-medium-sparkle', .45);
+  c(t0('q8'), 'my:tubuh_merinding_berkilau', .35); c(t0('q9'), 'shimmers/shimmer-long-soft', .35);
+  c(t0('s2'), 'pops/pop-large-in', .4); for (let i = 0; i < 8; i++) c(t0('s4') + i * .25, 'pops/pop-small-in', .3); c(t0('s5'), 'whooshes/whoosh-slow-soft', .35);
+  c(t0('s7'), 'pops/pop-large-in', .4); c(t0('s8') + .3, 'own:kertas-lepas', .5); c(t0('s9') + .3, 'shimmers/shimmer-long-soft', .35);
+  c(t0('s10'), 'pops/pop-large-in', .4); c(t0('s12'), 'whooshes/whoosh-slow-soft', .3); c(t0('s13'), 'my:ui_hadiah_naik_level', .35);
+  for (let i = 0; i < 3; i++) c(t0('r4') + i * .25, 'pops/pop-medium-in', .45); c(t0('r6'), 'my:alat_stempel_hantaman', .35); c(t0('r7'), 'my:transisi_whoosh', .3);
+  c(t0('z') - .3, 'logo-stings/sting-warm-long', 1);
+  for (const s of SC.slice(1)) if (s.name !== 'akhir') c(s.a, 'own:kertas-lepas', .25);
+};
+</script>
+</body></html>

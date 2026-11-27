@@ -4,7 +4,7 @@ Pengaturan di <folder>/musik.json:
   {"musik": [{"file": "x.ogg", "dari": "h1", "sampai": "e3", "gain": 1.0}, ...],   # dari/sampai = id kalimat (atau "awal"/"akhir"); crossfade 1,5 detik
    "jingle": [["h1", "h3", 0.6]],    # opsional: lagu "nyangkut" buatan kode sendiri (milik kita)
    "nama": "judul-file"}
-Efek suara dari cues.json: 'mk:<nama>' = Mixkit milik pemilik (projects/sfx-saya/mixkit/normal), lainnya repos/sfx-kit/sounds (CC0).
+Efek suara dari cues.json: 'my:<nama>' = efek ElevenLabs milik pemilik (projects/sfx-saya/normal), 'mk:<nama>' = Mixkit milik pemilik (projects/sfx-saya/mixkit/normal), 'own:' = buatan kode (_bersama/sfx), lainnya repos/sfx-kit/sounds (CC0).
 Musik turun ~10 dB saat narasi bicara; turun lagi di bawah bunyi khas nama akun; menutup bersama kartu "Explore More, Know More"."""
 import os, sys, json, subprocess, numpy as np, soundfile as sf, librosa
 D = os.path.abspath(sys.argv[1]); ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')); SR = 44100
@@ -49,7 +49,7 @@ if 'z' in L:    # closing card: music fades out together with the warm sting
 fade = np.ones(N); fade[:int(.3 * SR)] = np.linspace(0, 1, int(.3 * SR)); fade[-int(.6 * SR):] = np.linspace(1, 0, int(.6 * SR)); music *= fade
 sfx = np.zeros((2, N), np.float32); miss = []
 for t, f, g in json.load(open(os.path.join(D, 'cues.json'))):
-    p = os.path.join(ROOT, 'projects', 'sfx-saya', 'mixkit', 'normal', f[3:] + '.wav') if f.startswith('mk:') else os.path.join(ROOT, 'projects', '_bersama', 'sfx', f[4:] + '.wav') if f.startswith('own:') else os.path.join(ROOT, 'repos', 'sfx-kit', 'sounds', f + '.wav')
+    p = os.path.join(ROOT, 'projects', 'sfx-saya', 'normal', f[3:] + '.wav') if f.startswith('my:') else os.path.join(ROOT, 'projects', 'sfx-saya', 'mixkit', 'normal', f[3:] + '.wav') if f.startswith('mk:') else os.path.join(ROOT, 'projects', '_bersama', 'sfx', f[4:] + '.wav') if f.startswith('own:') else os.path.join(ROOT, 'repos', 'sfx-kit', 'sounds', f + '.wav')
     if not os.path.exists(p): miss.append(f); continue
     s = load(p)
     if f.startswith('mk:') and s.shape[1] > 6 * SR: s = s[:, :int(6 * SR)] * np.r_[np.ones(int(5 * SR)), np.linspace(1, 0, int(1 * SR))]   # long ambiences: 6 s max

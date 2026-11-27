@@ -140,5 +140,6 @@
 
 ## Yang perlu disiapkan sebelum produksi
 - Efek suara tema 7 masih ⭐: tambah **soft piano** dan **room tone** (aturan §1). Efek lain: notifikasi HP, "boing" kertas pop-up, gemerisik kertas, bantal, guyuran air.
-- Musik CC0 (`projects/musik/ambil_musik.py`): lembut dan sedikit jahil di bagian masalah, ringan di penjelasan, hangat di solusi.
+- **Musik CC0** (Tallbeard Studios Music Loop Bundle, CC0-1.0, lewat `projects/musik/ambil_musik.py`): *Sketchbook 2024-02-28_01* (playful) untuk hook–dugaan, *Sketchbook 2023-11-29* (dreamy) untuk penyebab, *LD 06* (`ludum-dare-30-06`, uplifting) untuk solusi–akhir.
+- **Efek suara:** soft piano & room tone dari koleksi ElevenLabs pemilik (`musik_piano_arpeggio_lembut`, `suasana_malam_sepi`) ✓, sfx-kit (CC0), dan bunyi kertas buatan kode.
 - Ejaan suara (§14): cek "amigdala", "Arfiy World" ("Arfi Werld"), dan "Stay Curious, World!" dengan `cek_ucapan.py`.

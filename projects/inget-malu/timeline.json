@@ -1,0 +1,396 @@
+{
+"duration": 169.0,
+"lines": [
+{
+"id": "h1",
+"t0": 0.3,
+"t1": 1.686,
+"cap": "Lagi rebahan, senyum-senyum sendiri."
+},
+{
+"id": "h2",
+"t0": 1.936,
+"t1": 4.362,
+"cap": "Tiba-tiba, inget kejadian *memalukan* lima tahun lalu."
+},
+{
+"id": "h3",
+"t0": 4.612,
+"t1": 5.998,
+"cap": "Tenang. Kamu *bukan* lebay."
+},
+{
+"id": "h4",
+"t0": 6.248,
+"t1": 7.981,
+"cap": "Otakmu memang lagi ngelakuin sesuatu."
+},
+{
+"id": "m1",
+"t0": 8.681,
+"t1": 10.414,
+"cap": "Kamu pasti pernah ngalamin ini."
+},
+{
+"id": "m2",
+"t0": 10.664,
+"t1": 12.743,
+"cap": "Lagi mandi, nyiram air, pikiran kosong."
+},
+{
+"id": "m3",
+"t0": 12.993,
+"t1": 14.379,
+"cap": "Terus muncul momen itu."
+},
+{
+"id": "m4",
+"t0": 14.629,
+"t1": 16.362,
+"cap": "Salah panggil guru jadi *\"Mama\".*"
+},
+{
+"id": "m5",
+"t0": 16.612,
+"t1": 19.731,
+"cap": "Atau lambai balik, padahal orangnya nyapa orang di belakangmu."
+},
+{
+"id": "m6",
+"t0": 19.981,
+"t1": 22.061,
+"cap": "Mukamu panas sendiri, di kamar mandi."
+},
+{
+"id": "m7",
+"t0": 22.311,
+"t1": 23.697,
+"cap": "Pengen *ngilang* aja rasanya."
+},
+{
+"id": "m8",
+"t0": 23.947,
+"t1": 24.986,
+"cap": "Malam juga sama."
+},
+{
+"id": "m9",
+"t0": 25.236,
+"t1": 27.316,
+"cap": "Udah matiin lampu, udah siap tidur."
+},
+{
+"id": "m10",
+"t0": 27.566,
+"t1": 30.685,
+"cap": "Eh, yang muncul malah chat *salah* kirim zaman SMP."
+},
+{
+"id": "m11",
+"t0": 30.935,
+"t1": 33.014,
+"cap": "Kamu langsung tutup muka pakai *bantal.*"
+},
+{
+"id": "m12",
+"t0": 33.264,
+"t1": 34.65,
+"cap": "Padahal kejadiannya udah bertahun-tahun."
+},
+{
+"id": "m13",
+"t0": 34.9,
+"t1": 36.98,
+"cap": "Padahal orang lain kayaknya udah lupa."
+},
+{
+"id": "m14",
+"t0": 37.23,
+"t1": 40.002,
+"cap": "Yang bikin kesal, kenangan senangnya *jarang* muncul begini."
+},
+{
+"id": "m15",
+"t0": 40.252,
+"t1": 43.025,
+"cap": "Kenapa yang diputar ulang malah yang paling *malu?*"
+},
+{
+"id": "d1",
+"t0": 43.725,
+"t1": 46.497,
+"cap": "Banyak yang ngira, ini tanda ada yang *salah.*"
+},
+{
+"id": "d2",
+"t0": 46.747,
+"t1": 48.48,
+"cap": "\"Aku kok baperan banget, ya?\""
+},
+{
+"id": "d3",
+"t0": 48.73,
+"t1": 50.463,
+"cap": "Terus kita maksa ngusir pikirannya."
+},
+{
+"id": "d4",
+"t0": 50.713,
+"t1": 52.792,
+"cap": "Geleng-geleng kepala, sambil bilang, \"Udah, lupain!\""
+},
+{
+"id": "d5",
+"t0": 53.042,
+"t1": 54.428,
+"cap": "Hasilnya? Malah makin *kebayang.*"
+},
+{
+"id": "p1",
+"t0": 55.128,
+"t1": 57.554,
+"cap": "Ternyata, ini kerja otak yang *normal* banget."
+},
+{
+"id": "p2",
+"t0": 57.804,
+"t1": 60.576,
+"cap": "Namanya ingatan yang muncul *sendiri,* tanpa kamu panggil."
+},
+{
+"id": "p3",
+"t0": 60.826,
+"t1": 63.945,
+"cap": "Penelitian buku harian menemukan, ini terjadi *beberapa* kali sehari."
+},
+{
+"id": "p4",
+"t0": 64.195,
+"t1": 66.621,
+"cap": "Ke *semua* orang, bukan ke kamu doang."
+},
+{
+"id": "p5",
+"t0": 66.871,
+"t1": 69.297,
+"cap": "Ingatan ini butuh *\"kunci\"* kecil buat kebuka."
+},
+{
+"id": "p6",
+"t0": 69.547,
+"t1": 72.666,
+"cap": "Bisa lagu, bau, satu kata, atau tempat yang mirip."
+},
+{
+"id": "p7",
+"t0": 72.916,
+"t1": 75.689,
+"cap": "Dan paling gampang muncul pas pikiranmu lagi *santai.*"
+},
+{
+"id": "p8",
+"t0": 75.939,
+"t1": 78.365,
+"cap": "Kayak pas mandi, rebahan, atau mau tidur."
+},
+{
+"id": "a1",
+"t0": 79.065,
+"t1": 81.49,
+"cap": "Ini bagian favorit kami di Arfiy World..."
+},
+{
+"id": "a1b",
+"t0": 82.24,
+"t1": 84.32,
+"cap": "kenapa yang nongol justru momen *malu?*"
+},
+{
+"id": "q1",
+"t0": 85.02,
+"t1": 87.446,
+"cap": "Waktu kamu malu, jantungmu deg-degan, mukamu panas."
+},
+{
+"id": "q2",
+"t0": 87.696,
+"t1": 90.815,
+"cap": "Di saat itu, bagian otak bernama *amigdala* ikut sibuk."
+},
+{
+"id": "q3",
+"t0": 91.065,
+"t1": 94.184,
+"cap": "Dibantu hormon stres, dia *\"mengunci\"* momen itu lebih kuat."
+},
+{
+"id": "q4",
+"t0": 94.434,
+"t1": 97.206,
+"cap": "Makanya kejadian malu terasa *jelas* banget, bertahun-tahun kemudian."
+},
+{
+"id": "q5",
+"t0": 97.456,
+"t1": 100.575,
+"cap": "Salah satu penjelasannya, otak lebih *waspada* sama hal buruk."
+},
+{
+"id": "q6",
+"t0": 100.825,
+"t1": 103.598,
+"cap": "Dia pengen kamu *belajar,* biar nggak ngulang lagi."
+},
+{
+"id": "q7",
+"t0": 103.848,
+"t1": 106.62,
+"cap": "Jadi, otakmu bukan jahat. Dia lagi *jagain* kamu."
+},
+{
+"id": "q8",
+"t0": 106.87,
+"t1": 107.77,
+"cap": "Serius."
+},
+{
+"id": "q9",
+"t0": 108.02,
+"t1": 110.793,
+"cap": "Dan kabar baiknya, rasa malu *memudar* lebih cepat."
+},
+{
+"id": "q10",
+"t0": 111.043,
+"t1": 113.815,
+"cap": "Lebih cepat daripada rasa senang dari kenangan indah."
+},
+{
+"id": "s1",
+"t0": 114.515,
+"t1": 117.287,
+"cap": "Terus, pas momen itu nongol lagi, harus ngapain?"
+},
+{
+"id": "s2",
+"t0": 117.737,
+"t1": 119.124,
+"cap": "Pertama, jangan *diusir* paksa."
+},
+{
+"id": "s3",
+"t0": 119.374,
+"t1": 122.493,
+"cap": "Ada percobaan terkenal: orang disuruh jangan mikirin *beruang* putih."
+},
+{
+"id": "s4",
+"t0": 122.743,
+"t1": 125.169,
+"cap": "Hasilnya, beruang putihnya malah *makin* sering muncul."
+},
+{
+"id": "s5",
+"t0": 125.419,
+"t1": 127.151,
+"cap": "Jadi biarkan aja dia lewat."
+},
+{
+"id": "s6",
+"t0": 127.401,
+"t1": 129.134,
+"cap": "Kayak awan lewat di langit."
+},
+{
+"id": "s7",
+"t0": 129.384,
+"t1": 130.77,
+"cap": "Kedua, kasih *nama* perasaannya."
+},
+{
+"id": "s8",
+"t0": 131.02,
+"t1": 133.446,
+"cap": "Bilang dalam hati, \"Oh, ini rasa malu.\""
+},
+{
+"id": "s9",
+"t0": 133.696,
+"t1": 136.469,
+"cap": "Peneliti menemukan, menamai perasaan bikin amigdala lebih *tenang.*"
+},
+{
+"id": "s10",
+"t0": 136.719,
+"t1": 139.145,
+"cap": "Ketiga, ngomong ke dirimu pakai *namamu* sendiri."
+},
+{
+"id": "s11",
+"t0": 139.395,
+"t1": 142.514,
+"cap": "Misalnya, \"Rina, itu lima tahun lalu. Kamu udah beda.\""
+},
+{
+"id": "s12",
+"t0": 142.764,
+"t1": 146.576,
+"cap": "Bicara begini bikin kamu lihat dari jauh, dan rasanya lebih *ringan.*"
+},
+{
+"id": "s13",
+"t0": 146.826,
+"t1": 148.212,
+"cap": "Tiga langkah. Gampang, kan?"
+},
+{
+"id": "r1",
+"t0": 148.912,
+"t1": 151.684,
+"cap": "Jadi, momen malu itu bukan tanda kamu *aneh.*"
+},
+{
+"id": "r2",
+"t0": 151.934,
+"t1": 154.014,
+"cap": "Itu tanda otakmu *peduli* sama kamu."
+},
+{
+"id": "r3",
+"t0": 154.264,
+"t1": 155.65,
+"cap": "Nah, sekarang giliran kamu."
+},
+{
+"id": "r4",
+"t0": 155.9,
+"t1": 158.326,
+"cap": "Ceritain momen paling malumu, cukup *tiga* kata."
+},
+{
+"id": "r5",
+"t0": 158.576,
+"t1": 159.962,
+"cap": "Misalnya, \"panggil guru Mama.\""
+},
+{
+"id": "r6",
+"t0": 160.212,
+"t1": 161.945,
+"cap": "Jawaban paling lucu aku *pin.*"
+},
+{
+"id": "r7",
+"t0": 162.195,
+"t1": 165.66,
+"cap": "Terus, kirim ke teman yang dulu ada di *momen* itu."
+},
+{
+"id": "z",
+"t0": 166.11,
+"t1": 167.15,
+"cap": "Stay Curious, World!"
+}
+],
+"perkiraan": true
+}

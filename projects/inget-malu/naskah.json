@@ -1,0 +1,720 @@
+{
+ "judul": "Lagi seneng, tiba-tiba inget kejadian malu 5 tahun lalu",
+ "lead": 0.3,
+ "lines": [
+  {
+   "id": "h1",
+   "gap": 0.25,
+   "style": "warm, relaxed, smiling",
+   "text": "Lagi rebahan, senyum-senyum sendiri.",
+   "cap": "Lagi rebahan, senyum-senyum sendiri.",
+   "kunci": [
+    "senyum-senyum",
+    "rebahan"
+   ]
+  },
+  {
+   "id": "h2",
+   "gap": 0.25,
+   "style": "sudden shock, comedic",
+   "text": "Tiba-tiba, inget kejadian memalukan lima tahun lalu.",
+   "cap": "Tiba-tiba, inget kejadian *memalukan* lima tahun lalu.",
+   "kunci": [
+    "Tiba-tiba",
+    "memalukan"
+   ]
+  },
+  {
+   "id": "h3",
+   "gap": 0.25,
+   "style": "firm, reassuring",
+   "text": "Tenang. Kamu bukan lebay.",
+   "cap": "Tenang. Kamu *bukan* lebay.",
+   "kunci": [
+    "Tenang",
+    "bukan"
+   ]
+  },
+  {
+   "id": "h4",
+   "gap": 0.7,
+   "style": "mysterious, curious",
+   "text": "Otakmu memang lagi ngelakuin sesuatu.",
+   "cap": "Otakmu memang lagi ngelakuin sesuatu.",
+   "kunci": [
+    "ngelakuin",
+    "sesuatu"
+   ]
+  },
+  {
+   "id": "m1",
+   "gap": 0.25,
+   "style": "friendly storytelling",
+   "text": "Kamu pasti pernah ngalamin ini.",
+   "cap": "Kamu pasti pernah ngalamin ini.",
+   "kunci": [
+    "ngalamin",
+    "pernah"
+   ]
+  },
+  {
+   "id": "m2",
+   "gap": 0.25,
+   "style": "calm, storytelling",
+   "text": "Lagi mandi, nyiram air, pikiran kosong.",
+   "cap": "Lagi mandi, nyiram air, pikiran kosong.",
+   "kunci": [
+    "pikiran",
+    "nyiram"
+   ]
+  },
+  {
+   "id": "m3",
+   "gap": 0.25,
+   "style": "slower, tense",
+   "text": "Terus muncul momen itu.",
+   "cap": "Terus muncul momen itu.",
+   "kunci": [
+    "muncul",
+    "Terus"
+   ]
+  },
+  {
+   "id": "m4",
+   "gap": 0.25,
+   "style": "embarrassed, comedic",
+   "text": "Salah panggil guru jadi \"Mama\".",
+   "cap": "Salah panggil guru jadi *\"Mama\".*",
+   "kunci": [
+    "panggil",
+    "Salah"
+   ]
+  },
+  {
+   "id": "m5",
+   "gap": 0.25,
+   "style": "comedic, cringing",
+   "text": "Atau lambai balik, padahal orangnya nyapa orang di belakangmu.",
+   "cap": "Atau lambai balik, padahal orangnya nyapa orang di belakangmu.",
+   "kunci": [
+    "belakangmu",
+    "orangnya"
+   ]
+  },
+  {
+   "id": "m6",
+   "gap": 0.25,
+   "style": "comedic, embarrassed",
+   "text": "Mukamu panas sendiri, di kamar mandi.",
+   "cap": "Mukamu panas sendiri, di kamar mandi.",
+   "kunci": [
+    "sendiri",
+    "Mukamu"
+   ]
+  },
+  {
+   "id": "m7",
+   "gap": 0.25,
+   "style": "whispering, comedic",
+   "text": "Pengen ngilang aja rasanya.",
+   "cap": "Pengen *ngilang* aja rasanya.",
+   "kunci": [
+    "ngilang",
+    "rasanya"
+   ]
+  },
+  {
+   "id": "m8",
+   "gap": 0.25,
+   "style": "soft, tired",
+   "text": "Malam juga sama.",
+   "cap": "Malam juga sama.",
+   "kunci": [
+    "Malam",
+    "juga"
+   ]
+  },
+  {
+   "id": "m9",
+   "gap": 0.25,
+   "style": "sleepy, calm",
+   "text": "Udah matiin lampu, udah siap tidur.",
+   "cap": "Udah matiin lampu, udah siap tidur.",
+   "kunci": [
+    "matiin",
+    "lampu"
+   ]
+  },
+  {
+   "id": "m10",
+   "gap": 0.25,
+   "style": "sudden, comedic panic",
+   "text": "Eh, yang muncul malah chat salah kirim zaman SMP.",
+   "cap": "Eh, yang muncul malah chat *salah* kirim zaman SMP.",
+   "kunci": [
+    "muncul",
+    "malah"
+   ]
+  },
+  {
+   "id": "m11",
+   "gap": 0.25,
+   "style": "comedic, groaning",
+   "text": "Kamu langsung tutup muka pakai bantal.",
+   "cap": "Kamu langsung tutup muka pakai *bantal.*",
+   "kunci": [
+    "langsung",
+    "bantal"
+   ]
+  },
+  {
+   "id": "m12",
+   "gap": 0.25,
+   "style": "puzzled",
+   "text": "Padahal kejadiannya udah bertahun-tahun.",
+   "cap": "Padahal kejadiannya udah bertahun-tahun.",
+   "kunci": [
+    "bertahun-tahun",
+    "kejadiannya"
+   ]
+  },
+  {
+   "id": "m13",
+   "gap": 0.25,
+   "style": "puzzled, slower",
+   "text": "Padahal orang lain kayaknya udah lupa.",
+   "cap": "Padahal orang lain kayaknya udah lupa.",
+   "kunci": [
+    "kayaknya",
+    "Padahal"
+   ]
+  },
+  {
+   "id": "m14",
+   "gap": 0.25,
+   "style": "annoyed, comedic",
+   "text": "Yang bikin kesal, kenangan senangnya jarang muncul begini.",
+   "cap": "Yang bikin kesal, kenangan senangnya *jarang* muncul begini.",
+   "kunci": [
+    "senangnya",
+    "kenangan"
+   ]
+  },
+  {
+   "id": "m15",
+   "gap": 0.7,
+   "style": "curious, slower",
+   "text": "Kenapa yang diputar ulang malah yang paling malu?",
+   "cap": "Kenapa yang diputar ulang malah yang paling *malu?*",
+   "kunci": [
+    "diputar",
+    "Kenapa"
+   ]
+  },
+  {
+   "id": "d1",
+   "gap": 0.25,
+   "style": "thoughtful",
+   "text": "Banyak yang ngira, ini tanda ada yang salah.",
+   "cap": "Banyak yang ngira, ini tanda ada yang *salah.*",
+   "kunci": [
+    "Banyak",
+    "ngira"
+   ]
+  },
+  {
+   "id": "d2",
+   "gap": 0.25,
+   "style": "self-mocking",
+   "text": "\"Aku kok baperan banget, ya?\"",
+   "cap": "\"Aku kok baperan banget, ya?\"",
+   "kunci": [
+    "baperan",
+    "banget"
+   ]
+  },
+  {
+   "id": "d3",
+   "gap": 0.25,
+   "style": "light, comedic",
+   "text": "Terus kita maksa ngusir pikirannya.",
+   "cap": "Terus kita maksa ngusir pikirannya.",
+   "kunci": [
+    "pikirannya",
+    "ngusir"
+   ]
+  },
+  {
+   "id": "d4",
+   "gap": 0.25,
+   "style": "comedic, frustrated",
+   "text": "Geleng-geleng kepala, sambil bilang, \"Udah, lupain!\"",
+   "cap": "Geleng-geleng kepala, sambil bilang, \"Udah, lupain!\"",
+   "kunci": [
+    "Geleng-geleng",
+    "kepala"
+   ]
+  },
+  {
+   "id": "d5",
+   "gap": 0.7,
+   "style": "deadpan, comedic",
+   "text": "Hasilnya? Malah makin kebayang.",
+   "cap": "Hasilnya? Malah makin *kebayang.*",
+   "kunci": [
+    "Hasilnya",
+    "kebayang"
+   ]
+  },
+  {
+   "id": "p1",
+   "gap": 0.25,
+   "style": "clear explainer, reassuring",
+   "text": "Ternyata, ini kerja otak yang normal banget.",
+   "cap": "Ternyata, ini kerja otak yang *normal* banget.",
+   "kunci": [
+    "Ternyata",
+    "normal"
+   ]
+  },
+  {
+   "id": "p2",
+   "gap": 0.25,
+   "style": "clear explainer, intrigued",
+   "text": "Namanya ingatan yang muncul sendiri, tanpa kamu panggil.",
+   "cap": "Namanya ingatan yang muncul *sendiri,* tanpa kamu panggil.",
+   "kunci": [
+    "Namanya",
+    "ingatan"
+   ]
+  },
+  {
+   "id": "p3",
+   "gap": 0.25,
+   "style": "clear explainer",
+   "text": "Penelitian buku harian menemukan, ini terjadi beberapa kali sehari.",
+   "cap": "Penelitian buku harian menemukan, ini terjadi *beberapa* kali sehari.",
+   "kunci": [
+    "Penelitian",
+    "menemukan"
+   ]
+  },
+  {
+   "id": "p4",
+   "gap": 0.25,
+   "style": "warm, reassuring",
+   "text": "Ke semua orang, bukan ke kamu doang.",
+   "cap": "Ke *semua* orang, bukan ke kamu doang.",
+   "kunci": [
+    "semua",
+    "orang"
+   ]
+  },
+  {
+   "id": "p5",
+   "gap": 0.25,
+   "style": "playful explainer",
+   "text": "Ingatan ini butuh \"kunci\" kecil buat kebuka.",
+   "cap": "Ingatan ini butuh *\"kunci\"* kecil buat kebuka.",
+   "kunci": [
+    "Ingatan",
+    "kebuka"
+   ]
+  },
+  {
+   "id": "p6",
+   "gap": 0.25,
+   "style": "clear explainer",
+   "text": "Bisa lagu, bau, satu kata, atau tempat yang mirip.",
+   "cap": "Bisa lagu, bau, satu kata, atau tempat yang mirip.",
+   "kunci": [
+    "tempat",
+    "mirip"
+   ]
+  },
+  {
+   "id": "p7",
+   "gap": 0.25,
+   "style": "clear explainer",
+   "text": "Dan paling gampang muncul pas pikiranmu lagi santai.",
+   "cap": "Dan paling gampang muncul pas pikiranmu lagi *santai.*",
+   "kunci": [
+    "pikiranmu",
+    "gampang"
+   ]
+  },
+  {
+   "id": "p8",
+   "gap": 0.7,
+   "style": "light, knowing",
+   "text": "Kayak pas mandi, rebahan, atau mau tidur.",
+   "cap": "Kayak pas mandi, rebahan, atau mau tidur.",
+   "kunci": [
+    "rebahan",
+    "Kayak"
+   ]
+  },
+  {
+   "id": "a1",
+   "gap": 0.75,
+   "style": "warm, proud, slower, clear emphasis on the channel name",
+   "text": "Ini bagian favorit kami di Arfiy World...",
+   "cap": "Ini bagian favorit kami di Arfiy World...",
+   "kunci": [
+    "favorit",
+    "bagian"
+   ]
+  },
+  {
+   "id": "a1b",
+   "gap": 0.7,
+   "style": "curious, leaning in",
+   "text": "kenapa yang nongol justru momen malu?",
+   "cap": "kenapa yang nongol justru momen *malu?*",
+   "kunci": [
+    "kenapa",
+    "nongol"
+   ]
+  },
+  {
+   "id": "q1",
+   "gap": 0.25,
+   "style": "vivid, slightly tense",
+   "text": "Waktu kamu malu, jantungmu deg-degan, mukamu panas.",
+   "cap": "Waktu kamu malu, jantungmu deg-degan, mukamu panas.",
+   "kunci": [
+    "jantungmu",
+    "deg-degan"
+   ]
+  },
+  {
+   "id": "q2",
+   "gap": 0.25,
+   "style": "clear explainer, intrigued",
+   "text": "Di saat itu, bagian otak bernama amigdala ikut sibuk.",
+   "cap": "Di saat itu, bagian otak bernama *amigdala* ikut sibuk.",
+   "kunci": [
+    "amigdala",
+    "bernama"
+   ]
+  },
+  {
+   "id": "q3",
+   "gap": 0.25,
+   "style": "clear explainer, emphasis",
+   "text": "Dibantu hormon stres, dia \"mengunci\" momen itu lebih kuat.",
+   "cap": "Dibantu hormon stres, dia *\"mengunci\"* momen itu lebih kuat.",
+   "kunci": [
+    "mengunci",
+    "Dibantu"
+   ]
+  },
+  {
+   "id": "q4",
+   "gap": 0.25,
+   "style": "clear explainer",
+   "text": "Makanya kejadian malu terasa jelas banget, bertahun-tahun kemudian.",
+   "cap": "Makanya kejadian malu terasa *jelas* banget, bertahun-tahun kemudian.",
+   "kunci": [
+    "bertahun-tahun",
+    "kejadian"
+   ]
+  },
+  {
+   "id": "q5",
+   "gap": 0.25,
+   "style": "thoughtful",
+   "text": "Salah satu penjelasannya, otak lebih waspada sama hal buruk.",
+   "cap": "Salah satu penjelasannya, otak lebih *waspada* sama hal buruk.",
+   "kunci": [
+    "penjelasannya",
+    "waspada"
+   ]
+  },
+  {
+   "id": "q6",
+   "gap": 0.25,
+   "style": "warm, understanding",
+   "text": "Dia pengen kamu belajar, biar nggak ngulang lagi.",
+   "cap": "Dia pengen kamu *belajar,* biar nggak ngulang lagi.",
+   "kunci": [
+    "belajar",
+    "ngulang"
+   ]
+  },
+  {
+   "id": "q7",
+   "gap": 0.25,
+   "style": "warm, clear payoff",
+   "text": "Jadi, otakmu bukan jahat. Dia lagi jagain kamu.",
+   "cap": "Jadi, otakmu bukan jahat. Dia lagi *jagain* kamu.",
+   "kunci": [
+    "otakmu",
+    "jagain"
+   ]
+  },
+  {
+   "id": "q8",
+   "gap": 0.25,
+   "style": "soft, sincere, short pause after",
+   "text": "Serius.",
+   "cap": "Serius.",
+   "kunci": [
+    "Serius"
+   ]
+  },
+  {
+   "id": "q9",
+   "gap": 0.25,
+   "style": "relieved, hopeful",
+   "text": "Dan kabar baiknya, rasa malu memudar lebih cepat.",
+   "cap": "Dan kabar baiknya, rasa malu *memudar* lebih cepat.",
+   "kunci": [
+    "baiknya",
+    "memudar"
+   ]
+  },
+  {
+   "id": "q10",
+   "gap": 0.7,
+   "style": "warm, hopeful",
+   "text": "Lebih cepat daripada rasa senang dari kenangan indah.",
+   "cap": "Lebih cepat daripada rasa senang dari kenangan indah.",
+   "kunci": [
+    "daripada",
+    "kenangan"
+   ]
+  },
+  {
+   "id": "s1",
+   "gap": 0.45,
+   "style": "curious, upbeat",
+   "text": "Terus, pas momen itu nongol lagi, harus ngapain?",
+   "cap": "Terus, pas momen itu nongol lagi, harus ngapain?",
+   "kunci": [
+    "ngapain",
+    "nongol"
+   ]
+  },
+  {
+   "id": "s2",
+   "gap": 0.25,
+   "style": "confident, clear",
+   "text": "Pertama, jangan diusir paksa.",
+   "cap": "Pertama, jangan *diusir* paksa.",
+   "kunci": [
+    "Pertama",
+    "jangan"
+   ]
+  },
+  {
+   "id": "s3",
+   "gap": 0.25,
+   "style": "playful explainer",
+   "text": "Ada percobaan terkenal: orang disuruh jangan mikirin beruang putih.",
+   "cap": "Ada percobaan terkenal: orang disuruh jangan mikirin *beruang* putih.",
+   "kunci": [
+    "percobaan",
+    "terkenal:"
+   ]
+  },
+  {
+   "id": "s4",
+   "gap": 0.25,
+   "style": "comedic, amused",
+   "text": "Hasilnya, beruang putihnya malah makin sering muncul.",
+   "cap": "Hasilnya, beruang putihnya malah *makin* sering muncul.",
+   "kunci": [
+    "Hasilnya",
+    "putihnya"
+   ]
+  },
+  {
+   "id": "s5",
+   "gap": 0.25,
+   "style": "calm, gentle",
+   "text": "Jadi biarkan aja dia lewat.",
+   "cap": "Jadi biarkan aja dia lewat.",
+   "kunci": [
+    "biarkan",
+    "lewat"
+   ]
+  },
+  {
+   "id": "s6",
+   "gap": 0.25,
+   "style": "dreamy, soft",
+   "text": "Kayak awan lewat di langit.",
+   "cap": "Kayak awan lewat di langit.",
+   "kunci": [
+    "langit",
+    "Kayak"
+   ]
+  },
+  {
+   "id": "s7",
+   "gap": 0.25,
+   "style": "confident, clear",
+   "text": "Kedua, kasih nama perasaannya.",
+   "cap": "Kedua, kasih *nama* perasaannya.",
+   "kunci": [
+    "perasaannya",
+    "Kedua"
+   ]
+  },
+  {
+   "id": "s8",
+   "gap": 0.25,
+   "style": "gentle, demonstrative",
+   "text": "Bilang dalam hati, \"Oh, ini rasa malu.\"",
+   "cap": "Bilang dalam hati, \"Oh, ini rasa malu.\"",
+   "kunci": [
+    "Bilang",
+    "dalam"
+   ]
+  },
+  {
+   "id": "s9",
+   "gap": 0.25,
+   "style": "clear explainer",
+   "text": "Peneliti menemukan, menamai perasaan bikin amigdala lebih tenang.",
+   "cap": "Peneliti menemukan, menamai perasaan bikin amigdala lebih *tenang.*",
+   "kunci": [
+    "menemukan",
+    "Peneliti"
+   ]
+  },
+  {
+   "id": "s10",
+   "gap": 0.25,
+   "style": "confident, warm",
+   "text": "Ketiga, ngomong ke dirimu pakai namamu sendiri.",
+   "cap": "Ketiga, ngomong ke dirimu pakai *namamu* sendiri.",
+   "kunci": [
+    "ngomong",
+    "sendiri"
+   ]
+  },
+  {
+   "id": "s11",
+   "gap": 0.25,
+   "style": "gentle, demonstrative",
+   "text": "Misalnya, \"Rina, itu lima tahun lalu. Kamu udah beda.\"",
+   "cap": "Misalnya, \"Rina, itu lima tahun lalu. Kamu udah beda.\"",
+   "kunci": [
+    "Misalnya",
+    "tahun"
+   ]
+  },
+  {
+   "id": "s12",
+   "gap": 0.25,
+   "style": "warm, reassuring",
+   "text": "Bicara begini bikin kamu lihat dari jauh, dan rasanya lebih ringan.",
+   "cap": "Bicara begini bikin kamu lihat dari jauh, dan rasanya lebih *ringan.*",
+   "kunci": [
+    "rasanya",
+    "Bicara"
+   ]
+  },
+  {
+   "id": "s13",
+   "gap": 0.7,
+   "style": "upbeat, playful",
+   "text": "Tiga langkah. Gampang, kan?",
+   "cap": "Tiga langkah. Gampang, kan?",
+   "kunci": [
+    "langkah",
+    "Gampang"
+   ]
+  },
+  {
+   "id": "r1",
+   "gap": 0.25,
+   "style": "warm, conclusive",
+   "text": "Jadi, momen malu itu bukan tanda kamu aneh.",
+   "cap": "Jadi, momen malu itu bukan tanda kamu *aneh.*",
+   "kunci": [
+    "momen",
+    "bukan"
+   ]
+  },
+  {
+   "id": "r2",
+   "gap": 0.25,
+   "style": "warm, smiling",
+   "text": "Itu tanda otakmu peduli sama kamu.",
+   "cap": "Itu tanda otakmu *peduli* sama kamu.",
+   "kunci": [
+    "otakmu",
+    "peduli"
+   ]
+  },
+  {
+   "id": "r3",
+   "gap": 0.25,
+   "style": "cheerful, inviting",
+   "text": "Nah, sekarang giliran kamu.",
+   "cap": "Nah, sekarang giliran kamu.",
+   "kunci": [
+    "sekarang",
+    "giliran"
+   ]
+  },
+  {
+   "id": "r4",
+   "gap": 0.25,
+   "style": "playful, teasing",
+   "text": "Ceritain momen paling malumu, cukup tiga kata.",
+   "cap": "Ceritain momen paling malumu, cukup *tiga* kata.",
+   "kunci": [
+    "Ceritain",
+    "paling"
+   ]
+  },
+  {
+   "id": "r5",
+   "gap": 0.25,
+   "style": "comedic, light",
+   "text": "Misalnya, \"panggil guru Mama.\"",
+   "cap": "Misalnya, \"panggil guru Mama.\"",
+   "kunci": [
+    "Misalnya",
+    "panggil"
+   ]
+  },
+  {
+   "id": "r6",
+   "gap": 0.25,
+   "style": "cheerful, teasing",
+   "text": "Jawaban paling lucu aku pin.",
+   "cap": "Jawaban paling lucu aku *pin.*",
+   "kunci": [
+    "Jawaban",
+    "paling"
+   ]
+  },
+  {
+   "id": "r7",
+   "gap": 0.45,
+   "style": "friendly, playful",
+   "text": "Terus, kirim ke teman yang dulu ada di momen itu.",
+   "cap": "Terus, kirim ke teman yang dulu ada di *momen* itu.",
+   "kunci": [
+    "Terus",
+    "kirim"
+   ]
+  },
+  {
+   "id": "z",
+   "gap": 0.25,
+   "style": "warm, confident, gentle smile in the voice, medium tempo",
+   "text": "Stay Curious, World!",
+   "cap": "Stay Curious, World!",
+   "kunci": [
+    "Curious",
+    "World"
+   ]
+  }
+ ]
+}
