@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Contoh Infografis</title>
+<style>
+@font-face { font-family: 'Fredoka'; src: url(../_bersama/fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; }
+html,body{margin:0;background:#111}canvas{height:100vh;display:block;margin:auto}
+</style></head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script src="../_bersama/dasar.js"></script>
+<script src="../_bersama/infografis.js"></script>
+<script>
+// CONTOH skill infografis (bukan video tayang). SEMUA ANGKA DI SINI DATA CONTOH, BUKAN FAKTA: video sungguhan wajib memakai
+// angka bersumber (aturan §1) dan menampilkan IG.sumber(...). Gaya: datar gelap, palet kategori tervalidasi, label langsung.
+const GAYA = IG.gaya({ tema: "gelap" }), WR = IG.warna();
+const CONTOH = 'data contoh, bukan fakta';
+GROUPS = [['angka', ['a1']], ['batang', ['b1']], ['donat', ['d1']], ['garis', ['g1']], ['piktogram', ['p1']], ['alur', ['f1']], ['akhir', ['z']]];
+const k = (id, a = 0, b = 1.4) => seg(T, t0(id) + a, t0(id) + b);
+
+S.angka = t => { IG.judul('Buka HP per hari', 'rata-rata, kali', { k: k('a1', -.3, .3) });
+  IG.ikon('hp', 540, 640, 150, WR.seri[0]); IG.angka(150, 540, 860, 190, { k: k('a1', .2, 2), label: 'kali sehari' });
+  IG.kataKunci('ratusan!', 540, 1120, 72, { k: k('a1', 1.8, 2.6), aksen: WR.seri[1] }); IG.sumber(CONTOH, { k: k('a1', .5, 1) }); };
+
+S.batang = t => { IG.judul('Ke mana waktu layar?', 'menit per hari', { k: k('b1', -.3, .3) });
+  IG.batang([{ label: 'Media sosial', nilai: 140 }, { label: 'Video', nilai: 95 }, { label: 'Chat', nilai: 60 }, { label: 'Game', nilai: 45 }, { label: 'Belajar', nilai: 25 }],
+    { x: 110, y: 470, w: 860, h: 720, k: k('b1', .1, 1.8), satuan: ' mnt', sorot: T > t0('b1') + 2.2 ? 0 : null }); IG.sumber(CONTOH, { k: k('b1', .5, 1) }); };
+
+S.donat = t => { IG.judul('Isi waktu layar', 'persen dari total', { k: k('d1', -.3, .3) });
+  IG.donat([{ label: 'Hiburan', nilai: 48 }, { label: 'Komunikasi', nilai: 30 }, { label: 'Kerja/belajar', nilai: 22 }], { cy: 820, k: k('d1', .1, 2.2), tengah: '48%', sub: 'hiburan' });
+  IG.sumber(CONTOH, { k: k('d1', .5, 1) }); };
+
+S.garis = t => { IG.judul('Waktu layar per tahun', 'jam per hari', { k: k('g1', -.3, .3) });
+  IG.garis([{ label: 'Rata-rata', titik: [[2016, 3.1], [2017, 3.4], [2018, 3.6], [2019, 4.0], [2020, 5.2], [2021, 5.0], [2022, 5.3], [2023, 5.6], [2024, 5.9]] }],
+    { kotak: [160, 500, 750, 620], yMin: 0, yMax: 8, k: k('g1', .1, 2.6), labelX: [2016, 2020, 2024] });
+  IG.sumber(CONTOH, { k: k('g1', .5, 1), y: 1250 }); };
+
+S.piktogram = t => { IG.judul('Susah berhenti scroll', 'dari setiap 10 orang', { k: k('p1', -.3, .3) });
+  IG.piktogram(10, 3, { y: 640, ukuran: 130, k: k('p1', .1, 2.2), warna: WR.seri[1], label: '3 dari 10 orang' }); IG.sumber(CONTOH, { k: k('p1', .5, 1) }); };
+
+S.alur = t => { IG.judul('Lingkaran kebiasaan', '', { k: k('f1', -.3, .3) });
+  const S2 = [{ teks: 'Notifikasi', x: 540, y: 560, ikon: 'hp' }, { teks: 'Cek HP', x: 810, y: 870 }, { teks: 'Hadiah kecil', x: 540, y: 1180 }, { teks: 'Ulang lagi', x: 270, y: 870 }];
+  IG.alur(S2, [[0, 1], [1, 2], [2, 3], [3, 0]], { k: k('f1', .1, 2.8) }); };
+S.akhir = t => {};
+window.cues = () => {};
+</script>
+</body></html>

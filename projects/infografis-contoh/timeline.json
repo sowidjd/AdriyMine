@@ -1,0 +1,47 @@
+{
+ "duration": 25.6,
+ "lines": [
+  {
+   "id": "a1",
+   "t0": 0.3,
+   "t1": 3.2,
+   "cap": "Bayangkan, kamu buka HP *ratusan* kali sehari."
+  },
+  {
+   "id": "b1",
+   "t0": 3.6,
+   "t1": 7.2,
+   "cap": "Waktu paling banyak habis di *media sosial*."
+  },
+  {
+   "id": "d1",
+   "t0": 7.6,
+   "t1": 11.0,
+   "cap": "Hampir *separuh* waktu layar buat hiburan."
+  },
+  {
+   "id": "g1",
+   "t0": 11.4,
+   "t1": 14.8,
+   "cap": "Dan angkanya *terus naik* tiap tahun."
+  },
+  {
+   "id": "p1",
+   "t0": 15.2,
+   "t1": 18.4,
+   "cap": "*Tiga dari sepuluh* orang merasa susah berhenti."
+  },
+  {
+   "id": "f1",
+   "t0": 18.8,
+   "t1": 22.4,
+   "cap": "Polanya: notifikasi, cek, dapat hadiah kecil, *ulang lagi*."
+  },
+  {
+   "id": "z",
+   "t0": 23.0,
+   "t1": 24.8,
+   "cap": "Stay Curious, World!"
+  }
+ ]
+}
