@@ -34,7 +34,7 @@ if sys.argv[1] == 'gen':
         spoken = siapkan(L['text']); best = (-1, None, '')
         for k in range(4):
             w = model.generate(text=f"({L['style']}){spoken}", reference_wav_path=ref, cfg_value=2.0, inference_timesteps=10)
-            h = hear(w, SR); miss = [k for k in L.get('kunci', []) if norm(k).replace(' ', '') not in norm(h).replace(' ', '')]; sc = -0.3 * len(miss) + max(score(spoken, h), score(L['text'].replace('Adriy.Project', 'Adri titik Project'), h), *(score(d, h) for d in L.get('dengar', [])))
+            h = hear(w, SR); miss = [k for k in L.get('kunci', []) if norm(k).replace(' ', '') not in norm(h).replace(' ', '')]; sc = -0.3 * len(miss) + max(score(spoken, h), score(L['text'].replace('Arfiy World', 'Arfi Werld').replace('Adriy.Project', 'Adri titik Project'), h), *(score(d, h) for d in L.get('dengar', [])))
             if sc > best[0]: best = (sc, w, h)
             if sc >= .86 and not miss: break
         sf.write(f, best[1], SR)

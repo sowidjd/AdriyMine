@@ -1,6 +1,6 @@
 # AdriyMine
 
-Proyek video konten TikTok edukasi (tokoh **Adriy**, burung hantu berkacamata & bersyal merah, lihat `projects/karakter/` dan aturan.md §15; narasi suara pemilik akun, bahasa Indonesia santai).
+Proyek video konten TikTok edukasi (akun **Arfiy World**, tokoh **Adriy**, burung hantu berkacamata & bersyal merah, lihat `projects/karakter/` dan aturan.md §15; narasi suara pemilik akun, bahasa Indonesia santai).
 
 - **Sebelum membuat konten apa pun, baca dan ikuti `aturan.md`.** Setelah video jadi, cek dengan checklist di sana dan tambahkan baris ke tabel Riwayat.
 - Ide tema: `projects/IDE-KONTEN.md`. **Jangan usulkan judul/topik yang ada di `projects/SUDAH-DIBUAT.md`** (sudah dibuat pemilik).

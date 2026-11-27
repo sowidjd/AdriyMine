@@ -1,4 +1,4 @@
-# 3 Skrip Baru Adriy.Project
+# 3 Skrip Baru Arfiy World
 
 # Naskah: "Perut bunyi pas kelas hening? Itu bukan tanda lapar"
 
@@ -10,7 +10,7 @@
   - Alasan: Gaya potongan garis dipilih karena "suara dari dalam perut" di judul terlihat sebagai usus yang dibelah dan gelombang bersih-bersih yang lewat.
 - **Hook /yt-script (skor versi Inggris):** 70 WORKABLE (The Mistake); 2 versi lain: 58, 57
   - Versi Inggris yang diskor: "Stop worrying when your stomach growls in class. It is not hunger, it happens about every 2 hours, but why?"
-- **Alur §12:** hook → masalah (contoh sehari-hari) → dugaan umum → penyebab + penelitian (+ momen Adriy.Project) → solusi langkah 1-2-3 → rangkuman → CTA §13 → "Explore More, Know More"
+- **Alur §12:** hook → masalah (contoh sehari-hari) → dugaan umum → penyebab + penelitian (+ momen Arfiy World) → solusi langkah 1-2-3 → rangkuman → CTA §13 → "Explore More, Know More"
 - **Panjang:** 50 kalimat, 384 kata (≈ 2:45, setara video wkwk)
 - **Tokoh:** Adriy (§15). **Suara:** contoh suara utama ref5 (§8).
 
@@ -62,7 +62,7 @@
 - Sebenarnya, usus bergemuruh hampir sepanjang waktu. Biasanya saja, suaranya teredam makanan.  _(clear explainer, calm)_
 
 **MOMEN ADRIY.PROJECT**
-- Waktu kami di Adriy.Project mempelajari soal ini...  _(warm, proud, slower, clear emphasis on the channel name)_
+- Waktu kami di Arfiy World mempelajari soal ini...  _(warm, proud, slower, clear emphasis on the channel name)_
 - ternyata, usus punya jadwal bersih-bersih.  _(amused, surprised)_
 
 **PENYEBAB (lanjutan)**
@@ -111,7 +111,7 @@
   - Alasan: Gaya game dipilih karena "gratis ongkir" di judul terlihat sebagai power-up yang menggoda tapi diam-diam menguras bar saldo.
 - **Hook /yt-script (skor versi Inggris):** 74 STRONG (The Warning); 2 versi lain: 58, 58
   - Versi Inggris yang diskor: "You waste 190 thousand to save 10 thousand on shipping. Stop. Researchers actually found why free fools you."
-- **Alur §12:** hook → masalah (contoh sehari-hari) → dugaan umum → penyebab + penelitian (+ momen Adriy.Project) → solusi langkah 1-2-3 → rangkuman → CTA §13 → "Explore More, Know More"
+- **Alur §12:** hook → masalah (contoh sehari-hari) → dugaan umum → penyebab + penelitian (+ momen Arfiy World) → solusi langkah 1-2-3 → rangkuman → CTA §13 → "Explore More, Know More"
 - **Panjang:** 49 kalimat, 379 kata (≈ 2:45, setara video wkwk)
 - **Tokoh:** Adriy (§15). **Suara:** contoh suara utama ref5 (§8).
 
@@ -159,7 +159,7 @@
 - Tapi tiba-tiba, kebanyakan orang pindah ke cokelat yang gratis.  _(surprised reveal)_
 
 **MOMEN ADRIY.PROJECT**
-- Waktu kami di Adriy.Project baca percobaan ini...  _(warm, proud, slower, clear emphasis on the channel name)_
+- Waktu kami di Arfiy World baca percobaan ini...  _(warm, proud, slower, clear emphasis on the channel name)_
 - kami langsung ingat keranjang belanja kami.  _(amused, sheepish)_
 
 **PENYEBAB (lanjutan)**
@@ -207,7 +207,7 @@
   - Alasan: Gaya cukil kayu dipilih karena "dendam yang diwariskan" di judul terlihat seperti dongeng lama yang diceritakan turun-temurun.
 - **Hook /yt-script (skor versi Inggris):** 72 STRONG (The Question); 2 versi lain: 59, 49
   - Versi Inggris yang diskor: "Never make a crow angry. You could be scolded for 5 years, and its friends actually join in. But why?"
-- **Alur §12:** hook → masalah (contoh sehari-hari) → dugaan umum → penyebab + penelitian (+ momen Adriy.Project) → solusi langkah 1-2-3 → rangkuman → CTA §13 → "Explore More, Know More"
+- **Alur §12:** hook → masalah (contoh sehari-hari) → dugaan umum → penyebab + penelitian (+ momen Arfiy World) → solusi langkah 1-2-3 → rangkuman → CTA §13 → "Explore More, Know More"
 - **Panjang:** 47 kalimat, 374 kata (≈ 2:45, setara video wkwk)
 - **Tokoh:** Adriy (§15). **Suara:** contoh suara utama ref5 (§8).
 
@@ -259,7 +259,7 @@
 - Mereka tidak mengenali bajunya. Mereka mengenali wajahnya.  _(clear, amazed)_
 
 **MOMEN ADRIY.PROJECT**
-- Waktu kami di Adriy.Project baca kelanjutannya...  _(warm, proud, slower, clear emphasis on the channel name)_
+- Waktu kami di Arfiy World baca kelanjutannya...  _(warm, proud, slower, clear emphasis on the channel name)_
 - kami merinding.  _(awed, shivering)_
 
 **PENYEBAB (lanjutan)**

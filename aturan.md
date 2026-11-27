@@ -236,9 +236,11 @@ Gaya tambahan dari `repos/animate` (berbasis Canvas seperti video kita, punya pe
 | Scroll 5 menit jadi jam 2 pagi | Feed = lorong tanpa ujung | Liminal/Backrooms | Lorong yang tak berujung terasa seperti feed yang tidak pernah habis |
 | Burung seukuran ayam nukik 320 km/jam | Kecepatan alam yang luar biasa | Watercolor (dokumenter alam) | Terasa seperti buku alam; garis kecepatan cat air menunjukkan tukikan |
 
-## 10. Menyebut nama akun: Adriy.Project
+## 10. Menyebut nama akun: Arfiy World
 
-Nama akun **Adriy.Project** disebut di dalam narasi supaya penonton **ingat**, jadi harus terasa sebagai **sebuah momen**, bukan lewat begitu saja seperti angin, tapi juga tidak seperti iklan.
+> Mulai 27 Nov 2026 nama akun (TikTok & YouTube) = **Arfiy World**, menggantikan Adriy.Project. Video lama tetap memakai nama lama; semua video baru memakai Arfiy World (tagar `#ArfiyWorld`). Tokoh tetap **Adriy** (§15).
+
+Nama akun **Arfiy World** disebut di dalam narasi supaya penonton **ingat**, jadi harus terasa sebagai **sebuah momen**, bukan lewat begitu saja seperti angin, tapi juga tidak seperti iklan.
 
 **Jumlah & posisi:**
 - **1 kali per video** (maksimal 2 kali kalau videonya lebih dari 2 menit, dengan jarak jauh).
@@ -246,27 +248,27 @@ Nama akun **Adriy.Project** disebut di dalam narasi supaya penonton **ingat**, j
 - **Di tengah, sekitar 30–70% durasi**, di momen transisi: sesudah penjelasan dan sebelum fakta paling mengejutkan atau trik utama.
 
 **Supaya terasa (wajib ketiganya):**
-1. **Kalimat khusus untuk nama.** Nama tidak boleh terselip di tengah kalimat panjang. Pakai bentuk **"kami di Adriy.Project …"** (suara tim, membangun identitas), lalu kalimat dipotong atau diberi **jeda 0,5–0,9 detik** sesudah nama. Arahan suara: *lebih pelan, hangat, bangga, penekanan jelas pada nama*.
-2. **Stempel visual.** Lencana "Adriy.Project" dengan desain yang sama di setiap video, ukuran teks ≥ 70 px, di tengah-atas kotak aman, muncul seperti dicap (memantul), bertahan **≥ 2 detik**, dengan sorotan cahaya hangat di belakangnya. **Adriy bereaksi** (menunjuk lencana, mengangguk bangga). Lencana tidak menutupi tokoh atau teks penting lain.
+1. **Kalimat khusus untuk nama.** Nama tidak boleh terselip di tengah kalimat panjang. Pakai bentuk **"kami di Arfiy World …"** (suara tim, membangun identitas), lalu kalimat dipotong atau diberi **jeda 0,5–0,9 detik** sesudah nama. Arahan suara: *lebih pelan, hangat, bangga, penekanan jelas pada nama*.
+2. **Stempel visual.** Lencana "Arfiy World" dengan desain yang sama di setiap video, ukuran teks ≥ 70 px, di tengah-atas kotak aman, muncul seperti dicap (memantul), bertahan **≥ 2 detik**, dengan sorotan cahaya hangat di belakangnya. **Adriy bereaksi** (menunjuk lencana, mengangguk bangga). Lencana tidak menutupi tokoh atau teks penting lain.
 3. **Logo suara.** Setiap kali nama disebut, bunyi khas yang **selalu sama**: `repos/sfx-kit/sounds/logo-stings/sting-bright-short.wav`, jatuh di jeda sesudah nama. Musik turun sedikit di saat itu supaya bunyi khasnya terdengar.
 
 **Lain-lain:**
 - Bagian kalimat sesudah nama **disesuaikan dengan tema**, jangan sama persis di setiap video.
-- **Cara baca:** "Adri titik Project" (diubah otomatis oleh `projects/suara/ucapan.py`).
+- **Cara baca:** "Arfi Werld" (diubah otomatis oleh `projects/suara/ucapan.py`).
 - Caption narasi juga menampilkan nama.
 
 **Contoh kalimat yang benar (disesuaikan tema):**
 | Tema | Kalimat (di tengah video) |
 |---|---|
-| 🌍 Peregrine Falcon | "Waktu kami di Adriy.Project ngecek rekor resminya…" *(jeda, stempel, bunyi khas)* "…kami langsung melongo." |
-| ⏰ Bangun pagi | "Kami di Adriy.Project nyobain caranya selama seminggu…" *(jeda)* "…dan ternyata berhasil." |
-| 🧠 Lupa pas masuk ruangan | "Kami di Adriy.Project baca penelitiannya…" *(jeda)* "…ternyata pintunya yang bikin lupa." |
-| 💸 Gratis ongkir | "Kami di Adriy.Project hitung pakai kalkulator…" *(jeda)* "…hasilnya bikin nyesek." |
+| 🌍 Peregrine Falcon | "Waktu kami di Arfiy World ngecek rekor resminya…" *(jeda, stempel, bunyi khas)* "…kami langsung melongo." |
+| ⏰ Bangun pagi | "Kami di Arfiy World nyobain caranya selama seminggu…" *(jeda)* "…dan ternyata berhasil." |
+| 🧠 Lupa pas masuk ruangan | "Kami di Arfiy World baca penelitiannya…" *(jeda)* "…ternyata pintunya yang bikin lupa." |
+| 💸 Gratis ongkir | "Kami di Arfiy World hitung pakai kalkulator…" *(jeda)* "…hasilnya bikin nyesek." |
 
 **Contoh yang salah:**
-- ❌ "…yang bikin kita di Adriy.Project melongo." (nama terselip, langsung lewat)
-- ❌ "Halo, selamat datang di Adriy.Project!" (di awal)
-- ❌ "Follow Adriy.Project buat konten lainnya!" (di akhir dan seperti iklan)
+- ❌ "…yang bikin kita di Arfiy World melongo." (nama terselip, langsung lewat)
+- ❌ "Halo, selamat datang di Arfiy World!" (di awal)
+- ❌ "Follow Arfiy World buat konten lainnya!" (di akhir dan seperti iklan)
 - ❌ Disebut 3 kali dalam video 1 menit, atau tanpa stempel dan bunyi khas
 
 ## 11. CTA (ajakan) di skrip & penutup "Explore More, Know More"
@@ -285,7 +287,7 @@ Setiap skrip **wajib** punya CTA dan **wajib** ditutup dengan kalimat khas **"Ex
 - **Diucapkan** di narasi sebagai kalimat terakhir, dengan jeda ±0,4 detik sebelumnya. Arahan suara: *hangat, yakin, tersenyum, tempo sedang*. Cara baca: "eksplor mor, nou mor"; lolos cek ucapan (`cek_ucapan.py`) sebelum dipakai.
 - **Ditampilkan** sebagai kartu penutup: teks **"Explore More, Know More"** di tengah kotak aman, ukuran ≥ 80 px, desain & warna sama di setiap video, muncul halus (fade + sedikit membesar), bertahan **≥ 1,5 detik**. Adriy melambai atau memberi hormat kecil di sampingnya.
 - **Bunyi khas penutup** selalu sama (pilih 1 sekali, lalu dipakai terus; berbeda dari bunyi khas nama akun §10). Musik mengecil lalu selesai bersama kartu.
-- Tidak dihitung sebagai penyebutan nama akun; nama "Adriy.Project" tetap **tidak** muncul di akhir.
+- Tidak dihitung sebagai penyebutan nama akun; nama "Arfiy World" tetap **tidak** muncul di akhir.
 - Teks dan cara ucapnya **tidak boleh diubah** (tanpa terjemahan, tanpa tambahan kata).
 
 **Contoh bagian akhir yang benar:**
@@ -295,7 +297,7 @@ Setiap skrip **wajib** punya CTA dan **wajib** ditutup dengan kalimat khas **"Ex
 - ❌ "Jangan lupa like, comment, share, dan follow ya!" (CTA umum, tidak memancing jawaban, terlalu banyak permintaan)
 - ❌ Lebih dari 2 CTA, atau CTA di tengah video yang memotong cerita
 - ❌ "Explore More, Know More" diucapkan lalu masih ada kalimat lain sesudahnya
-- ❌ "Explore More, Know More bersama Adriy.Project!" (menambah kata & menyebut nama di akhir)
+- ❌ "Explore More, Know More bersama Arfiy World!" (menambah kata & menyebut nama di akhir)
 
 ## 12. Durasi & alur: masalah dibahas tuntas dulu, baru solusi (dari pemilik)
 
@@ -309,7 +311,7 @@ Masukan pemilik: video terlalu cepat melompat ke penyelesaian, padahal pembahasa
 | 1. Hook | 0–8 detik, aturan §3 | ± 5% |
 | 2. Masalah | Ceritakan masalahnya lewat **contoh nyata sehari-hari** (minimal 2 situasi berbeda), rasa yang muncul ("kok gini ya?"), dan **kenapa ini mengganggu**. Penonton harus mengangguk "iya, gue banget" | ± 25% |
 | 3. Dugaan umum | Apa yang biasanya orang kira / lakukan, dan **kenapa itu tidak berhasil** | ± 10% |
-| 4. Penyebab | Penjelasan ilmiah **langkah demi langkah**, satu ide per adegan, pakai perumpamaan sehari-hari. Bukti/penelitian disebut di sini. Momen "Adriy.Project" (§10) masuk di bagian ini | ± 30% |
+| 4. Penyebab | Penjelasan ilmiah **langkah demi langkah**, satu ide per adegan, pakai perumpamaan sehari-hari. Bukti/penelitian disebut di sini. Momen "Arfiy World" (§10) masuk di bagian ini | ± 30% |
 | 5. Solusi | Baru di sini trik/jawaban. Jelaskan **cara melakukannya** (langkah 1-2-3) dan contoh penerapannya | ± 20% |
 | 6. Rangkuman + CTA | Ulang inti dalam 1 kalimat, lalu CTA (§11) dan "Explore More, Know More" | ± 10% |
 
@@ -339,16 +341,16 @@ Model suara bukan model khusus bahasa Indonesia, jadi beberapa tulisan salah dib
 - Kalimat maksimal **± 12 kata**. Kalimat panjang dipecah dua.
 - Setiap kalimat punya **kata kunci** yang wajib terdengar jelas (dicek otomatis dengan Whisper). Kalau gagal 4 kali, **ganti katanya**, jangan dipaksakan.
 
-## 15. Tokoh: ADRIY (burung hantu Adriy.Project)
+## 15. Tokoh: ADRIY (burung hantu Arfiy World)
 
-Mulai sekarang semua video memakai tokoh sendiri: **Adriy**, burung hantu kecil yang penasaran (dipilih pemilik). Tokoh lama (Clawd) **tidak dipakai lagi**: ia maskot milik perusahaan lain, sedangkan Adriy milik Adriy.Project.
+Mulai sekarang semua video memakai tokoh sendiri: **Adriy**, burung hantu kecil yang penasaran (dipilih pemilik). Tokoh lama (Clawd) **tidak dipakai lagi**: ia maskot milik perusahaan lain, sedangkan Adriy milik Arfiy World.
 
 - **Lembar karakter resmi:** `projects/karakter/adriy-lembar-karakter.png` (sumber: `adriy.html`). Fungsi gambar: `adriy()` di `projects/_bersama/dasar.js` (nama lama `clawd()` masih jalan).
 - **Ciri wajib (tidak boleh diubah):** kacamata bulat besar, syal merah dengan ekor di kanan, jambul telinga, perut krem, paruh & kaki oranye.
 - **Warna tetap:** badan `#A9714B`, sayap `#8A5A3C`, perut `#F1DCC0`, paruh/kaki `#F2A23B`, syal `#D9534F`. Gaya animasi hanya mengubah cara goresan (tinta manga, cat air, pensil), bukan bentuk & warna.
 - **Ekspresi lewat mata di balik kacamata** (senang, ketawa, penasaran, kaget, bingung, sedih, kesal, ngantuk, takjub) + tanda bergambar (!, ?, keringat, awan, lampu ide).
 - **Gerak:** sayap = tangan (melambai, menunjuk); berkedip & bernapas otomatis.
-- **Lencana Adriy.Project** memakai wajah Adriy (kacamata + paruh + syal).
+- **Lencana Arfiy World** memakai wajah Adriy (kacamata + paruh + syal).
 - Tokoh pendamping (teman, orang lain) boleh beda warna, tapi tidak boleh memakai kacamata bulat + syal merah (itu ciri khas Adriy).
 - Nama "Adriy" tidak perlu disebut di narasi; penyebutan nama akun tetap mengikuti §10.
 
@@ -373,7 +375,7 @@ Mulai sekarang semua video memakai tokoh sendiri: **Adriy**, burung hantu kecil 
 - [ ] Minimal 2 pergantian cahaya, momen terpenting paling terang
 - [ ] Gaya animasi dipilih lewat 6 langkah §9: metafora inti + alasan 1 kalimat ditulis, tidak termasuk gaya yang dilarang, beda dari video sebelumnya
 - [ ] Semua teks di kotak aman x 60–927, y 212–1540 (cek dengan garis bantu area aman)
-- [ ] "Adriy.Project" disebut 1 kali (maks. 2 untuk video > 2 menit), di tengah (30–70% durasi), tidak di awal/akhir, dengan kalimat khusus + jeda, stempel visual ≥ 2 detik + reaksi Adriy, dan bunyi khas sting-bright-short
+- [ ] "Arfiy World" disebut 1 kali (maks. 2 untuk video > 2 menit), di tengah (30–70% durasi), tidak di awal/akhir, dengan kalimat khusus + jeda, stempel visual ≥ 2 detik + reaksi Adriy, dan bunyi khas sting-bright-short
 - [ ] Bagian akhir sesuai §11: kesimpulan → CTA komentar yang memancing jawaban → 1 CTA kedua (simpan/bagikan/ikuti, tanpa nama akun) → "Explore More, Know More" sebagai kalimat terakhir (diucapkan + kartu penutup ≥ 1,5 detik + bunyi khas penutup)
 
 ## Riwayat video
