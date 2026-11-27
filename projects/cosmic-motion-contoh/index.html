@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Contoh Cosmic Motion</title>
+<style>
+@font-face { font-family: 'Fredoka'; src: url(../_bersama/fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; }
+html,body{margin:0;background:#000}canvas{height:100vh;display:block;margin:auto}
+</style></head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script src="../_bersama/lib/three-0.159.min.js"></script>
+<script src="../_bersama/dasar.js"></script>
+<script src="../_bersama/kosmik3d.js"></script>
+<script>
+// CONTOH skill cosmic-motion (bukan video tayang): bintang + nebula, bumi berawan & bulan, tata surya, saturnus, galaksi spiral,
+// lubang hitam, lompatan warp. Gaya "kosmik sinematik": hitam-biru tua, cahaya aditif lembut, kamera terus melayang.
+const GAYA = {
+  ink: '#0A1030', hi: '#8FC8FF', card: '#EAF2FF',
+  shape(pts, col, id, o = {}) { const p = pathOf(pts); ctx.fillStyle = rgba(col, o.fill ?? 1); ctx.fill(p); if (o.line !== false) { ctx.strokeStyle = '#0A1030'; ctx.lineWidth = o.lw ?? 4; ctx.lineJoin = 'round'; ctx.stroke(p); } },
+  line(pts, lw, col = '#0A1030', id, a = 1) { ctx.strokeStyle = rgba(col, a); ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke(pathOf(pts, false)); },
+  bg() { const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#05081A'); g.addColorStop(1, '#0B0820'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); },
+  trans(k, drawPrev) { ctx.save(); ctx.globalAlpha = 1 - ease(k); drawPrev(); ctx.restore(); },
+  post() { const g = ctx.createRadialGradient(540, 960, 650, 540, 960, 1300); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,0.5)'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); },
+};
+function judul(s, y, k = 1) { if (k <= 0) return; ctx.save(); ctx.globalAlpha = k; ctx.font = `700 64px ${FONT}`; ctx.textAlign = 'center'; ctx.shadowColor = 'rgba(120,180,255,.8)'; ctx.shadowBlur = 24; ctx.fillStyle = '#DDEBFF'; ctx.fillText(s, 540, y + 20 * (1 - easeOut(k))); ctx.restore(); }
+
+// ---------- dunia 3D ----------
+const K = Kosmik3D();
+const bintang = K.bintang({ jumlah: 9000 }), nebula = K.nebula({ jarak: 55, terang: .75 });
+const cahaya = K.cahayaMatahari([-6, 2, 5], 3.2);
+// set 1: bumi + bulan
+const bumi = K.planet('bumi', { radius: 1.6 }), bulan = K.planet('bulan', { radius: .42 });
+const setBumi = new THREE.Group(); setBumi.add(bumi, bulan); K.scene.add(setBumi);
+// set 2: tata surya mini (skala tidak nyata, diberi tahu di narasi bila perlu)
+const tata = new THREE.Group(); K.scene.add(tata);
+const matahari = K.planet('matahari', { radius: 1.4, terang: 700 }); tata.add(matahari);
+const PL = [['lava', .22, 2.6, 4], ['mars', .3, 3.6, 6], ['bumi', .36, 4.8, 8], ['mars', .28, 6.0, 11], ['jupiter', .8, 8.0, 18], ['saturnus', .65, 10.2, 26], ['es', .45, 12.0, 34], ['es', .42, 13.6, 42]]
+  .map(([j, r, d, p], i) => { const pl = K.planet(j, { radius: r, benih: i + 2, awan: false, resolusi: 256 }); tata.add(pl, K.garisOrbit(d, { alfa: .22 })); return { pl, d, p, f: K.hs(i * 3) }; });
+const sabuk = K.asteroid({ r0: 6.6, r1: 7.4, jumlah: 500, ukuran: .05 }); tata.add(sabuk);
+// set 3: saturnus dekat
+const saturnus = K.planet('saturnus', { radius: 1.5 }); K.scene.add(saturnus);
+// set 4: galaksi
+const galaksi = K.galaksi({ jumlah: 70000, radius: 22 }); K.scene.add(galaksi);
+// set 5: lubang hitam
+const lh = K.lubangHitam({ radius: 1 }); K.scene.add(lh);
+const warp = K.warp(); K.scene.add(warp);
+const SET = [setBumi, tata, saturnus, galaksi, lh];
+const tampil = (...g) => { for (const x of SET) x.visible = g.includes(x); cahaya.visible = !g.includes(tata); };
+
+// ---------- adegan ----------
+GROUPS = [['bintang', ['a1']], ['bumi', ['b1']], ['tata', ['s1']], ['saturnus', ['r1']], ['galaksi', ['g1']], ['lubang', ['h1']], ['warp', ['w1']], ['akhir', ['z']]];
+
+S.bintang = t => { tampil(); nebula.visible = true;
+  K.kamera(t, [[0, { pos: [0, 0, 30], lihat: [0, 0, -60], fov: 50 }], [3.4, { pos: [3, 2, 14], lihat: [0, 0, -60], fov: 44 }]]);
+  K.gambar(ctx, t); judul('ALAM SEMESTA', 380, seg(t, .3, 1)); };
+
+S.bumi = t => { tampil(setBumi); nebula.visible = true; bumi.putar(t, 30); K.diOrbit(bulan, 2.9, t, 16, .1, .2); bulan.putar(t, 16);
+  K.kamera(t, [[t0('b1') - .4, { pos: [6, 2.5, 16], lihat: [0, 0, 0], fov: 40 }], [t1('b1') + .4, { pos: [2.5, 1.2, 10.5], lihat: [0, .1, 0], fov: 38 }]]);
+  K.gambar(ctx, t); judul('BUMI', 380, seg(t, t0('b1'), t0('b1') + .6));
+  K.label(ctx, bulan, undefined, 'Bulan', { k: seg(t, t0('b1') + 1.4, t0('b1') + 2), y: 1260 }); };
+
+S.tata = t => { tampil(tata); nebula.visible = false; matahari.putar(t, 40);
+  PL.forEach(({ pl, d, p, f }) => { K.diOrbit(pl, d, t, p, f); pl.putar(t, 6); });
+  K.kamera(t, [[t0('s1') - .4, { pos: [0, 26, 9], lihat: [0, 0, 0], fov: 46 }], [t0('s1') + 1.8, { pos: [-10, 9, 18], lihat: [0, 0, 0] }], [t1('s1') + .4, { pos: [-14, 4, 13], lihat: [2, 0, 0], fov: 44 }]]);
+  K.gambar(ctx, t); judul('TATA SURYA', 380, seg(t, t0('s1'), t0('s1') + .6));
+  K.label(ctx, PL[2].pl, undefined, 'Bumi', { k: seg(t, t0('s1') + 1, t0('s1') + 1.6) }); };
+
+S.saturnus = t => { tampil(saturnus); nebula.visible = true; saturnus.putar(t, 12); saturnus.rotation.z = .47;
+  K.kamera(t, [[t0('r1') - .4, { pos: [-9, 1.5, 12], lihat: [0, 0, 0], fov: 40 }], [t1('r1') + .4, { pos: [-4.5, 1.4, 8.5], lihat: [.3, 0, 0], fov: 38 }]]);
+  K.gambar(ctx, t); judul('SATURNUS', 380, seg(t, t0('r1'), t0('r1') + .6));
+  K.label(ctx, saturnus, new THREE.Vector3(2.9, 0, 0), 'Cincin es', { k: seg(t, t0('r1') + 1.2, t0('r1') + 1.8), x: 780, y: 1250 }); };
+
+S.galaksi = t => { tampil(galaksi); nebula.visible = false; galaksi.perbarui(t); galaksi.rotation.x = .1;
+  K.kamera(t, [[t0('g1') - .4, { pos: [0, 58, 8], lihat: [0, 0, 0], fov: 50 }], [t1('g1') + .4, { pos: [14, 16, 26], lihat: [0, 0, 0], fov: 46 }]]);
+  K.gambar(ctx, t); judul('BIMA SAKTI', 380, seg(t, t0('g1'), t0('g1') + .6)); };
+
+S.lubang = t => { tampil(lh); nebula.visible = false; lh.perbarui(t);
+  K.kamera(t, [[t0('h1') - .4, { pos: [0, 2.5, 22], lihat: [0, 0, 0], fov: 42 }], [t1('h1') + .4, { pos: [0, 1.2, 10], lihat: [0, 0, 0], fov: 40 }]]);
+  K.gambar(ctx, t); judul('LUBANG HITAM', 380, seg(t, t0('h1'), t0('h1') + .6)); };
+
+S.warp = t => { tampil(); nebula.visible = true; const k = ease(seg(t, t0('w1'), t1('w1') + .4));
+  K.kamera(t, [[0, { pos: [0, 0, 20], lihat: [0, 0, -100], fov: 44 + 30 * k }]]); warp.perbarui(t, k);
+  K.gambar(ctx, t); adriy(540, 1450, 22, { face: 'star', arms: [1.4, 1.4] }); };
+
+S.akhir = t => {};
+window.cues = () => {};
+</script>
+</body></html>
