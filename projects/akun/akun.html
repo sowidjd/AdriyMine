@@ -1,0 +1,73 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Foto profil & banner Adriy World</title>
+<style>@font-face { font-family: 'Fredoka'; src: url(../_bersama/fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; } html,body{margin:0;background:#222}canvas{max-width:100vw;display:block;margin:auto}</style></head>
+<body><canvas id="c"></canvas>
+<script src="../_bersama/dasar.js"></script>
+<script>
+// Foto profil (800x800) & banner YouTube (2560x1440) akun Adriy World.
+// Buka: akun.html?render&profil  atau  akun.html?render&banner   (render ke PNG: node render.js)
+const INK = '#2B2420';
+const GAYA = { ink: INK, hi: '#F2C26B', card: '#FFFFFF',
+  shape(pts, col, id, o = {}) { const p = pathOf(pts); ctx.fillStyle = rgba(col, o.fill ?? 1); ctx.fill(p); if (o.line !== false) { ctx.strokeStyle = INK; ctx.lineWidth = o.lw ?? 4; ctx.lineJoin = 'round'; ctx.stroke(p); } },
+  line(pts, lw, col = INK, id, a = 1) { ctx.strokeStyle = rgba(col, a); ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke(pathOf(pts, false)); },
+  bg() {}, trans() {}, post() {} };
+const MODE = location.search.includes('banner') ? 'banner' : 'profil';
+const SKY1 = '#5EC2E6', SKY2 = '#2E6FB0', LAND = '#7CC46B', SEA = '#4AA3D8';
+
+function sky(w, h, cx, cy, r) { const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r); g.addColorStop(0, SKY1); g.addColorStop(1, SKY2); ctx.fillStyle = g; ctx.fillRect(0, 0, w, h); }
+function sparkle(x, y, r, col = '#FFF4C2', a = 1) { GAYA.shape(star(x, y, r, r * .38, 4), col, 0, { fill: a, line: false }); }
+function dot(x, y, r, col = '#FFFFFF', a = .7) { ctx.fillStyle = rgba(col, a); ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill(); }
+// planet bumi kecil: laut + pulau, dipotong lingkaran
+function planet(cx, cy, r, lw) {
+  ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, r, 0, TAU); ctx.fillStyle = SEA; ctx.fill(); ctx.clip();
+  const blobs = [[-.55, -.9, .3, .14], [.35, -.93, .28, .1], [.8, -.6, .22, .16], [-.9, -.45, .25, .2], [.05, -.75, .16, .08], [-.25, -.55, .25, .12]];
+  for (const [bx, by, rx, ry] of blobs) GAYA.shape(ell(cx + bx * r, cy + by * r, rx * r, ry * r, 40), LAND, 0, { lw: lw * .7 });
+  ctx.restore(); ctx.strokeStyle = INK; ctx.lineWidth = lw; ctx.beginPath(); ctx.arc(cx, cy, r, 0, TAU); ctx.stroke();
+}
+function ringPlanet(x, y, r, col, lw) {
+  ctx.save(); ctx.translate(x, y); ctx.rotate(-.35);
+  const ring = (front) => { ctx.beginPath(); ctx.ellipse(0, 0, r * 1.8, r * .45, 0, front ? 0 : Math.PI, front ? Math.PI : TAU); ctx.strokeStyle = '#F7D77A'; ctx.lineWidth = r * .22; ctx.stroke(); };
+  ring(false); GAYA.shape(ell(0, 0, r, r, 30), col, 0, { lw }); ring(true); ctx.restore();
+}
+function cloud(x, y, s) { const p = [[0, 0, 1], [-.9, .25, .7], [.9, .25, .75], [-.35, .35, .7], [.4, .4, .65]];
+  ctx.fillStyle = 'rgba(255,255,255,0.9)'; for (const [dx, dy, r] of p) { ctx.beginPath(); ctx.arc(x + dx * s, y + dy * s, r * s, 0, TAU); ctx.fill(); } }
+function bulb(x, y, s) { ctx.save(); ctx.translate(x, y); ctx.rotate(.2);
+  GAYA.shape(rr(-s * .45, s * .85, s * .9, s * .55, s * .12), '#B9C2CC', 0, { lw: s * .12 }); GAYA.shape(ell(0, 0, s, s * 1.05, 26), '#FFE27A', 0, { lw: s * .12 });
+  for (let i = 0; i < 5; i++) { const a = -Math.PI / 2 + (i - 2) * .55; GAYA.line([[Math.cos(a) * s * 1.35, Math.sin(a) * s * 1.35], [Math.cos(a) * s * 1.75, Math.sin(a) * s * 1.75]], s * .14, '#FFF4C2'); } ctx.restore(); }
+function qmark(x, y, size, rot, col = '#FFFFFF') { ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.font = `700 ${size}px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.lineWidth = size * .09; ctx.strokeStyle = INK; ctx.lineJoin = 'round'; ctx.strokeText('?', 0, 0); ctx.fillStyle = col; ctx.fillText('?', 0, 0); ctx.restore(); }
+function title(str, x, y, size, fill, stroke, lw) { ctx.font = `700 ${size}px ${FONT}`; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic'; ctx.lineJoin = 'round';
+  ctx.fillStyle = 'rgba(20,40,80,0.35)'; ctx.fillText(str, x, y + size * .07); ctx.lineWidth = lw; ctx.strokeStyle = stroke; ctx.strokeText(str, x, y); ctx.fillStyle = fill; ctx.fillText(str, x, y); return ctx.measureText(str).width; }
+
+function profil() {
+  cv.width = cv.height = 800;
+  sky(800, 800, 400, 330, 560);
+  [[150, 190, 22], [645, 175, 28], [690, 370, 16], [110, 420, 15], [540, 95, 12], [260, 95, 10]].forEach(([x, y, r]) => sparkle(x, y, r));
+  [[200, 280, 5], [610, 270, 6], [330, 130, 4], [470, 150, 5], [705, 470, 4]].forEach(([x, y, r]) => dot(x, y, r));
+  planet(400, 1090, 470, 7);                 // puncak planet di y=620
+  adriy(392, 636, 41, { face: 'happy', arms: [.3, 1.2] });   // muat di potongan lingkaran
+}
+
+function banner() {
+  cv.width = 2560; cv.height = 1440;
+  sky(2560, 1440, 1280, 620, 1500);
+  // dekorasi di luar area aman (hanya terlihat di TV/komputer)
+  for (let i = 0; i < 60; i++) dot(hash(i) * 2560, hash(i + 99) * 1440, 3 + hash(i + 7) * 5, '#FFFFFF', .35 + hash(i + 3) * .4);
+  [[220, 200, 40], [430, 380, 26], [2350, 230, 44], [2140, 420, 24], [1280, 170, 30], [820, 250, 22], [1760, 260, 26], [330, 1050, 24], [2260, 1040, 28], [1000, 1250, 18], [1600, 1230, 20]].forEach(([x, y, r]) => sparkle(x, y, r));
+  cloud(250, 620, 70); cloud(2330, 700, 80); cloud(620, 140, 50); cloud(1980, 120, 55);
+  bulb(2180, 860, 55); qmark(380, 860, 150, -.25, '#FFE27A'); qmark(2440, 520, 110, .25);
+  // bumi besar & landai: puncak y=900, permukaan di bawah kaki Adriy ± y=935
+  const R = 5000, PX = 1280, PY = 900 + R;
+  ctx.save(); ctx.beginPath(); ctx.arc(PX, PY, R, 0, TAU); ctx.fillStyle = SEA; ctx.fill(); ctx.clip();
+  [[180, 1010, 330, 90], [1150, 960, 260, 45], [1900, 1060, 420, 110], [900, 1290, 300, 80], [2450, 1250, 200, 120], [1450, 1250, 160, 55]]
+    .forEach(([x, y, rx, ry]) => GAYA.shape(ell(x, y, rx, ry, 48), LAND, 0, { lw: 6 }));
+  ctx.restore(); ctx.strokeStyle = INK; ctx.lineWidth = 9; ctx.beginPath(); ctx.arc(PX, PY, R, 0, TAU); ctx.stroke();
+  ringPlanet(2330, 1240, 75, '#F29B6B', 6); ringPlanet(240, 1270, 55, '#B993E8', 5);
+  // area aman YouTube: x 507–2053, y 508–931
+  adriy(725, 929, 39, { face: 'happy', arms: [.3, 1.5] });
+  const tw = title('Adriy World', 1005, 745, 178, '#FFFFFF', INK, 15);
+  title('Explore More, Know More', 1011, 850, 64, '#FFE27A', INK, 10);
+  window.TW = tw;
+}
+window.ready.then(() => { T = 1.3; MODE === 'banner' ? banner() : profil(); window.done = true; });
+</script></body></html>
