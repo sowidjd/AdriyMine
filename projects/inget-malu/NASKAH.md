@@ -8,7 +8,7 @@
   - 2: membantah "aku lebay / ada yang salah sama aku". Ternyata ini cara kerja otak yang normal.
   - 1: malu-lucu, lalu lega.
   - **Emosi inti:** malu-lucu → lega.
-- **Durasi target:** 2:43–2:57. Naskah 422 kata dalam 65 kalimat, setara video #6–#8 (425–437 kata, 2:51–2:55).
+- **Durasi target:** **± 2:49 (169 detik)**, permintaan pemilik. Naskah 422 kata dalam 65 kalimat. Perkiraan durasi **2:49.0**, dihitung dari rata-rata 3 video terakhir (0.401 detik per kata, sudah termasuk jeda dan kartu penutup). Setelah narasi jadi, durasi dikunci ke 2:49 lewat `skala_jeda` (dan tempo maks. 1,1× bila perlu, §12).
 
 ## Gaya animasi (§9, 6 langkah)
 1. **Metafora inti:** ingatan = tumpukan lembar kertas di dalam kepala. Momen malu adalah satu lembar yang tiba-tiba **"pop-up"** ke depan tanpa diminta, seperti buku pop-up.
