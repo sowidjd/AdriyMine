@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Contoh Kinetic Typography</title>
+<style>
+@font-face { font-family: 'Fredoka'; src: url(../_bersama/fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; }
+html,body{margin:0;background:#000}canvas{height:100vh;display:block;margin:auto}
+</style></head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script src="../_bersama/dasar.js"></script>
+<script src="../_bersama/kinetik.js"></script>
+<script>
+// CONTOH skill kinetic-typography (bukan video tayang): mode 'ganti' (satu kalimat per layar, gaya masuk bergilir) lalu mode 'tumpuk'.
+// Waktu per kata diperkirakan dari suku kata (timeline.json tanpa data kata). Caption bawaan dimatikan oleh KT.gaya.
+const GAYA = KT.gaya();
+GROUPS = [['ganti', ['k1', 'k2', 'k3']], ['tumpuk', ['k4', 'k5', 'k6']], ['akhir', ['z']]];
+S.ganti = t => { KT.jalankan(['k1', 'k2', 'k3'], t, { mode: 'ganti', gaya: ['pop', 'naik', 'geser'] });
+  adriy(540, 1500, 16, { face: t > t0('k2') ? 'laugh' : 'happy', arms: [.3, 1.2 + .3 * Math.sin(t * 5)] }); };
+S.tumpuk = t => { KT.jalankan(['k4', 'k5', 'k6'], t, { mode: 'tumpuk', gaya: ['lebar', 'ketik', 'putar'], ukuran: 110 });
+  adriy(880, 1500, 14, { face: t > t0('k6') ? 'star' : 'curious' }); };
+S.akhir = t => {};
+window.cues = () => {};
+</script>
+</body></html>

@@ -45,7 +45,7 @@ function tag(str, x, y, size, o = {}) {
   ctx.restore();
 }
 function caption(t) {   // narration line inside the safe box (y <= 1540)
-  if (!TL) return;
+  if (!TL || window.TANPA_CAPTION) return;   // TANPA_CAPTION: video kinetic typography (teks narasi sudah tampil besar)
   for (const l of TL.lines) if (t >= l.t0 - .05 && t < l.t1 + .25 && l.cap) { tag(l.cap, W / 2, 1440, 52, { age: t - l.t0 + .05, life: l.t1 + .3 - l.t0, maxW: 800 }); break; }
 }
 
