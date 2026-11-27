@@ -27,7 +27,9 @@ TANDA = {"—": "tanda pisah panjang", ";": "titik koma"}
 
 def baris_naskah(teks):
     lines = teks.splitlines()
-    pakai = [l[2:] for l in lines if l.startswith("- ") and not l[2:].startswith("**") and "§" not in l]   # lewati catatan "- **Alur:**" or [l for l in lines if l.strip() and not l.lstrip().startswith(("|", "#", "**"))]
+    # baris naskah "- …" (catatan "- **Alur:**" dilewati); kalau tidak ada, semua baris teks biasa
+    pakai = [l[2:] for l in lines if l.startswith("- ") and not l[2:].startswith("**") and "§" not in l] \
+        or [l for l in lines if l.strip() and not l.lstrip().startswith(("|", "#", "**"))]
     out = []
     for l in pakai:
         l = re.sub(r"_\(.*?\)_", "", l).strip()      # buang arahan suara
