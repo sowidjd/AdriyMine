@@ -1,7 +1,7 @@
 // Dasar bersama untuk video Clawd (Canvas 2D, frame-deterministik). Setiap video menulis GAYA (cara menggambar) + adegan S.
 // Jam video = narasi: setTL(timeline.json) lalu renderAt(t). CUES = efek suara [[detik, file, volume]] ('mk:nama' = Mixkit milik pemilik, lainnya sfx-kit).
 const W = 1080, H = 1920, TAU = Math.PI * 2;
-const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const cv = document.getElementById('c'); let ctx = cv.getContext('2d');   // let: campuran.js boleh menukar ctx sementara (stiker)
 const FONT = 'Fredoka, "DejaVu Sans", sans-serif';
 const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x)), lerp = (a, b, k) => a + (b - a) * k, seg = (t, a, b) => clamp((t - a) / (b - a));
 const ease = x => { x = clamp(x); return x * x * (3 - 2 * x); }, easeOut = x => 1 - Math.pow(1 - clamp(x), 3), easeIn = x => Math.pow(clamp(x), 3);

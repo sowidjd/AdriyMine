@@ -1,0 +1,47 @@
+{
+ "duration": 23.6,
+ "lines": [
+  {
+   "id": "h1",
+   "t0": 0.3,
+   "t1": 2.8,
+   "cap": "Kenapa jantungmu *nggak pernah* capek?"
+  },
+  {
+   "id": "h2",
+   "t0": 3.0,
+   "t1": 6.2,
+   "cap": "Dia kerja *tanpa libur*, bahkan sejak sebelum kamu lahir."
+  },
+  {
+   "id": "k1",
+   "t0": 6.6,
+   "t1": 9.8,
+   "cap": "Banyak yang kira, jantung itu *otot biasa*."
+  },
+  {
+   "id": "k2",
+   "t0": 10.0,
+   "t1": 13.2,
+   "cap": "Ternyata, otot jantung punya *baterai* sendiri."
+  },
+  {
+   "id": "d1",
+   "t0": 13.6,
+   "t1": 17.0,
+   "cap": "Sel khususnya bikin listrik, *tanpa disuruh* otak."
+  },
+  {
+   "id": "d2",
+   "t0": 17.2,
+   "t1": 20.2,
+   "cap": "Jadi tiap detak, dia *menyetrum* dirinya sendiri."
+  },
+  {
+   "id": "z",
+   "t0": 21.0,
+   "t1": 22.8,
+   "cap": "Stay Curious, World!"
+  }
+ ]
+}

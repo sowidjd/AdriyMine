@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Contoh Mixed Media</title>
+<style>
+@font-face { font-family: 'Fredoka'; src: url(../_bersama/fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; }
+html,body{margin:0;background:#111}canvas{height:100vh;display:block;margin:auto}
+</style></head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script src="../_bersama/lib/three-0.159.min.js"></script>
+<script src="../_bersama/dasar.js"></script>
+<script src="../_bersama/campuran.js"></script>
+<script src="../_bersama/anatomi3d.js"></script>
+<script>
+// CONTOH skill mixed-media (bukan video tayang): kolase di meja kraft — huruf guntingan, jantung 3D jadi stiker, coretan spidol,
+// kliping koran + cap "SALAH!", polaroid, kertas buku kotak-kotak, jantung halftone, petir coretan. Gerak kertas ala stop-motion 12 fps.
+const GAYA = MM.gaya({ latar: 'kraft', aksen: MM.PALET.kuning });
+const P = MM.PALET, go = (id, a = 1) => MM.goyang(id, T, a);   // getar stop-motion
+// jantung 3D (skill anatomi-3d) dirender lalu dijadikan stiker
+const A3 = Anatomi3D({ gaya: 'basah' }), jantung = A3.jantung(); A3.scene.add(jantung);
+const jantung3D = (t, cx = 540, cy = 760) => { jantung.detak(t); jantung.rotation.y = -.2 + .2 * Math.sin(t * .6); A3.kamera(t, [[0, { pos: [0, .5, 13.5], lihat: [0, .35, 0], fov: 30 }]]); A3.gambar(ctx, t); };
+const adriyStiker = (x, y, s, o, id) => MM.stiker(() => adriy(540, 1100, 30, o), x, y, { area: [340, 720, 400, 420], skala: s, rot: .08 + go(id, .02), k: o.k });
+
+// ---------- adegan ----------
+GROUPS = [['hook', ['h1', 'h2']], ['kliping', ['k1', 'k2']], ['diagram', ['d1', 'd2']], ['akhir', ['z']]];
+
+S.hook = t => {
+  MM.guntingan('KENAPA JANTUNG', 540, 330, 92, { k: seg(t, .1, 1.3), id: 3 });
+  MM.guntingan('NGGAK CAPEK?', 540, 470, 92, { k: seg(t, .6, 1.8), id: 9 });
+  MM.stiker(() => jantung3D(t), 540, 880, { area: [90, 330, 900, 1120], skala: .82, rot: -.04 + go(1, .015), k: seg(t, .4, 1.1) });
+  MM.coret(MM.lingkaran(540, 900, 350, 370, 4), { k: seg(t, t0('h2') - .2, t0('h2') + .8), warna: P.merah, lebar: 10, id: 5 });
+  MM.coret(MM.panah(890, 1330, 760, 1120, -.3), { k: seg(t, t0('h2') + .6, t0('h2') + 1.3), warna: P.merah, lebar: 10, id: 6 });
+  MM.kertas(860, 1250 + go(7, 2), 300, 90, 8, { jenis: P.kuning, rot: -.08, k: seg(t, t0('h2') + 1, t0('h2') + 1.4), isi: () => { ctx.font = `700 44px ${FONT}`; ctx.fillStyle = P.hitam; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('24 jam!', 0, 2); } });
+  adriyStiker(170, 1590, .62, { face: 'shock', mark: '!', markAge: 1, k: seg(t, t0('h2'), t0('h2') + .5) }, 9);
+  MM.selotip(560, 560, 170, -.2, 2);
+};
+
+S.kliping = t => {
+  MM.kliping(520, 560 + go(11, 2), 760, 560, 'JANTUNG = OTOT BIASA?', 12, { rot: -.05 + go(12, .006), k: seg(t, t0('k1') - .3, t0('k1') + .4) });
+  MM.selotip(220, 300, 160, -.6, 13); MM.selotip(830, 300, 160, .55, 14);
+  MM.cap('SALAH!', 600, 680, { k: seg(t, t0('k2') - .1, t0('k2') + .6), ukuran: 86, rot: -.16 });
+  MM.polaroid(560, 1180, 520, 600, 15, { rot: .07 + go(15, .01), k: seg(t, t0('k2') + .4, t0('k2') + 1), tulisan: 'baterai sendiri!', latar: '#20242E', isi: (x, y, w, h) => {
+    const bx = x + w / 2, by = y + h / 2; GAYA.shape(rr(bx - 70, by - 150, 140, 280, 20), '#3BB273', 501, { lw: 6 }); GAYA.shape(rr(bx - 30, by - 180, 60, 34, 8), '#9AA0A6', 502, { lw: 6 });
+    const n = Math.floor(seg(t, t0('k2') + .8, t1('k2')) * 4); for (let i = 0; i < n; i++) GAYA.shape(rr(bx - 48, by + 100 - i * 60, 96, 44, 8), '#F4D35E', 503 + i, { lw: 4 }); } });
+  MM.coret(MM.garisBawah(250, 800, 860, 21), { k: seg(t, t0('k1') + .8, t0('k1') + 1.4), warna: P.biru, lebar: 9, id: 21 });
+  adriyStiker(870, 1560, .6, { face: 'curious', k: seg(t, t0('k2'), t0('k2') + .5) }, 22);
+};
+
+S.diagram = t => {
+  MM.kertas(540, 900, 900, 1180, 31, { jenis: 'kotak', rot: .02 + go(31, .004), sisi: 'a' });
+  MM.selotip(540, 330, 220, .03, 32);
+  const b = MM.R(0) * 0, detak = A3.irama(t, 70), r = 170 * (1 + .06 * detak);
+  MM.isiHalftone(MM.hati(400, 760, r), [400 - r * 1.3, 760 - r, 400 + r * 1.3, 760 + r], '#E86A5C', '#8E1F24', { jarak: 12 });
+  ctx.save(); ctx.fillStyle = `rgba(255,240,120,${.9 * detak})`; ctx.beginPath(); ctx.arc(330, 640, 26 + 14 * detak, 0, TAU); ctx.fill(); ctx.restore();   // sel pacu menyala tiap detak
+  MM.coret(MM.zigzag(600, 960, 760, 40, 8), { k: seg(t, t0('d1') + .3, t0('d1') + 1.3), warna: P.kuning, lebar: 14, id: 33 });
+  MM.coret(MM.zigzag(600, 960, 760, 40, 8), { k: seg(t, t0('d1') + .3, t0('d1') + 1.3), warna: P.hitam, lebar: 4, id: 34, boil: 1 });
+  MM.kertas(400, 1030, 330, 86, 35, { jenis: 'putih', rot: -.04, k: seg(t, t0('d1') + .6, t0('d1') + 1), isi: () => { ctx.font = `700 40px ${FONT}`; ctx.fillStyle = P.hitam; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('sel pacu jantung', 0, 2); } });
+  MM.coret(MM.panah(760, 1000, 560, 860, .3), { k: seg(t, t0('d1') + 1, t0('d1') + 1.6), warna: P.merah, lebar: 9, id: 36 });
+  MM.guntingan('NYETRUM SENDIRI', 540, 1250, 70, { k: seg(t, t0('d2'), t0('d2') + 1.2), id: 37 });
+  for (let i = 0; i < 3; i++) MM.coret(MM.bintang(230 + i * 310, 1400, 34), { k: seg(t, t0('d2') + .8 + i * .2, t0('d2') + 1.2 + i * .2), warna: P.kuning, lebar: 7, id: 40 + i });
+  adriyStiker(860, 1520, .62, { face: 'star', arms: [.3, 1.4], k: seg(t, t0('d2') + .3, t0('d2') + .8) }, 45);
+};
+S.akhir = t => {};
+window.cues = () => {};
+</script>
+</body></html>
