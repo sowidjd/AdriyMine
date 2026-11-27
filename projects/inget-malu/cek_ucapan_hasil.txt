@@ -1,0 +1,65 @@
+h1   1.00   Lagi rebahan, senyum-senyum sendiri.
+h2   0.96   Tiba-tiba inat kejadian memalukan 5 tahun lalu.
+h3   0.86   Nah, kamu bukan lebay.
+h4   1.00   Otakmu memang lagi ngelakuin sesuatu.
+m1   1.00   Kamu pasti pernah ngalamin ini.
+m2   1.00   Lagi mandi, nyiram air, pikiran kosong.
+m3   0.97   Terus, munchul momen itu.
+m4   1.00   Salah panggil guru jadi mama.
+m5   1.00   Atau lambai balik, padahal orangnya nyapa orang di belakangmu?
+m6   1.00   Mukamu panas sendiri di kamar mandi.
+m7   0.93   Pengen hilang aja rasanya.
+m8   0.96   Alam juga sama.
+m9   1.00   Udah matiin lampu, udah siap tidur.
+m10  1.00   Eh, yang muncul malah chat salah kirim zaman SMP.
+m11  0.92   Kamu langsung tutup muka pake bantau.
+m12  1.00   Padahal kejadiannya udah bertahun-tahun.
+m13  1.00   Padahal orang lain kayaknya udah lupa.
+m14  0.96   Yang bikin kesel, kenangan senengnya jarang muncul begini.
+m15  1.00   Kenapa yang diputar ulang malah yang paling malu?
+d1   1.00   Banyak yang ngira, ini tanda ada yang salah.
+d2   1.00   Aku kok baperan banget ya?
+d3   1.00   Terus kita maksang usir pikirannya.
+d4   1.00   Geleng-geleng kepala, sambil bilang, udah lupain.
+d5   0.94   Silenya, malah makin kebayang.
+p1   1.00   Ternyata, ini kerja otak yang normal banget.
+p2   1.00   Namanya, ingatan yang muncul sendiri tanpa kamu panggil.
+p3   1.00   Penelitian buku harian menemukan ini terjadi beberapa kali sehari.
+p4   1.00   Ke semua orang, bukan ke kamu doang.
+p5   1.00   Ingatan ini butuh kunci kecil buat kebuka.
+p6   1.00   Bisa lagu, bau, satu kata, atau tempat yang mirip.
+p7   1.00   Dan paling gampang muncul pas pikiranmu lagi santai.
+p8   1.00   Kayak pas mandi, rebahan, atau mau tidur.
+a1   1.00   Ini bagian favorit kami di Arfiy World.
+a1b  1.00   Kenapa yang nongol justru momen malu?
+q1   1.00   Waktu kamu malu, jantungmu deg-degan, mukamu panas.
+q2   1.00   Di saat itu, bagian otak bernama amigdala ikut sibuk.
+q3   1.00   Dibantu hormon stres, dia mengunci momen itu lebih kuat.
+q4   0.98   Kanya kejadian malu terasa jelas banget bertahun-tahun kemudian.
+q5   1.00   Salah satu penjelasannya, otak lebih waspada sama hal buruk.
+q6   1.00   Dia pengen kamu belajar, biar nggak ngulang lagi.
+q7   1.00   Jadi, otakmu bukan jahat, dia lagi jagain kamu.
+q8   0.83 ⚠ Terius.
+q9   1.00   Dan kabar baiknya, rasa malu memudar lebih cepat.
+q10  1.00   Lebih cepat daripada rasa senang dari kenangan indah.
+s1   1.00   Terus, pas momen itu nongol lagi, harus ngapain?
+s2   1.00   Pertama, jangan diusir paksa.
+s3   1.00   Ada percobaan terkenal, orang disuruh jangan mikirin beruang putih.
+s4   1.00   Hasilnya, beruang putihnya malah makin sering muncul.
+s5   1.00   Jadi, biarkan aja dia lewat.
+s6   1.00   Kayak awan lewat di langit.
+s7   1.00   Kedua, kasih nama perasaannya.
+s8   1.00   Bilang dalam hati, oh ini rasa malu.
+s9   1.00   Peneliti menemukan menamai perasaan bikin amigdala lebih tenang.
+s10  1.00   Ketiga, ngomong ke dirimu pakai namamu sendiri.
+s11  1.00   Misalnya, Rina, itu 5 tahun lalu. Kamu udah beda.
+s12  1.00   Bicara begini bikin kamu lihat dari jauh dan rasanya lebih ringan.
+s13  0.89   3 langkah, gampang kan?
+r1   1.00   Jadi, momen malu itu bukan tanda kamu aneh.
+r2   1.00   Itu tanda otakmu peduli sama kamu.
+r3   1.00   Nah, sekarang giliran kamu.
+r4   1.00   Ceritain momen paling malu mu. Cukup tiga kata.
+r5   0.91   Halnya, panggil guru mama.
+r6   1.00   Jawaban paling lucu, aku pin.
+r7   1.00   Terus kirim ke teman yang dulu ada di momen itu.
+z    1.00   Stay curious, world!

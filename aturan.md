@@ -68,7 +68,7 @@ Tema disusun dari koleksi efek suara pemilik (`projects/sfx-saya/`, §8). Urutan
 - Boleh **melompat 1 nomor** hanya bila efek suara tema itu masih ⭐ dan belum ditambah, atau pemilik meminta tema lain. Tema yang dilompati dikerjakan berikutnya.
 - Dua video berturut-turut **tidak boleh** sama-sama "Umum" atau sama-sama "Sehari-hari".
 - Gaya animasi tetap dipilih lewat 6 langkah §9; tabel di atas hanya pilihan awal. Gaya tidak boleh sama dengan video sebelumnya.
-- **Video berikutnya: urutan 7 (😳 Perasaan & pikiran).** Tambah efek `soft piano` & `room tone` dulu (tema ini masih ⭐).
+- **Video berikutnya: urutan 8 (🤖 Teknologi & internet).**
 
 ## 2. Judul tidak boleh umum, harus menarik perhatian
 
@@ -417,3 +417,4 @@ Penonton yang setia akan bosan kalau setiap video dibuka, menyebut channel, dan 
 | 6 | Perut bunyi pas kelas hening? Itu bukan tanda lapar (skrip pemilik) | 4. 🫀 Tubuh manusia | 🌍 Tubuh & kesehatan | Line-art Cutaway | Malu-lucu → lega | Kelas hening → terang |
 | 7 | Belanja 200 ribu biar dapet gratis ongkir 10 ribu (skrip pemilik) | 5. 🎮 Uang & belanja | 💸 Uang & belanja | Microgame Frenzy | Ngakak → sadar | Ungu malam (game) |
 | 8 | Burung gagak bisa ingat wajahmu, dan dendamnya diwariskan (skrip pemilik) | 6. 🐾 Hewan & alam liar | 🌍 Alam & hewan | Cukil kayu (woodcut) | Merinding → kagum | Kertas krem, aksen merah |
+| 9 | Lagi seneng, tiba-tiba inget kejadian malu 5 tahun lalu | 7. 😳 Perasaan & pikiran | 😳 Perasaan & pikiran | Papercut (diorama kertas) | Malu-lucu → lega | Kamar malam (lampu tidur) → kamar mandi terang → kamar gelap → "dalam kepala" pink → senja hangat |

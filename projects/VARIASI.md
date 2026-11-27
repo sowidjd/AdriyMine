@@ -113,5 +113,6 @@ Baris 1–5 disusun ulang dari NASKAH.md dan contoh di aturan.md; "–" berarti 
 | 6 | Perut bunyi | H1 | Kelas | N1 | mempelajari | Q4 | R1 | C1 |
 | 7 | Gratis ongkir | H3 | Kamu | N1 | baca | Q4 | R1 | C2 |
 | 8 | Gagak | H6 | Jangan | N1 | baca | Q1 | R7 | C3 |
+| 9 | Inget kejadian malu | H1 (+H5) | Lagi | N6 | – | Q9 | R2 | C1 |
 
-**Untuk video ke-9:** hook bukan H3/H6 dan tidak dibuka dengan "Jangan". Nama channel **bukan N1** (wajib bentuk baru), dan kata kerjanya bukan baca/mempelajari. Pertanyaan CTA bukan Q4/Q1. Alasan bukan R1/R7. CTA kedua bukan C3.
+**Untuk video ke-10:** hook bukan H6/H1 dan tidak dibuka dengan "Lagi". Nama channel bukan N1/N6 (bentuk lain selain 3 terakhir: N1, N1, N6). Pertanyaan CTA bukan Q1/Q9. Alasan bukan R1/R7/R2. CTA kedua bukan C1.

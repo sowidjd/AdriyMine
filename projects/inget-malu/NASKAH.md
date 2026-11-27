@@ -1,6 +1,9 @@
 # Naskah: "Lagi seneng, tiba-tiba inget kejadian malu 5 tahun lalu"
 
-- **Status:** draf naskah dari Claude, menunggu persetujuan pemilik. Belum ada narasi dan animasi.
+- **Status:** video jadi (2:56.9). Narasi: ElevenLabs (suara "Marto", model v4), dibuat pemilik dari `NASKAH-ELEVENLABS.txt`, lalu dipotong per kalimat dengan waktu kata Whisper dan disusun ulang (`susun_narasi.py`): jeda di dalam kalimat dipadatkan (maks. 0,14 detik), tempo 1,1× (nada tetap, batas §12).
+- **Catatan durasi:** target awal 2:49 tidak tercapai karena suara ElevenLabs lebih lambat (isi suara 3:03 sebelum dipercepat). Pemilik memilih jeda wajar, jadi durasi akhir 2:57 (batas maksimal §12).
+- **Cek ucapan (Whisper, 65 kalimat):** semua lolos ≥ 0,85 setelah perbaikan potongan ("Tiba-tiba", "Serius"). Hasil per kalimat ada di `cek_ucapan_hasil.txt`.
+- **Catatan aturan:** §8 mewajibkan suara tiruan pemilik. Video ini memakai suara ElevenLabs "Marto" atas pilihan pemilik.
 - **Tema (§1):** 7. 😳 Perasaan & pikiran (Sehari-hari). Video sebelumnya (#8 Gagak) bertema Umum ✓. Kategori berbeda dari #7 dan #8 ✓.
 - **Ide:** `IDE-KONTEN.md` no. 19 ⭐. **Tidak ada di `SUDAH-DIBUAT.md`** ✓. Topik ini berbeda dari "Merasa diperhatikan saat sendirian" dan "Gampang iri". Video #3 (wkwk) memakai *spotlight effect*, jadi efek itu sengaja **tidak** dipakai lagi.
 - **Tiga Tips (§0):**
@@ -8,7 +11,7 @@
   - 2: membantah "aku lebay / ada yang salah sama aku". Ternyata ini cara kerja otak yang normal.
   - 1: malu-lucu, lalu lega.
   - **Emosi inti:** malu-lucu → lega.
-- **Durasi target:** **± 2:49 (169 detik)**, permintaan pemilik. Naskah 422 kata dalam 65 kalimat. Perkiraan durasi **2:49.0**, dihitung dari rata-rata 3 video terakhir (0.401 detik per kata, sudah termasuk jeda dan kartu penutup). Setelah narasi jadi, durasi dikunci ke 2:49 lewat `skala_jeda` (dan tempo maks. 1,1× bila perlu, §12).
+- **Durasi target awal:** **± 2:49 (169 detik)**, permintaan pemilik. Naskah 422 kata dalam 65 kalimat. Perkiraan durasi **2:49.0**, dihitung dari rata-rata 3 video terakhir (0.401 detik per kata, sudah termasuk jeda dan kartu penutup). Setelah narasi jadi, durasi dikunci ke 2:49 lewat `skala_jeda` (dan tempo maks. 1,1× bila perlu, §12).
 
 ## Gaya animasi (§9, 6 langkah)
 1. **Metafora inti:** ingatan = tumpukan lembar kertas di dalam kepala. Momen malu adalah satu lembar yang tiba-tiba **"pop-up"** ke depan tanpa diminta, seperti buku pop-up.
