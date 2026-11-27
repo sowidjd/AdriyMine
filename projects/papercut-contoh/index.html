@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Contoh Papercut</title>
+<style>
+@font-face { font-family: 'Fredoka'; src: url(../_bersama/fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; }
+html,body{margin:0;background:#111}canvas{height:100vh;display:block;margin:auto}
+</style></head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script src="../_bersama/dasar.js"></script>
+<script src="../_bersama/papercut.js"></script>
+<script>
+// CONTOH skill papercut (bukan video tayang): diorama kertas berlapis. Senja (bukit + matahari terbit, kamera paralaks),
+// laut (ombak bergerak + perahu), malam (kota + bintang di bingkai shadow box), pop-up buku dengan Adriy.
+const GAYA = PC.gaya({ palet: 'senja' });
+const k = (id, a = 0, b = 1.4) => seg(T, t0(id) + a, t0(id) + b);
+GROUPS = [['senja', ['s1', 's2']], ['laut', ['l1']], ['malam', ['m1']], ['popup', ['p1']], ['akhir', ['z']]];
+
+S.senja = t => { PC.pakai('senja'); PC.langit(); const L = PC.palet().lapis, kam = { x: -60 + 30 * t, y: 0, zoom: 1 + .03 * t };
+  const naik = ease(seg(t, t0('s2') - .5, t1('s2'))), my = 900 - 420 * naik;
+  PC.lapisan(.05, kam, () => { PC.potong(PC.sinar(540, my, 150, 230 + 20 * Math.sin(t * 2), 14, t * .1), PC.palet().aksen, { dalam: .1, gradasi: false }); PC.potong(PC.lingkaran(540, my, 130), '#FFF1C1', { dalam: .15 }); });
+  PC.lapisan(.12, kam, () => { PC.potong(PC.awan(260 + 12 * t, 520, 220, 1), '#FFF6EC', { dalam: .2 }); PC.potong(PC.awan(820 - 8 * t, 640, 170, 2), '#FFEBDD', { dalam: .2 }); });
+  L.forEach((c, i) => { const d = (i + 1) / L.length, dy = PC.naik(seg(t, .1 + i * .18, .9 + i * .18), 700);
+    PC.lapisan(d, kam, () => { PC.potong(PC.bukit(930 + i * 120 + dy, 90 - i * 6, .8 + i * .25, i + 3, t * 8 * (i % 2 ? 1 : -1)), c, { dalam: d, y0: 900 + i * 120 });
+      if (i === 3) for (let j = 0; j < 4; j++) PC.potong(PC.pohon(160 + j * 250 + 40 * R(j), 1300 + dy - 30 * Math.sin(j), 120 + 40 * PC.R(j), j % 2 ? 'cemara' : 'bulat'), L[5], { dalam: d }); }); });
+  PC.teks('PAGI', 540, 330, 150, { k: k('s1', 0, 1.2) }); };
+const R = PC.R;
+
+S.laut = t => { PC.pakai('laut'); PC.langit(); const L = PC.palet().lapis;
+  PC.potong(PC.lingkaran(800, 470, 110), PC.palet().aksen, { dalam: .1 }); PC.potong(PC.awan(300 + 10 * t, 420, 200, 4), '#FFFFFF', { dalam: .2 });
+  L.forEach((c, i) => { const y = 860 + i * 110, dy = PC.naik(seg(t, t0('l1') - .4 + i * .12, t0('l1') + .4 + i * .12), 600);
+    if (i === 2) { const bx = 300 + 25 * (t - t0('l1')), by = y - 40 + 14 * Math.sin(t * 2.2), rot = .06 * Math.sin(t * 2.2 + .6);
+      ctx.save(); ctx.translate(bx, by + dy); ctx.rotate(rot); ctx.translate(-bx, -by - dy); PC.potong(PC.perahu(bx, by + dy, 90), '#FFF4E6', { dalam: .6 }); ctx.restore(); }
+    PC.potong(PC.ombak(y + dy, 26 + i * 4, 260 + i * 60, t, 40 + i * 25, i + 1), c, { dalam: (i + 1) / L.length, y0: y }); });
+  PC.teks('LAUT', 540, 300, 150, { k: k('l1', 0, 1.2), lapis: ['#FFFFFF', PC.palet().aksen] }); };
+
+S.malam = t => { PC.pakai('malam'); PC.langit(); const L = PC.palet().lapis, a = t - t0('m1');
+  for (let i = 0; i < 26; i++) { const s = 8 + 10 * R(i * 3), kk = backOut(seg(a, .1 + R(i) * 1.2, .5 + R(i) * 1.2)); if (kk > 0) PC.potong(PC.bintang(R(i * 5) * W, 220 + R(i * 7) * 600, s * kk), PC.palet().aksen, { dalam: .1, gradasi: false, bayang: 3 }); }
+  PC.potong(PC.lingkaran(760, 520, 90), '#FFF3CC', { dalam: .15 });
+  L.slice(2).forEach((c, i) => { const dy = PC.naik(seg(a, -.3 + i * .2, .5 + i * .2), 700); PC.potong(PC.kota(1080 + i * 150 + dy, i * 9 + 2, { min: 160 - i * 30, maks: 420 - i * 80 }), c, { dalam: (i + 2) / L.length, y0: 700 }); });
+  for (let i = 0; i < 40; i++) { const nyala = seg(a, .8 + R(i * 9) * 1.5, 1 + R(i * 9) * 1.5); if (nyala > 0) { ctx.fillStyle = `rgba(255,228,150,${.9 * nyala})`; ctx.fillRect(40 + R(i * 11) * 1000, 1000 + R(i * 13) * 300, 16, 22); } }
+  PC.potong(PC.bingkai('lengkung', { w: 900, h: 1500, y: 900 }), '#F4E6D4', { evenodd: true, dalam: 1, gradasi: false });
+  PC.teks('MALAM', 540, 320, 130, { k: k('m1', 0, 1.2), lapis: [PC.palet().aksen, '#FFFFFF'] }); };
+
+S.popup = t => { PC.pakai('permen'); PC.langit(); const a = t - t0('p1'), L = PC.palet().lapis;
+  PC.potong(new Path2D('M 90 1180 L 990 1180 L 1040 1420 L 40 1420 Z'), '#FFF9F0', { dalam: .9 });                       // halaman buku terbuka
+  PC.popup(seg(a, .2, 1), 1200, () => PC.potong(PC.bukit(1150, 120, .7, 21, 0, { x0: 120, x1: 960 }), L[2], { dalam: .5 }));
+  PC.popup(seg(a, .5, 1.3), 1200, () => { for (let j = 0; j < 3; j++) PC.potong(PC.pohon(250 + j * 290, 1190, 200, j % 2 ? 'bulat' : 'cemara'), L[4], { dalam: .7 }); });
+  PC.popup(seg(a, .9, 1.7), 1200, () => PC.tokoh(() => adriy(540, 1190, 26, { face: 'happy', arms: [.3, 1.4 + .2 * Math.sin(t * 6)] }), { dalam: .9 }));
+  PC.potong(new Path2D('M 60 1240 L 1020 1240 L 1040 1420 L 40 1420 Z'), '#FFF4E8', { dalam: 1 });                       // bibir depan buku menutup pangkal pop-up
+  PC.teks('KERTAS', 540, 380, 140, { k: k('p1', 0, 1.2), lapis: [L[4], '#FFFFFF'] }); };
+S.akhir = t => {};
+window.cues = () => {};
+</script>
+</body></html>
