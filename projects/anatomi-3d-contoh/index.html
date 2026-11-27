@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Contoh Anatomi 3D</title>
+<style>
+@font-face { font-family: 'Fredoka'; src: url(../_bersama/fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; }
+html,body{margin:0;background:#111}canvas{height:100vh;display:block;margin:auto}
+</style></head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script src="../_bersama/lib/three-0.159.min.js"></script>
+<script src="../_bersama/dasar.js"></script>
+<script src="../_bersama/anatomi3d.js"></script>
+<script>
+// CONTOH skill anatomi-3d (bukan video tayang): jantung berdetak + aliran darah, belahan jantung, paru bernapas + bronkus sinar-X,
+// lambung & usus dengan gelombang peristaltik, otak. Gaya "studio gelap": latar gelap hangat, organ basah mengkilap, label putih.
+const INK = '#F4EDE6', BG1 = '#2B1E2A', BG2 = '#0F0B12';
+const GAYA = {
+  ink: '#22161E', hi: '#FFB36B', card: '#FFF4EA',
+  shape(pts, col, id, o = {}) { const p = pathOf(pts); ctx.fillStyle = rgba(col, o.fill ?? 1); ctx.fill(p); if (o.line !== false) { ctx.strokeStyle = '#22161E'; ctx.lineWidth = o.lw ?? 4; ctx.lineJoin = 'round'; ctx.stroke(p); } },
+  line(pts, lw, col = '#22161E', id, a = 1) { ctx.strokeStyle = rgba(col, a); ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke(pathOf(pts, false)); },
+  bg(t) { const g = ctx.createRadialGradient(540, 820, 80, 540, 900, 1200); g.addColorStop(0, BG1); g.addColorStop(1, BG2); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); },
+  trans(k, drawPrev) { ctx.save(); ctx.globalAlpha = 1 - ease(k); drawPrev(); ctx.restore(); },   // larut halus
+  post() { const g = ctx.createRadialGradient(540, 960, 600, 540, 960, 1250); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,0.45)'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); },
+};
+function judul(s, y, k = 1) { if (k <= 0) return; ctx.save(); ctx.globalAlpha = k; ctx.font = `700 64px ${FONT}`; ctx.textAlign = 'center'; ctx.fillStyle = '#FFB36B'; ctx.fillText(s, 540, y + 20 * (1 - easeOut(k))); ctx.restore(); }
+
+// ---------- dunia 3D ----------
+const A3 = Anatomi3D({ gaya: 'basah' });
+const jantung = A3.jantung(), paru = A3.paru(), lambung = A3.lambung(), usus = A3.usus(), otak = A3.otak();
+lambung.position.set(.5, 1.75, 0); lambung.scale.setScalar(.62); usus.position.set(0, -1.05, 0); usus.scale.setScalar(.85);
+const cerna = new THREE.Group(); cerna.add(lambung, usus);
+for (const g of [jantung, paru, cerna, otak]) { g.visible = false; A3.scene.add(g); }
+// darah mengalir di dalam aorta (kurva dalam koordinat jantung)
+const kurvaAorta = new THREE.CatmullRomCurve3([[.05, .45, .05], [.12, 1.15, .1], [.35, 1.55, 0], [.72, 1.42, -.25], [.8, .7, -.45], [.78, -.2, -.5]].map(p => new THREE.Vector3(...p)));
+const darah = A3.aliran(kurvaAorta, { jenis: 'darah', jumlah: 70, laju: .35, sebar: .12 }); jantung.add(darah);
+const udara = A3.aliran(new THREE.CatmullRomCurve3([[0, 3.2, .1], [0, 2.2, 0], [0, 1.2, 0], [-.6, .7, 0], [-1.1, .2, .1]].map(p => new THREE.Vector3(...p))), { jenis: 'udara', jumlah: 50, laju: .3, sebar: .14 });
+const udara2 = A3.aliran(new THREE.CatmullRomCurve3([[0, 3.2, -.1], [0, 2.2, 0], [0, 1.2, 0], [.6, .7, 0], [1.1, .2, .1]].map(p => new THREE.Vector3(...p))), { jenis: 'udara', jumlah: 50, laju: .3, sebar: .14 });
+paru.add(udara, udara2);
+const makanan = A3.aliran(lambung.kurva, { jenis: 'makanan', jumlah: 40, laju: .08, sebar: .2 }); lambung.add(makanan);
+const bayang = A3.bayangan(-2.4, 2.4, .5);
+
+// ---------- adegan ----------
+GROUPS = [['jantung', ['j1', 'j2']], ['potong', ['k1']], ['paru', ['p1', 'p2']], ['cerna', ['c1', 'c2']], ['otak', ['o1']], ['akhir', ['z']]];
+const tampil = g => { for (const x of [jantung, paru, cerna, otak]) x.visible = x === g; };
+
+S.jantung = t => { tampil(jantung); jantung.detak(t); A3.potong(jantung, 0);
+  const kaca = ease(seg(t, t0('j2') - .2, t0('j2') + .6)); A3.tembus(jantung.bagian.aorta, kaca * .85); darah.visible = kaca > .02;
+  jantung.rotation.y = -.2 + .25 * Math.sin(t * .5);
+  A3.kamera(t, [[0, { pos: [0, .3, 15], lihat: [0, .3, 0], fov: 30 }], [3, { pos: [1.6, .9, 11.5], lihat: [-.05, .45, 0] }], [6.2, { pos: [1.5, 1.2, 9.5], lihat: [.3, .55, 0], fov: 30 }]]);
+  A3.gambar(ctx, t);
+  judul('JANTUNG', 330, seg(t, .2, .8));
+  A3.label(ctx, jantung, jantung.titik.aorta, 'Aorta', { k: seg(t, t0('j2'), t0('j2') + .6), x: 800, y: 520 });
+  A3.label(ctx, jantung, jantung.titik.bilikKiri, 'Bilik kiri', { k: seg(t, t0('j2') + .8, t0('j2') + 1.4), x: 820, y: 1300 }); };
+
+S.potong = t => { tampil(jantung); jantung.detak(t, 60); A3.tembus(jantung.bagian.aorta, 0); darah.visible = false; const k = ease(seg(t, t0('k1') - .2, t0('k1') + 1.6));
+  A3.potong(jantung, k * .55); jantung.rotation.y = -.2 - .5 * k;
+  A3.kamera(t, [[t0('k1') - .4, { pos: [1.5, 1.2, 9.5], lihat: [.3, .55, 0], fov: 30 }], [t1('k1') + .4, { pos: [.6, .6, 8.6], lihat: [.1, .2, 0], fov: 30 }]]);
+  A3.gambar(ctx, t); judul('DIBELAH', 330, seg(t, t0('k1'), t0('k1') + .6)); };
+
+S.paru = t => { tampil(paru); paru.napas(A3.napas(t, 18)); const x = ease(seg(t, t0('p2') - .3, t0('p2') + 1)); paru.tembus(x);
+  udara.visible = udara2.visible = x > .05; paru.rotation.y = .15 * Math.sin(t * .4);
+  A3.kamera(t, [[t0('p1') - .4, { pos: [0, .8, 16], lihat: [0, .6, 0], fov: 32 }], [t0('p2'), { pos: [-1.6, 1.1, 13.5], lihat: [0, .8, 0] }], [t1('p2') + .5, { pos: [-.8, 1.5, 11.5], lihat: [0, 1, 0], fov: 31 }]]);
+  A3.gambar(ctx, t); judul('PARU-PARU', 330, seg(t, t0('p1'), t0('p1') + .6));
+  A3.label(ctx, paru, paru.titik.trakea, 'Trakea', { k: x, x: 250, y: 470 });
+  A3.label(ctx, paru, paru.titik.bronkus, 'Bronkus', { k: seg(t, t0('p2') + 1, t0('p2') + 1.6), x: 230, y: 1250 }); };
+
+S.cerna = t => { tampil(cerna); lambung.gerak(t); usus.gerak(t); usus.visible = t > t0('c2') - .6; cerna.rotation.y = .25 * Math.sin(t * .35); A3.tembus(lambung.bagian.badan, .55);
+  A3.kamera(t, [[t0('c1') - .4, { pos: [1.4, 2.2, 9.5], lihat: [.4, 1.7, 0], fov: 30 }], [t0('c2'), { pos: [-.4, .9, 13], lihat: [0, .4, 0] }], [t1('c2') + .5, { pos: [0, .2, 14.5], lihat: [0, .1, 0], fov: 32 }]]);
+  A3.gambar(ctx, t); judul('PENCERNAAN', 330, seg(t, t0('c1'), t0('c1') + .6));
+  A3.label(ctx, lambung, lambung.titik.badan, 'Lambung', { k: seg(t, t0('c1') + .5, t0('c1') + 1.1), x: 820, y: 560 });
+  A3.label(ctx, usus, usus.titik.ususHalus, 'Usus halus', { k: seg(t, t0('c2') + .3, t0('c2') + .9), x: 760, y: 1380 }); };
+
+S.otak = t => { tampil(otak); const a = t - t0('o1'); otak.rotation.y = -.9 + .35 * a; otak.rotation.x = .1;
+  A3.kamera(t, [[t0('o1') - .4, { pos: [0, .6, 11], lihat: [0, -.1, 0], fov: 30 }], [t1('o1') + .6, { pos: [0, .9, 8.6], lihat: [0, -.05, 0], fov: 30 }]]);
+  A3.gambar(ctx, t); judul('OTAK', 330, seg(t, t0('o1'), t0('o1') + .6));
+  A3.label(ctx, otak, otak.titik.otakKecil, 'Otak kecil', { k: seg(t, t0('o1') + 1, t0('o1') + 1.6), x: 820, y: 1250 });
+  adriy(210, 1480, 16, { face: 'star', arms: [.3, 1.4] }); };
+
+S.akhir = t => {};
+window.cues = () => {};
+</script>
+</body></html>

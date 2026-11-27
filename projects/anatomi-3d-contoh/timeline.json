@@ -1,0 +1,59 @@
+{
+ "duration": 27.0,
+ "lines": [
+  {
+   "id": "j1",
+   "t0": 0.3,
+   "t1": 2.8,
+   "cap": "Jantungmu berdetak *seratus ribu* kali sehari."
+  },
+  {
+   "id": "j2",
+   "t0": 3.0,
+   "t1": 5.8,
+   "cap": "Darah keluar lewat *aorta*, pipa terbesar di tubuh."
+  },
+  {
+   "id": "k1",
+   "t0": 6.2,
+   "t1": 9.6,
+   "cap": "Kalau dibelah, dindingnya *tebal* dan berotot."
+  },
+  {
+   "id": "p1",
+   "t0": 10.0,
+   "t1": 12.6,
+   "cap": "Paru-paru mengembang tiap kamu *tarik napas*."
+  },
+  {
+   "id": "p2",
+   "t0": 12.8,
+   "t1": 15.4,
+   "cap": "Udara masuk lewat *ribuan* cabang kecil."
+  },
+  {
+   "id": "c1",
+   "t0": 15.8,
+   "t1": 18.2,
+   "cap": "Lambung meremas makanan *pelan-pelan*."
+  },
+  {
+   "id": "c2",
+   "t0": 18.4,
+   "t1": 20.6,
+   "cap": "Lalu usus mendorongnya, *gelombang demi gelombang*."
+  },
+  {
+   "id": "o1",
+   "t0": 21.0,
+   "t1": 23.6,
+   "cap": "Dan semua itu diatur dari *sini*."
+  },
+  {
+   "id": "z",
+   "t0": 24.4,
+   "t1": 26.2,
+   "cap": "Stay Curious, World!"
+  }
+ ]
+}

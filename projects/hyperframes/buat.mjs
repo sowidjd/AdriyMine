@@ -27,6 +27,9 @@ const dasar = readFileSync(resolve(ROOT, '_bersama/dasar.js'), 'utf8').split('\n
   .replace('window.ready = (async () => {', 'window.__videoSiap = new Promise(r => window.__lepasVideo = r);\nwindow.ready = (async () => { await window.__videoSiap;');
 writeFileSync(resolve(out, 'dasar.js'), dasar);
 copyFileSync(resolve(ROOT, 'hyperframes/lib/gsap.min.js'), resolve(out, 'gsap.min.js'));
+// pustaka bersama lain yang dipakai video (three.js, anatomi3d.js, kosmik3d.js, …) ikut disalin
+for (const [, f] of html.matchAll(/<script src="\.\.\/_bersama\/([^"]+)"><\/script>/g)) if (f !== 'dasar.js') {
+  mkdirSync(dirname(resolve(out, 'lib', f)), { recursive: true }); copyFileSync(resolve(ROOT, '_bersama', f), resolve(out, 'lib', f)); }
 for (const f of readdirSync(resolve(ROOT, '_bersama/fonts'))) copyFileSync(resolve(ROOT, '_bersama/fonts', f), resolve(out, 'fonts', f));
 
 // suara: audio campuran (narasi + musik + efek) dari audio.py, kalau sudah ada
@@ -39,6 +42,7 @@ html = html.replace(/<script>([\s\S]*?)<\/script>/, (_, js) => { writeFileSync(r
 
 html = html
   .replaceAll('../_bersama/fonts/', 'fonts/')
+  .replace(/<script src="\.\.\/_bersama\/(?!dasar\.js)([^"]+)"><\/script>/g, '<script src="lib/$1"></script>')
   .replace('<script src="../_bersama/dasar.js"></script>', '<script>window.HF_MODE = true;</script>\n<script src="gsap.min.js"></script>\n<script src="dasar.js"></script>')
   .replace('</style>', '\n/* HyperFrames */ html,body{background:#000} #main{position:relative;width:1080px;height:1920px;overflow:hidden} #main canvas{width:100%;height:100%;margin:0}\n</style>')
   .replace(/<canvas id="c"[^>]*><\/canvas>/, `<div id="main" data-composition-id="main" data-start="0" data-duration="${dur}" data-width="1080" data-height="1920">
