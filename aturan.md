@@ -113,6 +113,8 @@ Hook menentukan penonton lanjut atau *scroll*. Buat **minimal 3 versi hook**, la
 4. **Angka nyata:** *"Rata-rata orang buka kulkas 7 kali sehari tanpa ambil apa-apa."* (angka harus benar & ada sumbernya)
 5. **Kebalikan:** *"Masalahnya BUKAN karena kamu malas."*
 
+**Variasi (§16):** rumus hook tidak boleh sama dengan 2 video terakhir, dan kata pertamanya tidak boleh sama dengan video sebelumnya. Bank lengkap ada di `projects/VARIASI.md` (13 rumus).
+
 **Larangan hook:** pembukaan lambat, perkenalan diri, "Di video ini aku akan…", musik tanpa visual.
 
 ## 4. Ekspresi
@@ -248,12 +250,12 @@ Nama akun **Arfiy World** disebut di dalam narasi supaya penonton **ingat**, jad
 - **Di tengah, sekitar 30–70% durasi**, di momen transisi: sesudah penjelasan dan sebelum fakta paling mengejutkan atau trik utama.
 
 **Supaya terasa (wajib ketiganya):**
-1. **Kalimat khusus untuk nama.** Nama tidak boleh terselip di tengah kalimat panjang. Pakai bentuk **"kami di Arfiy World …"** (suara tim, membangun identitas), lalu kalimat dipotong atau diberi **jeda 0,5–0,9 detik** sesudah nama. Arahan suara: *lebih pelan, hangat, bangga, penekanan jelas pada nama*.
+1. **Kalimat khusus untuk nama.** Nama tidak boleh terselip di tengah kalimat panjang. Bentuk kalimatnya **berganti setiap video** (§16, bank di `projects/VARIASI.md`). Contohnya: "kami di Arfiy World…", "Jujur, kami di Arfiy World…", "Ini bagian favorit kami di Arfiy World…". Sesudah nama, kalimat dipotong atau diberi **jeda 0,5–0,9 detik** sesudah nama. Arahan suara: *lebih pelan, hangat, bangga, penekanan jelas pada nama*.
 2. **Stempel visual.** Lencana "Arfiy World" dengan desain yang sama di setiap video, ukuran teks ≥ 70 px, di tengah-atas kotak aman, muncul seperti dicap (memantul), bertahan **≥ 2 detik**, dengan sorotan cahaya hangat di belakangnya. **Adriy bereaksi** (menunjuk lencana, mengangguk bangga). Lencana tidak menutupi tokoh atau teks penting lain.
 3. **Logo suara.** Setiap kali nama disebut, bunyi khas yang **selalu sama**: `repos/sfx-kit/sounds/logo-stings/sting-bright-short.wav`, jatuh di jeda sesudah nama. Musik turun sedikit di saat itu supaya bunyi khasnya terdengar.
 
 **Lain-lain:**
-- Bagian kalimat sesudah nama **disesuaikan dengan tema**, jangan sama persis di setiap video.
+- Bagian kalimat sesudah nama **disesuaikan dengan tema**, jangan sama persis di setiap video. Bentuk kalimat dan kata kerjanya tidak boleh sama dengan 3 video terakhir (§16). Yang tetap sama hanya stempel visual dan bunyi khasnya.
 - **Cara baca:** "Arfi Werld" (diubah otomatis oleh `projects/suara/ucapan.py`).
 - Caption narasi juga menampilkan nama.
 
@@ -356,6 +358,28 @@ Mulai sekarang semua video memakai tokoh sendiri: **Adriy**, burung hantu kecil 
 - Tokoh pendamping (teman, orang lain) boleh beda warna, tapi tidak boleh memakai kacamata bulat + syal merah (itu ciri khas Adriy).
 - Nama "Adriy" tidak perlu disebut di narasi; penyebutan nama akun tetap mengikuti §10.
 
+## 16. Variasi antarvideo: hook, nama channel, dan CTA tidak boleh itu-itu terus (dari pemilik)
+
+Penonton yang setia akan bosan kalau setiap video dibuka, menyebut channel, dan ditutup dengan kalimat yang sama.
+**Bank pilihan dan catatan pemakaian ada di `projects/VARIASI.md`.** Baca file itu sebelum menulis naskah, dan tambahkan satu baris di sana setelah video jadi.
+
+| Bagian | Yang berganti | Jarak minimal sebelum boleh dipakai lagi |
+|---|---|---|
+| Hook (§3) | Rumus hook | Beda dari **2 video terakhir** |
+| Hook | Kata pertama | Beda dari video sebelumnya |
+| Nama channel (§10) | Bentuk kalimat & kata kerja sesudah nama | Beda dari **3 video terakhir** |
+| CTA komentar (§13) | Jenis pertanyaan (pilih tim, angka, isi titik-titik, emoji, dll.) | Beda dari **2 video terakhir** |
+| CTA komentar | Kata ajakan (tulis / ketik / jawab / pilih / kasih tahu aku) | Beda dari video sebelumnya |
+| CTA komentar | Alasan untuk menjawab | Beda dari **3 video terakhir** |
+| CTA kedua (§11) | Kirim / simpan / ikuti / grup / seri / coba lalu kembali | Beda dari video sebelumnya |
+
+**Yang sengaja tetap sama** (ciri khas akun): stempel visual dan bunyi khas nama channel, slogan penutup "Stay Curious, World!" beserta kartu dan bunyinya, serta tokoh Adriy.
+
+**Larangan:**
+- Menyalin kalimat contoh dari bank apa adanya. Bank hanya pola; isinya ditulis ulang sesuai tema.
+- Mengarang pengalaman demi variasi ("kami nyobain seminggu" padahal tidak).
+- Mengorbankan aturan lain demi beda: posisi nama channel tetap di 30–70% durasi dengan jeda, CTA tetap satu pertanyaan ditambah satu CTA kedua.
+
 ## Checklist sebelum video dianggap selesai
 
 - [ ] Topik memenuhi minimal 1 dari Tiga Tips (§0); tips yang dipenuhi & emosi inti disebut di laporan; tag emosi, gaya karakter & efek suara mengikuti emosi inti
@@ -379,6 +403,7 @@ Mulai sekarang semua video memakai tokoh sendiri: **Adriy**, burung hantu kecil 
 - [ ] Semua teks di kotak aman x 60–927, y 212–1540 (cek dengan garis bantu area aman)
 - [ ] "Arfiy World" disebut 1 kali (maks. 2 untuk video > 2 menit), di tengah (30–70% durasi), tidak di awal/akhir, dengan kalimat khusus + jeda, stempel visual ≥ 2 detik + reaksi Adriy, dan bunyi khas sting-bright-short
 - [ ] Bagian akhir sesuai §11: kesimpulan → CTA komentar yang memancing jawaban → 1 CTA kedua (simpan/bagikan/ikuti, tanpa nama akun) → "Stay Curious, World!" sebagai kalimat terakhir (diucapkan + kartu penutup ≥ 1,5 detik + bunyi khas penutup)
+- [ ] Variasi §16: hook, bentuk nama channel, dan CTA berbeda dari video-video sebelumnya sesuai `projects/VARIASI.md`, dan barisnya sudah ditambahkan di sana
 
 ## Riwayat video
 

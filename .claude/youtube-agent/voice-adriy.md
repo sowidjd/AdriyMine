@@ -5,5 +5,5 @@
 - **Penonton:** anak muda Indonesia yang scroll FYP; mereka harus berpikir "ini gue banget" atau "kok bisa?!".
 - **Kalimat:** pendek, bisa diucapkan sekali napas. Angka ditulis seperti diucapkan.
 - **Tidak pernah:** "Halo guys", perkenalan diri di awal, "like comment share follow", klaim tanpa sumber, angka karangan.
-- **Selalu:** fakta bersumber; nama "Arfiy World" 1× di tengah ("kami di Arfiy World…"); penutup "Stay Curious, World!".
+- **Selalu:** fakta bersumber; nama "Arfiy World" 1× di tengah (bentuk kalimat berganti tiap video, lihat projects/VARIASI.md); penutup "Stay Curious, World!".
 - **Nada:** hangat, sedikit jahil, kagum bersama penonton (bukan menggurui).

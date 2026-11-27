@@ -32,6 +32,7 @@ Video dianggap siap kalau **semua elemen bernilai ≥ 4** dan Hook, Retention, s
 ### 1. HOOK: menarik perhatian di 1–3 detik pertama (§3)
 - Ada 3 versi hook yang ditulis. Yang dipilih memakai salah satu rumus §3: cermin, fakta mengejutkan, tuduhan, angka nyata, atau kebalikan.
 - Detik 0 sudah ada gerakan dan suara. Ada twist atau "tapi" di detik 2–3. Teks hook ≤ 7 kata.
+- Rumus dan kata pertama hook berbeda dari video sebelumnya (§16, `projects/VARIASI.md`).
 - ❌ Dibuka dengan "Halo", perkenalan, "Di video ini…", atau layar diam.
 
 ### 2. STORYTELLING: bercerita, bukan membacakan fakta
@@ -55,7 +56,7 @@ Video dianggap siap kalau **semua elemen bernilai ≥ 4** dan Hook, Retention, s
 ### 5. CURIOSITY GAP: beri informasi secukupnya
 - Hook **menjanjikan** jawaban tanpa menjelaskannya. Solusi baru muncul di ≥ 55% durasi (§12).
 - Setiap bagian ditutup dengan pertanyaan terbuka yang dijawab di bagian berikutnya ("Terus, suara itu dari mana?").
-- Momen nama akun (§10) ditaruh tepat sebelum fakta paling mengejutkan.
+- Momen nama akun (§10) ditaruh tepat sebelum fakta paling mengejutkan, dengan bentuk kalimat yang berbeda dari 3 video terakhir (§16).
 - ❌ Jawaban dibocorkan di hook, atau pertanyaan dibuka tapi tidak pernah dijawab.
 
 ### 6. STRUCTURE: susunan alur
@@ -86,6 +87,7 @@ Video dianggap siap kalau **semua elemen bernilai ≥ 4** dan Hook, Retention, s
 ### 10. CTA: ajakan berkomentar, membagikan, atau mengikuti (§11, §13)
 - Urutannya: jembatan → pertanyaan yang gampang dijawab plus contoh jawabannya → alasan untuk menjawab → **satu** CTA kedua (bagikan, simpan, *atau* ikuti, dengan alasan yang spesifik) → "Stay Curious, World!".
 - **Catatan bentrokan:** daftar pemilik menyebut "berkomentar, menyukai, membagikan, atau mengikuti". `aturan.md` membolehkan **komentar + satu CTA kedua saja**, tanpa "like, comment, share, follow" sekaligus. Pilih satu CTA kedua dan gilir antarvideo.
+- Jenis pertanyaan, kata ajakan, alasan menjawab, dan CTA kedua berbeda dari video sebelumnya sesuai `projects/VARIASI.md` (§16).
 - ❌ "Jangan lupa like, comment, share, dan follow!", atau menyebut nama akun di akhir video.
 
 ## Kartu Rencana (mode A)
@@ -93,16 +95,16 @@ Video dianggap siap kalau **semua elemen bernilai ≥ 4** dan Hook, Retention, s
 ```
 Judul (≤ 10 kata, §2):
 Emosi inti (§0):
-1. Hook: 3 versi → yang dipilih + rumusnya, twist di detik 2–3:
+1. Hook: 3 versi → yang dipilih + kode rumus (VARIASI.md, beda dari 2 video terakhir), twist di detik 2–3:
 2. Storytelling: tokoh / situasi / perubahan:
 3. Pacing: target durasi, jumlah adegan (± 1 per 3–6 detik):
 4. Retention: daftar pemicu ulang + detiknya:
 5. Curiosity gap: pertanyaan terbuka tiap bagian + jawaban fakta paling mengejutkan:
-6. Structure: porsi 6 bagian (§12), detik momen nama akun:
+6. Structure: porsi 6 bagian (§12), detik momen nama akun + kode bentuk kalimatnya (N…):
 7. Visual: gaya animasi + metafora inti (§9), 3 latar, 2 pergantian cahaya, 5 emosi Adriy:
 8. Sound: musik per suasana, efek suara utama, momen hening:
 9. Emotional trigger: momen "aku banget" + momen "kok bisa?!":
-10. CTA: pertanyaan + contoh jawaban + alasan + 1 CTA kedua:
+10. CTA: pertanyaan (Q…) + contoh jawaban + alasan (R…) + 1 CTA kedua (C…), semuanya dicek ke VARIASI.md:
 ```
 
 ## Contoh tabel nilai (mode B)
