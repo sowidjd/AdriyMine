@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Contoh Whiteboard</title>
+<style>
+@font-face { font-family: 'Fredoka'; src: url(../_bersama/fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; }
+html,body{margin:0;background:#111}canvas{height:100vh;display:block;margin:auto}
+</style></head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script src="../_bersama/dasar.js"></script>
+<script src="../_bersama/papantulis.js"></script>
+<script>
+// CONTOH skill whiteboard (bukan video tayang; fakta belum dicek untuk tayang): papan putih, tangan menggambar goresan demi goresan,
+// tulisan tangan, arsiran warna, Adriy diungkap dengan sapuan, grafik, transisi dihapus penghapus.
+const GAYA = WB.gaya(), SP = WB.SPIDOL;
+GROUPS = [['tular', ['a1', 'a2']], ['dugaan', ['b1']], ['dekat', ['c1']], ['akhir', ['z']]];
+// rencana dibuat sekali per adegan (waktu mulai mengikuti narasi), disimpan di cache
+const rencana = {};
+const R1 = () => rencana.tular ??= WB.rencana([
+  { teks: 'Menguap itu menular?', x: 540, y: 330, ukuran: 78 },
+  { goresan: WB.garisBawah(250, 830, 360), warna: SP.merah, lebar: 10 },
+  { goresan: WB.orangLidi(300, 900, 1.6), lebar: 10 },
+  { goresan: WB.lingkaran(300, 676, 9, 14, 5), warna: SP.hitam, lebar: 6 },                      // mulut menguap
+  { goresan: WB.panah(400, 640, 650, 640, -.25), warna: SP.biru, lebar: 9 },
+  { ungkap: () => adriy(780, 920, 22, { face: 'sleepy', mouth: 'O' }), kotak: [640, 640, 290, 300] },
+  { teks: 'ikut!', x: 780, y: 560, ukuran: 60, warna: SP.merah, tunda: .2 },
+  { goresan: WB.gelembung(540, 1150, 560, 150), lebar: 7, tunda: t0('a2') - 6.2 > 0 ? t0('a2') - 6.2 : .3 },
+  { teks: '"menguap..."', x: 540, y: 1170, ukuran: 56, warna: SP.biru },
+], { mulai: .3, laju: 1500 });
+const R2 = () => rencana.dugaan ??= WB.rencana([
+  { teks: 'Dugaan:', x: 540, y: 330, ukuran: 80, warna: SP.merah },
+  { goresan: WB.lampu(540, 620, 1.4), lebar: 9 },
+  { arsir: (() => { const p = new Path2D(); p.ellipse(540, 620, 84, 92, 0, 0, TAU); return p; })(), warna: '#FFD84D', kotak: [450, 520, 180, 200] },
+  { goresan: WB.orangLidi(330, 1080, 1.2, { tangan: 1 }), lebar: 9 }, { goresan: WB.orangLidi(750, 1080, 1.2, { tangan: 1 }), lebar: 9 },
+  { goresan: WB.dariSVG('M 0 20 C -40 -20 -10 -50 0 -25 C 10 -50 40 -20 0 20', 540, 930, 2.2), warna: SP.merah, lebar: 9 },   // hati di antara keduanya
+  { teks: 'peka sama orang lain', x: 540, y: 1220, ukuran: 54 },
+], { mulai: t0('b1') - .1, laju: 1600 });
+const R3 = () => rencana.dekat ??= WB.rencana([
+  { teks: 'Seberapa dekat?', x: 540, y: 330, ukuran: 76 },
+  { goresan: WB.grafikNaik(170, 1180, 740, 640, [.12, .2, .35, .5, .7, .9]), lebar: 9 },
+  { teks: 'orang asing', x: 300, y: 1250, ukuran: 40, warna: SP.biru }, { teks: 'keluarga', x: 800, y: 1250, ukuran: 40, warna: SP.biru },
+  { goresan: WB.lingkaran(830, 600, 60, 60, 11), warna: SP.merah, lebar: 9 }, { goresan: WB.centang(830, 600, 50), warna: SP.hijau, lebar: 11 },
+], { mulai: t0('c1') - .1, laju: 1700 });
+
+S.tular = t => { R1()(t); WB.tanganAktif(); };
+S.dugaan = t => { R2()(t); WB.tanganAktif(); };
+S.dekat = t => { R3()(t); WB.tanganAktif(); };
+S.akhir = t => {};
+window.cues = () => {};
+</script>
+</body></html>

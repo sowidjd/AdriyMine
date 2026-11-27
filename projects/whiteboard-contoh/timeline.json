@@ -1,0 +1,35 @@
+{
+ "duration": 19.0,
+ "lines": [
+  {
+   "id": "a1",
+   "t0": 0.3,
+   "t1": 3.6,
+   "cap": "Lihat orang menguap, kamu *ikut* menguap."
+  },
+  {
+   "id": "a2",
+   "t0": 3.8,
+   "t1": 7.0,
+   "cap": "Bahkan cuma *baca* kata menguap pun bisa."
+  },
+  {
+   "id": "b1",
+   "t0": 7.6,
+   "t1": 11.4,
+   "cap": "Salah satu *dugaan*: ini tanda kita peka sama orang lain."
+  },
+  {
+   "id": "c1",
+   "t0": 11.8,
+   "t1": 15.6,
+   "cap": "Makin *dekat* hubungannya, makin gampang tertular."
+  },
+  {
+   "id": "z",
+   "t0": 16.4,
+   "t1": 18.2,
+   "cap": "Stay Curious, World!"
+  }
+ ]
+}
