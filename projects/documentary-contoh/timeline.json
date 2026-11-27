@@ -1,0 +1,41 @@
+{
+ "duration": 22.4,
+ "lines": [
+  {
+   "id": "b1",
+   "t0": 0.4,
+   "t1": 3.4,
+   "cap": "Tahun 1928, di sebuah laboratorium di London."
+  },
+  {
+   "id": "b2",
+   "t0": 3.6,
+   "t1": 7.2,
+   "cap": "Alexander Fleming pulang liburan, dan mejanya berantakan."
+  },
+  {
+   "id": "c1",
+   "t0": 7.6,
+   "t1": 11.2,
+   "cap": "Salah satu cawan bakterinya *ditumbuhi jamur*."
+  },
+  {
+   "id": "c2",
+   "t0": 11.4,
+   "t1": 15.0,
+   "cap": "Anehnya, bakteri di sekitar jamur itu *hilang*."
+  },
+  {
+   "id": "d1",
+   "t0": 15.4,
+   "t1": 19.0,
+   "cap": "Dari situ lahir *penisilin*, antibiotik pertama yang terkenal."
+  },
+  {
+   "id": "z",
+   "t0": 19.8,
+   "t1": 21.6,
+   "cap": "Stay Curious, World!"
+  }
+ ]
+}

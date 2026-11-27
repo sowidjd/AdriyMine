@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Contoh Documentary</title>
+<style>
+@font-face { font-family: 'Fredoka'; src: url(../_bersama/fonts/fredoka-latin.woff2) format('woff2'); font-weight: 300 700; }
+html,body{margin:0;background:#000}canvas{height:100vh;display:block;margin:auto}
+</style></head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script src="../_bersama/dasar.js"></script>
+<script src="../_bersama/dokumenter.js"></script>
+<script>
+// CONTOH skill documentary (bukan video tayang). Kisah penemuan penisilin (Fleming, 1928, London; jamur Penicillium membunuh bakteri
+// Staphylococcus di sekitarnya). Semua gambar = ILUSTRASI buatan kode (diberi label), bukan foto arsip. Kutipan = kalimat kita sendiri.
+const GAYA = DOK.gaya({ nada: 'arsip' }), D = DOK.WARNA;
+const k = (id, a = 0, b = 1.4) => seg(T, t0(id) + a, t0(id) + b);
+// ---- ilustrasi (dibuat sekali, lalu di-Ken-Burns) ----
+const LAB = () => DOK.gambar('lab', 1600, 2600, (w, h) => {
+  ctx.fillStyle = '#3A3128'; ctx.fillRect(0, 0, w, h);                                           // dinding
+  const g = ctx.createLinearGradient(900, 300, 1300, 1400); g.addColorStop(0, 'rgba(255,235,190,0.9)'); g.addColorStop(1, 'rgba(255,235,190,0)');
+  ctx.fillStyle = '#C9B48E'; ctx.fillRect(950, 300, 420, 700); ctx.fillStyle = '#3A3128'; ctx.fillRect(1150, 300, 18, 700); ctx.fillRect(950, 640, 420, 18);   // jendela
+  ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(950, 300); ctx.lineTo(1370, 300); ctx.lineTo(900, 1700); ctx.lineTo(200, 1700); ctx.closePath(); ctx.fill();   // sinar jendela
+  ctx.fillStyle = '#5A4330'; ctx.fillRect(0, 1650, w, 120); ctx.fillStyle = '#2A2018'; ctx.fillRect(0, 1770, w, h);          // meja
+  ctx.fillStyle = '#1C1712'; ctx.fillRect(250, 1180, 70, 470); ctx.beginPath(); ctx.ellipse(285, 1180, 90, 40, 0, 0, TAU); ctx.fill(); ctx.fillRect(180, 1600, 260, 50);   // mikroskop sederhana
+  ctx.save(); ctx.translate(330, 1250); ctx.rotate(-.5); ctx.fillRect(-25, -200, 50, 260); ctx.restore();
+  for (let i = 0; i < 7; i++) { const x = 560 + i * 140 + (hash(i) - .5) * 40, y = 1640 - (i % 3) * 22; ctx.fillStyle = 'rgba(230,225,200,0.35)'; ctx.beginPath(); ctx.ellipse(x, y, 62, 18, 0, 0, TAU); ctx.fill(); ctx.strokeStyle = 'rgba(255,255,240,0.6)'; ctx.lineWidth = 3; ctx.stroke(); }   // cawan bertumpuk
+  for (const [x, hh] of [[1400, 300], [1500, 220]]) { ctx.fillStyle = 'rgba(200,220,210,0.4)'; ctx.beginPath(); ctx.moveTo(x - 20, 1650 - hh); ctx.lineTo(x + 20, 1650 - hh); ctx.lineTo(x + 70, 1650); ctx.lineTo(x - 70, 1650); ctx.closePath(); ctx.fill(); }   // labu
+});
+const CAWAN = () => DOK.gambar('cawan', 1600, 2400, (w, h) => {
+  ctx.fillStyle = '#211B15'; ctx.fillRect(0, 0, w, h); const cx = 800, cy = 1200, r = 650;
+  ctx.fillStyle = '#C9A85A'; ctx.beginPath(); ctx.arc(cx, cy, r, 0, TAU); ctx.fill(); ctx.strokeStyle = 'rgba(255,250,230,0.7)'; ctx.lineWidth = 14; ctx.stroke();   // agar
+  const jx = 600, jy = 1000;
+  for (let i = 0; i < 900; i++) { const a = hash(i) * TAU, rr = Math.sqrt(hash(i + .3)) * (r - 40), x = cx + Math.cos(a) * rr, y = cy + Math.sin(a) * rr; if (Math.hypot(x - jx, y - jy) < 330) continue;   // zona bening tanpa bakteri
+    ctx.fillStyle = 'rgba(240,225,160,0.95)'; ctx.beginPath(); ctx.arc(x, y, 6 + hash(i * 3) * 10, 0, TAU); ctx.fill(); }
+  for (let i = 0; i < 60; i++) { const a = hash(i * 7) * TAU, rr = hash(i * 5) * 150; ctx.fillStyle = `rgba(${200 + hash(i) * 40},${220 + hash(i * 2) * 30},${190},0.8)`; ctx.beginPath(); ctx.arc(jx + Math.cos(a) * rr, jy + Math.sin(a) * rr, 30 + hash(i * 9) * 50, 0, TAU); ctx.fill(); }   // jamur
+  ctx.fillStyle = 'rgba(110,150,90,0.6)'; ctx.beginPath(); ctx.arc(jx, jy, 90, 0, TAU); ctx.fill();
+});
+GROUPS = [['pembuka', ['b1', 'b2']], ['cawan', ['c1', 'c2']], ['penutup', ['d1']], ['akhir', ['z']]];
+
+S.pembuka = t => { ctx.save(); DOK.goyangGerbang(t);
+  DOK.kenBurns(LAB(), [0, 0, 1600, 2600], [500, 900, 1000, 1500], seg(t, 0, t1('b2')));
+  DOK.filmLama(t, { kuat: .9 }); ctx.restore();                                                 // sepia hanya untuk "arsip", sebelum Adriy & caption
+  DOK.label('ILUSTRASI');
+  DOK.kartuTanggal(1928, 'London, Inggris', { k: k('b1', 0, 2.2), y: 700 });
+  DOK.lowerThird('Alexander Fleming', 'ahli bakteriologi', { k: k('b2', .2, 1), keluar: k('b2', 2.6, 3) }); };
+
+S.cawan = t => { const a = t - t0('c1'); ctx.save(); DOK.goyangGerbang(t);
+  DOK.kenBurns(CAWAN(), [0, 0, 1600, 2400], [250, 550, 800, 1200], seg(t, t0('c1') - .4, t1('c2')));
+  DOK.filmLama(t, { kuat: .7 }); ctx.restore(); DOK.label('ILUSTRASI');
+  DOK.lowerThird('Jamur Penicillium', 'tumbuh di cawan bakteri', { k: k('c1', .6, 1.4), keluar: k('c1', 3.2, 3.6), y: 380 });
+  adriy(910, 1310, 15, { face: a > 3.8 ? 'shock' : 'curious', mark: a > 3.8 ? '!' : null, markAge: 1 }); };
+
+S.penutup = t => { DOK.cahayaBocor(t, .25);
+  DOK.babak(1, 'Kekacauan Kecil', { k: k('d1', -.3, .8), keluar: k('d1', 1.1, 1.5) });
+  DOK.kutipan('Kadang penemuan besar datang dari meja yang berantakan.', 'Arfiy World', { k: k('d1', 1.4, 3.2) });
+  adriy(880, 1310, 15, { face: 'star' }); };
+S.akhir = t => {};
+window.cues = () => {};
+</script>
+</body></html>
