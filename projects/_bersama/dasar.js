@@ -176,8 +176,9 @@ function renderAt(t) {
   GAYA.post(t);
   if (t < .15) { ctx.fillStyle = `rgba(10,10,10,${1 - t / .15})`; ctx.fillRect(0, 0, W, H); }
   if (TL && t > TL.duration - .3) { ctx.fillStyle = `rgba(10,10,10,${seg(t, TL.duration - .3, TL.duration)})`; ctx.fillRect(0, 0, W, H); }
+  if (window.HF_MODE) return;   // HyperFrames mengambil gambar sendiri
   return cv.toDataURL('image/jpeg', .9);
 }
 window.renderAt = renderAt; window.setTL = setTL;
 window.ready = (async () => { await document.fonts.load(`700 40px Fredoka`); await document.fonts.load(`500 40px Fredoka`); if (GAYA.init) GAYA.init(); return true; })();
-if (!location.search.includes('render')) window.ready.then(async () => { const tl = await (await fetch('timeline.json')).json(); setTL(tl); const s0 = performance.now(); (function loop() { renderAt(((performance.now() - s0) / 1000) % TL.duration); requestAnimationFrame(loop); })(); });
+if (!location.search.includes('render') && !window.HF_MODE) window.ready.then(async () => { const tl = await (await fetch('timeline.json')).json(); setTL(tl); const s0 = performance.now(); (function loop() { renderAt(((performance.now() - s0) / 1000) % TL.duration); requestAnimationFrame(loop); })(); });
