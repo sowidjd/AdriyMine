@@ -2,9 +2,9 @@
 
 ## Bio TikTok (maks. 80 karakter), pilih 1
 
-1. `Fakta unik sains, sejarah & luar angkasa 🌍 Explore More, Know More` (66) — **disarankan**, cocok dengan ikon di banner
-2. `Kenapa begini? Kok bisa? Kita bongkar faktanya 🌍 Explore More, Know More` (72) — memancing rasa penasaran
-3. `Hal sehari-hari ternyata ada sainsnya 🔍 Explore More, Know More` (63) — fokus ke topik sehari-hari
+1. `Fakta unik sains, sejarah & luar angkasa 🌍 Stay Curious, World!` (63) — **disarankan**, cocok dengan ikon di banner
+2. `Kenapa begini? Kok bisa? Kita bongkar faktanya 🌍 Stay Curious, World!` (69) — memancing rasa penasaran
+3. `Hal sehari-hari ternyata ada sainsnya 🔍 Stay Curious, World!` (60) — fokus ke topik sehari-hari
 
 Nama tampilan: **Arfiy World** · Username: `@arfiyworld` (cadangan `@arfiy.world`)
 
@@ -24,7 +24,7 @@ Yang bakal kamu temuin di sini:
 
 Video baru tiap minggu. Subscribe dan nyalain lonceng biar nggak ketinggalan.
 
-Explore More, Know More 🌍
+Stay Curious, World! 🌍
 ```
 
 Panjang ± 650 karakter (batas YouTube 1.000). Kalimat pertama sengaja berupa pertanyaan: kalimat inilah yang terlihat di hasil pencarian.
@@ -37,4 +37,4 @@ fakta unik, fakta menarik, sains, edukasi, sejarah, luar angkasa, fakta hewan, t
 
 ## Tagar tetap di setiap video
 
-`#ArfiyWorld #ExploreMoreKnowMore #faktaunik #edukasi`
+`#ArfiyWorld #StayCuriousWorld #faktaunik #edukasi`

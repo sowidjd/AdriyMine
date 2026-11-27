@@ -131,7 +131,7 @@ function brandStamp(x, y, age, life) {
   ctx.font = `700 76px ${FONT}`; ctx.fillStyle = '#33241C'; ctx.textBaseline = 'middle'; ctx.fillText('Adriy.Project', -150, 4);
   ctx.restore();
 }
-function endCard(t, start) {   // "Explore More, Know More": last line, same card in every video (aturan §11)
+function endCard(t, start) {   // "Stay Curious, World!": last line, same card in every video (aturan §11)
   const a = t - start; if (a < 0) return;
   const k = lerp(.86, 1, easeOut(seg(a, 0, .6))), al = seg(a, 0, .45);
   ctx.save(); ctx.globalAlpha = al;
@@ -140,8 +140,8 @@ function endCard(t, start) {   // "Explore More, Know More": last line, same car
   ctx.translate(540, 820); ctx.scale(k, k);
   GAYA.shape(rr(-400, -230, 800, 460, 40), '#FFF3D6', 9200, { fill: .99, text: true });
   ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#33241C';
-  ctx.font = `700 104px ${FONT}`; ctx.fillText('Explore More,', 0, -78);
-  ctx.fillStyle = '#C4572F'; ctx.fillText('Know More', 0, 52);
+  ctx.font = `700 104px ${FONT}`; ctx.fillText('Stay Curious,', 0, -78);
+  ctx.fillStyle = '#C4572F'; ctx.fillText('World!', 0, 52);
   ctx.fillStyle = rgba('#E3A33B', .9); ctx.fillRect(-200, 128, 400, 10);
   ctx.textAlign = 'left'; ctx.restore();
   ctx.save(); ctx.globalAlpha = al; clawd(540, 1330, 24, { end: true, face: 'happy', arms: [.3, 1.3 + .35 * Math.sin(a * 9)], dy: -.3 * Math.abs(Math.sin(a * 3)) }); ctx.restore();

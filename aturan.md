@@ -271,9 +271,11 @@ Nama akun **Arfiy World** disebut di dalam narasi supaya penonton **ingat**, jad
 - ❌ "Follow Arfiy World buat konten lainnya!" (di akhir dan seperti iklan)
 - ❌ Disebut 3 kali dalam video 1 menit, atau tanpa stempel dan bunyi khas
 
-## 11. CTA (ajakan) di skrip & penutup "Explore More, Know More"
+## 11. CTA (ajakan) di skrip & penutup "Stay Curious, World!"
 
-Setiap skrip **wajib** punya CTA dan **wajib** ditutup dengan kalimat khas **"Explore More, Know More"**.
+> Mulai 27 Nov 2026 slogan penutup = **"Stay Curious, World!"** (dipilih pemilik), menggantikan "Explore More, Know More" yang dipakai video lama.
+
+Setiap skrip **wajib** punya CTA dan **wajib** ditutup dengan kalimat khas **"Stay Curious, World!"**.
 
 **Urutan bagian akhir video (wajib):**
 1. **Kesimpulan singkat**: 1–2 kalimat yang mengaitkan isi video ke kehidupan penonton.
@@ -281,23 +283,23 @@ Setiap skrip **wajib** punya CTA dan **wajib** ditutup dengan kalimat khas **"Ex
    - Bentuk yang dipakai: pilihan ("pilih yang mana: A, B, atau C?"), pengakuan ("kamu pernah juga? tulis 'gue banget'"), atau tebakan ("menurutmu kenapa…?").
    - Teks di layar menampilkan pilihannya, Adriy menunjuk ke arah kolom komentar (kanan bawah, tetap di kotak aman).
 3. **CTA kedua (pilih 1, singkat, ≤ 1 kalimat)**: ajak **simpan** ("Simpan biar nggak lupa"), **bagikan** ("Kirim ke teman yang suka begini"), atau **ikuti** ("Ikuti buat fakta kayak gini lagi"). Ganti-ganti tiap video; **tanpa menyebut nama akun** (nama akun hanya di tengah, §10).
-4. **Penutup "Explore More, Know More"**: kalimat **terakhir** video, selalu sama persis.
+4. **Penutup "Stay Curious, World!"**: kalimat **terakhir** video, selalu sama persis.
 
-**Aturan "Explore More, Know More":**
-- **Diucapkan** di narasi sebagai kalimat terakhir, dengan jeda ±0,4 detik sebelumnya. Arahan suara: *hangat, yakin, tersenyum, tempo sedang*. Cara baca: "eksplor mor, nou mor"; lolos cek ucapan (`cek_ucapan.py`) sebelum dipakai.
-- **Ditampilkan** sebagai kartu penutup: teks **"Explore More, Know More"** di tengah kotak aman, ukuran ≥ 80 px, desain & warna sama di setiap video, muncul halus (fade + sedikit membesar), bertahan **≥ 1,5 detik**. Adriy melambai atau memberi hormat kecil di sampingnya.
+**Aturan "Stay Curious, World!":**
+- **Diucapkan** di narasi sebagai kalimat terakhir, dengan jeda ±0,4 detik sebelumnya. Arahan suara: *hangat, yakin, tersenyum, tempo sedang*. Cara baca: "stei kyurius, werld"; lolos cek ucapan (`cek_ucapan.py`) sebelum dipakai.
+- **Ditampilkan** sebagai kartu penutup: teks **"Stay Curious, World!"** di tengah kotak aman, ukuran ≥ 80 px, desain & warna sama di setiap video, muncul halus (fade + sedikit membesar), bertahan **≥ 1,5 detik**. Adriy melambai atau memberi hormat kecil di sampingnya.
 - **Bunyi khas penutup** selalu sama (pilih 1 sekali, lalu dipakai terus; berbeda dari bunyi khas nama akun §10). Musik mengecil lalu selesai bersama kartu.
 - Tidak dihitung sebagai penyebutan nama akun; nama "Arfiy World" tetap **tidak** muncul di akhir.
 - Teks dan cara ucapnya **tidak boleh diubah** (tanpa terjemahan, tanpa tambahan kata).
 
 **Contoh bagian akhir yang benar:**
-> "Jadi kalau lain kali kamu lihat burung kecil di atas gedung, jangan diremehin." → "Kalau kamu bisa punya satu kemampuan falcon: badan peluru, hidung jet, atau kacamata bawaan, pilih yang mana? Tulis di komentar!" → "Simpan biar kamu bisa pamer fakta ini ke teman." → *(jeda)* "Explore More, Know More."
+> "Jadi kalau lain kali kamu lihat burung kecil di atas gedung, jangan diremehin." → "Kalau kamu bisa punya satu kemampuan falcon: badan peluru, hidung jet, atau kacamata bawaan, pilih yang mana? Tulis di komentar!" → "Simpan biar kamu bisa pamer fakta ini ke teman." → *(jeda)* "Stay Curious, World!"
 
 **Contoh yang salah:**
 - ❌ "Jangan lupa like, comment, share, dan follow ya!" (CTA umum, tidak memancing jawaban, terlalu banyak permintaan)
 - ❌ Lebih dari 2 CTA, atau CTA di tengah video yang memotong cerita
-- ❌ "Explore More, Know More" diucapkan lalu masih ada kalimat lain sesudahnya
-- ❌ "Explore More, Know More bersama Arfiy World!" (menambah kata & menyebut nama di akhir)
+- ❌ "Stay Curious, World!" diucapkan lalu masih ada kalimat lain sesudahnya
+- ❌ "Stay Curious, Arfiy World!" (menambah kata & menyebut nama akun di akhir; "World" di slogan bukan nama akun)
 
 ## 12. Durasi & alur: masalah dibahas tuntas dulu, baru solusi (dari pemilik)
 
@@ -313,7 +315,7 @@ Masukan pemilik: video terlalu cepat melompat ke penyelesaian, padahal pembahasa
 | 3. Dugaan umum | Apa yang biasanya orang kira / lakukan, dan **kenapa itu tidak berhasil** | ± 10% |
 | 4. Penyebab | Penjelasan ilmiah **langkah demi langkah**, satu ide per adegan, pakai perumpamaan sehari-hari. Bukti/penelitian disebut di sini. Momen "Arfiy World" (§10) masuk di bagian ini | ± 30% |
 | 5. Solusi | Baru di sini trik/jawaban. Jelaskan **cara melakukannya** (langkah 1-2-3) dan contoh penerapannya | ± 20% |
-| 6. Rangkuman + CTA | Ulang inti dalam 1 kalimat, lalu CTA (§11) dan "Explore More, Know More" | ± 10% |
+| 6. Rangkuman + CTA | Ulang inti dalam 1 kalimat, lalu CTA (§11) dan "Stay Curious, World!" | ± 10% |
 
 **Larangan:**
 - Solusi/trik **tidak boleh** muncul sebelum bagian Masalah dan Penyebab selesai (paling cepat di **55–60% durasi**). Hook boleh *menjanjikan* jawaban, tapi tidak *menjelaskannya*.
@@ -327,7 +329,7 @@ CTA harus terasa seperti **ajakan ngobrol**, bukan perintah. Susunan (melengkapi
 2. **Pertanyaan yang gampang dijawab** dalam 1–3 kata atau angka, dan **memancing cerita** ("Kamu tim A atau tim B? Tulis A atau B di komentar!", "Berapa kali hari ini? Tulis angkanya!"). Beri **contoh jawaban** supaya penonton tidak ragu.
 3. **Alasan untuk menjawab:** "Aku penasaran siapa yang paling parah," "Jawaban paling lucu aku balas."
 4. **CTA kedua** (pilih satu): kirim ke teman yang **spesifik** ("teman yang paling sering…"), atau simpan **dengan alasan** ("simpan buat dicoba besok pagi"), atau ikuti **dengan janji** ("masih ada fakta aneh soal tubuhmu minggu depan").
-5. "Explore More, Know More."
+5. "Stay Curious, World!"
 
 Contoh benar: "Nah, sekarang giliran kamu. Kamu tim ngapus chat, atau tim langsung kirim? Tulis 'hapus' atau 'kirim' di komentar. Aku penasaran mana yang lebih banyak. Terus, kirim video ini ke teman yang paling sering bales 'wkwk' doang."
 Contoh salah: "Tulis di komentar ya!" (tidak jelas apa yang ditulis); tiga perintah sekaligus.
@@ -376,7 +378,7 @@ Mulai sekarang semua video memakai tokoh sendiri: **Adriy**, burung hantu kecil 
 - [ ] Gaya animasi dipilih lewat 6 langkah §9: metafora inti + alasan 1 kalimat ditulis, tidak termasuk gaya yang dilarang, beda dari video sebelumnya
 - [ ] Semua teks di kotak aman x 60–927, y 212–1540 (cek dengan garis bantu area aman)
 - [ ] "Arfiy World" disebut 1 kali (maks. 2 untuk video > 2 menit), di tengah (30–70% durasi), tidak di awal/akhir, dengan kalimat khusus + jeda, stempel visual ≥ 2 detik + reaksi Adriy, dan bunyi khas sting-bright-short
-- [ ] Bagian akhir sesuai §11: kesimpulan → CTA komentar yang memancing jawaban → 1 CTA kedua (simpan/bagikan/ikuti, tanpa nama akun) → "Explore More, Know More" sebagai kalimat terakhir (diucapkan + kartu penutup ≥ 1,5 detik + bunyi khas penutup)
+- [ ] Bagian akhir sesuai §11: kesimpulan → CTA komentar yang memancing jawaban → 1 CTA kedua (simpan/bagikan/ikuti, tanpa nama akun) → "Stay Curious, World!" sebagai kalimat terakhir (diucapkan + kartu penutup ≥ 1,5 detik + bunyi khas penutup)
 
 ## Riwayat video
 

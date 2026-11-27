@@ -10,7 +10,7 @@
   - Alasan: Gaya potongan garis dipilih karena "suara dari dalam perut" di judul terlihat sebagai usus yang dibelah dan gelombang bersih-bersih yang lewat.
 - **Hook /yt-script (skor versi Inggris):** 70 WORKABLE (The Mistake); 2 versi lain: 58, 57
   - Versi Inggris yang diskor: "Stop worrying when your stomach growls in class. It is not hunger, it happens about every 2 hours, but why?"
-- **Alur §12:** hook → masalah (contoh sehari-hari) → dugaan umum → penyebab + penelitian (+ momen Arfiy World) → solusi langkah 1-2-3 → rangkuman → CTA §13 → "Explore More, Know More"
+- **Alur §12:** hook → masalah (contoh sehari-hari) → dugaan umum → penyebab + penelitian (+ momen Arfiy World) → solusi langkah 1-2-3 → rangkuman → CTA §13 → "Stay Curious, World!"
 - **Panjang:** 50 kalimat, 384 kata (≈ 2:45, setara video wkwk)
 - **Tokoh:** Adriy (§15). **Suara:** contoh suara utama ref5 (§8).
 
@@ -96,7 +96,7 @@
 - Kirim video ini ke teman yang perutnya paling sering bunyi.  _(friendly, playful)_
 
 **PENUTUP**
-- Explore More, Know More.  _(warm, confident, gentle smile in the voice, medium tempo)_
+- Stay Curious, World!  _(warm, confident, gentle smile in the voice, medium tempo)_
 
 
 ---
@@ -111,7 +111,7 @@
   - Alasan: Gaya game dipilih karena "gratis ongkir" di judul terlihat sebagai power-up yang menggoda tapi diam-diam menguras bar saldo.
 - **Hook /yt-script (skor versi Inggris):** 74 STRONG (The Warning); 2 versi lain: 58, 58
   - Versi Inggris yang diskor: "You waste 190 thousand to save 10 thousand on shipping. Stop. Researchers actually found why free fools you."
-- **Alur §12:** hook → masalah (contoh sehari-hari) → dugaan umum → penyebab + penelitian (+ momen Arfiy World) → solusi langkah 1-2-3 → rangkuman → CTA §13 → "Explore More, Know More"
+- **Alur §12:** hook → masalah (contoh sehari-hari) → dugaan umum → penyebab + penelitian (+ momen Arfiy World) → solusi langkah 1-2-3 → rangkuman → CTA §13 → "Stay Curious, World!"
 - **Panjang:** 49 kalimat, 379 kata (≈ 2:45, setara video wkwk)
 - **Tokoh:** Adriy (§15). **Suara:** contoh suara utama ref5 (§8).
 
@@ -192,7 +192,7 @@
 - Simpan video ini. Buka lagi sebelum kamu tekan tombol bayar.  _(friendly, warm)_
 
 **PENUTUP**
-- Explore More, Know More.  _(warm, confident, gentle smile in the voice, medium tempo)_
+- Stay Curious, World!  _(warm, confident, gentle smile in the voice, medium tempo)_
 
 
 ---
@@ -207,7 +207,7 @@
   - Alasan: Gaya cukil kayu dipilih karena "dendam yang diwariskan" di judul terlihat seperti dongeng lama yang diceritakan turun-temurun.
 - **Hook /yt-script (skor versi Inggris):** 72 STRONG (The Question); 2 versi lain: 59, 49
   - Versi Inggris yang diskor: "Never make a crow angry. You could be scolded for 5 years, and its friends actually join in. But why?"
-- **Alur §12:** hook → masalah (contoh sehari-hari) → dugaan umum → penyebab + penelitian (+ momen Arfiy World) → solusi langkah 1-2-3 → rangkuman → CTA §13 → "Explore More, Know More"
+- **Alur §12:** hook → masalah (contoh sehari-hari) → dugaan umum → penyebab + penelitian (+ momen Arfiy World) → solusi langkah 1-2-3 → rangkuman → CTA §13 → "Stay Curious, World!"
 - **Panjang:** 47 kalimat, 374 kata (≈ 2:45, setara video wkwk)
 - **Tokoh:** Adriy (§15). **Suara:** contoh suara utama ref5 (§8).
 
@@ -289,7 +289,7 @@
 - Ikuti, karena masih banyak hewan yang ternyata jauh lebih pintar dari kita kira.  _(friendly, upbeat)_
 
 **PENUTUP**
-- Explore More, Know More.  _(warm, confident, gentle smile in the voice, medium tempo)_
+- Stay Curious, World!  _(warm, confident, gentle smile in the voice, medium tempo)_
 
 
 ---
