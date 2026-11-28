@@ -11231,6 +11231,60 @@
    "generation_id": "LnfuUGd8mlANruegT0K2",
    "file": "hasan/vb19.mp3",
    "tahap": 10
+  },
+  {
+   "id": "vb20",
+   "suara": "hasan",
+   "teks": "[curious] Kenapa begitu? Ini jawabannya.",
+   "session_id": "LRcowqfhRR7GBfQIfgSC",
+   "generation_id": "iP0Y2GiKYfaEUUfhNSJU",
+   "file": "hasan/vb20.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vb21",
+   "suara": "hasan",
+   "teks": "[thoughtful] Mari kita urutkan dari awal.",
+   "session_id": "y3OfRBB92NK6GN5R2NiU",
+   "generation_id": "CyvnfNzoQLoTkw1sKqTn",
+   "file": "hasan/vb21.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vb22",
+   "suara": "hasan",
+   "teks": "[confidently] Langsung saja kita masuk ke intinya.",
+   "session_id": "zU4Owan4HzkKM6yAV27F",
+   "generation_id": "AbhzSklylOr8zFP7Q4Q6",
+   "file": "hasan/vb22.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vb23",
+   "suara": "hasan",
+   "teks": "[thoughtful] Sebelum itu, kita perlu tahu dasarnya dulu.",
+   "session_id": "VvNi6Tkv7lHC9JaP8WSW",
+   "generation_id": "XBwej4h678cRPlsRxEvW",
+   "file": "hasan/vb23.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vb24",
+   "suara": "hasan",
+   "teks": "[curious] Lalu, apa yang sebenarnya terjadi di dalam?",
+   "session_id": "0lzRrJp0JaMy9jnPK1zj",
+   "generation_id": "M4ZJ0uJhqHmcTPNW8wAh",
+   "file": "hasan/vb24.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vb25",
+   "suara": "hasan",
+   "teks": "[confidently] Prosesnya seperti ini.",
+   "session_id": "nCe6yYX22Dg1Ef4ORLR9",
+   "generation_id": "OyHrfszFdpyZnIJE7WT4",
+   "file": "hasan/vb25.mp3",
+   "tahap": 10
   }
  ]
 }
