@@ -5057,6 +5057,312 @@
    "generation_id": "52HHQJo9C9CezXjq45Km",
    "file": "amy/g-tetap-penasaran.mp3",
    "tahap": 7
+  },
+  {
+   "id": "g-serius",
+   "suara": "hasan",
+   "teks": "[surprised] Serius, ini beneran terjadi.",
+   "session_id": "SgwcszA7VLCURoUnVk4Z",
+   "generation_id": "hYopfa8SUuBT5KdAqqVw",
+   "file": "hasan/g-serius.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-pelan-pelan",
+   "suara": "hasan",
+   "teks": "[calmly] Pelan-pelan, kita bahas satu per satu.",
+   "session_id": "M0DuWzP7iVJvLdPDzBdO",
+   "generation_id": "kwEVl3ljc6ZLoYgh6RMi",
+   "file": "hasan/g-pelan-pelan.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-coba-bayangin",
+   "suara": "hasan",
+   "teks": "[curious] Coba bayangin sebentar.",
+   "session_id": "kYGlpLI0kYpZt9pZmYfV",
+   "generation_id": "fBRwex6VVRz3HaMtUD7b",
+   "file": "hasan/g-coba-bayangin.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-ternyata-begini",
+   "suara": "hasan",
+   "teks": "[amazed] Ternyata begini cara kerjanya.",
+   "session_id": "6ri1tr8Bs8OeBVDWTQyG",
+   "generation_id": "JuPrRGWwj0pVAvv6Fdzf",
+   "file": "hasan/g-ternyata-begini.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-ini-kuncinya",
+   "suara": "hasan",
+   "teks": "[confidently] Nah, ini kuncinya.",
+   "session_id": "1Lf8mgUd3hPRvKIUM8RZ",
+   "generation_id": "rfQeDQYjVH9NnsH0xQz5",
+   "file": "hasan/g-ini-kuncinya.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-jangan-panik",
+   "suara": "hasan",
+   "teks": "[warmly] Jangan panik dulu.",
+   "session_id": "rOj0vPAd6PojMd4sobQK",
+   "generation_id": "TEUg7YwySHGO2m0rJ8k2",
+   "file": "hasan/g-jangan-panik.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-lanjut-lagi",
+   "suara": "hasan",
+   "teks": "[upbeat] Oke, kita lanjut lagi.",
+   "session_id": "6QAYRBYWk0IrZ5TE6vcL",
+   "generation_id": "bqPKn0plJqUMYBTNZpAS",
+   "file": "hasan/g-lanjut-lagi.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-satu-lagi",
+   "suara": "hasan",
+   "teks": "[playful] Eh, satu lagi.",
+   "session_id": "4hYAxalFu9dgtBDYUW7c",
+   "generation_id": "uVkI00Hfw9i74cdHRYQC",
+   "file": "hasan/g-satu-lagi.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-gimana-menurutmu",
+   "suara": "hasan",
+   "teks": "[curious] Gimana menurutmu?",
+   "session_id": "4uahdAZ58L3CvKfmEUGK",
+   "generation_id": "gQpYvP7CPgqrU33PcHQJ",
+   "file": "hasan/g-gimana-menurutmu.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-keren-kan",
+   "suara": "hasan",
+   "teks": "[excited] Keren banget, kan?",
+   "session_id": "bYmEiwzy5Ihd2Xbq39V7",
+   "generation_id": "NrHSjbcooHqt1HCqApLi",
+   "file": "hasan/g-keren-kan.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-nggak-nyangka",
+   "suara": "hasan",
+   "teks": "[surprised] Aku juga nggak nyangka, sih.",
+   "session_id": "1VHt8LwRWlm3zETDIjL4",
+   "generation_id": "rcvoXiAtJWtx2dK5Va0t",
+   "file": "hasan/g-nggak-nyangka.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-mudah-kok",
+   "suara": "hasan",
+   "teks": "[friendly] Gampang kok, beneran.",
+   "session_id": "yl3Z6WMwdmPItlIVgdW0",
+   "generation_id": "hrDyd6wLGqpVTAdu72mM",
+   "file": "hasan/g-mudah-kok.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-coba-ingat",
+   "suara": "hasan",
+   "teks": "[thoughtful] Coba ingat-ingat lagi.",
+   "session_id": "B8SaYxnMbqaIlgh5OZSE",
+   "generation_id": "NoB5JUzguArbeeuxq3Re",
+   "file": "hasan/g-coba-ingat.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-ini-dia",
+   "suara": "hasan",
+   "teks": "[excited] Dan ini dia jawabannya.",
+   "session_id": "1Fya07aIJhSuZ8t736kb",
+   "generation_id": "yUy8NUIp5nQFbeXV2Q3j",
+   "file": "hasan/g-ini-dia.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-tahan-dulu",
+   "suara": "hasan",
+   "teks": "[playful] Tahan dulu, jangan ditebak dulu.",
+   "session_id": "60gOHVM8kjgVd4d6AZES",
+   "generation_id": "dhBV5jeg3IQCmHDEkrKB",
+   "file": "hasan/g-tahan-dulu.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-hampir-semua",
+   "suara": "hasan",
+   "teks": "[curious] Hampir semua orang salah soal ini.",
+   "session_id": "tkjD4pGgt6cEIBw6liyS",
+   "generation_id": "Ja0xz1lJCjnwp9dhvHMn",
+   "file": "hasan/g-hampir-semua.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-sampai-nanti",
+   "suara": "hasan",
+   "teks": "[warmly] Sampai nanti, ya.",
+   "session_id": "3f65ndgt3dLiWYqKIQQK",
+   "generation_id": "fjgW5timQQOaMTABpotZ",
+   "file": "hasan/g-sampai-nanti.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-serius",
+   "suara": "amy",
+   "teks": "[surprised] Serius, ini beneran terjadi.",
+   "session_id": "uwPeZOb9NbGFEF5Lx2g1",
+   "generation_id": "uIi7EgcaXKN19yzPEom0",
+   "file": "amy/g-serius.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-pelan-pelan",
+   "suara": "amy",
+   "teks": "[calmly] Pelan-pelan, kita bahas satu per satu.",
+   "session_id": "egXGs12QnZABbqoyophP",
+   "generation_id": "lpDyCFV9XcksxAdDsb9d",
+   "file": "amy/g-pelan-pelan.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-coba-bayangin",
+   "suara": "amy",
+   "teks": "[curious] Coba bayangin sebentar.",
+   "session_id": "Kmi495S67M3qLtLUsiuE",
+   "generation_id": "175UEsa3WnQL0Uvd5VQR",
+   "file": "amy/g-coba-bayangin.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-ternyata-begini",
+   "suara": "amy",
+   "teks": "[amazed] Ternyata begini cara kerjanya.",
+   "session_id": "JTmdUhH3M27pw5lrIXhj",
+   "generation_id": "gU0aVCT6p0Iz44YDfPYg",
+   "file": "amy/g-ternyata-begini.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-ini-kuncinya",
+   "suara": "amy",
+   "teks": "[confidently] Nah, ini kuncinya.",
+   "session_id": "YZoOlGenlCoFnwiy4DIG",
+   "generation_id": "lCb1kMWuiEWMnS0V2dQd",
+   "file": "amy/g-ini-kuncinya.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-jangan-panik",
+   "suara": "amy",
+   "teks": "[warmly] Jangan panik dulu.",
+   "session_id": "esZQQ7Sdt8V6DxkaPVlr",
+   "generation_id": "8SkSjfTtuo2Rgg3OuKFR",
+   "file": "amy/g-jangan-panik.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-lanjut-lagi",
+   "suara": "amy",
+   "teks": "[upbeat] Oke, kita lanjut lagi.",
+   "session_id": "JtPmhwNJJ9JSUyUX4ELJ",
+   "generation_id": "VyrpyBdY1jmMueuVHu9R",
+   "file": "amy/g-lanjut-lagi.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-satu-lagi",
+   "suara": "amy",
+   "teks": "[playful] Eh, satu lagi.",
+   "session_id": "7TJ2gGsbDIxKcP273NwR",
+   "generation_id": "iYOdeCKYjuITCgu7sWm9",
+   "file": "amy/g-satu-lagi.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-gimana-menurutmu",
+   "suara": "amy",
+   "teks": "[curious] Gimana menurutmu?",
+   "session_id": "I0gM964S8vjZPbrsvDTb",
+   "generation_id": "QiLYooXCyLDZcWWqFfaW",
+   "file": "amy/g-gimana-menurutmu.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-keren-kan",
+   "suara": "amy",
+   "teks": "[excited] Keren banget, kan?",
+   "session_id": "YTKgsjrR9bGrdEuMR3tV",
+   "generation_id": "U1VYXmcFuutC3FTlsNw8",
+   "file": "amy/g-keren-kan.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-nggak-nyangka",
+   "suara": "amy",
+   "teks": "[surprised] Aku juga nggak nyangka, sih.",
+   "session_id": "DIXdTJqfhpgGLEKy9LW5",
+   "generation_id": "LGKF8zBWRwcEbZnQ6V5o",
+   "file": "amy/g-nggak-nyangka.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-mudah-kok",
+   "suara": "amy",
+   "teks": "[friendly] Gampang kok, beneran.",
+   "session_id": "k6QyxCLu2ema5apeU1Po",
+   "generation_id": "YMSMKF5bZon8jth5zDGY",
+   "file": "amy/g-mudah-kok.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-coba-ingat",
+   "suara": "amy",
+   "teks": "[thoughtful] Coba ingat-ingat lagi.",
+   "session_id": "SL9ZlFgwm0035F9IkQVm",
+   "generation_id": "JGISDYR0kI9xV8pSJwnI",
+   "file": "amy/g-coba-ingat.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-ini-dia",
+   "suara": "amy",
+   "teks": "[excited] Dan ini dia jawabannya.",
+   "session_id": "SWosJd298bZGcOlzmxCq",
+   "generation_id": "8chqsq6LKH4doRZaHPSS",
+   "file": "amy/g-ini-dia.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-tahan-dulu",
+   "suara": "amy",
+   "teks": "[playful] Tahan dulu, jangan ditebak dulu.",
+   "session_id": "0HPZr7VMgJ4O8RvCRFc7",
+   "generation_id": "KvoVCAzD8YFI25WGNdm8",
+   "file": "amy/g-tahan-dulu.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-hampir-semua",
+   "suara": "amy",
+   "teks": "[curious] Hampir semua orang salah soal ini.",
+   "session_id": "CBubABFY9SIL9PIzyNGB",
+   "generation_id": "N9GLpxaESPTHFOA6wars",
+   "file": "amy/g-hampir-semua.mp3",
+   "tahap": 8
+  },
+  {
+   "id": "g-sampai-nanti",
+   "suara": "amy",
+   "teks": "[warmly] Sampai nanti, ya.",
+   "session_id": "z78w0iAu1b1rOADqEyCd",
+   "generation_id": "mrKFQmpfy7cKQ5gqaPEu",
+   "file": "amy/g-sampai-nanti.mp3",
+   "tahap": 8
   }
  ]
 }

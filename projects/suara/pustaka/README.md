@@ -186,6 +186,31 @@ Kalimat sains (`s-`) bersifat umum: hanya dipakai kalau memang sesuai dengan fak
 | `g-jaga-diri` | [warmly] Jaga diri baik-baik, ya. |
 | `g-tetap-penasaran` | [upbeat] Tetap penasaran, karena dunia ini masih penuh kejutan. |
 
+## Isi tahap 8
+
+
+### Sisipan pendek (1–3 detik)
+
+| id | kalimat |
+|---|---|
+| `g-serius` | [surprised] Serius, ini beneran terjadi. |
+| `g-pelan-pelan` | [calmly] Pelan-pelan, kita bahas satu per satu. |
+| `g-coba-bayangin` | [curious] Coba bayangin sebentar. |
+| `g-ternyata-begini` | [amazed] Ternyata begini cara kerjanya. |
+| `g-ini-kuncinya` | [confidently] Nah, ini kuncinya. |
+| `g-jangan-panik` | [warmly] Jangan panik dulu. |
+| `g-lanjut-lagi` | [upbeat] Oke, kita lanjut lagi. |
+| `g-satu-lagi` | [playful] Eh, satu lagi. |
+| `g-gimana-menurutmu` | [curious] Gimana menurutmu? |
+| `g-keren-kan` | [excited] Keren banget, kan? |
+| `g-nggak-nyangka` | [surprised] Aku juga nggak nyangka, sih. |
+| `g-mudah-kok` | [friendly] Gampang kok, beneran. |
+| `g-coba-ingat` | [thoughtful] Coba ingat-ingat lagi. |
+| `g-ini-dia` | [excited] Dan ini dia jawabannya. |
+| `g-tahan-dulu` | [playful] Tahan dulu, jangan ditebak dulu. |
+| `g-hampir-semua` | [curious] Hampir semua orang salah soal ini. |
+| `g-sampai-nanti` | [warmly] Sampai nanti, ya. |
+
 ## Alur narasi cepat untuk video baru
 
 1. Tulis `naskah.json` seperti biasa (id, text, cap, gap).
