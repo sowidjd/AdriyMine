@@ -385,6 +385,646 @@
    "generation_id": "JCfN2cf5aVMUZfKiRqUj",
    "file": "amy/jembatan-kenapa.mp3",
    "cek": 1.0
+  },
+  {
+   "id": "twist-ternyata",
+   "suara": "hasan",
+   "teks": "[surprised] Tapi ternyata...",
+   "session_id": "cL5eGTTYEJk32M4xmDuz",
+   "generation_id": "j4QMDfvTkNL9PChBw7wn",
+   "file": "hasan/twist-ternyata.mp3"
+  },
+  {
+   "id": "twist-bukanitu",
+   "suara": "hasan",
+   "teks": "[firmly] Masalahnya bukan itu.",
+   "session_id": "AOS3LByCVYCe7OdZrvUm",
+   "generation_id": "ppDsU3v9M6Rian8gqbD7",
+   "file": "hasan/twist-bukanitu.mp3"
+  },
+  {
+   "id": "twist-kaget",
+   "suara": "hasan",
+   "teks": "[excited] Dan ini yang bikin kaget.",
+   "session_id": "3Ar0VX8NoKtRqZyDizJZ",
+   "generation_id": "30H71jEsPjD8LayrguvB",
+   "file": "hasan/twist-kaget.mp3"
+  },
+  {
+   "id": "twist-mitos",
+   "suara": "hasan",
+   "teks": "[confidently] Ini bukan mitos.",
+   "session_id": "UmCgpf3YylBuJ70C4w7I",
+   "generation_id": "T9w9YquFsIuL3Cv2qPhP",
+   "file": "hasan/twist-mitos.mp3"
+  },
+  {
+   "id": "twist-aneh",
+   "suara": "hasan",
+   "teks": "[amazed] Aneh, tapi nyata.",
+   "session_id": "ewWS8dyNpIRc6Xpxw1qA",
+   "generation_id": "wpvyU3zB4P1kidmkAJXs",
+   "file": "hasan/twist-aneh.mp3"
+  },
+  {
+   "id": "hook-bayangin",
+   "suara": "hasan",
+   "teks": "[curious] Coba bayangin.",
+   "session_id": "XTBmSjGjxf6tgXoy5kiq",
+   "generation_id": "UqvFkvNwUWetysJD2KJ6",
+   "file": "hasan/hook-bayangin.mp3"
+  },
+  {
+   "id": "hook-kokbisa",
+   "suara": "hasan",
+   "teks": "[surprised] Kok bisa?",
+   "session_id": "PD0pW2mAhtP4I4bH83nS",
+   "generation_id": "QbklyKIQGDxPiPwTtNuG",
+   "file": "hasan/hook-kokbisa.mp3"
+  },
+  {
+   "id": "hook-serius",
+   "suara": "hasan",
+   "teks": "[firmly] Serius.",
+   "session_id": "Qla8t3inZiFVv1RmhKZ4",
+   "generation_id": "0bc9oo3OqR4JMg2XRaPX",
+   "file": "hasan/hook-serius.mp3"
+  },
+  {
+   "id": "hook-sendiri",
+   "suara": "hasan",
+   "teks": "[warmly] Kamu nggak sendirian.",
+   "session_id": "kEGBWlcTkVLlbUk0LnG0",
+   "generation_id": "fQGDY4rByu2iPFmuRuVD",
+   "file": "hasan/hook-sendiri.mp3"
+  },
+  {
+   "id": "hook-dengerin",
+   "suara": "hasan",
+   "teks": "[mysterious] Dengerin baik-baik.",
+   "session_id": "PESI4CyQu2MQ280IHqfJ",
+   "generation_id": "4ru8Jow8n5P593E4kuTN",
+   "file": "hasan/hook-dengerin.mp3"
+  },
+  {
+   "id": "alur-jadigini",
+   "suara": "hasan",
+   "teks": "[friendly] Jadi gini...",
+   "session_id": "BRwDx0aJCYlhhuZRtQmL",
+   "generation_id": "hplZf5Cx8YtHSbQHrm8k",
+   "file": "hasan/alur-jadigini.mp3"
+  },
+  {
+   "id": "alur-banyak",
+   "suara": "hasan",
+   "teks": "[thoughtful] Banyak yang ngira...",
+   "session_id": "4hbRSGql4O1z27gGvJck",
+   "generation_id": "ttGt5hbkKCaTbunUfRz6",
+   "file": "hasan/alur-banyak.mp3"
+  },
+  {
+   "id": "alur-padahal",
+   "suara": "hasan",
+   "teks": "[curious] Padahal...",
+   "session_id": "VQ1vWgBMrcOKBwxECCna",
+   "generation_id": "k8Yqi9kPT6cZzGZMg2fm",
+   "file": "hasan/alur-padahal.mp3"
+  },
+  {
+   "id": "alur-ternyata",
+   "suara": "hasan",
+   "teks": "[intrigued] Ternyata...",
+   "session_id": "zN8468lJUFwjNnQCDVGi",
+   "generation_id": "Dtw7yLp5bIPxIx5qRZbB",
+   "file": "hasan/alur-ternyata.mp3"
+  },
+  {
+   "id": "alur-seru",
+   "suara": "hasan",
+   "teks": "[excited] Nah, di sinilah serunya.",
+   "session_id": "kgc7meMgbGe4wvD8v0WS",
+   "generation_id": "nCHeZESdq9f0CsrTEyVH",
+   "file": "hasan/alur-seru.mp3"
+  },
+  {
+   "id": "alur-penting",
+   "suara": "hasan",
+   "teks": "[confidently] Sekarang, bagian pentingnya.",
+   "session_id": "RkXH6dCRqedUlkIABsXi",
+   "generation_id": "kYSW58n8U109srPAqj24",
+   "file": "hasan/alur-penting.mp3"
+  },
+  {
+   "id": "alur-gimana",
+   "suara": "hasan",
+   "teks": "[curious] Terus, harus gimana?",
+   "session_id": "I37dBMHI3nLY9EqzblNc",
+   "generation_id": "zU1EGanz2Uew4JwaSrud",
+   "file": "hasan/alur-gimana.mp3"
+  },
+  {
+   "id": "alur-tigacara",
+   "suara": "hasan",
+   "teks": "[upbeat] Ada tiga cara gampang.",
+   "session_id": "ZOItGbXrsR5tqIu4LSkj",
+   "generation_id": "YRs5HOjP1i9qliCNUMKX",
+   "file": "hasan/alur-tigacara.mp3"
+  },
+  {
+   "id": "langkah-1",
+   "suara": "hasan",
+   "teks": "[confidently] Pertama,",
+   "session_id": "TnrjAkzHYTtCK7cs2Tec",
+   "generation_id": "daHfcjBLb93DfoNc42ci",
+   "file": "hasan/langkah-1.mp3"
+  },
+  {
+   "id": "langkah-2",
+   "suara": "hasan",
+   "teks": "[confidently] Kedua,",
+   "session_id": "BUQov5U6buAlZrKECwam",
+   "generation_id": "O8FZGDtzLCsA4d43UTBJ",
+   "file": "hasan/langkah-2.mp3"
+  },
+  {
+   "id": "langkah-3",
+   "suara": "hasan",
+   "teks": "[confidently] Ketiga,",
+   "session_id": "B3urgnBqDJsnY2uIUqHn",
+   "generation_id": "CiK0CGmdaQTfhNqGIPwE",
+   "file": "hasan/langkah-3.mp3"
+  },
+  {
+   "id": "langkah-akhir",
+   "suara": "hasan",
+   "teks": "[confidently] Terakhir,",
+   "session_id": "wNRq1m0UHEgjD6GR8Jzy",
+   "generation_id": "VU1YpWdwQCWiRc1I6xKw",
+   "file": "hasan/langkah-akhir.mp3"
+  },
+  {
+   "id": "contoh",
+   "suara": "hasan",
+   "teks": "[friendly] Contohnya gini.",
+   "session_id": "QVrxAe9qkVuhldbJEyio",
+   "generation_id": "0DZFY0fgRt42AtmrcPLg",
+   "file": "hasan/contoh.mp3"
+  },
+  {
+   "id": "intinya",
+   "suara": "hasan",
+   "teks": "[calmly] Intinya,",
+   "session_id": "S5HAM6qvVkqmVOvbXc3P",
+   "generation_id": "AZfKm9SGQRllQtTe6a9y",
+   "file": "hasan/intinya.mp3"
+  },
+  {
+   "id": "simpel",
+   "suara": "hasan",
+   "teks": "[warmly] Simpel, kan?",
+   "session_id": "KjFOCHHMPyn3gozu3Sar",
+   "generation_id": "DgwyIQ1Z1dTZ3vU04JLY",
+   "file": "hasan/simpel.mp3"
+  },
+  {
+   "id": "cobasendiri",
+   "suara": "hasan",
+   "teks": "[playful] Nggak percaya? Coba aja sendiri.",
+   "session_id": "xzukpUL6emfrDcm7vaXP",
+   "generation_id": "MsJC5FuU1NKTHsRCPcg4",
+   "file": "hasan/cobasendiri.mp3"
+  },
+  {
+   "id": "pernah",
+   "suara": "hasan",
+   "teks": "[curious] Pernah ngalamin juga?",
+   "session_id": "hPODdj0LyPeWEtGSXOTQ",
+   "generation_id": "8GSceHIVfEuW7NaP2miy",
+   "file": "hasan/pernah.mp3"
+  },
+  {
+   "id": "bukansalahmu",
+   "suara": "hasan",
+   "teks": "[warmly] Tenang, itu bukan salah kamu.",
+   "session_id": "vWTYiEdGXJDBRpsHQ3lZ",
+   "generation_id": "norKK7LaChCMXchF24eq",
+   "file": "hasan/bukansalahmu.mp3"
+  },
+  {
+   "id": "normal",
+   "suara": "hasan",
+   "teks": "[reassuring] Itu normal banget.",
+   "session_id": "QhNub6lQ2iK9Q2iN4oYe",
+   "generation_id": "Gdp0UIEUaiz25774NfHi",
+   "file": "hasan/normal.mp3"
+  },
+  {
+   "id": "otak",
+   "suara": "hasan",
+   "teks": "[thoughtful] Ternyata, ini kerjaan otak kita.",
+   "session_id": "sAguj3jgMgUeH0m8TBXT",
+   "generation_id": "41mDETFgcKwyXmRDAO6o",
+   "file": "hasan/otak.mp3"
+  },
+  {
+   "id": "fakta-bonus",
+   "suara": "hasan",
+   "teks": "[excited] Satu fakta bonus.",
+   "session_id": "0ytBCf2anNJvC1Vdaura",
+   "generation_id": "SD1SyUF3vDtVhVPdu3SO",
+   "file": "hasan/fakta-bonus.mp3"
+  },
+  {
+   "id": "kesimpulan",
+   "suara": "hasan",
+   "teks": "[calmly] Jadi, kesimpulannya...",
+   "session_id": "xoUBUpkRIfOUrlHbbppn",
+   "generation_id": "BwSAntea8fuSB3Cutq00",
+   "file": "hasan/kesimpulan.mp3"
+  },
+  {
+   "id": "coba-sekarang",
+   "suara": "hasan",
+   "teks": "[upbeat] Coba deh sekarang.",
+   "session_id": "iYemb1pve3oPPODynPDg",
+   "generation_id": "HqowfUW7C6bkqdb8y9hY",
+   "file": "hasan/coba-sekarang.mp3"
+  },
+  {
+   "id": "ingat",
+   "suara": "hasan",
+   "teks": "[firmly] Ingat, ya.",
+   "session_id": "ktk2Z9Cy6gJyWRFO9GK1",
+   "generation_id": "25lQzUL2BFEPf0SQkr3y",
+   "file": "hasan/ingat.mp3"
+  },
+  {
+   "id": "tebak",
+   "suara": "hasan",
+   "teks": "[playful] Tebak dulu.",
+   "session_id": "M38akJfpw2J5jmkBcg2x",
+   "generation_id": "JoAOiMWCNfcd0T6FOtQD",
+   "file": "hasan/tebak.mp3"
+  },
+  {
+   "id": "jawabannya",
+   "suara": "hasan",
+   "teks": "[confidently] Jawabannya...",
+   "session_id": "8qQcHVXQr8E1g1ZeCiUc",
+   "generation_id": "BPOy4n5nDjdXqUGV6911",
+   "file": "hasan/jawabannya.mp3"
+  },
+  {
+   "id": "lebihgila",
+   "suara": "hasan",
+   "teks": "[excited] Dan yang lebih gila lagi...",
+   "session_id": "7wfmhm82P31ZDf4kNoQV",
+   "generation_id": "niZEjRHkMFYdOVUhKC9f",
+   "file": "hasan/lebihgila.mp3"
+  },
+  {
+   "id": "cta-ketik",
+   "suara": "hasan",
+   "teks": "[friendly] Ketik jawabanmu di komentar.",
+   "session_id": "7aneV6f3LLkGNBV7Pt46",
+   "generation_id": "nN18cEtbIkI2tI3Gx7B6",
+   "file": "hasan/cta-ketik.mp3"
+  },
+  {
+   "id": "cta-kirimteman",
+   "suara": "hasan",
+   "teks": "[playful] Kirim ke temanmu yang kayak gini.",
+   "session_id": "WQHaac5243sIyuWSzla8",
+   "generation_id": "NO4C0JKJZR6E3TbFysVZ",
+   "file": "hasan/cta-kirimteman.mp3"
+  },
+  {
+   "id": "sumber-penelitian",
+   "suara": "hasan",
+   "teks": "[confidently] Ini bukan kata aku. Ini kata penelitian.",
+   "session_id": "VNTbGw4Sur9VbLqbjTok",
+   "generation_id": "W85hfqBJ0wnZtJL6c1aO",
+   "file": "hasan/sumber-penelitian.mp3"
+  },
+  {
+   "id": "twist-ternyata",
+   "suara": "amy",
+   "teks": "[surprised] Tapi ternyata...",
+   "session_id": "6PUeNeGxoHLB4uvMGSgB",
+   "generation_id": "ywbjjRhZ1D1ThfNcnt6o",
+   "file": "amy/twist-ternyata.mp3"
+  },
+  {
+   "id": "twist-bukanitu",
+   "suara": "amy",
+   "teks": "[firmly] Masalahnya bukan itu.",
+   "session_id": "FHonbdIrDD4QoCnViLaU",
+   "generation_id": "D97wxb9Wy41Xx1QExMbL",
+   "file": "amy/twist-bukanitu.mp3"
+  },
+  {
+   "id": "twist-kaget",
+   "suara": "amy",
+   "teks": "[excited] Dan ini yang bikin kaget.",
+   "session_id": "Oq3MmNc4RsktKxWqcdrw",
+   "generation_id": "CBjH1JKLDvr7SXgRQoCq",
+   "file": "amy/twist-kaget.mp3"
+  },
+  {
+   "id": "twist-mitos",
+   "suara": "amy",
+   "teks": "[confidently] Ini bukan mitos.",
+   "session_id": "aDrRcOZhal1g4LPdeDxD",
+   "generation_id": "gf2Ra7b10GSJCTC2gFuh",
+   "file": "amy/twist-mitos.mp3"
+  },
+  {
+   "id": "twist-aneh",
+   "suara": "amy",
+   "teks": "[amazed] Aneh, tapi nyata.",
+   "session_id": "JC4L6KIbCq004m62qyyv",
+   "generation_id": "U60nKv9GVbgmFAM3FfrB",
+   "file": "amy/twist-aneh.mp3"
+  },
+  {
+   "id": "hook-bayangin",
+   "suara": "amy",
+   "teks": "[curious] Coba bayangin.",
+   "session_id": "kWdQNuxLMVTrtwsxhrBD",
+   "generation_id": "zDvjXOTmBIoplwKx33FV",
+   "file": "amy/hook-bayangin.mp3"
+  },
+  {
+   "id": "hook-kokbisa",
+   "suara": "amy",
+   "teks": "[surprised] Kok bisa?",
+   "session_id": "pz1yjaglwcDpNond1UiQ",
+   "generation_id": "fhezMAswehTfj3ByENtF",
+   "file": "amy/hook-kokbisa.mp3"
+  },
+  {
+   "id": "hook-serius",
+   "suara": "amy",
+   "teks": "[firmly] Serius.",
+   "session_id": "MI38kear2GwFidAGTssw",
+   "generation_id": "Nc7Koufc7yE9JH50lJ0V",
+   "file": "amy/hook-serius.mp3"
+  },
+  {
+   "id": "hook-sendiri",
+   "suara": "amy",
+   "teks": "[warmly] Kamu nggak sendirian.",
+   "session_id": "bPg9BYYpR5Z34imDNJtd",
+   "generation_id": "t7uWcpnlF2wNCsrahS2a",
+   "file": "amy/hook-sendiri.mp3"
+  },
+  {
+   "id": "hook-dengerin",
+   "suara": "amy",
+   "teks": "[mysterious] Dengerin baik-baik.",
+   "session_id": "ZgTRD22tPuxIVYcfHajN",
+   "generation_id": "NrtTMYNFrPMuzhm5PViF",
+   "file": "amy/hook-dengerin.mp3"
+  },
+  {
+   "id": "alur-jadigini",
+   "suara": "amy",
+   "teks": "[friendly] Jadi gini...",
+   "session_id": "IbSYwk7fjTjruCVJN9Do",
+   "generation_id": "cbpFX94vFl5jSftt4R6Z",
+   "file": "amy/alur-jadigini.mp3"
+  },
+  {
+   "id": "alur-banyak",
+   "suara": "amy",
+   "teks": "[thoughtful] Banyak yang ngira...",
+   "session_id": "xnomir1IcvgB5p7ZZIkC",
+   "generation_id": "dEpSTcLE9KFaFOd4pduB",
+   "file": "amy/alur-banyak.mp3"
+  },
+  {
+   "id": "alur-padahal",
+   "suara": "amy",
+   "teks": "[curious] Padahal...",
+   "session_id": "ibsxqRai75Qg4KSTrMfq",
+   "generation_id": "3DxJsFuW6t5SsYBUlPlh",
+   "file": "amy/alur-padahal.mp3"
+  },
+  {
+   "id": "alur-ternyata",
+   "suara": "amy",
+   "teks": "[intrigued] Ternyata...",
+   "session_id": "8sSB5y6XXxb8XjBzKRQr",
+   "generation_id": "nYVB79SmftTOs81n02m4",
+   "file": "amy/alur-ternyata.mp3"
+  },
+  {
+   "id": "alur-seru",
+   "suara": "amy",
+   "teks": "[excited] Nah, di sinilah serunya.",
+   "session_id": "wzvfo75Tn18ejFypYZIr",
+   "generation_id": "PMvZDnWKs30adPcA3nMM",
+   "file": "amy/alur-seru.mp3"
+  },
+  {
+   "id": "alur-penting",
+   "suara": "amy",
+   "teks": "[confidently] Sekarang, bagian pentingnya.",
+   "session_id": "zbDdGGvQV5Z3mthid83N",
+   "generation_id": "XxgLO3giDgaLZs3TFEP4",
+   "file": "amy/alur-penting.mp3"
+  },
+  {
+   "id": "alur-gimana",
+   "suara": "amy",
+   "teks": "[curious] Terus, harus gimana?",
+   "session_id": "WEvLfzMgcip1m6RpiTQv",
+   "generation_id": "hnUVE5sMCjcGxvM5bGEp",
+   "file": "amy/alur-gimana.mp3"
+  },
+  {
+   "id": "alur-tigacara",
+   "suara": "amy",
+   "teks": "[upbeat] Ada tiga cara gampang.",
+   "session_id": "mf698ubfjZSXcZFHhFBh",
+   "generation_id": "Bph3GLn0WqSBnqYYzc0Y",
+   "file": "amy/alur-tigacara.mp3"
+  },
+  {
+   "id": "langkah-1",
+   "suara": "amy",
+   "teks": "[confidently] Pertama,",
+   "session_id": "hgGUZcYlyLATrqZpPj0R",
+   "generation_id": "L278cYcYpguyTK2WuMvT",
+   "file": "amy/langkah-1.mp3"
+  },
+  {
+   "id": "langkah-2",
+   "suara": "amy",
+   "teks": "[confidently] Kedua,",
+   "session_id": "5JG2f6aX0smuRAIkxkhf",
+   "generation_id": "vdjfYkg2EjZTTloCGG5T",
+   "file": "amy/langkah-2.mp3"
+  },
+  {
+   "id": "langkah-3",
+   "suara": "amy",
+   "teks": "[confidently] Ketiga,",
+   "session_id": "2FSzofRqRsCokkI3aaP3",
+   "generation_id": "SJzBDzKHlkHn1kbwZybg",
+   "file": "amy/langkah-3.mp3"
+  },
+  {
+   "id": "langkah-akhir",
+   "suara": "amy",
+   "teks": "[confidently] Terakhir,",
+   "session_id": "rlMZDFbHK8QfLDJiUxT3",
+   "generation_id": "JYFdu9jWBlYlnI8evuii",
+   "file": "amy/langkah-akhir.mp3"
+  },
+  {
+   "id": "contoh",
+   "suara": "amy",
+   "teks": "[friendly] Contohnya gini.",
+   "session_id": "laocVrxnORGJwOJ1fkE4",
+   "generation_id": "wa1IrJFRdJwYaOC3Gwy2",
+   "file": "amy/contoh.mp3"
+  },
+  {
+   "id": "intinya",
+   "suara": "amy",
+   "teks": "[calmly] Intinya,",
+   "session_id": "msYzB6WVQmx8rpfGlT8v",
+   "generation_id": "BlDInn6iW0lR9iTYnAj4",
+   "file": "amy/intinya.mp3"
+  },
+  {
+   "id": "simpel",
+   "suara": "amy",
+   "teks": "[warmly] Simpel, kan?",
+   "session_id": "bVfPo9errKlcCoxHtRfS",
+   "generation_id": "pA7ApWA8wrTDytgZZNt6",
+   "file": "amy/simpel.mp3"
+  },
+  {
+   "id": "cobasendiri",
+   "suara": "amy",
+   "teks": "[playful] Nggak percaya? Coba aja sendiri.",
+   "session_id": "PIxIfXex5a8U8w3BsAXO",
+   "generation_id": "w9MDfAPKu0hZMmA3NtBv",
+   "file": "amy/cobasendiri.mp3"
+  },
+  {
+   "id": "pernah",
+   "suara": "amy",
+   "teks": "[curious] Pernah ngalamin juga?",
+   "session_id": "K4b41IyBy6w6wcjGwXGK",
+   "generation_id": "0ckwGZ5bNx0gJjIL94cy",
+   "file": "amy/pernah.mp3"
+  },
+  {
+   "id": "bukansalahmu",
+   "suara": "amy",
+   "teks": "[warmly] Tenang, itu bukan salah kamu.",
+   "session_id": "a1VAGYUZj2hCBUPZgV3X",
+   "generation_id": "cg46X3W3hzJSJjjpLga4",
+   "file": "amy/bukansalahmu.mp3"
+  },
+  {
+   "id": "normal",
+   "suara": "amy",
+   "teks": "[reassuring] Itu normal banget.",
+   "session_id": "gtcFkxrCF2HKtyvAmpuk",
+   "generation_id": "YZTXhqg7AGymDObq89rL",
+   "file": "amy/normal.mp3"
+  },
+  {
+   "id": "otak",
+   "suara": "amy",
+   "teks": "[thoughtful] Ternyata, ini kerjaan otak kita.",
+   "session_id": "jHGtajQap6eCUQ98pFp9",
+   "generation_id": "hdpVd3p2hgJ2ZBPVXyGv",
+   "file": "amy/otak.mp3"
+  },
+  {
+   "id": "fakta-bonus",
+   "suara": "amy",
+   "teks": "[excited] Satu fakta bonus.",
+   "session_id": "Bst0EKegHfeGA1lqBE6i",
+   "generation_id": "JuqY4fCvw7fIx7xNmwGs",
+   "file": "amy/fakta-bonus.mp3"
+  },
+  {
+   "id": "kesimpulan",
+   "suara": "amy",
+   "teks": "[calmly] Jadi, kesimpulannya...",
+   "session_id": "xqWzv4EzsN3CIkPNCI0k",
+   "generation_id": "SXf7vbGrhj9DUdXVNPid",
+   "file": "amy/kesimpulan.mp3"
+  },
+  {
+   "id": "coba-sekarang",
+   "suara": "amy",
+   "teks": "[upbeat] Coba deh sekarang.",
+   "session_id": "mIs2qMenDscYnlyguUwz",
+   "generation_id": "W9c8MdVU1cqJe14ObtP8",
+   "file": "amy/coba-sekarang.mp3"
+  },
+  {
+   "id": "ingat",
+   "suara": "amy",
+   "teks": "[firmly] Ingat, ya.",
+   "session_id": "WNzHdMe0MhHtBFxJlm7c",
+   "generation_id": "eyUjMpnYkdfhnP4XSgDY",
+   "file": "amy/ingat.mp3"
+  },
+  {
+   "id": "tebak",
+   "suara": "amy",
+   "teks": "[playful] Tebak dulu.",
+   "session_id": "ZaNg75NSZtqS8RNtsMNt",
+   "generation_id": "WdNjEKGcVOvkD9oa7jRC",
+   "file": "amy/tebak.mp3"
+  },
+  {
+   "id": "jawabannya",
+   "suara": "amy",
+   "teks": "[confidently] Jawabannya...",
+   "session_id": "XRxK1QUNBEKW2k9ch1Zo",
+   "generation_id": "XEiU1TJXb2uWkXF895P8",
+   "file": "amy/jawabannya.mp3"
+  },
+  {
+   "id": "lebihgila",
+   "suara": "amy",
+   "teks": "[excited] Dan yang lebih gila lagi...",
+   "session_id": "eoy3QYJBgmNaBm9NJ2kB",
+   "generation_id": "isMZDKJF50lVWM9sdu55",
+   "file": "amy/lebihgila.mp3"
+  },
+  {
+   "id": "cta-ketik",
+   "suara": "amy",
+   "teks": "[friendly] Ketik jawabanmu di komentar.",
+   "session_id": "a5cwrY4kDDAsNRFcqFuW",
+   "generation_id": "JTAuLTDyEa4au7Cpo0xA",
+   "file": "amy/cta-ketik.mp3"
+  },
+  {
+   "id": "cta-kirimteman",
+   "suara": "amy",
+   "teks": "[playful] Kirim ke temanmu yang kayak gini.",
+   "session_id": "gZjLYGCsxxHjCdi5uILA",
+   "generation_id": "9ABRfONsLghku2AKhry7",
+   "file": "amy/cta-kirimteman.mp3"
+  },
+  {
+   "id": "sumber-penelitian",
+   "suara": "amy",
+   "teks": "[confidently] Ini bukan kata aku. Ini kata penelitian.",
+   "session_id": "64cjAnkg7bpwkk15ift7",
+   "generation_id": "n9O3YUl20C7gLGuzUlhi",
+   "file": "amy/sumber-penelitian.mp3"
   }
  ]
 }

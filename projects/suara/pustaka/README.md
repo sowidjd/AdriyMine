@@ -5,9 +5,9 @@ Tujuannya supaya pembuatan narasi lebih cepat: video baru cukup membuat kalimat 
 
 - **Audio tidak diunggah ke GitHub**, karena berisi suara kloning orang sungguhan (aturan.md §8, privasi). Yang disimpan hanya `indeks.json`.
 - Audio asli tetap tersimpan di akun ElevenLabs, di flow **"Pustaka Suara Arfiy World"** (`F8praD25GHM8k5DMcT7m`). Kalau mesin dimulai ulang, unduh lagi **tanpa biaya kredit**: ambil tautan baru lewat `creative_get_generations` atau `creative_get_flow_run_status` (flow_id + session_id dari `indeks.json`), lalu simpan ke `pustaka/<suara>/<id>.mp3`.
-- Model: `eleven_v4`, 1 take per kalimat. Biaya pembuatan sekitar 1.600 kredit (28 Nov 2026).
+- Model: `eleven_v4`, 1 take per kalimat. Biaya: tahap 1 sekitar 1.600 kredit, tahap 2 (40 frasa umum × 2 suara) sekitar 2.400 kredit (28 Nov 2026).
 
-## Isi (19 kalimat × 2 suara)
+## Isi tahap 1 (19 kalimat × 2 suara)
 
 | id | Kalimat | Dipakai untuk |
 |---|---|---|
@@ -18,6 +18,22 @@ Tujuannya supaya pembuatan narasi lebih cepat: video baru cukup membuat kalimat 
 | `jembatan-inidia`, `jembatan-tunggu`, `jembatan-kenapa` | "Nah, ini dia." / "Tapi tunggu dulu." / "Terus, kenapa bisa begitu?" | Pemicu ulang retensi |
 
 Kolom `cek` di `indeks.json` berisi skor kemiripan ucapan (Whisper). **Perhatian:** ucapan "Arfiy World" ditangkap berbeda-beda ("RV/Arfi/Arvia World"), dan `nama-n3` ("Di Arfiy World…") paling meragukan. Dengarkan dulu sebelum dipakai. Kalau kurang pas, buat ulang dengan ejaan "Arfi World".
+
+## Isi tahap 2: frasa umum (40 kalimat × 2 suara)
+
+Kalimat sambungan yang sering muncul di naskah. Pakai sebagai kalimat sendiri (satu baris di `naskah.json`), jangan dipotong di tengah.
+
+| Kelompok | id → kalimat |
+|---|---|
+| Kejutan / twist | `twist-ternyata` Tapi ternyata… · `twist-bukanitu` Masalahnya bukan itu. · `twist-kaget` Dan ini yang bikin kaget. · `twist-mitos` Ini bukan mitos. · `twist-aneh` Aneh, tapi nyata. · `lebihgila` Dan yang lebih gila lagi… · `fakta-bonus` Satu fakta bonus. |
+| Pembuka / hook kecil | `hook-bayangin` Coba bayangin. · `hook-kokbisa` Kok bisa? · `hook-serius` Serius. · `hook-sendiri` Kamu nggak sendirian. · `hook-dengerin` Dengerin baik-baik. · `tebak` Tebak dulu. · `jawabannya` Jawabannya… |
+| Alur cerita | `alur-jadigini` Jadi gini… · `alur-banyak` Banyak yang ngira… · `alur-padahal` Padahal… · `alur-ternyata` Ternyata… · `alur-seru` Nah, di sinilah serunya. · `alur-penting` Sekarang, bagian pentingnya. · `alur-gimana` Terus, harus gimana? · `alur-tigacara` Ada tiga cara gampang. · `contoh` Contohnya gini. · `otak` Ternyata, ini kerjaan otak kita. · `sumber-penelitian` Ini bukan kata aku. Ini kata penelitian. |
+| Langkah / daftar | `langkah-1` Pertama, · `langkah-2` Kedua, · `langkah-3` Ketiga, · `langkah-akhir` Terakhir, |
+| Penutup bagian | `intinya` Intinya, · `kesimpulan` Jadi, kesimpulannya… · `simpel` Simpel, kan? · `ingat` Ingat, ya. |
+| Menenangkan | `bukansalahmu` Tenang, itu bukan salah kamu. · `normal` Itu normal banget. · `pernah` Pernah ngalamin juga? |
+| Ajakan | `cobasendiri` Nggak percaya? Coba aja sendiri. · `coba-sekarang` Coba deh sekarang. · `cta-ketik` Ketik jawabanmu di komentar. · `cta-kirimteman` Kirim ke temanmu yang kayak gini. |
+
+Catatan variasi (aturan §16): `cta-ketik` dan `cta-kirimteman` tetap harus bergilir dengan bentuk CTA lain di `projects/VARIASI.md`. Jangan dipakai dua video berturut-turut.
 
 ## Alur narasi cepat untuk video baru
 
