@@ -211,6 +211,28 @@ Kalimat sains (`s-`) bersifat umum: hanya dipakai kalau memang sesuai dengan fak
 | `g-hampir-semua` | [curious] Hampir semua orang salah soal ini. |
 | `g-sampai-nanti` | [warmly] Sampai nanti, ya. |
 
+## Isi tahap 9 (300 kalimat × 2 suara)
+
+Daftar lengkap ada di `tahap9.tsv` (`id<TAB>[tag] teks`). Kelompoknya:
+
+| awalan | isi | jumlah |
+|---|---|---|
+| `ua` | hook "kamu pasti pernah…" | 29 |
+| `ub` | transisi & penghubung | 30 |
+| `uc` | reaksi singkat | 27 |
+| `ud` | penjelasan umum (tubuh, otak, kebiasaan) | 30 |
+| `ue` | perbandingan & skala | 27 |
+| `uf` | mitos vs fakta | 29 |
+| `ug` | tips & langkah | 29 |
+| `uh` | kesimpulan | 28 |
+| `ui` | pertanyaan untuk komentar | 29 |
+| `uj` | alasan berkomentar | 13 |
+| `uk` | ajakan simpan/bagikan/ikuti | 14 |
+| `ul` | penutup | 15 |
+
+Catatan janji (§16): "Besok kita bongkar rahasia lainnya.", "Ikuti, biar besok dapat fakta baru lagi.", "Besok pagi, langsung praktikkan.", dan "Simpan dulu, siapa tahu besok kamu butuh." hanya dipakai bila memang ada video besok (dua yang terakhir aman, karena "besok" di situ untuk penonton).
+Flow: Hasan dan 99 kalimat pertama Amy di `F8praD25GHM8k5DMcT7m`; sisa Amy di flow baru `KFmtWWSgJmmXGahLRIbU` (flow lama penuh, maks 1.000 node). Biaya sekitar 30.800 kredit.
+
 ## Alur narasi cepat untuk video baru
 
 1. Tulis `naskah.json` dengan **mengutamakan kalimat pustaka** (aturan.md §17, target ≥ 30%).
