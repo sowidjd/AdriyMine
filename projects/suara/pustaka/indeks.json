@@ -12374,6 +12374,186 @@
    "generation_id": "1GO04DZCubGgd8Vn5QR5",
    "file": "hasan/vf10.mp3",
    "tahap": 10
+  },
+  {
+   "id": "vf11",
+   "suara": "hasan",
+   "teks": "[thoughtful] Mitos ini muncul karena salah paham.",
+   "session_id": "GcVEkTXlvf3QcB3EgGDN",
+   "generation_id": "Co3qXBOvmS78oS2FbMmx",
+   "file": "hasan/vf11.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vf12",
+   "suara": "hasan",
+   "teks": "[confidently] Sains punya jawaban yang berbeda.",
+   "session_id": "tpuut0UJa2HT7a6qo9ha",
+   "generation_id": "CXBE15UWpo5jro4ntBxO",
+   "file": "hasan/vf12.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vf13",
+   "suara": "hasan",
+   "teks": "[surprised] Ternyata orang tua kita juga keliru.",
+   "session_id": "UufXzSSJeiKNEyhOkUEk",
+   "generation_id": "Hnc14ijUw4KLSQKJLudP",
+   "file": "hasan/vf13.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vf14",
+   "suara": "hasan",
+   "teks": "[thoughtful] Dulu dianggap benar, sekarang terbukti salah.",
+   "session_id": "k3L8pWwcn91av0E4ss2Z",
+   "generation_id": "7EZ9Sq9qayIZ7Vac0K9f",
+   "file": "hasan/vf14.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vf15",
+   "suara": "hasan",
+   "teks": "[confidently] Mitos atau fakta? Jawabannya fakta.",
+   "session_id": "NJu0oMRtQ7cEGIAqLHFm",
+   "generation_id": "fyviygTQg0EPvv5PMbdE",
+   "file": "hasan/vf15.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vf16",
+   "suara": "hasan",
+   "teks": "[confidently] Mitos atau fakta? Jawabannya mitos.",
+   "session_id": "n8oNM9VB3yG5jHFk6gut",
+   "generation_id": "HzwojWw6mQcqYTVsOsMX",
+   "file": "hasan/vf16.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vf17",
+   "suara": "hasan",
+   "teks": "[surprised] Kebalikannya justru yang benar.",
+   "session_id": "bwgds9hq8iAy9Fwz3ymo",
+   "generation_id": "QowlL7bsk0qXQlZJ2TVN",
+   "file": "hasan/vf17.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vf18",
+   "suara": "hasan",
+   "teks": "[thoughtful] Asal-usul mitos ini cukup menarik.",
+   "session_id": "IIv0tNi8mGj3KOlSIeyi",
+   "generation_id": "bLmR4OctBto4w2k7p2aA",
+   "file": "hasan/vf18.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vf19",
+   "suara": "hasan",
+   "teks": "[confidently] Mari kita luruskan bareng-bareng.",
+   "session_id": "FXOrdbpHH5LGHsNuZ19b",
+   "generation_id": "GYgi62EvMkzbx2MAkuDN",
+   "file": "hasan/vf19.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vf20",
+   "suara": "hasan",
+   "teks": "[surprised] Yang sering kita dengar ternyata salah.",
+   "session_id": "mUvceK0NETLZKhj2mwQe",
+   "generation_id": "gB3adkjb0xRJNevl5gOj",
+   "file": "hasan/vf20.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg01",
+   "suara": "hasan",
+   "teks": "[friendly] Ini tips sederhana yang bisa kamu coba.",
+   "session_id": "3SjWWR38twcCS18gR1fK",
+   "generation_id": "efRdiOOsFuIMVZAN73u5",
+   "file": "hasan/vg01.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg02",
+   "suara": "hasan",
+   "teks": "[confidently] Pertama, mulai dari yang kecil.",
+   "session_id": "px3p7NhRvKUPr2x5AEtA",
+   "generation_id": "XLvbX0KWi2wV2p2fQNKl",
+   "file": "hasan/vg02.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg03",
+   "suara": "hasan",
+   "teks": "[friendly] Kedua, lakukan secara rutin.",
+   "session_id": "7OJrLnYlbHeDYR9EjIUv",
+   "generation_id": "KvZje2qAHbvAsVIrA5Eh",
+   "file": "hasan/vg03.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg04",
+   "suara": "hasan",
+   "teks": "[confidently] Ketiga, jangan lupa istirahat.",
+   "session_id": "9TTkeTHXQiZzbQANaZZE",
+   "generation_id": "dpViSKJz13xiNvYx5wfZ",
+   "file": "hasan/vg04.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg05",
+   "suara": "hasan",
+   "teks": "[friendly] Minum air putih yang cukup.",
+   "session_id": "Vwi2U4o5hwVqmPzcEqvV",
+   "generation_id": "bQ53mnnZZHXmAeg5Ipe1",
+   "file": "hasan/vg05.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg06",
+   "suara": "hasan",
+   "teks": "[calmly] Atur napas pelan-pelan.",
+   "session_id": "ctpnZBYPu64sqSzmPC2A",
+   "generation_id": "LkiBhJvQSTwvRtuoJjzY",
+   "file": "hasan/vg06.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg07",
+   "suara": "hasan",
+   "teks": "[friendly] Kurangi main HP sebelum tidur.",
+   "session_id": "jQva638u9liSYoihFBFQ",
+   "generation_id": "6jrUdhcYjr0fck8xFnTf",
+   "file": "hasan/vg07.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg08",
+   "suara": "hasan",
+   "teks": "[confidently] Tidur dan bangun di jam yang sama.",
+   "session_id": "mqpKOzpD0qVPZGLfpwRy",
+   "generation_id": "y9iZKZHSVEfKUCQbTllg",
+   "file": "hasan/vg08.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg09",
+   "suara": "hasan",
+   "teks": "[friendly] Gerakkan badan setiap hari.",
+   "session_id": "Qd82A53rUvAs5LDQwoPC",
+   "generation_id": "EUEE44kExYvej68jsRdx",
+   "file": "hasan/vg09.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg10",
+   "suara": "hasan",
+   "teks": "[calmly] Luangkan waktu untuk diri sendiri.",
+   "session_id": "PlI3S2II5vyACXE3rcJu",
+   "generation_id": "nk7gH1MZDZc1WNBu1zCY",
+   "file": "hasan/vg10.mp3",
+   "tahap": 10
   }
  ]
 }
