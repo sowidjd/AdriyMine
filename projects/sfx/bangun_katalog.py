@@ -167,7 +167,19 @@ for v in json.load(open(J('projects/sfx-saya/mixkit/katalog.json'))):
            lisensi='Mixkit Free License (belum dikonfirmasi pemilik)', kredit_wajib=False, boleh_di_repo=False)
 
 SENSITIF = re.compile(r'\b(?:gun|shotgun|rifle|sniper|pistol|m4a1|winchester|barrett\w*|barreta|silencer|grenade|missile|bomb\w*|suicide|decapitat\w*|kill|blood|gore|dying|battlefield|war|stab)\b')
+def grup(e):
+    b = os.path.basename(e['file']).rsplit('.', 1)[0].lower()
+    b = re.sub(r'([\s_-]*\d+[a-z]?)+$', '', b)
+    if e['sumber'] == 'sfx-kit':
+        b = re.sub(r'-(soft|medium|firm|hard|subtle|short|long|light|heavy|bright|dark|large|small|big|massive|strong|in|out)\b', '', b)
+    return e['sumber'] + ':' + os.path.basename(os.path.dirname(e['file'])) + '/' + b
+KOREKSI = json.load(open(os.path.join(D, 'koreksi.json')))
 for e in out:
+    e['grup'] = grup(e)
+    e['kata_judul'] = kata_id(e['id'] + ' ' + e['judul'])
+    kr = KOREKSI.get(e['id'])
+    if kr == 'buang': e['dibuang'] = True
+    elif kr: e['kategori'] = kr
     if SENSITIF.search((e['judul'] + ' ' + e.get('paket', '')).lower().replace('-', ' ')):
         e['sensitif'] = True
     if e['durasi_s'] is not None:
@@ -178,3 +190,32 @@ import collections
 print(len(out), 'SFX'); print(collections.Counter(e['sumber'] for e in out))
 c = collections.Counter(k for e in out for k in e['kategori']); print(c.most_common())
 print('tidak tersedia:', collections.Counter(e['sumber'] for e in out if not e['tersedia']))
+
+# ---- ANDALAN.md: menu pendek 6 pilihan per kategori (hemat token untuk AI) ----
+SINGKAT = [('projects/sfx-saya/normal/', 'saya:'), ('repos/sfx-kit/sounds/', 'kit:'),
+           ('projects/sfx-bebas/opengameart/', 'bebas:'), ('projects/sfx-bebas/soundbible/', 'sb:'), ('projects/_bersama/sfx/', 'bersama:')]
+def pendek(f):
+    for a, b in SINGKAT:
+        if f.startswith(a): return b + f[len(a):]
+    return f
+def singkat(e):
+    c = e['cocok_untuk'].split(';')[0].strip() if e['cocok_untuk'] else ''
+    return c[:45] + ('…' if len(c) > 45 else '')
+baris = ['# SFX andalan (dibuat otomatis oleh bangun_katalog.py, jangan diedit)', '',
+         'Baca ini DULU. Kalau tidak ada yang pas: `python3 projects/sfx/cari.py <kata>`. Aturan lengkap: PANDUAN.md.',
+         'Singkatan path: saya: = projects/sfx-saya/normal/ · kit: = repos/sfx-kit/sounds/ · bebas: = projects/sfx-bebas/opengameart/ · sb: = projects/sfx-bebas/soundbible/',
+         'Bunyi khas nama channel selalu kit:logo-stings/sting-bright-short.wav. Semua di bawah bebas kredit.', '']
+for k, ket in KATEGORI.items():
+    if k == 'suara-orang': continue
+    cal = [e for e in out if k in e['kategori'] and e['tersedia'] and not e.get('sensitif') and not e.get('dibuang')
+           and 'suara-orang' not in e['kategori'] and not e['kredit_wajib']]
+    cal.sort(key=lambda e: (e['kategori'].index(k) > 0, e['prioritas'], (e['durasi_s'] or 0) > 10, e['kategori'].index(k)))
+    pilih, g = [], set()
+    for e in cal:
+        if e['grup'] in g: continue
+        g.add(e['grup']); pilih.append(e)
+        if len(pilih) == 6: break
+    baris.append(f'## {k} — {ket}')
+    baris += [f"- {pendek(e['file'])} {e['durasi_s'] or 0:.1f}s {singkat(e)}" for e in pilih]
+    baris.append('')
+open(os.path.join(D, 'ANDALAN.md'), 'w').write('\n'.join(baris))

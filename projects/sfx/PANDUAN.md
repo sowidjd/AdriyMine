@@ -1,22 +1,23 @@
 # Panduan memilih SFX (untuk AI & pemilik)
 
-Semua SFX proyek kini **satu pintu**: `projects/sfx/katalog.json` (3.828 efek dari 5 sumber).
-File asli **tidak dipindah**, karena path lama dipakai skrip lain. Katalog ini hanya menunjuk ke file-file tersebut.
+## Alur hemat token (ikuti urutan ini)
 
-```bash
-python3 projects/sfx/cari.py <kata>            # cari dengan kata Indonesia atau Inggris
-python3 projects/sfx/cari.py --kategori        # daftar kategori + jumlahnya
-python3 projects/sfx/cari.py -k transisi -n 30 # isi satu kategori
-python3 projects/sfx/bangun_katalog.py         # bangun ulang katalog bila ada SFX baru
-```
+1. **Baca `projects/sfx/ANDALAN.md`** (±2.500 token). Isinya 6 pilihan terbaik per kategori, semuanya bebas kredit. Sebagian besar momen sudah tercakup di sini.
+2. Kalau tidak ada yang pas, jalankan **`python3 projects/sfx/cari.py <kata>`**. Keluarannya 1 baris per efek, maksimal 8 grup, dan varian yang mirip digabung. Tambahkan `--pendek`, `--loop`, `--tanpa-kredit`, atau `-k <kategori>` bila perlu.
+3. Pakai `--detail` hanya untuk efek yang akan benar-benar dipakai. Opsi ini menampilkan titik sinkron, penurunan volume di bawah narasi, dan "hindari".
+4. **Jangan membaca `katalog.json` secara langsung** (±1,9 MB). Bagian lain panduan ini cukup dibaca bila ragu soal aturan.
 
-Opsi `cari.py`:
-- `--pendek`: kurang dari 1,5 detik.
-- `--loop`: untuk suara latar.
-- `--tanpa-kredit`: buang SFX yang wajib diberi kredit.
-- `--orang`: ikutkan suara orang.
-- `--semua`: ikutkan Mixkit dan SFX sensitif.
-- `--json`: keluaran berupa JSON.
+Singkatan path di hasil pencarian:
+
+| Singkatan | Path lengkap |
+|---|---|
+| `saya:` | `projects/sfx-saya/normal/` |
+| `kit:` | `repos/sfx-kit/sounds/` |
+| `bebas:` | `projects/sfx-bebas/opengameart/` |
+| `sb:` | `projects/sfx-bebas/soundbible/` |
+| `bersama:` | `projects/_bersama/sfx/` |
+
+Koreksi kategori dari pemilik (misalnya tandaan dari halaman pemeriksa SFX) dimasukkan ke `koreksi.json`, lalu katalog dibangun ulang dengan `python3 projects/sfx/bangun_katalog.py`. Pembangunan ulang ini juga memperbarui ANDALAN.md.
 
 ## 1. Urutan sumber (prioritas)
 

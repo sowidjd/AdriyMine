@@ -1,0 +1,9 @@
+{
+ "_catatan": "Koreksi kategori manual (menang atas aturan otomatis). Nilai: daftar kategori, atau \"buang\" untuk menyembunyikan. Tandaan dari halaman pemeriksa SFX dimasukkan ke sini.",
+ "saya/ui_gulir_layar": ["ui-klik", "transisi"],
+ "saya/hewan_angin_menukik_deras": ["transisi", "alam-air"],
+ "saya/laut_semburan_air": ["alam-air", "hewan"],
+ "saya/makanan_popcorn_meletup": ["muncul-hilang", "alat-benda"],
+ "saya/makanan_cokelat_meleleh": ["alat-benda"],
+ "saya/tubuh_gelembung_pop": ["muncul-hilang", "alam-air"]
+}
