@@ -12734,6 +12734,186 @@
    "generation_id": "EbenpDrSeL4249GV5Y2g",
    "file": "hasan/vh05.mp3",
    "tahap": 10
+  },
+  {
+   "id": "vh06",
+   "suara": "hasan",
+   "teks": "[confidently] Jadi, jangan heran lagi kalau ini terjadi.",
+   "session_id": "MI5dbXIDWMBRPz1siwtC",
+   "generation_id": "DtTff9GTVPt9qJOSZUI1",
+   "file": "hasan/vh06.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh07",
+   "suara": "hasan",
+   "teks": "[warmly] Semoga sekarang kamu lebih paham.",
+   "session_id": "yKACvTvq7TCDvF11tfmS",
+   "generation_id": "2ydMrbNxJyp49eAn5HTW",
+   "file": "hasan/vh07.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh08",
+   "suara": "hasan",
+   "teks": "[thoughtful] Tubuh kita memang luar biasa.",
+   "session_id": "oBQbddtwc4nlovmcgQUl",
+   "generation_id": "UdfHj8kViSDmZAlBUxBk",
+   "file": "hasan/vh08.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh09",
+   "suara": "hasan",
+   "teks": "[confidently] Itulah jawabannya.",
+   "session_id": "7xogggN29n2Op8fdiWaT",
+   "generation_id": "gtbqOhfwFzZYhP1JBDzu",
+   "file": "hasan/vh09.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh10",
+   "suara": "hasan",
+   "teks": "[warmly] Seru, kan, belajar hal baru?",
+   "session_id": "uIFcKr9x9ht9PVxGNXc7",
+   "generation_id": "hi7ygRDKJuzW6WtJWQZo",
+   "file": "hasan/vh10.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh11",
+   "suara": "hasan",
+   "teks": "[thoughtful] Kadang jawaban ada di depan mata.",
+   "session_id": "rdzZ5wFHRmXceuVjddiJ",
+   "generation_id": "cGC0ppM4RdwtQtTwpjtb",
+   "file": "hasan/vh11.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh12",
+   "suara": "hasan",
+   "teks": "[confidently] Intinya, jaga dirimu baik-baik.",
+   "session_id": "17J7iWTzrEA89abD9XGh",
+   "generation_id": "LLgtmMChAaqt4mpzJv41",
+   "file": "hasan/vh12.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh13",
+   "suara": "hasan",
+   "teks": "[warmly] Kamu sekarang tahu lebih banyak dari kemarin.",
+   "session_id": "UkY9X9Pvzm8LFZyJL3AU",
+   "generation_id": "aXFXWMmF1YGRZdjA3UQu",
+   "file": "hasan/vh13.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh14",
+   "suara": "hasan",
+   "teks": "[thoughtful] Semuanya ternyata saling berhubungan.",
+   "session_id": "W9epiHDZY3bH6T8vhdi9",
+   "generation_id": "WLBJkx4oUhXQOSTyBTmv",
+   "file": "hasan/vh14.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh15",
+   "suara": "hasan",
+   "teks": "[confidently] Jadi, mulai sekarang coba lebih peka.",
+   "session_id": "VFu3G7lZYicseedadyCh",
+   "generation_id": "kz7t7GHqLmYhaT8xZXLZ",
+   "file": "hasan/vh15.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh16",
+   "suara": "hasan",
+   "teks": "[warmly] Pengetahuan kecil ini bisa berguna suatu hari nanti.",
+   "session_id": "trp596whpuD0V00IQK08",
+   "generation_id": "UthpTQ9TlNM4CyLtfgFf",
+   "file": "hasan/vh16.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh17",
+   "suara": "hasan",
+   "teks": "[thoughtful] Dunia ini penuh hal yang belum kita pahami.",
+   "session_id": "EKWQX0PcQotY9a0OBgPh",
+   "generation_id": "rJMrOa9L4yJFM4f6f2LF",
+   "file": "hasan/vh17.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh18",
+   "suara": "hasan",
+   "teks": "[confidently] Sekarang kamu punya jawabannya.",
+   "session_id": "bV0wciO0cLlzcE5zMRsi",
+   "generation_id": "aV4ARYavYJldf5vVAOtr",
+   "file": "hasan/vh18.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh19",
+   "suara": "hasan",
+   "teks": "[warmly] Jangan lupa, kamu juga bagian dari keajaiban ini.",
+   "session_id": "AoLPm0JXxrDHFDqRPJsi",
+   "generation_id": "7znwFIjQnC8OwbhzyLXv",
+   "file": "hasan/vh19.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh20",
+   "suara": "hasan",
+   "teks": "[thoughtful] Mungkin ini saatnya kita lebih menghargainya.",
+   "session_id": "lZDrO2S0WpHYFDw3q1oL",
+   "generation_id": "Pcpyv5P6lzr5fJersb3B",
+   "file": "hasan/vh20.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh21",
+   "suara": "hasan",
+   "teks": "[confidently] Jadi, bukan cuma kebetulan.",
+   "session_id": "ye1ALvtD1OBuTM330waq",
+   "generation_id": "ghwyRrktP3iyWaKYzJCT",
+   "file": "hasan/vh21.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh22",
+   "suara": "hasan",
+   "teks": "[warmly] Semoga bermanfaat buat kamu dan keluarga.",
+   "session_id": "NtWxl16AMKpAgROZmPN3",
+   "generation_id": "sSU3Yvu0lbWYpKtCgYZx",
+   "file": "hasan/vh22.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh23",
+   "suara": "hasan",
+   "teks": "[thoughtful] Pelajaran hari ini cukup sampai di sini.",
+   "session_id": "o77hVS5l4I2BL33jXleO",
+   "generation_id": "dhhsjEPFHpXvvTDMRMep",
+   "file": "hasan/vh23.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh24",
+   "suara": "hasan",
+   "teks": "[confidently] Sekarang, kamu nggak akan lupa lagi.",
+   "session_id": "oHlEDNx9HnYebL013ewq",
+   "generation_id": "1FB3xMwsUQGihg9Jp04B",
+   "file": "hasan/vh24.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vi01",
+   "suara": "hasan",
+   "teks": "[curious] Kamu pernah ngalamin ini? Cerita di komentar.",
+   "session_id": "Vt2iu0sI69vFrlSxN2hC",
+   "generation_id": "RwmH6ZjjXECF8yj4krdY",
+   "file": "hasan/vi01.mp3",
+   "tahap": 10
   }
  ]
 }
