@@ -12554,6 +12554,186 @@
    "generation_id": "nk7gH1MZDZc1WNBu1zCY",
    "file": "hasan/vg10.mp3",
    "tahap": 10
+  },
+  {
+   "id": "vg11",
+   "suara": "hasan",
+   "teks": "[friendly] Makan dengan pelan, jangan terburu-buru.",
+   "session_id": "8WgFJlmxLjGZKOSuFM7Q",
+   "generation_id": "FXKjiOruJ0y1IAldXvpb",
+   "file": "hasan/vg11.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg12",
+   "suara": "hasan",
+   "teks": "[confidently] Catat kebiasaanmu selama seminggu.",
+   "session_id": "EFgM1SDElbqInzQDDFfW",
+   "generation_id": "BdhRFdwhO4zKYSpPiw25",
+   "file": "hasan/vg12.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg13",
+   "suara": "hasan",
+   "teks": "[friendly] Ajak keluarga untuk mencobanya.",
+   "session_id": "ZJmK3KGRxwHhH1AApY3Z",
+   "generation_id": "gqEIYu2zk2giifLgIQYc",
+   "file": "hasan/vg13.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg14",
+   "suara": "hasan",
+   "teks": "[calmly] Jangan dipaksakan, lakukan sesuai kemampuan.",
+   "session_id": "1v5cFB4MzPSwnmaDWOkp",
+   "generation_id": "XNAKmIetJcHQBKpcMCf8",
+   "file": "hasan/vg14.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg15",
+   "suara": "hasan",
+   "teks": "[friendly] Coba selama tujuh hari, lalu lihat hasilnya.",
+   "session_id": "1aGcv9dDCokbSTx4XOlQ",
+   "generation_id": "VKpYAxqqadkAXAI1WMfQ",
+   "file": "hasan/vg15.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg16",
+   "suara": "hasan",
+   "teks": "[confidently] Hindari kebiasaan ini mulai sekarang.",
+   "session_id": "ZJaKuXLKDVw7Ax3CCUW0",
+   "generation_id": "G9XBfaZTHlam8BhVmUEX",
+   "file": "hasan/vg16.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg17",
+   "suara": "hasan",
+   "teks": "[friendly] Ganti dengan kebiasaan yang lebih baik.",
+   "session_id": "esnPbNsrPffhnWXr87gm",
+   "generation_id": "PrutcbVKnkEZwEyVP5Fu",
+   "file": "hasan/vg17.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg18",
+   "suara": "hasan",
+   "teks": "[calmly] Beri jeda kalau mulai lelah.",
+   "session_id": "7hlGdBFFWAE53KYqTHLa",
+   "generation_id": "1uwADrT6fvvSwRKXse0g",
+   "file": "hasan/vg18.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg19",
+   "suara": "hasan",
+   "teks": "[friendly] Kalau bisa, lakukan di pagi hari.",
+   "session_id": "PrKrrNyGGv0rKvZvoq0B",
+   "generation_id": "L3byQnyK7HCjuezduMyD",
+   "file": "hasan/vg19.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg20",
+   "suara": "hasan",
+   "teks": "[confidently] Konsisten lebih penting dari sempurna.",
+   "session_id": "dkTSI0vUJfTQlh7Y1l2K",
+   "generation_id": "MYZlmKKtSeUzIivyaV4j",
+   "file": "hasan/vg20.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg21",
+   "suara": "hasan",
+   "teks": "[friendly] Kamu nggak perlu melakukannya sendirian.",
+   "session_id": "t79c5IEGfRUG8mKK5QnR",
+   "generation_id": "cIzDzDl7E63wwNhcXV5l",
+   "file": "hasan/vg21.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg22",
+   "suara": "hasan",
+   "teks": "[calmly] Dengarkan apa kata tubuhmu.",
+   "session_id": "q7rolYF13KqsTHy9ykLK",
+   "generation_id": "iZsr0Q7o7GZlE7U521GT",
+   "file": "hasan/vg22.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg23",
+   "suara": "hasan",
+   "teks": "[friendly] Mulai sekarang, coba perhatikan.",
+   "session_id": "tkbc8jJ1h7wk9wMoIVqc",
+   "generation_id": "dpvLpOl4ouPbuFNkv3Br",
+   "file": "hasan/vg23.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg24",
+   "suara": "hasan",
+   "teks": "[confidently] Jangan tunggu sampai terlambat.",
+   "session_id": "X7bRNSEBl82EBCtWYY8Q",
+   "generation_id": "PfVLNuPl9jbm9JPowySZ",
+   "file": "hasan/vg24.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vg25",
+   "suara": "hasan",
+   "teks": "[friendly] Kalau ragu, tanya ahlinya.",
+   "session_id": "91St6WiWjxJKTON1end8",
+   "generation_id": "xfz18LGjktT5yQPbTAKd",
+   "file": "hasan/vg25.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh01",
+   "suara": "hasan",
+   "teks": "[warmly] Jadi, begitulah ceritanya.",
+   "session_id": "mwyvDjcwj4uBVm2duTLK",
+   "generation_id": "3H9LksAnFeOvybZK2iqa",
+   "file": "hasan/vh01.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh02",
+   "suara": "hasan",
+   "teks": "[thoughtful] Sekarang semuanya jadi lebih jelas.",
+   "session_id": "xlxV8M0qhZmVhfnfqczT",
+   "generation_id": "0oHcNs71rDfr9xvGgX4R",
+   "file": "hasan/vh02.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh03",
+   "suara": "hasan",
+   "teks": "[confidently] Kesimpulannya sederhana.",
+   "session_id": "1pE8WwPVReRJR681AiVM",
+   "generation_id": "7fpKYq3rwA0agn1XtpNh",
+   "file": "hasan/vh03.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh04",
+   "suara": "hasan",
+   "teks": "[warmly] Ternyata, ada alasan di balik semuanya.",
+   "session_id": "6gqkzMgS8J1DSpefQd1o",
+   "generation_id": "Reh8CqgpfKBxHDUnfS2f",
+   "file": "hasan/vh04.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vh05",
+   "suara": "hasan",
+   "teks": "[thoughtful] Hal kecil memang bisa berdampak besar.",
+   "session_id": "7Tz6eJZUsfjxcwpCyAJg",
+   "generation_id": "EbenpDrSeL4249GV5Y2g",
+   "file": "hasan/vh05.mp3",
+   "tahap": 10
   }
  ]
 }
