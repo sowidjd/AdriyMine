@@ -11285,6 +11285,375 @@
    "generation_id": "OyHrfszFdpyZnIJE7WT4",
    "file": "hasan/vb25.mp3",
    "tahap": 10
+  },
+  {
+   "id": "vb26",
+   "suara": "hasan",
+   "teks": "[thoughtful] Di titik inilah semuanya berubah.",
+   "session_id": "6ehYnGVOrXGFWQLE6f8H",
+   "generation_id": "E4hGHRFgfmKvT3KKK3q4",
+   "file": "hasan/vb26.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vb27",
+   "suara": "hasan",
+   "teks": "[curious] Tapi kenapa nggak semua orang begitu?",
+   "session_id": "xJ8RJD1NmRiguDuvf1EH",
+   "generation_id": "BWTFrzQ2ndvooaZP7ZTq",
+   "file": "hasan/vb27.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vb28",
+   "suara": "hasan",
+   "teks": "[confidently] Jawabannya ada di sini.",
+   "session_id": "sKYxFeF8hbIGBihVJfSl",
+   "generation_id": "KE1HRzHhlJgxGYLR8PLv",
+   "file": "hasan/vb28.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vb29",
+   "suara": "hasan",
+   "teks": "[thoughtful] Mari kita lihat dari sudut pandang lain.",
+   "session_id": "7eVW3WNp8aEW7Gbpv3wa",
+   "generation_id": "xX2XneNkgJMb5ttZptGO",
+   "file": "hasan/vb29.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vb30",
+   "suara": "hasan",
+   "teks": "[confidently] Setelah itu, terjadilah hal ini.",
+   "session_id": "RIMGi0DuKPNZNuMfuQx4",
+   "generation_id": "75twHZZXGGcx6uLl2DGp",
+   "file": "hasan/vb30.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vb31",
+   "suara": "hasan",
+   "teks": "[curious] Bagaimana kalau sebaliknya?",
+   "session_id": "4lVoFpMV4bNTtQEIgZhf",
+   "generation_id": "cSOcKKugbhq7en9QnUU0",
+   "file": "hasan/vb31.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vb32",
+   "suara": "hasan",
+   "teks": "[thoughtful] Ini yang sering terlewat.",
+   "session_id": "9vhf6s9Rprv1gwwLWJtT",
+   "generation_id": "i5XOskZrQza7FvKOGSao",
+   "file": "hasan/vb32.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vb33",
+   "suara": "hasan",
+   "teks": "[confidently] Intinya cuma satu.",
+   "session_id": "BJh4mhSl398aytGX2vKj",
+   "generation_id": "tLmZanA8BfZ0BNkcG0S0",
+   "file": "hasan/vb33.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vb34",
+   "suara": "hasan",
+   "teks": "[playful] Oke, sekarang bagian favoritku.",
+   "session_id": "BdGTq9h9oMUvKZEbElbz",
+   "generation_id": "dn1VS38XAqlGEXpJEiff",
+   "file": "hasan/vb34.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vb35",
+   "suara": "hasan",
+   "teks": "[thoughtful] Sampai di sini, masih masuk akal, kan?",
+   "session_id": "dJvSSXtU1noFdwr7wDpD",
+   "generation_id": "mXJwC4c2kBBbCYEgASWk",
+   "file": "hasan/vb35.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vb36",
+   "suara": "hasan",
+   "teks": "[confidently] Sekarang kita gabungkan semuanya.",
+   "session_id": "pfc4unPsB7UwKi4fhKgN",
+   "generation_id": "6iIAKE7Pdef4H41HGAPY",
+   "file": "hasan/vb36.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc01",
+   "suara": "hasan",
+   "teks": "[amazed] Wow.",
+   "session_id": "4M5yeeJz0nVopGAgjOJw",
+   "generation_id": "j6hSV3Dlpg6kxVRkmev3",
+   "file": "hasan/vc01.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc02",
+   "suara": "hasan",
+   "teks": "[surprised] Hah?",
+   "session_id": "wGYKMjYqVhVoKFiNuDa9",
+   "generation_id": "p8vZcFf8Da6XJ42mA4lc",
+   "file": "hasan/vc02.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc03",
+   "suara": "hasan",
+   "teks": "[amazed] Keren banget.",
+   "session_id": "Ns0ej5EA9RWyLVBik09Q",
+   "generation_id": "10rpvvf8yhETxLjFEov0",
+   "file": "hasan/vc03.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc04",
+   "suara": "hasan",
+   "teks": "[laughing] Aduh, lucu banget.",
+   "session_id": "5lxH5IHKT05GiPkx3zdw",
+   "generation_id": "gNgmSLsLBRY6CX5D3jrz",
+   "file": "hasan/vc04.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc05",
+   "suara": "hasan",
+   "teks": "[surprised] Masa, sih?",
+   "session_id": "dodMC5uFvEDREXAJBU10",
+   "generation_id": "IIp3yynH2hNr3ecZU5o3",
+   "file": "hasan/vc05.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc06",
+   "suara": "hasan",
+   "teks": "[amazed] Nggak kebayang.",
+   "session_id": "Xp3CmRVhL2iCkuDTzqM4",
+   "generation_id": "3XDnpZj7KmJcCGJaUawV",
+   "file": "hasan/vc06.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc07",
+   "suara": "hasan",
+   "teks": "[thoughtful] Hmm.",
+   "session_id": "3TiWAtNEefQVRNVL3GnQ",
+   "generation_id": "lJFrIBzFoW3kSmctFrAi",
+   "file": "hasan/vc07.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc08",
+   "suara": "hasan",
+   "teks": "[amazed] Gila, sih.",
+   "session_id": "bv8bUeVZHCpGqC5wnIwy",
+   "generation_id": "BohfoLQa8mX5PwpTRjGP",
+   "file": "hasan/vc08.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc09",
+   "suara": "hasan",
+   "teks": "[playful] Iya, kan?",
+   "session_id": "dahtsUAedcSX5kB3gQsR",
+   "generation_id": "BnfLTuVRP2z6J2ShnR1Z",
+   "file": "hasan/vc09.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc10",
+   "suara": "hasan",
+   "teks": "[surprised] Seriusan?",
+   "session_id": "j0FpA3yq9LHtwghesoB3",
+   "generation_id": "udoMR7gwRe845BRVW1Mp",
+   "file": "hasan/vc10.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc11",
+   "suara": "hasan",
+   "teks": "[amazed] Hebat, ya.",
+   "session_id": "S1uOzHvFbVLswcZYfpbb",
+   "generation_id": "wHUReCgKfKEs6qjD5I8p",
+   "file": "hasan/vc11.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc12",
+   "suara": "hasan",
+   "teks": "[thoughtful] Masuk akal.",
+   "session_id": "7lqiOicYMJA2VaChFDH4",
+   "generation_id": "L3NI9ndVxDofGW4tkTIW",
+   "file": "hasan/vc12.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc13",
+   "suara": "hasan",
+   "teks": "[playful] Tuh, kan.",
+   "session_id": "xhea137tdV4JkUKbf87u",
+   "generation_id": "x9c94e78T2WrqpASfxwv",
+   "file": "hasan/vc13.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc14",
+   "suara": "hasan",
+   "teks": "[surprised] Kok bisa, ya?",
+   "session_id": "9coNztOagnVTE2KrzXd7",
+   "generation_id": "qiOBzPk4z81X0jffqpob",
+   "file": "hasan/vc14.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc15",
+   "suara": "hasan",
+   "teks": "[amazed] Luar biasa sekali.",
+   "session_id": "3rsam7U5t4IBmhhaH1NT",
+   "generation_id": "jUFInELNNPYFR8nTsoKm",
+   "file": "hasan/vc15.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc16",
+   "suara": "hasan",
+   "teks": "[laughing] Ya ampun.",
+   "session_id": "ZdlYCQvktGWV9qThoohH",
+   "generation_id": "HCmoQdaFKi6YlhMUuvfM",
+   "file": "hasan/vc16.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc17",
+   "suara": "hasan",
+   "teks": "[surprised] Nggak mungkin.",
+   "session_id": "rVtC5NXRGvRRwmpgEZVC",
+   "generation_id": "lCnNkqfJL84jgNXgTOgu",
+   "file": "hasan/vc17.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc18",
+   "suara": "hasan",
+   "teks": "[amazed] Ini sih level dewa.",
+   "session_id": "rTGOOqJLqTxwwcSMbvaE",
+   "generation_id": "fGjPea8InWNpjqcXcFj2",
+   "file": "hasan/vc18.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc19",
+   "suara": "hasan",
+   "teks": "[playful] Ngaku, siapa yang pernah?",
+   "session_id": "rZSZcuv5P9B7wg26FHLi",
+   "generation_id": "6BB00sfC7rbkaaKlonDp",
+   "file": "hasan/vc19.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc20",
+   "suara": "hasan",
+   "teks": "[surprised] Eh, beneran?",
+   "session_id": "HHHThTmqx4KK6EcDYFMe",
+   "generation_id": "YCBcOh9SqGY1lGogqRGZ",
+   "file": "hasan/vc20.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc21",
+   "suara": "hasan",
+   "teks": "[amazed] Merinding aku.",
+   "session_id": "FeyYw6R3bAR0whWhR04v",
+   "generation_id": "R5lkRYwJeSfwPIjJXIeI",
+   "file": "hasan/vc21.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc22",
+   "suara": "hasan",
+   "teks": "[thoughtful] Oh, pantesan.",
+   "session_id": "ZyF0yCVkrea91v6ygmN7",
+   "generation_id": "Ea50vRvMAXWi4Qxzct3W",
+   "file": "hasan/vc22.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc23",
+   "suara": "hasan",
+   "teks": "[playful] Hayo, ngaku.",
+   "session_id": "gFTm9xv4CDEmK1en330P",
+   "generation_id": "NwKr2wKCyVenAaqvoPeP",
+   "file": "hasan/vc23.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc24",
+   "suara": "hasan",
+   "teks": "[surprised] Tunggu, apa?",
+   "session_id": "NgtZ3cSvhICiUrekTPxa",
+   "generation_id": "Pc9d9VGDaiwIStLjjVcN",
+   "file": "hasan/vc24.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc25",
+   "suara": "hasan",
+   "teks": "[amazed] Sekeren itu ternyata.",
+   "session_id": "N02gXR9cDnzfYFgKEXkq",
+   "generation_id": "cKFOBf1qGwfsYsYHOi5d",
+   "file": "hasan/vc25.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc26",
+   "suara": "hasan",
+   "teks": "[thoughtful] Baru sadar aku.",
+   "session_id": "6n2rKjW63rOpSypDadSW",
+   "generation_id": "KlDmkZubvhpWtHsVy5QZ",
+   "file": "hasan/vc26.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vc27",
+   "suara": "hasan",
+   "teks": "[playful] Kaget, kan?",
+   "session_id": "17VI31kugLUBbME6PTSY",
+   "generation_id": "PslL7jPk4M1gogBC6UNx",
+   "file": "hasan/vc27.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vd01",
+   "suara": "hasan",
+   "teks": "[confidently] Tubuh kita bekerja tanpa henti, bahkan saat tidur.",
+   "session_id": "bbVQCnOAPwhhTfjUiQw7",
+   "generation_id": "fpjbLWmkzYe2n1lN6fMI",
+   "file": "hasan/vd01.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vd02",
+   "suara": "hasan",
+   "teks": "[thoughtful] Otak selalu mencari jalan pintas.",
+   "session_id": "iKfCDu3RfOqyb9O5UCVE",
+   "generation_id": "aOn2YClsMvd0iGQaFn0m",
+   "file": "hasan/vd02.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vd03",
+   "suara": "hasan",
+   "teks": "[confidently] Ini cara tubuh memberi tanda.",
+   "session_id": "2DSkoYz0LFePfEtlBb7a",
+   "generation_id": "lbksu4CW2T9BKYVvyvx2",
+   "file": "hasan/vd03.mp3",
+   "tahap": 10
   }
  ]
 }
