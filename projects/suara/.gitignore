@@ -14,5 +14,6 @@ rekaman*
 contoh-suara-*.m4a
 ref*.json
 
-# pustaka suara (kloning Hasan/Amy): audio tidak diunggah, indeks.json saja
-pustaka/*/
+# pustaka suara Hasan/Amy: diunggah atas izin pemilik (28 Nov 2026)
+!pustaka/hasan/*.mp3
+!pustaka/amy/*.mp3

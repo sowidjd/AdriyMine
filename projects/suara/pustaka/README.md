@@ -3,7 +3,7 @@
 Kalimat yang **selalu dipakai di setiap video**, direkam sekali dengan suara kloning **Hasan** (pemilik) dan **Amy** (adik pemilik).
 Tujuannya supaya pembuatan narasi lebih cepat: video baru cukup membuat kalimat isinya saja.
 
-- **Audio tidak diunggah ke GitHub**, karena berisi suara kloning orang sungguhan (aturan.md §8, privasi). Yang disimpan hanya `indeks.json`.
+- **Audio pustaka (`hasan/`, `amy/`) ikut diunggah ke GitHub** atas permintaan pemilik (28 Nov 2026), meskipun repo publik dan pemilik sudah diberi tahu risikonya. File suara lain (`ref*.wav`, rekaman asli, alfabet) tetap tidak diunggah.
 - Audio asli tetap tersimpan di akun ElevenLabs, di flow **"Pustaka Suara Arfiy World"** (`F8praD25GHM8k5DMcT7m`). Kalau mesin dimulai ulang, unduh lagi **tanpa biaya kredit**: ambil tautan baru lewat `creative_get_generations` atau `creative_get_flow_run_status` (flow_id + session_id dari `indeks.json`), lalu simpan ke `pustaka/<suara>/<id>.mp3`.
 - Model: `eleven_v4`, 1 take per kalimat. Biaya: tahap 1 sekitar 1.600 kredit, tahap 2 (40 frasa umum × 2 suara) sekitar 2.400 kredit (28 Nov 2026).
 

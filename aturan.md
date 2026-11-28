@@ -174,7 +174,7 @@ Cahaya adalah alat bercerita, bukan hiasan.
 - **Efek suara milik pemilik diutamakan:** `projects/sfx-saya/` (59 efek ElevenLabs + 736 efek Mixkit di `mixkit/`, katalog di `KATALOG.md`, pakai versi rapi di `normal/`). File Mixkit **tidak boleh diunggah ke repo publik** (lisensinya melarang menyebarkan file mentah). Pakai hanya bila status lisensinya sudah dikonfirmasi pemilik (paket berbayar = boleh komersial). Kalau tidak ada yang cocok, baru ambil dari sfx-kit.
 - **Efek suara cadangan:** `repos/sfx-kit` (320 SFX, CC0, bebas komersial). Ikuti `repos/sfx-kit/GUIDE.md` untuk memilih & menaruh suara di momen yang tepat. Efek suara buatan kode hanya kalau tidak ada yang cocok.
 - **Rujukan aturan lengkap:** `repos/shorts-kit/SOUL.md` (aturan channel yang sudah teruji, 20 pola alur cerita di `docs/flows/`, cek fakta di `docs/facts/`) dan `repos/vertical-video-kit` (caption kata per kata, perapian teks untuk suara AI). Kalau ada yang bertentangan dengan aturan.md, **aturan.md yang dipakai**.
-- **Privasi:** file berisi tiruan suara pemilik akun **tidak diunggah ke GitHub**.
+- **Privasi:** file berisi tiruan suara pemilik akun **tidak diunggah ke GitHub**. Pengecualian: audio pustaka suara (`projects/suara/pustaka/hasan/`, `amy/`) diunggah atas izin pemilik (28 Nov 2026).
 
 ---
 
