@@ -12914,6 +12914,186 @@
    "generation_id": "RwmH6ZjjXECF8yj4krdY",
    "file": "hasan/vi01.mp3",
    "tahap": 10
+  },
+  {
+   "id": "vi02",
+   "suara": "hasan",
+   "teks": "[playful] Siapa yang baru tahu? Angkat tangan.",
+   "session_id": "aLyCIN95GpZgodCL95Nk",
+   "generation_id": "xoCfOFF9eTHo2wXGUd7o",
+   "file": "hasan/vi02.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vi03",
+   "suara": "hasan",
+   "teks": "[curious] Menurutmu, mana yang paling aneh?",
+   "session_id": "YL9H4aHYMXvNv4Zfqcoo",
+   "generation_id": "TmuSC86u90HzTyqFAxzZ",
+   "file": "hasan/vi03.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vi04",
+   "suara": "hasan",
+   "teks": "[playful] Tulis satu kata di komentar.",
+   "session_id": "X1FnKgwFNGen4prdUnnJ",
+   "generation_id": "9ePJVTdG8cr64FkVlnc6",
+   "file": "hasan/vi04.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vi05",
+   "suara": "hasan",
+   "teks": "[curious] Kamu lebih suka yang mana?",
+   "session_id": "0myc0mXbqeNxnq7M4Ffs",
+   "generation_id": "VUkeet9QPAtNueYptHxe",
+   "file": "hasan/vi05.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vi06",
+   "suara": "hasan",
+   "teks": "[playful] Ketik satu kalau kamu setuju.",
+   "session_id": "9T4HXgQUJCeySQ2rTxsd",
+   "generation_id": "Bu9oFleoa6dBay7Uglbu",
+   "file": "hasan/vi06.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vi07",
+   "suara": "hasan",
+   "teks": "[curious] Ada yang punya cerita lucu soal ini?",
+   "session_id": "zFAooxRTQFAEML32EHII",
+   "generation_id": "4r4GTLHEpMnjiRocnqND",
+   "file": "hasan/vi07.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vi08",
+   "suara": "hasan",
+   "teks": "[playful] Tag teman yang begini banget.",
+   "session_id": "TV3iELaR6Sx9NXQsU3cs",
+   "generation_id": "eKtEbnxQmd8sytpcAwA1",
+   "file": "hasan/vi08.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vi09",
+   "suara": "hasan",
+   "teks": "[curious] Kamu mau tahu lebih banyak soal apa?",
+   "session_id": "hFe3uYZaMnhpeOpkG3mx",
+   "generation_id": "ntgC5azevC0GhkqbuRYQ",
+   "file": "hasan/vi09.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vi10",
+   "suara": "hasan",
+   "teks": "[playful] Berapa nilai video ini dari satu sampai sepuluh?",
+   "session_id": "4yfaVcQnP7SEY1F7nJgi",
+   "generation_id": "h8e5nLFk2t0i43kAe4pq",
+   "file": "hasan/vi10.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vi11",
+   "suara": "hasan",
+   "teks": "[curious] Kamu tim yang mana?",
+   "session_id": "pmbWPc75u1IGBjrk28dI",
+   "generation_id": "wuZA2nqUBWUksDJWp8c8",
+   "file": "hasan/vi11.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vi12",
+   "suara": "hasan",
+   "teks": "[playful] Coba jawab tanpa nyontek.",
+   "session_id": "UVDJNJ5nfqKBov8oAJk9",
+   "generation_id": "zz50I4Zk2UYTjDJxPiCe",
+   "file": "hasan/vi12.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vi13",
+   "suara": "hasan",
+   "teks": "[curious] Kalau kamu, pilih yang mana?",
+   "session_id": "RhrHa0SDE2hpsj644wH9",
+   "generation_id": "Ma5ZMIVRN80aEjyja8zP",
+   "file": "hasan/vi13.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vi14",
+   "suara": "hasan",
+   "teks": "[playful] Siapa yang pernah begini waktu kecil?",
+   "session_id": "gDgm9L8zS8NWleEK8ZLr",
+   "generation_id": "Pf8qCKG4vObq2Lx0sWD0",
+   "file": "hasan/vi14.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vi15",
+   "suara": "hasan",
+   "teks": "[curious] Pertanyaan apa yang mau kamu tanyakan?",
+   "session_id": "aBwXLv5DKKuyQPbcGLfb",
+   "generation_id": "TAH9UGmfcrD1htDkld2d",
+   "file": "hasan/vi15.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vi16",
+   "suara": "hasan",
+   "teks": "[playful] Kasih tahu aku di komentar, ya.",
+   "session_id": "7fSi5hyvEmqeAxVB3CAN",
+   "generation_id": "xQw32voP1OtduDGNcLqf",
+   "file": "hasan/vi16.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vi17",
+   "suara": "hasan",
+   "teks": "[curious] Fakta mana yang paling kamu suka?",
+   "session_id": "eAGcJ8wfhi5xe5DuBXE9",
+   "generation_id": "0O4dlcMe7qNv6SSnzMTm",
+   "file": "hasan/vi17.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vi18",
+   "suara": "hasan",
+   "teks": "[playful] Ketik iya kalau kamu juga pernah.",
+   "session_id": "zr22shcQFzbs0chlU7Ft",
+   "generation_id": "lv5XrkYTMViNI7yxVoB4",
+   "file": "hasan/vi18.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vi19",
+   "suara": "hasan",
+   "teks": "[curious] Menurutmu, ini benar atau salah?",
+   "session_id": "mRF9hgo1Snss4b8vbfMe",
+   "generation_id": "HTeanRz7fExnjwGgA2BG",
+   "file": "hasan/vi19.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vi20",
+   "suara": "hasan",
+   "teks": "[playful] Jangan lupa komen jawabanmu.",
+   "session_id": "toEEolmKWARhtwAftdsi",
+   "generation_id": "Z4jNClE50Dcqtnc6U6oE",
+   "file": "hasan/vi20.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vj01",
+   "suara": "hasan",
+   "teks": "[friendly] Simpan video ini, ya.",
+   "session_id": "0fPlL24LzMH8zia1CUVQ",
+   "generation_id": "iiehO86qMBIjgJIYxHHQ",
+   "file": "hasan/vj01.mp3",
+   "tahap": 10
   }
  ]
 }
