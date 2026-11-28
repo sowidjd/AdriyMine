@@ -3,6 +3,7 @@
 Proyek video konten TikTok edukasi (akun **Arfiy World**, tokoh **Adriy**, burung hantu berkacamata & bersyal merah, lihat `projects/karakter/` dan aturan.md §15; narasi suara pemilik akun, bahasa Indonesia santai).
 
 - **Sebelum membuat konten apa pun, baca dan ikuti `aturan.md`.** Setelah video jadi, cek dengan checklist di sana dan tambahkan baris ke tabel Riwayat.
+- Aset tokoh orang ADRIY (8 outfit, ±600 pose), hewan darat/laut & benda: `bash projects/karakter/ambil_aset.sh` → `projects/karakter/aset/` (dari repo sowidjd/Adriy-aset-karakter, tidak masuk git). Peta pose: `aset/<outfit>/peta.json`, katalog hewan/benda: `aset/objek/katalog.json`.
 - Ide tema: `projects/IDE-KONTEN.md`. Variasi hook, nama channel & CTA: `projects/VARIASI.md` (aturan §16). **Jangan usulkan judul/topik yang ada di `projects/SUDAH-DIBUAT.md`** (sudah dibuat pemilik).
 - Contoh video lengkap: `projects/bangun-pagi/` (naskah, animasi Canvas, audio, narasi VoxCPM2).
 - HyperFrames (render/preview/Studio): `node projects/hyperframes/buat.mjs <nama>` → `projects/<nama>/hf/`, lihat `projects/hyperframes/README.md`.
