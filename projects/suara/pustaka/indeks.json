@@ -13814,6 +13814,186 @@
    "generation_id": "TWkb5uy2zZUETrOSRRuZ",
    "file": "hasan/vp14.mp3",
    "tahap": 10
+  },
+  {
+   "id": "vp15",
+   "suara": "hasan",
+   "teks": "[curious] Contohnya.",
+   "session_id": "15ph6TLxIonGz6Q870Gt",
+   "generation_id": "Jf2DBbhkCRWfxlvwaas4",
+   "file": "hasan/vp15.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vp16",
+   "suara": "hasan",
+   "teks": "[thoughtful] Misalnya.",
+   "session_id": "r0LevDOw6j42tJRrWc1V",
+   "generation_id": "2KeUEmj4jU16Oc6unCwf",
+   "file": "hasan/vp16.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vp17",
+   "suara": "hasan",
+   "teks": "[confidently] Artinya.",
+   "session_id": "OYJDJ3OGjRgfdjUg5qk6",
+   "generation_id": "frwJOzHMhSQ6YsF25Hfk",
+   "file": "hasan/vp17.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vp18",
+   "suara": "hasan",
+   "teks": "[curious] Kenapa?",
+   "session_id": "db4G1QGAFe8vuDHQcQZ6",
+   "generation_id": "rrBewsb61y3D0NvC7n6F",
+   "file": "hasan/vp18.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vp19",
+   "suara": "hasan",
+   "teks": "[thoughtful] Karena.",
+   "session_id": "tzw4IydLOyKwsD6skHl5",
+   "generation_id": "6rbIbMgPRe5Tg0oYpzvT",
+   "file": "hasan/vp19.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vp20",
+   "suara": "hasan",
+   "teks": "[confidently] Tapi ingat.",
+   "session_id": "kDCEHhch4U502HapYi1j",
+   "generation_id": "oonOhPP4gw1p8JVmMKGo",
+   "file": "hasan/vp20.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vp21",
+   "suara": "hasan",
+   "teks": "[curious] Dan ternyata.",
+   "session_id": "6846wdSsHmbPuSSSeAQD",
+   "generation_id": "vokFMr6t28QTp38ALhFp",
+   "file": "hasan/vp21.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vp22",
+   "suara": "hasan",
+   "teks": "[thoughtful] Akhirnya.",
+   "session_id": "tJTYcLUaw3gkgYtzqP0k",
+   "generation_id": "c7QEibw60OPiiveJGe2M",
+   "file": "hasan/vp22.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vp23",
+   "suara": "hasan",
+   "teks": "[confidently] Pada akhirnya.",
+   "session_id": "P8v2nAuTyIeDvJijbmyp",
+   "generation_id": "vAdnmwcsFKLVkYhkVMwh",
+   "file": "hasan/vp23.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vp24",
+   "suara": "hasan",
+   "teks": "[curious] Sebenarnya.",
+   "session_id": "4ageAOkF9sl1diqNSMU5",
+   "generation_id": "BqVErcrUMjQ8jE0iDPg2",
+   "file": "hasan/vp24.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vp25",
+   "suara": "hasan",
+   "teks": "[thoughtful] Kalau begitu.",
+   "session_id": "GgPs6Iz51FIhzU81eHr5",
+   "generation_id": "d3LQntPP1jyYOd7y8c0o",
+   "file": "hasan/vp25.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vp26",
+   "suara": "hasan",
+   "teks": "[confidently] Dengan kata lain.",
+   "session_id": "zeDevZtbca7lGmUhTLFJ",
+   "generation_id": "LQ2ECwIRHdLHAZzmz42c",
+   "file": "hasan/vp26.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vp27",
+   "suara": "hasan",
+   "teks": "[curious] Coba lihat ini.",
+   "session_id": "W0pJAJoPcoOaahteyhNn",
+   "generation_id": "MpFezoiBLEnPRHLq6C2N",
+   "file": "hasan/vp27.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vp28",
+   "suara": "hasan",
+   "teks": "[thoughtful] Perhatikan baik-baik.",
+   "session_id": "lHDd40ppTFG3Io7sVRqA",
+   "generation_id": "wY1M1ip6Zch4LS9OBcRv",
+   "file": "hasan/vp28.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vp29",
+   "suara": "hasan",
+   "teks": "[confidently] Ini dia.",
+   "session_id": "VMYKsKSvWW2t0KlGLSf3",
+   "generation_id": "gVvoL3ZgFtwl21Dj6BDG",
+   "file": "hasan/vp29.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vp30",
+   "suara": "hasan",
+   "teks": "[curious] Lihat bedanya?",
+   "session_id": "zEqLpGdn0U20R7999UAq",
+   "generation_id": "NitTjHggeJtumfu7wPz6",
+   "file": "hasan/vp30.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vp31",
+   "suara": "hasan",
+   "teks": "[thoughtful] Paham, kan?",
+   "session_id": "zlqKwfiNWMhZY5tWDESG",
+   "generation_id": "pCM9fGtmonqqzRL589TR",
+   "file": "hasan/vp31.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vp32",
+   "suara": "hasan",
+   "teks": "[confidently] Jelas, kan?",
+   "session_id": "49ShlbiVxDoFhXLd1B0C",
+   "generation_id": "pN1Q0X0YwlL6gHSenrl2",
+   "file": "hasan/vp32.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vp33",
+   "suara": "hasan",
+   "teks": "[curious] Terus?",
+   "session_id": "aYLXJ1AcVJRtAYfMBqmb",
+   "generation_id": "g7hpyvL86xgRFXgTMw2J",
+   "file": "hasan/vp33.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vp34",
+   "suara": "hasan",
+   "teks": "[playful] Nah, kan.",
+   "session_id": "8x9JmYoEO18vYjVwbv6R",
+   "generation_id": "bw8yiE0MfEyV9qRwUspc",
+   "file": "hasan/vp34.mp3",
+   "tahap": 10
   }
  ]
 }
