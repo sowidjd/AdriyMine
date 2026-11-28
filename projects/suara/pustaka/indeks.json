@@ -12014,6 +12014,186 @@
    "generation_id": "kQw6iSIMir1Rh8rAtnCa",
    "file": "hasan/ve03.mp3",
    "tahap": 10
+  },
+  {
+   "id": "ve04",
+   "suara": "hasan",
+   "teks": "[curious] Bayangkan sebesar lapangan bola.",
+   "session_id": "e26XSvNwMJRNF4IZqIkA",
+   "generation_id": "uAkdGySzaWrn0pJ5HBAF",
+   "file": "hasan/ve04.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve05",
+   "suara": "hasan",
+   "teks": "[amazed] Itu sama dengan setinggi gedung pencakar langit.",
+   "session_id": "sVByZEbJq3HvJkSvJUJN",
+   "generation_id": "2Kqwq1ugGsNUdGFBGqdL",
+   "file": "hasan/ve05.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve06",
+   "suara": "hasan",
+   "teks": "[thoughtful] Hanya butuh sepersekian detik.",
+   "session_id": "2SIBzHzsydgBBDnXo3jY",
+   "generation_id": "XhOccbtTaxSeOJVTew97",
+   "file": "hasan/ve06.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve07",
+   "suara": "hasan",
+   "teks": "[amazed] Prosesnya bisa memakan waktu bertahun-tahun.",
+   "session_id": "D6N7a1UUayKyd6ThRcWI",
+   "generation_id": "wYy6juICk7uCuCNtcrJB",
+   "file": "hasan/ve07.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve08",
+   "suara": "hasan",
+   "teks": "[curious] Dalam satu menit saja, ini terjadi berkali-kali.",
+   "session_id": "JlPGLR0Ks4oPDUmNefmA",
+   "generation_id": "zhy3XNAZsuzf48iGOIOI",
+   "file": "hasan/ve08.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve09",
+   "suara": "hasan",
+   "teks": "[amazed] Seumur hidup, jumlahnya bisa jutaan kali.",
+   "session_id": "1GOIPI1McTpgKLECILr4",
+   "generation_id": "knKATXDFZn35inYfjuJh",
+   "file": "hasan/ve09.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve10",
+   "suara": "hasan",
+   "teks": "[thoughtful] Itu kira-kira sepanjang perjalanan keliling kota.",
+   "session_id": "TS2MLYIOeOhdZ3FuXLjF",
+   "generation_id": "nJlEMRNR8GnhGUoHdnz6",
+   "file": "hasan/ve10.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve11",
+   "suara": "hasan",
+   "teks": "[amazed] Beratnya setara dengan seekor gajah.",
+   "session_id": "uBsvMkyezsfRYqYd8Dxk",
+   "generation_id": "Nikdcjd9XecUtDo4ec32",
+   "file": "hasan/ve11.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve12",
+   "suara": "hasan",
+   "teks": "[curious] Kalau dijejerkan, panjangnya luar biasa.",
+   "session_id": "DZMg5TKJGE3e7ql0KqYU",
+   "generation_id": "YCSUuOxmzxlxvT3Y1FOZ",
+   "file": "hasan/ve12.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve13",
+   "suara": "hasan",
+   "teks": "[amazed] Lebih cepat dari mobil balap.",
+   "session_id": "ZRPV6RVjp51YKVvP1oIG",
+   "generation_id": "mxzKYowQJR5Bi6e7T3t6",
+   "file": "hasan/ve13.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve14",
+   "suara": "hasan",
+   "teks": "[thoughtful] Lebih lambat dari siput.",
+   "session_id": "Igo1BZL9J1t5GWBWhNYR",
+   "generation_id": "IbwlUG1oOo65fR0zZb72",
+   "file": "hasan/ve14.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve15",
+   "suara": "hasan",
+   "teks": "[amazed] Hampir dua kali lipat.",
+   "session_id": "mkJLNv2w89J3pO14t3ob",
+   "generation_id": "zGsddL2DlQeqkAh4Pb6V",
+   "file": "hasan/ve15.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve16",
+   "suara": "hasan",
+   "teks": "[curious] Setengahnya saja sudah banyak.",
+   "session_id": "dQGulXVLiQv0Mb21dg4D",
+   "generation_id": "t8hwW1Ij2fhuZ9ALIb57",
+   "file": "hasan/ve16.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve17",
+   "suara": "hasan",
+   "teks": "[amazed] Ratusan kali lebih kuat.",
+   "session_id": "mQFwRGePoHx20YQStIpy",
+   "generation_id": "y6dlC0cRUUdH7bjW2afV",
+   "file": "hasan/ve17.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve18",
+   "suara": "hasan",
+   "teks": "[thoughtful] Sepuluh kali lebih kecil.",
+   "session_id": "f2O88DiQDCP0ppeBHqEY",
+   "generation_id": "1hmHMXQxr5NIidEMWatQ",
+   "file": "hasan/ve18.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve19",
+   "suara": "hasan",
+   "teks": "[amazed] Jutaan tahun yang lalu.",
+   "session_id": "rClRrJgYLt3eDxokPVva",
+   "generation_id": "jWaE124tMcoipMIU88Vq",
+   "file": "hasan/ve19.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve20",
+   "suara": "hasan",
+   "teks": "[curious] Ribuan tahun sebelum kita lahir.",
+   "session_id": "2KuPM2qhYdpoJFdRcC5P",
+   "generation_id": "B1gsnWjNgim1ETW68Iej",
+   "file": "hasan/ve20.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve21",
+   "suara": "hasan",
+   "teks": "[amazed] Sejak zaman purba.",
+   "session_id": "1LDHO2zXtoxAbobrYUtc",
+   "generation_id": "rszFMFVfUdTNAdTKSPht",
+   "file": "hasan/ve21.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve22",
+   "suara": "hasan",
+   "teks": "[thoughtful] Dalam sehari semalam.",
+   "session_id": "GlMJ30xjDhHG8tBYYNBO",
+   "generation_id": "BXtPlhlWtYNkWgi1ijEV",
+   "file": "hasan/ve22.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve23",
+   "suara": "hasan",
+   "teks": "[amazed] Setiap detiknya.",
+   "session_id": "X06A0m1kQKFlHJpeC4Pb",
+   "generation_id": "gFEnH39yg9gelS71OFqX",
+   "file": "hasan/ve23.mp3",
+   "tahap": 10
   }
  ]
 }
