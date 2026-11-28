@@ -1,0 +1,479 @@
+va01	[curious] Ada alasan kenapa kamu selalu begini.
+va02	[mysterious] Ini rahasia kecil yang jarang dibahas.
+va03	[playful] Jangan skip dulu, yang ini seru.
+va04	[curious] Kamu mungkin salah paham soal ini sejak kecil.
+va05	[surprised] Ternyata selama ini kita keliru.
+va06	[curious] Satu pertanyaan sederhana, tapi jawabannya rumit.
+va07	[mysterious] Ada yang terjadi diam-diam di sekitarmu.
+va08	[playful] Siap-siap, setelah ini kamu bakal kepikiran terus.
+va09	[curious] Kenapa hal sekecil ini bisa sepenting itu?
+va10	[thoughtful] Hampir tiap hari kita lakukan, tapi jarang dipikirkan.
+va11	[curious] Kamu tahu nggak, apa yang terjadi kalau ini hilang?
+va12	[surprised] Ini lebih aneh dari yang kamu kira.
+va13	[playful] Coba tebak dulu, sebelum aku kasih tahu.
+va14	[curious] Ada satu fakta yang bikin aku nggak bisa tidur.
+va15	[mysterious] Ini bukan sihir. Tapi rasanya seperti sihir.
+va16	[curious] Apa jadinya kalau kita nggak punya ini?
+va17	[playful] Tahan napas, ini bagian yang bikin kaget.
+va18	[curious] Kamu pasti pernah merasakannya, tapi belum tahu namanya.
+va19	[thoughtful] Semua orang mengalaminya, tapi jarang yang tahu sebabnya.
+va20	[surprised] Yang ini bikin banyak orang nggak percaya.
+va21	[curious] Pertanyaannya, kenapa harus begitu?
+va22	[playful] Kalau kamu tahu jawabannya, kamu hebat.
+va23	[mysterious] Ada cerita di balik setiap kebiasaan kecil.
+va24	[curious] Kenapa, ya, kita bisa begitu?
+va25	[playful] Ini mungkin fakta teraneh yang kamu dengar hari ini.
+va26	[curious] Kamu termasuk yang sering ngalamin ini?
+va27	[surprised] Faktanya, ini terjadi lebih sering dari dugaanmu.
+va28	[curious] Ayo kita cari tahu bareng.
+va29	[thoughtful] Mari kita mulai dari hal yang paling dekat.
+va30	[curious] Kenapa ini terasa biasa, padahal luar biasa?
+va31	[playful] Kamu pasti senyum-senyum sendiri setelah tahu ini.
+va32	[curious] Pernah heran sama hal ini?
+va33	[mysterious] Sesuatu yang kecil, tapi menyimpan banyak rahasia.
+vb01	[confidently] Sekarang, mari kita lihat lebih dekat.
+vb02	[thoughtful] Tapi cerita belum selesai sampai di sini.
+vb03	[curious] Lalu, bagaimana caranya?
+vb04	[confidently] Ini penjelasan paling sederhananya.
+vb05	[thoughtful] Supaya lebih mudah, kita pakai perumpamaan.
+vb06	[curious] Nah, sekarang pertanyaan berikutnya.
+vb07	[confidently] Kita bagi jadi tiga bagian.
+vb08	[confidently] Bagian pertama.
+vb09	[confidently] Bagian kedua.
+vb10	[confidently] Bagian ketiga.
+vb11	[confidently] Yang pertama.
+vb12	[confidently] Yang kedua.
+vb13	[confidently] Yang ketiga.
+vb14	[confidently] Dan yang terakhir.
+vb15	[thoughtful] Tapi tunggu dulu, ada satu hal lagi.
+vb16	[curious] Terus, apa bedanya?
+vb17	[confidently] Begini cara kerjanya.
+vb18	[thoughtful] Kalau dilihat lebih teliti, ternyata ada polanya.
+vb19	[confidently] Dari sini kita bisa ambil satu kesimpulan.
+vb20	[curious] Kenapa begitu? Ini jawabannya.
+vb21	[thoughtful] Mari kita urutkan dari awal.
+vb22	[confidently] Langsung saja kita masuk ke intinya.
+vb23	[thoughtful] Sebelum itu, kita perlu tahu dasarnya dulu.
+vb24	[curious] Lalu, apa yang sebenarnya terjadi di dalam?
+vb25	[confidently] Prosesnya seperti ini.
+vb26	[thoughtful] Di titik inilah semuanya berubah.
+vb27	[curious] Tapi kenapa nggak semua orang begitu?
+vb28	[confidently] Jawabannya ada di sini.
+vb29	[thoughtful] Mari kita lihat dari sudut pandang lain.
+vb30	[confidently] Setelah itu, terjadilah hal ini.
+vb31	[curious] Bagaimana kalau sebaliknya?
+vb32	[thoughtful] Ini yang sering terlewat.
+vb33	[confidently] Intinya cuma satu.
+vb34	[playful] Oke, sekarang bagian favoritku.
+vb35	[thoughtful] Sampai di sini, masih masuk akal, kan?
+vb36	[confidently] Sekarang kita gabungkan semuanya.
+vc01	[amazed] Wow.
+vc02	[surprised] Hah?
+vc03	[amazed] Keren banget.
+vc04	[laughing] Aduh, lucu banget.
+vc05	[surprised] Masa, sih?
+vc06	[amazed] Nggak kebayang.
+vc07	[thoughtful] Hmm.
+vc08	[amazed] Gila, sih.
+vc09	[playful] Iya, kan?
+vc10	[surprised] Seriusan?
+vc11	[amazed] Hebat, ya.
+vc12	[thoughtful] Masuk akal.
+vc13	[playful] Tuh, kan.
+vc14	[surprised] Kok bisa, ya?
+vc15	[amazed] Luar biasa sekali.
+vc16	[laughing] Ya ampun.
+vc17	[surprised] Nggak mungkin.
+vc18	[amazed] Ini sih level dewa.
+vc19	[playful] Ngaku, siapa yang pernah?
+vc20	[surprised] Eh, beneran?
+vc21	[amazed] Merinding aku.
+vc22	[thoughtful] Oh, pantesan.
+vc23	[playful] Hayo, ngaku.
+vc24	[surprised] Tunggu, apa?
+vc25	[amazed] Sekeren itu ternyata.
+vc26	[thoughtful] Baru sadar aku.
+vc27	[playful] Kaget, kan?
+vd01	[confidently] Tubuh kita bekerja tanpa henti, bahkan saat tidur.
+vd02	[thoughtful] Otak selalu mencari jalan pintas.
+vd03	[confidently] Ini cara tubuh memberi tanda.
+vd04	[thoughtful] Setiap bagian punya tugasnya masing-masing.
+vd05	[confidently] Semuanya saling terhubung seperti jaringan.
+vd06	[thoughtful] Kalau satu terganggu, yang lain ikut terpengaruh.
+vd07	[confidently] Ini terjadi secara alami.
+vd08	[thoughtful] Kita mewarisinya dari nenek moyang.
+vd09	[confidently] Ini bentuk perlindungan diri.
+vd10	[thoughtful] Tubuh lebih pintar dari yang kita kira.
+vd11	[confidently] Prosesnya terjadi sangat cepat.
+vd12	[thoughtful] Sebagian besar terjadi tanpa kita sadari.
+vd13	[confidently] Kebiasaan kecil bisa mengubah banyak hal.
+vd14	[thoughtful] Lingkungan sangat memengaruhi kita.
+vd15	[confidently] Ini juga ada hubungannya dengan perasaan.
+vd16	[thoughtful] Hormon punya peran besar di sini.
+vd17	[confidently] Sinyalnya dikirim lewat saraf.
+vd18	[thoughtful] Pada dasarnya, tubuh ingin seimbang.
+vd19	[confidently] Itulah fungsi utamanya.
+vd20	[thoughtful] Semakin sering dilatih, semakin kuat.
+vd21	[confidently] Alam punya caranya sendiri.
+vd22	[thoughtful] Hewan pun mengalami hal yang mirip.
+vd23	[confidently] Ini sudah diteliti sejak lama.
+vd24	[thoughtful] Para ahli masih terus mempelajarinya.
+vd25	[confidently] Penjelasannya ternyata cukup sederhana.
+vd26	[thoughtful] Semua ini terjadi dalam hitungan detik.
+vd27	[confidently] Tubuh menyimpan energi untuk keadaan darurat.
+vd28	[thoughtful] Otak juga butuh istirahat.
+vd29	[confidently] Ini sebabnya kita merasa begitu.
+vd30	[thoughtful] Kadang, tubuh memberi tanda yang salah.
+vd31	[confidently] Setiap orang bisa berbeda.
+vd32	[thoughtful] Umur juga ikut berpengaruh.
+vd33	[confidently] Cuaca pun bisa memengaruhi ini.
+vd34	[thoughtful] Makanan yang kita makan juga berperan.
+vd35	[confidently] Tidur yang cukup sangat membantu.
+vd36	[thoughtful] Stres bisa membuat semuanya lebih parah.
+vd37	[confidently] Air punya peran yang sangat penting.
+vd38	[thoughtful] Gerak tubuh membantu prosesnya lancar.
+vd39	[confidently] Ini mekanisme bertahan hidup.
+vd40	[thoughtful] Kita sering meremehkan hal ini.
+ve01	[amazed] Jumlahnya lebih banyak dari bintang yang bisa kamu lihat.
+ve02	[thoughtful] Kira-kira sebesar butiran pasir.
+ve03	[amazed] Lebih kecil dari ujung jarum.
+ve04	[curious] Bayangkan sebesar lapangan bola.
+ve05	[amazed] Itu sama dengan setinggi gedung pencakar langit.
+ve06	[thoughtful] Hanya butuh sepersekian detik.
+ve07	[amazed] Prosesnya bisa memakan waktu bertahun-tahun.
+ve08	[curious] Dalam satu menit saja, ini terjadi berkali-kali.
+ve09	[amazed] Seumur hidup, jumlahnya bisa jutaan kali.
+ve10	[thoughtful] Itu kira-kira sepanjang perjalanan keliling kota.
+ve11	[amazed] Beratnya setara dengan seekor gajah.
+ve12	[curious] Kalau dijejerkan, panjangnya luar biasa.
+ve13	[amazed] Lebih cepat dari mobil balap.
+ve14	[thoughtful] Lebih lambat dari siput.
+ve15	[amazed] Hampir dua kali lipat.
+ve16	[curious] Setengahnya saja sudah banyak.
+ve17	[amazed] Ratusan kali lebih kuat.
+ve18	[thoughtful] Sepuluh kali lebih kecil.
+ve19	[amazed] Jutaan tahun yang lalu.
+ve20	[curious] Ribuan tahun sebelum kita lahir.
+ve21	[amazed] Sejak zaman purba.
+ve22	[thoughtful] Dalam sehari semalam.
+ve23	[amazed] Setiap detiknya.
+ve24	[curious] Seminggu sekali.
+ve25	[thoughtful] Hampir setiap orang di dunia.
+ve26	[amazed] Satu dari sepuluh orang.
+ve27	[curious] Lebih dari setengah penduduk bumi.
+ve28	[thoughtful] Hanya sedikit orang yang tahu.
+ve29	[amazed] Ukurannya bisa berubah-ubah.
+ve30	[curious] Semakin besar, semakin berat.
+ve31	[thoughtful] Semakin kecil, semakin cepat.
+ve32	[amazed] Bayangkan kalau itu ukuran manusia.
+ve33	[curious] Kalau kita sebesar itu, apa yang terjadi?
+vf01	[confidently] Ini mitos.
+vf02	[confidently] Ini fakta.
+vf03	[surprised] Ternyata itu cuma mitos.
+vf04	[confidently] Faktanya berbeda.
+vf05	[thoughtful] Mitos ini sudah turun-temurun.
+vf06	[confidently] Penelitian membuktikan sebaliknya.
+vf07	[surprised] Yang ini ternyata benar.
+vf08	[thoughtful] Ada benarnya, tapi tidak sepenuhnya.
+vf09	[confidently] Jangan langsung percaya, cek dulu faktanya.
+vf10	[surprised] Banyak orang tertipu oleh mitos ini.
+vf11	[thoughtful] Mitos ini muncul karena salah paham.
+vf12	[confidently] Sains punya jawaban yang berbeda.
+vf13	[surprised] Ternyata orang tua kita juga keliru.
+vf14	[thoughtful] Dulu dianggap benar, sekarang terbukti salah.
+vf15	[confidently] Mitos atau fakta? Jawabannya fakta.
+vf16	[confidently] Mitos atau fakta? Jawabannya mitos.
+vf17	[surprised] Kebalikannya justru yang benar.
+vf18	[thoughtful] Asal-usul mitos ini cukup menarik.
+vf19	[confidently] Mari kita luruskan bareng-bareng.
+vf20	[surprised] Yang sering kita dengar ternyata salah.
+vg01	[friendly] Ini tips sederhana yang bisa kamu coba.
+vg02	[confidently] Pertama, mulai dari yang kecil.
+vg03	[friendly] Kedua, lakukan secara rutin.
+vg04	[confidently] Ketiga, jangan lupa istirahat.
+vg05	[friendly] Minum air putih yang cukup.
+vg06	[calmly] Atur napas pelan-pelan.
+vg07	[friendly] Kurangi main HP sebelum tidur.
+vg08	[confidently] Tidur dan bangun di jam yang sama.
+vg09	[friendly] Gerakkan badan setiap hari.
+vg10	[calmly] Luangkan waktu untuk diri sendiri.
+vg11	[friendly] Makan dengan pelan, jangan terburu-buru.
+vg12	[confidently] Catat kebiasaanmu selama seminggu.
+vg13	[friendly] Ajak keluarga untuk mencobanya.
+vg14	[calmly] Jangan dipaksakan, lakukan sesuai kemampuan.
+vg15	[friendly] Coba selama tujuh hari, lalu lihat hasilnya.
+vg16	[confidently] Hindari kebiasaan ini mulai sekarang.
+vg17	[friendly] Ganti dengan kebiasaan yang lebih baik.
+vg18	[calmly] Beri jeda kalau mulai lelah.
+vg19	[friendly] Kalau bisa, lakukan di pagi hari.
+vg20	[confidently] Konsisten lebih penting dari sempurna.
+vg21	[friendly] Kamu nggak perlu melakukannya sendirian.
+vg22	[calmly] Dengarkan apa kata tubuhmu.
+vg23	[friendly] Mulai sekarang, coba perhatikan.
+vg24	[confidently] Jangan tunggu sampai terlambat.
+vg25	[friendly] Kalau ragu, tanya ahlinya.
+vh01	[warmly] Jadi, begitulah ceritanya.
+vh02	[thoughtful] Sekarang semuanya jadi lebih jelas.
+vh03	[confidently] Kesimpulannya sederhana.
+vh04	[warmly] Ternyata, ada alasan di balik semuanya.
+vh05	[thoughtful] Hal kecil memang bisa berdampak besar.
+vh06	[confidently] Jadi, jangan heran lagi kalau ini terjadi.
+vh07	[warmly] Semoga sekarang kamu lebih paham.
+vh08	[thoughtful] Tubuh kita memang luar biasa.
+vh09	[confidently] Itulah jawabannya.
+vh10	[warmly] Seru, kan, belajar hal baru?
+vh11	[thoughtful] Kadang jawaban ada di depan mata.
+vh12	[confidently] Intinya, jaga dirimu baik-baik.
+vh13	[warmly] Kamu sekarang tahu lebih banyak dari kemarin.
+vh14	[thoughtful] Semuanya ternyata saling berhubungan.
+vh15	[confidently] Jadi, mulai sekarang coba lebih peka.
+vh16	[warmly] Pengetahuan kecil ini bisa berguna suatu hari nanti.
+vh17	[thoughtful] Dunia ini penuh hal yang belum kita pahami.
+vh18	[confidently] Sekarang kamu punya jawabannya.
+vh19	[warmly] Jangan lupa, kamu juga bagian dari keajaiban ini.
+vh20	[thoughtful] Mungkin ini saatnya kita lebih menghargainya.
+vh21	[confidently] Jadi, bukan cuma kebetulan.
+vh22	[warmly] Semoga bermanfaat buat kamu dan keluarga.
+vh23	[thoughtful] Pelajaran hari ini cukup sampai di sini.
+vh24	[confidently] Sekarang, kamu nggak akan lupa lagi.
+vi01	[curious] Kamu pernah ngalamin ini? Cerita di komentar.
+vi02	[playful] Siapa yang baru tahu? Angkat tangan.
+vi03	[curious] Menurutmu, mana yang paling aneh?
+vi04	[playful] Tulis satu kata di komentar.
+vi05	[curious] Kamu lebih suka yang mana?
+vi06	[playful] Ketik satu kalau kamu setuju.
+vi07	[curious] Ada yang punya cerita lucu soal ini?
+vi08	[playful] Tag teman yang begini banget.
+vi09	[curious] Kamu mau tahu lebih banyak soal apa?
+vi10	[playful] Berapa nilai video ini dari satu sampai sepuluh?
+vi11	[curious] Kamu tim yang mana?
+vi12	[playful] Coba jawab tanpa nyontek.
+vi13	[curious] Kalau kamu, pilih yang mana?
+vi14	[playful] Siapa yang pernah begini waktu kecil?
+vi15	[curious] Pertanyaan apa yang mau kamu tanyakan?
+vi16	[playful] Kasih tahu aku di komentar, ya.
+vi17	[curious] Fakta mana yang paling kamu suka?
+vi18	[playful] Ketik iya kalau kamu juga pernah.
+vi19	[curious] Menurutmu, ini benar atau salah?
+vi20	[playful] Jangan lupa komen jawabanmu.
+vj01	[friendly] Simpan video ini, ya.
+vj02	[upbeat] Bagikan ke temanmu.
+vj03	[friendly] Kirim ke grup keluarga.
+vj04	[upbeat] Ikuti untuk fakta seru lainnya.
+vj05	[upbeat] Jangan lupa ikuti Arfiy World.
+vj06	[friendly] Simpan buat nanti.
+vj07	[upbeat] Ajak temanmu nonton juga.
+vj08	[friendly] Kirim ke orang yang perlu tahu.
+vj09	[upbeat] Ikuti biar nggak ketinggalan.
+vj10	[friendly] Bagikan kalau menurutmu ini berguna.
+vj11	[upbeat] Tonton lagi kalau masih penasaran.
+vk01	[warmly] Sekian dulu dari aku.
+vk02	[upbeat] Sampai jumpa lagi.
+vk03	[warmly] Terima kasih sudah menonton.
+vk04	[upbeat] Tetap penasaran, ya.
+vk05	[upbeat] Selamat beraktivitas.
+vk06	[warmly] Selamat istirahat.
+vk07	[upbeat] Semangat terus, ya.
+vk08	[warmly] Dadah.
+vk09	[upbeat] Sampai ketemu di fakta berikutnya.
+vk10	[warmly] Makasih sudah mampir.
+vk11	[upbeat] Bye-bye.
+vm01	[playful] Kata Adriy, ini fakta favoritnya.
+vm02	[curious] Adriy juga penasaran soal ini.
+vm03	[playful] Adriy sampai melotot pas tahu ini.
+vm04	[warmly] Adriy menemanimu belajar hari ini.
+vm05	[playful] Bahkan Adriy si burung hantu pun kaget.
+vm06	[curious] Coba tanya Adriy, dia pasti tahu.
+vm07	[playful] Adriy bilang, ini wajib kamu tahu.
+vm08	[warmly] Adriy siap menjawab rasa penasaranmu.
+vm09	[playful] Adriy lagi mikir keras, nih.
+vm10	[curious] Kira-kira, Adriy bakal jawab apa?
+vn01	[calmly] Tenang, ini bukan hal yang berbahaya.
+vn02	[warmly] Nggak apa-apa, itu normal.
+vn03	[calmly] Santai saja, semua orang pernah mengalaminya.
+vn04	[calmly] Ini bisa diatasi dengan mudah.
+vn05	[warmly] Pelan-pelan, semua bisa dipelajari.
+vn06	[excited] Aku semangat banget bahas ini.
+vn07	[excited] Ini topik yang seru banget.
+vn08	[calmly] Tarik napas, lalu kita mulai.
+vn09	[warmly] Terima kasih sudah penasaran.
+vn10	[excited] Siap? Ayo kita mulai.
+vn11	[calmly] Kita bahas dengan santai saja.
+vo01	[curious] Pagi-pagi, ini hal pertama yang terjadi di tubuhmu.
+vo02	[thoughtful] Saat kamu sedang tidur, ada yang tetap bekerja.
+vo03	[curious] Setiap kali kamu makan, ini yang terjadi.
+vo04	[playful] Waktu kamu menguap, ternyata ada alasannya.
+vo05	[curious] Saat cuaca panas, tubuhmu melakukan ini.
+vo06	[thoughtful] Ketika kamu sedih, otak bereaksi seperti ini.
+vo07	[curious] Begitu kamu bangun tidur, semuanya mulai bergerak.
+vo08	[playful] Lagi asyik main HP, tiba-tiba ini terjadi.
+vo09	[curious] Saat kamu kaget, tubuhmu langsung bersiap.
+vo10	[thoughtful] Saat kamu tertawa, banyak hal berubah di dalam.
+vo11	[curious] Ketika kamu lapar, ada pesan yang dikirim ke otak.
+vo12	[playful] Di tengah malam, kamu tiba-tiba terbangun.
+vo13	[curious] Waktu hujan turun, ada yang terjadi di udara.
+vo14	[thoughtful] Saat kamu fokus, otak bekerja dua kali lebih keras.
+vo15	[curious] Ketika kamu berlari, jantung langsung menyesuaikan.
+vo16	[playful] Pernah lupa nama orang padahal baru kenalan?
+vo17	[curious] Pernah merasa deja vu?
+vo18	[playful] Pernah salah dengar, terus malu sendiri?
+vo19	[curious] Pernah merinding tanpa sebab?
+vo20	[playful] Pernah lupa mau ngapain begitu masuk kamar?
+vo21	[curious] Pernah merasa waktu berjalan sangat cepat?
+vo22	[playful] Pernah ketawa sampai sakit perut?
+vo23	[curious] Pernah tiba-tiba ingat kejadian memalukan?
+vo24	[playful] Pernah bersin berkali-kali tanpa henti?
+vp01	[thoughtful] Lebih dari itu.
+vp02	[confidently] Selain itu.
+vp03	[curious] Bahkan lebih dari itu.
+vp04	[thoughtful] Di sisi lain.
+vp05	[confidently] Sebaliknya.
+vp06	[curious] Anehnya.
+vp07	[thoughtful] Menariknya.
+vp08	[confidently] Uniknya.
+vp09	[curious] Hebatnya lagi.
+vp10	[thoughtful] Sayangnya.
+vp11	[confidently] Untungnya.
+vp12	[curious] Lucunya.
+vp13	[thoughtful] Masalahnya.
+vp14	[confidently] Jadi begini.
+vp15	[curious] Contohnya.
+vp16	[thoughtful] Misalnya.
+vp17	[confidently] Artinya.
+vp18	[curious] Kenapa?
+vp19	[thoughtful] Karena.
+vp20	[confidently] Tapi ingat.
+vp21	[curious] Dan ternyata.
+vp22	[thoughtful] Akhirnya.
+vp23	[confidently] Pada akhirnya.
+vp24	[curious] Sebenarnya.
+vp25	[thoughtful] Kalau begitu.
+vp26	[confidently] Dengan kata lain.
+vp27	[curious] Coba lihat ini.
+vp28	[thoughtful] Perhatikan baik-baik.
+vp29	[confidently] Ini dia.
+vp30	[curious] Lihat bedanya?
+vp31	[thoughtful] Paham, kan?
+vp32	[confidently] Jelas, kan?
+vp33	[curious] Terus?
+vp34	[playful] Nah, kan.
+vq01	[confidently] Alam semesta penuh dengan keajaiban.
+vq02	[thoughtful] Bumi terus berputar tanpa kita rasakan.
+vq03	[amazed] Langit malam menyimpan banyak cerita.
+vq04	[confidently] Matahari memberi energi untuk semua kehidupan.
+vq05	[thoughtful] Laut menyimpan banyak misteri.
+vq06	[amazed] Hutan adalah rumah bagi jutaan makhluk.
+vq07	[confidently] Hewan punya cara unik untuk bertahan hidup.
+vq08	[thoughtful] Tumbuhan juga bisa merasakan lingkungannya.
+vq09	[amazed] Serangga kecil punya kekuatan besar.
+vq10	[confidently] Setiap makhluk punya perannya sendiri.
+vq11	[thoughtful] Cuaca bisa berubah dalam sekejap.
+vq12	[amazed] Gunung terbentuk selama jutaan tahun.
+vq13	[confidently] Air selalu mencari tempat yang lebih rendah.
+vq14	[thoughtful] Udara yang kita hirup terus bergerak.
+vq15	[amazed] Cahaya bergerak sangat cepat.
+vq16	[confidently] Suara butuh perantara untuk merambat.
+vq17	[thoughtful] Bulan memengaruhi pasang surut air laut.
+vq18	[amazed] Ada makhluk yang hidup tanpa cahaya matahari.
+vq19	[confidently] Semua yang hidup butuh air.
+vq20	[thoughtful] Alam selalu mencari keseimbangan.
+vr01	[confidently] Penemuan ini mengubah cara kita hidup.
+vr02	[thoughtful] Dulu, orang belum mengenal hal ini.
+vr03	[amazed] Semuanya berawal dari ide sederhana.
+vr04	[confidently] Butuh waktu lama sampai berhasil.
+vr05	[thoughtful] Banyak percobaan gagal sebelum akhirnya berhasil.
+vr06	[amazed] Penemunya awalnya dianggap aneh.
+vr07	[confidently] Sekarang, hampir semua orang memakainya.
+vr08	[thoughtful] Teknologi terus berkembang setiap tahun.
+vr09	[amazed] Siapa sangka benda sekecil ini begitu penting.
+vr10	[confidently] Ini terjadi ratusan tahun yang lalu.
+vr11	[thoughtful] Sejarahnya ternyata cukup panjang.
+vr12	[amazed] Ternyata asal-usulnya tidak terduga.
+vr13	[confidently] Namanya berasal dari bahasa lain.
+vr14	[thoughtful] Dulu fungsinya berbeda dengan sekarang.
+vr15	[amazed] Ini salah satu penemuan paling penting.
+vs01	[warmly] Kamu hebat sudah mau belajar.
+vs02	[upbeat] Ayo, kamu pasti bisa.
+vs03	[warmly] Setiap langkah kecil itu berarti.
+vs04	[upbeat] Jangan menyerah, ya.
+vs05	[warmly] Rasa penasaranmu itu bagus.
+vs06	[upbeat] Terus belajar, terus tumbuh.
+vs07	[warmly] Nggak ada kata terlambat untuk mulai.
+vs08	[upbeat] Hari ini kesempatan baru.
+vs09	[warmly] Bangga sama kamu.
+vs10	[upbeat] Yuk, mulai dari sekarang.
+vs11	[warmly] Kamu lebih kuat dari yang kamu kira.
+vs12	[upbeat] Semangat belajarnya, ya.
+vt01	[confidently] Lihat gambar ini.
+vt02	[curious] Perhatikan bagian ini.
+vt03	[confidently] Yang warnanya merah ini.
+vt04	[curious] Lihat yang di sebelah kiri.
+vt05	[confidently] Sekarang lihat yang di sebelah kanan.
+vt06	[curious] Coba lihat lebih dekat.
+vt07	[confidently] Ini bentuk aslinya.
+vt08	[curious] Ini kalau dilihat dari dalam.
+vt09	[confidently] Ini kalau diperbesar.
+vt10	[curious] Bandingkan keduanya.
+vt11	[confidently] Garis ini menunjukkan perubahannya.
+vt12	[curious] Angkanya terus naik.
+vt13	[confidently] Angkanya turun drastis.
+vt14	[curious] Lihat bagaimana ini bergerak.
+vt15	[confidently] Perhatikan urutannya.
+vu01	[confidently] Satu.
+vu02	[confidently] Dua.
+vu03	[confidently] Tiga.
+vu04	[confidently] Empat.
+vu05	[confidently] Lima.
+vu06	[confidently] Nomor satu.
+vu07	[confidently] Nomor dua.
+vu08	[confidently] Nomor tiga.
+vu09	[confidently] Nomor empat.
+vu10	[confidently] Nomor lima.
+vu11	[amazed] Dan nomor satu yang paling mengejutkan.
+vu12	[curious] Ada tiga alasan utama.
+vu13	[curious] Ada lima fakta menarik.
+vu14	[curious] Ini dia tiga fakta yang jarang diketahui.
+vu15	[curious] Ada dua jenis.
+vw01	[calmly] Kalau gejalanya terus berlanjut, periksakan ke dokter.
+vw02	[confidently] Video ini untuk edukasi, bukan pengganti saran dokter.
+vw03	[friendly] Setiap tubuh berbeda, jadi sesuaikan dengan kondisimu.
+vw04	[calmly] Jangan mengobati diri sendiri tanpa tahu penyebabnya.
+vw05	[confidently] Pola makan seimbang itu kuncinya.
+vw06	[friendly] Cukup tidur tujuh sampai delapan jam.
+vw07	[calmly] Istirahat sejenak kalau matamu mulai lelah.
+vw08	[confidently] Cuci tangan sebelum makan.
+vw09	[friendly] Jangan lupa sarapan.
+vw10	[calmly] Kurangi gula dan makanan berminyak.
+vw11	[confidently] Sinar matahari pagi baik untuk tubuh.
+vw12	[friendly] Perbanyak makan sayur dan buah.
+vw13	[calmly] Kalau terasa sakit, jangan dipaksakan.
+vw14	[confidently] Olahraga ringan saja sudah cukup.
+vw15	[friendly] Jalan kaki sepuluh menit pun ada manfaatnya.
+vx01	[thoughtful] Suatu hari, ada seseorang yang penasaran.
+vx02	[curious] Dia bertanya, kenapa hal ini terjadi?
+vx03	[thoughtful] Jawabannya ternyata mengubah segalanya.
+vx04	[curious] Awalnya tidak ada yang percaya.
+vx05	[thoughtful] Tapi lama-lama, bukti mulai bermunculan.
+vx06	[amazed] Dan akhirnya, misteri itu terpecahkan.
+vx07	[thoughtful] Sejak saat itu, semuanya berbeda.
+vx08	[curious] Bayangkan kamu ada di sana saat itu.
+vx09	[thoughtful] Cerita ini dimulai dari hal yang sangat sederhana.
+vx10	[amazed] Tidak ada yang menyangka akhirnya akan begini.
+vx11	[thoughtful] Dulu, keadaannya sangat berbeda.
+vx12	[curious] Apa yang akan kamu lakukan di posisinya?
+vx13	[thoughtful] Kisah ini masih diceritakan sampai sekarang.
+vx14	[amazed] Dan itulah awal dari semuanya.
+vx15	[thoughtful] Dari kejadian kecil, lahirlah pengetahuan besar.
+vy01	[curious] Masuk akal, kan?
+vy02	[curious] Aneh, ya?
+vy03	[curious] Siapa sangka?
+vy04	[curious] Benar, kan?
+vy05	[curious] Lalu, salah siapa?
+vy06	[curious] Apa yang salah?
+vy07	[curious] Siapa yang mau begitu?
+vy08	[curious] Kenapa nggak dari dulu?
+vy09	[curious] Mana yang lebih baik?
+vy10	[curious] Pernah terpikir sebelumnya?
+vy11	[curious] Sudah siap?
+vy12	[curious] Penasaran, kan?
+vy13	[curious] Mau tahu jawabannya?
