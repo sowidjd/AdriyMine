@@ -381,6 +381,38 @@ Penonton yang setia akan bosan kalau setiap video dibuka, menyebut channel, dan 
 - Mengarang pengalaman demi variasi ("kami nyobain seminggu" padahal tidak).
 - Mengorbankan aturan lain demi beda: posisi nama channel tetap di 30–70% durasi dengan jeda, CTA tetap satu pertanyaan ditambah satu CTA kedua.
 
+Pengecualian: kalimat dari **pustaka suara (§17)** boleh dipakai persis apa adanya. Setiap kalimat pustaka dihitung sebagai satu pilihan tersendiri, jadi jarak minimal di tabel atas tetap berlaku (kalimat CTA atau pembuka pustaka yang sama tidak boleh dipakai di 2 video berturut-turut).
+
+## 17. Naskah menyesuaikan pustaka suara (hemat kredit & waktu, dari pemilik)
+
+Pustaka suara (`projects/suara/pustaka/`, daftar kalimat di `README.md`) berisi kalimat yang **sudah direkam** dengan suara Hasan dan Amy. Setiap kalimat yang diambil dari sana **gratis dan langsung jadi**. Kalimat baru memakai kredit ElevenLabs (±1 kredit per huruf) atau waktu VoxCPM2 (±4–5× panjang suara).
+
+**Cara menulis naskah:**
+1. **Sebelum menulis**, buka daftar kalimat pustaka. Untuk setiap bagian yang sifatnya umum, **pilih kalimat pustaka dulu**, baru tulis sendiri kalau tidak ada yang pas:
+
+   | Bagian | Ambil dari pustaka? |
+   |---|---|
+   | Sambungan antarbagian ("Tapi tunggu dulu…", "Nah, ini kuncinya.") | **Wajib** bila ada yang cocok |
+   | Reaksi pendek ("Serius, ini beneran terjadi.", "Keren banget, kan?") | **Wajib** bila ada yang cocok |
+   | Pembuka situasi umum, transisi ke penyebab atau solusi | Utamakan |
+   | Langkah atau tips umum ("Langkah pertama…") | Utamakan |
+   | CTA komentar, CTA kedua, penutup, "Stay Curious, World!" | Utamakan, tetap ikuti variasi §16 |
+   | Hook 3 detik pertama (§3) | Boleh, tapi hook harus khas tema; jangan dipaksakan |
+   | Fakta, angka, dan cerita inti tema | Tulis baru (isinya selalu khusus tema) |
+   | Kalimat nama channel (§10) | Tulis baru bila bentuknya belum ada di pustaka |
+
+2. **Target: minimal 30% kalimat naskah dari pustaka** (sekitar 15 dari 50 kalimat). Kalau kurang, ganti dulu kalimat umum yang ditulis sendiri dengan kalimat pustaka yang maknanya sama.
+3. Kalimat pustaka dipakai **persis sama** (tanpa tag [..]); ganti satu kata saja sudah dianggap kalimat baru dan harus dibuat ulang. Boleh juga tulis `"pustaka": "<id-frasa>"` di baris naskah.json.
+4. **Jangan memaksa.** Kalimat pustaka harus tetap nyambung dan terdengar alami (`/skrip-manusiawi`). Kalau janji di kalimat (misalnya "aku pin", "aku umumin") tidak bisa ditepati, jangan dipakai. Isi fakta dalam kalimat pustaka tetap dicek (§0, checklist).
+5. Pakai **satu suara** untuk seluruh video (Hasan sebagai narator utama; Amy hanya bila videonya memang memakai suara Amy). Jangan mencampur.
+
+**Alur kerja:**
+1. Tulis naskah.json, lalu jalankan `python3 projects/suara/pustaka/cocokkan.py projects/<video>`. Skrip menampilkan persentase kalimat dari pustaka, kalimat yang **mirip** pustaka (ubah agar sama persis supaya gratis), daftar kalimat yang perlu dibuat, dan perkiraan kredit.
+2. Perbaiki naskah sampai target 30% tercapai, lalu jalankan dengan `--salin` (file pustaka disalin ke `narasi/`).
+3. Buat hanya kalimat yang tersisa (ElevenLabs atau VoxCPM2), lalu susun dengan `projects/suara/susun_per_kalimat.py`.
+4. Setelah video jadi, jalankan `cocokkan.py projects/<video> --simpan` supaya kalimat baru ikut masuk pustaka dan bisa dipakai video berikutnya.
+5. Tulis di laporan ke pemilik: berapa kalimat dari pustaka (%), berapa kredit terpakai, dan berapa yang dihemat.
+
 ## Checklist sebelum video dianggap selesai
 
 - [ ] Topik memenuhi minimal 1 dari Tiga Tips (§0); tips yang dipenuhi & emosi inti disebut di laporan; tag emosi, gaya karakter & efek suara mengikuti emosi inti
@@ -405,6 +437,7 @@ Penonton yang setia akan bosan kalau setiap video dibuka, menyebut channel, dan 
 - [ ] "Arfiy World" disebut 1 kali (maks. 2 untuk video > 2 menit), di tengah (30–70% durasi), tidak di awal/akhir, dengan kalimat khusus + jeda, stempel visual ≥ 2 detik + reaksi Adriy, dan bunyi khas sting-bright-short
 - [ ] Bagian akhir sesuai §11: kesimpulan → CTA komentar yang memancing jawaban → 1 CTA kedua (simpan/bagikan/ikuti, tanpa nama akun) → "Stay Curious, World!" sebagai kalimat terakhir (diucapkan + kartu penutup ≥ 1,5 detik + bunyi khas penutup)
 - [ ] Variasi §16: hook, bentuk nama channel, dan CTA berbeda dari video-video sebelumnya sesuai `projects/VARIASI.md`, dan barisnya sudah ditambahkan di sana
+- [ ] Pustaka suara §17: `cocokkan.py` sudah dijalankan, minimal 30% kalimat dari pustaka (atau alasannya ditulis), kalimat baru sudah disimpan ke pustaka dengan `--simpan`, dan penghematan kredit dilaporkan
 
 ## Riwayat video
 

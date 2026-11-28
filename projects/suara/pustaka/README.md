@@ -213,10 +213,11 @@ Kalimat sains (`s-`) bersifat umum: hanya dipakai kalau memang sesuai dengan fak
 
 ## Alur narasi cepat untuk video baru
 
-1. Tulis `naskah.json` seperti biasa (id, text, cap, gap).
-2. Untuk kalimat yang ada di pustaka, salin file dari `pustaka/hasan/<id>.mp3` ke `projects/<video>/narasi/<id-kalimat>.mp3`.
+1. Tulis `naskah.json` dengan **mengutamakan kalimat pustaka** (aturan.md §17, target ≥ 30%).
+2. Jalankan `python3 projects/suara/pustaka/cocokkan.py projects/<video>` (laporan + saran), lalu `--salin` untuk menyalin file pustaka ke `narasi/`.
 3. Untuk kalimat lain, buat **satu file per kalimat** lewat ElevenLabs (`creative_generate_speech`, `voice_id` Hasan `AYDmN9T80hHmJLs3rapG`, model `eleven_v4`, `generations_count` 1). Semua kalimat dibuat sekaligus (paralel), lalu diunduh ke `narasi/<id>.mp3`.
 4. Jalankan `python3 projects/suara/susun_per_kalimat.py projects/<video> [target-detik]`. Hasilnya `narasi.wav` dan `timeline.json`, tanpa perlu memotong rekaman dengan Whisper.
 5. Lanjut seperti biasa: `node render.mjs`, lalu `python3 projects/_bersama/campur.py projects/<video>`.
+6. Setelah video jadi: `cocokkan.py projects/<video> --simpan` agar kalimat baru masuk pustaka.
 
 Suara Adriy (tokoh burung hantu) **tidak** dibuat.
