@@ -233,6 +233,13 @@ Daftar lengkap ada di `tahap9.tsv` (`id<TAB>[tag] teks`). Kelompoknya:
 Catatan janji (§16): "Besok kita bongkar rahasia lainnya.", "Ikuti, biar besok dapat fakta baru lagi.", "Besok pagi, langsung praktikkan.", dan "Simpan dulu, siapa tahu besok kamu butuh." hanya dipakai bila memang ada video besok (dua yang terakhir aman, karena "besok" di situ untuk penonton).
 Flow: Hasan dan 99 kalimat pertama Amy di `F8praD25GHM8k5DMcT7m`; sisa Amy di flow baru `KFmtWWSgJmmXGahLRIbU` (flow lama penuh, maks 1.000 node). Biaya sekitar 30.800 kredit.
 
+## Isi tahap 10 (sedang berjalan)
+
+Daftar: `tahap10.tsv` (479 kalimat: hook, transisi, reaksi, penjelasan, skala, mitos, tips, kesimpulan, komentar, ajakan, penutup, Adriy, emosi, situasi, sambungan, alam, teknologi, semangat, menunjuk visual, angka, kesehatan, cerita, retoris).
+
+- 28 Nov 2026: **52 kalimat Hasan** selesai (flow `EncQT9vDhgRS1MBDIyp9`), lalu ElevenLabs menolak dengan *daily_generation_limit_reached* (batas jumlah rekaman per hari, bukan kredit).
+- Sisa: 427 Hasan + 479 Amy (±37.000 kredit). Lanjutkan besok: `python3 sesi_dari_transkrip.py <transkrip> tahap10.tsv` menunjukkan baris yang belum dibuat; Amy memakai flow baru.
+
 ## Alur narasi cepat untuk video baru
 
 1. Tulis `naskah.json` dengan **mengutamakan kalimat pustaka** (aturan.md §17, target ≥ 30%).
