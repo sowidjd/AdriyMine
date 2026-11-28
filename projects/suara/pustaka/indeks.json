@@ -12194,6 +12194,186 @@
    "generation_id": "gFEnH39yg9gelS71OFqX",
    "file": "hasan/ve23.mp3",
    "tahap": 10
+  },
+  {
+   "id": "ve24",
+   "suara": "hasan",
+   "teks": "[curious] Seminggu sekali.",
+   "session_id": "HnUPPJaiYPYKPObknkIf",
+   "generation_id": "hmPNSDK37EE19fca8RfI",
+   "file": "hasan/ve24.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve25",
+   "suara": "hasan",
+   "teks": "[thoughtful] Hampir setiap orang di dunia.",
+   "session_id": "JCAVlRRQ7diVkkiJ4Riv",
+   "generation_id": "MLrB1yryfgbpoDniPUID",
+   "file": "hasan/ve25.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve26",
+   "suara": "hasan",
+   "teks": "[amazed] Satu dari sepuluh orang.",
+   "session_id": "P1x6qU2qgou3d2kYZbKP",
+   "generation_id": "vpHSmrTkMqLLALhlrvpu",
+   "file": "hasan/ve26.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve27",
+   "suara": "hasan",
+   "teks": "[curious] Lebih dari setengah penduduk bumi.",
+   "session_id": "uaiTrcKMOiAz0z0PfASC",
+   "generation_id": "yUSMKcr09iR8byhJeJMS",
+   "file": "hasan/ve27.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve28",
+   "suara": "hasan",
+   "teks": "[thoughtful] Hanya sedikit orang yang tahu.",
+   "session_id": "OgWA2djBnHZrnlcb99z9",
+   "generation_id": "hg6oSfTQK7xeuXFg3KnI",
+   "file": "hasan/ve28.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve29",
+   "suara": "hasan",
+   "teks": "[amazed] Ukurannya bisa berubah-ubah.",
+   "session_id": "dr25wxDVzyOWW19hlzN5",
+   "generation_id": "PYpnmQECuq9VYpewkaVy",
+   "file": "hasan/ve29.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve30",
+   "suara": "hasan",
+   "teks": "[curious] Semakin besar, semakin berat.",
+   "session_id": "PWDYQne87QgfCwauvRaU",
+   "generation_id": "6JWMmMfPmenKK9eETvPy",
+   "file": "hasan/ve30.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve31",
+   "suara": "hasan",
+   "teks": "[thoughtful] Semakin kecil, semakin cepat.",
+   "session_id": "meIMRh2QWvLyespyoVAt",
+   "generation_id": "dAgjiKFasxACE7w8GamN",
+   "file": "hasan/ve31.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve32",
+   "suara": "hasan",
+   "teks": "[amazed] Bayangkan kalau itu ukuran manusia.",
+   "session_id": "JAdKjJJJevzsNYUSL90Z",
+   "generation_id": "6ptdcm0np2c4arE9BhkR",
+   "file": "hasan/ve32.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "ve33",
+   "suara": "hasan",
+   "teks": "[curious] Kalau kita sebesar itu, apa yang terjadi?",
+   "session_id": "h5TdmD10jeHPfAdBmadr",
+   "generation_id": "AoUE0XlusMbA0f1UTZJZ",
+   "file": "hasan/ve33.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vf01",
+   "suara": "hasan",
+   "teks": "[confidently] Ini mitos.",
+   "session_id": "JvZnyP49oQqptQanYdH0",
+   "generation_id": "1AH5EJ8923GTeHt8qFH0",
+   "file": "hasan/vf01.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vf02",
+   "suara": "hasan",
+   "teks": "[confidently] Ini fakta.",
+   "session_id": "ijmNa9tctdyKwMTiOkUo",
+   "generation_id": "NRhrP3reXYBqONwRTy6d",
+   "file": "hasan/vf02.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vf03",
+   "suara": "hasan",
+   "teks": "[surprised] Ternyata itu cuma mitos.",
+   "session_id": "tJK6tsnHZXn5zdH49XnV",
+   "generation_id": "dlMQ89JjdxCHwVvBytWl",
+   "file": "hasan/vf03.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vf04",
+   "suara": "hasan",
+   "teks": "[confidently] Faktanya berbeda.",
+   "session_id": "XMNxGPSEVSxH9AikGV0h",
+   "generation_id": "cmRZd84LghT7uPLfUZOI",
+   "file": "hasan/vf04.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vf05",
+   "suara": "hasan",
+   "teks": "[thoughtful] Mitos ini sudah turun-temurun.",
+   "session_id": "N2kfACzMMkLbdwbDJRya",
+   "generation_id": "92YGAIjZUA6VD6zmriIs",
+   "file": "hasan/vf05.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vf06",
+   "suara": "hasan",
+   "teks": "[confidently] Penelitian membuktikan sebaliknya.",
+   "session_id": "JGT7tzvY5KQtMBteMFml",
+   "generation_id": "MzhwLhxa4XU37wOpsqxY",
+   "file": "hasan/vf06.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vf07",
+   "suara": "hasan",
+   "teks": "[surprised] Yang ini ternyata benar.",
+   "session_id": "2JFu8pOCbogs1FqSLcDI",
+   "generation_id": "3NTMLkw7xn7VBTl6BqHO",
+   "file": "hasan/vf07.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vf08",
+   "suara": "hasan",
+   "teks": "[thoughtful] Ada benarnya, tapi tidak sepenuhnya.",
+   "session_id": "PDhyXKIT2IlAO2lIcIo7",
+   "generation_id": "wP1tj65FPMnROGSrKPNi",
+   "file": "hasan/vf08.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vf09",
+   "suara": "hasan",
+   "teks": "[confidently] Jangan langsung percaya, cek dulu faktanya.",
+   "session_id": "P677qwqBoLLLa88yD20V",
+   "generation_id": "xnxeo6WfVPY7NGdPLn7u",
+   "file": "hasan/vf09.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vf10",
+   "suara": "hasan",
+   "teks": "[surprised] Banyak orang tertipu oleh mitos ini.",
+   "session_id": "05exSDMtP2z62eGLStjH",
+   "generation_id": "1GO04DZCubGgd8Vn5QR5",
+   "file": "hasan/vf10.mp3",
+   "tahap": 10
   }
  ]
 }
