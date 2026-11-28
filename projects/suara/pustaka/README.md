@@ -35,6 +35,17 @@ Kalimat sambungan yang sering muncul di naskah. Pakai sebagai kalimat sendiri (s
 
 Catatan variasi (aturan §16): `cta-ketik` dan `cta-kirimteman` tetap harus bergilir dengan bentuk CTA lain di `projects/VARIASI.md`. Jangan dipakai dua video berturut-turut.
 
+## Isi tahap 3: reaksi, transisi, hook, CTA (50 kalimat × 2 suara)
+
+| Kelompok | id → kalimat |
+|---|---|
+| Reaksi | `r-wah` Wah, ini keren banget. · `r-waduh` Waduh. · `r-hah` Hah? Serius? · `r-sumpah` Sumpah, ini nyata. · `r-gilasih` Gila sih ini. · `r-tunggu` Eh, tunggu. Ini menarik. · `r-akujuga` Jujur, aku juga pernah. · `r-ngakak` Ini bikin ngakak. · `r-sedih` Sedih, tapi ini kenyataannya. · `r-merinding` Ini bikin merinding. |
+| Transisi | `t-sebelumitu` Tapi sebelum itu… · `t-balik` Oke, balik lagi ke tadi. · `t-lanjut` Lanjut. · `t-masihada` Eits, masih ada lagi. · `t-terbaik` Dan ini bagian terbaiknya. · `t-kenapapenting` Kenapa ini penting? · `t-ilmuwan` Para ilmuwan nemu jawabannya. · `t-gampangnya` Gampangnya gini. · `t-bayangkalau` Sekarang, bayangin kalau… · `t-faktanya` Faktanya, · `t-bukancuma` Bukan cuma itu. · `t-sederhana` Jadi, intinya sederhana. · `t-akibatnya` Akibatnya? · `t-hasilnya` Hasilnya bikin kaget. · `t-alasannya` Ini alasannya. |
+| Hook | `h-janganskip` Jangan skip dulu. · `h-sampaihabis` Tonton sampai habis, ya. · `h-pastipernah` Kamu pasti pernah ngalamin ini. · `h-perhatiin` Coba deh, perhatiin baik-baik. · `h-satumenit` Kasih aku satu menit. · `h-salah` Ternyata, selama ini kita salah. · `h-jarang` Ini jarang banget dibahas. · `h-rahasia` Mau tahu rahasianya? · `h-otakmu` Otakmu lagi ngerjain kamu. · `h-tubuhmu` Tubuhmu ternyata lebih pintar dari yang kamu kira. |
+| CTA & penutup | `c-tulis` Tulis di komentar, ya. · `c-jawab` Jawab di komentar. · `c-spill` Spill di komentar. · `c-pilih` Pilih satu. · `c-simpan` Simpan video ini, biar nggak lupa. · `c-ikuti` Ikuti, biar nggak ketinggalan fakta berikutnya. · `c-kirimgrup` Kirim ke grup keluarga. Pasti ada yang kaget. · `c-pin` Jawaban paling lucu aku pin. · `c-terbanyak` Pilihan terbanyak jadi video berikutnya. · `c-balas` Aku balas satu-satu. · `c-umumin` Hasilnya aku umumin di video berikutnya. · `c-jempol` Jawaban yang benar aku kasih jempol. · `c-sampaijumpa` Sampai jumpa di video berikutnya. · `c-makasih` Makasih udah nonton sampai habis. · `c-tebakvideo` Coba tebak, topik video berikutnya apa? |
+
+Kalimat CTA dan alasan (`c-pin`, `c-terbanyak`, `c-balas`, `c-umumin`, `c-jempol`) mengikuti bank R dan C di VARIASI.md, jadi tetap harus bergilir (§16). `c-umumin` dan `c-terbanyak` hanya dipakai kalau janjinya benar-benar ditepati.
+
 ## Alur narasi cepat untuk video baru
 
 1. Tulis `naskah.json` seperti biasa (id, text, cap, gap).
