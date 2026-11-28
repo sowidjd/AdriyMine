@@ -13094,6 +13094,186 @@
    "generation_id": "iiehO86qMBIjgJIYxHHQ",
    "file": "hasan/vj01.mp3",
    "tahap": 10
+  },
+  {
+   "id": "vj02",
+   "suara": "hasan",
+   "teks": "[upbeat] Bagikan ke temanmu.",
+   "session_id": "VfWieHfrnIaaHkRvpJkv",
+   "generation_id": "cTpyfV2mkO7jX1YhzwZN",
+   "file": "hasan/vj02.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vj03",
+   "suara": "hasan",
+   "teks": "[friendly] Kirim ke grup keluarga.",
+   "session_id": "shVGqqm7CLRYSgeaABNe",
+   "generation_id": "ul1D6jJL9UXUmo9a9OMk",
+   "file": "hasan/vj03.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vj04",
+   "suara": "hasan",
+   "teks": "[upbeat] Ikuti untuk fakta seru lainnya.",
+   "session_id": "CNvfAYrxJNjM2FNI74rg",
+   "generation_id": "oJYobNOCGXUdwdgAsSyb",
+   "file": "hasan/vj04.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vj05",
+   "suara": "hasan",
+   "teks": "[upbeat] Jangan lupa ikuti Arfiy World.",
+   "session_id": "ZxLBqoBK5EQQ5ZHLKUMJ",
+   "generation_id": "hVgaQJqNxYBFpeLIDdLL",
+   "file": "hasan/vj05.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vj06",
+   "suara": "hasan",
+   "teks": "[friendly] Simpan buat nanti.",
+   "session_id": "eKNoZFM4ccOn9qenPS6U",
+   "generation_id": "HqJwGMePrcWnGyIcWL0S",
+   "file": "hasan/vj06.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vj07",
+   "suara": "hasan",
+   "teks": "[upbeat] Ajak temanmu nonton juga.",
+   "session_id": "YRwe31xU2hItTk0LIU9E",
+   "generation_id": "aVS0DNtWRgGIUAnLbz4o",
+   "file": "hasan/vj07.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vj08",
+   "suara": "hasan",
+   "teks": "[friendly] Kirim ke orang yang perlu tahu.",
+   "session_id": "CFRNHnUzXcGy0kvL1P6L",
+   "generation_id": "iwuAde4TqAPuzBnPNaP7",
+   "file": "hasan/vj08.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vj09",
+   "suara": "hasan",
+   "teks": "[upbeat] Ikuti biar nggak ketinggalan.",
+   "session_id": "PwCUNVNwO7QHjGy55SNI",
+   "generation_id": "moK2TLFc2akXPgDfO61Q",
+   "file": "hasan/vj09.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vj10",
+   "suara": "hasan",
+   "teks": "[friendly] Bagikan kalau menurutmu ini berguna.",
+   "session_id": "pfhth2hSqKG8sUsHBwLz",
+   "generation_id": "5k0N2SiuiXdxk6WZ8Mg1",
+   "file": "hasan/vj10.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vj11",
+   "suara": "hasan",
+   "teks": "[upbeat] Tonton lagi kalau masih penasaran.",
+   "session_id": "nYg6LJLGqJ1SnEIoOQmc",
+   "generation_id": "mjtqActzKwcT7fsbkpkB",
+   "file": "hasan/vj11.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vk01",
+   "suara": "hasan",
+   "teks": "[warmly] Sekian dulu dari aku.",
+   "session_id": "7s9hMuRosM2aywqzNtvR",
+   "generation_id": "OMX9wrM0FE7xFcHn00Ep",
+   "file": "hasan/vk01.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vk02",
+   "suara": "hasan",
+   "teks": "[upbeat] Sampai jumpa lagi.",
+   "session_id": "PhJTdyGcCiJSZU0YzOpG",
+   "generation_id": "ECvglThooAvxHz8PvJuS",
+   "file": "hasan/vk02.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vk03",
+   "suara": "hasan",
+   "teks": "[warmly] Terima kasih sudah menonton.",
+   "session_id": "rFLplxox9pB9ez9dJ9jn",
+   "generation_id": "yrRimBxmR31H4IIzywbm",
+   "file": "hasan/vk03.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vk04",
+   "suara": "hasan",
+   "teks": "[upbeat] Tetap penasaran, ya.",
+   "session_id": "AJDyZA6cZbhVGt8mCWBv",
+   "generation_id": "iKAVsfVlWmxtLRbrSkW8",
+   "file": "hasan/vk04.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vk05",
+   "suara": "hasan",
+   "teks": "[upbeat] Selamat beraktivitas.",
+   "session_id": "fHfgq9KLmkNwvKTMDHVj",
+   "generation_id": "8FQiR8A6iq28DwMtVnn1",
+   "file": "hasan/vk05.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vk06",
+   "suara": "hasan",
+   "teks": "[warmly] Selamat istirahat.",
+   "session_id": "JkmA7AylYgOfCHbYJox1",
+   "generation_id": "gS694yUgVFyKAlR1DZpv",
+   "file": "hasan/vk06.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vk07",
+   "suara": "hasan",
+   "teks": "[upbeat] Semangat terus, ya.",
+   "session_id": "BNPkXwG4ijTkWJKG026P",
+   "generation_id": "xrD3nWMz5aarqggGELBJ",
+   "file": "hasan/vk07.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vk08",
+   "suara": "hasan",
+   "teks": "[warmly] Dadah.",
+   "session_id": "z7Jz4EZV6NPXdXpOXUbu",
+   "generation_id": "QJQwrovH2uqYS7LfFY7P",
+   "file": "hasan/vk08.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vk09",
+   "suara": "hasan",
+   "teks": "[upbeat] Sampai ketemu di fakta berikutnya.",
+   "session_id": "ipcuDmSMmrqdeDAYr0md",
+   "generation_id": "Bdqj6IA3Wiooe8lqLLes",
+   "file": "hasan/vk09.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vk10",
+   "suara": "hasan",
+   "teks": "[warmly] Makasih sudah mampir.",
+   "session_id": "h1PlH3hz3oIRy7mAuWRS",
+   "generation_id": "soXDOuOs1CaEhCzwd3nT",
+   "file": "hasan/vk10.mp3",
+   "tahap": 10
   }
  ]
 }
