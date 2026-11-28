@@ -1,0 +1,390 @@
+{
+ "flow_id": "F8praD25GHM8k5DMcT7m",
+ "model_id": "eleven_v4",
+ "suara": {
+  "hasan": "AYDmN9T80hHmJLs3rapG",
+  "amy": "CxsauwAuNDfhOy59Ryo8"
+ },
+ "frasa": [
+  {
+   "id": "penutup",
+   "suara": "hasan",
+   "teks": "[warmly] [smiling] Stay Curious, World!",
+   "node_id": "ydyiCygMeZbbe5XbfPl6",
+   "session_id": "5pFRt3fMI3rC15BYUBGu",
+   "generation_id": "DNgyS4XwIM2wUJ6iduXd",
+   "file": "hasan/penutup.mp3",
+   "cek": 1.0
+  },
+  {
+   "id": "nama-n2",
+   "suara": "hasan",
+   "teks": "[sincerely] Jujur, kami di Arfiy World...",
+   "node_id": "wGZWJcI0MhDW5E5P7tW5",
+   "session_id": "oIHdfv4f9HGMdNVYbQ2B",
+   "generation_id": "wrPtoHjBHF44YTeqXbwb",
+   "file": "hasan/nama-n2.mp3",
+   "cek": 0.87
+  },
+  {
+   "id": "nama-n3",
+   "suara": "hasan",
+   "teks": "[warmly] Di Arfiy World...",
+   "node_id": "FWFJj3sUjwTgJUU25vYx",
+   "session_id": "7ngqqoaCP3ifaVT5SMW5",
+   "generation_id": "UxHPR27nrwvs7LrbUL8i",
+   "file": "hasan/nama-n3.mp3",
+   "cek": 0.75
+  },
+  {
+   "id": "nama-n4",
+   "suara": "hasan",
+   "teks": "[proudly] Kami di Arfiy World...",
+   "node_id": "EssYQn7vunKIK3U2HhYU",
+   "session_id": "aH18GPDk3dZGLa85dc2h",
+   "generation_id": "aoZ2ucee1zkfJ4QfGbnI",
+   "file": "hasan/nama-n4.mp3",
+   "cek": 0.91
+  },
+  {
+   "id": "nama-n5",
+   "suara": "hasan",
+   "teks": "[playfully] Soal ini, tim Arfiy World...",
+   "node_id": "3eUcTi1Defl7V39rQOrs",
+   "session_id": "gFDcm4c2l6Ftz8tZz1Ax",
+   "generation_id": "h2EFLBHcxXQDi5AdQxq2",
+   "file": "hasan/nama-n5.mp3",
+   "cek": 0.97
+  },
+  {
+   "id": "nama-n6",
+   "suara": "hasan",
+   "teks": "[warmly] [proudly] Ini bagian favorit kami di Arfiy World...",
+   "node_id": "gd6PEMRYWjoSoAnhB2mL",
+   "session_id": "epGjeZV9FRJSt6dz1VtZ",
+   "generation_id": "y0XTo9A1LRCoagrcELnn",
+   "file": "hasan/nama-n6.mp3",
+   "cek": 0.94
+  },
+  {
+   "id": "nama-n8",
+   "suara": "hasan",
+   "teks": "[friendly] Buat kamu yang baru mampir ke Arfiy World...",
+   "node_id": "ZS5g6chaeIcNh2JJAgQD",
+   "session_id": "W0NmKEAVA4b6I3h9PCRd",
+   "generation_id": "vY0w7d7RCMDqoQWrNSQa",
+   "file": "hasan/nama-n8.mp3",
+   "cek": 0.92
+  },
+  {
+   "id": "nama-n9",
+   "suara": "hasan",
+   "teks": "[warmly] Fakta inilah yang bikin Arfiy World...",
+   "node_id": "FnGEAKuK51vkTewMiNHy",
+   "session_id": "tHUVmS3sNcCUTBLSXTqh",
+   "generation_id": "PwEHtnnKYJdXlFgItO8E",
+   "file": "hasan/nama-n9.mp3",
+   "cek": 0.98
+  },
+  {
+   "id": "nama-n11",
+   "suara": "hasan",
+   "teks": "[curious] Yang ini jarang dibahas. Tapi di Arfiy World...",
+   "node_id": "booPppYH5M7nM3QdLZFF",
+   "session_id": "xuQbj5BqZSyRxshONNA3",
+   "generation_id": "wgk9JJa1Q3uLmcnDkxyP",
+   "file": "hasan/nama-n11.mp3",
+   "cek": 0.93
+  },
+  {
+   "id": "cta-giliran",
+   "suara": "hasan",
+   "teks": "[cheerfully] Nah, sekarang giliran kamu.",
+   "node_id": "CWcVA0jiPTwbDpwlRU24",
+   "session_id": "BBWtD31eLeFh1NqFrF9L",
+   "generation_id": "6SceMgT0lMWmJ3UuZKCL",
+   "file": "hasan/cta-giliran.mp3",
+   "cek": 1.0
+  },
+  {
+   "id": "alasan-r2",
+   "suara": "hasan",
+   "teks": "[teasing] Jawaban paling lucu aku pin.",
+   "node_id": "skvr3j0rzTDVqKBNERyH",
+   "session_id": "aat3UHBgjcI1lEmPriiU",
+   "generation_id": "g1s7FY3rt85pHfHwos14",
+   "file": "hasan/alasan-r2.mp3",
+   "cek": 1.0
+  },
+  {
+   "id": "alasan-r3",
+   "suara": "hasan",
+   "teks": "[excited] Pilihan terbanyak jadi video berikutnya.",
+   "node_id": "eRydbPebmCWij3gFlKp2",
+   "session_id": "lcbH9lyO1zZEYXwTJmpv",
+   "generation_id": "wihyx2Qhc2ytIOKnvkIk",
+   "file": "hasan/alasan-r3.mp3",
+   "cek": 1.0
+  },
+  {
+   "id": "alasan-r4",
+   "suara": "hasan",
+   "teks": "[warmly] Aku balas satu-satu.",
+   "node_id": "ct5InHMwFgWZWT1Bjb7X",
+   "session_id": "IQjXSdwTBU1whwM58Dph",
+   "generation_id": "zG3ur4NaODN0SdtpXAmE",
+   "file": "hasan/alasan-r4.mp3",
+   "cek": 1.0
+  },
+  {
+   "id": "alasan-r5",
+   "suara": "hasan",
+   "teks": "[playfully] Nanti hasilnya aku umumin di video berikut.",
+   "node_id": "38awvgGClllvYruNLYiN",
+   "session_id": "hHgz1HkuCSBBG6XRM8gJ",
+   "generation_id": "VKsxXrV0DaLuIbNC4sCq",
+   "file": "hasan/alasan-r5.mp3",
+   "cek": 1.0
+  },
+  {
+   "id": "alasan-r6",
+   "suara": "hasan",
+   "teks": "[warmly] Biar yang lain tahu, mereka nggak sendirian.",
+   "node_id": "XqffQ5EiuSnvsDRHXBCm",
+   "session_id": "JW6ZimHr0c8uXBq0Hws1",
+   "generation_id": "z745El41lG5tna16ALS5",
+   "file": "hasan/alasan-r6.mp3",
+   "cek": 1.0
+  },
+  {
+   "id": "alasan-r8",
+   "suara": "hasan",
+   "teks": "[cheerfully] Jawaban yang benar aku kasih jempol.",
+   "node_id": "70vMiVnqG3d3Hp1WfijY",
+   "session_id": "qwYPBuLuQqFB8HOEErS6",
+   "generation_id": "B5tOFbVx292ofhtsoQIg",
+   "file": "hasan/alasan-r8.mp3",
+   "cek": 1.0
+  },
+  {
+   "id": "jembatan-inidia",
+   "suara": "hasan",
+   "teks": "[excited] Nah, ini dia.",
+   "node_id": "Qwun7SOKrO3rSew4Mhan",
+   "session_id": "QJEqqiIwzeLtkxZbDaYP",
+   "generation_id": "1WfK29JX9nNHnbz3LO2L",
+   "file": "hasan/jembatan-inidia.mp3",
+   "cek": 0.89
+  },
+  {
+   "id": "jembatan-tunggu",
+   "suara": "hasan",
+   "teks": "[mysterious] Tapi tunggu dulu.",
+   "node_id": "eEls0mnO0sgFXCdWZgtR",
+   "session_id": "MTI3ojvM3R3yCEhJB5hI",
+   "generation_id": "6W8B7iIw7hBdZC9FxagR",
+   "file": "hasan/jembatan-tunggu.mp3",
+   "cek": 0.96
+  },
+  {
+   "id": "jembatan-kenapa",
+   "suara": "hasan",
+   "teks": "[curious] Terus, kenapa bisa begitu?",
+   "node_id": "U3PNmkP8QyAmMZsdNIAS",
+   "session_id": "PRlIkpjce53PegNVCEDR",
+   "generation_id": "HDnefxfQvt8ObXKhmsUz",
+   "file": "hasan/jembatan-kenapa.mp3",
+   "cek": 1.0
+  },
+  {
+   "id": "penutup",
+   "suara": "amy",
+   "teks": "[warmly] [smiling] Stay Curious, World!",
+   "node_id": "vGfa57LOEabwsZ5ZeuaB",
+   "session_id": "vVMFfwlTsCndNnPXJ0bN",
+   "generation_id": "rpS25XcoPZqtIrWmuI1r",
+   "file": "amy/penutup.mp3",
+   "cek": 1.0
+  },
+  {
+   "id": "nama-n2",
+   "suara": "amy",
+   "teks": "[sincerely] Jujur, kami di Arfiy World...",
+   "node_id": "wRKVynz5MPph26HnFgtC",
+   "session_id": "oqjFHrphTKQAH0OD6Mux",
+   "generation_id": "iwVFGR5TWDxHFcUWo4aY",
+   "file": "amy/nama-n2.mp3",
+   "cek": 0.9
+  },
+  {
+   "id": "nama-n3",
+   "suara": "amy",
+   "teks": "[warmly] Di Arfiy World...",
+   "node_id": "lUgqXbmH7LAyWtHOVEb4",
+   "session_id": "IaefPcH39ofSvH5JpAJL",
+   "generation_id": "VVWVr6sfsLfxbyqthgZn",
+   "file": "amy/nama-n3.mp3",
+   "cek": 0.5
+  },
+  {
+   "id": "nama-n4",
+   "suara": "amy",
+   "teks": "[proudly] Kami di Arfiy World...",
+   "node_id": "UtnJ42boQMHvLq15TRCV",
+   "session_id": "UYZEKGjXkJEMknjrg1ij",
+   "generation_id": "laRhbsDBEExWZvDv5Q2P",
+   "file": "amy/nama-n4.mp3",
+   "cek": 0.97
+  },
+  {
+   "id": "nama-n5",
+   "suara": "amy",
+   "teks": "[playfully] Soal ini, tim Arfiy World...",
+   "node_id": "JHoOxhux9ksSJHfV1c9e",
+   "session_id": "1NdpHftQn6d2pBPG6xF9",
+   "generation_id": "b9vukYZHFMRViYe01nOq",
+   "file": "amy/nama-n5.mp3",
+   "cek": 0.97
+  },
+  {
+   "id": "nama-n6",
+   "suara": "amy",
+   "teks": "[warmly] [proudly] Ini bagian favorit kami di Arfiy World...",
+   "node_id": "XsS5D6eRa7M3K9zKMulR",
+   "session_id": "1XLPcGtA9nPMYnNIGbCO",
+   "generation_id": "UX6CdSDmRtJlPFslVW1x",
+   "file": "amy/nama-n6.mp3",
+   "cek": 0.94
+  },
+  {
+   "id": "nama-n8",
+   "suara": "amy",
+   "teks": "[friendly] Buat kamu yang baru mampir ke Arfiy World...",
+   "node_id": "xT315xmR9wQEqLKmULLe",
+   "session_id": "B5A0QnlgT5rYSnQ7EP4S",
+   "generation_id": "3CHKTxerCIsTKZE9MNOX",
+   "file": "amy/nama-n8.mp3",
+   "cek": 0.92
+  },
+  {
+   "id": "nama-n9",
+   "suara": "amy",
+   "teks": "[warmly] Fakta inilah yang bikin Arfiy World...",
+   "node_id": "yOgnbiJzNASmu9DaDQen",
+   "session_id": "0HNa1sX3rwzUybA8G6QQ",
+   "generation_id": "mRucL2aotuwaTJICZ4DI",
+   "file": "amy/nama-n9.mp3",
+   "cek": 0.91
+  },
+  {
+   "id": "nama-n11",
+   "suara": "amy",
+   "teks": "[curious] Yang ini jarang dibahas. Tapi di Arfiy World...",
+   "node_id": "CDn1jAVJzUuYAnd8F7On",
+   "session_id": "XHkKsd3hZ6aAzRvmU1Eh",
+   "generation_id": "TVWJiU064pUS66w9Ddbj",
+   "file": "amy/nama-n11.mp3",
+   "cek": 0.91
+  },
+  {
+   "id": "cta-giliran",
+   "suara": "amy",
+   "teks": "[cheerfully] Nah, sekarang giliran kamu.",
+   "node_id": "fhRq7O0cCRFTYEt8MKH7",
+   "session_id": "qOsqtmw8oLOBrij1Jz6T",
+   "generation_id": "wR3IRiVd5jBMfaJprFx9",
+   "file": "amy/cta-giliran.mp3",
+   "cek": 1.0
+  },
+  {
+   "id": "alasan-r2",
+   "suara": "amy",
+   "teks": "[teasing] Jawaban paling lucu aku pin.",
+   "node_id": "B0mag9nphVm9ilS0fWmy",
+   "session_id": "CUYbTqY81q4OJYLqNJTO",
+   "generation_id": "f4wqv9y0ho6v9qgdzhv6",
+   "file": "amy/alasan-r2.mp3",
+   "cek": 1.0
+  },
+  {
+   "id": "alasan-r3",
+   "suara": "amy",
+   "teks": "[excited] Pilihan terbanyak jadi video berikutnya.",
+   "node_id": "Kfbtt4Nx5UqLA2ucY0CE",
+   "session_id": "AqAOJoqjbEpyK8AUAwnJ",
+   "generation_id": "FdS2YtxNHOaTHok3OkTB",
+   "file": "amy/alasan-r3.mp3",
+   "cek": 1.0
+  },
+  {
+   "id": "alasan-r4",
+   "suara": "amy",
+   "teks": "[warmly] Aku balas satu-satu.",
+   "node_id": "C65wtGAx3n8f8gjZ5jkl",
+   "session_id": "FGIgYMonO1R9VQA84eWY",
+   "generation_id": "qu44XvpOysJvm9M8ONjg",
+   "file": "amy/alasan-r4.mp3",
+   "cek": 1.0
+  },
+  {
+   "id": "alasan-r5",
+   "suara": "amy",
+   "teks": "[playfully] Nanti hasilnya aku umumin di video berikut.",
+   "node_id": "lSoNkLOVQrlIY8EqptFj",
+   "session_id": "uAzTF4fKDEBXow3Lp0Yn",
+   "generation_id": "hOXCYOxDRr6TGE47pXMx",
+   "file": "amy/alasan-r5.mp3",
+   "cek": 0.99
+  },
+  {
+   "id": "alasan-r6",
+   "suara": "amy",
+   "teks": "[warmly] Biar yang lain tahu, mereka nggak sendirian.",
+   "node_id": "cSup68fvvwpVX7vBXj3l",
+   "session_id": "BmIBSkgMxYATFSkyWfKJ",
+   "generation_id": "0CeH0hnzJvWrZ9E1p7yL",
+   "file": "amy/alasan-r6.mp3",
+   "cek": 1.0
+  },
+  {
+   "id": "alasan-r8",
+   "suara": "amy",
+   "teks": "[cheerfully] Jawaban yang benar aku kasih jempol.",
+   "node_id": "oRwp8f19JmV8QGiM7sSu",
+   "session_id": "ll0U6VgDZEwKEAoC9Zw2",
+   "generation_id": "EAIVADJLxflVeX7fJAas",
+   "file": "amy/alasan-r8.mp3",
+   "cek": 1.0
+  },
+  {
+   "id": "jembatan-inidia",
+   "suara": "amy",
+   "teks": "[excited] Nah, ini dia.",
+   "node_id": "vkEjAjDxsAZnKJle48R9",
+   "session_id": "9CJMaLgRtSqZx8dyk8mB",
+   "generation_id": "jaRAgnswQonA0lD63inS",
+   "file": "amy/jembatan-inidia.mp3",
+   "cek": 1.0
+  },
+  {
+   "id": "jembatan-tunggu",
+   "suara": "amy",
+   "teks": "[mysterious] Tapi tunggu dulu.",
+   "node_id": "FM8pPJ1gDpxHNELkV7aP",
+   "session_id": "XU010wR1ClRydpulj1bG",
+   "generation_id": "XtXmQ2KyE5Y6Nq2MCwbx",
+   "file": "amy/jembatan-tunggu.mp3",
+   "cek": 1.0
+  },
+  {
+   "id": "jembatan-kenapa",
+   "suara": "amy",
+   "teks": "[curious] Terus, kenapa bisa begitu?",
+   "node_id": "GTt7nOKvXxvm1fhlMivM",
+   "session_id": "6WAMEhZacaBidNBl6Pso",
+   "generation_id": "JCfN2cf5aVMUZfKiRqUj",
+   "file": "amy/jembatan-kenapa.mp3",
+   "cek": 1.0
+  }
+ ]
+}

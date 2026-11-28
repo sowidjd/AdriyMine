@@ -1,0 +1,30 @@
+# Pustaka Suara Arfiy World
+
+Kalimat yang **selalu dipakai di setiap video**, direkam sekali dengan suara kloning **Hasan** (pemilik) dan **Amy** (adik pemilik).
+Tujuannya supaya pembuatan narasi lebih cepat: video baru cukup membuat kalimat isinya saja.
+
+- **Audio tidak diunggah ke GitHub**, karena berisi suara kloning orang sungguhan (aturan.md §8, privasi). Yang disimpan hanya `indeks.json`.
+- Audio asli tetap tersimpan di akun ElevenLabs, di flow **"Pustaka Suara Arfiy World"** (`F8praD25GHM8k5DMcT7m`). Kalau mesin dimulai ulang, unduh lagi **tanpa biaya kredit**: ambil tautan baru lewat `creative_get_generations` atau `creative_get_flow_run_status` (flow_id + session_id dari `indeks.json`), lalu simpan ke `pustaka/<suara>/<id>.mp3`.
+- Model: `eleven_v4`, 1 take per kalimat. Biaya pembuatan sekitar 1.600 kredit (28 Nov 2026).
+
+## Isi (19 kalimat × 2 suara)
+
+| id | Kalimat | Dipakai untuk |
+|---|---|---|
+| `penutup` | Stay Curious, World! | Kalimat terakhir setiap video (§11) |
+| `nama-n2` … `nama-n11` | "Jujur, kami di Arfiy World…", "Di Arfiy World…", "Kami di Arfiy World…", "Soal ini, tim Arfiy World…", "Ini bagian favorit kami di Arfiy World…", "Buat kamu yang baru mampir ke Arfiy World…", "Fakta inilah yang bikin Arfiy World…", "Yang ini jarang dibahas. Tapi di Arfiy World…" | Bagian pertama momen nama channel (§10, bank N di `projects/VARIASI.md`). Sambungan kalimatnya dibuat per video. |
+| `cta-giliran` | Nah, sekarang giliran kamu. | Jembatan CTA (§13) |
+| `alasan-r2` … `alasan-r8` | Alasan menjawab (bank R di VARIASI.md) | CTA (§13) |
+| `jembatan-inidia`, `jembatan-tunggu`, `jembatan-kenapa` | "Nah, ini dia." / "Tapi tunggu dulu." / "Terus, kenapa bisa begitu?" | Pemicu ulang retensi |
+
+Kolom `cek` di `indeks.json` berisi skor kemiripan ucapan (Whisper). **Perhatian:** ucapan "Arfiy World" ditangkap berbeda-beda ("RV/Arfi/Arvia World"), dan `nama-n3` ("Di Arfiy World…") paling meragukan. Dengarkan dulu sebelum dipakai. Kalau kurang pas, buat ulang dengan ejaan "Arfi World".
+
+## Alur narasi cepat untuk video baru
+
+1. Tulis `naskah.json` seperti biasa (id, text, cap, gap).
+2. Untuk kalimat yang ada di pustaka, salin file dari `pustaka/hasan/<id>.mp3` ke `projects/<video>/narasi/<id-kalimat>.mp3`.
+3. Untuk kalimat lain, buat **satu file per kalimat** lewat ElevenLabs (`creative_generate_speech`, `voice_id` Hasan `AYDmN9T80hHmJLs3rapG`, model `eleven_v4`, `generations_count` 1). Semua kalimat dibuat sekaligus (paralel), lalu diunduh ke `narasi/<id>.mp3`.
+4. Jalankan `python3 projects/suara/susun_per_kalimat.py projects/<video> [target-detik]`. Hasilnya `narasi.wav` dan `timeline.json`, tanpa perlu memotong rekaman dengan Whisper.
+5. Lanjut seperti biasa: `node render.mjs`, lalu `python3 projects/_bersama/campur.py projects/<video>`.
+
+Suara Adriy (tokoh burung hantu) **tidak** dibuat.

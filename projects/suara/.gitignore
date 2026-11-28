@@ -13,3 +13,6 @@ prompt*.wav
 rekaman*
 contoh-suara-*.m4a
 ref*.json
+
+# pustaka suara (kloning Hasan/Amy): audio tidak diunggah, indeks.json saja
+pustaka/*/
