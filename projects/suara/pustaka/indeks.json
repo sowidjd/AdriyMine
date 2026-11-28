@@ -13454,6 +13454,186 @@
    "generation_id": "DfMcPd4avmsnehII6gb5",
    "file": "hasan/vn09.mp3",
    "tahap": 10
+  },
+  {
+   "id": "vn10",
+   "suara": "hasan",
+   "teks": "[excited] Siap? Ayo kita mulai.",
+   "session_id": "8BllyrzyGBlySbfXNA9r",
+   "generation_id": "pjUosPH6HBHysAR6rr4u",
+   "file": "hasan/vn10.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vn11",
+   "suara": "hasan",
+   "teks": "[calmly] Kita bahas dengan santai saja.",
+   "session_id": "wPB4Z4ecXj46SsZTg8Ir",
+   "generation_id": "xqsczTM84QcFMusnuPtl",
+   "file": "hasan/vn11.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vo01",
+   "suara": "hasan",
+   "teks": "[curious] Pagi-pagi, ini hal pertama yang terjadi di tubuhmu.",
+   "session_id": "7taLyaCnvwW3ADbdqr1u",
+   "generation_id": "APSmu3b0iphtGfHUYwQ2",
+   "file": "hasan/vo01.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vo02",
+   "suara": "hasan",
+   "teks": "[thoughtful] Saat kamu sedang tidur, ada yang tetap bekerja.",
+   "session_id": "CyUClWRdDkaqseo0qY6x",
+   "generation_id": "jCXlHhhV6fkyTrptGXrQ",
+   "file": "hasan/vo02.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vo03",
+   "suara": "hasan",
+   "teks": "[curious] Setiap kali kamu makan, ini yang terjadi.",
+   "session_id": "frJObUuOMVowcueX2ZR1",
+   "generation_id": "EjSBlayxl8WxiAivLfJo",
+   "file": "hasan/vo03.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vo04",
+   "suara": "hasan",
+   "teks": "[playful] Waktu kamu menguap, ternyata ada alasannya.",
+   "session_id": "xJPlunJMFZaNop5Vg31s",
+   "generation_id": "kRo21QsNYsO4xQ0Ad0mm",
+   "file": "hasan/vo04.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vo05",
+   "suara": "hasan",
+   "teks": "[curious] Saat cuaca panas, tubuhmu melakukan ini.",
+   "session_id": "ZGWXu7ByiTpTCXTZBDA0",
+   "generation_id": "XZyM2hIEKEbhlcoQuwLk",
+   "file": "hasan/vo05.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vo06",
+   "suara": "hasan",
+   "teks": "[thoughtful] Ketika kamu sedih, otak bereaksi seperti ini.",
+   "session_id": "wXypopLPwo4Yxda3R0rS",
+   "generation_id": "UZmgUlBp8mWO7diVzIot",
+   "file": "hasan/vo06.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vo07",
+   "suara": "hasan",
+   "teks": "[curious] Begitu kamu bangun tidur, semuanya mulai bergerak.",
+   "session_id": "Ur5pb8cv9KhCjG82vtz6",
+   "generation_id": "1nKTaE2zJXSl9Jy1iW4B",
+   "file": "hasan/vo07.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vo08",
+   "suara": "hasan",
+   "teks": "[playful] Lagi asyik main HP, tiba-tiba ini terjadi.",
+   "session_id": "fWwJuuDtMCvHrjJKaPfp",
+   "generation_id": "FgQ6UaXUJT27aflGHWGs",
+   "file": "hasan/vo08.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vo09",
+   "suara": "hasan",
+   "teks": "[curious] Saat kamu kaget, tubuhmu langsung bersiap.",
+   "session_id": "rItVuhwXe3bhAKcd8UpF",
+   "generation_id": "yXEu4a9ElClaJfQNsFt6",
+   "file": "hasan/vo09.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vo10",
+   "suara": "hasan",
+   "teks": "[thoughtful] Saat kamu tertawa, banyak hal berubah di dalam.",
+   "session_id": "KETfBX1HP8ku3UbeMB9A",
+   "generation_id": "WhV2S9NjANEqf6IG2Yxa",
+   "file": "hasan/vo10.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vo11",
+   "suara": "hasan",
+   "teks": "[curious] Ketika kamu lapar, ada pesan yang dikirim ke otak.",
+   "session_id": "CSjoGBdvcHcZgrW7N7j5",
+   "generation_id": "eZVfLwew5uoVeKwATYQS",
+   "file": "hasan/vo11.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vo12",
+   "suara": "hasan",
+   "teks": "[playful] Di tengah malam, kamu tiba-tiba terbangun.",
+   "session_id": "LmuxmuW6uB4Ujd9ipsVg",
+   "generation_id": "tjVUjZYZznPd6vi82FXv",
+   "file": "hasan/vo12.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vo13",
+   "suara": "hasan",
+   "teks": "[curious] Waktu hujan turun, ada yang terjadi di udara.",
+   "session_id": "ovEZuTy6TqBQtQPogEC1",
+   "generation_id": "CvjUEA32GToiaRP8XfR0",
+   "file": "hasan/vo13.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vo14",
+   "suara": "hasan",
+   "teks": "[thoughtful] Saat kamu fokus, otak bekerja dua kali lebih keras.",
+   "session_id": "0o95Zj0jTwDHTIuyGJ7S",
+   "generation_id": "D6FVc6BlIKUfTQR2ZeGG",
+   "file": "hasan/vo14.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vo15",
+   "suara": "hasan",
+   "teks": "[curious] Ketika kamu berlari, jantung langsung menyesuaikan.",
+   "session_id": "Ov3vA19oWDdZ21Mg0nYl",
+   "generation_id": "TGIANTdUCL7U5k5rlR4B",
+   "file": "hasan/vo15.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vo16",
+   "suara": "hasan",
+   "teks": "[playful] Pernah lupa nama orang padahal baru kenalan?",
+   "session_id": "NFlRsOFIgT912OuwRHv1",
+   "generation_id": "uFbvNlUUpVDeUlrnpqci",
+   "file": "hasan/vo16.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vo17",
+   "suara": "hasan",
+   "teks": "[curious] Pernah merasa deja vu?",
+   "session_id": "8zeOIOSZF22bo5TPv9yZ",
+   "generation_id": "0zAuVKMOKXjaPUjd7cra",
+   "file": "hasan/vo17.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vo18",
+   "suara": "hasan",
+   "teks": "[playful] Pernah salah dengar, terus malu sendiri?",
+   "session_id": "zwKl6KmquUoyPsi5zEWK",
+   "generation_id": "dxr8ihD6aceB7nutI2gf",
+   "file": "hasan/vo18.mp3",
+   "tahap": 10
   }
  ]
 }
