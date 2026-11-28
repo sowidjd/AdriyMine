@@ -5,6 +5,19 @@ Ditarik dari akun ElevenLabs pemilik pada 28 Nov 2026 lewat konektor ElevenLabs:
 - Suara pustaka umum (`professional`) boleh dipakai untuk narasi sesuai ketentuan ElevenLabs; aturan.md §8 tetap mengutamakan suara tiruan pemilik.
 - Kolom ID dipakai untuk `creative_generate_speech` / ElevenLabs API.
 
+## Suara milik akun Arfiy World (kloning, 28 Nov 2026)
+
+| Nama | ID | Pemilik suara | Keterangan |
+|---|---|---|---|
+| **Hasan** | `AYDmN9T80hHmJLs3rapG` | Pemilik akun (suara sendiri) | Pria, bahasa Indonesia. **Narator utama** (memenuhi aturan.md §8: suara tiruan pemilik). |
+| **Amy** | `CxsauwAuNDfhOy59Ryo8` | Adik perempuan pemilik (sudah setuju dikloning) | Perempuan muda, bahasa Indonesia. Narator kedua / suara pendamping. |
+| **Ongky** | `qlT7t9ob4hbE1gmRhMvi` | Kloning lama di akun | Pria muda, bahasa Indonesia. |
+
+Catatan: di pustaka umum juga ada "Hasan - Calm & Soft" dan banyak "Amy" lain. Itu **bukan** suara kita, jadi selalu pakai ID di atas.
+Suara Adriy (tokoh burung hantu) **tidak** dibuat. Adriy tidak bersuara; narasi memakai suara pemilik.
+
+## Pustaka umum
+
 | Nama | ID | Jenis | Gender | Usia | Aksen | Keterangan |
 |---|---|---|---|---|---|---|
 | Ongky | `qlT7t9ob4hbE1gmRhMvi` | cloned | male | young | id-standard |  |
