@@ -4625,6 +4625,438 @@
    "generation_id": "pJGgANu9LhnGaJ5b2RQx",
    "file": "amy/p-tutup2.mp3",
    "tahap": 6
+  },
+  {
+   "id": "g-kok-bisa",
+   "suara": "hasan",
+   "teks": "[curious] Kok bisa, ya? Ternyata jawabannya ada di dalam kepala kita sendiri.",
+   "session_id": "t1VrN8DKjOfkes8nAs5S",
+   "generation_id": "C52OapfecQhNUhDJ0eSz",
+   "file": "hasan/g-kok-bisa.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-jangan-skip",
+   "suara": "hasan",
+   "teks": "[playful] Jangan di-skip dulu. Bagian terbaiknya ada di akhir.",
+   "session_id": "cZZq5EPFPyxfihjKo682",
+   "generation_id": "9bOPEjHwbAGOUboqVjIc",
+   "file": "hasan/g-jangan-skip.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-pernah-ngerasa",
+   "suara": "hasan",
+   "teks": "[thoughtful] Pernah ngerasa begini juga? Ternyata ada penjelasan ilmiahnya.",
+   "session_id": "s5R7ukQ1t1fYRh1lRMXe",
+   "generation_id": "xFH5tN1J7CJNE9Gdt0hP",
+   "file": "hasan/g-pernah-ngerasa.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-ini-normal",
+   "suara": "hasan",
+   "teks": "[warmly] Tenang, ini normal banget. Hampir semua orang pernah ngalamin.",
+   "session_id": "g7PYx9D9pGnBDucqifaP",
+   "generation_id": "m8URFp1WMqN1UBKmv7gk",
+   "file": "hasan/g-ini-normal.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-kebanyakan-orang",
+   "suara": "hasan",
+   "teks": "[curious] Kebanyakan orang nggak sadar kalau ini terjadi setiap hari.",
+   "session_id": "wyw0Lx9YJsRt3eFuIPii",
+   "generation_id": "xDS5hsb8HvtEcKZVUr4p",
+   "file": "hasan/g-kebanyakan-orang.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-coba-sekarang",
+   "suara": "hasan",
+   "teks": "[upbeat] Coba lakukan sekarang juga. Cuma butuh beberapa detik.",
+   "session_id": "PboyPJGZGUVHjec7CeRR",
+   "generation_id": "YBvGdWbjlyjmm8FiRqpJ",
+   "file": "hasan/g-coba-sekarang.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-rahasianya",
+   "suara": "hasan",
+   "teks": "[mysterious] Rahasianya ternyata sederhana, tapi jarang orang tahu.",
+   "session_id": "9sK1PzeTVGyl5sySmKUB",
+   "generation_id": "Dd854d8KE8uUwdoBHJJO",
+   "file": "hasan/g-rahasianya.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-salah-kaprah",
+   "suara": "hasan",
+   "teks": "[confidently] Ini salah kaprah yang sudah lama dipercaya banyak orang.",
+   "session_id": "zQCTzPwwKLltFzWn6Qaj",
+   "generation_id": "XMhBZ2ZYOf6tMHHg54U5",
+   "file": "hasan/g-salah-kaprah.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-tapi-tunggu",
+   "suara": "hasan",
+   "teks": "[surprised] Tapi tunggu dulu. Ceritanya belum selesai.",
+   "session_id": "FehoXVGBaLPqgSDRSG97",
+   "generation_id": "5evwTWnm2jmCPVDd0U6Q",
+   "file": "hasan/g-tapi-tunggu.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-masuk-akal",
+   "suara": "hasan",
+   "teks": "[thoughtful] Kalau dipikir-pikir, ini sebenarnya masuk akal banget.",
+   "session_id": "avL7Mr5MIJat5fLFigFe",
+   "generation_id": "WMoo25q9QRhZSKhWNsOB",
+   "file": "hasan/g-masuk-akal.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-otak-licik",
+   "suara": "hasan",
+   "teks": "[playful] Otak kita ternyata suka cari jalan pintas.",
+   "session_id": "Iqbgyrm08NpJBacfx7tN",
+   "generation_id": "fJcCcP1d2kRSTMtvqe4J",
+   "file": "hasan/g-otak-licik.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-bukan-salahmu",
+   "suara": "hasan",
+   "teks": "[warmly] Jadi kalau kamu sering begini, itu bukan sepenuhnya salahmu.",
+   "session_id": "yeECNFQNc1KfkTFzsKqA",
+   "generation_id": "nlCdPQGCaBBwERCebikR",
+   "file": "hasan/g-bukan-salahmu.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-kecil-besar",
+   "suara": "hasan",
+   "teks": "[thoughtful] Perubahan kecil, kalau dilakukan terus, hasilnya bisa besar.",
+   "session_id": "bftgLFnhMfUIauyi68yq",
+   "generation_id": "YZLjG1Egkc6PTi0Xrso4",
+   "file": "hasan/g-kecil-besar.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-lihat-baik",
+   "suara": "hasan",
+   "teks": "[curious] Coba lihat baik-baik. Ada yang aneh di sini.",
+   "session_id": "fZ1iMOfo2aY71JyAHs6T",
+   "generation_id": "L9LC2tOWBqWPwe7Jh5Z6",
+   "file": "hasan/g-lihat-baik.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-satu-hal",
+   "suara": "hasan",
+   "teks": "[confidently] Kalau cuma boleh ingat satu hal dari video ini, ingat yang ini.",
+   "session_id": "RYRZM8dbqnZBJRkxzWcI",
+   "generation_id": "HW7dY0ZXQO04ZExop3OQ",
+   "file": "hasan/g-satu-hal.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-mulai-besok",
+   "suara": "hasan",
+   "teks": "[upbeat] Mulai besok, coba perhatikan. Kamu bakal sadar sendiri.",
+   "session_id": "3A4muwueIUePm0vBkHVZ",
+   "generation_id": "SZyUeNXD5Qr9cr6LiN6J",
+   "file": "hasan/g-mulai-besok.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-pilih-mana",
+   "suara": "hasan",
+   "teks": "[playful] Kalau kamu, pilih yang mana? Jawab jujur di komentar.",
+   "session_id": "cowCpRWwbiYpPaagSCGI",
+   "generation_id": "hw1Z9xGSfvxObvN655Lg",
+   "file": "hasan/g-pilih-mana.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-tag-teman",
+   "suara": "hasan",
+   "teks": "[playful] Tag satu teman yang paling butuh dengar ini.",
+   "session_id": "bqXETYuHA88tJYYK2bPe",
+   "generation_id": "Wmf2c69NBWi44LjpdL41",
+   "file": "hasan/g-tag-teman.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-ulang-tonton",
+   "suara": "hasan",
+   "teks": "[friendly] Kalau tadi kelewatan, tonton ulang bagian awalnya. Pasti beda rasanya.",
+   "session_id": "drTpTSYoQhf37cOiEUSX",
+   "generation_id": "mIB6cYkhEax8u1MVVZuy",
+   "file": "hasan/g-ulang-tonton.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-pengalamanmu",
+   "suara": "hasan",
+   "teks": "[warmly] Kalau kamu punya pengalaman soal ini, aku pengen dengar.",
+   "session_id": "bh4GnnyO9sfumlvi2WPn",
+   "generation_id": "Sxf6V8hKnvYpD4eDvsIL",
+   "file": "hasan/g-pengalamanmu.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-sampai-sini",
+   "suara": "hasan",
+   "teks": "[friendly] Kalau kamu nonton sampai sini, berarti kamu memang suka penasaran.",
+   "session_id": "h85NbzDFwO0RiMZQ4Xzy",
+   "generation_id": "otoD1VEDlt1kJP1QUaTJ",
+   "file": "hasan/g-sampai-sini.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-sampai-jumpa",
+   "suara": "hasan",
+   "teks": "[warmly] Sampai jumpa di video berikutnya.",
+   "session_id": "7xN4Xg2eJqDRkcfAQLZj",
+   "generation_id": "lBZL0UrgDkTAiuJOYx4T",
+   "file": "hasan/g-sampai-jumpa.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-jaga-diri",
+   "suara": "hasan",
+   "teks": "[warmly] Jaga diri baik-baik, ya.",
+   "session_id": "kvFpdjeCjtZarZJuZhMM",
+   "generation_id": "S2mi2dugDsauwF020TCa",
+   "file": "hasan/g-jaga-diri.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-tetap-penasaran",
+   "suara": "hasan",
+   "teks": "[upbeat] Tetap penasaran, karena dunia ini masih penuh kejutan.",
+   "session_id": "nlzsvCWSztIw0rceNDQ8",
+   "generation_id": "F2DH6JdjCvSjMO3aPFaG",
+   "file": "hasan/g-tetap-penasaran.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-kok-bisa",
+   "suara": "amy",
+   "teks": "[curious] Kok bisa, ya? Ternyata jawabannya ada di dalam kepala kita sendiri.",
+   "session_id": "XbNiFU3YeoeFicSFuclb",
+   "generation_id": "HSQ0naSx6QXFnqJBFMvO",
+   "file": "amy/g-kok-bisa.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-jangan-skip",
+   "suara": "amy",
+   "teks": "[playful] Jangan di-skip dulu. Bagian terbaiknya ada di akhir.",
+   "session_id": "DsnxV0lriy73SmUovz3M",
+   "generation_id": "yixK718Yr2ZLbaajqPqe",
+   "file": "amy/g-jangan-skip.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-pernah-ngerasa",
+   "suara": "amy",
+   "teks": "[thoughtful] Pernah ngerasa begini juga? Ternyata ada penjelasan ilmiahnya.",
+   "session_id": "0rYJ4qQ8vc2LCuvudqTp",
+   "generation_id": "7OpQcfEEO9VuIWIA6y4s",
+   "file": "amy/g-pernah-ngerasa.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-ini-normal",
+   "suara": "amy",
+   "teks": "[warmly] Tenang, ini normal banget. Hampir semua orang pernah ngalamin.",
+   "session_id": "qVIUdumfL12LRUTjMFPS",
+   "generation_id": "vz1mvWD5SUl3ac3bfwoO",
+   "file": "amy/g-ini-normal.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-kebanyakan-orang",
+   "suara": "amy",
+   "teks": "[curious] Kebanyakan orang nggak sadar kalau ini terjadi setiap hari.",
+   "session_id": "o5pIEtbCSwe3MqhxKIBI",
+   "generation_id": "ZbDhxIlx4v0m8bE8TvIU",
+   "file": "amy/g-kebanyakan-orang.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-coba-sekarang",
+   "suara": "amy",
+   "teks": "[upbeat] Coba lakukan sekarang juga. Cuma butuh beberapa detik.",
+   "session_id": "z8s2G9A0iM4fWWs8By8q",
+   "generation_id": "cQoHhsX70J0TaIcIpT1F",
+   "file": "amy/g-coba-sekarang.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-rahasianya",
+   "suara": "amy",
+   "teks": "[mysterious] Rahasianya ternyata sederhana, tapi jarang orang tahu.",
+   "session_id": "zY4NjEVHrqXdF3nxM1N3",
+   "generation_id": "1qipgr82spDxSufBxuRl",
+   "file": "amy/g-rahasianya.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-salah-kaprah",
+   "suara": "amy",
+   "teks": "[confidently] Ini salah kaprah yang sudah lama dipercaya banyak orang.",
+   "session_id": "uz9LlscX0jgFzc5WjLmN",
+   "generation_id": "senjUh7z5iwj9hez0f0N",
+   "file": "amy/g-salah-kaprah.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-tapi-tunggu",
+   "suara": "amy",
+   "teks": "[surprised] Tapi tunggu dulu. Ceritanya belum selesai.",
+   "session_id": "mavR6gfwiXtl0P6VCRoy",
+   "generation_id": "hGVYZiMKsmqKwp33sY06",
+   "file": "amy/g-tapi-tunggu.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-masuk-akal",
+   "suara": "amy",
+   "teks": "[thoughtful] Kalau dipikir-pikir, ini sebenarnya masuk akal banget.",
+   "session_id": "5Or04jrSftzqeZkH49Yd",
+   "generation_id": "w1XwfICNEafWb8y5Wee0",
+   "file": "amy/g-masuk-akal.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-otak-licik",
+   "suara": "amy",
+   "teks": "[playful] Otak kita ternyata suka cari jalan pintas.",
+   "session_id": "RCcT8V08IbnYaaxO2RPY",
+   "generation_id": "WSSOcYqqPvHJCns7pYzg",
+   "file": "amy/g-otak-licik.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-bukan-salahmu",
+   "suara": "amy",
+   "teks": "[warmly] Jadi kalau kamu sering begini, itu bukan sepenuhnya salahmu.",
+   "session_id": "SxGZPiLHdXIbtEFfZYOo",
+   "generation_id": "krNp71fuiznOoWv6O3m1",
+   "file": "amy/g-bukan-salahmu.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-kecil-besar",
+   "suara": "amy",
+   "teks": "[thoughtful] Perubahan kecil, kalau dilakukan terus, hasilnya bisa besar.",
+   "session_id": "yjZFiOa3wX1Q6AQHFKjr",
+   "generation_id": "RxgpyQXjhFv7DrmlQpMz",
+   "file": "amy/g-kecil-besar.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-lihat-baik",
+   "suara": "amy",
+   "teks": "[curious] Coba lihat baik-baik. Ada yang aneh di sini.",
+   "session_id": "7FTwctgED2ojK1X26sfc",
+   "generation_id": "LOki83zbIVLuGHiY5FQV",
+   "file": "amy/g-lihat-baik.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-satu-hal",
+   "suara": "amy",
+   "teks": "[confidently] Kalau cuma boleh ingat satu hal dari video ini, ingat yang ini.",
+   "session_id": "QHgDhjjsblOK6xF2hTjd",
+   "generation_id": "ioi4PPyKCHeW8WWROIgo",
+   "file": "amy/g-satu-hal.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-mulai-besok",
+   "suara": "amy",
+   "teks": "[upbeat] Mulai besok, coba perhatikan. Kamu bakal sadar sendiri.",
+   "session_id": "L4N6qVStSPRfbIovrX5O",
+   "generation_id": "SLFmYH4ed5g7Xe5R80YU",
+   "file": "amy/g-mulai-besok.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-pilih-mana",
+   "suara": "amy",
+   "teks": "[playful] Kalau kamu, pilih yang mana? Jawab jujur di komentar.",
+   "session_id": "R1uKlveS38JoWEumZkvI",
+   "generation_id": "SJPGBggxG7h6pyyUnu4W",
+   "file": "amy/g-pilih-mana.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-tag-teman",
+   "suara": "amy",
+   "teks": "[playful] Tag satu teman yang paling butuh dengar ini.",
+   "session_id": "NfLMRWzAyLUvQ6LrjHBr",
+   "generation_id": "i5DIhzlxLY2DH0GrxITZ",
+   "file": "amy/g-tag-teman.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-ulang-tonton",
+   "suara": "amy",
+   "teks": "[friendly] Kalau tadi kelewatan, tonton ulang bagian awalnya. Pasti beda rasanya.",
+   "session_id": "MtaiZ7w7jUM1tLFEL9MK",
+   "generation_id": "Bt0hv6sLmZgsNWtzQixL",
+   "file": "amy/g-ulang-tonton.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-pengalamanmu",
+   "suara": "amy",
+   "teks": "[warmly] Kalau kamu punya pengalaman soal ini, aku pengen dengar.",
+   "session_id": "s3wOCltYmZUg14yzXwag",
+   "generation_id": "bYP5gJjQWXjsjd24iLN1",
+   "file": "amy/g-pengalamanmu.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-sampai-sini",
+   "suara": "amy",
+   "teks": "[friendly] Kalau kamu nonton sampai sini, berarti kamu memang suka penasaran.",
+   "session_id": "SLCyh2JEK4fTiDJP8oz1",
+   "generation_id": "aFXgOn58O5ZkSGBHTZ82",
+   "file": "amy/g-sampai-sini.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-sampai-jumpa",
+   "suara": "amy",
+   "teks": "[warmly] Sampai jumpa di video berikutnya.",
+   "session_id": "bwvnQ9bS386iTP5q4mwQ",
+   "generation_id": "O0rdFW2I0L25FhOi1GlS",
+   "file": "amy/g-sampai-jumpa.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-jaga-diri",
+   "suara": "amy",
+   "teks": "[warmly] Jaga diri baik-baik, ya.",
+   "session_id": "qKIJxNzow7ge7OIU8SnC",
+   "generation_id": "XlKwYGg5uJh85rGeMATt",
+   "file": "amy/g-jaga-diri.mp3",
+   "tahap": 7
+  },
+  {
+   "id": "g-tetap-penasaran",
+   "suara": "amy",
+   "teks": "[upbeat] Tetap penasaran, karena dunia ini masih penuh kejutan.",
+   "session_id": "0HEnSuz7ZCnA9lKx3LWw",
+   "generation_id": "52HHQJo9C9CezXjq45Km",
+   "file": "amy/g-tetap-penasaran.mp3",
+   "tahap": 7
   }
  ]
 }
