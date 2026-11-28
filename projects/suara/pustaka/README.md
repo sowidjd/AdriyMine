@@ -221,3 +221,7 @@ Kalimat sains (`s-`) bersifat umum: hanya dipakai kalau memang sesuai dengan fak
 6. Setelah video jadi: `cocokkan.py projects/<video> --simpan` agar kalimat baru masuk pustaka.
 
 Suara Adriy (tokoh burung hantu) **tidak** dibuat.
+
+## Catatan uji VoxCPM2 (28 Nov 2026)
+
+VoxCPM2 (gratis, CPU) diuji meniru Hasan dengan 3 cara: dari rekaman asli, dari rekaman ElevenLabs pustaka, dan dari rekaman pustaka + teks lanjutan. Menurut pemilik **tidak ada yang bagus**. Jadi narasi video tetap memakai **ElevenLabs + pustaka ini** (aturan §17). VoxCPM2 tidak dipakai untuk narasi kecuali pemilik memintanya.
