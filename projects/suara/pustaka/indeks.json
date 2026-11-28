@@ -3725,6 +3725,906 @@
    "generation_id": "1fCKS5OwxAsQq9Xy1YHs",
    "file": "amy/x-besok.mp3",
    "tahap": 5
+  },
+  {
+   "id": "o-alarm",
+   "suara": "hasan",
+   "teks": "[playful] Alarm bunyi, kamu matiin, terus bilang lima menit lagi. Tahu-tahu, sudah setengah jam lewat.",
+   "session_id": "ZYxNgypZwwzGDRCVzOte",
+   "generation_id": "lSU4Q0AQWTwzpuDykvjW",
+   "file": "hasan/o-alarm.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "o-scroll",
+   "suara": "hasan",
+   "teks": "[curious] Niatnya cuma buka HP sebentar. Tapi pas sadar, satu jam sudah hilang entah ke mana.",
+   "session_id": "XR55MoeHJ3utyfopDCRs",
+   "generation_id": "BazYBVf8JHLeh4kgrZOt",
+   "file": "hasan/o-scroll.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "o-lupa",
+   "suara": "hasan",
+   "teks": "[curious] Masuk kamar, terus lupa mau ngambil apa. Kok bisa, ya, otak kita tiba-tiba kosong begitu?",
+   "session_id": "4rK94J7Las6B0t8FkEyk",
+   "generation_id": "Mro8FQJW54h48T3DdOKF",
+   "file": "hasan/o-lupa.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "o-deg",
+   "suara": "hasan",
+   "teks": "[thoughtful] Pernah nggak, jantung berdebar kencang padahal kamu cuma mau ngomong di depan kelas?",
+   "session_id": "wdnBdVuXS7lJj8FanpYZ",
+   "generation_id": "8fcOvpqEU5J5ILDWdR6B",
+   "file": "hasan/o-deg.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "o-checkout",
+   "suara": "hasan",
+   "teks": "[playful] Keranjang belanja penuh, jari sudah di tombol bayar. Terus kamu mikir, sebenarnya butuh nggak, sih?",
+   "session_id": "qRxxlrZ5p3rQ5Qudeqhv",
+   "generation_id": "BdSgPIWRLqohQB1u5s76",
+   "file": "hasan/o-checkout.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "o-tidur",
+   "suara": "hasan",
+   "teks": "[calmly] Badan sudah capek banget, tapi pas rebahan, otak malah mulai mikirin hal yang nggak penting.",
+   "session_id": "d2Umg6GZ95q8SZ7woNal",
+   "generation_id": "BgoiSvyp5UTEtwoKq80k",
+   "file": "hasan/o-tidur.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "o-notif",
+   "suara": "hasan",
+   "teks": "[curious] Satu bunyi notifikasi, dan fokus kamu langsung buyar. Ternyata ada alasan kenapa itu susah dilawan.",
+   "session_id": "vXYDQAUWuq1AJA1Ph4Pj",
+   "generation_id": "Uh5mFxLxr4PitL9jwN9N",
+   "file": "hasan/o-notif.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "o-lapar",
+   "suara": "hasan",
+   "teks": "[playful] Baru makan dua jam yang lalu, tapi kok sudah lapar lagi? Ternyata ini bukan cuma soal perut.",
+   "session_id": "C0qUhoj67JSoL2avU9jO",
+   "generation_id": "7SCVcWcAFdM5QyDW6g73",
+   "file": "hasan/o-lapar.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "o-ngantuk",
+   "suara": "hasan",
+   "teks": "[calmly] Jam dua siang, mata rasanya berat banget. Kamu nggak malas, ini memang jamnya tubuh minta istirahat.",
+   "session_id": "zvIFxS3PBhxFitWcOZpZ",
+   "generation_id": "G8dCP9RDnkGreQdcmO7x",
+   "file": "hasan/o-ngantuk.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "o-malu",
+   "suara": "hasan",
+   "teks": "[warmly] Kejadiannya sudah lama banget, tapi tiap ingat, mukamu masih panas. Tenang, kamu nggak sendirian.",
+   "session_id": "pWfP3Cvq7XT9o0SkuJNt",
+   "generation_id": "zf4fCP4NnEON88bFEvkO",
+   "file": "hasan/o-malu.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "f-hewan",
+   "suara": "hasan",
+   "teks": "[amazed] Ada hewan yang kemampuannya jauh melampaui manusia, dan kita jarang banget membicarakannya.",
+   "session_id": "SneJ256LxgbAHaxEPma3",
+   "generation_id": "Z6KOPrmYRhGNhuRVrcaj",
+   "file": "hasan/f-hewan.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "f-angkasa",
+   "suara": "hasan",
+   "teks": "[amazed] Kalau kamu lihat bintang malam ini, cahaya yang kamu lihat mungkin sudah berangkat ribuan tahun yang lalu.",
+   "session_id": "BiV7f43KBaAin5gfsaah",
+   "generation_id": "Bnw83wGk1tVd4qkmYrxD",
+   "file": "hasan/f-angkasa.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "f-laut",
+   "suara": "hasan",
+   "teks": "[mysterious] Lebih dari separuh dasar laut masih belum dipetakan dengan detail. Dan di sana, banyak hal yang belum kita kenal.",
+   "session_id": "EFxWDqOCBVXtPxaNoZlU",
+   "generation_id": "EmpbOajK3Ze7eDrK0oEu",
+   "file": "hasan/f-laut.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "f-tubuh",
+   "suara": "hasan",
+   "teks": "[amazed] Jantungmu terus berdetak tanpa disuruh, bahkan waktu kamu tidur nyenyak.",
+   "session_id": "5IDSX9zRm01JqF5W6UNF",
+   "generation_id": "fgHLa2EKObEBYNMT6mnD",
+   "file": "hasan/f-tubuh.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "f-sejarah",
+   "suara": "hasan",
+   "teks": "[thoughtful] Kebiasaan yang kita anggap biasa hari ini, ternyata punya cerita panjang dari ratusan tahun yang lalu.",
+   "session_id": "73yIMO7r2Rzg4R5Di2oa",
+   "generation_id": "14YP4f43FXaB4xv0jKmK",
+   "file": "hasan/f-sejarah.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "f-teknologi",
+   "suara": "hasan",
+   "teks": "[curious] Benda kecil di sakumu itu ternyata jauh lebih canggih dari komputer yang dulu dipakai untuk ke bulan.",
+   "session_id": "mhWJ9WsEhkJsILN9ypZ6",
+   "generation_id": "d4vG2froAxwv1Oc8v7Ls",
+   "file": "hasan/f-teknologi.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "f-bahasa",
+   "suara": "hasan",
+   "teks": "[playful] Ada kata dalam bahasa kita yang ternyata asalnya dari bahasa yang jauh sekali.",
+   "session_id": "R4uTa7EzFllI3prUhixX",
+   "generation_id": "TYt8hWABYwgIynYsrK0N",
+   "file": "hasan/f-bahasa.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "f-makanan",
+   "suara": "hasan",
+   "teks": "[curious] Makanan yang kamu makan tiap hari ternyata punya rahasia kecil yang jarang orang tahu.",
+   "session_id": "WGeKL0ZcBa9ecy0uBSMn",
+   "generation_id": "lo58jQXVVj8ZVZuIFXMV",
+   "file": "hasan/f-makanan.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "f-cuaca",
+   "suara": "hasan",
+   "teks": "[thoughtful] Hujan yang turun hari ini, airnya mungkin sudah berkeliling dunia berkali-kali.",
+   "session_id": "119eFIs4AlTRWh4DEU65",
+   "generation_id": "WThuwT55zuLNsI28SWPg",
+   "file": "hasan/f-cuaca.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "f-warna",
+   "suara": "hasan",
+   "teks": "[curious] Warna yang kamu lihat ternyata nggak selalu sama dengan yang dilihat orang lain.",
+   "session_id": "5tBx6yVmEmlof0VuIKTc",
+   "generation_id": "eURNZ5IXG8HHleg0HGcN",
+   "file": "hasan/f-warna.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "l-pertama",
+   "suara": "hasan",
+   "teks": "[confidently] Langkah pertama paling gampang. Kamu cuma perlu sadar kalau ini sedang terjadi.",
+   "session_id": "pwEzH03TLGaZKpu79Qk2",
+   "generation_id": "kjfDUK77eK8jQ9phrlZz",
+   "file": "hasan/l-pertama.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "l-kedua",
+   "suara": "hasan",
+   "teks": "[confidently] Langkah kedua, kasih jeda sebentar sebelum kamu bereaksi.",
+   "session_id": "cQoGmd6Oi55T57SAJqKJ",
+   "generation_id": "JzTvXQ29cNHpPfx8Auu4",
+   "file": "hasan/l-kedua.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "l-ketiga",
+   "suara": "hasan",
+   "teks": "[confidently] Dan langkah ketiga, ulangi terus sampai jadi kebiasaan baru.",
+   "session_id": "xctS1jwcPyNT9hPLopl7",
+   "generation_id": "KepJUJyYNJqLI6tMnBEI",
+   "file": "hasan/l-ketiga.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "l-dua-menit",
+   "suara": "hasan",
+   "teks": "[upbeat] Coba trik dua menit ini. Kalau sesuatu bisa selesai dalam dua menit, langsung kerjakan sekarang.",
+   "session_id": "AnkAunLgWLkd0lWki3n1",
+   "generation_id": "gXXfv1z3xxhIngS3FrDd",
+   "file": "hasan/l-dua-menit.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "l-tarik-napas",
+   "suara": "hasan",
+   "teks": "[calmly] Tarik napas pelan-pelan, tahan sebentar, lalu hembuskan lebih lama dari waktu tarik napasnya.",
+   "session_id": "LUQ5y8y4LsQfbF7Wf0Pj",
+   "generation_id": "yBmTDs9H6zBixIn7oiFB",
+   "file": "hasan/l-tarik-napas.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "l-catat",
+   "suara": "hasan",
+   "teks": "[friendly] Coba catat setiap kali ini terjadi. Dalam seminggu, kamu bakal lihat polanya.",
+   "session_id": "UXkQtVFCUuXwYK8RJUMA",
+   "generation_id": "fjgiomwqZEko8IyGiu3S",
+   "file": "hasan/l-catat.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "l-jauhkan",
+   "suara": "hasan",
+   "teks": "[friendly] Jauhkan HP dari tempat tidur. Hal kecil ini ternyata efeknya besar.",
+   "session_id": "mXoh8P0nHvC6DcGwJzFX",
+   "generation_id": "epVIbpw9AlsSLNaaND6z",
+   "file": "hasan/l-jauhkan.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "l-air",
+   "suara": "hasan",
+   "teks": "[upbeat] Kadang, segelas air putih saja sudah cukup buat bikin badan terasa lebih segar.",
+   "session_id": "uEG15koUda37XHDD3Gsh",
+   "generation_id": "vYJxA1JBjYWU9Ht7uLD3",
+   "file": "hasan/l-air.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "l-gerak",
+   "suara": "hasan",
+   "teks": "[upbeat] Berdiri, regangkan badan sebentar. Otakmu bakal berterima kasih.",
+   "session_id": "asnrpgS7FPvGWMHp0Cmn",
+   "generation_id": "dnyNqxqNOEshKGsi916b",
+   "file": "hasan/l-gerak.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "l-tunda",
+   "suara": "hasan",
+   "teks": "[thoughtful] Sebelum beli sesuatu, tunggu satu hari. Kalau besok masih mau, baru beli.",
+   "session_id": "YOf1v9ZMcl9LKfJ0YMhG",
+   "generation_id": "GpCLw3BeFpdQ4CTqMxNq",
+   "file": "hasan/l-tunda.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "k-twist1",
+   "suara": "hasan",
+   "teks": "[surprised] Tapi ternyata, yang selama ini kita salahkan justru bukan penyebab utamanya.",
+   "session_id": "hiNPRVxhM0xV3NBmWoBm",
+   "generation_id": "4iEyfLqENUyqnW0PFyoF",
+   "file": "hasan/k-twist1.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "k-twist2",
+   "suara": "hasan",
+   "teks": "[mysterious] Dan di sinilah ceritanya mulai jadi aneh.",
+   "session_id": "D0dzljikkY4PkmVKiwZK",
+   "generation_id": "pqZqQYKSJI8lIIBGXLdP",
+   "file": "hasan/k-twist2.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "k-twist3",
+   "suara": "hasan",
+   "teks": "[excited] Bagian paling gilanya baru datang sekarang.",
+   "session_id": "rAkY6u2q0R1u1AnF0jCs",
+   "generation_id": "6P3J5j3qPqAuaCFvLD3s",
+   "file": "hasan/k-twist3.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "k-twist4",
+   "suara": "hasan",
+   "teks": "[thoughtful] Kedengarannya sepele, tapi efeknya bisa terasa bertahun-tahun.",
+   "session_id": "1D4WcfuqDqeIKmu2jnHR",
+   "generation_id": "JIcgaLExOCGIcXL22VwO",
+   "file": "hasan/k-twist4.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "k-twist5",
+   "suara": "hasan",
+   "teks": "[surprised] Yang bikin kaget, ini bukan cuma terjadi di kita. Hampir semua orang di dunia ngalamin.",
+   "session_id": "SWqtKwMnp6PfUKXChecx",
+   "generation_id": "pduV7rRFO3YfsVIOROVA",
+   "file": "hasan/k-twist5.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "k-bukti",
+   "suara": "hasan",
+   "teks": "[confidently] Dan ini bukan kata orang. Ini hasil penelitian yang bisa kamu cek sendiri.",
+   "session_id": "Dmnr1OtQmqRUpyvbW77x",
+   "generation_id": "KxQEvVG4gldTu8HZSwOG",
+   "file": "hasan/k-bukti.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "k-hitung",
+   "suara": "hasan",
+   "teks": "[curious] Kalau dihitung, angkanya jauh lebih besar dari yang kamu bayangkan.",
+   "session_id": "sFVFgsKB0OAdFynrjD2s",
+   "generation_id": "li81kjyAhg3uJwOKh0Qa",
+   "file": "hasan/k-hitung.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "k-bayangkan",
+   "suara": "hasan",
+   "teks": "[curious] Bayangkan kalau ini terjadi setiap hari, selama setahun penuh.",
+   "session_id": "YqP40CRKnE5r4Si341oc",
+   "generation_id": "jJbykvG9Qwt3UOM7Tp0j",
+   "file": "hasan/k-bayangkan.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "k-bandingkan",
+   "suara": "hasan",
+   "teks": "[playful] Kalau dibandingkan, rasanya kayak membandingkan semut sama gajah.",
+   "session_id": "CxF1PFOg30osnTQalkSF",
+   "generation_id": "25ub6GH0BmOxZAIl4lkb",
+   "file": "hasan/k-bandingkan.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "k-kesimpulan",
+   "suara": "hasan",
+   "teks": "[warmly] Jadi, lain kali kamu ngalamin ini, ingat, tubuhmu sebenarnya sedang berusaha melindungi kamu.",
+   "session_id": "H6mG3PdjxGHqueSd6qTJ",
+   "generation_id": "2ScaEZKCuSttFn6TRBGR",
+   "file": "hasan/k-kesimpulan.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "c-tim",
+   "suara": "hasan",
+   "teks": "[playful] Kamu tim yang langsung, atau tim yang nunda dulu? Ketik di komentar, ya.",
+   "session_id": "31Jvj6FgrOSJsOAk2WDc",
+   "generation_id": "VlfM5bFIQtcaynvmz6ib",
+   "file": "hasan/c-tim.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "c-tebak",
+   "suara": "hasan",
+   "teks": "[playful] Coba tebak jawabannya sebelum aku kasih tahu. Tulis tebakanmu di komentar.",
+   "session_id": "KV0jW7CEMRq3OjlbuJgg",
+   "generation_id": "j5zQBQfc9CQ5Df3NQRVS",
+   "file": "hasan/c-tebak.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "c-angka2",
+   "suara": "hasan",
+   "teks": "[playful] Dari satu sampai sepuluh, seberapa sering kamu ngalamin ini? Ketik angkanya.",
+   "session_id": "d30nPHsThXM2nmgXeAtK",
+   "generation_id": "cZ1AhGbfyAh8svl3Rq7i",
+   "file": "hasan/c-angka2.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "c-kirim2",
+   "suara": "hasan",
+   "teks": "[playful] Kirim ke teman yang selalu bilang lima menit lagi. Dia pasti tahu maksudnya.",
+   "session_id": "RcTQ6OuP28DUyFAXefNV",
+   "generation_id": "jJh9CswE7HaJA53dXAb6",
+   "file": "hasan/c-kirim2.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "c-simpan2",
+   "suara": "hasan",
+   "teks": "[friendly] Simpan video ini. Nanti waktu kamu ngalamin lagi, buka dan coba tipsnya.",
+   "session_id": "lv7MLVzjWgqscaKTlt7E",
+   "generation_id": "DxP9lXHVdHDzo4Arczls",
+   "file": "hasan/c-simpan2.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "c-ikut2",
+   "suara": "hasan",
+   "teks": "[warmly] Ikuti Adriy, biar tiap hari ada satu hal baru yang bikin kamu penasaran.",
+   "session_id": "R5biVZawq5njdiWyYaF1",
+   "generation_id": "Ao7cbvz1EnwZlPWl9UN5",
+   "file": "hasan/c-ikut2.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "c-cerita2",
+   "suara": "hasan",
+   "teks": "[warmly] Punya pengalaman yang lebih aneh dari ini? Ceritain di komentar, aku pengen baca.",
+   "session_id": "bRdAkwXFOZTm9vLSDQ31",
+   "generation_id": "ZMVxl9GQc7Y9p7dUslTu",
+   "file": "hasan/c-cerita2.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "c-video2",
+   "suara": "hasan",
+   "teks": "[upbeat] Mau aku bahas bagian duanya? Ketik lanjut di komentar.",
+   "session_id": "WwQaI5W35Cbjn24YFKbU",
+   "generation_id": "BXErsobW0ntxIr0sqxgX",
+   "file": "hasan/c-video2.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "p-tutup1",
+   "suara": "hasan",
+   "teks": "[warmly] Dunia ini penuh hal aneh yang menunggu buat dipahami. Dan kamu baru saja memahami satu lagi.",
+   "session_id": "YlomCbxpEKTAKR9x2pZk",
+   "generation_id": "k2qPh1RN4zrViDgn8hPm",
+   "file": "hasan/p-tutup1.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "p-tutup2",
+   "suara": "hasan",
+   "teks": "[warmly] Terima kasih sudah penasaran bareng aku hari ini.",
+   "session_id": "0mnBmSF2uWlB0CquwUOH",
+   "generation_id": "dThpu2F39aplz0Hyeqkj",
+   "file": "hasan/p-tutup2.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "o-alarm",
+   "suara": "amy",
+   "teks": "[playful] Alarm bunyi, kamu matiin, terus bilang lima menit lagi. Tahu-tahu, sudah setengah jam lewat.",
+   "session_id": "uvqiN5UnHna7cGcrhUEM",
+   "generation_id": "wq2ghEUHQ6x6Bhnh097r",
+   "file": "amy/o-alarm.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "o-scroll",
+   "suara": "amy",
+   "teks": "[curious] Niatnya cuma buka HP sebentar. Tapi pas sadar, satu jam sudah hilang entah ke mana.",
+   "session_id": "NwQYW5ESI5WeagkcEOMD",
+   "generation_id": "oUX2nVssY0J5k9XeJ2PB",
+   "file": "amy/o-scroll.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "o-lupa",
+   "suara": "amy",
+   "teks": "[curious] Masuk kamar, terus lupa mau ngambil apa. Kok bisa, ya, otak kita tiba-tiba kosong begitu?",
+   "session_id": "DmQDn5NnkouuC0TsYqMf",
+   "generation_id": "V6JsbsXezEV1VuD8gSfq",
+   "file": "amy/o-lupa.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "o-deg",
+   "suara": "amy",
+   "teks": "[thoughtful] Pernah nggak, jantung berdebar kencang padahal kamu cuma mau ngomong di depan kelas?",
+   "session_id": "iK9kWB55cS3NGnYPSvCw",
+   "generation_id": "ekccBYWtkUWeRTb1a4vm",
+   "file": "amy/o-deg.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "o-checkout",
+   "suara": "amy",
+   "teks": "[playful] Keranjang belanja penuh, jari sudah di tombol bayar. Terus kamu mikir, sebenarnya butuh nggak, sih?",
+   "session_id": "sViU3dtepYVnssga36Po",
+   "generation_id": "KTUQXXTAC3gRd5KcBB4J",
+   "file": "amy/o-checkout.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "o-tidur",
+   "suara": "amy",
+   "teks": "[calmly] Badan sudah capek banget, tapi pas rebahan, otak malah mulai mikirin hal yang nggak penting.",
+   "session_id": "kKDOpNGrmCHbpp9n47t9",
+   "generation_id": "JVdUqnUMQw58qImt86ut",
+   "file": "amy/o-tidur.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "o-notif",
+   "suara": "amy",
+   "teks": "[curious] Satu bunyi notifikasi, dan fokus kamu langsung buyar. Ternyata ada alasan kenapa itu susah dilawan.",
+   "session_id": "cJ49P79GGm3hcQrNkbQu",
+   "generation_id": "tYrExEOSkdaLd9v7sP9X",
+   "file": "amy/o-notif.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "o-lapar",
+   "suara": "amy",
+   "teks": "[playful] Baru makan dua jam yang lalu, tapi kok sudah lapar lagi? Ternyata ini bukan cuma soal perut.",
+   "session_id": "5IU6hJpUcAJAggmqJEaa",
+   "generation_id": "dEfkf8sJ4eXnNUuZYDNb",
+   "file": "amy/o-lapar.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "o-ngantuk",
+   "suara": "amy",
+   "teks": "[calmly] Jam dua siang, mata rasanya berat banget. Kamu nggak malas, ini memang jamnya tubuh minta istirahat.",
+   "session_id": "Q0KcJdFPcsMYaGnHI9D1",
+   "generation_id": "Czxas55Uk2NdWS3uBXfj",
+   "file": "amy/o-ngantuk.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "o-malu",
+   "suara": "amy",
+   "teks": "[warmly] Kejadiannya sudah lama banget, tapi tiap ingat, mukamu masih panas. Tenang, kamu nggak sendirian.",
+   "session_id": "z65jrxhJJZN0SyGuEpdy",
+   "generation_id": "aeflYwdkuqDXHSgdeYBC",
+   "file": "amy/o-malu.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "f-hewan",
+   "suara": "amy",
+   "teks": "[amazed] Ada hewan yang kemampuannya jauh melampaui manusia, dan kita jarang banget membicarakannya.",
+   "session_id": "YFRwZEPDgIuRA6SDjqdO",
+   "generation_id": "Dyuzm1oQvaukD4cTeXEB",
+   "file": "amy/f-hewan.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "f-angkasa",
+   "suara": "amy",
+   "teks": "[amazed] Kalau kamu lihat bintang malam ini, cahaya yang kamu lihat mungkin sudah berangkat ribuan tahun yang lalu.",
+   "session_id": "CGPOs5hddOBQ7P9MX8KT",
+   "generation_id": "C2DYQwolZfZSxGGAVGNS",
+   "file": "amy/f-angkasa.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "f-laut",
+   "suara": "amy",
+   "teks": "[mysterious] Lebih dari separuh dasar laut masih belum dipetakan dengan detail. Dan di sana, banyak hal yang belum kita kenal.",
+   "session_id": "2ztVJ0ToLgI9fXlxhTnq",
+   "generation_id": "tWOFRiSFmnnVhE6yVxy5",
+   "file": "amy/f-laut.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "f-tubuh",
+   "suara": "amy",
+   "teks": "[amazed] Jantungmu terus berdetak tanpa disuruh, bahkan waktu kamu tidur nyenyak.",
+   "session_id": "iPVgw9tSqwVdJ06RiF3d",
+   "generation_id": "X6JoSRhPMOft5vM7gY0Q",
+   "file": "amy/f-tubuh.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "f-sejarah",
+   "suara": "amy",
+   "teks": "[thoughtful] Kebiasaan yang kita anggap biasa hari ini, ternyata punya cerita panjang dari ratusan tahun yang lalu.",
+   "session_id": "JBxldshYLb3c7yOE05wR",
+   "generation_id": "6HLjn7H2U3exBN12uNN5",
+   "file": "amy/f-sejarah.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "f-teknologi",
+   "suara": "amy",
+   "teks": "[curious] Benda kecil di sakumu itu ternyata jauh lebih canggih dari komputer yang dulu dipakai untuk ke bulan.",
+   "session_id": "JFDiX1Kj7kOUr1MkLLIg",
+   "generation_id": "oHGxjDU7EIUMSnm7ql6d",
+   "file": "amy/f-teknologi.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "f-bahasa",
+   "suara": "amy",
+   "teks": "[playful] Ada kata dalam bahasa kita yang ternyata asalnya dari bahasa yang jauh sekali.",
+   "session_id": "TQBZDPwN82HKC2HBSOtU",
+   "generation_id": "d0JUpYsdLzUlHIKbrNdx",
+   "file": "amy/f-bahasa.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "f-makanan",
+   "suara": "amy",
+   "teks": "[curious] Makanan yang kamu makan tiap hari ternyata punya rahasia kecil yang jarang orang tahu.",
+   "session_id": "q2oTIVWShUqJOK0EYRgH",
+   "generation_id": "btuZ1R5trZKHk4yRKdHL",
+   "file": "amy/f-makanan.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "f-cuaca",
+   "suara": "amy",
+   "teks": "[thoughtful] Hujan yang turun hari ini, airnya mungkin sudah berkeliling dunia berkali-kali.",
+   "session_id": "bJLQ2E8YAYNFZvhcokDm",
+   "generation_id": "P3m4wH8Tvt31Xou3T4ID",
+   "file": "amy/f-cuaca.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "f-warna",
+   "suara": "amy",
+   "teks": "[curious] Warna yang kamu lihat ternyata nggak selalu sama dengan yang dilihat orang lain.",
+   "session_id": "2ekPMMUhOKCOHp8wK1T2",
+   "generation_id": "YcAsPOlu4XasAkZpw4yA",
+   "file": "amy/f-warna.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "l-pertama",
+   "suara": "amy",
+   "teks": "[confidently] Langkah pertama paling gampang. Kamu cuma perlu sadar kalau ini sedang terjadi.",
+   "session_id": "XTiyUu5AQqveJuqA5Ist",
+   "generation_id": "foJo4Sjfqs0hvJjqvCwy",
+   "file": "amy/l-pertama.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "l-kedua",
+   "suara": "amy",
+   "teks": "[confidently] Langkah kedua, kasih jeda sebentar sebelum kamu bereaksi.",
+   "session_id": "WYEuJH566WD1YQpSwShu",
+   "generation_id": "WK82P5oj6wUZjVDitp1u",
+   "file": "amy/l-kedua.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "l-ketiga",
+   "suara": "amy",
+   "teks": "[confidently] Dan langkah ketiga, ulangi terus sampai jadi kebiasaan baru.",
+   "session_id": "9cg8HWAP9PQKoHHUQ1FM",
+   "generation_id": "fxPjEK3R6ipoaZIbt4Op",
+   "file": "amy/l-ketiga.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "l-dua-menit",
+   "suara": "amy",
+   "teks": "[upbeat] Coba trik dua menit ini. Kalau sesuatu bisa selesai dalam dua menit, langsung kerjakan sekarang.",
+   "session_id": "0QF75RW4YrcYicPKxWjc",
+   "generation_id": "XcV1dZQ5bpI6xaxxFduf",
+   "file": "amy/l-dua-menit.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "l-tarik-napas",
+   "suara": "amy",
+   "teks": "[calmly] Tarik napas pelan-pelan, tahan sebentar, lalu hembuskan lebih lama dari waktu tarik napasnya.",
+   "session_id": "nVW0Av9y6w3TquXmHOJm",
+   "generation_id": "H4we10rPCVLpWf0uBjCk",
+   "file": "amy/l-tarik-napas.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "l-catat",
+   "suara": "amy",
+   "teks": "[friendly] Coba catat setiap kali ini terjadi. Dalam seminggu, kamu bakal lihat polanya.",
+   "session_id": "TlGqR6XMvQt5MywEmopg",
+   "generation_id": "dq2cY1AwiLvJF43WTrpf",
+   "file": "amy/l-catat.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "l-jauhkan",
+   "suara": "amy",
+   "teks": "[friendly] Jauhkan HP dari tempat tidur. Hal kecil ini ternyata efeknya besar.",
+   "session_id": "Iq2EGHP08DpAQDbeET0k",
+   "generation_id": "th4j9KTj1wO0CFj72UyS",
+   "file": "amy/l-jauhkan.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "l-air",
+   "suara": "amy",
+   "teks": "[upbeat] Kadang, segelas air putih saja sudah cukup buat bikin badan terasa lebih segar.",
+   "session_id": "oGmcMJiCsCuWKOYgrUVd",
+   "generation_id": "OGrHEogJ169lqdxokMXa",
+   "file": "amy/l-air.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "l-gerak",
+   "suara": "amy",
+   "teks": "[upbeat] Berdiri, regangkan badan sebentar. Otakmu bakal berterima kasih.",
+   "session_id": "tXx20iUW9P5p8EqZLO55",
+   "generation_id": "b2dFRgRsYujpy2Xr3hKa",
+   "file": "amy/l-gerak.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "l-tunda",
+   "suara": "amy",
+   "teks": "[thoughtful] Sebelum beli sesuatu, tunggu satu hari. Kalau besok masih mau, baru beli.",
+   "session_id": "DvAoENAfbQi76AtOo2qA",
+   "generation_id": "agy861qXsWeMQyRWWkJN",
+   "file": "amy/l-tunda.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "k-twist1",
+   "suara": "amy",
+   "teks": "[surprised] Tapi ternyata, yang selama ini kita salahkan justru bukan penyebab utamanya.",
+   "session_id": "xlAhi6xAtKQPY3zMu0jH",
+   "generation_id": "cQnp4gXZFSk1E7wu1HX7",
+   "file": "amy/k-twist1.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "k-twist2",
+   "suara": "amy",
+   "teks": "[mysterious] Dan di sinilah ceritanya mulai jadi aneh.",
+   "session_id": "UoUrwoDQqGju20ySJinY",
+   "generation_id": "kSGEOsZF3tnKbAeo9qvH",
+   "file": "amy/k-twist2.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "k-twist3",
+   "suara": "amy",
+   "teks": "[excited] Bagian paling gilanya baru datang sekarang.",
+   "session_id": "1gNXaFuJzvLfGtucibCF",
+   "generation_id": "0wrVh3fiB9gjJTtA2Ri0",
+   "file": "amy/k-twist3.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "k-twist4",
+   "suara": "amy",
+   "teks": "[thoughtful] Kedengarannya sepele, tapi efeknya bisa terasa bertahun-tahun.",
+   "session_id": "KqE0dlCBxTKiI2aGOiN7",
+   "generation_id": "atX1v9Ue5LbyfoU4n9NW",
+   "file": "amy/k-twist4.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "k-twist5",
+   "suara": "amy",
+   "teks": "[surprised] Yang bikin kaget, ini bukan cuma terjadi di kita. Hampir semua orang di dunia ngalamin.",
+   "session_id": "jf6RyGqdW4bdEjRfC1Fl",
+   "generation_id": "HzV90f0o4fJIVe7xbTVV",
+   "file": "amy/k-twist5.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "k-bukti",
+   "suara": "amy",
+   "teks": "[confidently] Dan ini bukan kata orang. Ini hasil penelitian yang bisa kamu cek sendiri.",
+   "session_id": "7KIsrSAX3Pywnca4pLPH",
+   "generation_id": "O8nbVSDmovnDBdd1h9Js",
+   "file": "amy/k-bukti.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "k-hitung",
+   "suara": "amy",
+   "teks": "[curious] Kalau dihitung, angkanya jauh lebih besar dari yang kamu bayangkan.",
+   "session_id": "LkXEYGuowYo2KmSfkrLi",
+   "generation_id": "44AFjkZjaNvIYO2Quimu",
+   "file": "amy/k-hitung.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "k-bayangkan",
+   "suara": "amy",
+   "teks": "[curious] Bayangkan kalau ini terjadi setiap hari, selama setahun penuh.",
+   "session_id": "915CBlnrQgMQUsQBiktf",
+   "generation_id": "ZbkFd5YSdBJb6ftZzjSI",
+   "file": "amy/k-bayangkan.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "k-bandingkan",
+   "suara": "amy",
+   "teks": "[playful] Kalau dibandingkan, rasanya kayak membandingkan semut sama gajah.",
+   "session_id": "ux0hwON32h155RylYlmU",
+   "generation_id": "IAyPy0IaFxLfOGaZqpad",
+   "file": "amy/k-bandingkan.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "k-kesimpulan",
+   "suara": "amy",
+   "teks": "[warmly] Jadi, lain kali kamu ngalamin ini, ingat, tubuhmu sebenarnya sedang berusaha melindungi kamu.",
+   "session_id": "5DQb4nTBS4hrHeO9Ndgj",
+   "generation_id": "GjJiadW7xmSeekl7VJPP",
+   "file": "amy/k-kesimpulan.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "c-tim",
+   "suara": "amy",
+   "teks": "[playful] Kamu tim yang langsung, atau tim yang nunda dulu? Ketik di komentar, ya.",
+   "session_id": "uS96dWTLlyVJfXC6PWsM",
+   "generation_id": "U0Xb96xgsETmcMSO5gBv",
+   "file": "amy/c-tim.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "c-tebak",
+   "suara": "amy",
+   "teks": "[playful] Coba tebak jawabannya sebelum aku kasih tahu. Tulis tebakanmu di komentar.",
+   "session_id": "heaEeWwnxgf3wBljsQeX",
+   "generation_id": "zBWd9se3EqBsQUB8328k",
+   "file": "amy/c-tebak.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "c-angka2",
+   "suara": "amy",
+   "teks": "[playful] Dari satu sampai sepuluh, seberapa sering kamu ngalamin ini? Ketik angkanya.",
+   "session_id": "tSgKVp8PN0w2IntWw3BS",
+   "generation_id": "2TJnT3m6iES33krroBQF",
+   "file": "amy/c-angka2.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "c-kirim2",
+   "suara": "amy",
+   "teks": "[playful] Kirim ke teman yang selalu bilang lima menit lagi. Dia pasti tahu maksudnya.",
+   "session_id": "LCBUDeU3RBDxrE1inC0q",
+   "generation_id": "O5d1A5IkPd4CBJJEiRw3",
+   "file": "amy/c-kirim2.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "c-simpan2",
+   "suara": "amy",
+   "teks": "[friendly] Simpan video ini. Nanti waktu kamu ngalamin lagi, buka dan coba tipsnya.",
+   "session_id": "syI8cvvwZt81aL7D8Ffb",
+   "generation_id": "BuNdII6wHrODLStqY9gy",
+   "file": "amy/c-simpan2.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "c-ikut2",
+   "suara": "amy",
+   "teks": "[warmly] Ikuti Adriy, biar tiap hari ada satu hal baru yang bikin kamu penasaran.",
+   "session_id": "6q5JpinWkV4TaoljYHcf",
+   "generation_id": "12MEkpB914R2IdGO3DDV",
+   "file": "amy/c-ikut2.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "c-cerita2",
+   "suara": "amy",
+   "teks": "[warmly] Punya pengalaman yang lebih aneh dari ini? Ceritain di komentar, aku pengen baca.",
+   "session_id": "hUNeaip18MH94Amrce8H",
+   "generation_id": "FsqqEzTx85ezJzaKeEbs",
+   "file": "amy/c-cerita2.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "c-video2",
+   "suara": "amy",
+   "teks": "[upbeat] Mau aku bahas bagian duanya? Ketik lanjut di komentar.",
+   "session_id": "wEWUne5sNprhsMiqDoeD",
+   "generation_id": "2MjBg2e6g1SgAdhpFgDn",
+   "file": "amy/c-video2.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "p-tutup1",
+   "suara": "amy",
+   "teks": "[warmly] Dunia ini penuh hal aneh yang menunggu buat dipahami. Dan kamu baru saja memahami satu lagi.",
+   "session_id": "84vlXZZ9Eb9rrnaP7sah",
+   "generation_id": "QlTMjFWUTh2ADj4Z7SDr",
+   "file": "amy/p-tutup1.mp3",
+   "tahap": 6
+  },
+  {
+   "id": "p-tutup2",
+   "suara": "amy",
+   "teks": "[warmly] Terima kasih sudah penasaran bareng aku hari ini.",
+   "session_id": "wUR34PXoYh9EcUBgYmNr",
+   "generation_id": "pJGgANu9LhnGaJ5b2RQx",
+   "file": "amy/p-tutup2.mp3",
+   "tahap": 6
   }
  ]
 }

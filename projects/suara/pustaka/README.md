@@ -71,6 +71,89 @@ Kalimat `k-` cocok untuk kategori di `projects/IDE-KONTEN.md` (otak, HP, chat, p
 
 Kalimat sains (`s-`) bersifat umum: hanya dipakai kalau memang sesuai dengan fakta yang sudah dicek (aturan §5). `s-separuh` ("hampir separuh orang") hanya untuk topik yang datanya benar-benar sekitar 50%.
 
+## Isi tahap 6
+
+
+### Situasi pembuka
+
+| id | kalimat |
+|---|---|
+| `o-alarm` | [playful] Alarm bunyi, kamu matiin, terus bilang lima menit lagi. Tahu-tahu, sudah setengah jam lewat. |
+| `o-scroll` | [curious] Niatnya cuma buka HP sebentar. Tapi pas sadar, satu jam sudah hilang entah ke mana. |
+| `o-lupa` | [curious] Masuk kamar, terus lupa mau ngambil apa. Kok bisa, ya, otak kita tiba-tiba kosong begitu? |
+| `o-deg` | [thoughtful] Pernah nggak, jantung berdebar kencang padahal kamu cuma mau ngomong di depan kelas? |
+| `o-checkout` | [playful] Keranjang belanja penuh, jari sudah di tombol bayar. Terus kamu mikir, sebenarnya butuh nggak, sih? |
+| `o-tidur` | [calmly] Badan sudah capek banget, tapi pas rebahan, otak malah mulai mikirin hal yang nggak penting. |
+| `o-notif` | [curious] Satu bunyi notifikasi, dan fokus kamu langsung buyar. Ternyata ada alasan kenapa itu susah dilawan. |
+| `o-lapar` | [playful] Baru makan dua jam yang lalu, tapi kok sudah lapar lagi? Ternyata ini bukan cuma soal perut. |
+| `o-ngantuk` | [calmly] Jam dua siang, mata rasanya berat banget. Kamu nggak malas, ini memang jamnya tubuh minta istirahat. |
+| `o-malu` | [warmly] Kejadiannya sudah lama banget, tapi tiap ingat, mukamu masih panas. Tenang, kamu nggak sendirian. |
+
+### Fakta umum
+
+| id | kalimat |
+|---|---|
+| `f-hewan` | [amazed] Ada hewan yang kemampuannya jauh melampaui manusia, dan kita jarang banget membicarakannya. |
+| `f-angkasa` | [amazed] Kalau kamu lihat bintang malam ini, cahaya yang kamu lihat mungkin sudah berangkat ribuan tahun yang lalu. |
+| `f-laut` | [mysterious] Lebih dari separuh dasar laut masih belum dipetakan dengan detail. Dan di sana, banyak hal yang belum kita kenal. |
+| `f-tubuh` | [amazed] Jantungmu terus berdetak tanpa disuruh, bahkan waktu kamu tidur nyenyak. |
+| `f-sejarah` | [thoughtful] Kebiasaan yang kita anggap biasa hari ini, ternyata punya cerita panjang dari ratusan tahun yang lalu. |
+| `f-teknologi` | [curious] Benda kecil di sakumu itu ternyata jauh lebih canggih dari komputer yang dulu dipakai untuk ke bulan. |
+| `f-bahasa` | [playful] Ada kata dalam bahasa kita yang ternyata asalnya dari bahasa yang jauh sekali. |
+| `f-makanan` | [curious] Makanan yang kamu makan tiap hari ternyata punya rahasia kecil yang jarang orang tahu. |
+| `f-cuaca` | [thoughtful] Hujan yang turun hari ini, airnya mungkin sudah berkeliling dunia berkali-kali. |
+| `f-warna` | [curious] Warna yang kamu lihat ternyata nggak selalu sama dengan yang dilihat orang lain. |
+
+### Langkah & tips
+
+| id | kalimat |
+|---|---|
+| `l-pertama` | [confidently] Langkah pertama paling gampang. Kamu cuma perlu sadar kalau ini sedang terjadi. |
+| `l-kedua` | [confidently] Langkah kedua, kasih jeda sebentar sebelum kamu bereaksi. |
+| `l-ketiga` | [confidently] Dan langkah ketiga, ulangi terus sampai jadi kebiasaan baru. |
+| `l-dua-menit` | [upbeat] Coba trik dua menit ini. Kalau sesuatu bisa selesai dalam dua menit, langsung kerjakan sekarang. |
+| `l-tarik-napas` | [calmly] Tarik napas pelan-pelan, tahan sebentar, lalu hembuskan lebih lama dari waktu tarik napasnya. |
+| `l-catat` | [friendly] Coba catat setiap kali ini terjadi. Dalam seminggu, kamu bakal lihat polanya. |
+| `l-jauhkan` | [friendly] Jauhkan HP dari tempat tidur. Hal kecil ini ternyata efeknya besar. |
+| `l-air` | [upbeat] Kadang, segelas air putih saja sudah cukup buat bikin badan terasa lebih segar. |
+| `l-gerak` | [upbeat] Berdiri, regangkan badan sebentar. Otakmu bakal berterima kasih. |
+| `l-tunda` | [thoughtful] Sebelum beli sesuatu, tunggu satu hari. Kalau besok masih mau, baru beli. |
+
+### Twist & kesimpulan
+
+| id | kalimat |
+|---|---|
+| `k-twist1` | [surprised] Tapi ternyata, yang selama ini kita salahkan justru bukan penyebab utamanya. |
+| `k-twist2` | [mysterious] Dan di sinilah ceritanya mulai jadi aneh. |
+| `k-twist3` | [excited] Bagian paling gilanya baru datang sekarang. |
+| `k-twist4` | [thoughtful] Kedengarannya sepele, tapi efeknya bisa terasa bertahun-tahun. |
+| `k-twist5` | [surprised] Yang bikin kaget, ini bukan cuma terjadi di kita. Hampir semua orang di dunia ngalamin. |
+| `k-bukti` | [confidently] Dan ini bukan kata orang. Ini hasil penelitian yang bisa kamu cek sendiri. |
+| `k-hitung` | [curious] Kalau dihitung, angkanya jauh lebih besar dari yang kamu bayangkan. |
+| `k-bayangkan` | [curious] Bayangkan kalau ini terjadi setiap hari, selama setahun penuh. |
+| `k-bandingkan` | [playful] Kalau dibandingkan, rasanya kayak membandingkan semut sama gajah. |
+| `k-kesimpulan` | [warmly] Jadi, lain kali kamu ngalamin ini, ingat, tubuhmu sebenarnya sedang berusaha melindungi kamu. |
+
+### CTA
+
+| id | kalimat |
+|---|---|
+| `c-tim` | [playful] Kamu tim yang langsung, atau tim yang nunda dulu? Ketik di komentar, ya. |
+| `c-tebak` | [playful] Coba tebak jawabannya sebelum aku kasih tahu. Tulis tebakanmu di komentar. |
+| `c-angka2` | [playful] Dari satu sampai sepuluh, seberapa sering kamu ngalamin ini? Ketik angkanya. |
+| `c-kirim2` | [playful] Kirim ke teman yang selalu bilang lima menit lagi. Dia pasti tahu maksudnya. |
+| `c-simpan2` | [friendly] Simpan video ini. Nanti waktu kamu ngalamin lagi, buka dan coba tipsnya. |
+| `c-ikut2` | [warmly] Ikuti Adriy, biar tiap hari ada satu hal baru yang bikin kamu penasaran. |
+| `c-cerita2` | [warmly] Punya pengalaman yang lebih aneh dari ini? Ceritain di komentar, aku pengen baca. |
+| `c-video2` | [upbeat] Mau aku bahas bagian duanya? Ketik lanjut di komentar. |
+
+### Penutup
+
+| id | kalimat |
+|---|---|
+| `p-tutup1` | [warmly] Dunia ini penuh hal aneh yang menunggu buat dipahami. Dan kamu baru saja memahami satu lagi. |
+| `p-tutup2` | [warmly] Terima kasih sudah penasaran bareng aku hari ini. |
+
 ## Alur narasi cepat untuk video baru
 
 1. Tulis `naskah.json` seperti biasa (id, text, cap, gap).
