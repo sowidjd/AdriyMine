@@ -14354,6 +14354,132 @@
    "generation_id": "ZFPPdNOKxKuwNh2XwJlU",
    "file": "hasan/vs05.mp3",
    "tahap": 10
+  },
+  {
+   "id": "vs06",
+   "suara": "hasan",
+   "teks": "[upbeat] Terus belajar, terus tumbuh.",
+   "session_id": "4qNBL1UGZHj208MDyf1K",
+   "generation_id": "gs79TqluPVrMsY0DGEpy",
+   "file": "hasan/vs06.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vs07",
+   "suara": "hasan",
+   "teks": "[warmly] Nggak ada kata terlambat untuk mulai.",
+   "session_id": "LlGjbH892UMfEYEWreVP",
+   "generation_id": "k3KuAAEW3LO3J8nxH6Nt",
+   "file": "hasan/vs07.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vs08",
+   "suara": "hasan",
+   "teks": "[upbeat] Hari ini kesempatan baru.",
+   "session_id": "eiMZ6ZChn0UvCKk05pPW",
+   "generation_id": "3mUFqVKy59Ln1IfnLfz6",
+   "file": "hasan/vs08.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vs09",
+   "suara": "hasan",
+   "teks": "[warmly] Bangga sama kamu.",
+   "session_id": "0S3e1pxwif1EUpQol6dX",
+   "generation_id": "LgUBvtGKpICa9YGlNTBd",
+   "file": "hasan/vs09.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vs10",
+   "suara": "hasan",
+   "teks": "[upbeat] Yuk, mulai dari sekarang.",
+   "session_id": "TxwaRsTvxHhl6M6fhvm5",
+   "generation_id": "jww2SacPARqInxGlnbH3",
+   "file": "hasan/vs10.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vs11",
+   "suara": "hasan",
+   "teks": "[warmly] Kamu lebih kuat dari yang kamu kira.",
+   "session_id": "a2glcmQhHFRSGbvmFnlI",
+   "generation_id": "wZj7e7ycUTdrmc0cq8Mk",
+   "file": "hasan/vs11.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vs12",
+   "suara": "hasan",
+   "teks": "[upbeat] Semangat belajarnya, ya.",
+   "session_id": "hyMilzeyacvqLXIioOPo",
+   "generation_id": "nXbHH5YfUPUmwAmRXIzo",
+   "file": "hasan/vs12.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vt01",
+   "suara": "hasan",
+   "teks": "[confidently] Lihat gambar ini.",
+   "session_id": "TnUMY4OTgIyB0qFFcK4p",
+   "generation_id": "whLHgrqKaNXBdxUBWVFv",
+   "file": "hasan/vt01.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vt02",
+   "suara": "hasan",
+   "teks": "[curious] Perhatikan bagian ini.",
+   "session_id": "u06ayW0eLDJ9iGYgQw4t",
+   "generation_id": "ClBH2s72iz0x0hkgTEIN",
+   "file": "hasan/vt02.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vt03",
+   "suara": "hasan",
+   "teks": "[confidently] Yang warnanya merah ini.",
+   "session_id": "dkPaDT7xb4CxW9Ufuhcz",
+   "generation_id": "U1eCDCFMTiF1MatdShyp",
+   "file": "hasan/vt03.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vt04",
+   "suara": "hasan",
+   "teks": "[curious] Lihat yang di sebelah kiri.",
+   "session_id": "cCKqXGcZuuvcx5dzCquZ",
+   "generation_id": "i8nRdqVAIDJeIpgQBBdX",
+   "file": "hasan/vt04.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vt05",
+   "suara": "hasan",
+   "teks": "[confidently] Sekarang lihat yang di sebelah kanan.",
+   "session_id": "wE0u9a0I1KsuiNnYyvUI",
+   "generation_id": "MClvvDrsGB2YMEjwYKeA",
+   "file": "hasan/vt05.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vt06",
+   "suara": "hasan",
+   "teks": "[curious] Coba lihat lebih dekat.",
+   "session_id": "xqHh6TCDyOlKnhLIraYJ",
+   "generation_id": "IF30PW2dbNZScxXKCrOo",
+   "file": "hasan/vt06.mp3",
+   "tahap": 10
+  },
+  {
+   "id": "vt07",
+   "suara": "hasan",
+   "teks": "[confidently] Ini bentuk aslinya.",
+   "session_id": "ZkWPkKQExT4oLQegk8IF",
+   "generation_id": "YB2x3luLP7DSydx89wiU",
+   "file": "hasan/vt07.mp3",
+   "tahap": 10
   }
  ]
 }

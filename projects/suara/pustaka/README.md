@@ -237,8 +237,8 @@ Flow: Hasan dan 99 kalimat pertama Amy di `F8praD25GHM8k5DMcT7m`; sisa Amy di fl
 
 Daftar: `tahap10.tsv` (479 kalimat: hook, transisi, reaksi, penjelasan, skala, mitos, tips, kesimpulan, komentar, ajakan, penutup, Adriy, emosi, situasi, sambungan, alam, teknologi, semangat, menunjuk visual, angka, kesehatan, cerita, retoris).
 
-- 28 Nov 2026: **58 kalimat Hasan** selesai (flow `EncQT9vDhgRS1MBDIyp9`), lalu ElevenLabs menolak dengan *daily_generation_limit_reached* (batas jumlah rekaman per hari, bukan kredit). Batasnya bergulir: setelah menunggu ±10 menit hanya terbuka ±6 slot, jadi lebih efektif lanjut keesokan harinya.
-- Sisa: 421 Hasan + 479 Amy (±37.000 kredit). Lanjutkan besok: `python3 sesi_dari_transkrip.py <transkrip> tahap10.tsv` menunjukkan baris yang belum dibuat; Amy memakai flow baru.
+- 28–29 Nov 2026: **413 kalimat Hasan** selesai (flow `EncQT9vDhgRS1MBDIyp9`). Dua kali berhenti karena *daily_generation_limit_reached* (batas jumlah rekaman per hari, bukan kredit; sekitar 360 rekaman per sesi).
+- Sisa: 66 Hasan + 479 Amy (±29.000 kredit). Lanjutkan dengan `python3 sesi_dari_transkrip.py <transkrip> tahap10.tsv` (baris yang belum dibuat); Amy memakai flow baru.
 
 ## Alur narasi cepat untuk video baru
 
